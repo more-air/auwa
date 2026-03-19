@@ -53,38 +53,36 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 .img-wrap{position:relative;overflow:hidden;background:var(--bg-card)}
 .img-wrap img{display:block;width:100%;height:100%;object-fit:cover}
 
-/* Panoramic pair: two images seamlessly joined */
+/* Panoramic pair: two images displayed side-by-side as a spread */
+/* Each source image is 5:4 (3000x2400). Combined spread is 5:2 (6000x2400). */
+/* Strategy: constrain containers to natural aspect ratio to minimise cropping, */
+/* then use focus-point positioning. No forced edge-alignment — it destroys */
+/* compositions where content isn't at the joining edge. */
 .pano-pair{display:flex;gap:0;position:relative}
-.pano-pair .img-wrap{flex:1;border-radius:0}
-.pano-pair .img-wrap img{object-fit:cover;object-position:center}
+.pano-pair .img-wrap{flex:1;border-radius:0;min-width:0}
+.pano-pair .img-wrap img{object-fit:cover}
 
 /* ===== LAYOUT: FULL BLEED ===== */
-.layout-fullbleed{display:grid;grid-template:1fr/1fr;min-height:100vh}
-.layout-fullbleed .img-section{position:absolute;inset:0;z-index:1}
+.layout-fullbleed{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end}
+.layout-fullbleed .img-section{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center}
 .layout-fullbleed .img-section img{width:100%;height:100%;object-fit:cover}
-.layout-fullbleed .img-section .pano-pair{height:100%}
+.layout-fullbleed .img-section .pano-pair{width:100%;height:100%}
 .layout-fullbleed .img-section .pano-pair .img-wrap{height:100%}
-/* For panoramic pairs in fullbleed: left image crops from right edge, right image crops from left edge — eliminates seam mismatch */
-/* !important overrides inline object-position styles so the seam-fix always wins */
-.layout-fullbleed .img-section .pano-pair .img-wrap:first-child img{object-position:right var(--focus-y, center) !important}
-.layout-fullbleed .img-section .pano-pair .img-wrap:last-child img{object-position:left var(--focus-y, center) !important}
-.layout-fullbleed .text-section{position:relative;z-index:2;align-self:end;padding:clamp(24px,5vw,60px);max-width:600px}
+.layout-fullbleed .img-section .pano-pair .img-wrap img{object-position:center var(--focus-y, 50%)}
+.layout-fullbleed .text-section{position:relative;z-index:3;padding:clamp(24px,5vw,60px);max-width:600px}
 .layout-fullbleed .text-section .copy,.layout-fullbleed .text-section .dialogue{text-shadow:0 2px 30px rgba(0,0,0,0.85),0 0 60px rgba(0,0,0,0.5)}
 .layout-fullbleed.text-center .text-section{max-width:700px;margin:0 auto;text-align:center;padding-bottom:clamp(48px,8vh,100px)}
 
 /* Gradient overlay for readability */
 .layout-fullbleed .img-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,rgba(7,7,9,0.85),rgba(7,7,9,0.4) 50%,transparent);z-index:1;pointer-events:none}
-.layout-fullbleed .text-section{z-index:3}
 
 /* ===== LAYOUT: IMAGE + TEXT ===== */
 .layout-imgtext{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
-.layout-imgtext .img-section{min-height:50vh}
+.layout-imgtext .img-section{min-height:50vh;position:relative;overflow:hidden}
 .layout-imgtext .img-section img{height:100%}
 .layout-imgtext .img-section .pano-pair{height:100%}
 .layout-imgtext .img-section .pano-pair .img-wrap{height:100%}
-/* Edge-align panoramic pairs in image-text layouts too */
-.layout-imgtext .img-section .pano-pair .img-wrap:first-child img{object-position:right var(--focus-y, center) !important}
-.layout-imgtext .img-section .pano-pair .img-wrap:last-child img{object-position:left var(--focus-y, center) !important}
+.layout-imgtext .img-section .pano-pair .img-wrap img{object-position:center var(--focus-y, 50%)}
 .layout-imgtext .text-section{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,5vw,60px) clamp(24px,4vw,48px)}
 
 @media(max-width:768px){
@@ -97,8 +95,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 .layout-sequential{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;min-height:100vh}
 .layout-sequential .img-left{grid-column:1;grid-row:1;min-height:50vh}
 .layout-sequential .img-right{grid-column:2;grid-row:1;min-height:50vh}
-.layout-sequential .img-left img{height:100%;object-position:right center !important}
-.layout-sequential .img-right img{height:100%;object-position:left center !important}
+.layout-sequential .img-left img{height:100%;object-position:center}
+.layout-sequential .img-right img{height:100%;object-position:center}
 .layout-sequential .text-section{grid-column:1/-1;padding:clamp(24px,4vw,48px)}
 
 @media(max-width:768px){
@@ -109,13 +107,13 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 }
 
 /* ===== LAYOUT: CENTERED MINIMAL ===== */
+/* Spread 11 (Bluu's Loneliness): panorama shown boxed with dialogue below */
+/* aspect-ratio 5/2 matches the natural combined ratio of two 5:4 pages */
 .layout-centered{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:60px 24px;text-align:center}
-.layout-centered .img-section{width:clamp(320px,75vw,900px);margin-bottom:40px}
-.layout-centered .img-section .pano-pair{width:100%;aspect-ratio:2/1}
+.layout-centered .img-section{width:clamp(320px,85vw,1100px);margin-bottom:40px}
+.layout-centered .img-section .pano-pair{width:100%;aspect-ratio:5/2}
 .layout-centered .img-section .pano-pair .img-wrap{height:100%}
-.layout-centered .img-section .pano-pair .img-wrap img{object-fit:cover}
-.layout-centered .img-section .pano-pair .img-wrap:first-child img{object-position:right var(--focus-y, center) !important}
-.layout-centered .img-section .pano-pair .img-wrap:last-child img{object-position:left var(--focus-y, center) !important}
+.layout-centered .img-section .pano-pair .img-wrap img{object-fit:cover;object-position:center var(--focus-y, center)}
 
 /* ===== TEXT ===== */
 .copy{font-size:clamp(19px,2.8vw,26px);line-height:1.7;font-weight:300;margin-bottom:0.8em;color:var(--text)}
