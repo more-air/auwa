@@ -54,8 +54,9 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 .img-wrap img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* Panoramic pair: two images seamlessly joined */
-.pano-pair{display:flex;position:relative}
-.pano-pair .img-wrap{flex:1}
+.pano-pair{display:flex;gap:0;position:relative}
+.pano-pair .img-wrap{flex:1;border-radius:0}
+.pano-pair .img-wrap img{object-fit:cover;object-position:center}
 
 /* ===== LAYOUT: FULL BLEED ===== */
 .layout-fullbleed{display:grid;grid-template:1fr/1fr;min-height:100vh}
@@ -63,6 +64,9 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 .layout-fullbleed .img-section img{width:100%;height:100%;object-fit:cover}
 .layout-fullbleed .img-section .pano-pair{height:100%}
 .layout-fullbleed .img-section .pano-pair .img-wrap{height:100%}
+/* For panoramic pairs in fullbleed: left image crops from right edge, right image crops from left edge — eliminates seam mismatch */
+.layout-fullbleed .img-section .pano-pair .img-wrap:first-child img{object-position:right center}
+.layout-fullbleed .img-section .pano-pair .img-wrap:last-child img{object-position:left center}
 .layout-fullbleed .text-section{position:relative;z-index:2;align-self:end;padding:clamp(24px,5vw,60px);max-width:600px}
 .layout-fullbleed .text-section .copy,.layout-fullbleed .text-section .dialogue{text-shadow:0 2px 30px rgba(0,0,0,0.85),0 0 60px rgba(0,0,0,0.5)}
 .layout-fullbleed.text-center .text-section{max-width:700px;margin:0 auto;text-align:center;padding-bottom:clamp(48px,8vh,100px)}
@@ -77,6 +81,9 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 .layout-imgtext .img-section img{height:100%}
 .layout-imgtext .img-section .pano-pair{height:100%}
 .layout-imgtext .img-section .pano-pair .img-wrap{height:100%}
+/* Edge-align panoramic pairs in image-text layouts too */
+.layout-imgtext .img-section .pano-pair .img-wrap:first-child img{object-position:right center}
+.layout-imgtext .img-section .pano-pair .img-wrap:last-child img{object-position:left center}
 .layout-imgtext .text-section{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,5vw,60px) clamp(24px,4vw,48px)}
 
 @media(max-width:768px){
@@ -89,7 +96,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 .layout-sequential{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;min-height:100vh}
 .layout-sequential .img-left{grid-column:1;grid-row:1;min-height:50vh}
 .layout-sequential .img-right{grid-column:2;grid-row:1;min-height:50vh}
-.layout-sequential .img-left img,.layout-sequential .img-right img{height:100%}
+.layout-sequential .img-left img{height:100%;object-position:right center}
+.layout-sequential .img-right img{height:100%;object-position:left center}
 .layout-sequential .text-section{grid-column:1/-1;padding:clamp(24px,4vw,48px)}
 
 @media(max-width:768px){
@@ -101,9 +109,10 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 
 /* ===== LAYOUT: CENTERED MINIMAL ===== */
 .layout-centered{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:60px 24px;text-align:center}
-.layout-centered .img-section{width:clamp(220px,50vw,500px);margin-bottom:40px}
-.layout-centered .img-section .pano-pair{width:100%;aspect-ratio:10/8}
+.layout-centered .img-section{width:clamp(320px,75vw,900px);margin-bottom:40px}
+.layout-centered .img-section .pano-pair{width:100%;aspect-ratio:20/8}
 .layout-centered .img-section .pano-pair .img-wrap{height:100%}
+.layout-centered .img-section .pano-pair .img-wrap img{object-fit:contain;object-position:center}
 
 /* ===== TEXT ===== */
 .copy{font-size:clamp(19px,2.8vw,26px);line-height:1.7;font-weight:300;margin-bottom:0.8em;color:var(--text)}
@@ -214,8 +223,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   <span class="spread-num">02</span>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="galaxy-left"><img src="./images/AUWA_01_Image2.jpg" alt="Galaxy left" style="object-position:50% 50%"></div>
-      <div class="img-wrap" data-img-id="galaxy-right"><img src="./images/AUWA_01_Image3.jpg" alt="Galaxy right" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="galaxy-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image2.jpg" alt="Galaxy left" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="galaxy-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image3.jpg" alt="Galaxy right" style="object-position:50% 50%"></div>
     </div>
   </div>
   <div class="text-section">
@@ -228,8 +237,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   <span class="spread-num">03</span>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="wawa-left"><img src="./images/AUWA_01_Image10.jpg" alt="WAWA energy left" style="object-position:50% 40%"></div>
-      <div class="img-wrap" data-img-id="wawa-right"><img src="./images/AUWA_01_Image11.jpg" alt="WAWA energy right" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="wawa-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image10.jpg" alt="WAWA energy left" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="wawa-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image11.jpg" alt="WAWA energy right" style="object-position:50% 40%"></div>
     </div>
   </div>
   <div class="text-section">
@@ -245,7 +254,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
     <p class="dialogue">Yes! I'm going to Earth!</p>
   </div>
   <div class="img-section">
-    <div class="img-wrap" data-img-id="auwa-born"><img src="./images/AUWA_01_Image15.jpg" alt="AUWA born" style="object-position:50% 50%"></div>
+    <div class="img-wrap" data-img-id="auwa-born"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image15.jpg" alt="AUWA born" style="object-position:50% 50%"></div>
   </div>
 </section>
 
@@ -258,8 +267,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   </div>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="earth-left"><img src="./images/AUWA_01_Image16.jpg" alt="Earth left" style="object-position:60% 50%"></div>
-      <div class="img-wrap" data-img-id="earth-right"><img src="./images/AUWA_01_Image17.jpg" alt="Earth right" style="object-position:40% 50%"></div>
+      <div class="img-wrap" data-img-id="earth-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image16.jpg" alt="Earth left" style="object-position:60% 50%"></div>
+      <div class="img-wrap" data-img-id="earth-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image17.jpg" alt="Earth right" style="object-position:40% 50%"></div>
     </div>
   </div>
 </section>
@@ -269,8 +278,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   <span class="spread-num">06</span>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="sunset-left"><img src="./images/AUWA_01_Image22.jpg" alt="Sunset left" style="object-position:50% 40%"></div>
-      <div class="img-wrap" data-img-id="sunset-right"><img src="./images/AUWA_01_Image23.jpg" alt="Sunset right" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="sunset-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image22.jpg" alt="Sunset left" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="sunset-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image23.jpg" alt="Sunset right" style="object-position:50% 40%"></div>
     </div>
   </div>
   <div class="text-section">
@@ -283,8 +292,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   <span class="spread-num">07</span>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="forest-left"><img src="./images/AUWA_01_Image24.jpg" alt="Forest left" style="object-position:50% 60%"></div>
-      <div class="img-wrap" data-img-id="forest-right"><img src="./images/AUWA_01_Image25.jpg" alt="Forest right" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="forest-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image24.jpg" alt="Forest left" style="object-position:50% 60%"></div>
+      <div class="img-wrap" data-img-id="forest-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image25.jpg" alt="Forest right" style="object-position:50% 40%"></div>
     </div>
   </div>
   <div class="text-section">
@@ -300,15 +309,15 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
     <p class="copy">But at the foot of an old tree, a single blue flower was still growing — small, stubborn, and alone.</p>
   </div>
   <div class="img-section">
-    <div class="img-wrap" data-img-id="finding-bluu"><img src="./images/AUWA_01_Image27.jpg" alt="Finding Bluu" style="object-position:60% 70%"></div>
+    <div class="img-wrap" data-img-id="finding-bluu"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image27.jpg" alt="Finding Bluu" style="object-position:60% 70%"></div>
   </div>
 </section>
 
 <!-- SPREAD 9: LIGHT SHOWER (sequential) -->
 <section class="spread layout-sequential" data-spread="9" data-title="The Light Shower">
   <span class="spread-num">09</span>
-  <div class="img-wrap img-left" data-img-id="light-send"><img src="./images/AUWA_01_Image28.jpg" alt="AUWA sends light" style="object-position:50% 50%"></div>
-  <div class="img-wrap img-right" data-img-id="kokoro-reveal"><img src="./images/AUWA_01_Image29.jpg" alt="Bluu kokoro appears" style="object-position:50% 50%"></div>
+  <div class="img-wrap img-left" data-img-id="light-send"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image28.jpg" alt="AUWA sends light" style="object-position:50% 50%"></div>
+  <div class="img-wrap img-right" data-img-id="kokoro-reveal"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image29.jpg" alt="Bluu kokoro appears" style="object-position:50% 50%"></div>
   <div class="text-section">
     <p class="copy">AUWA reached out with a gentle light.</p>
     <p class="dialogue">And from within the flower, something answered.</p>
@@ -323,7 +332,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
     <p class="copy">She remembered a time when the forest hummed with life and friends grew in every direction. That time had passed, but Bluu was still here.</p>
   </div>
   <div class="img-section">
-    <div class="img-wrap" data-img-id="bluu-story"><img src="./images/AUWA_01_Image31.jpg" alt="Bluu's memories" style="object-position:50% 50%"></div>
+    <div class="img-wrap" data-img-id="bluu-story"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image31.jpg" alt="Bluu's memories" style="object-position:50% 50%"></div>
   </div>
 </section>
 
@@ -332,8 +341,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   <span class="spread-num">11</span>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="lonely-left"><img src="./images/AUWA_01_Image32.jpg" alt="AUWA and Bluu" style="object-position:50% 45%"></div>
-      <div class="img-wrap" data-img-id="lonely-right"><img src="./images/AUWA_01_Image33.jpg" alt="Bluu lonely" style="object-position:50% 45%"></div>
+      <div class="img-wrap" data-img-id="lonely-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image32.jpg" alt="AUWA and Bluu" style="object-position:50% 45%"></div>
+      <div class="img-wrap" data-img-id="lonely-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image33.jpg" alt="Bluu lonely" style="object-position:50% 45%"></div>
     </div>
   </div>
   <p class="dialogue-only">But I still feel so lonely.</p>
@@ -342,8 +351,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
 <!-- SPREAD 12: CLIMAX (sequential) -->
 <section class="spread layout-sequential" data-spread="12" data-title="The Climax">
   <span class="spread-num">12</span>
-  <div class="img-wrap img-left" data-img-id="eyes-closed"><img src="./images/AUWA_01_Image34.jpg" alt="Eyes closed" style="object-position:50% 50%"></div>
-  <div class="img-wrap img-right" data-img-id="eyes-open"><img src="./images/AUWA_01_Image35.jpg" alt="Colour explosion" style="object-position:50% 50%"></div>
+  <div class="img-wrap img-left" data-img-id="eyes-closed"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image34.jpg" alt="Eyes closed" style="object-position:50% 50%"></div>
+  <div class="img-wrap img-right" data-img-id="eyes-open"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image35.jpg" alt="Colour explosion" style="object-position:50% 50%"></div>
   <div class="text-section">
     <p class="copy">AUWA closed both eyes and remembered Bluu's happiest memories.</p>
     <p class="dialogue">Then — eyes open.</p>
@@ -355,8 +364,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   <span class="spread-num">13</span>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="restore-left"><img src="./images/AUWA_01_Image36.jpg" alt="Flower field" style="object-position:50% 60%"></div>
-      <div class="img-wrap" data-img-id="restore-right"><img src="./images/AUWA_01_Image37.jpg" alt="Thank you" style="object-position:50% 60%"></div>
+      <div class="img-wrap" data-img-id="restore-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image36.jpg" alt="Flower field" style="object-position:50% 60%"></div>
+      <div class="img-wrap" data-img-id="restore-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image37.jpg" alt="Thank you" style="object-position:50% 60%"></div>
     </div>
   </div>
   <div class="text-section">
@@ -373,8 +382,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   </div>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="micro-left"><img src="./images/AUWA_01_Image52.jpg" alt="Microorganisms left" style="object-position:50% 50%"></div>
-      <div class="img-wrap" data-img-id="micro-right"><img src="./images/AUWA_01_Image53.jpg" alt="Microorganisms right" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="micro-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image52.jpg" alt="Microorganisms left" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="micro-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image53.jpg" alt="Microorganisms right" style="object-position:50% 50%"></div>
     </div>
   </div>
 </section>
@@ -388,8 +397,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   </div>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="connected-left"><img src="./images/AUWA_01_Image46.jpg" alt="Connected left" style="object-position:50% 50%"></div>
-      <div class="img-wrap" data-img-id="connected-right"><img src="./images/AUWA_01_Image47.jpg" alt="Connected right" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="connected-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image46.jpg" alt="Connected left" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="connected-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image47.jpg" alt="Connected right" style="object-position:50% 50%"></div>
     </div>
   </div>
 </section>
@@ -399,8 +408,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Geo
   <span class="spread-num">16</span>
   <div class="img-section">
     <div class="pano-pair">
-      <div class="img-wrap" data-img-id="flyoff-left"><img src="./images/AUWA_01_Image58.jpg" alt="Flying off left" style="object-position:50% 40%"></div>
-      <div class="img-wrap" data-img-id="flyoff-right"><img src="./images/AUWA_01_Image59.jpg" alt="Flying off right" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="flyoff-left"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image58.jpg" alt="Flying off left" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="flyoff-right"><img src="https://more-air.github.io/auwa/book-1/images/AUWA_01_Image59.jpg" alt="Flying off right" style="object-position:50% 40%"></div>
     </div>
   </div>
   <div class="text-section">
