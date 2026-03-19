@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUWA — Book 1: The Beginning</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070709;
+  --bg-card: #0e0e12;
+  --text: #e4e2dc;
+  --text-dim: #8a8880;
+  --text-dialogue: #c8ccb8;
+  --accent: #4a6b8a;
+  --gold: #b8a472;
+  --border: #1a1a20;
+  --ann-bg: rgba(184,164,114,0.15);
+  --ann-border: rgba(184,164,114,0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Georgia,serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ===== TOOLBAR ===== */
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;background:rgba(7,7,9,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'DM Sans',sans-serif;transition:transform 0.3s}
+.toolbar.hidden{transform:translateY(-100%)}
+.toolbar-left{display:flex;align-items:center;gap:16px}
+.toolbar-title{font-size:13px;font-weight:400;letter-spacing:0.15em;color:var(--text-dim)}
+.toolbar-right{display:flex;align-items:center;gap:8px}
+.tb-btn{background:none;border:1px solid var(--border);color:var(--text-dim);font-family:inherit;font-size:11px;letter-spacing:0.08em;padding:6px 14px;border-radius:6px;cursor:pointer;transition:all 0.2s}
+.tb-btn:hover{border-color:var(--accent);color:var(--text)}
+.tb-btn.active{background:var(--border);color:var(--text);border-color:var(--accent)}
+.tb-btn.annotate-on{background:rgba(184,164,114,0.2);border-color:var(--gold);color:var(--gold)}
+.ann-count{background:var(--gold);color:var(--bg);font-size:10px;font-weight:500;padding:2px 6px;border-radius:10px;margin-left:4px}
+.device-btns{display:flex;gap:2px;background:rgba(26,26,32,0.8);border-radius:6px;padding:2px}
+
+/* ===== HEADER ===== */
+.book-header{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative}
+.book-header::before{content:'';position:absolute;top:50%;left:50%;width:500px;height:500px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(184,164,114,0.05) 0%,transparent 70%);pointer-events:none}
+.book-title{font-family:'DM Sans',sans-serif;font-size:clamp(56px,14vw,140px);font-weight:300;letter-spacing:0.3em;line-height:1;margin-bottom:12px;opacity:0;animation:fadeUp 1s ease forwards}
+.book-subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(14px,2.5vw,18px);font-weight:300;letter-spacing:0.25em;color:var(--text-dim);text-transform:uppercase;opacity:0;animation:fadeUp 1s ease 0.3s forwards}
+.book-credit{font-size:clamp(12px,1.8vw,14px);color:var(--accent);letter-spacing:0.15em;margin-top:32px;font-family:'DM Sans',sans-serif;font-weight:300;opacity:0;animation:fadeUp 1s ease 0.5s forwards}
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:0.3em;color:var(--text-dim);opacity:0;animation:fadeUp 1s ease 0.8s forwards}
+.scroll-hint::after{content:'';display:block;width:1px;height:32px;background:linear-gradient(to bottom,var(--text-dim),transparent);margin:10px auto 0;animation:pulse 2s ease infinite}
+
+/* ===== SPREAD ===== */
+.spread{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;border-top:1px solid var(--border);opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.spread.visible{opacity:1;transform:none}
+.spread-num{position:absolute;top:16px;right:20px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.2em;color:rgba(255,255,255,0.12);z-index:5}
+
+/* ===== IMAGE CONTAINERS ===== */
+.img-wrap{position:relative;overflow:hidden;background:var(--bg-card)}
+.img-wrap img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* Panoramic pair: two images seamlessly joined */
+.pano-pair{display:flex;position:relative}
+.pano-pair .img-wrap{flex:1}
+
+/* ===== LAYOUT: FULL BLEED ===== */
+.layout-fullbleed{display:grid;grid-template:1fr/1fr;min-height:100vh}
+.layout-fullbleed .img-section{position:absolute;inset:0;z-index:1}
+.layout-fullbleed .img-section img{width:100%;height:100%;object-fit:cover}
+.layout-fullbleed .img-section .pano-pair{height:100%}
+.layout-fullbleed .img-section .pano-pair .img-wrap{height:100%}
+.layout-fullbleed .text-section{position:relative;z-index:2;align-self:end;padding:clamp(24px,5vw,60px);max-width:600px}
+.layout-fullbleed .text-section .copy,.layout-fullbleed .text-section .dialogue{text-shadow:0 2px 30px rgba(0,0,0,0.85),0 0 60px rgba(0,0,0,0.5)}
+.layout-fullbleed.text-center .text-section{max-width:700px;margin:0 auto;text-align:center;padding-bottom:clamp(48px,8vh,100px)}
+
+/* Gradient overlay for readability */
+.layout-fullbleed .img-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,rgba(7,7,9,0.85),rgba(7,7,9,0.4) 50%,transparent);z-index:1;pointer-events:none}
+.layout-fullbleed .text-section{z-index:3}
+
+/* ===== LAYOUT: IMAGE + TEXT ===== */
+.layout-imgtext{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.layout-imgtext .img-section{min-height:50vh}
+.layout-imgtext .img-section img{height:100%}
+.layout-imgtext .img-section .pano-pair{height:100%}
+.layout-imgtext .img-section .pano-pair .img-wrap{height:100%}
+.layout-imgtext .text-section{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,5vw,60px) clamp(24px,4vw,48px)}
+
+@media(max-width:768px){
+  .layout-imgtext{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .layout-imgtext .img-section{order:1;min-height:55vw;max-height:55vh}
+  .layout-imgtext .text-section{order:2;padding:28px 24px 48px}
+}
+
+/* ===== LAYOUT: SEQUENTIAL (double spread with 2 moments) ===== */
+.layout-sequential{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;min-height:100vh}
+.layout-sequential .img-left{grid-column:1;grid-row:1;min-height:50vh}
+.layout-sequential .img-right{grid-column:2;grid-row:1;min-height:50vh}
+.layout-sequential .img-left img,.layout-sequential .img-right img{height:100%}
+.layout-sequential .text-section{grid-column:1/-1;padding:clamp(24px,4vw,48px)}
+
+@media(max-width:768px){
+  .layout-sequential{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+  .layout-sequential .img-left{grid-column:1;grid-row:1;min-height:45vw;max-height:45vh}
+  .layout-sequential .img-right{grid-column:1;grid-row:2;min-height:45vw;max-height:45vh}
+  .layout-sequential .text-section{grid-column:1;grid-row:3}
+}
+
+/* ===== LAYOUT: CENTERED MINIMAL ===== */
+.layout-centered{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:60px 24px;text-align:center}
+.layout-centered .img-section{width:clamp(220px,50vw,500px);margin-bottom:40px}
+.layout-centered .img-section .pano-pair{width:100%;aspect-ratio:10/8}
+.layout-centered .img-section .pano-pair .img-wrap{height:100%}
+
+/* ===== TEXT ===== */
+.copy{font-size:clamp(19px,2.8vw,26px);line-height:1.7;font-weight:300;margin-bottom:0.8em;color:var(--text)}
+.copy:last-child{margin-bottom:0}
+.dialogue{font-size:clamp(19px,2.8vw,26px);line-height:1.7;font-style:italic;font-weight:300;color:var(--text-dialogue);margin-top:0.6em;padding-left:20px;border-left:1px solid rgba(200,204,184,0.2)}
+.dialogue-only{font-size:clamp(22px,3.5vw,34px);line-height:1.6;font-style:italic;font-weight:300;color:var(--text-dialogue)}
+
+/* ===== NAVIGATION DOTS ===== */
+.nav-dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:7px;z-index:100}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;cursor:pointer;transition:all 0.3s;padding:0}
+.nav-dot.active{background:var(--gold);transform:scale(1.5)}
+@media(max-width:768px){.nav-dots{display:none}}
+
+/* ===== ANNOTATIONS ===== */
+.annotation-mode .img-wrap{cursor:crosshair}
+.ann-pin{position:absolute;z-index:10;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--bg);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;transform:translate(-50%,-50%);cursor:pointer;border:2px solid rgba(255,255,255,0.6);box-shadow:0 2px 8px rgba(0,0,0,0.5);transition:transform 0.15s}
+.ann-pin:hover{transform:translate(-50%,-50%) scale(1.2)}
+
+/* Annotation input popup */
+.ann-input-popup{position:absolute;z-index:20;background:rgba(14,14,18,0.95);border:1px solid var(--ann-border);border-radius:8px;padding:12px;width:280px;backdrop-filter:blur(12px);transform:translate(-50%,8px);font-family:'DM Sans',sans-serif}
+.ann-input-popup textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:inherit;font-size:13px;padding:8px;resize:vertical;min-height:60px}
+.ann-input-popup textarea:focus{outline:none;border-color:var(--gold)}
+.ann-input-popup select{width:100%;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:inherit;font-size:12px;padding:6px;margin-top:6px;appearance:none}
+.ann-input-popup .ann-actions{display:flex;gap:6px;margin-top:8px}
+.ann-input-popup .ann-save{flex:1;background:var(--gold);color:var(--bg);border:none;border-radius:4px;padding:6px;font-family:inherit;font-size:12px;font-weight:500;cursor:pointer}
+.ann-input-popup .ann-cancel{flex:0;background:none;border:1px solid var(--border);color:var(--text-dim);border-radius:4px;padding:6px 12px;font-family:inherit;font-size:12px;cursor:pointer}
+
+/* Annotation tooltip on hover */
+.ann-tooltip{position:absolute;z-index:15;background:rgba(14,14,18,0.95);border:1px solid var(--ann-border);border-radius:6px;padding:8px 12px;max-width:240px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text);pointer-events:none;transform:translate(-50%,8px);white-space:pre-wrap;line-height:1.5}
+.ann-tooltip .ann-meta{font-size:10px;color:var(--text-dim);margin-top:4px;letter-spacing:0.05em}
+
+/* ===== EXPORT PANEL ===== */
+.export-panel{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;background:rgba(14,14,18,0.95);border:1px solid var(--border);border-radius:10px;padding:16px 24px;font-family:'DM Sans',sans-serif;display:none;backdrop-filter:blur(12px);max-width:500px;width:90%}
+.export-panel.show{display:block}
+.export-panel h3{font-size:13px;font-weight:500;letter-spacing:0.1em;color:var(--text);margin-bottom:8px}
+.export-panel p{font-size:12px;color:var(--text-dim);line-height:1.6;margin-bottom:12px}
+.export-panel .export-btns{display:flex;gap:8px}
+.export-panel .export-btn{flex:1;padding:8px;border-radius:6px;border:none;font-family:inherit;font-size:12px;font-weight:500;cursor:pointer}
+.export-panel .export-btn.primary{background:var(--gold);color:var(--bg)}
+.export-panel .export-btn.secondary{background:none;border:1px solid var(--border);color:var(--text-dim)}
+
+/* ===== PHONE/TABLET SIMULATION ===== */
+.container{max-width:100%;margin:0 auto;transition:max-width 0.4s ease}
+.container.phone-sim{max-width:390px;border-left:1px solid var(--border);border-right:1px solid var(--border)}
+.container.tablet-sim{max-width:820px}
+.phone-sim .layout-imgtext{grid-template-columns:1fr !important;grid-template-rows:auto auto !important}
+.phone-sim .layout-imgtext .img-section{order:1 !important;min-height:260px !important;max-height:50vh !important}
+.phone-sim .layout-imgtext .text-section{order:2 !important;padding:24px 20px 40px !important}
+.phone-sim .layout-sequential{grid-template-columns:1fr !important;grid-template-rows:auto auto auto !important}
+.phone-sim .layout-sequential .img-left{grid-column:1 !important;grid-row:1 !important;min-height:200px !important;max-height:40vh !important}
+.phone-sim .layout-sequential .img-right{grid-column:1 !important;grid-row:2 !important;min-height:200px !important;max-height:40vh !important}
+.phone-sim .layout-sequential .text-section{grid-column:1 !important;grid-row:3 !important}
+
+/* ===== FOOTER ===== */
+.book-footer{padding:60px 24px;text-align:center;border-top:1px solid var(--border)}
+.book-footer p{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--text-dim);line-height:2.2}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:0.3}50%{opacity:0.7}}
+</style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-left">
+    <span class="toolbar-title">AUWA — BOOK 1: THE BEGINNING</span>
+  </div>
+  <div class="toolbar-right">
+    <button class="tb-btn" id="annotateBtn" onclick="toggleAnnotations()">ANNOTATE<span class="ann-count" id="annCount" style="display:none">0</span></button>
+    <button class="tb-btn" id="exportBtn" onclick="toggleExport()">EXPORT</button>
+    <div class="device-btns">
+      <button class="tb-btn active" onclick="setDevice('full',this)">FULL</button>
+      <button class="tb-btn" onclick="setDevice('tablet',this)">TABLET</button>
+      <button class="tb-btn" onclick="setDevice('phone',this)">PHONE</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- EXPORT PANEL -->
+<div class="export-panel" id="exportPanel">
+  <h3>EXPORT ANNOTATIONS</h3>
+  <p id="exportInfo">No annotations yet. Hold Shift + click on any illustration to add notes.</p>
+  <div class="export-btns">
+    <button class="export-btn secondary" onclick="copyAnnotationsJSON()">COPY JSON</button>
+    <button class="export-btn secondary" onclick="downloadAnnotationsCSV()">DOWNLOAD CSV</button>
+    <button class="export-btn primary" onclick="pushToNotion()">PUSH TO NOTION</button>
+  </div>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container" id="container">
+
+<!-- HEADER / COVER -->
+<header class="book-header" id="spread-0">
+  <h1 class="book-title">AUWA</h1>
+  <p class="book-subtitle">1. The Beginning</p>
+  <p class="book-credit">Illustrated by Rieko Vining</p>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<!-- SPREAD 2: GALAXY -->
+<section class="spread layout-fullbleed" data-spread="2" data-title="The Galaxy">
+  <span class="spread-num">02</span>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="galaxy-left"><img src="./images/AUWA_01_Image2.jpg" alt="Galaxy left" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="galaxy-right"><img src="./images/AUWA_01_Image3.jpg" alt="Galaxy right" style="object-position:50% 50%"></div>
+    </div>
+  </div>
+  <div class="text-section">
+    <p class="copy">In one of countless galaxies, a small blue planet was waiting.</p>
+  </div>
+</section>
+
+<!-- SPREAD 3: WAWA ANSWERS -->
+<section class="spread layout-fullbleed" data-spread="3" data-title="WAWA Answers">
+  <span class="spread-num">03</span>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="wawa-left"><img src="./images/AUWA_01_Image10.jpg" alt="WAWA energy left" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="wawa-right"><img src="./images/AUWA_01_Image11.jpg" alt="WAWA energy right" style="object-position:50% 40%"></div>
+    </div>
+  </div>
+  <div class="text-section">
+    <p class="copy">A signal was reaching across the universe — faint but persistent, like a heartbeat in the dark. The stars of WAWA gathered their light and sent it toward Earth.</p>
+  </div>
+</section>
+
+<!-- SPREAD 4: AUWA IS BORN -->
+<section class="spread layout-imgtext" data-spread="4" data-title="AUWA Is Born">
+  <span class="spread-num">04</span>
+  <div class="text-section">
+    <p class="copy">Their light merged into a single glowing being. They named it AUWA.</p>
+    <p class="dialogue">Yes! I'm going to Earth!</p>
+  </div>
+  <div class="img-section">
+    <div class="img-wrap" data-img-id="auwa-born"><img src="./images/AUWA_01_Image15.jpg" alt="AUWA born" style="object-position:50% 50%"></div>
+  </div>
+</section>
+
+<!-- SPREAD 5: MEETS EARTH -->
+<section class="spread layout-imgtext" data-spread="5" data-title="AUWA Meets Earth">
+  <span class="spread-num">05</span>
+  <div class="text-section">
+    <p class="copy">AUWA crossed space in an instant and appeared before a dazzling blue planet. Earth had been waiting.</p>
+    <p class="dialogue">Now go — and see everything for yourself.</p>
+  </div>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="earth-left"><img src="./images/AUWA_01_Image16.jpg" alt="Earth left" style="object-position:60% 50%"></div>
+      <div class="img-wrap" data-img-id="earth-right"><img src="./images/AUWA_01_Image17.jpg" alt="Earth right" style="object-position:40% 50%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 6: PURPLE SUNSET -->
+<section class="spread layout-fullbleed text-center" data-spread="6" data-title="Arrival — The Purple Sunset">
+  <span class="spread-num">06</span>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="sunset-left"><img src="./images/AUWA_01_Image22.jpg" alt="Sunset left" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="sunset-right"><img src="./images/AUWA_01_Image23.jpg" alt="Sunset right" style="object-position:50% 40%"></div>
+    </div>
+  </div>
+  <div class="text-section">
+    <p class="copy">Slipping through the atmosphere, AUWA discovered a sky painted in colours that didn't exist back home.</p>
+  </div>
+</section>
+
+<!-- SPREAD 7: THE FOREST -->
+<section class="spread layout-fullbleed" data-spread="7" data-title="The Forest">
+  <span class="spread-num">07</span>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="forest-left"><img src="./images/AUWA_01_Image24.jpg" alt="Forest left" style="object-position:50% 60%"></div>
+      <div class="img-wrap" data-img-id="forest-right"><img src="./images/AUWA_01_Image25.jpg" alt="Forest right" style="object-position:50% 40%"></div>
+    </div>
+  </div>
+  <div class="text-section">
+    <p class="copy">Below — a deep, quiet forest. AUWA sensed something alive down there, barely holding on.</p>
+  </div>
+</section>
+
+<!-- SPREAD 8: FINDING BLUU -->
+<section class="spread layout-imgtext" data-spread="8" data-title="Finding Bluu">
+  <span class="spread-num">08</span>
+  <div class="text-section">
+    <p class="copy">The forest was quiet and still. Most of its life had faded long ago.</p>
+    <p class="copy">But at the foot of an old tree, a single blue flower was still growing — small, stubborn, and alone.</p>
+  </div>
+  <div class="img-section">
+    <div class="img-wrap" data-img-id="finding-bluu"><img src="./images/AUWA_01_Image27.jpg" alt="Finding Bluu" style="object-position:60% 70%"></div>
+  </div>
+</section>
+
+<!-- SPREAD 9: LIGHT SHOWER (sequential) -->
+<section class="spread layout-sequential" data-spread="9" data-title="The Light Shower">
+  <span class="spread-num">09</span>
+  <div class="img-wrap img-left" data-img-id="light-send"><img src="./images/AUWA_01_Image28.jpg" alt="AUWA sends light" style="object-position:50% 50%"></div>
+  <div class="img-wrap img-right" data-img-id="kokoro-reveal"><img src="./images/AUWA_01_Image29.jpg" alt="Bluu kokoro appears" style="object-position:50% 50%"></div>
+  <div class="text-section">
+    <p class="copy">AUWA reached out with a gentle light.</p>
+    <p class="dialogue">And from within the flower, something answered.</p>
+  </div>
+</section>
+
+<!-- SPREAD 10: BLUU'S STORY -->
+<section class="spread layout-imgtext" data-spread="10" data-title="Bluu's Story">
+  <span class="spread-num">10</span>
+  <div class="text-section">
+    <p class="copy">Her name was Bluu.</p>
+    <p class="copy">She remembered a time when the forest hummed with life and friends grew in every direction. That time had passed, but Bluu was still here.</p>
+  </div>
+  <div class="img-section">
+    <div class="img-wrap" data-img-id="bluu-story"><img src="./images/AUWA_01_Image31.jpg" alt="Bluu's memories" style="object-position:50% 50%"></div>
+  </div>
+</section>
+
+<!-- SPREAD 11: LONELINESS -->
+<section class="spread layout-centered" data-spread="11" data-title="Bluu's Loneliness">
+  <span class="spread-num">11</span>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="lonely-left"><img src="./images/AUWA_01_Image32.jpg" alt="AUWA and Bluu" style="object-position:50% 45%"></div>
+      <div class="img-wrap" data-img-id="lonely-right"><img src="./images/AUWA_01_Image33.jpg" alt="Bluu lonely" style="object-position:50% 45%"></div>
+    </div>
+  </div>
+  <p class="dialogue-only">But I still feel so lonely.</p>
+</section>
+
+<!-- SPREAD 12: CLIMAX (sequential) -->
+<section class="spread layout-sequential" data-spread="12" data-title="The Climax">
+  <span class="spread-num">12</span>
+  <div class="img-wrap img-left" data-img-id="eyes-closed"><img src="./images/AUWA_01_Image34.jpg" alt="Eyes closed" style="object-position:50% 50%"></div>
+  <div class="img-wrap img-right" data-img-id="eyes-open"><img src="./images/AUWA_01_Image35.jpg" alt="Colour explosion" style="object-position:50% 50%"></div>
+  <div class="text-section">
+    <p class="copy">AUWA closed both eyes and remembered Bluu's happiest memories.</p>
+    <p class="dialogue">Then — eyes open.</p>
+  </div>
+</section>
+
+<!-- SPREAD 13: RESTORATION -->
+<section class="spread layout-fullbleed" data-spread="13" data-title="Restoration">
+  <span class="spread-num">13</span>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="restore-left"><img src="./images/AUWA_01_Image36.jpg" alt="Flower field" style="object-position:50% 60%"></div>
+      <div class="img-wrap" data-img-id="restore-right"><img src="./images/AUWA_01_Image37.jpg" alt="Thank you" style="object-position:50% 60%"></div>
+    </div>
+  </div>
+  <div class="text-section">
+    <p class="copy">The forest blossomed with blue flowers. Bluu's kokoro sparkled.</p>
+    <p class="dialogue">Thank you, AUWA.</p>
+  </div>
+</section>
+
+<!-- SPREAD 14: MICROORGANISMS -->
+<section class="spread layout-imgtext" data-spread="14" data-title="What Lies Beneath">
+  <span class="spread-num">14</span>
+  <div class="text-section">
+    <p class="copy">From the glowing soil, tiny voices rose up together. They already knew AUWA's name — they had felt everything that happened tonight, passed along through root and earth.</p>
+  </div>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="micro-left"><img src="./images/AUWA_01_Image52.jpg" alt="Microorganisms left" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="micro-right"><img src="./images/AUWA_01_Image53.jpg" alt="Microorganisms right" style="object-position:50% 50%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 15: ALL CONNECTED -->
+<section class="spread layout-imgtext" data-spread="15" data-title="All Connected">
+  <span class="spread-num">15</span>
+  <div class="text-section">
+    <p class="dialogue">We are all connected to one another. We thrive by living in harmony with every living being on this land.</p>
+    <p class="copy" style="margin-top:1.2em">AUWA listened, and understood something new about this place.</p>
+  </div>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="connected-left"><img src="./images/AUWA_01_Image46.jpg" alt="Connected left" style="object-position:50% 50%"></div>
+      <div class="img-wrap" data-img-id="connected-right"><img src="./images/AUWA_01_Image47.jpg" alt="Connected right" style="object-position:50% 50%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 16: JOURNEY CONTINUES -->
+<section class="spread layout-fullbleed" data-spread="16" data-title="The Journey Continues">
+  <span class="spread-num">16</span>
+  <div class="img-section">
+    <div class="pano-pair">
+      <div class="img-wrap" data-img-id="flyoff-left"><img src="./images/AUWA_01_Image58.jpg" alt="Flying off left" style="object-position:50% 40%"></div>
+      <div class="img-wrap" data-img-id="flyoff-right"><img src="./images/AUWA_01_Image59.jpg" alt="Flying off right" style="object-position:50% 40%"></div>
+    </div>
+  </div>
+  <div class="text-section">
+    <p class="copy">AUWA set off into the night. Not sure where to go next, but with excitement in the heart.</p>
+    <p class="copy">The adventure was far from over.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="book-footer">
+  <p>AUWA — BOOK 1: THE BEGINNING</p>
+  <p>ILLUSTRATED BY RIEKO VINING</p>
+  <p style="margin-top:16px;color:var(--accent)">REVIEW PROTOTYPE — MARCH 2026</p>
+</footer>
+
+</div><!-- /container -->
+
+<script>
+// ===== STATE =====
+let annotationMode = false;
+let annotations = [];
+let activePopup = null;
+let annCounter = 0;
+
+// ===== DEVICE TOGGLE =====
+function setDevice(mode, btn) {
+  const c = document.getElementById('container');
+  c.classList.remove('phone-sim','tablet-sim');
+  if (mode === 'phone') c.classList.add('phone-sim');
+  if (mode === 'tablet') c.classList.add('tablet-sim');
+  document.querySelectorAll('.device-btns .tb-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ===== SCROLL OBSERVER =====
+const spreads = document.querySelectorAll('.spread');
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+spreads.forEach(s => fadeObs.observe(s));
+
+// Nav dots
+const navDots = document.getElementById('navDots');
+spreads.forEach((s, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'nav-dot';
+  dot.title = 'Spread ' + s.dataset.spread;
+  dot.onclick = () => s.scrollIntoView({ behavior: 'smooth' });
+  navDots.appendChild(dot);
+});
+const dots = document.querySelectorAll('.nav-dot');
+const dotObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = Array.from(spreads).indexOf(e.target);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+  });
+}, { threshold: 0.4 });
+spreads.forEach(s => dotObs.observe(s));
+
+// ===== TOOLBAR HIDE ON SCROLL =====
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const tb = document.getElementById('toolbar');
+  const curr = window.scrollY;
+  if (curr > lastScroll && curr > 100) tb.classList.add('hidden');
+  else tb.classList.remove('hidden');
+  lastScroll = curr;
+}, { passive: true });
+
+// ===== ANNOTATION SYSTEM =====
+function toggleAnnotations() {
+  annotationMode = !annotationMode;
+  document.body.classList.toggle('annotation-mode', annotationMode);
+  document.getElementById('annotateBtn').classList.toggle('annotate-on', annotationMode);
+}
+
+// Listen for shift+click on images
+document.addEventListener('click', function(e) {
+  if (!annotationMode && !e.shiftKey) return;
+  if (!e.shiftKey && !annotationMode) return;
+
+  const imgWrap = e.target.closest('.img-wrap');
+  if (!imgWrap) return;
+
+  e.preventDefault();
+  if (activePopup) { activePopup.remove(); activePopup = null; }
+
+  const rect = imgWrap.getBoundingClientRect();
+  const xPct = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+  const yPct = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+
+  const spread = imgWrap.closest('.spread');
+  const spreadNum = spread ? spread.dataset.spread : '?';
+  const spreadTitle = spread ? spread.dataset.title : '';
+  const imgId = imgWrap.dataset.imgId || '';
+
+  showAnnotationPopup(imgWrap, xPct, yPct, spreadNum, spreadTitle, imgId);
+});
+
+function showAnnotationPopup(imgWrap, xPct, yPct, spreadNum, spreadTitle, imgId) {
+  const popup = document.createElement('div');
+  popup.className = 'ann-input-popup';
+  popup.style.left = xPct + '%';
+  popup.style.top = yPct + '%';
+  popup.innerHTML = `
+    <textarea placeholder="Art direction note..." autofocus></textarea>
+    <select>
+      <option value="Lighting">Lighting</option>
+      <option value="Shadow/Depth">Shadow / Depth</option>
+      <option value="Character Detail">Character Detail</option>
+      <option value="Background">Background</option>
+      <option value="Colour">Colour</option>
+      <option value="Composition">Composition</option>
+      <option value="Crop/Focus">Crop / Focus</option>
+      <option value="Other">Other</option>
+    </select>
+    <select>
+      <option value="Should improve">Should improve</option>
+      <option value="Must fix">Must fix</option>
+      <option value="Nice to have">Nice to have</option>
+    </select>
+    <div class="ann-actions">
+      <button class="ann-cancel" onclick="this.closest('.ann-input-popup').remove()">Cancel</button>
+      <button class="ann-save">Save</button>
+    </div>
+  `;
+
+  imgWrap.appendChild(popup);
+  activePopup = popup;
+  popup.querySelector('textarea').focus();
+
+  popup.querySelector('.ann-save').onclick = function() {
+    const note = popup.querySelector('textarea').value.trim();
+    if (!note) return;
+    const category = popup.querySelectorAll('select')[0].value;
+    const priority = popup.querySelectorAll('select')[1].value;
+
+    annCounter++;
+    const ann = {
+      id: annCounter,
+      book: '1: The Beginning',
+      spread: parseInt(spreadNum),
+      spreadTitle,
+      imgId,
+      x: parseFloat(xPct),
+      y: parseFloat(yPct),
+      note,
+      category,
+      priority,
+      timestamp: new Date().toISOString()
+    };
+    annotations.push(ann);
+
+    // Place pin
+    const pin = document.createElement('div');
+    pin.className = 'ann-pin';
+    pin.textContent = annCounter;
+    pin.style.left = xPct + '%';
+    pin.style.top = yPct + '%';
+    pin.dataset.annId = annCounter;
+
+    // Hover tooltip
+    pin.addEventListener('mouseenter', function(ev) {
+      const existing = imgWrap.querySelector('.ann-tooltip');
+      if (existing) existing.remove();
+      const tip = document.createElement('div');
+      tip.className = 'ann-tooltip';
+      tip.style.left = xPct + '%';
+      tip.style.top = (parseFloat(yPct) + 3) + '%';
+      tip.innerHTML = note + '<div class="ann-meta">' + category + ' · ' + priority + '</div>';
+      imgWrap.appendChild(tip);
+    });
+    pin.addEventListener('mouseleave', function() {
+      const tip = imgWrap.querySelector('.ann-tooltip');
+      if (tip) tip.remove();
+    });
+
+    // Right-click to delete
+    pin.addEventListener('contextmenu', function(ev) {
+      ev.preventDefault();
+      if (confirm('Delete this annotation?')) {
+        annotations = annotations.filter(a => a.id !== annCounter);
+        pin.remove();
+        updateAnnCount();
+      }
+    });
+
+    imgWrap.appendChild(pin);
+    popup.remove();
+    activePopup = null;
+    updateAnnCount();
+  };
+}
+
+function updateAnnCount() {
+  const badge = document.getElementById('annCount');
+  if (annotations.length > 0) {
+    badge.style.display = 'inline';
+    badge.textContent = annotations.length;
+  } else {
+    badge.style.display = 'none';
+  }
+  // Update export info
+  document.getElementById('exportInfo').textContent =
+    annotations.length + ' annotation' + (annotations.length !== 1 ? 's' : '') + ' ready to export.';
+}
+
+// ===== EXPORT =====
+function toggleExport() {
+  document.getElementById('exportPanel').classList.toggle('show');
+}
+
+function copyAnnotationsJSON() {
+  const json = JSON.stringify(annotations, null, 2);
+  navigator.clipboard.writeText(json).then(() => {
+    alert('Copied ' + annotations.length + ' annotations as JSON');
+  });
+}
+
+function downloadAnnotationsCSV() {
+  if (annotations.length === 0) { alert('No annotations to export'); return; }
+  const headers = ['ID','Book','Spread','Spread Title','Image','X%','Y%','Note','Category','Priority','Timestamp'];
+  const rows = annotations.map(a => [a.id, a.book, a.spread, a.spreadTitle, a.imgId, a.x, a.y, '"'+a.note.replace(/"/g,'""')+'"', a.category, a.priority, a.timestamp]);
+  const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'auwa-book1-annotations.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+async function pushToNotion() {
+  if (annotations.length === 0) { alert('No annotations to push'); return; }
+
+  // Notion integration token — you'll need to set this up
+  const NOTION_TOKEN = prompt('Paste your Notion integration token (starts with ntn_ or secret_):');
+  if (!NOTION_TOKEN) return;
+
+  const DB_ID = prompt('Paste the Notion database ID (from the Art Direction Notes database URL):');
+  if (!DB_ID) return;
+
+  let pushed = 0;
+  for (const ann of annotations) {
+    try {
+      const res = await fetch('https://api.notion.com/v1/pages', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + NOTION_TOKEN,
+          'Content-Type': 'application/json',
+          'Notion-Version': '2022-06-28'
+        },
+        body: JSON.stringify({
+          parent: { database_id: DB_ID },
+          properties: {
+            'Note': { title: [{ text: { content: ann.note } }] },
+            'Book': { select: { name: ann.book } },
+            'Spread': { number: ann.spread },
+            'Category': { multi_select: [{ name: ann.category }] },
+            'Priority': { select: { name: ann.priority } },
+            'X Position': { number: ann.x },
+            'Y Position': { number: ann.y },
+            'Assigned To': { select: { name: 'Rieko' } }
+          }
+        })
+      });
+      if (res.ok) pushed++;
+    } catch (err) {
+      console.error('Failed to push annotation:', err);
+    }
+  }
+  alert('Pushed ' + pushed + '/' + annotations.length + ' annotations to Notion');
+}
+
+// ===== KEYBOARD SHORTCUTS =====
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'a' && !e.target.matches('textarea,input')) toggleAnnotations();
+  if (e.key === 'Escape' && activePopup) { activePopup.remove(); activePopup = null; }
+});
+</script>
+
+</body>
+</html>
