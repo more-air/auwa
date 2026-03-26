@@ -95,4 +95,10 @@ Rieko's original art is the source of truth. AI (MidJourney) refreshes and scale
 
 ---
 
-*For detailed financials, technical architecture, competitor analysis, corporate/legal structure, product roadmap, and illustration workflow — see reference-auwa.md. Upload to conversation when working on those specific topics.*
+## CONTEXT FILES
+
+These files are NOT auto-loaded. Read them when you need deeper context on a specific topic:
+
+- `context/product.md` — Detailed Kokoro Mirror UX flow, EQ building pillars (Salovey & Mayer), freemium model, future features, collectible figures (positioning, pricing, collector principles), hotel B2B concept.
+- `context/strategy.md` — Competitive landscape, target audiences, go-to-market phases, market analysis, positioning statements, risk analysis, decision frameworks, strategic lessons.
+- `context/reference.md` — Tech architecture, financial model, corporate/legal, trademark, illustration workflow, four books detail, archival strategy, roadmap, document references, contacts.
