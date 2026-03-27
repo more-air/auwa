@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Header />
 
-      <main className="relative flex min-h-[100dvh] flex-col items-center justify-center px-8 md:px-6 pt-16">
+      <main className="relative flex min-h-[100dvh] flex-col items-center justify-center px-8 md:px-6 pt-16 pb-16">
         {/* Background gradient */}
         <div
           className="pointer-events-none fixed inset-0"
@@ -20,7 +20,7 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center gap-10 md:gap-14 pb-20">
+        <div className="relative z-10 flex flex-col items-center gap-10 md:gap-14">
           {/* Strapline */}
           <FadeIn delay={0.2}>
             <Strapline />
