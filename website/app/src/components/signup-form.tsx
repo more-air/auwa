@@ -16,9 +16,18 @@ export function SignupForm() {
 
     setStatus("submitting");
 
-    // TODO: Replace with actual email collection endpoint (Resend, Mailchimp, etc.)
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setStatus("success");
+    try {
+      const res = await fetch("/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -81,7 +90,11 @@ export function SignupForm() {
               disabled={status === "submitting"}
               className="shrink-0 rounded-full px-7 py-3.5 text-sm font-sans font-medium tracking-widest uppercase text-cosmic-200 border border-cosmic-700 bg-cosmic-900/50 hover:border-glow-dim/50 hover:text-glow-dim focus-visible:border-glow-dim/50 focus-visible:text-glow-dim focus-visible:outline-none transition-colors duration-300 disabled:opacity-50 min-h-[44px] sm:rounded-l-none"
             >
-              {status === "submitting" ? "..." : "Notify me"}
+              {status === "submitting"
+              ? "..."
+              : status === "error"
+                ? "Try again"
+                : "Notify me"}
             </button>
           </motion.form>
         )}

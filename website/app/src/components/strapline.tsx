@@ -16,6 +16,10 @@ const variants: Record<string, { headline: string; subtitle: string }> = {
     headline: "EQ for the age of AI",
     subtitle: "Rooted in a thousand years of Japanese philosophy",
   },
+  d: {
+    headline: "EQ for the age of AI",
+    subtitle: "A daily EQ practice inspired by Japanese philosophy that builds the one intelligence AI cannot replace",
+  },
 };
 
 const defaultCopy = variants.a;
@@ -36,7 +40,7 @@ function StraplineDisplay({
   subtitle: string;
 }) {
   return (
-    <div className="flex flex-col items-center gap-5 text-center max-w-xl">
+    <div className="flex flex-col items-center gap-5 text-center max-w-xl px-4">
       <h1 className="font-display text-4xl md:text-6xl font-light leading-tight tracking-wide text-cosmic-100 whitespace-pre-line">
         {headline}
       </h1>
