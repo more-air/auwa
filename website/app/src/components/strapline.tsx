@@ -40,7 +40,7 @@ function StraplineDisplay({
   subtitle: string;
 }) {
   return (
-    <div className="flex flex-col items-center gap-5 text-center max-w-xl px-4">
+    <div className="flex flex-col items-center gap-5 text-center max-w-xl px-2">
       <h1 className="font-display text-4xl md:text-6xl font-light leading-tight tracking-wide text-cosmic-100 whitespace-pre-line">
         {headline}
       </h1>

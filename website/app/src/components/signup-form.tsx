@@ -41,7 +41,7 @@ export function SignupForm() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-center font-sans text-sm text-cosmic-300 tracking-wide"
           >
-            Your kokoro has been noted. We will be in touch.
+            Thank you. Something is on its way.
           </motion.p>
         ) : (
           <motion.form

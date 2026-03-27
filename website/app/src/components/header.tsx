@@ -22,7 +22,7 @@ export function Header() {
       >
         <a
           href="/"
-          className="font-display text-lg md:text-xl font-light tracking-[0.25em] uppercase text-cosmic-200 hover:text-glow-dim transition-colors duration-300"
+          className="font-display text-xl md:text-2xl font-light tracking-[0.25em] uppercase text-cosmic-200 hover:text-glow-dim transition-colors duration-300"
         >
           AUWA
         </a>
