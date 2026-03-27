@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-void: oklch(0.08 0.025 250);
+  --color-cosmic-900: oklch(0.13 0.030 250);
+  --color-cosmic-800: oklch(0.18 0.028 250);
+  --color-cosmic-700: oklch(0.25 0.025 250);
+  --color-cosmic-600: oklch(0.35 0.022 250);
+  --color-cosmic-500: oklch(0.45 0.020 250);
+  --color-cosmic-400: oklch(0.60 0.018 250);
+  --color-cosmic-300: oklch(0.75 0.015 250);
+  --color-cosmic-200: oklch(0.87 0.012 250);
+  --color-cosmic-100: oklch(0.93 0.008 250);
+  --color-cosmic-50: oklch(0.97 0.005 250);
+
+  --color-glow: oklch(0.85 0.15 105);
+  --color-glow-dim: oklch(0.70 0.10 105);
+
+  --color-joy: oklch(0.82 0.14 85);
+  --color-anger: oklch(0.60 0.18 25);
+  --color-sorrow: oklch(0.70 0.06 250);
+  --color-ease: oklch(0.75 0.10 160);
+
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-instrument-sans);
+  --font-jp: var(--font-noto-sans-jp);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-cosmic-200);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: oklch(0.85 0.15 105 / 0.3);
+  color: var(--color-cosmic-50);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+}
