@@ -9,7 +9,7 @@ const variants: Record<string, { headline: string; subtitle: string }> = {
     subtitle: "A daily practice that builds the one intelligence AI cannot replace",
   },
   b: {
-    headline: "Born from Japanese philosophy.\nBuilt for the age of AI.",
+    headline: "Built for the age of AI.\nBorn from Japanese philosophy.",
     subtitle: "The daily EQ practice the world is missing",
   },
   c: {
@@ -22,11 +22,11 @@ const variants: Record<string, { headline: string; subtitle: string }> = {
   },
 };
 
-const defaultCopy = variants.a;
+const defaultCopy = variants.c;
 
 function StraplineInner() {
   const searchParams = useSearchParams();
-  const variant = searchParams.get("v") || "a";
+  const variant = searchParams.get("v") || "c";
   const copy = variants[variant] || defaultCopy;
 
   return <StraplineDisplay headline={copy.headline} subtitle={copy.subtitle} />;
