@@ -20,7 +20,7 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center gap-10 md:gap-14">
+        <div className="relative z-10 flex flex-col items-center gap-10 md:gap-14 pb-20">
           {/* Strapline */}
           <FadeIn delay={0.2}>
             <Strapline />
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="relative z-10 mt-auto w-full py-6 flex items-center justify-between px-8 md:px-10">
+        <footer className="absolute bottom-0 left-0 right-0 py-6 flex items-center justify-between px-8 md:px-10">
           <FadeIn delay={1.8}>
             <p className="font-sans text-xs text-cosmic-600 tracking-wide">
               &copy; AUWA 2026
