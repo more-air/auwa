@@ -1,21 +1,11 @@
-# AUWA — OPERATIONAL REFERENCE
+# AUWA — Operational Reference
 
-*Last Updated: 24 March 2026*
-*Load when working on tech architecture, financials, legal, illustration workflow, or contacts.*
-
----
-
-## TECHNICAL ARCHITECTURE
-
-**Stack:** Next.js (React, TypeScript), Vercel, Sanity CMS, Vercel Postgres, Claude API (Haiku 4.5), Framer Motion, Resend, Stripe. Audio produced by Rieko in Suno.
-
-**AI Cost Model:** Haiku 4.5 ~£0.002/revelation (with caching). Sonnet ceiling ~£0.008-0.015. At 2,000 DAU: £140-600/month API cost vs £14,000/month subscription revenue. Unit economics healthy at every stage.
-
-**PWA rationale:** Ship in weeks, no App Store gatekeeping, no 30% commission, instant updates, same URL for everything, QR-accessible for hotel B2B. Wrappable via Capacitor later if needed.
+*Last Updated: 1 April 2026*
+*Load when working on illustration workflow, archival strategy, store operations, or operational detail not covered in the business plan.*
 
 ---
 
-## ILLUSTRATION WORKFLOW
+## Illustration Workflow
 
 **Style locked using MidJourney Style Creator** with Rieko's originals as primary references. Influences: Matthew Forsythe, Oliver Jeffers, Jon Klassen, Issa Watanabe.
 
@@ -29,74 +19,83 @@
 
 ---
 
-## THE FOUR ILLUSTRATED BOOKS
+## Archival & Authentication
 
-- **Book 1: The Beginning** — AUWA arrives on Earth, meets Bluu the lonely blue flower.
-- **Book 2: Umi (Ocean)** — Beneath the waves with Key the coral, Lady the fish, Rai the turtle. Pollution revealed, AUWA's light restores.
-- **Book 3: Human** — Rappon the tanuki (displaced by deforestation), Kazu (human who left city for nature).
-- **Book 4: Lioma** — Human kokoro taken to Planet Lioma. Maon beings live in harmony through telepathy.
-
-~150 illustrations across all four. Released digitally within app as segments unlocked through engagement (5th revelation: Book 1, 15th: Book 2, etc.). Limited-edition physical printed versions in Year 2.
+Rieko's archive sketches (20-30 total, 1-2 hours each): key book scenes, character evolution, 72 emotions in rough form, WAWA planets, kokoro revelation moments. Deployed strategically for credibility: exhibitions, press interviews, collector's editions, social ("10 years in the making" series). Not shared immediately.
 
 ---
 
-## FINANCIAL MODEL (YEAR 1)
+## Collectible Figure Rules
 
-| Scenario | App Subs | Figures | Total |
-|---|---|---|---|
-| Conservative | £1,000 | £3,750 | £4,750 |
-| Expected | £3,500 | £9,350 | £12,850 |
-| Optimistic | £12,000 | £15,000 | £27,000 |
-
-**Monthly operating:** £660-1,065. **One-time costs:** £4,290-5,290. **Total Year 1 spend:** ~£12,000-18,000. **Self-sustaining:** ~100-150 paid subscribers.
-
-More Air client work (~£80-120K/year) funds founders separately.
+- Never more than 100 units per emotion
+- Never reissue sold-out figures (scarcity is sacred)
+- Variant colourways: 25-50 units, released 3 months after original
+- Never mention: investment potential, comparisons to KAWS/Labubu, urgency tactics, cheap versions
 
 ---
 
-## CORPORATE & LEGAL
+## Store Precedents
 
-**AUWA Limited (Co. 17033727)** — IP owner. 50/50 Tom & Rieko. Currently dormant. Licences IP to More Air. Activates when AUWA >£100K revenue or investment sought.
+### Tom's Japanese Merchant Platform (2005-2007)
+Multi-merchant platform selling Japanese vinyl toys, design objects, and limited editions to Western buyers. Pre-Shopify custom CMS: merchants had individual logins, uploaded products in Japanese, system auto-converted to English + GBP. Tom standardised all product photography (extracted to white backgrounds in Photoshop for consistent premium look). PayPal payments routed to individual merchant accounts. Direct shipping from Japan via EMS with tracking emails. Operated successfully for several years, including distributing KAWS's first international releases. Key lesson: curation and visual consistency made products from dozens of different merchants feel like they came from one premium source.
 
-**More Air Limited (Co. 7051794)** — Operating company. Active since 2009. Runs AUWA under exclusive licence.
+### Monolise (~2018)
+Japanese craftsman store designed by More Air. Name combines "Mono" (product in Japanese) + "Globalise" — connecting local craftspeople with a global audience. Anti-throwaway culture positioning: lifetime products made by masters of their craft. Minimal design (Butler serif + Basic Commercial typefaces) that lets products speak. Built on Shopify. Tom and Rieko spent a month in Japan meeting master craftsmen (knife makers, ceramic artists, textile artisans etc.). Extensive photography of craftsmen at work. Several merchants were keen to participate. Project shelved because: (a) yen was too strong, making products too expensive for Western buyers, and (b) More Air client work was going well. The photography, merchant relationships, design work, and concept are all dormant assets ready to be revived under AUWA. Now feasible: weak yen makes Japanese products more competitive, and Shopify + Stripe Connect replaces the need for custom CMS.
 
-**Trademark:** UK00004341028 (word + design, 7 classes: 9, 16, 20, 25, 28, 35, 41). International Madrid Protocol filing in progress (Japan, USA, EU).
-
-**Domains:** auwa.life (app), auwa.world (Year 2), auwa.store (Year 2).
-**Social:** @TheAuwaWorld (Instagram, TikTok, YouTube, X) | @Auwa (LinkedIn).
-**Email:** hello@auwa.life
-
----
-
-## ARCHIVAL & AUTHENTICATION
-
-Rieko's archive sketches (20-30 total, 1-2 hours each): key book scenes, character evolution, 72 emotions in rough form, WAWA planets, kokoro revelation moments. Deployed strategically for credibility: Pop Mart pitches, exhibitions, press interviews, collector's editions, social ("10 years in the making" series). Not shared immediately.
+### For AUWA Store
+AI tools (Remove.bg, Claude Vision) replace the manual Photoshop work for image standardisation. Shopify Multi-Vendor handles merchant dashboards, orders, shipping, tracking emails. Shopify Duty & Import Taxes auto-calculates customs at checkout (transparent landed-cost pricing). Stripe Connect handles direct payouts to Japanese merchants. No custom build needed. The Monolise design philosophy (minimal, let products speak, anti-throwaway positioning) carries directly into the AUWA Store aesthetic.
 
 ---
 
-## ROADMAP
+## Fin DAC Relationship
 
-**Weeks 1-2:** Lock creative direction. 4 AUWA character variants, gradient colour system, typography, brand feel. Begin illustration refresh.
-**Weeks 3-6:** Split tracks. Rieko: illustration production (150 images), character refinement, social content. Tom: Lovable prototype, validate UX, Figma design system, Claude Code production build.
-**Weeks 7-10:** Integration, payments, testing, soft launch to waitlist. AI reflection quality is the priority.
-**Months 4-6:** First figure drop (only if app shows traction). In-house BambuLab X1 Carbon. Pre-order + giveaway seeding.
-**Year 2:** Hotel B2B, craftsman collaborations, exhibitions, prints, journal, books, YouTube.
+Irish urban artist, ~96K Instagram followers. Known for bold stencil portraits. Personal friend of Tom and Rieko. Already visited his studio — he created a stencil of AUWA (the character). Loves the AUWA concept, has been encouraging Rieko to release the work. Also developing his own story world (Girls of Dak Town). Warm collaboration lead for Instagram growth: collab post featuring the stencil session could significantly boost reach. Contact after Instagram relaunch with polished content.
 
 ---
 
-## DOCUMENT REFERENCE
+## Nokia Animaru Precedent
 
-- **Business Plan:** 20260313-AUWA-Business-2026.docx
-- **Competitor Analysis:** 20260313-AUWA-Competitor-2026.docx
-- **Manifesto:** 20260313-AUWA-Manifesto-2026.docx
+Tom and Rieko developed Animaru for Nokia San Francisco (~2014): a character-based wellness app where an illustrated digital character reflected the user's health metrics, changing visual form based on data pulled from health apps. Concept was loved internally but never released (common with Nokia conceptual projects). Directly relevant to AUWA's approach — character-based emotional reflection is the same DNA. Useful as private validation in pitch decks and investor/partner conversations. Not for public promotion (focus on AUWA as fresh, not derivative).
+
+---
+
+## Strategic Lessons
+
+**KAWS:** Start with authentic IP. Create cultural disruption. Limited physical objects. Seek cultural validation (exhibitions, not just sales). Strategic collabs. Instagram moments. Tom's direct experience distributing KAWS's first international releases gives unique insight.
+
+**Hodinkee:** Content-first authority building in a niche (mechanical watches) that shouldn't have thrived in the digital age — but did precisely because the digital age created hunger for craft. Blog → commerce → community → acquisition. Proves that as technology accelerates, audiences develop deeper appreciation for hand-made objects. AUWA Store follows the same logic for Japanese craft.
+
+**Labubu:** Build collector psychology (31 sub-expressions to collect). Mystery/reveal (blind kokoro revelation). Chase variants (special seasonal editions). Distribute strategically (hotel B2B is unique channel).
+
+**Goop:** Multi-category lifestyle brand precedent. Launched as newsletter (2008), added e-commerce (2012), apps (2013), physical stores (2017). Proves wellness + curated retail + storytelling work under one brand. AUWA's advantage: cultural authenticity and depth Goop lacks.
+
+**Snow Peak:** Japanese outdoor brand that became lifestyle brand. Gear + camping experiences + community events + restaurants. Proves Japanese brand can export lifestyle philosophy (not just products) internationally. Revenue ~$200M+.
+
+**Agentic future:** As agents handle cognitive tasks, AUWA handles meaning. Utility apps become obsolete; relationship-based products cannot be automated away.
+
+---
+
+## Photography & Image Workflow
+
+**Tom's photography credentials:** Published photographer. Japan photography has 17M+ views on Unsplash (7 photos, uploaded 2017-2018 and left untouched). Used by Condé Nast Traveler, Vogue (Taiwan), World Economic Forum, Travel + Leisure, TimeOut, Culture Trip, and IFLR. 15+ years of Japan photography (temples, seasonal landscapes, street scenes, craftsmen at work, food culture). This catalogue is a significant content asset for Instagram, YouTube, and store presentation.
+
+**Key Unsplash URLs for reference:**
+- Stats: unsplash.com/@tomvining/stats
+- TimeOut usage: timeout.com/tokyo/travel/the-most-beautiful-places-in-japan
+- WEF usage: weforum.org/stories/2023/06/what-role-can-japanese-businesses-play-in-creating-a-nature-positive-future/
+- Condé Nast: cntraveler.com/story/iceland-implementing-tourism-tax
+- Vogue Taiwan: vogue.com.tw (Iceland travel feature)
+
+**Store product photography:** AI tools (Remove.bg, Claude Vision) replace manual Photoshop extraction. Consistent white backgrounds across all merchants for premium presentation. Same principle as the original merchant platform: visual consistency makes disparate products feel like one curated collection.
+
+**Instagram content photography:** Japan travel catalogue provides months of atmospheric content without new shoots. Craftsman photography from Monolise research trips (knife makers, ceramic artists, textile artisans) ready for "Behind the Craft" content pillar.
+
+---
+
+## Document Reference
+
+- **Original Word docs (March 2026):** Archived in Dropbox at `3 venture/auwa/documents/20260313/`
+- **Earlier business plan (Feb 2026):** `3 venture/auwa/documents/20260224/20260224-AUWA-Business-2026.docx` — more ambitious scope (72 characters, hotel B2B Year 1, £191k Year 1 target). Superseded by March plan.
+- **Grok strategy chat (March 2026):** `3 venture/auwa/documents/_chat/20260331-grok.txt` — riffing session that crystallised the multi-pillar brand concept (app + store + journal + book), Instagram-first strategy, and store-as-marketplace model.
 - **Original Stories:** AUWA_01-04_E_Compressed.pdf
-
----
-
-## KEY CONTACTS
-
-**Tom Vining** — Producer | tom@moreair.co
-**Rieko Vining** — Creator | rieko@moreair.co
-**AUWA:** auwa.life | auwa.world | auwa.store
-**More Air:** moreair.co
-**Contact:** hello@auwa.life
+- **Archived context summaries:** `context/archive/` (product.md, strategy.md, reference.md from March 2026)
