@@ -67,6 +67,6 @@ Ask: "Happy with this, or want to adjust anything before I add it to the site?"
 Once approved:
 
 1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`
-2. Add it to the article list in `website/main/src/app/journal/page.tsx`
-3. Update the home page data if this should be featured
+2. Add it to the article list in `website/main/src/app/journal/page.tsx` (include the `image` field pointing to the hero image so it shows on the listing page)
+3. Add it to the `latestArticles` array in `website/main/src/app/page.tsx` at the top (most recent first), with the `image` field pointing to the hero image. Increment the issue number to be one higher than the current highest.
 4. Test the build compiles cleanly

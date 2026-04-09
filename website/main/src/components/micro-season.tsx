@@ -6,7 +6,7 @@ export function MicroSeason() {
   const season = getCurrentMicroSeason();
 
   return (
-    <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-24 md:py-36">
+    <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-24 md:pt-36 pb-32 md:pb-44">
       <FadeIn>
         <div className="flex flex-col items-center text-center">
           {/* Kanji — large, serif-like, full presence */}
@@ -21,7 +21,7 @@ export function MicroSeason() {
 
           {/* Link to article */}
           <Link
-            href="/journal/the-fifth-day"
+            href="/journal/72-seasons"
             className="mt-4 font-sans text-[13px] tracking-[0.06em] uppercase text-void/35 hover:text-void/60 transition-colors duration-300"
           >
             Japan&apos;s 72 seasons &rarr;

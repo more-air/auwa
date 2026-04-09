@@ -10,19 +10,33 @@ export const metadata = {
 
 const categories = ["All", "Seasons", "Craft", "Philosophy", "Travel"];
 
-const articles = [
-  { title: "The knife maker of Seki", excerpt: "A lifetime spent perfecting a single blade.", category: "Craft", slug: "knife-maker-of-seki" },
-  { title: "Seimei: the light returns", excerpt: "Japan's 72 micro-seasons and the art of noticing.", category: "Seasons", slug: "seimei" },
-  { title: "Awareness, not mindfulness", excerpt: "The difference between a Western concept and a Japanese worldview.", category: "Philosophy", slug: "awareness-not-mindfulness" },
-  { title: "Temple mornings", excerpt: "On the ritual of arriving before dawn, and what the silence teaches.", category: "Travel", slug: "temple-mornings" },
-  { title: "Objects with kokoro", excerpt: "Why a hand-forged knife changes your relationship with daily life.", category: "Craft", slug: "objects-with-kokoro" },
-  { title: "The onsen lesson", excerpt: "On shared space, vulnerability, and the awareness that comes from hot water and silence.", category: "Travel", slug: "the-onsen-lesson" },
-  { title: "What wabi-sabi means", excerpt: "Reclaiming a philosophy from the interiors trend.", category: "Philosophy", slug: "what-wabi-sabi-means" },
-  { title: "The fifth day", excerpt: "How Japan divides the year into moments most people never see.", category: "Seasons", slug: "the-fifth-day" },
-  { title: "Everything has kokoro", excerpt: "An introduction to Yaoyorozu no Kami and why it matters.", category: "Philosophy", slug: "everything-has-kokoro" },
+const articles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
+  { title: "Yaoyorozu no Kami", excerpt: "On the spirits that live in everything, and why you already know they\u2019re there.", category: "Philosophy", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
+  { title: "Shigefusa", excerpt: "On waiting two years for a knife, and what arrived.", category: "Craft", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },
+  { title: "Nozawa Fire Festival", excerpt: "On the night an entire village tried to burn down a shrine.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
+  { title: "Oroko Combs", excerpt: "A boxwood comb that learns the shape of your life.", category: "Craft", slug: "oroko-combs", image: "/journal/oroko/oroko-hero.jpg" },
+  { title: "Koya-san", excerpt: "On the mountain where awareness has been practised for 1,200 years.", category: "Travel", slug: "koya-san", image: "/journal/koya-san/koya-san-hero.jpg" },
+  { title: "72 Seasons", excerpt: "Japan didn\u2019t invent the seasons. It just refused to stop counting.", category: "Seasons", slug: "72-seasons", image: "/journal/72-seasons/72-seasons-hero.jpg" },
+  { title: "The Onsen Lesson", excerpt: "What hot water and strangers teach you about being alive.", category: "Philosophy", slug: "the-onsen-lesson", image: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg" },
+  { title: "Making Washi", excerpt: "On cold water, mulberry bark, and a thousand years of the same gesture.", category: "Craft", slug: "making-washi", image: "/journal/washi/washi-hero.jpg" },
+  { title: "Narai in Snow", excerpt: "A Nakasendo post town, four hundred years of silence, and the case for standing still.", category: "Travel", slug: "narai-juku", image: "/journal/narai-juku/narai-juku-hero.jpg" },
+  { title: "Yakushima", excerpt: "On the island where the trees remember everything.", category: "Travel", slug: "yakushima-island", image: "/journal/yakushima-island/yakushima-island-hero.jpg" },
 ];
 
-export default function JournalPage() {
+export default async function JournalPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
+  const { category } = await searchParams;
+  const activeCategory = category
+    ? categories.find((c) => c.toLowerCase() === category.toLowerCase()) || "All"
+    : "All";
+
+  const filtered = activeCategory === "All"
+    ? articles
+    : articles.filter((a) => a.category === activeCategory);
+
   return (
     <>
       <Header />
@@ -38,14 +52,15 @@ export default function JournalPage() {
           <FadeIn delay={100}>
             <div className="mt-8 flex flex-wrap gap-4 md:gap-6">
               {categories.map((cat) => (
-                <button
+                <Link
                   key={cat}
-                  className={`font-sans text-[13px] tracking-[0.06em] uppercase transition-colors duration-300 cursor-pointer ${
-                    cat === "All" ? "text-void" : "text-void/40 hover:text-void"
+                  href={cat === "All" ? "/journal" : `/journal?category=${cat.toLowerCase()}`}
+                  className={`font-sans text-[13px] tracking-[0.06em] uppercase transition-colors duration-300 ${
+                    cat === activeCategory ? "text-void" : "text-void/40 hover:text-void"
                   }`}
                 >
                   {cat}
-                </button>
+                </Link>
               ))}
             </div>
           </FadeIn>
@@ -54,14 +69,22 @@ export default function JournalPage() {
         {/* Article grid */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
-            {articles.map((article, i) => (
+            {filtered.map((article, i) => (
               <FadeIn
                 key={article.slug}
                 delay={Math.min(i * 60, 360)}
               >
                 <Link href={`/journal/${article.slug}`} className="group block">
                   <div className="bg-surface-raised rounded-sm overflow-hidden relative aspect-[4/5]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />
+                    {article.image ? (
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />
+                    )}
                   </div>
                   <div className="mt-4">
                     <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
