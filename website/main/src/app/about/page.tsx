@@ -11,10 +11,10 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="pt-16 md:pt-20">
+      <main>
 
         {/* Hero */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-20 pb-16 md:pb-24">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-28 md:pt-36 pb-16 md:pb-24">
           <FadeIn>
             <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[700px]">
               A world where nothing is ordinary.

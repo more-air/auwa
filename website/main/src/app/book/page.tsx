@@ -10,7 +10,7 @@ export default function BookPage() {
   return (
     <>
       <Header />
-      <main className="pt-16 md:pt-20 min-h-screen">
+      <main className="min-h-screen">
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-5rem)]">
 

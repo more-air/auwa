@@ -10,9 +10,9 @@ export default function StorePage() {
   return (
     <>
       <Header />
-      <main className="pt-16 md:pt-20 min-h-screen">
+      <main className="min-h-screen">
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-5rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
 
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
               <FadeIn>

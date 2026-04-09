@@ -7,11 +7,11 @@ import Link from "next/link";
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
 const featuredArticle = {
-  title: "The knife maker of Seki",
-  subtitle: "A lifetime spent perfecting a single blade.",
-  slug: "knife-maker-of-seki",
+  title: "Shigefusa",
+  subtitle: "On waiting two years for a knife, and what arrived.",
+  slug: "shigefusa-knife",
   category: "Craft",
-  image: null as string | null,
+  image: "/journal/shigefusa/shigefusa-blade.jpg",
 };
 
 const pillars = [
@@ -45,12 +45,12 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-16 md:pt-20">
+      <main>
 
         {/* ── Hero headline ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-20 pb-10 md:pb-16">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-28 md:pt-36 pb-10 md:pb-16">
           <FadeIn>
-            <h1 className="font-display text-[clamp(3rem,7vw,5.5rem)] leading-[1.05] tracking-[0.01em] text-void max-w-[680px]">
+            <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[680px]">
               Everything has<br />Kokoro.
             </h1>
           </FadeIn>
@@ -68,7 +68,7 @@ export default function Home() {
         <section className="pb-16 md:pb-24">
           <FadeIn delay={100}>
             <Link href={`/journal/${featuredArticle.slug}`} className="group block">
-              <div className="relative aspect-[4/3] md:aspect-[3/2] bg-surface-raised overflow-hidden">
+              <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
                 {featuredArticle.image ? (
                   <img
                     src={featuredArticle.image}
@@ -153,7 +153,7 @@ export default function Home() {
         <section className="pb-12 md:pb-20">
           <FadeIn>
             <Link href={`/journal/${secondFeature.slug}`} className="group block">
-              <div className="relative aspect-[4/3] md:aspect-[3/2] bg-surface-raised overflow-hidden">
+              <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
                 {secondFeature.image ? (
                   <img
                     src={secondFeature.image}

@@ -11,25 +11,25 @@ export const metadata = {
 const categories = ["All", "Seasons", "Craft", "Philosophy", "Travel"];
 
 const articles = [
-  { title: "The knife maker of Seki", excerpt: "A lifetime spent perfecting a single blade.", category: "Craft", slug: "knife-maker-of-seki", size: "large" },
-  { title: "Seimei: the light returns", excerpt: "Japan's 72 micro-seasons and the art of noticing.", category: "Seasons", slug: "seimei", size: "medium" },
-  { title: "Awareness, not mindfulness", excerpt: "The difference between a Western concept and a Japanese worldview.", category: "Philosophy", slug: "awareness-not-mindfulness", size: "medium" },
-  { title: "Temple mornings", excerpt: "On the ritual of arriving before dawn, and what the silence teaches.", category: "Travel", slug: "temple-mornings", size: "medium" },
-  { title: "Objects with kokoro", excerpt: "Why a hand-forged knife changes your relationship with daily life.", category: "Craft", slug: "objects-with-kokoro", size: "medium" },
-  { title: "The onsen lesson", excerpt: "On shared space, vulnerability, and the awareness that comes from hot water and silence.", category: "Travel", slug: "the-onsen-lesson", size: "medium" },
-  { title: "What wabi-sabi means", excerpt: "Reclaiming a philosophy from the interiors trend.", category: "Philosophy", slug: "what-wabi-sabi-means", size: "medium" },
-  { title: "The fifth day", excerpt: "How Japan divides the year into moments most people never see.", category: "Seasons", slug: "the-fifth-day", size: "medium" },
-  { title: "Everything has kokoro", excerpt: "An introduction to Yaoyorozu no Kami and why it matters.", category: "Philosophy", slug: "everything-has-kokoro", size: "medium" },
+  { title: "The knife maker of Seki", excerpt: "A lifetime spent perfecting a single blade.", category: "Craft", slug: "knife-maker-of-seki" },
+  { title: "Seimei: the light returns", excerpt: "Japan's 72 micro-seasons and the art of noticing.", category: "Seasons", slug: "seimei" },
+  { title: "Awareness, not mindfulness", excerpt: "The difference between a Western concept and a Japanese worldview.", category: "Philosophy", slug: "awareness-not-mindfulness" },
+  { title: "Temple mornings", excerpt: "On the ritual of arriving before dawn, and what the silence teaches.", category: "Travel", slug: "temple-mornings" },
+  { title: "Objects with kokoro", excerpt: "Why a hand-forged knife changes your relationship with daily life.", category: "Craft", slug: "objects-with-kokoro" },
+  { title: "The onsen lesson", excerpt: "On shared space, vulnerability, and the awareness that comes from hot water and silence.", category: "Travel", slug: "the-onsen-lesson" },
+  { title: "What wabi-sabi means", excerpt: "Reclaiming a philosophy from the interiors trend.", category: "Philosophy", slug: "what-wabi-sabi-means" },
+  { title: "The fifth day", excerpt: "How Japan divides the year into moments most people never see.", category: "Seasons", slug: "the-fifth-day" },
+  { title: "Everything has kokoro", excerpt: "An introduction to Yaoyorozu no Kami and why it matters.", category: "Philosophy", slug: "everything-has-kokoro" },
 ];
 
 export default function JournalPage() {
   return (
     <>
       <Header />
-      <main className="pt-16 md:pt-20">
+      <main>
 
         {/* Title + filters */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-20 pb-8 md:pb-12">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-28 md:pt-36 pb-8 md:pb-12">
           <FadeIn>
             <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[0.01em] text-void">
               Journal
@@ -58,16 +58,9 @@ export default function JournalPage() {
               <FadeIn
                 key={article.slug}
                 delay={Math.min(i * 60, 360)}
-                className={article.size === "large" ? "md:col-span-2 lg:col-span-2" : ""}
               >
                 <Link href={`/journal/${article.slug}`} className="group block">
-                  <div
-                    className={`bg-surface-raised rounded-sm overflow-hidden relative ${
-                      article.size === "large"
-                        ? "aspect-[16/9]"
-                        : "aspect-[4/5]"
-                    }`}
-                  >
+                  <div className="bg-surface-raised rounded-sm overflow-hidden relative aspect-[4/5]">
                     <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />
                   </div>
                   <div className="mt-4">

@@ -3,39 +3,145 @@ import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import Link from "next/link";
 
-/* Placeholder article data — will come from Sanity */
-const article = {
+/* ─── Article data (will come from Sanity CMS) ─── */
+
+type ContentBlock =
+  | { type: "text"; text: string }
+  | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "pullquote"; text: string };
+
+const articles: Record<
+  string,
+  {
+    title: string;
+    subtitle: string;
+    category: string;
+    issue: string;
+    author: string;
+    photographer: string;
+    publishedAt: string;
+    heroImage: string | null;
+    content: ContentBlock[];
+  }
+> = {
+  "shigefusa-knife": {
+    title: "Shigefusa",
+    subtitle: "On waiting two years for a knife, and what arrived.",
+    category: "Craft",
+    issue: "Issue 01",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
+    publishedAt: "2026-04-09",
+    heroImage: "/journal/shigefusa/shigefusa-hero.jpg",
+    content: [
+      {
+        type: "text",
+        text: "The knife arrived on a Tuesday in June, two years after we ordered it. No tracking number, no shipping notification. Just a card from the shop in Niigata saying it was ready, and then a box at the door wrapped in brown paper with that particular Japanese precision — every fold exact, every edge aligned.",
+      },
+      {
+        type: "text",
+        text: "Inside, a kiri wood box. Paulownia, the same timber used to store kimonos and samurai swords, chosen because it breathes with the seasons — expanding in humidity, contracting in dry air — protecting what's inside without suffocating it. On the lid, five characters brushed in sumi ink: 御和牛刀庖丁. Honourable wa-gyuto kitchen knife. The formality of it. As though the box itself understood what it was carrying.",
+      },
+      {
+        type: "image",
+        src: "/journal/shigefusa/shigefusa-box.jpg",
+        alt: "Shigefusa kitaeji wa-gyuto in its kiri wood presentation box, viewed from above",
+        caption: "Kiri wood box with hand-brushed calligraphy. The paulownia timber breathes with the seasons.",
+      },
+      {
+        type: "text",
+        text: "We lifted the lid and there it was. A Shigefusa kitaeji wa-gyuto, 210 millimetres of hand-forged Swedish carbon steel, resting on wooden supports. The blade coated in a thin film of tsubaki oil — camellia — applied by hand at the workshop to protect it during its journey. No plastic. No foam. Just wood cradling steel, and the faint scent of the oil.",
+      },
+      {
+        type: "text",
+        text: "You notice things when you've waited this long. The way the light catches the kitaeji pattern — layers of different steels forge-welded together, folded, hammered, and ground until they form a flowing, smoke-like grain across the surface. Every Shigefusa blade has a different pattern. Not by design, but by nature. The same way no two pieces of wood have the same grain. The steel remembers every strike of the hammer.",
+      },
+      {
+        type: "image",
+        src: "/journal/shigefusa/shigefusa-blade.jpg",
+        alt: "Close-up of the Shigefusa blade showing kitaeji damascus pattern and hand-chiseled kanji",
+        caption: "Kitaeji patterning — layers of forge-welded steel, each blade unique. The kanji reads 重房作: made by Shigefusa.",
+      },
+      {
+        type: "text",
+        text: "Shigefusa is the working name of a single bladesmith in Sanjo, Niigata prefecture, a region that has produced metalwork for over four hundred years. He doesn't have a website. He doesn't take custom orders. He makes what he makes — gyutos, nakiris, petty knives — in the quantities his hands and his days allow, and when they're finished, they go to a handful of shops in Japan. Waitlists run one to three years. There is no way to expedite.",
+      },
+      {
+        type: "text",
+        text: "In a world that has optimised almost everything else, this pace feels radical. Not as a statement. Shigefusa isn't making a point about slow living or mindful consumption. He's simply making knives the way he knows how to make them, at the speed the process requires. The radicalism is ours — we're the ones who've forgotten that some things take the time they take.",
+      },
+      {
+        type: "pullquote",
+        text: "The steel remembers every strike of the hammer.",
+      },
+      {
+        type: "text",
+        text: "Look closely at the spine and you can see where it's been shaped by hand — not machine-ground to a uniform thickness, but worked with files and stones until the taper feels right under the fingers. The choil, where blade meets handle, is finished clean and smooth. The buffalo horn ferrule sits flush against the ho wood handle with no gap, no glue marks, no imperfection in the joint. These are small details. They are also the entire point.",
+      },
+      {
+        type: "image",
+        src: "/journal/shigefusa/shigefusa-tip.jpg",
+        alt: "Close-up of the Shigefusa blade tip showing flowing kitaeji steel pattern",
+        caption: "The blade tip. The flowing pattern in the steel is a record of the forging — no two are alike.",
+      },
+      {
+        type: "text",
+        text: "On the face of the blade, two characters chiseled — not laser-etched, not stamped, but cut into the steel by hand: 重房作. Made by Shigefusa. Centred, precise, permanent. A maker's mark that has appeared on blades from this workshop for generations.",
+      },
+      {
+        type: "text",
+        text: "The Japanese have a word for the spirit that lives in things: kokoro. In the Shinto understanding of yaoyorozu no kami, everything possesses it — not just living beings but rivers, mountains, and objects made with enough care and accumulated skill. A mass-produced knife has no kokoro. It can't. It was made by a machine that doesn't know what a knife is for. But a blade that a single person spent days forging, shaping, polishing, and signing — that blade carries something of the person who made it into the life of the person who uses it.",
+      },
+      {
+        type: "text",
+        text: "We haven't used ours yet. It sits in its kiri box, coated in camellia oil, in a drawer in our kitchen. We will use it — it was made to be used, and keeping it behind glass would miss the point. But for now, we're still in the early stage of the relationship. Still noticing. Still holding it up to the window to watch the light move across those layered patterns in the steel.",
+      },
+      {
+        type: "text",
+        text: "Two years is a long time to wait for a knife. It's also, it turns out, exactly the right amount of time. Long enough to forget about it, then remember. Long enough to wonder if it will ever come, then stop wondering. Long enough that when the box finally arrives on a Tuesday in June, you open it slowly. You pay attention. You notice the oil, the wood, the weight, the grain in the steel, the chiseled name of the man who made it. You notice everything.",
+      },
+      {
+        type: "text",
+        text: "Which might be the most valuable thing a knife can teach you.",
+      },
+    ],
+  },
+};
+
+/* ─── Fallback article for unknown slugs ─── */
+const fallbackArticle = {
   title: "The knife maker of Seki",
   subtitle: "A lifetime spent perfecting a single blade.",
-  category: "Arts & Culture",
-  issue: "Issue 59, Clean",
-  author: "Selena Takigawa Hoy",
-  photographer: "Ju Yeon Lee",
-  publishedAt: "2026-04-07",
-  heroImage: null as string | null,
-  body: [
-    "Many of the world's great craftsmen have transformed making from an act of production to something that leans closer to the spiritual. In the workshops of Seki, a small city in Gifu prefecture long known as Japan's capital of bladesmithing, the air carries the scent of steel and charcoal. The sound of hammers against anvils has echoed through these streets for seven hundred years.",
-    "Takeshi Saji is one of fewer than thirty master bladesmiths still working in Seki. His knives take weeks to make. Each blade is hand-forged from layers of carbon steel, folded and hammered until the metal achieves a pattern as unique as a fingerprint. He learned from his father, who learned from his father before him. The lineage stretches back to an era when swordsmiths served feudal lords.",
-    "\"A knife is not a tool,\" Saji says, turning a finished gyuto in the light of his workshop window. \"It is a relationship. Between the steel and the fire, between the maker and the user, between the hand and the food it prepares. Every time someone uses my knife, they are completing something I started.\"",
-    "That is the question at the heart of Japanese craft: not how to make something faster or cheaper, but how to make something that carries the spirit of its maker into the life of its owner. The Japanese word for this is kokoro — heart, soul, spirit — and in the Shinto tradition, it lives within all things. Not just people and animals, but objects. A knife forged with decades of accumulated skill and attention does not merely cut. It participates.",
-    "But whether objects made by hand in an age of mass production can sustain their makers has historically been a difficult question. Many of Seki's workshops have closed in the past two decades, unable to compete with factory production. The young people leave for Nagoya or Tokyo. The masters grow older.",
-    "Saji is pragmatic about this. \"I don't make knives because the market demands them. I make them because this is what I know how to do, and because stopping would mean losing something that cannot be recovered once it's gone. A seven-hundred-year tradition doesn't pause. It either continues or it ends.\"",
-    "Those who have used a Saji knife describe the experience in terms that sound almost absurd when applied to a kitchen implement. The weight. The way it finds the grain of a vegetable without being guided. The sound it makes against a hinoki cutting board — not a thud but a whisper. These are not marketing claims. They are the accumulated observations of people who pay attention to the objects they live with.",
-    "There is something instructive in this for anyone navigating a world that moves faster each year. The knife maker of Seki does not optimise. He does not scale. He does not pivot. He makes one thing, as well as he possibly can, and trusts that the world contains enough people who can tell the difference.",
+  category: "Craft",
+  issue: "Issue 02",
+  author: "Tom Vining",
+  photographer: "Rieko Vining",
+  publishedAt: "2026-04-09",
+  heroImage: null,
+  content: [
+    { type: "text" as const, text: "Many of the world's great craftsmen have transformed making from an act of production to something that leans closer to the spiritual. In the workshops of Seki, a small city in Gifu prefecture long known as Japan's capital of bladesmithing, the air carries the scent of steel and charcoal." },
+    { type: "text" as const, text: "The sound of hammers against anvils has echoed through these streets for seven hundred years." },
   ],
 };
 
-export default function ArticlePage() {
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const article = articles[slug] || fallbackArticle;
+
   return (
     <>
       <Header />
-      <main className="pt-16 md:pt-20">
+      <main>
 
         {/* ── Hero: split layout ── */}
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Image */}
-            <div className="relative aspect-[3/4] md:aspect-auto md:min-h-[70vh] bg-surface-raised overflow-hidden">
+            <div className="relative aspect-[4/5] md:aspect-auto md:h-[75vh] bg-surface-raised overflow-hidden">
               {article.heroImage ? (
                 <img
                   src={article.heroImage}
@@ -48,9 +154,9 @@ export default function ArticlePage() {
             </div>
 
             {/* Title */}
-            <div className="flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:py-16">
+            <div className="flex flex-col justify-center px-6 md:px-10 lg:px-14 py-10 md:py-16">
               <FadeIn>
-                <h1 className="font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.08] tracking-[0.01em] text-void">
+                <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
                   {article.title}
                 </h1>
               </FadeIn>
@@ -97,14 +203,53 @@ export default function ArticlePage() {
         </FadeIn>
 
         {/* ── Article body ── */}
-        <article className="mx-auto max-w-[680px] px-6 md:px-10 py-12 md:py-20">
-          {article.body.map((paragraph, i) => (
-            <FadeIn key={i} delay={Math.min(i * 50, 300)}>
-              <p className="font-display text-[17px] md:text-[18px] leading-[1.75] text-void/85 mb-6 md:mb-8">
-                {paragraph}
-              </p>
-            </FadeIn>
-          ))}
+        <article className="py-12 md:py-20">
+          {article.content.map((block, i) => {
+            if (block.type === "text") {
+              return (
+                <FadeIn key={i} delay={Math.min(i * 30, 200)}>
+                  <p className="mx-auto max-w-[680px] px-6 md:px-10 font-display text-[17px] md:text-[18px] leading-[1.75] text-void/85 mb-6 md:mb-8">
+                    {block.text}
+                  </p>
+                </FadeIn>
+              );
+            }
+
+            if (block.type === "image") {
+              return (
+                <FadeIn key={i} delay={Math.min(i * 30, 200)}>
+                  <figure className="my-12 md:my-20 mx-auto max-w-[820px] px-6 md:px-10">
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <img
+                        src={block.src}
+                        alt={block.alt}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </div>
+                    {block.caption && (
+                      <figcaption className="mt-4 font-sans text-[12px] leading-[1.6] text-void/40">
+                        {block.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                </FadeIn>
+              );
+            }
+
+            if (block.type === "pullquote") {
+              return (
+                <FadeIn key={i} delay={Math.min(i * 30, 200)}>
+                  <blockquote className="my-12 md:my-20 mx-auto max-w-[680px] px-6 md:px-10">
+                    <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.3] tracking-[0.01em] text-void/70 italic">
+                      {block.text}
+                    </p>
+                  </blockquote>
+                </FadeIn>
+              );
+            }
+
+            return null;
+          })}
         </article>
 
         {/* ── Author ── */}
@@ -121,13 +266,13 @@ export default function ArticlePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
-              { title: "Objects with kokoro", category: "Craft" },
-              { title: "Temple mornings", category: "Travel" },
-              { title: "Everything has kokoro", category: "Philosophy" },
+              { title: "Objects with kokoro", category: "Craft", slug: "objects-with-kokoro" },
+              { title: "Temple mornings", category: "Travel", slug: "temple-mornings" },
+              { title: "Everything has kokoro", category: "Philosophy", slug: "everything-has-kokoro" },
             ].map((related) => (
               <Link
                 key={related.title}
-                href={`/journal/${related.title.toLowerCase().replace(/ /g, "-")}`}
+                href={`/journal/${related.slug}`}
                 className="group block"
               >
                 <div className="aspect-[4/5] bg-surface-raised rounded-sm overflow-hidden relative">
