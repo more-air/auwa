@@ -43,7 +43,7 @@ export function Footer() {
   return (
     <footer>
       {/* Category links */}
-      <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-20 md:py-28">
+      <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
         <div className="flex justify-center">
           <p className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-void/80">
             {categoryLinks.map((link, i) => (
@@ -66,7 +66,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div>
         <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-8 pb-12 md:pb-14 flex items-center justify-between">
-          <p className="font-sans text-[13px] tracking-[0.02em] text-void">
+          <p className="font-sans text-[14px] tracking-[0.02em] text-void">
             &copy; AUWA {new Date().getFullYear()}
           </p>
 

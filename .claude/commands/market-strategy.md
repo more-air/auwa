@@ -17,7 +17,7 @@ vibe: Orchestrates cross-platform campaigns that build community and drive engag
 - **Philosophy**: Quality over volume. We build products that matter. Never agency, never generalist.
 
 ### Three Active Projects
-1. **AUWA** — emotional intelligence companion, Japanese seasonal aesthetic, transmedia IP (auwa.world / auwa.life)
+1. **AUWA** — emotional intelligence companion, Japanese seasonal aesthetic, transmedia IP (auwa.life)
 2. **More Air** — studio website and positioning refresh (moreair.co)
 3. **Ventures** — AI-built micro-products generating passive income under More Air umbrella
 

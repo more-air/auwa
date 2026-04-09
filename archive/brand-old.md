@@ -78,4 +78,4 @@ The palette is drawn from Rieko's illustrations: deep cosmic night skies as the 
 - **Tone:** Mysterious, inviting, sparse. Reveal just enough to intrigue. Don't explain the product, the philosophy, or the framework. Let the visual atmosphere do the work.
 - **What to show:** AUWA wordmark, a single atmospheric visual (character or glow), one line of copy, email signup, maybe the tagline "A cosmic being who reveals your kokoro"
 - **What NOT to show:** Feature lists, pricing, screenshots, the word "app", Kido Airaku framework details, micro-season explanations, team bios
-- **Domain:** auwa.life (for the app). Teaser could live here or at auwa.world.
+- **Domain:** auwa.life (single domain with /app, /store, /journal, /book subpaths). auwalife.com as .com mirror.

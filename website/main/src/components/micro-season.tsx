@@ -6,11 +6,11 @@ export function MicroSeason() {
   const season = getCurrentMicroSeason();
 
   return (
-    <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-20 md:py-32">
+    <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-24 md:py-36">
       <FadeIn>
         <div className="flex flex-col items-center text-center">
           {/* Kanji — large, serif-like, full presence */}
-          <p className="text-[clamp(3rem,8vw,6.5rem)] leading-[1.15] tracking-[0.06em] text-void" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>
+          <p className="text-[clamp(3rem,8vw,6.5rem)] leading-[1] tracking-[0.06em] text-void" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>
             {season.kanji}
           </p>
 
@@ -22,7 +22,7 @@ export function MicroSeason() {
           {/* Link to article */}
           <Link
             href="/journal/the-fifth-day"
-            className="mt-4 font-sans text-[12px] tracking-[0.06em] uppercase text-void/35 hover:text-void/60 transition-colors duration-300"
+            className="mt-4 font-sans text-[13px] tracking-[0.06em] uppercase text-void/35 hover:text-void/60 transition-colors duration-300"
           >
             Japan&apos;s 72 seasons &rarr;
           </Link>

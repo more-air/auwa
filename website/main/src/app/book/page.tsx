@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 import { FadeIn } from "@/components/fade-in";
 
 export const metadata = {
-  title: "Book — AUWA",
+  title: "Book | AUWA",
   description: "Four illustrated stories about a luminous being who reveals the kokoro hidden within all things.",
 };
 
@@ -12,7 +12,7 @@ export default function BookPage() {
       <Header />
       <main className="min-h-screen">
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-5rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100dvh-5rem)]">
 
             {/* Left: copy + email */}
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
@@ -33,15 +33,15 @@ export default function BookPage() {
                   <div className="flex items-center gap-4 border-b border-void/20 pb-3 focus-within:border-void/50 transition-colors duration-300">
                     <input
                       type="email"
-                      placeholder="Your email address"
+                      placeholder="Email address"
                       required
                       className="flex-1 bg-transparent font-sans text-[14px] text-void placeholder:text-void/35 outline-none"
                     />
                     <button
                       type="submit"
-                      className="font-sans text-[13px] tracking-[0.02em] text-void hover:text-void/70 transition-colors duration-300 whitespace-nowrap"
+                      className="font-sans text-[14px] font-medium tracking-[0.02em] text-void hover:text-void/70 transition-colors duration-300 whitespace-nowrap cursor-pointer"
                     >
-                      Join the waitlist
+                      Join Waitlist
                     </button>
                   </div>
                 </form>
@@ -64,7 +64,7 @@ export default function BookPage() {
                       The Beginning
                     </p>
                     <div className="mt-3 w-6 h-px bg-cosmic-500 mx-auto" />
-                    <p className="mt-3 font-sans text-[11px] tracking-[0.08em] text-cosmic-400">
+                    <p className="mt-3 font-sans text-[12px] tracking-[0.08em] text-cosmic-400">
                       Eko Maeda
                     </p>
                   </div>

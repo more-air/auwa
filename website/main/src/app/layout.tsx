@@ -32,7 +32,7 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "AUWA — Japanese philosophical awareness applied to modern life",
+  title: "AUWA | Japanese philosophical awareness applied to modern life",
   icons: {
     icon: "/favicon.svg",
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "A Japanese lifestyle brand rooted in the philosophy that everything has kokoro. Journal, stories, craft, and a daily awareness practice.",
   metadataBase: new URL("https://auwa.life"),
   openGraph: {
-    title: "AUWA — Everything has kokoro",
+    title: "AUWA | Everything has kokoro",
     description:
       "Japanese philosophical awareness applied to modern life. Journal, stories, craft, and a daily awareness practice.",
     url: "https://auwa.life",

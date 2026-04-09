@@ -42,7 +42,7 @@ auwa.life/app               → Kokoro Mirror introduction (pre-launch: coming s
 auwa.life/store             → Store introduction (pre-launch: coming soon with craftsman preview)
 auwa.life/book              → The AUWA story universe (pre-launch: introduction + email capture)
 auwa.life/about             → Tom & Rieko, the philosophy, the origin
-auwa.life/newsletter        → Email signup (also embedded across other pages)
+auwa.life/brand             → Living style guide (logo, colours, typography, spacing, components)
 ```
 
 ### Information Architecture
@@ -87,20 +87,32 @@ The homepage should feel like opening a beautiful magazine, not landing on a pro
 - Article grid: Kinfolk-style cards, atmospheric photography, varied sizes
 - Pagination or infinite scroll (start with pagination — cleaner, more intentional)
 
-### Journal Article Page
+### Journal Article Page (Implemented)
 
-This is the most important page to get right. It's where people spend time, where SEO value lives, and where the brand voice is most fully expressed.
+The most important page. Built with a content block system designed to map cleanly to Sanity CMS portable text.
 
-**Structure:**
-- **Hero image** — Full-width, atmospheric, with gentle parallax
-- **Title** — Large Cormorant, centred or left-aligned
-- **Meta** — Date, reading time, category. Instrument Sans, small, subtle
-- **Body** — Serif body copy (Cormorant Regular or consider a dedicated body serif like Crimson Pro or EB Garamond for long-form readability). Wide column (max ~680px) with generous line-height (1.7-1.8). Pull quotes in Cormorant Light, larger, centred. Photography interspersed — full-width or inset with captions.
-- **Author block** — Small, minimal. "Words by Tom Vining" or "Words & illustration by Rieko Vining"
-- **Related articles** — 2-3 cards at the bottom
-- **Newsletter signup** — Repeated at article end
+**Layout structure (top to bottom):**
+- **Hero** — Split layout: image left (4:5 portrait on mobile, fills viewport height on desktop), title + subtitle right-aligned
+- **Meta row** — Category link, author/photographer credit (12px uppercase), social share icons (Facebook, Pinterest, X). Full-width border below.
+- **Article body** — Content blocks grouped into layout sections by a `groupIntoSections()` algorithm:
+  - **Text-only sections** — Text and pullquotes, always positioned on the right half (`md:ml-[50%]`). This alignment is consistent throughout the article.
+  - **Image-beside sections** — Image on the left (4:5 portrait, with extra right padding to make it visually smaller), text on the right in a 50/50 grid. Text blocks that follow an image are automatically grouped beside it.
+  - **Image-pair sections** — Two side-by-side images, full width, each with its own caption. Used for detail/close-up photography.
+  - **Pullquotes** — EB Garamond at clamp(1.75rem, 3.5vw, 2.75rem), full opacity.
+- **Full-width divider** — `border-void/8`
+- **Continue reading** — 3 related article cards in a grid
+- **Newsletter** — "Stay close." Dark void background, reversed white text, email subscribe form
 
-**Typography consideration for body copy:** The business plan notes the possibility of using serif for body copy (Kinfolk influence). For long-form journal articles, this is worth testing. Cormorant at body sizes (16-18px) may be too delicate — test EB Garamond or Crimson Pro as a dedicated body serif alongside Cormorant for display. Or use Instrument Sans for body and keep the Kinfolk feel through spacing, sizing, and photography treatment.
+**Content block types (maps to Sanity CMS):**
+```
+type ContentBlock =
+  | { type: "text"; text: string }
+  | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "image-pair"; images: [{ src, alt, caption? }, { src, alt, caption? }] }
+  | { type: "pullquote"; text: string }
+```
+
+The order of content blocks in the CMS determines the article layout. No manual layout selection needed — the grouping algorithm handles it automatically.
 
 ### App Page (Pre-Launch)
 
@@ -136,49 +148,101 @@ This is the most important page to get right. It's where people spend time, wher
 
 ---
 
-## 4. Design System
+## 4. Design System (Implemented)
 
-### Typography
+*The living reference for the built website. See also the brand page at auwa.life/brand for a visual style guide.*
 
-**Display/Headlines:** Cormorant Light/Regular (or chosen serif after testing — see brand.md Section 3)
-**Body copy:** To be tested. Options:
-- Instrument Sans (current sans-serif — clean, modern, safe)
-- EB Garamond or Crimson Pro (serif body — more Kinfolk, more editorial, needs testing for screen readability)
-- Cormorant Regular at 16-18px (unified serif — may be too delicate for long-form)
+### Typography (Locked)
 
-**Functional/UI:** Instrument Sans 400/500
-**Japanese text:** Noto Sans JP (or Noto Serif JP for editorial contexts)
+- **Display + Editorial:** EB Garamond (400, 500, 600, 700; normal + italic) — `font-display` in Tailwind
+- **Functional / UI:** Instrument Sans (400, 500, 600) — `font-sans` in Tailwind
+- **Japanese:** Noto Sans JP (300, 400) — `font-jp`; Noto Serif JP (400, 600) — `font-jp-serif`
+- All loaded via `next/font/google` with `display: swap`
 
-### Colour
+**Type sizing rules:**
+- 12px — uppercase metadata labels (card categories, author credits). Tracking: 0.08em
+- 13px — uppercase interactive labels (journal filters, micro-season link, image captions). Tracking: 0.06em
+- 14px — all UI text (navigation, excerpts, form inputs, buttons, copyright). Tracking varies by context
+- 18-19px — article body text (EB Garamond). Line-height: 1.85
+- 18-20px — about page prose (EB Garamond). Line-height: 1.7
+- 20-22px — card titles, pillar headings (EB Garamond). Tracking: 0.01em
+- 28-32px — section headings ("Continue reading", "Stay close", "The name"). Tracking: 0.01em
+- clamp(2.5rem, 5.5vw, 4.5rem) — page titles (h1). Tracking: 0.01em
+- clamp(1.75rem, 3.5vw, 2.75rem) — pullquotes (EB Garamond). Tracking: 0.005em
+- clamp(3rem, 8vw, 6.5rem) — micro-season kanji (Noto Serif JP). Tracking: 0.06em
 
-The cosmic OKLCH palette from brand.md. Dark-first. Light enters through photography and the glow accent.
+**Form CTA buttons** use `font-medium` (500 weight) across all pages. All other UI text is weight 400.
 
-- Background: void (oklch 0.08 0.025 250)
-- Primary text: cosmic-200 (oklch 0.87 0.012 250)
-- Secondary text: cosmic-400 (oklch 0.60 0.018 250)
-- Accent: glow (oklch 0.85 0.15 105) — sparingly, for links and hover states
-- Photography provides warmth and colour variety
+### Colour (Light Theme)
 
-### Spacing & Layout
+The website uses a pure white background with the void/cosmic palette for text. This is the Kinfolk-inspired editorial expression of the brand — the dark palette lives in the app, social, and newsletter modules.
 
-- **Max content width:** 1200px (overall), 680px (article body)
-- **Generous whitespace** — the page should breathe. Think Kinfolk, not a news site. Minimum 80px between major sections.
-- **Grid:** CSS Grid or Flexbox. Asymmetric article cards (Kinfolk-style varied sizes)
-- **Responsive breakpoints:** Mobile-first. 640px (sm), 768px (md), 1024px (lg), 1280px (xl)
+- **Page background:** Pure white — `oklch(1 0 0)` / `--color-surface`
+- **Raised surfaces:** `oklch(0.95 0.005 250)` / `--color-surface-raised`
+- **Text colour:** `--color-void` (`oklch(0.08 0.025 250)`) at opacity levels:
+  - 100% — headings, titles, active nav
+  - 80% — about page prose, footer category links
+  - 70% — nav links, hover states, founder bios
+  - 60% — subtitles, article subtitle
+  - 50% — excerpts, captions
+  - 45% — "Read the latest" arrow link
+  - 40% — metadata labels, filter buttons (inactive), social share icons
+  - 35% — input placeholder text
+- **Borders:** void at 8% (dividers), 20% (form underlines), 50% (form focus)
+- **Dark module (newsletter):** `bg-void` with white text at similar opacity levels
 
-### Motion
+### Spacing & Layout (Implemented)
 
-Subtle, ambient, never attention-seeking. Consistent with brand.md Section 9.
+**Responsive horizontal padding (page-level gutter):**
+- Mobile: 24px (`px-6`)
+- Tablet: 48px (`md:px-12`)
+- Desktop: 80px (`lg:px-20`)
+- XL: 112px (`xl:px-28`)
 
-- **Page transitions:** Gentle fade (200-300ms)
-- **Scroll reveals:** Elements fade in and gently rise (5-10px translate) as they enter viewport. Staggered timing for grid items.
-- **Photography:** Subtle parallax on hero images (optional — test performance)
-- **Hover states:** Gentle opacity shift on cards, subtle glow on links
-- **Implementation:** Framer Motion (already in the stack) or CSS transitions for simpler effects
+**Vertical section spacing (standard rhythm):**
+- Regular sections: `pb-16 md:pb-24` (64px / 96px) — the default for all modules
+- Hero top padding: `pt-12 md:pt-16` (48px / 64px) — intentionally tighter
+- Micro-season module: `py-24 md:py-36` (96px / 144px) — standalone moment, extra breathing room
+- Newsletter module: `py-28 md:py-40` (112px / 160px) — generous, dark background module
+- Footer category links: `py-16 md:py-24` (matches standard)
+- Header height: `h-16 md:h-20` (64px / 80px)
+
+**Grid gaps:**
+- Article grid (journal index): `gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16`
+- Pillar cards (home): `gap-5 md:gap-6 lg:gap-8`
+- Horizontal scroll (home): `gap-5 md:gap-6 lg:gap-8`
+- Image pairs (article): `gap-4 md:gap-6`
+- Founder bios (about): `gap-8 md:gap-16`
+
+**Content widths:**
+- Article body text: right half of viewport (`md:ml-[50%]`)
+- About page prose: `max-w-[680px]` centred
+- Newsletter form: `max-w-[400px]` centred within `max-w-[480px]` container
+- Waitlist forms: `max-w-[440px]`
+- Horizontal scroll cards: `w-[260px] md:w-[280px] lg:w-[300px]`
+
+**Image aspect ratios:**
+- Primary (cards, articles, editorial): 4:5 portrait — the standard ratio everywhere
+- Book cover: 3:4 portrait
+- Image break (about page): 2.5:1 landscape
+- Article hero (mobile): 4:5 portrait; (desktop): fills viewport height
+
+### Motion (Implemented)
+
+Uses a custom `FadeIn` client component with IntersectionObserver (not Framer Motion).
+
+- **Easing:** `cubic-bezier(0.16, 1, 0.3, 1)` — ease-out-expo
+- **FadeIn duration:** 800ms default
+- **FadeIn translateY:** 12px rise
+- **FadeIn root margin:** `"0px 0px -40px 0px"` — triggers 40px before entering viewport
+- **Stagger delays:** 60-100ms per item (grid cards, nav items)
+- **Hover transitions:** 300ms with `transition-colors duration-300`
+- **Header scroll:** Hides on scroll down, shows on scroll up (no animation library, pure React state)
+- **Mobile menu:** 500ms opacity transition with staggered nav item reveals
 
 ### Photography Treatment
 
-All photography follows brand.md Section 6: muted, warm, slight grain, gentle vignette. Create a consistent look across Tom's Japan catalogue. The Lightroom preset should be applied to all images before upload.
+All photography follows brand.md Section 6. Portrait-first (4:5) for all editorial and card imagery — no landscape images in article layouts or grids.
 
 ---
 
@@ -186,13 +250,13 @@ All photography follows brand.md Section 6: muted, warm, slight grain, gentle vi
 
 ### Stack
 
-- **Framework:** Next.js 16 (App Router, React Server Components)
-- **Styling:** Tailwind CSS 4
-- **CMS:** Sanity (headless, structured content, real-time preview, image pipeline with hotspot cropping)
+- **Framework:** Next.js 15 (App Router, React Server Components, webpack)
+- **Styling:** Tailwind CSS 4 (PostCSS plugin, OKLCH colour system via `@theme inline` in globals.css)
+- **CMS:** Sanity (headless — not yet integrated; content currently hardcoded as placeholder data)
 - **Hosting:** Vercel (automatic deployments, edge functions, image optimisation)
-- **Email:** Resend (transactional + newsletter)
+- **Email:** Resend (transactional + newsletter — not yet integrated; forms are frontend-only placeholders)
 - **Analytics:** Vercel Analytics or Plausible (privacy-respecting, no cookie banners)
-- **Fonts:** Google Fonts via next/font (Cormorant, Instrument Sans, Noto Sans JP)
+- **Fonts:** Google Fonts via next/font (EB Garamond, Instrument Sans, Noto Sans JP, Noto Serif JP)
 
 ### Sanity Content Model
 

@@ -30,7 +30,7 @@ The brand feels like: a quiet room in a Japanese temple at dusk. Dark, warm, sti
 
 ### The Wordmark
 
-The AUWA logo is the wordmark itself — the letters A-U-W-A set in Cormorant Light with wide tracking. No separate symbol, no icon, no monogram. The word is the logo.
+The AUWA logo is the wordmark itself — the letters A-U-W-A set in EB Garamond with wide tracking. No separate symbol, no icon, no monogram. The word is the logo.
 
 The wordmark works because:
 - The natural symmetry of A-U-W-A mirrors itself (the two A's as bookends, U-W as the centre)
@@ -39,16 +39,17 @@ The wordmark works because:
 - It scales cleanly from social profile to website header to printed materials
 
 **Wordmark specifications:**
-- **Typeface:** Cormorant Light (300 weight)
+- **Typeface:** EB Garamond (currently rendered as SVG on the website)
 - **Case:** All uppercase
-- **Letter-spacing:** 0.25em (established in teaser page header)
-- **Colour:** cosmic-200 (oklch 0.87 0.012 250) on dark backgrounds; void (oklch 0.08 0.025 250) on light backgrounds
+- **Letter-spacing:** 0.25em
+- **Colour:** void (oklch 0.08 0.025 250) on light backgrounds; white (inverted) on dark backgrounds
+- **Size:** 16px height on mobile, 21px on desktop (website header)
 
 **Minimum clear space:** The height of the letter "U" on all sides.
 
 **Usage:**
 - The wordmark appears in the header across all sections of auwa.life
-- Always set in Cormorant Light, never redrawn or substituted
+- Always set in EB Garamond, never redrawn or substituted
 - Never placed over busy imagery — always over solid dark or solid light backgrounds
 - Never distorted, outlined, shadowed, or animated (the orb animates; the wordmark is still)
 
@@ -70,44 +71,23 @@ If the brand grows to the point where a bespoke mark would add value (physical p
 
 ## 3. Typography
 
-### The Decision: Serif Selection
+### The Decision: EB Garamond (Locked)
 
-Cormorant is the current serif, established during the teaser page build. It's elegant and ancient-feeling, but at display sizes it can feel thin compared to brands like Kinfolk whose serif carries more weight and presence. Before locking the final typeface, test these alternatives side by side — set "AUWA" as a wordmark and "Japanese philosophy for the age of AI" as a headline in each, at desktop scale, on the void background:
+**EB Garamond** was chosen as AUWA's primary serif after testing against Cormorant, Playfair Display, and DM Serif Display. It carries real historical weight (based on Claude Garamond's original 16th-century designs), reads beautifully at both display and body sizes, and has the scholarly, deep character that suits a philosophy-forward brand. More readable than Cormorant at body sizes, more refined than Playfair at display sizes.
 
-**Google Fonts (free, already compatible with Next.js):**
+Available via Google Fonts, loaded through `next/font` with `display: swap`. Weights: 400, 500, 600, 700. Styles: normal, italic.
 
-| Font | Character | Best For | Consideration |
-|------|-----------|----------|---------------|
-| **Cormorant** (current) | Ancient, delicate, refined | Reflection text, elegant body | Can feel thin at large display sizes; needs larger sizing or heavier weight for headlines |
-| **EB Garamond** | Classic, scholarly, deep history | Wordmark, editorial text | More readable than Cormorant at body sizes; Claude Garamond's original — carries real historical weight |
-| **Playfair Display** | High contrast, editorial, confident | Headlines, wordmark | More presence than Cormorant at large sizes; Kinfolk-adjacent feel. Risk: can feel too "magazine editorial" |
-| **DM Serif Display** | Clean, impactful, modern serif | Headlines, wordmark | Strongest presence at display sizes; only comes in Regular weight |
-| **Spectral** | Screen-optimised, clear, warm | Body serif, reflections | Designed specifically for digital; clean at small sizes |
-| **Crimson Pro** | Warm, readable, versatile | Body serif, longer text | Excellent across all sizes; the most "book-like" option |
-| **Newsreader** | Contemporary editorial, slightly sharp | Headlines, editorial | Designed for digital reading; has optical sizes built in |
-| **Fraunces** | Soft, organic, slightly quirky | Display only | Variable font with "WONK" axis — can dial in personality. More playful than the others |
+**Future consideration:** If the brand reaches the point where a premium foundry font adds value (physical print, packaging), Canela (Commercial Type) or Tiempos (Klim) would be the natural upgrades — they're the typefaces AUWA's reference brands actually use. Year 2 investment at earliest.
 
-**Premium foundry fonts (if you want to invest £50-200 in a licence):**
+### Primary Serif: EB Garamond (Display + Editorial)
 
-| Font | Foundry | Why It's Worth Considering |
-|------|---------|--------------------------|
-| **Canela** | Commercial Type | The luxury brand serif. Used by Apple, Glossier, many premium brands. Warm, elegant, confident at every size. |
-| **Tiempos** | Klim Type Foundry | Used by NYT, Financial Times, Kinfolk. The serious editorial serif. If AUWA wants Kinfolk-level typographic authority, this is the direct route. |
-| **GT Sectra** | Grilli Type | Sharp, precise, slightly contemporary. Used by many design-forward brands. |
-| **Domaine** | Klim | Elegant, versatile, works at display and text sizes. |
-| **Freight Display** | GarageFonts | Warm, editorial, beautiful at large sizes. Used by many premium publishers. |
+The voice of AUWA. Used for all brand-level, emotional, and editorial text. Registered as `--font-display` / `font-display` in Tailwind.
 
-**Recommendation:** Test Cormorant, EB Garamond, Playfair Display, and DM Serif Display side by side in Figma. These four cover the spectrum from delicate (Cormorant) to confident (DM Serif Display). If none feel right, Canela or Tiempos are worth the licence cost — they're the typefaces AUWA's reference brands actually use. Whichever you choose, the principles below (hierarchy, tracking, sizing) stay the same.
-
-**Sizing note:** The current teaser headline (Cormorant Light at ~48-60px) feels a touch undersized compared to Kinfolk's confident presence. For the final brand, consider either: (a) increasing hero headline size to 72-96px desktop, or (b) stepping up to Cormorant Regular (400) weight for headlines while keeping Light (300) for the wordmark. The wordmark tracking (0.25em) is right — it's the headline sizing that needs more confidence.
-
-### Primary Serif (Display + Editorial)
-
-The voice of AUWA. Used for all brand-level, emotional, and editorial text. Currently Cormorant — may change after testing above.
-
-- **Light/300:** Wordmark, AI reflection text, quote overlays on social
-- **Regular/400:** Hero headlines, subheadlines, brand copy, about pages
+- **Regular/400:** Headlines, subheadlines, brand copy, article body, about page prose, pullquotes — the default weight for everything
 - **Medium/500:** Occasional emphasis (sparingly)
+- **SemiBold/600:** Available but rarely used
+- **Bold/700:** Available for special emphasis; not currently used on the website
+- **Italic:** Available for editorial emphasis and book cover text
 
 ### Secondary: Instrument Sans (Functional Sans-Serif)
 
@@ -123,18 +103,28 @@ Clean, modern, slightly warm. Doesn't compete with the serif — it disappears i
 
 For Japanese text (micro-season names, kanji, Rieko's Japanese copy). Light (300) and Regular (400) weights only. Consider also testing **Noto Serif JP** for editorial Japanese text (paired with whichever Latin serif you choose).
 
-### Type Hierarchy (For Reference)
+### Type Hierarchy (Implemented — auwa.life)
 
-| Element | Typeface | Weight | Size (Mobile) | Size (Desktop) | Tracking |
-|---------|----------|--------|---------------|----------------|----------|
-| Wordmark / Logo | Serif | Light | 20px | 24px | 0.25em |
-| Hero Headline | Serif | Regular | 40px | 72-96px | 0.02-0.04em |
-| Subtitle | Serif | Light | 18px | 22px | 0.04em |
-| AI Reflection Text | Serif | Regular | 18px | 22px | 0.02em |
-| Body Copy | Instrument Sans | 400 | 15px | 16px | 0 |
-| Navigation | Instrument Sans | 500 | 12px | 13px | 0.12em (uppercase) |
-| Caption / Meta | Instrument Sans | 400 | 12px | 13px | 0.02em |
-| Japanese Text | Noto Sans JP | 300 | 14px | 16px | 0 |
+The website uses a clean sizing system: 12px for metadata labels, 13px for interactive uppercase elements, 14px for all UI text, 18-19px for article body, and responsive clamp() for display sizes.
+
+| Element | Typeface | Weight | Size | Tracking |
+|---------|----------|--------|------|----------|
+| Wordmark / Logo | EB Garamond (SVG) | — | 16px mobile / 21px desktop | — |
+| Page title (h1) | EB Garamond | 400 | clamp(2.5rem, 5.5vw, 4.5rem) | 0.01em |
+| Section heading (h2) | EB Garamond | 400 | 28px / 32px | 0.01em |
+| Card title | EB Garamond | 400 | 20px / 22px | 0.01em |
+| Article body | EB Garamond | 400 | 18px / 19px | 0.005em |
+| Pullquote | EB Garamond | 400 | clamp(1.75rem, 3.5vw, 2.75rem) | 0.005em |
+| Page subtitle | EB Garamond | 400 | clamp(1.1rem, 2vw, 1.4rem) | — |
+| About page prose | EB Garamond | 400 | 18px / 20px | — |
+| Navigation | Instrument Sans | 400 | 14px | 0.06em |
+| UI text / excerpts | Instrument Sans | 400 | 14px | — |
+| Form button (CTA) | Instrument Sans | 500 | 14px | 0.02em |
+| Uppercase filter | Instrument Sans | 400 | 13px | 0.06em |
+| Uppercase metadata | Instrument Sans | 400 | 12px | 0.08em |
+| Kanji (micro-season) | Noto Serif JP | 400 | clamp(3rem, 8vw, 6.5rem) | 0.06em |
+| Image captions | Instrument Sans | 400 | 13px | — |
+| Footer copyright | Instrument Sans | 400 | 14px | 0.02em |
 
 ---
 
@@ -182,16 +172,25 @@ These are the starting points for the 5 gradient families used in the app's koko
 - **Yuragi (Unsettled):** Amber → ochre → muted bronze (shifting, restless, warm-cool tension)
 - **Nagomi (Serene):** Sage → warm olive → soft earth (grounded, open, calm)
 
-### Light Backgrounds
+### Light Theme (Website — auwa.life)
 
-For contexts requiring light backgrounds (printed materials, some store product pages, accessibility alternatives):
+The auwa.life website uses a light-mode, Kinfolk-inspired editorial aesthetic. The dark palette remains the brand's emotional core (used in the app, social content, and the newsletter module on the website), but the editorial site itself is light — maximising readability for long-form articles and letting photography breathe.
 
-- Background: cosmic-50 (oklch 0.97 0.005 250) — not pure white, slightly warm
-- Text: void or cosmic-900
-- Wordmark: void
-- Accents: emotion colours at reduced opacity
+- **Page background:** Pure white — `oklch(1 0 0)` / `--color-surface`
+- **Raised surfaces:** `oklch(0.95 0.005 250)` / `--color-surface-raised` — used for placeholder images, card backgrounds
+- **Primary text:** void (`oklch(0.08 0.025 250)`) at various opacities (100% for headings, 80% for body prose, 60% for subtitles, 50% for excerpts, 40% for metadata labels)
+- **Borders/dividers:** void at 8-20% opacity
+- **Wordmark:** void on light backgrounds
+- **Interactive hover:** void at 70% opacity (text darkens on hover from lighter state, or lightens from full opacity)
 
-The light palette is secondary. Dark-first is the brand's natural state.
+### Dark Theme (App, Social, Newsletter Module)
+
+The brand's natural state. Used for the Kokoro Mirror app, social content templates, and the "Stay close" newsletter section on the website.
+
+- **Background:** void (`oklch(0.08 0.025 250)`)
+- **Primary text:** white at various opacities
+- **Wordmark:** white (inverted)
+- **Form borders:** white at 20% opacity, 50% on focus
 
 ---
 
@@ -366,51 +365,25 @@ The four sections should feel like four rooms in the same building, not four sep
 
 ---
 
-## 11. Brand Book Workflow
+## 11. Brand Book — Living System
 
-### The Approach: Living System, Not Static Book
+### The Approach
 
-The Gritt-style Figma brand book (30+ pages of static frames) is the right deliverable for a client who needs to hand off their brand to a team of people. AUWA has two people. The brand needs to be a living system that evolves as you build, not a monument you create once and never update.
+The brand lives in three places, all staying in sync:
 
-**The brand lives in three places:**
+1. **This document** (`context/brand.md`) — The written rules. Every Claude Code session reads this and applies it. Source of truth for *decisions*.
 
-1. **This document** (`context/brand.md`) — The written rules. Every Claude Code session reads this and applies it. When you change a decision (e.g. swap Cormorant for Canela), you update one file and every future session inherits it. This is the source of truth for *decisions*.
+2. **The website brand page** (`auwa.life/brand`) — A living visual style guide built as a Next.js page within the website itself. It reads from the same CSS custom properties (`globals.css`) as the production site, so it's always up to date. Shows logo, colour palette, typography specimens, type scale table, spacing system, component examples, motion values, and design principles. Shareable by URL. No separate PDF needed — send the link.
 
-2. **Figma** — The visual reference. A single Figma file (not a 30-page deck) with these frames:
-   - **Typography specimen** — The chosen serif at key sizes (wordmark, headline, body, reflection text) on both dark and light backgrounds. Side by side with Instrument Sans.
-   - **Colour swatches** — Void/cosmic palette + 5 Yamato emotional state gradient families. OKLCH values labelled.
-   - **Wordmark lockups** — Dark bg, light bg, social icon versions (both "AUWA" and "A" options).
-   - **Social templates** — The 4 template types (quote, photography, illustration, carousel) as duplicatable frames.
-   - **Photography treatment** — 3-4 example photos with the Lightroom-style treatment applied, before/after.
-   - **Illustration integration** — 2-3 examples showing Rieko's illustrations within the social templates and on the void background.
-   - **Component library** — Buttons, input fields, cards, navigation — the Tailwind components as Figma components.
+3. **Code** (`globals.css` + `@theme inline` block) — The implementation. The OKLCH colour system, font stack, spacing, and motion variables are defined once in CSS and consumed everywhere: the website, the brand page, and eventually the app. Change a variable, everything updates.
 
-   This is ~8-12 frames, not 30+. It's a visual reference you and Rieko review together and share with future collaborators if needed. It evolves as the brand evolves — you add frames, not rewrite a book.
+**For external partners / collaborators:** Share the `/brand` URL. If they need a static file, print the page to PDF from the browser. The Figma component library (social templates, app design system) remains the visual production environment — but the website brand page is the canonical reference for brand rules.
 
-3. **Code** (`globals.css` + Tailwind config) — The implementation. The OKLCH colour system, font stack, and spacing are already defined in the teaser page's CSS. When you build the app and the other sites, this CSS is the single source of truth for *values*. Figma and code stay in sync — if you change a colour in Figma, update the CSS variable. If you change it in code, update the Figma swatch.
+### Remaining Figma Steps
 
-### Steps to Create
-
-**Step 1: Font Decision (1-2 hours, Figma)**
-Create a single Figma frame. Set "AUWA" as a wordmark and "Japanese philosophy for the age of AI" as a headline in each candidate serif (Cormorant, EB Garamond, Playfair Display, DM Serif Display — plus Canela/Tiempos if you want to test premium). Same void background. Same sizing. Same tracking. Show Rieko. Pick one. Update this document and the code.
-
-**Step 2: Template Creation (2-3 hours, Figma)**
-Build the 4 social content templates as Figma components with auto-layout. Use the chosen serif, the OKLCH colours (Figma supports OKLCH in the latest versions), and the void background. Make them duplicatable so Rieko can drop in illustrations or Tom can drop in photography and export directly. These become the production templates for all Instagram content.
-
-**Step 3: Photography Preset (30 minutes, Lightroom)**
-Take 5 Japan photos from Tom's catalogue, apply the treatment described in Section 6 (desaturate, warm, grain, vignette). Save as a Lightroom preset called "AUWA — Atmospheric." Apply to all future photography content.
-
-**Step 4: Test Grid (1 hour, Figma)**
-Lay out a 3x3 Instagram grid using the templates: mix of quote cards, photography, and illustration. Does it feel like one coherent world? If any post feels like it's from a different brand, adjust the template. This is the visual gut-check before you start posting.
-
-**Step 5: Visual Brand Reference (1 hour, Figma)**
-Arrange the typography specimen, colour swatches, wordmark lockups, and example content into a clean presentation layout. This is your "brand book" — lightweight, visual, shareable. Export as PDF if needed for partners/press.
-
-**Total time: ~6-8 hours.** Compare that to a traditional 30+ page static brand book (40-60 hours). And this version updates in 5 minutes when you change a decision.
-
-### For External Partners (Future)
-
-When you eventually need to share brand guidelines externally (craftsman partners, Fin DAC, press kit), export the Figma visual reference as a PDF and pair it with a one-page summary extracted from this document. You don't need a separate "client-facing" brand book — the visual reference IS the brand book. The written rules here give Claude Code (and you) the working detail that a PDF can't.
+- **Social content templates** — Build the 4 template types (quote, photography, illustration, carousel) as duplicatable Figma components using the locked colour system and typography
+- **Photography preset** — Lightroom "AUWA — Atmospheric" preset (desaturate, warm, grain, vignette) applied to all photography content
+- **Test grid** — 3x3 Instagram layout check before posting begins
 
 ---
 

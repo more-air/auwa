@@ -26,6 +26,9 @@ const latestArticles = [
   { title: "Awareness, not mindfulness", excerpt: "The difference between a Western concept and a Japanese worldview.", category: "Philosophy", issue: "Issue 13", slug: "awareness-not-mindfulness" },
   { title: "Temple mornings", excerpt: "On the ritual of arriving before dawn, and what the silence teaches.", category: "Travel", issue: "Issue 12", slug: "temple-mornings" },
   { title: "The fifth day", excerpt: "How Japan divides the year into moments most people never see.", category: "Seasons", issue: "Issue 11", slug: "the-fifth-day" },
+  { title: "Shigefusa", excerpt: "On waiting two years for a knife, and what arrived.", category: "Craft", issue: "Issue 10", slug: "shigefusa-knife" },
+  { title: "The weight of a bowl", excerpt: "What you learn about attention from holding something made by hand.", category: "Philosophy", issue: "Issue 09", slug: "the-weight-of-a-bowl" },
+  { title: "Kokoro in the kitchen", excerpt: "The objects we use every day carry more than we think.", category: "Craft", issue: "Issue 08", slug: "kokoro-in-the-kitchen" },
 ];
 
 const secondFeature = {
@@ -48,7 +51,7 @@ export default function Home() {
       <main>
 
         {/* ── Hero headline ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-28 md:pt-36 pb-10 md:pb-16">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-10 md:pb-16">
           <FadeIn>
             <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[680px]">
               Everything has<br />Kokoro.
@@ -57,7 +60,7 @@ export default function Home() {
           <FadeIn delay={150}>
             <Link
               href="/journal/everything-has-kokoro"
-              className="inline-block mt-6 md:mt-8 font-sans text-[13px] tracking-[0.04em] text-void/45 hover:text-void/70 transition-colors duration-300"
+              className="inline-block mt-6 md:mt-8 font-sans text-[14px] tracking-[0.04em] text-void/45 hover:text-void/70 transition-colors duration-300"
             >
               Read the latest &rarr;
             </Link>
@@ -91,7 +94,7 @@ export default function Home() {
         </section>
 
         {/* ── Three pillars ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-28">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
               <FadeIn key={pillar.label} delay={i * 80}>
@@ -111,7 +114,7 @@ export default function Home() {
                     <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.01em] text-void">
                       {pillar.label}
                     </h3>
-                    <p className="mt-1 font-sans text-[13px] tracking-[0.02em] text-void/50 group-hover:text-void/70 transition-colors duration-300">
+                    <p className="mt-1 font-sans text-[14px] tracking-[0.02em] text-void/50 group-hover:text-void/70 transition-colors duration-300">
                       Explore
                     </p>
                   </div>
@@ -122,7 +125,7 @@ export default function Home() {
         </section>
 
         {/* ── Latest articles (horizontal scroll) ── */}
-        <section className="py-12 md:py-20">
+        <section className="pb-16 md:pb-24">
           <div className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
             {latestArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 60} className="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]">
@@ -132,14 +135,14 @@ export default function Home() {
                   </div>
                   <div className="mt-4">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="font-sans text-[11px] tracking-[0.08em] uppercase text-void/40">
-                        {article.category}, {article.issue}
+                      <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
+                        {article.category}
                       </span>
                     </div>
                     <h3 className="font-display text-[18px] md:text-[20px] leading-[1.25] tracking-[0.01em] text-void">
                       {article.title}
                     </h3>
-                    <p className="mt-1.5 font-sans text-[13px] leading-[1.5] text-void/55 line-clamp-2">
+                    <p className="mt-1.5 font-sans text-[14px] leading-[1.5] text-void/55 line-clamp-2">
                       {article.excerpt}
                     </p>
                   </div>
@@ -150,7 +153,7 @@ export default function Home() {
         </section>
 
         {/* ── Second feature image ── */}
-        <section className="pb-12 md:pb-20">
+        <section className="pb-16 md:pb-24">
           <FadeIn>
             <Link href={`/journal/${secondFeature.slug}`} className="group block">
               <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
@@ -178,7 +181,7 @@ export default function Home() {
         <MicroSeason />
 
         {/* ── Two-up articles ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-28">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
             {twoUpArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 100}>
@@ -198,7 +201,7 @@ export default function Home() {
                       <h3 className="font-display text-[22px] md:text-[26px] leading-[1.2] text-white">
                         {article.title}
                       </h3>
-                      <p className="mt-2 font-sans text-[13px] text-white/70 group-hover:text-white/90 transition-colors duration-300">
+                      <p className="mt-2 font-sans text-[14px] text-white/70 group-hover:text-white/90 transition-colors duration-300">
                         See more
                       </p>
                     </div>

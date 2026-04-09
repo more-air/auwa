@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/fade-in";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Journal — AUWA",
+  title: "Journal | AUWA",
   description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
 };
 
@@ -29,7 +29,7 @@ export default function JournalPage() {
       <main>
 
         {/* Title + filters */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-28 md:pt-36 pb-8 md:pb-12">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-8 md:pb-12">
           <FadeIn>
             <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[0.01em] text-void">
               Journal
@@ -40,7 +40,7 @@ export default function JournalPage() {
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  className={`font-sans text-[12px] tracking-[0.06em] uppercase transition-colors duration-300 ${
+                  className={`font-sans text-[13px] tracking-[0.06em] uppercase transition-colors duration-300 cursor-pointer ${
                     cat === "All" ? "text-void" : "text-void/40 hover:text-void"
                   }`}
                 >
@@ -52,8 +52,8 @@ export default function JournalPage() {
         </section>
 
         {/* Article grid */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
             {articles.map((article, i) => (
               <FadeIn
                 key={article.slug}
@@ -64,13 +64,13 @@ export default function JournalPage() {
                     <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />
                   </div>
                   <div className="mt-4">
-                    <span className="font-sans text-[11px] tracking-[0.08em] uppercase text-void/40">
+                    <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
                       {article.category}
                     </span>
                     <h2 className="mt-1.5 font-display text-[20px] md:text-[22px] leading-[1.2] tracking-[0.01em] text-void group-hover:text-void/70 transition-colors duration-300">
                       {article.title}
                     </h2>
-                    <p className="mt-1.5 font-sans text-[13px] leading-[1.5] text-void/50 line-clamp-2">
+                    <p className="mt-1.5 font-sans text-[14px] leading-[1.5] text-void/50 line-clamp-2">
                       {article.excerpt}
                     </p>
                   </div>

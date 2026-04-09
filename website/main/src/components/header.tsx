@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const navItems = [
   { label: "Journal", href: "/journal" },
@@ -15,40 +15,42 @@ const navItems = [
 export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Track scroll position
+  // Hide on scroll down, show on scroll up
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    onScroll(); // check initial position
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > lastScrollY.current && y > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter] duration-500 ease-out ${
-          scrolled
-            ? "bg-surface/90 backdrop-blur-md"
-            : "bg-transparent backdrop-blur-none"
+        className={`sticky top-0 z-50 bg-surface transition-transform duration-300 ease-out ${
+          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
       >
         <div className="px-6 md:px-12 lg:px-20 xl:px-28">
@@ -61,13 +63,12 @@ export function Header() {
               />
             </Link>
 
-            {/* Desktop nav */}
             <ul className="hidden md:flex items-center gap-8 lg:gap-10">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`font-sans text-[13px] tracking-[0.06em] transition-opacity duration-300 ${
+                    className={`font-sans text-[14px] tracking-[0.06em] transition-opacity duration-300 ${
                       pathname === item.href
                         ? "text-void opacity-100"
                         : "text-void/70 hover:opacity-100"
@@ -79,35 +80,15 @@ export function Header() {
               ))}
             </ul>
 
-            {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 -mr-2 relative z-[60]"
+              className="md:hidden p-2 -mr-2 relative z-[60] cursor-pointer"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               onClick={() => setMenuOpen(!menuOpen)}
             >
               <div className="w-[20px] h-[14px] relative">
-                {/* Top line */}
-                <span
-                  className={`absolute left-0 w-full h-[1.2px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    menuOpen
-                      ? "top-[6.5px] rotate-45"
-                      : "top-0 rotate-0"
-                  }`}
-                />
-                {/* Middle line */}
-                <span
-                  className={`absolute left-0 top-[6.5px] w-full h-[1.2px] bg-current transition-opacity duration-200 ${
-                    menuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                {/* Bottom line */}
-                <span
-                  className={`absolute left-0 w-full h-[1.2px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    menuOpen
-                      ? "top-[6.5px] -rotate-45"
-                      : "top-[13px] rotate-0"
-                  }`}
-                />
+                <span className={`absolute left-0 w-full h-[1.2px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "top-[6.5px] rotate-45" : "top-0 rotate-0"}`} />
+                <span className={`absolute left-0 top-[6.5px] w-full h-[1.2px] bg-current transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+                <span className={`absolute left-0 w-full h-[1.2px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "top-[6.5px] -rotate-45" : "top-[13px] rotate-0"}`} />
               </div>
             </button>
           </nav>
@@ -117,9 +98,7 @@ export function Header() {
       {/* Mobile menu overlay */}
       <div
         className={`fixed inset-0 z-40 bg-surface transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
-          menuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col justify-center h-full px-6">
@@ -128,22 +107,12 @@ export function Header() {
               {navItems.map((item, i) => (
                 <li
                   key={item.href}
-                  className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    menuOpen
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-4"
-                  }`}
-                  style={{
-                    transitionDelay: menuOpen ? `${100 + i * 60}ms` : "0ms",
-                  }}
+                  className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                  style={{ transitionDelay: menuOpen ? `${100 + i * 60}ms` : "0ms" }}
                 >
                   <Link
                     href={item.href}
-                    className={`block font-display text-[2.5rem] leading-[1.3] tracking-[0.01em] transition-colors duration-300 ${
-                      pathname === item.href
-                        ? "text-void"
-                        : "text-void/50 hover:text-void"
-                    }`}
+                    className={`block font-display text-[2.5rem] leading-[1.3] tracking-[0.01em] transition-colors duration-300 ${pathname === item.href ? "text-void" : "text-void/50 hover:text-void"}`}
                     onClick={() => setMenuOpen(false)}
                   >
                     {item.label}
@@ -153,51 +122,18 @@ export function Header() {
             </ul>
           </nav>
 
-          {/* Footer links in menu */}
           <div
-            className={`mt-16 flex gap-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              menuOpen
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-            style={{
-              transitionDelay: menuOpen ? `${100 + navItems.length * 60 + 60}ms` : "0ms",
-            }}
+            className={`mt-16 flex gap-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            style={{ transitionDelay: menuOpen ? `${100 + navItems.length * 60 + 60}ms` : "0ms" }}
           >
-            <a
-              href="https://instagram.com/auwa.life"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-void hover:text-void/60 transition-colors duration-300"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-              </svg>
+            <a href="https://instagram.com/auwa.life" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-void hover:text-void/60 transition-colors duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
             </a>
-            <a
-              href="https://x.com/auwa_life"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X"
-              className="text-void hover:text-void/60 transition-colors duration-300"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
+            <a href="https://x.com/auwa_life" target="_blank" rel="noopener noreferrer" aria-label="X" className="text-void hover:text-void/60 transition-colors duration-300">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
             </a>
-            <a
-              href="https://linkedin.com/company/auwa"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-void hover:text-void/60 transition-colors duration-300"
-            >
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
+            <a href="https://linkedin.com/company/auwa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-void hover:text-void/60 transition-colors duration-300">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
             </a>
           </div>
         </div>

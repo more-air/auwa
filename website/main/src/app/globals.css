@@ -15,7 +15,7 @@
   --color-cosmic-50: oklch(0.97 0.005 250);
 
   /* Light theme base */
-  --color-surface: oklch(0.98 0.003 250);
+  --color-surface: oklch(1 0 0);
   --color-surface-raised: oklch(0.95 0.005 250);
 
   /* Accents */
