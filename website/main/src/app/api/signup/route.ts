@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 
-const SOURCE_MAP: Record<string, string> = {
-  "app-waitlist": "app_waitlist",
-  "store-waitlist": "store_waitlist",
-  "book-waitlist": "book_waitlist",
-  "newsletter": "newsletter",
+// Segment IDs from Resend dashboard
+const SEGMENT_MAP: Record<string, string> = {
+  "app-waitlist": "1924598e-56f8-478e-a0c9-cd896e612953",
+  "store-waitlist": "53ca6dff-01c3-4728-838a-5bac584294a1",
+  "book-waitlist": "117496ae-3d14-46b5-b17c-d95a97f0ab35",
 };
 
 export async function POST(request: Request) {
@@ -16,25 +16,23 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const audienceId = process.env.RESEND_AUDIENCE_ID;
 
-    if (!apiKey || !audienceId) {
-      console.error("Missing RESEND_API_KEY or RESEND_AUDIENCE_ID");
+    if (!apiKey) {
+      console.error("Missing RESEND_API_KEY");
       return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
-
-    const propertyKey = SOURCE_MAP[source] || "newsletter";
 
     const { Resend } = await import("resend");
     const resend = new Resend(apiKey);
 
+    // Build segments array: always include the waitlist segment if applicable
+    const segmentId = SEGMENT_MAP[source];
+    const segments = segmentId ? [{ id: segmentId }] : [];
+
     const { data, error } = await resend.contacts.create({
       email,
-      audienceId,
       unsubscribed: false,
-      properties: {
-        [propertyKey]: "true",
-      },
+      segments,
     });
 
     if (error) {
