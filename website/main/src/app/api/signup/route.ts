@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
-const VALID_SOURCES = ["app-waitlist", "store-waitlist", "book-waitlist", "newsletter"];
+const SOURCE_MAP: Record<string, string> = {
+  "app-waitlist": "app_waitlist",
+  "store-waitlist": "store_waitlist",
+  "book-waitlist": "book_waitlist",
+  "newsletter": "newsletter",
+};
 
 export async function POST(request: Request) {
   try {
@@ -18,18 +23,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
-    const validSource = VALID_SOURCES.includes(source) ? source : "newsletter";
+    const propertyKey = SOURCE_MAP[source] || "newsletter";
 
     const { Resend } = await import("resend");
     const resend = new Resend(apiKey);
 
-    // Store source in firstName for filtering in Resend dashboard.
-    // Move to properties or segments once configured in Resend.
     const { data, error } = await resend.contacts.create({
       email,
       audienceId,
       unsubscribed: false,
-      firstName: validSource,
+      properties: {
+        [propertyKey]: "true",
+      },
     });
 
     if (error) {
