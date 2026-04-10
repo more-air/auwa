@@ -15,9 +15,9 @@ const featuredArticle = {
 };
 
 const pillars = [
-  { label: "Stories", description: "The illustrated universe", href: "/book", image: null as string | null },
-  { label: "Craft", description: "Objects with kokoro", href: "/store", image: null as string | null },
-  { label: "Practice", description: "A daily awareness ritual", href: "/app", image: null as string | null },
+  { label: "Book", description: "The illustrated universe", href: "/book", image: "/pillars/book.jpg" },
+  { label: "Store", description: "Objects with kokoro", href: "/store", image: "/pillars/store.jpg" },
+  { label: "App", description: "A daily awareness ritual", href: "/app", image: "/pillars/app.jpg" },
 ];
 
 const latestArticles: { title: string; excerpt: string; category: string; issue: string; slug: string; image?: string }[] = [
@@ -113,14 +113,12 @@ export default function Home() {
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
                     )}
-                  </div>
-                  <div className="mt-4 md:mt-5">
-                    <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.01em] text-void">
-                      {pillar.label}
-                    </h3>
-                    <p className="mt-1 font-sans text-[14px] tracking-[0.02em] text-void/50 group-hover:text-void/70 transition-colors duration-300">
-                      Explore
-                    </p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4 md:p-6">
+                      <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.01em] text-white">
+                        {pillar.label}
+                      </h3>
+                    </div>
                   </div>
                 </Link>
               </FadeIn>

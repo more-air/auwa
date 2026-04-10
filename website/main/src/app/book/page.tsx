@@ -10,9 +10,9 @@ export default function BookPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main>
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100dvh-5rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100dvh-5rem)]">
 
             {/* Left: copy + email */}
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
@@ -49,28 +49,13 @@ export default function BookPage() {
             </div>
 
             {/* Right: book cover */}
-            <div className="relative bg-surface-raised flex items-center justify-center p-8 md:p-12 lg:p-20">
-              <FadeIn delay={200}>
-                <div className="relative w-full max-w-[420px] aspect-[3/4] bg-void rounded-sm shadow-2xl overflow-hidden flex items-center justify-center">
-                  {/* Placeholder book cover — replace with actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-cosmic-800 to-void" />
-                  <div className="relative text-center px-8">
-                    <img
-                      src="/auwa-logo.svg"
-                      alt="AUWA"
-                      className="h-[28px] md:h-[36px] w-auto mx-auto invert opacity-85"
-                    />
-                    <p className="mt-3 font-display text-[16px] italic text-cosmic-300">
-                      The Beginning
-                    </p>
-                    <div className="mt-3 w-6 h-px bg-cosmic-500 mx-auto" />
-                    <p className="mt-3 font-sans text-[12px] tracking-[0.08em] text-cosmic-400">
-                      Eko Maeda
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            </div>
+            <FadeIn delay={200} className="relative overflow-hidden">
+              <img
+                src="/pillars/book.jpg"
+                alt="AUWA: The Beginning — illustrated book on a wooden table"
+                className="w-full h-full object-cover md:absolute md:inset-0"
+              />
+            </FadeIn>
 
           </div>
         </div>

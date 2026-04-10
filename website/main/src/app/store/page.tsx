@@ -10,9 +10,9 @@ export default function StorePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main>
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100dvh-5rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100dvh-5rem)]">
 
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
               <FadeIn>
@@ -45,11 +45,13 @@ export default function StorePage() {
               </FadeIn>
             </div>
 
-            <div className="relative bg-surface-raised flex items-center justify-center p-12 md:p-16 lg:p-20">
-              <FadeIn delay={200}>
-                <div className="aspect-square w-full max-w-[400px] bg-gradient-to-br from-cosmic-100 to-surface-raised rounded-sm" />
-              </FadeIn>
-            </div>
+            <FadeIn delay={200} className="relative overflow-hidden">
+              <img
+                src="/pillars/store.jpg"
+                alt="Japanese ceramics and wooden bowl in afternoon light"
+                className="w-full h-full object-cover md:absolute md:inset-0"
+              />
+            </FadeIn>
 
           </div>
         </div>

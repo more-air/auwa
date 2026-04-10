@@ -10,9 +10,9 @@ export default function AppPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main>
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100dvh-5rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100dvh-5rem)]">
 
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
               <FadeIn>
@@ -45,17 +45,13 @@ export default function AppPage() {
               </FadeIn>
             </div>
 
-            <div className="relative bg-void flex items-center justify-center p-12 md:p-16 lg:p-20">
-              <FadeIn delay={200}>
-                {/* Dark panel — the app lives in darkness */}
-                <div
-                  className="w-40 h-40 rounded-full animate-pulse"
-                  style={{
-                    background: "radial-gradient(circle, oklch(0.85 0.15 105 / 0.3), oklch(0.25 0.025 250 / 0.2), transparent)",
-                  }}
-                />
-              </FadeIn>
-            </div>
+            <FadeIn delay={200} className="relative overflow-hidden">
+              <img
+                src="/pillars/app.jpg"
+                alt="AUWA Kokoro Mirror app on a phone"
+                className="w-full h-full object-cover md:absolute md:inset-0"
+              />
+            </FadeIn>
 
           </div>
         </div>

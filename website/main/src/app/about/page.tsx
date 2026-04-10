@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import Link from "next/link";
 
 export const metadata = {
   title: "About | AUWA",
@@ -41,13 +42,34 @@ export default function AboutPage() {
           </FadeIn>
         </section>
 
-        {/* Image break */}
+        {/* Four pillars */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <FadeIn>
-            <div className="aspect-[2.5/1] bg-surface-raised rounded-sm overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100 to-surface-raised" />
-            </div>
-          </FadeIn>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+            {[
+              { label: "Book", href: "/book", image: "/pillars/book.jpg" },
+              { label: "Journal", href: "/journal", image: "/journal/washi/washi-hero.jpg" },
+              { label: "App", href: "/app", image: "/pillars/app.jpg" },
+              { label: "Store", href: "/store", image: "/pillars/store.jpg" },
+            ].map((pillar, i) => (
+              <FadeIn key={pillar.label} delay={i * 80}>
+                <Link href={pillar.href} className="group block">
+                  <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
+                    <img
+                      src={pillar.image}
+                      alt={pillar.label}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4 md:p-6">
+                      <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.01em] text-white">
+                        {pillar.label}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
+          </div>
         </section>
 
         {/* The name */}
