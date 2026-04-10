@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { FadeIn } from "@/components/fade-in";
+import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
   title: "Store | AUWA",
@@ -12,7 +13,7 @@ export default function StorePage() {
       <Header />
       <main>
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100dvh-5rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
 
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
               <FadeIn>
@@ -26,22 +27,9 @@ export default function StorePage() {
                 </p>
               </FadeIn>
               <FadeIn delay={300}>
-                <form className="mt-12 md:mt-16 max-w-[440px]">
-                  <div className="flex items-center gap-4 border-b border-void/20 pb-3 focus-within:border-void/50 transition-colors duration-300">
-                    <input
-                      type="email"
-                      placeholder="Email address"
-                      required
-                      className="flex-1 bg-transparent font-sans text-[14px] text-void placeholder:text-void/35 outline-none"
-                    />
-                    <button
-                      type="submit"
-                      className="font-sans text-[14px] font-medium tracking-[0.02em] text-void hover:text-void/70 transition-colors duration-300 whitespace-nowrap cursor-pointer"
-                    >
-                      Join Waitlist
-                    </button>
-                  </div>
-                </form>
+                <div className="mt-12 md:mt-16">
+                  <SignupForm source="store-waitlist" />
+                </div>
               </FadeIn>
             </div>
 
@@ -49,7 +37,7 @@ export default function StorePage() {
               <img
                 src="/pillars/store.jpg"
                 alt="Japanese ceramics and wooden bowl in afternoon light"
-                className="w-full h-full object-cover md:absolute md:inset-0"
+                className="w-full aspect-[4/5] object-cover md:aspect-auto md:absolute md:inset-0 md:h-full"
               />
             </FadeIn>
 

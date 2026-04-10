@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import { SignupForm } from "@/components/signup-form";
 import Link from "next/link";
 
 /* ─── Article data (will come from Sanity CMS) ─── */
@@ -9,7 +10,8 @@ type ContentBlock =
   | { type: "text"; text: string }
   | { type: "image"; src: string; alt: string; caption?: string }
   | { type: "image-pair"; images: [{ src: string; alt: string; caption?: string }, { src: string; alt: string; caption?: string }] }
-  | { type: "pullquote"; text: string };
+  | { type: "pullquote"; text: string }
+  | { type: "cta"; text: string; href: string; label: string };
 
 const articles: Record<
   string,
@@ -752,6 +754,103 @@ const articles: Record<
       },
     ],
   },
+  "the-beginning": {
+    title: "The Beginning",
+    subtitle: "On the story that took ten years to find its form.",
+    category: "Philosophy",
+    issue: "Issue 11",
+    author: "Rieko Vining",
+    photographer: "Rieko Vining",
+    publishedAt: "2026-04-10",
+    heroImage: "/journal/auwa-book/auwa-book-hero.jpg",
+    content: [
+      {
+        type: "text",
+        text: "I drew the character before I knew what it was. A small, glowing shape with two dark eyes, sitting in the middle of a blank page in a sketchbook I kept by the sofa in our London flat. It did not look like anything I had drawn before. It looked like something that had been waiting for me to find it.",
+      },
+      {
+        type: "text",
+        text: "That was ten years ago.",
+      },
+      {
+        type: "text",
+        text: "I kept drawing it. Every few days, sometimes every day, the same figure appearing in different settings: floating above a forest, standing beside a flower, surrounded by tiny creatures in the dark. I did not plan these scenes. They arrived, fully formed, the way certain dreams do. Tom would ask me what the character was, what it wanted, where it came from. I could not answer in words. I could only show him the next drawing.",
+      },
+      {
+        type: "image",
+        src: "/journal/auwa-book/auwa-book-canvas.jpg",
+        alt: "Rieko Vining\u2019s original acrylic painting of AUWA on gold canvas, propped on a wooden desk beside a plant in a blue and white ceramic pot",
+        caption: "The original. Acrylic on gold canvas, painted years before the book took shape.",
+      },
+      {
+        type: "text",
+        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Four stories. Each one following this being of light as it encounters a different part of the natural world and reveals the kokoro within it. Kokoro is the Japanese word for heart, soul, and spirit. It is one word holding three ideas that English keeps separate.",
+      },
+      {
+        type: "text",
+        text: "In the first story, AUWA: The Beginning, the stars of WAWA send their light toward a small blue planet that has been waiting quietly for a very long time. Their light merges into a single glowing being. They name it AUWA. And with a heart full of joy, AUWA sets off toward Earth.",
+      },
+      {
+        type: "text",
+        text: "AUWA enters the atmosphere and discovers a sky painted in colours that do not exist back home. Below lies a deep, quiet forest. Most of its life has long since faded. But at the foot of an old tree, one small blue flower is still here. AUWA reaches out with a gentle light, and from within the flower, something glows softly. Her kokoro. Her soul.",
+      },
+      {
+        type: "pullquote",
+        text: "Every living thing and every object carries a kokoro. You cannot see it. But when AUWA\u2019s gentle light touches it, a kokoro appears.",
+      },
+      {
+        type: "text",
+        text: "Her name is Bluu. She remembers a time when the forest hummed with life, when friends bloomed in every direction. That time has passed. But Bluu is still here. AUWA closes both eyes, holds Bluu\u2019s happiest memory close, and gently lets it go. The forest blossoms with blue flowers, all around, all at once. Bluu\u2019s kokoro sparkles and returns to her flower.",
+      },
+      {
+        type: "image-pair",
+        images: [
+          { src: "/journal/auwa-book/auwa-book-sketches.jpg", alt: "Pencil sketches of AUWA character scenes laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case", caption: "The first sketches. Pencil on paper, working out how AUWA moves through the forest." },
+          { src: "/journal/auwa-book/auwa-book-procreate.jpg", alt: "Rieko Vining drawing AUWA in Procreate on an iPad Pro with Apple Pencil, her original gold canvas painting of the character visible on the desk behind", caption: "From paper to Procreate. The original canvas painting watches over its digital self." },
+        ],
+      },
+      {
+        type: "text",
+        text: "I grew up inside the philosophy that holds this story together. <a href=\"/journal/yaoyorozu-no-kami\">Yaoyorozu no Kami</a>, the understanding that spirits inhabit all things. Not only mountains and rivers and ancient trees, but teacups and stones and the worn handle of a kitchen knife. My grandmother did not teach me this as a lesson. She simply lived as though it were true, because in Japan it is true. You grow up greeting the things around you. You grow up understanding that the world is not made of objects. It is made of presences.",
+      },
+      {
+        type: "text",
+        text: "When people ask me what AUWA is about, I say: it is about seeing what is already there. The kokoro in a flower. The connection between creatures who have never met. The way a forest can fall quiet and still hold everything it ever was inside it. These are not ideas I invented. They are things I have always known. The book gave me a way to show them to people who did not grow up the way I did.",
+      },
+      {
+        type: "text",
+        text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. It looks like a children\u2019s book. That is the point. Adults build defences around ideas about the soul. They want evidence, argument, logic. A picture book walks straight past all of that. Charlie Mackesy understood this. Miyazaki has understood it for decades. Simplicity is not a limitation. It is the way in.",
+      },
+      {
+        type: "image",
+        src: "/journal/auwa-book/auwa-book-cosmic.jpg",
+        alt: "AUWA, a small luminous being with two dark eyes, glowing with soft rainbow light against a deep cosmic background of teal, purple, and gold",
+        caption: "AUWA steps back into the night sky. The adventure was far from over.",
+      },
+      {
+        type: "text",
+        text: "Deeper in the forest, AUWA discovers the microbes: tiny creatures living in the soil who know everything AUWA has done. They are connected to every root, every creature, every living thing. They begin to sing. \u201CI-Me, You-Me, He-Me, She-Me. We connect, we connect, we connect and become one.\u201D I wrote that song for my daughter. I wanted her to understand, before she had the words for it, that nothing in this world is alone.",
+      },
+      {
+        type: "text",
+        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. The original AUWA was acrylic on gold canvas. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed. More recently, AI tools helped me refine and polish the vision for final production. But the hand that drew the character ten years ago is the same hand that draws it now. The technology is the printmaker to my artist, following the old ukiyo-e tradition where the vision belongs to one person and the production is a partnership.",
+      },
+      {
+        type: "text",
+        text: "There are four stories in total. The second takes AUWA to the ocean. The third to the mountains. The fourth, back to the stars. Together they form a cycle built from one quiet idea: that nothing is without soul, and awareness is the act of seeing it.",
+      },
+      {
+        type: "text",
+        text: "AUWA listened until the last note faded. Then, with a warm heart, stepped back into the night sky. The forest glowed below. The adventure was far from over.",
+      },
+      {
+        type: "cta" as const,
+        text: "AUWA: The Beginning will be published later this year. If you\u2019d like to know when it arrives, sign up below and we\u2019ll write to you once.",
+        href: "/book",
+        label: "Sign up",
+      },
+    ],
+  },
   "yaoyorozu-no-kami": {
     title: "Yaoyorozu no Kami",
     subtitle: "On the spirits that live in everything, and why you already know they\u2019re there.",
@@ -889,11 +988,16 @@ function groupIntoSections(content: ContentBlock[]): Section[] {
 /* ─── Shared text/pullquote rendering ─── */
 function renderTextBlock(block: ContentBlock, i: number) {
   if (block.type === "text") {
+    const hasHtml = /<[a-z][\s\S]*>/i.test(block.text);
     return (
       <FadeIn key={i} delay={Math.min(i * 30, 200)}>
-        <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void mb-8 md:mb-10">
-          {block.text}
-        </p>
+        {hasHtml ? (
+          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void mb-8 md:mb-10 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-void/30 hover:[&_a]:decoration-void/60 [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: block.text }} />
+        ) : (
+          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void mb-8 md:mb-10">
+            {block.text}
+          </p>
+        )}
       </FadeIn>
     );
   }
@@ -905,6 +1009,23 @@ function renderTextBlock(block: ContentBlock, i: number) {
             &ldquo;{block.text}&rdquo;
           </p>
         </blockquote>
+      </FadeIn>
+    );
+  }
+  if (block.type === "cta") {
+    return (
+      <FadeIn key={i} delay={Math.min(i * 30, 200)}>
+        <div className="mt-12 md:mt-16 pt-10 md:pt-12 border-t border-void/10">
+          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void/55 mb-8">
+            {block.text}
+          </p>
+          <Link
+            href={block.href}
+            className="inline-block font-sans text-[13px] tracking-[0.06em] uppercase text-void/50 border border-void/15 px-8 py-3.5 hover:text-void hover:border-void/40 transition-all duration-300"
+          >
+            {block.label}
+          </Link>
+        </div>
       </FadeIn>
     );
   }
@@ -1109,22 +1230,9 @@ export default async function ArticlePage({
             <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-white">
               Stay close.
             </h2>
-            <form className="mt-10 max-w-[400px] mx-auto">
-              <div className="flex items-center gap-4 border-b border-white/20 pb-3 focus-within:border-white/50 transition-colors duration-300">
-                <input
-                  type="email"
-                  placeholder="Email address"
-                  required
-                  className="flex-1 bg-transparent font-sans text-[14px] text-white placeholder:text-white/35 outline-none"
-                />
-                <button
-                  type="submit"
-                  className="font-sans text-[14px] font-medium tracking-[0.02em] text-white/70 hover:text-white transition-colors duration-300 cursor-pointer"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
+            <div className="mt-10 max-w-[400px] mx-auto">
+              <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" />
+            </div>
           </div>
         </section>
 

@@ -7,11 +7,11 @@ import Link from "next/link";
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
 const featuredArticle = {
-  title: "Shigefusa",
-  subtitle: "On waiting two years for a knife, and what arrived.",
-  slug: "shigefusa-knife",
-  category: "Craft",
-  image: "/journal/shigefusa/shigefusa-blade.jpg",
+  title: "The Beginning",
+  subtitle: "On the story that took ten years to find its form.",
+  slug: "the-beginning",
+  category: "Philosophy",
+  image: "/journal/auwa-book/auwa-book-hero.jpg",
 };
 
 const pillars = [
@@ -21,6 +21,7 @@ const pillars = [
 ];
 
 const latestArticles: { title: string; excerpt: string; category: string; issue: string; slug: string; image?: string }[] = [
+  { title: "The Beginning", excerpt: "On the story that took ten years to find its form.", category: "Philosophy", issue: "Issue 11", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
   { title: "Yaoyorozu no Kami", excerpt: "On the spirits that live in everything, and why you already know they\u2019re there.", category: "Philosophy", issue: "Issue 10", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "On the night an entire village tried to burn down a shrine.", category: "Seasons", issue: "Issue 09", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
   { title: "Shigefusa", excerpt: "On waiting two years for a knife, and what arrived.", category: "Craft", issue: "Issue 08", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },

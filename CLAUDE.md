@@ -179,6 +179,26 @@ Previous context summaries archived in `context/archive/`.
 
 ---
 
+## DEPLOYMENT
+
+The AUWA website lives at `website/main/` and deploys to the Vercel project "main" (https://main-teal-iota-36.vercel.app/).
+
+**Git push to `origin main` does NOT auto-deploy to the correct Vercel project.** Multiple Vercel projects are connected to this repo, so use the Vercel CLI instead.
+
+**To deploy:**
+```bash
+cd /Users/admin/Github/auwa/website/main && export PATH="/usr/local/bin:$PATH" && npx vercel --prod --yes
+```
+
+This deploys from the `website/main/` directory using the `.vercel/project.json` config (project ID: `prj_doT3hBKj6wDaSBXMFmkv24Lbp23V`).
+
+**Full deploy workflow:**
+1. Commit and push changes to git (so code is saved)
+2. Run the Vercel CLI deploy command above
+3. Confirm the deployment URL in the output
+
+---
+
 ## PDF GENERATION
 
 **IMPORTANT: Puppeteer (used by md-to-pdf) hangs when multiple instances run concurrently. Always generate PDFs one at a time, in the foreground, never in background mode.**
