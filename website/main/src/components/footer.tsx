@@ -42,61 +42,57 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer>
-      {/* Stay close newsletter */}
-      <div className="bg-void py-28 md:py-40">
-        <div className="max-w-[480px] mx-auto text-center px-6">
-          <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-white">
-            Stay close.
-          </h2>
-          <div className="mt-10 max-w-[400px] mx-auto">
-            <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" successMessage="Something quiet is on its way." className="max-w-[400px]" />
+    <footer className="bg-void flex flex-col min-h-[520px] md:min-h-[480px]">
+      {/* Main footer content — two columns */}
+      <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-20">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-16 md:gap-16">
+          {/* Left — signup */}
+          <div className="max-w-[440px]">
+            <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-white">
+              Stay close.
+            </h2>
+            <div className="mt-8">
+              <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" successMessage="Something quiet is on its way." />
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Pillar links */}
-      <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
-        <div className="flex justify-center">
-          <p className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-void/80">
-            {pillarLinks.map((link, i) => (
-              <span key={link.label}>
-                <Link
-                  href={link.href}
-                  className="hover:text-void transition-colors duration-300"
-                >
-                  {link.label}
-                </Link>
-                {i < pillarLinks.length - 1 && (
-                  <span className="mx-3 md:mx-4 text-void/25">&middot;</span>
-                )}
-              </span>
-            ))}
-          </p>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div>
-        <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-8 pb-12 md:pb-14 flex items-center justify-between">
-          <p className="font-sans text-[14px] tracking-[0.02em] text-void">
-            &copy; AUWA {new Date().getFullYear()}
-          </p>
-
-          <div className="flex items-center gap-6">
-            {socialLinks.map((link) => (
-              <a
+          {/* Right — pillar links */}
+          <nav className="flex flex-col gap-3 md:min-w-[105px]">
+            {pillarLinks.map((link) => (
+              <Link
                 key={link.label}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                className="text-void hover:text-void/60 transition-colors duration-300"
+                className="font-display text-[20px] md:text-[22px] tracking-[0.02em] text-white/50 hover:text-white transition-colors duration-300"
               >
-                {link.icon}
-              </a>
+                {link.label}
+              </Link>
             ))}
-          </div>
+          </nav>
+        </div>
+      </div>
+
+      {/* Spacer pushes bottom bar down */}
+      <div className="flex-1" />
+
+      {/* Bottom bar */}
+      <div className="px-6 md:px-12 lg:px-20 xl:px-28 pb-10 md:pb-12 pt-6 flex items-center justify-between">
+        <p className="font-sans text-[14px] tracking-[0.02em] text-white">
+          &copy; AUWA {new Date().getFullYear()}
+        </p>
+
+        <div className="flex items-center gap-6">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              className="text-white hover:text-white/60 transition-colors duration-300"
+            >
+              {link.icon}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

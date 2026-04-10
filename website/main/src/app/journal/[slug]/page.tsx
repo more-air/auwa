@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
@@ -1031,6 +1032,45 @@ function renderTextBlock(block: ContentBlock, i: number) {
   return null;
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles[slug];
+
+  if (!article) {
+    return { title: "Article | AUWA" };
+  }
+
+  const title = `${article.title} | AUWA`;
+  const description = article.subtitle;
+  const url = `https://auwa.life/journal/${slug}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      publishedTime: article.publishedAt,
+      authors: [article.author],
+      ...(article.heroImage && {
+        images: [{ url: article.heroImage, width: 1200, height: 630, alt: article.title }],
+      }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...(article.heroImage && { images: [article.heroImage] }),
+    },
+  };
+}
+
 export default async function ArticlePage({
   params,
 }: {
@@ -1040,8 +1080,21 @@ export default async function ArticlePage({
   const article = articles[slug] || fallbackArticle;
   const sections = groupIntoSections(article.content);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.subtitle,
+    author: { "@type": "Person", name: article.author },
+    datePublished: article.publishedAt,
+    publisher: { "@type": "Organization", name: "AUWA", url: "https://auwa.life" },
+    url: `https://auwa.life/journal/${slug}`,
+    ...(article.heroImage && { image: `https://auwa.life${article.heroImage}` }),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main>
 
@@ -1127,7 +1180,7 @@ export default async function ArticlePage({
                             <img src={img.src} alt={img.alt} className="absolute inset-0 w-full h-full object-cover" />
                           </div>
                           {img.caption && (
-                            <figcaption className="mt-4 font-sans text-[13px] leading-[1.6] text-void/50">
+                            <figcaption className="mt-4 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
                               {img.caption}
                             </figcaption>
                           )}
@@ -1154,7 +1207,7 @@ export default async function ArticlePage({
                           />
                         </div>
                         {section.image.caption && (
-                          <figcaption className="mt-4 font-sans text-[13px] leading-[1.6] text-void/50">
+                          <figcaption className="mt-4 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
                             {section.image.caption}
                           </figcaption>
                         )}
@@ -1183,7 +1236,7 @@ export default async function ArticlePage({
           <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-void mb-8 md:mb-12">
             Continue reading
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-8 gap-x-6 md:gap-x-8">
             {(() => {
               const allSlugs = Object.keys(articles);
               const currentSlug = slug;
@@ -1210,7 +1263,7 @@ export default async function ArticlePage({
                     <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/40 to-surface-raised" />
                   )}
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 max-w-[90%]">
                   <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
                     {related.category}
                   </span>

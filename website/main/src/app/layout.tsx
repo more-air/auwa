@@ -34,11 +34,17 @@ const notoSerifJP = Noto_Serif_JP({
 export const metadata: Metadata = {
   title: "AUWA | Japanese philosophical awareness applied to modern life",
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   description:
     "A Japanese lifestyle brand rooted in the philosophy that everything has kokoro. Journal, stories, craft, and a daily awareness practice.",
   metadataBase: new URL("https://auwa.life"),
+  alternates: {
+    canonical: "https://auwa.life",
+  },
   openGraph: {
     title: "AUWA | Everything has kokoro",
     description:
@@ -65,7 +71,38 @@ export default function RootLayout({
       lang="en"
       className={`${ebGaramond.variable} ${instrumentSans.variable} ${notoSansJP.variable} ${notoSerifJP.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "AUWA",
+              url: "https://auwa.life",
+              logo: "https://auwa.life/auwa-logo.svg",
+              description: "A Japanese lifestyle brand rooted in the philosophy that everything has kokoro.",
+              sameAs: [
+                "https://instagram.com/auwa.life",
+                "https://x.com/auwa_life",
+                "https://linkedin.com/company/auwa",
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "AUWA",
+              url: "https://auwa.life",
+            }),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

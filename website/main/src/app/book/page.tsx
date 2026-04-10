@@ -13,10 +13,10 @@ export default function BookPage() {
       <Header />
       <main>
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100dvh-4rem)] md:h-[calc(100dvh-5rem)]">
 
             {/* Left: copy + email */}
-            <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
+            <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24">
               <FadeIn>
                 <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
                   The kokoro<br />in all things.
@@ -41,7 +41,7 @@ export default function BookPage() {
               <img
                 src="/pillars/book.jpg"
                 alt="AUWA: The Beginning — illustrated book on a wooden table"
-                className="w-full aspect-[4/5] object-cover md:aspect-auto md:absolute md:inset-0 md:h-full"
+                className="w-full aspect-[3/4] object-cover md:aspect-auto md:absolute md:inset-0 md:h-full"
               />
             </FadeIn>
 

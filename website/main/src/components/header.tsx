@@ -86,9 +86,9 @@ export function Header() {
               onClick={() => setMenuOpen(!menuOpen)}
             >
               <div className="w-[20px] h-[14px] relative">
-                <span className={`absolute left-0 w-full h-[1.2px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "top-[6.5px] rotate-45" : "top-0 rotate-0"}`} />
-                <span className={`absolute left-0 top-[6.5px] w-full h-[1.2px] bg-current transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
-                <span className={`absolute left-0 w-full h-[1.2px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "top-[6.5px] -rotate-45" : "top-[13px] rotate-0"}`} />
+                <span className={`absolute left-0 w-full h-[1.5px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "top-[6.5px] rotate-45" : "top-0 rotate-0"}`} />
+                <span className={`absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+                <span className={`absolute left-0 w-full h-[1.5px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "top-[6.5px] -rotate-45" : "top-[13px] rotate-0"}`} />
               </div>
             </button>
           </nav>

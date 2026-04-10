@@ -56,7 +56,7 @@ export default function Home() {
         {/* ── Hero headline ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-10 md:pb-16">
           <FadeIn>
-            <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[680px]">
+            <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[680px] pr-12 md:pr-0">
               Everything has<br />Kokoro.
             </h1>
           </FadeIn>
@@ -144,7 +144,7 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/40 to-surface-raised" />
                     )}
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 max-w-[90%]">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
                         {article.category}

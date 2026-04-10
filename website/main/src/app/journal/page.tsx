@@ -87,7 +87,7 @@ export default async function JournalPage({
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />
                     )}
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 max-w-[90%]">
                     <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
                       {article.category}
                     </span>

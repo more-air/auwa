@@ -43,7 +43,7 @@ export function SignupForm({
 
   if (status === "success") {
     return (
-      <p className={`font-display text-[16px] md:text-[18px] ${theme === "dark" ? "text-white/70" : "text-void/60"}`}>
+      <p className={`font-display text-[16px] md:text-[18px] ${theme === "dark" ? "text-white" : "text-void"}`}>
         {successMessage}
       </p>
     );
