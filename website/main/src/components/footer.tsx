@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { SignupForm } from "@/components/signup-form";
 
-const categoryLinks = [
-  { label: "Seasons", href: "/journal?category=seasons" },
-  { label: "Craft", href: "/journal?category=craft" },
-  { label: "Philosophy", href: "/journal?category=philosophy" },
-  { label: "Travel", href: "/journal?category=travel" },
+const pillarLinks = [
+  { label: "Journal", href: "/journal" },
+  { label: "Store", href: "/store" },
+  { label: "App", href: "/app" },
+  { label: "Book", href: "/book" },
 ];
 
 const socialLinks = [
@@ -42,11 +43,23 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer>
-      {/* Category links */}
+      {/* Stay close newsletter */}
+      <div className="bg-void py-28 md:py-40">
+        <div className="max-w-[480px] mx-auto text-center px-6">
+          <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-white">
+            Stay close.
+          </h2>
+          <div className="mt-10 max-w-[400px] mx-auto">
+            <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" successMessage="Something quiet is on its way." className="max-w-[400px]" />
+          </div>
+        </div>
+      </div>
+
+      {/* Pillar links */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
         <div className="flex justify-center">
           <p className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-void/80">
-            {categoryLinks.map((link, i) => (
+            {pillarLinks.map((link, i) => (
               <span key={link.label}>
                 <Link
                   href={link.href}
@@ -54,7 +67,7 @@ export function Footer() {
                 >
                   {link.label}
                 </Link>
-                {i < categoryLinks.length - 1 && (
+                {i < pillarLinks.length - 1 && (
                   <span className="mx-3 md:mx-4 text-void/25">&middot;</span>
                 )}
               </span>

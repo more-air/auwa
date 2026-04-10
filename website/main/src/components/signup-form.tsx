@@ -7,13 +7,15 @@ interface SignupFormProps {
   buttonText?: string;
   successMessage?: string;
   theme?: "light" | "dark";
+  className?: string;
 }
 
 export function SignupForm({
   source,
   buttonText = "Join Waitlist",
-  successMessage = "Thank you. We'll be in touch.",
+  successMessage = "You're in. We'll find you when it's time.",
   theme = "light",
+  className,
 }: SignupFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -50,7 +52,7 @@ export function SignupForm({
   const isDark = theme === "dark";
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-[440px]">
+    <form onSubmit={handleSubmit} className={className || "max-w-[440px]"}>
       <div className={`flex items-center gap-4 border-b pb-3 transition-colors duration-300 ${
         isDark
           ? "border-white/20 focus-within:border-white/50"

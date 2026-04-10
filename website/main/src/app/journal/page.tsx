@@ -11,6 +11,7 @@ export const metadata = {
 const categories = ["All", "Seasons", "Craft", "Philosophy", "Travel"];
 
 const articles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
+  { title: "The Beginning", excerpt: "On the story that took ten years to find its form.", category: "Philosophy", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
   { title: "Yaoyorozu no Kami", excerpt: "On the spirits that live in everything, and why you already know they\u2019re there.", category: "Philosophy", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
   { title: "Shigefusa", excerpt: "On waiting two years for a knife, and what arrived.", category: "Craft", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "On the night an entire village tried to burn down a shrine.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },

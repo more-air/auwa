@@ -174,6 +174,7 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 - `context/reference.md` — Illustration workflow (MidJourney + Rieko), archival/authentication strategy, collectible figure rules, store precedents (Monolise + Japanese merchant platform history), Fin DAC relationship, Nokia Animaru precedent, strategic lessons (KAWS, Labubu, Goop, Snow Peak, Hodinkee).
 - `context/website.md` — Website specification for auwa.life: Kinfolk-inspired editorial site structure, page layouts, Sanity CMS content model, responsive design, serif typography, motion principles, v0/Stitch prompt ideas, reference websites, article preparation plan. Now includes full implemented design system (type scale, colour opacities, spacing values, grid gaps, content widths, motion specs).
 - `context/editorial.md` — Editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan.
+- `context/newsletter.md` — Newsletter system: welcome email templates (auto-sent per source), newsletter template (manual send via API), sending workflow, email design principles, subject line format, Resend configuration, cadence guidance.
 
 Previous context summaries archived in `context/archive/`.
 

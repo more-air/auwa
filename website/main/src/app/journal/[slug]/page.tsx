@@ -1,7 +1,6 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
-import { SignupForm } from "@/components/signup-form";
 import Link from "next/link";
 
 /* ─── Article data (will come from Sanity CMS) ─── */
@@ -1221,18 +1220,6 @@ export default async function ArticlePage({
                 </div>
               </Link>
             ))}
-          </div>
-        </section>
-
-        {/* ── Newsletter ── */}
-        <section className="bg-void py-28 md:py-40">
-          <div className="max-w-[480px] mx-auto text-center px-6">
-            <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-white">
-              Stay close.
-            </h2>
-            <div className="mt-10 max-w-[400px] mx-auto">
-              <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" />
-            </div>
           </div>
         </section>
 

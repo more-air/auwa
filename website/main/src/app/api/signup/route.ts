@@ -1,10 +1,18 @@
 import { NextResponse } from "next/server";
+import WelcomeEmail from "@/emails/welcome";
 
 // Segment IDs from Resend dashboard
 const SEGMENT_MAP: Record<string, string> = {
   "app-waitlist": "1924598e-56f8-478e-a0c9-cd896e612953",
   "store-waitlist": "53ca6dff-01c3-4728-838a-5bac584294a1",
   "book-waitlist": "117496ae-3d14-46b5-b17c-d95a97f0ab35",
+};
+
+const SUBJECT_MAP: Record<string, string> = {
+  newsletter: "Welcome to AUWA",
+  "app-waitlist": "You're on the Kokoro Mirror waitlist",
+  "store-waitlist": "You're on the AUWA Store waitlist",
+  "book-waitlist": "You're on the AUWA Book waitlist",
 };
 
 export async function POST(request: Request) {
@@ -29,6 +37,7 @@ export async function POST(request: Request) {
     const segmentId = SEGMENT_MAP[source];
     const segments = segmentId ? [{ id: segmentId }] : [];
 
+    // Create the contact
     const { data, error } = await resend.contacts.create({
       email,
       unsubscribed: false,
@@ -42,6 +51,17 @@ export async function POST(request: Request) {
       console.error("Resend error:", error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
+
+    // Send welcome email (fire and forget — don't block the response)
+    const validSource = source as "newsletter" | "app-waitlist" | "store-waitlist" | "book-waitlist";
+    resend.emails.send({
+      from: "AUWA <hello@auwa.life>",
+      to: email,
+      subject: SUBJECT_MAP[source] || "Welcome to AUWA",
+      react: WelcomeEmail({ source: validSource }),
+    }).catch((err) => {
+      console.error("Welcome email failed:", err);
+    });
 
     return NextResponse.json({ success: true, id: data?.id });
   } catch (error: unknown) {
