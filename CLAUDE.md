@@ -182,11 +182,31 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 - `context/instagram.md` — Instagram strategy: specs/dimensions (Reels 1080x1920, Feed 1080x1350), algorithm priorities (sends/shares #1), 5 content pillars, weekly posting cadence, growth plan (700→5K), £2K paid budget split, collaboration tactics (Fin DAC), email capture, profile setup, best UK posting times, photo editing workflow.
 - `context/manifesto.md` — The seven reasons for building AUWA, what Tom and Rieko each bring, success/failure/slow-burner scenarios, motivation for when you hit a wall.
 - `context/reference.md` — Illustration workflow (MidJourney + Rieko), archival/authentication strategy, collectible figure rules, store precedents (Monolise + Japanese merchant platform history), Fin DAC relationship, Nokia Animaru precedent, strategic lessons (KAWS, Labubu, Goop, Snow Peak, Hodinkee).
-- `context/website.md` — Website specification for auwa.life: Kinfolk-inspired editorial site structure, page layouts, Sanity CMS content model, responsive design, serif typography, motion principles, v0/Stitch prompt ideas, reference websites, article preparation plan. Now includes full implemented design system (type scale, colour opacities, spacing values, grid gaps, content widths, motion specs).
+- `context/website.md` — Website specification for auwa.life: Kinfolk-inspired editorial site structure, page layouts, Sanity CMS content model, responsive design, serif typography, motion principles, v0/Stitch prompt ideas, reference websites, article preparation plan. Now includes full implemented design system (type scale, colour opacities, spacing values, grid gaps, content widths, motion specs), component library, API routes, email templates, and SEO infrastructure.
 - `context/editorial.md` — Editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan.
 - `context/newsletter.md` — Newsletter system: welcome email templates (auto-sent per source), newsletter template (manual send via API), sending workflow, email design principles, subject line format, Resend configuration, cadence guidance.
 
 Previous context summaries archived in `context/archive/`.
+
+---
+
+## WEBSITE DESIGN PATTERNS
+
+Learned rules from building auwa.life. Apply these when making UI changes or building new pages.
+
+**Text under images:** Always constrain text blocks below images (card titles, excerpts, captions) to `max-w-[90%]`. Prevents text running flush to the image edge, which looks unfinished. Applies to journal cards, home page scroll cards, continue reading cards, and image captions in articles.
+
+**Mobile hamburger:** Minimum line thickness of 1.5px for hamburger menu icons. Thinner lines disappear on some screens.
+
+**Teaser pages (pre-launch):** On mobile, use `aspect-[3/4]` (not `4/5`) for images and `min-h-[calc(100dvh-4rem)]` on the grid container so the full page fits within the viewport without scrolling. Tighten vertical padding to `py-12` on mobile.
+
+**Form success states:** Use full contrast for success messages. `text-void` on white backgrounds, `text-white` on dark backgrounds. Never use reduced opacity for confirmation text.
+
+**Footer pattern:** The footer is one unified dark (`bg-void`) block with three zones: (1) two-column layout with signup left and pillar nav right, (2) spacer via `flex-1` to push the bottom bar down, (3) copyright + social icons. The footer uses `min-h` and `flex flex-col` so the bottom bar always sits at the base. Pillar links are left-aligned text on both mobile and desktop.
+
+**Hero text on mobile:** Add `pr-12 md:pr-0` (or similar right padding) to hero headlines so text wraps earlier and doesn't crowd the right edge of the screen.
+
+**Continue reading spacing on mobile:** Use `gap-y-12` on mobile (vs `gap-y-8` on desktop) so articles in the grid have clear visual separation. On a single-column mobile layout, the text of one article needs more distance from the image of the next.
 
 ---
 
