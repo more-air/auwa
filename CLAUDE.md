@@ -111,6 +111,16 @@ The app uses two additional Japanese philosophical frameworks internally:
 - £2K Year 1 Instagram ad budget, content-first growth
 - Fin DAC collaboration (96K followers, existing AUWA stencil — warm lead)
 
+**Email:**
+- Resend fully integrated: contacts API + email sending
+- Welcome emails auto-fire on signup (4 variants per source)
+- No double opt-in (friction not worth it at this scale)
+- Newsletter sends via `/send-newsletter` command or API endpoint
+- Sending domain `auwa.life` must be verified in Resend before emails deliver
+- React Email (`@react-email/components`) for all templates
+- 3 Resend segments (free plan limit): App Waitlist, Store Waitlist, Book Waitlist
+- Newsletter subscribers go to audience without a segment
+
 **Timing:**
 - Hotel B2B deprioritised to Year 2
 - Press/podcast outreach after 5K IG followers
@@ -240,3 +250,47 @@ Then move the output: `mv context/[file].pdf documents/AUWA-[Name].pdf`
 - `context/website.md` → `documents/AUWA-Website-Specification.pdf`
 
 **If it hangs:** Kill Chrome (`pkill -9 -f "chromium"`), wait 2 seconds, retry. Never run two md-to-pdf commands in parallel.
+
+---
+
+## WEBSITE BUILD PATTERNS
+
+Lessons learned from building auwa.life. Apply these to future AUWA website work and to More Air client projects where relevant.
+
+**Dev server:**
+- Always set PATH before running Node/npm commands: `export PATH="/usr/local/bin:$PATH"`
+- If the dev server shows ENOENT errors for `.next/server/pages/_document.js`, delete `.next/` and restart: `rm -rf .next && npx next dev`
+- The `.next` cache can go stale after dependency changes, component restructuring, or switching branches. When in doubt, delete it.
+
+**Server/client components (Next.js App Router):**
+- Server components CAN import client components (ones with `"use client"`). This is normal and correct.
+- The Footer is a server component that imports SignupForm (a client component). This works fine.
+- When a component needs interactivity (forms, state, event handlers), it needs `"use client"`. Keep the directive on the smallest possible component, not the whole page.
+
+**Signup forms:**
+- All signup forms use the shared `SignupForm` component with a `source` prop that determines the Resend segment.
+- The `source` prop is a union type: `"app-waitlist" | "store-waitlist" | "book-waitlist" | "newsletter"`. When passing dynamic strings from API responses, cast them explicitly to this union type, not to `string`.
+- Success messages are per-form via the `successMessage` prop. Keep them on-brand: quiet, warm, not shouty.
+
+**Resend integration:**
+- The Resend SDK must be lazy-imported inside the API handler (`const { Resend } = await import("resend")`), not at module level. Module-level imports crash during Next.js build because the API key isn't available at build time.
+- Resend's free plan allows 3 segments. Adding a 4th requires upgrading or deleting one.
+- The `contacts.create()` method doesn't accept both `audienceId` and `segments` simultaneously. Use `segments` only (the audience is implicit from the API key's default audience).
+- "Already exists" errors from Resend are expected for returning subscribers. The API route handles this gracefully and returns success.
+
+**Teaser pages (app, store, book):**
+- Use `aspect-[4/5]` on mobile for the image, then `md:absolute md:inset-0` for desktop to fill the viewport.
+- Avoid `h-[calc(100dvh-5rem)]` on mobile (causes white gap at bottom on scroll). Only apply the viewport height on `md:` and above.
+- Images need `object-cover` to fill their container without distortion.
+
+**Footer:**
+- The footer includes the "Stay close" newsletter signup. Don't duplicate newsletter sections on individual pages.
+- Pillar links in the footer are Journal, Store, App, Book (the four brand pillars).
+
+**Images:**
+- No image conversion tools (ImageMagick, librsvg) are installed on this machine. Use `sips` (macOS built-in) for basic image operations.
+- For email templates, use text-based logos (styled with CSS) rather than image logos, since SVG support in email clients is unreliable and PNG conversion tools aren't available.
+
+**Build/type errors:**
+- When passing props between components, prefer explicit union types over `as` casts of generic strings.
+- The ESLint `core-web-vitals` import warning is a known Next.js 15 issue. It doesn't block the build.

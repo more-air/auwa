@@ -75,9 +75,7 @@ The homepage should feel like opening a beautiful magazine, not landing on a pro
 
 5. **The Four Doors** — A quiet section introducing the four pillars. Not a feature grid — four atmospheric panels (image + short text) that invite exploration. App, Store, Journal, Book. Each links to its section. Think Hoshinoya's room selection: atmospheric, not informational.
 
-6. **Newsletter signup** — Minimal. "Stay close." Email field + submit. Cormorant heading, Instrument Sans input. No long explanation.
-
-7. **Footer** — Wordmark, copyright, minimal links (About, Journal, Instagram). Social icon for @auwa.life. Void background.
+6. **Footer** — Three sections stacked: (1) "Stay close." newsletter signup on dark void background with `SignupForm` component, (2) pillar links (Journal · Store · App · Book) centred in EB Garamond, (3) bottom bar with © AUWA and social icons (Instagram, X, LinkedIn).
 
 ### Journal Index
 
@@ -101,7 +99,7 @@ The most important page. Built with a content block system designed to map clean
   - **Pullquotes** — EB Garamond at clamp(1.75rem, 3.5vw, 2.75rem), full opacity.
 - **Full-width divider** — `border-void/8`
 - **Continue reading** — 3 related article cards in a grid
-- **Newsletter** — "Stay close." Dark void background, reversed white text, email subscribe form
+- **Footer** — The shared footer component handles the newsletter signup ("Stay close.") and pillar links. No per-page newsletter section needed.
 
 **Content block types (maps to Sanity CMS):**
 ```
@@ -254,7 +252,7 @@ All photography follows brand.md Section 6. Portrait-first (4:5) for all editori
 - **Styling:** Tailwind CSS 4 (PostCSS plugin, OKLCH colour system via `@theme inline` in globals.css)
 - **CMS:** Sanity (headless — not yet integrated; content currently hardcoded as placeholder data)
 - **Hosting:** Vercel (automatic deployments, edge functions, image optimisation)
-- **Email:** Resend (transactional + newsletter — not yet integrated; forms are frontend-only placeholders)
+- **Email:** Resend (fully integrated — welcome emails auto-send on signup, newsletter sends via API). Templates in `src/emails/` using React Email (`@react-email/components`).
 - **Analytics:** Vercel Analytics or Plausible (privacy-respecting, no cookie banners)
 - **Fonts:** Google Fonts via next/font (EB Garamond, Instrument Sans, Noto Sans JP, Noto Serif JP)
 
@@ -301,12 +299,8 @@ All photography follows brand.md Section 6. Portrait-first (4:5) for all editori
   seoDescription: text
 }
 
-// Newsletter Subscriber (or handle via Resend directly)
-{
-  email: string
-  source: string  // which page they signed up from
-  subscribedAt: datetime
-}
+// Newsletter subscribers are handled directly via Resend Contacts API.
+// No Sanity schema needed. See context/newsletter.md for details.
 ```
 
 ### Image Pipeline
@@ -316,6 +310,32 @@ All photography follows brand.md Section 6. Portrait-first (4:5) for all editori
 - Hotspot cropping set in Sanity Studio for each image (ensures correct focal point across aspect ratios)
 - Lazy loading for below-fold images (Next.js Image component handles this)
 - Target: 95+ Lighthouse performance score
+
+### Component Library
+
+Reusable components live in `src/components/`. All are server components unless noted.
+
+| Component | File | Client? | Purpose |
+|-----------|------|---------|---------|
+| Header | `header.tsx` | Yes | Site header with AUWA wordmark, nav links, mobile menu. Hides on scroll down, shows on scroll up. |
+| Footer | `footer.tsx` | No | "Stay close" newsletter signup (dark), pillar links, copyright + social icons. Shared across all pages. |
+| SignupForm | `signup-form.tsx` | Yes | Email signup form. Props: `source` (app-waitlist / store-waitlist / book-waitlist / newsletter), `buttonText`, `successMessage`, `theme` (light/dark), `className`. Posts to `/api/signup`. |
+| FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based fade-in animation. Accepts `className`, `delay`, `children`. Not Framer Motion. |
+| MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |
+
+**API routes:**
+
+| Route | Purpose |
+|-------|---------|
+| `/api/signup` | Creates Resend contact + sends welcome email. Accepts `{ email, source }`. |
+| `/api/newsletter/send` | Sends newsletter to full audience. Accepts content JSON + secret token. |
+
+**Email templates** (in `src/emails/`, React Email components, not rendered on the website):
+
+| Template | Purpose |
+|----------|---------|
+| `welcome.tsx` | Auto-sent on signup. 4 variants based on source. |
+| `newsletter.tsx` | Manual newsletter sends. Accepts heading, intro, articles array, hero image. |
 
 ### SEO
 
@@ -416,21 +436,16 @@ After the initial 10 articles, publish 1-2 articles per week aligned with the 72
 
 ---
 
-## 8. Newsletter Strategy
+## 8. Newsletter & Email
 
-**Tool:** Resend (already in the tech stack for transactional email)
+Fully documented in `context/newsletter.md`. Summary:
 
-**Signup points:**
-- Homepage (dedicated section)
-- End of every journal article
-- App/Store/Book pre-launch pages
-- Dedicated /newsletter page
-
-**Frequency:** Bi-weekly or monthly. Tied to seasonal rhythm. Not a marketing blast — a quiet, beautiful email that feels like receiving a letter. Short, atmospheric, links to new journal articles and seasonal reflections.
-
-**Subject line style:** Poetic, not clickbait. "Seimei: the light returns" not "5 Japanese philosophy tips you need to read."
-
-**Template:** Dark background, serif typography, one atmospheric image, 2-3 short text blocks linking to journal articles. Wordmark footer. Mobile-optimised.
+- **Welcome emails** auto-send on signup (4 variants per source: newsletter, app-waitlist, store-waitlist, book-waitlist)
+- **Newsletter sends** are manual via `/send-newsletter` slash command or API endpoint
+- **Signup points**: shared footer on every page ("Stay close."), plus dedicated forms on app/store/book teaser pages
+- **Templates**: React Email components in `src/emails/` (welcome.tsx, newsletter.tsx)
+- **Resend segments**: App Waitlist, Store Waitlist, Book Waitlist (3 segments, free plan limit). Newsletter subscribers go to audience without a segment.
+- **Subject format**: `[Topic] | AUWA` — poetic, not clickbait
 
 ---
 
