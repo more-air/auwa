@@ -29,7 +29,7 @@ const articles: Record<
 > = {
   "yakushima-island": {
     title: "Yakushima",
-    subtitle: "On the island where the trees have been alive longer than history.",
+    subtitle: "On the island where the trees outlived history.",
     category: "Travel",
     issue: "Issue 08",
     author: "AUWA",
@@ -114,7 +114,7 @@ const articles: Record<
   },
   "koya-san": {
     title: "Koya-san",
-    subtitle: "The same prayers have been chanted on this mountain for 1,200 years.",
+    subtitle: "The same prayers, chanted on this mountain for 1,200 years.",
     category: "Travel",
     issue: "Issue 06",
     author: "AUWA",
@@ -209,7 +209,7 @@ const articles: Record<
   },
   "nozawa-fire-festival": {
     title: "Nozawa Fire Festival",
-    subtitle: "On the night an entire village tried to burn down a shrine.",
+    subtitle: "On the night a village tried to burn down a shrine.",
     category: "Seasons",
     issue: "Issue 09",
     author: "AUWA",
@@ -282,7 +282,7 @@ const articles: Record<
   },
   "making-washi": {
     title: "Making Washi",
-    subtitle: "Cold water, mulberry bark, and a gesture repeated for a thousand years.",
+    subtitle: "Cold water, mulberry bark, and a thousand-year gesture.",
     category: "Craft",
     issue: "Issue 03",
     author: "AUWA",
@@ -365,7 +365,7 @@ const articles: Record<
   },
   "oroku-gushi": {
     title: "Oroku-gushi",
-    subtitle: "Made from wood that breaks axes. Named after a girl it healed.",
+    subtitle: "Made from wood that breaks axes. Named after a girl.",
     category: "Craft",
     issue: "Issue 07",
     author: "AUWA",
@@ -375,11 +375,11 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "We bought it from a small shop in Japan, the kind of place you find by asking, not by searching. The owner was a craftsman himself, responsible for the final polishing stage of every comb that left the workshop. He wrapped it in tissue paper, slid it into its cloth pouch, and handed it across the counter. No box. No ceremony. Just a comb in a pouch, and a quiet nod that said: take care of it.",
+        text: "We bought it from a small shop in Japan. The owner was a craftsman himself, responsible for the final polishing stage of every comb that left the workshop. Before wrapping ours, he brought out a comb his ancestor had made during the Edo period and used for years. The wood had darkened to a deep amber, the teeth still perfectly intact, the whole object radiating a quiet authority that only comes from centuries of use. He held it like you would hold a family photograph. Then he slid ours into its cloth pouch and, before handing it over, talked us through how to care for it. He took his time. Store it in the pouch when not in use. Never leave it in a wet bathroom. Oil it with tsubaki every few months, working the oil into the teeth with your fingers. He spoke the way someone speaks about a living thing, with real attention to what it needs. The comb will last a lifetime, he said. Longer, if you treat it well.",
       },
       {
         type: "text",
-        text: "The comb sat on our kitchen table for a few minutes before either of us picked it up. Pale, dense wood, fine teeth cut so close together they looked like the lines on a ruler. The body curved gently, shaped to sit in the palm. It weighed more than you would expect from something so small. The kind of object you could walk past a hundred times without stopping. The kind of object that, once you do stop, won\u2019t let you go.",
+        text: "On the train back to our hotel, I slid it from the pouch again. Pale, dense wood, fine teeth cut so close together they looked like the lines on a ruler. The body curved gently, shaped to sit in the palm. Through the window, the countryside moved past, but I kept turning the comb in my hands, running a thumb along the teeth, feeling where each one had been polished smooth.",
       },
       {
         type: "text",
@@ -405,7 +405,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The comb arrived in a drawstring pouch of cotton fabric printed with asanoha, the hemp leaf pattern that appears across Japanese craft and textiles. Asanoha is one of the oldest geometric patterns in Japan, associated with growth and good health. The pouch protects the comb, gives it a home in a bag or drawer, and adds a small, quiet layer of consideration to the whole experience. Someone thought about where the comb would rest when it wasn\u2019t being used. Someone decided it deserved a proper place.",
+        text: "The comb came in a drawstring pouch of cotton fabric printed with asanoha, the hemp leaf pattern that appears across Japanese craft and textiles. Asanoha is one of the oldest geometric patterns in Japan, associated with growth and good health. For daily use, the pouch is enough. But for long-term storage, the shop owner told us, place the comb in a container with a soft cloth and a little tsubaki oil. The wood stays nourished, the teeth stay smooth, and the comb keeps aging the way it should.",
       },
       {
         type: "pullquote",
@@ -424,11 +424,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "There is an ancient Japanese belief that objects used with care accumulate a kind of spirit. Not just mountains and rivers, but bowls, knives, brooms, and combs. An object made with enough skill, from the right material, used with enough attention, becomes more than what it was when it left the workshop. AUWA uses the word kokoro for this quality. A mass-produced comb has no kokoro. It can\u2019t. But one made from wood that waited thirteen years to be ready, shaped by hands using tools passed between generations, polished tooth by tooth until it could move through hair like water: that comb carries something of every person who touched it on its way to you.",
+        text: "There is an ancient Japanese belief that objects used with care accumulate a kind of spirit. Not just mountains and rivers, but bowls, knives, brooms, and combs. An object made with enough skill, from the right material, used with enough attention, becomes more than what it was when it left the workshop.",
       },
       {
         type: "text",
-        text: "We keep ours in the asanoha pouch on a shelf in the bathroom. My partner uses it most mornings. It\u2019s already a shade darker than the day it arrived, though you\u2019d have to hold it next to a new one to tell. In ten years, it will be unmistakable. The pale wood gone, replaced by something richer. A comb that knows her.",
+        text: "My partner uses it most mornings. Sure enough, her hair looks shinier and healthier than it ever did. I\u2019m envious. Next time we\u2019re in Nagano, I\u2019m buying one for myself.",
       },
     ],
   },
@@ -606,7 +606,7 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "We ordered the knife in an unassuming hardware store in Japan. Nothing fancy. The kind of place you'd walk past without a second glance, except that its owner happened to have a direct connection to Shigefusa. My partner translated as I made the request, and the initial response was what you'd expect: years, possibly. But as the conversation continued, the owner agreed to put our names down on a waitlist. A couple of years later, back in the UK, we received word that the knife was ready for collection. On our next visit to Japan, we picked it up in person. A box wrapped in brown paper with that particular Japanese precision. Every fold exact, every edge aligned.",
+        text: "We ordered the knife in a small hardware store in Japan. We'd been drawn in by its friendly owner and the shelves full of interesting little bits and pieces. Not one of the larger, fancier knife shops. It had a more authentic feel. As it turned out, the owner had a direct connection to Shigefusa. We asked if it would be possible to place an order. Years, possibly, came the reply. But as the conversation continued, the owner agreed to put our names down on a waitlist. A couple of years later, back in the UK, we received word that the knife was ready for collection. On our next visit to Japan, we picked it up in person. A box wrapped in brown paper with that particular Japanese precision. Every fold exact, every edge aligned.",
       },
       {
         type: "text",
@@ -659,11 +659,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We haven't used ours yet. It sits in its kiri box, coated in camellia oil, in a drawer in our kitchen. We will use it. It was made to be used, and keeping it behind glass would miss the point. But for now, we're still in the early stage of the relationship. Still noticing. Still holding it up to the window to watch the light move across those layered patterns in the steel.",
+        text: "We haven't used ours yet. It sits in its kiri box, coated in camellia oil, and we're still in the admiring stage. Still holding it up to the window to watch the light move across those layered patterns in the steel. Still marvelling at the artistry. When we collected it, the shop owner reminded us that Shigefusa wants his blades to be used, not kept for display. We will. But not quite yet.",
       },
       {
         type: "text",
-        text: "Two years is a long time to wait for a knife. It's also, it turns out, exactly the right amount of time. Long enough to forget about it, then remember. Long enough to wonder if it will ever come, then stop wondering. Long enough that when you finally collect it from that same unassuming shop, you open it slowly. You pay attention. You notice the oil, the wood, the weight, the grain in the steel, the chiseled name of the man who made it. You notice everything.",
+        text: "Two years is a long time to wait for a knife. It's also, it turns out, exactly the right amount of time. Long enough to forget about it, then remember. Long enough to wonder if it will ever come, then stop wondering. Long enough that when you finally collect it from that same small shop, you open it slowly. You pay attention. You notice the oil, the wood, the weight, the grain in the steel, the chiseled name of the man who made it. You notice everything.",
       },
       {
         type: "text",
@@ -673,7 +673,7 @@ const articles: Record<
   },
   "narai-juku": {
     title: "Narai in Snow",
-    subtitle: "Four hundred years of the same street. Nobody thought to change it.",
+    subtitle: "Four hundred years of the same street, unchanged.",
     category: "Travel",
     issue: "Issue 02",
     author: "AUWA",
@@ -691,10 +691,6 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "There is a particular quality to near-emptiness that full emptiness doesn\u2019t have. A city street at three in the morning suggests people recently departed and soon to return. Narai in a snowstorm suggested that silence was its natural state and people were the interruption.",
-      },
-      {
-        type: "text",
         text: "Narai is the longest of the sixty-nine post towns along the Nakasendo, the mountain route that connected Edo to Kyoto through the interior of Honshu. Travellers stopped here during the feudal period to rest, eat, and prepare for the Torii Pass. The buildings they slept in are still standing. Not reconstructed, not preserved behind glass. Still standing because nobody tore them down. The latticed facades, the overhanging second floors, the indigo noren hanging in doorways of shops that may or may not be open. Four hundred years of continuous use, worn smooth by time the way a wooden step is worn smooth by feet.",
       },
       {
@@ -705,7 +701,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We walked the length of the town without speaking. There was nothing to say that the place wasn\u2019t already saying. Snow collected on the eaves and on the carved wooden signs. A pine tree, trained flat against a building, held its branches perfectly still. Somewhere, water ran beneath the road in the channels that have carried it since the Edo period. You could hear it under the silence, a faint continuous sound like a building breathing.",
+        text: "We walked the length of the town silently, quite in awe, as if we were in a dream or something. Snow collected on the eaves and on the carved wooden signs. A pine tree, trained flat against a building, held its branches perfectly still. Somewhere, water ran beneath the road in the channels that have carried it since the Edo period. You could hear it under the silence, a faint continuous sound like a building breathing.",
       },
       {
         type: "text",
@@ -713,7 +709,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "This is what Narai does. It removes the boundary between the historical and the ordinary. There is no gift shop. No entrance fee. No audio guide explaining what you are looking at. The town is not performing its own past. It is simply continuing it.",
+        text: "This is what Narai does. It removes the boundary between the historical and the ordinary. No entrance fee. No audio guide explaining what you are looking at. The town is not performing its own past. It is simply continuing it.",
       },
       {
         type: "pullquote",
@@ -727,7 +723,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The snow thickened. The mountains behind the roofline became shapes, then suggestions, then nothing. A figure appeared at the far end of the street, walking slowly, coat pulled close. They passed us without a word and disappeared around a corner. The street returned to its previous state as though the interruption had never happened.",
+        text: "The snow thickened. The mountains behind the roofline faded to grey outlines. A figure appeared at the far end of the street, walking slowly, coat pulled close. They passed us without a word and turned a corner. A minute later, it was as if they had never been there.",
       },
       {
         type: "text",
@@ -735,7 +731,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "At some point, standing still in the middle of the street, I watched the snow being blown sideways across the rooftops. The dark wood, the white sky, the silence, the cold on my face. And something happened that I didn\u2019t expect. My eyes filled with tears. Not from sadness, not from the wind. From something closer to joy, though that word doesn\u2019t quite cover it. A feeling I get only occasionally, and always outdoors. Snowboarding down a particularly beautiful run with music in my ears. Standing on a ridge at the right moment. Complete absorption. No distance between you and what you\u2019re looking at. For a few seconds, there was no observer and no scene. Just the snow and the wood and the cold and the fact of being there.",
+        text: "At some point, standing still in the middle of the street, I watched the snow being blown sideways across the rooftops. The dark wood, the white sky, the silence, the cold on my face. And something happened that I didn\u2019t expect. My eyes filled with tears. Not from sadness, not from the wind. From something closer to joy, though that word doesn\u2019t quite cover it. Complete absorption. No distance between me and what I was looking at. For a few seconds, there was no observer and no scene. Just the snow and the wood and the cold and the fact of being there.",
       },
       {
         type: "text",
@@ -750,7 +746,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We had four hours before our train back to Matsumoto. At minus ten, four hours is not something your body lets you forget. Twice we took refuge. First in a soba restaurant, where the noodles arrived in a hot broth that made the cold feel like a distant rumour. Then, later, in a small tea house, where a woman brought us matcha in ceramic bowls and we sat by the window watching the snow pile up on the street outside. Both times, the warmth did something physical. Circulation returning to fingers and feet, the particular pleasure of thawing that only exists because you were frozen first. You don\u2019t appreciate a warm room the same way if you haven\u2019t earned it.",
+        text: "We had four hours before our train back to Matsumoto. At minus ten, four hours is not something your body lets you forget. Twice we took refuge. First in a small tea house, where a woman brought us matcha in ceramic bowls and we sat by the window watching the snow pile up on the street outside. Then, later, in a soba restaurant, where the noodles arrived in a hot broth that made the cold feel like a distant rumour. Both times, the warmth did something physical. Circulation returning to fingers and feet, the particular pleasure of thawing that only exists because you were frozen first. You don\u2019t appreciate a warm room the same way if you haven\u2019t earned it.",
       },
       {
         type: "text",
@@ -758,17 +754,13 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "On the train back, the Kiso Valley opened up below us, the river grey-green and fast, the hills covered in cedar. My partner said that Narai reminded her of a place that existed before the idea of tourism. Not a place that rejected modernity or performed simplicity for visitors, but one that had simply continued on its own terms for so long that the question of what it was for had stopped being relevant. It was for the people who lived there. If you happened to walk through it on a January afternoon, that was incidental.",
-      },
-      {
-        type: "text",
-        text: "The snow was still falling when the train pulled away. Through the window, I could see the road narrowing to a point between the dark wooden buildings, the white ground, the mountains somewhere behind. Then the valley curved, and it was gone.",
+        text: "On the train back, the Kiso Valley opened up below us, the river grey-green and fast, the hills covered in hinoki. We were both quiet, still thawing. Narai is not a place that performs its own history for visitors. It has simply continued on its own terms for so long that the question of what it is for has stopped being relevant. It is for the people who live there. If you happen to walk through it on a January afternoon, that is incidental.",
       },
     ],
   },
   "the-beginning": {
     title: "The Beginning",
-    subtitle: "On the story that took years to find its form.",
+    subtitle: "On a being of light, a dark forest, and a dream that would not let go.",
     category: "Philosophy",
     issue: "Issue 11",
     author: "AUWA",
@@ -778,86 +770,70 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "I drew the character before I knew what it was. A small, glowing shape with two dark eyes, sitting in the middle of a blank page in a sketchbook I kept by the sofa in our London flat. It did not look like anything I had drawn before. It looked like something that had been waiting for me to find it.",
+        text: "I drew the character before I knew what it was. A small, glowing shape with two dark eyes, sitting in the middle of a blank page in a sketchbook I kept by the sofa in our home. It did not look like anything I had drawn before. It looked like something that had been waiting for me to find it. That was several years ago.",
       },
       {
         type: "text",
-        text: "That was several years ago.",
+        text: "I kept drawing it. Every few days, sometimes every day, the same figure appearing in different settings: floating above a forest, standing beside a flower, surrounded by tiny creatures in the dark. I did not plan these scenes. They arrived, fully formed, the way certain dreams do. My partner would ask me what the character was, what it wanted, where it came from. I could not answer in words. I could only show him the next drawing.",
+      },
+      {
+        type: "image",
+        src: "/journal/auwa-book/auwa-book-sketches.jpg",
+        alt: "Pencil sketches of AUWA character scenes laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case",
+        caption: "Early sketches. Pencil on paper, working out how AUWA moves through the forest.",
       },
       {
         type: "text",
-        text: "I kept drawing it. Every few days, sometimes every day, the same figure appearing in different settings: floating above a forest, standing beside a flower, surrounded by tiny creatures in the dark. I did not plan these scenes. They arrived, fully formed, the way certain dreams do. He would ask me what the character was, what it wanted, where it came from. I could not answer in words. I could only show him the next drawing.",
+        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Four stories. Each one following this being of light as it encounters a different part of the natural world and reveals the kokoro within it. Kokoro (心) is the Japanese word for what English divides into heart, mind, soul, and spirit. In Japanese, these are not separate things. Kokoro is holistic: emotion, thought, and essence held together as one. It lives in the chest, not the head. It is felt before it is understood.",
+      },
+      {
+        type: "text",
+        text: "The character came from a dream. A being of light, arriving from somewhere far away, landing in a dark forest on Earth. The image was so vivid it stayed with me for days. I could see the glow against the trees, the stillness of the forest floor, this small figure standing in the middle of it all. I did not know what it meant yet. But I knew I had to follow it.",
+      },
+      {
+        type: "text",
+        text: "The meaning arrived later, through a question I could not stop asking. In Japanese culture there is a concept called <a href=\"/journal/yaoyorozu-no-kami\">Yaoyorozu no Kami</a>: the understanding that a god, a spirit, exists in all things. Not only in people and animals, but in rivers, stones, an old wooden gate, the wind moving through bamboo at dusk. This is where the idea took root. If a spirit lives in all things, what if we could actually see it?",
+      },
+      {
+        type: "text",
+        text: "That is what AUWA does. It arrives from the stars carrying a gentle light, and when that light reaches something, the kokoro within it becomes visible. A flower. A forest. A handful of soil. Things we walk past every day without noticing. AUWA notices. And in noticing, changes how you see them too.",
+      },
+      {
+        type: "pullquote",
+        text: "You would not throw something away if you could see its kokoro.",
+      },
+      {
+        type: "text",
+        text: "If we lived in that kind of world, where the soul in all things was visible, I think it would be a much kinder place. You would not throw something away if you could see its kokoro. You would not ignore a person, or a river, or a forest, if you could see what lived inside it. The stories are not really about a character with magical powers. They are about paying attention. About the awareness that everything around us is alive, and connected, and worth caring for. That is what we want to bring into the world with this book.",
+      },
+      {
+        type: "image-pair",
+        images: [
+          { src: "/journal/auwa-book/auwa-book-cosmic.jpg", alt: "AUWA, a small luminous being with two dark eyes, glowing with soft rainbow light against a deep cosmic background of teal, purple, and gold", caption: "One of AUWA's many magical moments." },
+          { src: "/journal/auwa-book/auwa-book-procreate.jpg", alt: "Drawing AUWA in Procreate on an iPad Pro with Apple Pencil, the original gold canvas painting of the character visible on the desk behind", caption: "From paper to Procreate. An early canvas painting watches over its digital self." },
+        ],
+      },
+      {
+        type: "text",
+        text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. I drew the first sketch nearly ten years ago, and the simplicity has never changed because it was never a constraint. It is the method. It looks like a children\u2019s book. That is the point. Adults build defences around ideas about the soul. They want evidence, argument, logic. A picture book walks straight past all of that. Charlie Mackesy understood this. Miyazaki has understood it for decades. Simplicity is not a limitation. It is the way in.",
       },
       {
         type: "image",
         src: "/journal/auwa-book/auwa-book-canvas.jpg",
         alt: "Original acrylic painting of AUWA on gold canvas, propped on a wooden desk beside a plant in a blue and white ceramic pot",
-        caption: "The original. Acrylic on gold canvas, painted years before the book took shape.",
+        caption: "An early quick acrylic on gold canvas, painted years before the book took shape.",
       },
       {
         type: "text",
-        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Four stories. Each one following this being of light as it encounters a different part of the natural world and reveals the kokoro within it. Kokoro is the Japanese word for heart, soul, and spirit. It is one word holding three ideas that English keeps separate.",
+        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. Some of my original iterations of AUWA were on canvas. I wanted to paint, so that I would not forget, while working on client projects, to properly start this. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed.",
       },
       {
         type: "text",
-        text: "In the first story, AUWA: The Beginning, the stars of WAWA send their light toward a small blue planet that has been waiting quietly for a very long time. Their light merges into a single glowing being. They name it AUWA. And with a heart full of joy, AUWA sets off toward Earth.",
-      },
-      {
-        type: "text",
-        text: "AUWA enters the atmosphere and discovers a sky painted in colours that do not exist back home. Below lies a deep, quiet forest. Most of its life has long since faded. But at the foot of an old tree, one small blue flower is still here. AUWA reaches out with a gentle light, and from within the flower, something glows softly. Her kokoro. Her soul.",
-      },
-      {
-        type: "pullquote",
-        text: "Every living thing and every object carries a kokoro. You cannot see it. But when AUWA\u2019s gentle light touches it, a kokoro appears.",
-      },
-      {
-        type: "text",
-        text: "Her name is Bluu. She remembers a time when the forest hummed with life, when friends bloomed in every direction. That time has passed. But Bluu is still here. AUWA closes both eyes, holds Bluu\u2019s happiest memory close, and gently lets it go. The forest blossoms with blue flowers, all around, all at once. Bluu\u2019s kokoro sparkles and returns to her flower.",
-      },
-      {
-        type: "image-pair",
-        images: [
-          { src: "/journal/auwa-book/auwa-book-sketches.jpg", alt: "Pencil sketches of AUWA character scenes laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case", caption: "The first sketches. Pencil on paper, working out how AUWA moves through the forest." },
-          { src: "/journal/auwa-book/auwa-book-procreate.jpg", alt: "Drawing AUWA in Procreate on an iPad Pro with Apple Pencil, the original gold canvas painting of the character visible on the desk behind", caption: "From paper to Procreate. The original canvas painting watches over its digital self." },
-        ],
-      },
-      {
-        type: "text",
-        text: "I grew up inside the philosophy that holds this story together. <a href=\"/journal/yaoyorozu-no-kami\">Yaoyorozu no Kami</a>, the understanding that spirits inhabit all things. Not only mountains and rivers and ancient trees, but teacups and stones and the worn handle of a kitchen knife. My grandmother did not teach me this as a lesson. She simply lived as though it were true, because in Japan it is true. You grow up greeting the things around you. You grow up understanding that the world is not made of objects. It is made of presences.",
-      },
-      {
-        type: "text",
-        text: "When people ask me what AUWA is about, I say: it is about seeing what is already there. The kokoro in a flower. The connection between creatures who have never met. The way a forest can fall quiet and still hold everything it ever was inside it. These are not ideas I invented. They are things I have always known. The book gave me a way to show them to people who did not grow up the way I did.",
-      },
-      {
-        type: "text",
-        text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. It looks like a children\u2019s book. That is the point. Adults build defences around ideas about the soul. They want evidence, argument, logic. A picture book walks straight past all of that. Charlie Mackesy understood this. Miyazaki has understood it for decades. Simplicity is not a limitation. It is the way in.",
-      },
-      {
-        type: "image",
-        src: "/journal/auwa-book/auwa-book-cosmic.jpg",
-        alt: "AUWA, a small luminous being with two dark eyes, glowing with soft rainbow light against a deep cosmic background of teal, purple, and gold",
-        caption: "AUWA steps back into the night sky. The adventure was far from over.",
-      },
-      {
-        type: "text",
-        text: "Deeper in the forest, AUWA discovers the microbes: tiny creatures living in the soil who know everything AUWA has done. They are connected to every root, every creature, every living thing. They begin to sing. \u201CI-Me, You-Me, He-Me, She-Me. We connect, we connect, we connect and become one.\u201D I wrote that song for my daughter. I wanted her to understand, before she had the words for it, that nothing in this world is alone.",
-      },
-      {
-        type: "text",
-        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. The original AUWA was acrylic on gold canvas. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed. More recently, AI tools helped me refine and polish the vision for final production. But the hand that first drew the character is the same hand that draws it now. The technology is the printmaker to my artist, following the old ukiyo-e tradition where the vision belongs to one person and the production is a partnership.",
-      },
-      {
-        type: "text",
-        text: "There are four stories in total. The second takes AUWA to the ocean. The third to the mountains. The fourth, back to the stars. Together they form a cycle built from one quiet idea: that nothing is without soul, and awareness is the act of seeing it.",
-      },
-      {
-        type: "text",
-        text: "AUWA listened until the last note faded. Then, with a warm heart, stepped back into the night sky. The forest glowed below. The adventure was far from over.",
+        text: "The first book is complete and will be released later this year. I am currently working on the remaining stories. There are four so far, each taking AUWA somewhere new: the ocean, the city, the stars where AUWA is from. How many there will be in the end, I do not know yet. The character has a way of deciding that for me.",
       },
       {
         type: "cta" as const,
-        text: "AUWA: The Beginning will be published later this year. If you\u2019d like to know when it arrives, sign up below and we\u2019ll write to you once.",
+        text: "AUWA: The Beginning will be published later this year. If you\u2019d like to know when it arrives, sign up below and we\u2019ll write to you once it\u2019s released.",
         href: "/book",
         label: "Sign up",
       },
@@ -865,7 +841,7 @@ const articles: Record<
   },
   "yaoyorozu-no-kami": {
     title: "Yaoyorozu no Kami",
-    subtitle: "Eight million spirits live in everything. You already know they\u2019re there.",
+    subtitle: "Eight million gods reside in all things. Even the ones you overlook.",
     category: "Philosophy",
     issue: "Issue 10",
     author: "AUWA",
@@ -879,7 +855,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "What lives within these things is kami: spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A knife forged by hand over three days in a workshop in Sanjo carries something different from a knife stamped from a sheet of steel in a factory. You can feel the difference the first time you pick one up. The weight is different. The balance. Something in the way the handle sits in your hand, shaped by the decisions of a person who understood what your hand would need before you did. This is the belief that AUWA draws from. We use the word kokoro to describe it: heart, soul, spirit. The quality you sense when something has been made, or lived, with care.",
+        text: "What lives within these things is kami: spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that AUWA draws from.",
       },
       {
         type: "image",
@@ -889,15 +865,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there. This is the critical distinction. Yaoyorozu no Kami is not an act of consecration. It is an act of recognition. The tree was alive with kami before anyone tied a rope around it. The rope is simply a way of saying: we noticed.",
+        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there. This is the critical distinction. Yaoyorozu no Kami is not an act of consecration. It is an act of recognition. The tree was alive with kami before anyone tied a rope around it. The rope is simply a way of saying: we noticed. It also marks a sacred place, where gods reside, and serves as a barrier to prevent impure things from entering.",
       },
       {
         type: "text",
-        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some of these trees have been standing for four hundred years. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small. Not diminished. Clarified.",
-      },
-      {
-        type: "text",
-        text: "This is what Yaoyorozu no Kami actually feels like. Not theology. Not ritual. A physical sensation in the proximity of something that has been quietly, patiently alive for longer than you can hold in your head.",
+        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some of these trees have been standing for four hundred years. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
       },
       {
         type: "pullquote",
@@ -924,7 +896,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We walked back through the cedar avenue as the light began to flatten. Snow sat on every branch, undisturbed. She stopped at the shimenawa tree and stood there for a moment, hands together, eyes closed. Not performing. Participating. Continuing something her grandmother taught her mother taught her, a thread that runs back centuries to a time before anyone needed to explain why you would thank a tree for standing.",
+        text: "You do not arrive at Yaoyorozu no Kami through study. You arrive by paying attention long enough that the boundary between alive and not alive stops feeling useful. The tree, the stone, the bowl, the river. You already knew. You just stopped saying it out loud.",
       },
     ],
   },

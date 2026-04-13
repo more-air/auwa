@@ -28,7 +28,7 @@ export default function AboutPage() {
         <section className="mx-auto max-w-[680px] px-6 md:px-10 pb-16 md:pb-24">
           <FadeIn>
             <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              Since ancient times, the Japanese have believed that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. It is there in everything, if you pay attention.
+              Since ancient times, the Japanese have believed that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. They call this quality kokoro (心): a holistic word for what English splits into heart, mind, soul, and spirit. In Japanese, these are not separate. Kokoro is felt before it is understood.
             </p>
           </FadeIn>
           <FadeIn delay={100}>

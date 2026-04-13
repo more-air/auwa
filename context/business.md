@@ -28,9 +28,9 @@ These are not four separate products — they're one world experienced through f
 
 ## 2. The Brand Philosophy
 
-Since ancient times, the Japanese have believed that a life force resides in all things. Mountains, rivers, trees, animals, handmade objects, and even fleeting emotions: everything carries an essence worth noticing. There is no divide between the sacred and the ordinary. Everything in the universe is interconnected. This worldview is expressed in concepts like Yaoyorozu no Kami (八百万の神, the "countless spirits" that populate the world) and in the folk belief that objects used with care, over years and decades, accumulate a kind of soul.
+Since ancient times, the Japanese have believed that a life force resides in all things. Mountains, rivers, trees, animals, handmade objects, and even fleeting emotions: everything carries an essence worth noticing. There is no divide between the sacred and the ordinary, between thinking and feeling. Everything in the universe is interconnected. This worldview is expressed in concepts like Yaoyorozu no Kami (八百万の神, the "countless spirits" that populate the world) and in the folk belief that objects used with care, over years and decades, accumulate a kind of soul.
 
-AUWA is influenced by this philosophy. Not as a marketing angle, but as a lived worldview: one that AUWA's creator grew up with in Kansai and that underpins a decade of her creative work. AUWA uses the word kokoro (心: heart, soul, spirit) as its own expression of this idea: the quality you sense in a handmade bowl, in a well-worn knife, in a season you almost didn't notice, in your own emotions when you stop long enough to feel them.
+AUWA is influenced by this philosophy. Not as a marketing angle, but as a lived worldview: one that AUWA's creator grew up with in Kansai and that underpins a decade of her creative work. AUWA uses the word kokoro (心) as its own expression of this idea. Where English divides inner life into heart, mind, soul, and spirit, kokoro holds them as a single, holistic whole: emotion, thought, and essence unified without division. It is the quality you sense in a handmade bowl, in a well-worn knife, in a season you almost didn't notice, in your own emotions when you stop long enough to feel them.
 
 ### What This Philosophy Means in Practice
 
@@ -46,7 +46,7 @@ When you see the kokoro in a ceramic cup, a forest, a stranger's face, your own 
 
 ### How the Philosophy Powers Each Pillar
 
-**The App** builds emotional awareness. Through a daily practice of sharing how you feel, AUWA's AI reflects your emotions back through poetic language and Rieko's illustrated characters. Over time, you develop deeper self-perception — the foundation of emotional intelligence. The app uses a proprietary emotional framework based on Yamato language (ancient Japanese) to identify and reflect nuanced feelings, though users never see the taxonomy.
+**The App** builds emotional awareness. Through a daily practice of sharing how you feel, AUWA's AI reflects your kokoro back through poetic language and Rieko's illustrated characters. Not just your emotions, but the holistic state of your inner life: feeling, thought, and spirit as one. Over time, you develop deeper self-perception. The app uses a proprietary emotional framework based on Yamato language (ancient Japanese) to identify and reflect nuanced feelings, though users never see the taxonomy.
 
 **The Store** cultivates material awareness. Every object is chosen because a craftsman poured their kokoro into making it. Buying a hand-forged knife or a ceramic tea cup from a master artisan is a conscious act — choosing intention over convenience, craft over disposability, kokoro over commodity.
 

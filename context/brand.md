@@ -7,7 +7,7 @@
 
 ## 1. Brand Essence
 
-AUWA (あうわ) — "the harmony between the unseen and the seen." The brand makes the invisible visible: invisible emotions (app), invisible craftsmanship (store), invisible kokoro within all living things (stories).
+AUWA (あうわ) — "the harmony between the unseen and the seen." Kokoro (心) is the holistic Japanese concept that holds heart, mind, soul, and spirit as one undivided whole. The brand makes the invisible visible: invisible emotions (app), invisible craftsmanship (store), invisible kokoro within all living things (stories).
 
 The brand feels like: a quiet room in a Japanese temple at dusk. Dark, warm, still. Then light enters.
 

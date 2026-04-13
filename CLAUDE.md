@@ -6,7 +6,7 @@
 
 ## WHAT AUWA IS
 
-AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. AUWA uses the word kokoro (心: heart, soul, spirit) as its own expression of this idea. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. AUWA uses the word kokoro (心) as its own expression of this idea. Unlike English, which separates heart, mind, soul, and spirit into distinct concepts, kokoro holds them as a single, undivided whole. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
 
 Where Western wellness centres on the self, AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is "Japanese philosophical awareness applied to modern life."
 
@@ -34,7 +34,7 @@ The illustrated story universe. The four stories, the WAWA origin, the philosoph
 
 ## THE BRAND PHILOSOPHY
 
-AUWA is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. AUWA uses the word kokoro as its own expression of this idea. This connects all four pillars: the app reveals kokoro in emotions, the store sells objects with kokoro, the journal shares the world where kokoro lives, the stories show AUWA revealing kokoro in nature. AUWA's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary, between thinking and feeling. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. AUWA uses the word kokoro (心) as its own expression of this idea: the holistic Japanese concept that unifies what English separates into heart, mind, soul, and spirit. This connects all four pillars: the app reveals kokoro in emotions, the store sells objects with kokoro, the journal shares the world where kokoro lives, the stories show AUWA revealing kokoro in nature. AUWA's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
 
 The app uses two additional Japanese philosophical frameworks internally:
 

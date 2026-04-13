@@ -7,7 +7,7 @@
 
 ## 1. What the App Is
 
-A daily awareness practice disguised as a beautiful emotional experience. User shares how they feel in natural language, AUWA's AI identifies the emotion and reflects it back poetically alongside the AUWA character, a light shower animation, and a calligraphic micro-season stamp. The result is saved to a visual archive and optionally journaled and shared.
+A daily awareness practice disguised as a beautiful emotional experience. User shares how they feel in natural language, AUWA's AI identifies their kokoro and reflects it back poetically alongside the AUWA character, a light shower animation, and a calligraphic micro-season stamp. Kokoro (心) is holistic: it holds emotion, thought, and spirit as a single undivided whole, located in the chest and gut rather than the head. The app honours this by asking how you *feel*, not what you *think*. The result is saved to a visual archive and optionally journaled and shared.
 
 Five minutes. Once a day (or whenever you need it). No streaks, no badges, no push notifications. AUWA is pull, not push.
 
