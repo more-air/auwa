@@ -32,7 +32,7 @@ The auwa.life website is the front door to the AUWA brand. It establishes AUWA a
 
 ## 2. Site Architecture
 
-All sections live under **auwa.life** with subpaths. auwalife.com mirrors for the Japan market.
+All sections live under **auwa.life** with subpaths. All variants (auwalife.com, www.auwalife.com, www.auwa.life) 301 redirect to auwa.life. Google Search Console verified with sitemap submitted. Vercel project name: auwa-life.
 
 ```
 auwa.life/                  → Home (editorial hub + brand introduction)
@@ -75,7 +75,7 @@ The homepage should feel like opening a beautiful magazine, not landing on a pro
 
 5. **The Four Doors** — A quiet section introducing the four pillars. Not a feature grid — four atmospheric panels (image + short text) that invite exploration. App, Store, Journal, Book. Each links to its section. Think Hoshinoya's room selection: atmospheric, not informational.
 
-6. **Footer** — Three sections stacked: (1) "Stay close." newsletter signup on dark void background with `SignupForm` component, (2) pillar links (Journal · Store · App · Book) centred in EB Garamond, (3) bottom bar with © AUWA and social icons (Instagram, X, LinkedIn).
+6. **Footer** — Three sections stacked: (1) "Stay close." newsletter signup on dark void background with `SignupForm` component, (2) pillar links (Journal · Store · App · Book) centred in EB Garamond, (3) bottom bar with © AUWA and social icons (Instagram, X). LinkedIn hidden until account is active.
 
 ### Journal Index
 
@@ -253,7 +253,7 @@ All photography follows brand.md Section 6. Portrait-first (4:5) for all editori
 - **CMS:** Sanity (headless — not yet integrated; content currently hardcoded as placeholder data)
 - **Hosting:** Vercel (automatic deployments, edge functions, image optimisation)
 - **Email:** Resend (fully integrated — welcome emails auto-send on signup, newsletter sends via API). Templates in `src/emails/` using React Email (`@react-email/components`).
-- **Analytics:** Vercel Analytics or Plausible (privacy-respecting, no cookie banners)
+- **Analytics:** Vercel Analytics (`@vercel/analytics/react`, added to `layout.tsx`). Privacy-respecting, no cookie banner needed, GDPR compliant.
 - **Fonts:** Google Fonts via next/font (EB Garamond, Instrument Sans, Noto Sans JP, Noto Serif JP)
 
 ### Sanity Content Model
@@ -452,7 +452,7 @@ Fully documented in `context/newsletter.md`. Summary:
 
 ## 9. Analytics & Performance
 
-- **Vercel Analytics** or **Plausible** — privacy-respecting, no cookie consent banner needed
+- **Vercel Analytics** — installed and live. `@vercel/analytics/react` in `layout.tsx`. Privacy-respecting, no cookie consent banner needed.
 - **Key metrics:** Page views, unique visitors, time on page (especially journal articles), newsletter signups (conversion rate by page), referral sources
 - **Lighthouse target:** 95+ across all categories
 - **Core Web Vitals:** LCP < 2.5s, FID < 100ms, CLS < 0.1

@@ -87,7 +87,7 @@ The app uses two additional Japanese philosophical frameworks internally:
 ## KEY DECISIONS MADE
 
 **Brand architecture:**
-- Single domain: auwa.life with /app, /store, /journal, /book (auwalife.com as mirror for Japan)
+- Single domain: auwa.life with /app, /store, /journal, /book. All variants (auwalife.com, www.auwalife.com, www.auwa.life) 301 redirect to auwa.life. Google Search Console verified, sitemap submitted.
 - AUWA wordmark logo (serif typeface) — character saved for app, stories, figures, not the logo
 - Premium, refined aesthetic — serif type has that ancient, crafted feel
 
@@ -202,7 +202,7 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Teaser pages (pre-launch):** On mobile, use `aspect-[3/4]` (not `4/5`) for images and `min-h-[calc(100dvh-4rem)]` on the grid container so the full page fits within the viewport without scrolling. Tighten vertical padding to `py-12` on mobile.
 
-**Form success states:** Use full contrast for success messages. `text-void` on white backgrounds, `text-white` on dark backgrounds. Never use reduced opacity for confirmation text.
+**Form success states:** Use full contrast for success messages. `text-void` on white backgrounds, `text-white` on dark backgrounds. Never use reduced opacity for confirmation text. Success message element must match the form's height to prevent layout shift: use `min-h-[44px] flex items-center`.
 
 **Footer pattern:** The footer is one unified dark (`bg-void`) block with three zones: (1) two-column layout with signup left and pillar nav right, (2) spacer via `flex-1` to push the bottom bar down, (3) copyright + social icons. The footer uses `min-h` and `flex flex-col` so the bottom bar always sits at the base. Pillar links are left-aligned text on both mobile and desktop.
 
@@ -220,7 +220,7 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 ## DEPLOYMENT
 
-The AUWA website lives at `website/main/` and deploys to the Vercel project "main" (https://main-teal-iota-36.vercel.app/).
+The AUWA website lives at `website/main/` and deploys to the Vercel project "auwa-life" (https://auwa.life).
 
 **Git push to `origin main` does NOT auto-deploy to the correct Vercel project.** Multiple Vercel projects are connected to this repo, so use the Vercel CLI instead.
 

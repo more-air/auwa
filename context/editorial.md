@@ -201,7 +201,7 @@ For each article:
 
 ```
 title:        Short, evocative. One to four words.
-subtitle:     10-13 words. Punchy, with a turn or surprise. Two short sentences work well. Reference: "Japan didn't invent the seasons. It just refused to stop counting."
+subtitle:     Max 53 characters. Punchy, with a turn or surprise. Two short sentences work well. Reference: "Made from wood that breaks axes. Named after a girl."
 category:     Seasons | Craft | Philosophy | Travel
 author:       AUWA
 photographer: AUWA

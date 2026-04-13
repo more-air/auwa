@@ -23,7 +23,7 @@ export default function AppPage() {
               </FadeIn>
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  A daily awareness practice rooted in Japanese philosophy. AUWA reflects what you feel in words you haven't found yet.
+                  A daily awareness practice rooted in Japanese philosophy, reflecting what you feel in words not yet found.
                 </p>
               </FadeIn>
               <FadeIn delay={300}>

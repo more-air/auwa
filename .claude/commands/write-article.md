@@ -58,7 +58,7 @@ Assemble the article as a content block array matching the format in the existin
 
 1. The full article text
 2. The proposed content block order (text, image, image-pair, pullquote)
-3. The metadata (title, subtitle, category, author, photographer, publishedAt, heroImage)
+3. The metadata (title, subtitle — max 53 characters, category, author, photographer, publishedAt, heroImage)
 
 Ask: "Happy with this, or want to adjust anything before I add it to the site?"
 

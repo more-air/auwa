@@ -114,7 +114,7 @@ const articles: Record<
   },
   "koya-san": {
     title: "Koya-san",
-    subtitle: "The same prayers, chanted on this mountain for 1,200 years.",
+    subtitle: "Prayers chanted on this mountain for 1,200 years.",
     category: "Travel",
     issue: "Issue 06",
     author: "AUWA",
@@ -282,7 +282,7 @@ const articles: Record<
   },
   "making-washi": {
     title: "Making Washi",
-    subtitle: "Cold water, mulberry bark, and a thousand-year gesture.",
+    subtitle: "Cold water, mulberry bark, a thousand-year gesture.",
     category: "Craft",
     issue: "Issue 03",
     author: "AUWA",
@@ -296,17 +296,17 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We had driven north from Matsumoto into the mountains of Omachi, Nagano, following directions to Shinshu Matsuzaki Japanese Paper. The building sat on a quiet road, unremarkable from outside. A working place, not a showroom. Inside, the air was cool and damp, the kind of damp that seeps into your hands and stays there.",
+        text: "We had taken the train north from Matsumoto into the mountains of Omachi, Nagano, then from the station we followed directions to Shinshu Matsuzaki Japanese Paper. The building sat on a quiet road, very calm, with a nice atmosphere. Inside, the air was cool and fresh.",
       },
       {
         type: "text",
-        text: "Matsuzaki-san met us in the main workshop. He explained the process the way someone explains breathing: simply, because it is simple, and because he has done it every day for decades. Washi begins as kozo, the inner bark of the mulberry tree. The fibres are stripped, soaked, boiled with wood ash, rinsed in river water, then beaten by hand until they separate into a cloudy pulp suspended in a vat of water. The vat in front of us was waist-high, wide as a dining table. The surface trembled slightly.",
+        text: "Matsuzaki-san met us in the main workshop. He explained the process the way someone explains breathing: simply, because it is simple, and because he has done it every day for decades. Washi begins as kozo, the inner bark of the mulberry tree. The fibres are stripped, soaked, boiled with wood ash, rinsed in river water, then beaten by hand until they separate into a cloudy pulp suspended in a vat of water. The vat in front of us was waist-high, wide as a dining table.",
       },
       {
         type: "image",
         src: "/journal/washi/washi-rieko.jpg",
         alt: "Dipping a wooden sugeta frame into the vat of mulberry pulp at Shinshu Matsuzaki workshop",
-        caption: "At the vat. The postcard-sized frame for the introductory course, the same motion the workshop has practised since 1042.",
+        caption: "At the vat. The A4 sized frame for the full course, the same motion the workshop has practised since 1042.",
       },
       {
         type: "text",
@@ -318,15 +318,15 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Then it was our turn. My partner stepped up to a smaller vat with a postcard-sized frame. The motion looks simple when Matsuzaki-san does it. It is not simple. The pulp has a weight and a will. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. She found it after a few attempts. I did not.",
+        text: "Then it was our turn. My partner stepped up to a smaller vat with an A4 sized frame. The motion looks simple when Matsuzaki-san does it. It is not simple. The pulp has a weight and a will. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. She found it after a few attempts.",
       },
       {
         type: "text",
-        text: "What surprised me was how physical it felt. Your hands in cold water, your forearms bracing the frame, your whole body leaning into the motion. There is no abstraction in papermaking. You are standing in a cold room, arms wet to the elbows, making something one sheet at a time. The process does not scale. It is not designed to.",
+        text: "What surprised me was how physical it felt. Your hands in cold water, your forearms bracing the frame, your whole body leaning into the motion. There is no abstraction in papermaking. You are standing in a cold room, hands wet, making something one sheet at a time. The process does not scale. It is not designed to.",
       },
       {
         type: "pullquote",
-        text: "There is no abstraction in papermaking. You are standing in a cold room, arms wet to the elbows, making something one sheet at a time.",
+        text: "There is no abstraction in papermaking. You are standing in a cold room, hands wet, making something one sheet at a time.",
       },
       {
         type: "image-pair",
@@ -337,7 +337,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "After forming, each sheet is stacked, pressed under a heavy wooden screw press to squeeze out the water, then separated and brushed onto heated drying boards one at a time. Matsuzaki-san showed us the press, a beautiful piece of equipment that looked older than anyone in the room. Beside it, the wooden buckets and iron cauldrons used for boiling the bark. Everything worn smooth by use. Nothing decorative, nothing replaced that still worked.",
+        text: "After forming, each sheet is stacked, pressed under a heavy wooden screw press to squeeze out the water, then separated and brushed onto heated drying boards one at a time. Matsuzaki-san showed us the press, a beautiful piece of old equipment. Beside it, the wooden buckets and iron cauldrons used for boiling the bark. Everything worn smooth by use. Nothing decorative, nothing replaced that still worked.",
       },
       {
         type: "text",
@@ -355,11 +355,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We left with our postcards drying flat in a paper envelope. They are not perfect. The edges are uneven, the thickness varies, one has a fingerprint in the corner where I pressed too hard. They are, without question, the most beautiful pieces of paper we own. You can feel the fibres when you run a finger across the surface. You can see where the mulberry bark, stripped and soaked and beaten and suspended in mountain river water, became something new without losing what it was.",
+        text: "We left with our own handmade washi paper drying flat in a paper envelope. They are not perfect. But they are, without question, the most beautiful pieces of paper we own. You can feel the fibres when you run a finger across the surface. You can see where the mulberry bark, stripped and soaked and beaten and suspended in mountain river water, became something new without losing what it was.",
       },
       {
         type: "text",
-        text: "The drive back to Matsumoto took forty minutes. Neither of us said much. There is a particular quiet that follows making something with your hands, especially something that took your full attention. The afternoon light came through the car windows and hit the paper envelope on her lap, and for a moment you could see the leaves inside, held there in the fibres, going nowhere.",
+        text: "There is a particular quiet that follows making something with your hands, especially something that took your full attention. When we got back to our hotel we dried them on our window following Matsuzaki-san's instructions. The afternoon light came through the window and hit the paper where we could see the leaves inside, held there in the fibres, going nowhere. Absolutely beautiful. By late the next day, the paper was completely dry and ready for our journey home.",
       },
     ],
   },
@@ -434,7 +434,7 @@ const articles: Record<
   },
   "72-seasons": {
     title: "72 Seasons",
-    subtitle: "Japan didn\u2019t invent the seasons. It just refused to stop counting.",
+    subtitle: "The calendar nobody follows and the world forgot.",
     category: "Seasons",
     issue: "Issue 05",
     author: "AUWA",
@@ -507,7 +507,7 @@ const articles: Record<
   },
   "the-onsen-lesson": {
     title: "The Onsen Lesson",
-    subtitle: "What hot water and strangers teach you about being alive.",
+    subtitle: "What hot water and strangers teach about being alive.",
     category: "Philosophy",
     issue: "Issue 04",
     author: "AUWA",
@@ -517,15 +517,15 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "The first time I entered a Japanese onsen, I got it wrong. I kept my towel too long, moved too quickly, sat in the wrong spot. An older man caught my eye and gave a small nod toward the washing station. No words. Just a gesture that said: slow down, there is an order here, and it will make sense once you stop trying.",
+        text: "The first time I entered a Japanese onsen, I had been told the rules. Wash before you get in. Small towel on your head, not in the water. Keep your voice low. My partner had walked me through it, and I followed every step. None of that prepared me for how good it felt.",
       },
       {
         type: "text",
-        text: "That was in Nozawa Onsen, a village in Nagano where hot spring water runs beneath the streets and steam rises from the gutters even in January. The public bathhouses are called soto-yu, and there are thirteen of them, each fed by a different source, each free to enter, each maintained by the neighbourhood. No ticket booth. No attendant. Just a wooden door, a changing area, and water so hot it turns your skin pink in seconds.",
+        text: "It was a small public bathhouse, the kind you find in any onsen town. No ticket booth. No attendant. Just a wooden door, a changing area, and water so hot it turns your skin pink in seconds.",
       },
       {
         type: "text",
-        text: "You take off everything. Clothes, watch, phone. There is nowhere to put your status and no one to perform for. The businessman and the rice farmer sit in the same water. You wash before entering the bath, seated on a low stool, using a hand shower and a small basin. You rinse thoroughly. Then you lower yourself in.",
+        text: "You take off everything. Clothes, watch, phone. You wash at a low stool, rinse thoroughly, and lower yourself in. And what surprised me was not the heat, or the nakedness, or the fact that I was sitting with complete strangers. It was how natural it felt. Nobody stared. Nobody looked away awkwardly. People just sat in the water, breathing, quiet, sometimes releasing a long, satisfying sigh of relaxation. It felt like the most ordinary thing in the world, which is exactly what made it extraordinary.",
       },
       {
         type: "image",
@@ -560,13 +560,13 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/the-onsen-lesson/the-onsen-lesson-ladles.jpg", alt: "Wooden ladles and a metal basin at an onsen drinking water station, steam rising, bamboo wall behind", caption: "A drinking water station at one of Nozawa\u2019s thirteen soto-yu. The sign reads: half a ladle is the right amount." },
-          { src: "/journal/the-onsen-lesson/the-onsen-lesson-town.jpg", alt: "The narrow streets of Nozawa Onsen in winter, traditional wooden buildings and the entrance to \u014Cyu bathhouse", caption: "\u014Cyu, the main public bathhouse. The noren hangs year-round. Entry is free." },
+          { src: "/journal/the-onsen-lesson/the-onsen-lesson-ladles.jpg", alt: "Wooden ladles and a metal basin at an onsen drinking water station, steam rising, bamboo wall behind", caption: "A drinking water station at a public soto-yu. The sign reads: half a ladle is the right amount." },
+          { src: "/journal/the-onsen-lesson/the-onsen-lesson-town.jpg", alt: "The narrow streets of an onsen town in winter, traditional wooden buildings and the entrance to a public bathhouse", caption: "The entrance to a public bathhouse. The noren hangs year-round. Entry is free." },
         ],
       },
       {
         type: "text",
-        text: "I have thought about this often since that first visit. We went back to Nozawa many times. Each visit, the same ritual: undress, wash, enter, sit, breathe. And each time, the same small revelation. How little you actually need. How quickly the mind quiets when the body has nowhere to go and nothing to do except be present in hot water.",
+        text: "I have thought about this often since that first visit. We went back many times, to different towns, different bathhouses. Each visit, the same ritual: undress, wash, enter, sit, breathe. And each time, the same small revelation. How little you actually need. How quickly the mind quiets when the body has nowhere to go and nothing to do except be present in hot water.",
       },
       {
         type: "text",
@@ -574,11 +574,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "My partner grew up with this. Weekly visits to the local sento with her mother. For her, the communal bath is not a revelation. It is ordinary life. She once told me that the closest English word for what the onsen does is \"disarm.\" Not relax, not heal, not cleanse. Disarm. You put down whatever you were carrying, and you sit with other people who have done the same.",
+        text: "My partner grew up with this. Not as ordinary life, but as something her family treasured. Her father worked long hours, and the rhythm of daily life left little room for stillness. But from time to time, the family would travel to an onsen town. A hot spring trip. She remembers those visits with a warmth that has nothing to do with temperature.",
       },
       {
         type: "text",
-        text: "The awareness that comes from this is quiet and specific. You notice the temperature of the air on your wet shoulders when you step out. You notice the weight of the wooden bucket as you pour cold water over your head. You notice the sound of water moving when someone else enters the bath. Small, physical, present. The opposite of the awareness that comes from thinking about yourself.",
+        text: "The awareness that comes from an onsen experience is quiet and specific. You notice the temperature of the air on your wet shoulders when you step out. You notice the weight of the wooden bucket as you pour cold water over your head. You notice the sound of water moving when someone else enters the bath. Small, physical, present. The opposite of the awareness that comes from thinking about yourself.",
       },
       {
         type: "text",
@@ -590,7 +590,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The bathwater cools eventually. You step out, dry off, dress. The layers return. But something stays different for a while. A looseness in the chest, a wider peripheral vision, a willingness to let the next thing happen without already planning for the thing after that. The old man at the washing station was right. There is an order here. And it starts with putting everything down.",
+        text: "The bathwater cools eventually. You step out, dry off, dress. The layers return. But something stays different for a while. A looseness in the chest, a wider peripheral vision, a willingness to let the next thing happen without already planning for the thing after that. Walking back through the town afterwards, steam still rising from the drains, your skin flushed and cooling in the night air, you understand why people have been doing this for centuries. And why they will keep doing it long after you are gone.",
       },
     ],
   },
@@ -760,7 +760,7 @@ const articles: Record<
   },
   "the-beginning": {
     title: "The Beginning",
-    subtitle: "On a being of light, a dark forest, and a dream that would not let go.",
+    subtitle: "Light in a dark forest. A dream that wouldn't let go.",
     category: "Philosophy",
     issue: "Issue 11",
     author: "AUWA",
@@ -841,7 +841,7 @@ const articles: Record<
   },
   "yaoyorozu-no-kami": {
     title: "Yaoyorozu no Kami",
-    subtitle: "Eight million gods reside in all things. Even the ones you overlook.",
+    subtitle: "Eight million gods. Even in things you overlook.",
     category: "Philosophy",
     issue: "Issue 10",
     author: "AUWA",
