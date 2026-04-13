@@ -6,11 +6,11 @@
 
 ## 1. Executive Summary
 
-AUWA is a Japanese lifestyle brand rooted in the philosophy of Yaoyorozu no Kami — the ancient Shinto understanding that all things possess kokoro (心), the Japanese word for heart, soul, and spirit. Mountains, rivers, handmade objects, animals, other people, and your own emotions — everything carries an essence worth noticing. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Mountains, rivers, handmade objects, animals, other people, and your own emotions: everything carries an essence worth noticing. The Japanese call this quality kokoro (心): heart, soul, spirit. When you use something with care, over years and decades, it accumulates a kind of soul. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
 
-Where Western wellness centres on the self — self-care, self-improvement, self-optimisation — AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends outward: to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is the philosophical foundation that connects everything AUWA does.
+Where Western wellness centres on the self, AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends outward: to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is the philosophical foundation that connects everything AUWA does.
 
-**The thesis:** In an age of acceleration and artificial intelligence, awareness is the human skill that matters most. With better awareness you make better choices — about what you consume, how you treat your environment, how you relate to others, and how you understand yourself. AUWA applies Japanese philosophical awareness to modern life.
+**The thesis:** In an age of acceleration and artificial intelligence, awareness is the human skill that matters most. The answers already exist in what previous generations practised and what modern life left behind. Japanese philosophy preserved them: the 72 micro-seasons, the craftsman traditions, the daily gratitude for all living things. AUWA brings these forward. With better awareness you make better choices, about what you consume, how you treat your environment, how you relate to others, and how you understand yourself.
 
 **The four pillars of the brand:**
 1. **Kokoro Mirror** (auwa.life/app) — A daily awareness practice. AI-powered emotional reflection that reveals your kokoro through poetic language and Rieko's illustrated characters.
@@ -26,21 +26,23 @@ These are not four separate products — they're one world experienced through f
 
 ---
 
-## 2. The Brand Philosophy: Yaoyorozu no Kami
+## 2. The Brand Philosophy
 
-Yaoyorozu no Kami (八百万の神) is the ancient Shinto understanding that spirits inhabit all things. Mountains, rivers, trees, animals, handmade objects, and even fleeting emotions — everything possesses kokoro. There is no divide between the sacred and the ordinary. Everything in the universe is interconnected.
+Since ancient times, the Japanese have believed that a life force resides in all things. Mountains, rivers, trees, animals, handmade objects, and even fleeting emotions: everything carries an essence worth noticing. There is no divide between the sacred and the ordinary. Everything in the universe is interconnected. This worldview is expressed in concepts like Yaoyorozu no Kami (八百万の神, the "countless spirits" that populate the world) and in the folk belief that objects used with care, over years and decades, accumulate a kind of soul.
 
-This is the philosophical foundation of everything AUWA does. Not as a marketing angle, but as a lived worldview — one that Rieko grew up with in Japan and that underpins a decade of her creative work.
+AUWA is influenced by this philosophy. Not as a marketing angle, but as a lived worldview: one that AUWA's creator grew up with in Kansai and that underpins a decade of her creative work. AUWA uses the word kokoro (心: heart, soul, spirit) as its own expression of this idea: the quality you sense in a handmade bowl, in a well-worn knife, in a season you almost didn't notice, in your own emotions when you stop long enough to feel them.
 
-### What Yaoyorozu no Kami Means in Practice
+### What This Philosophy Means in Practice
 
-At the brand level, it means awareness. Awareness that the knife on your counter was made by hands that spent forty years perfecting a single craft. Awareness that the season outside your window shifted five days ago and you didn't notice. Awareness that the person sitting next to you on the train is carrying something heavy. Awareness that your own emotions — even the difficult ones — carry meaning and deserve to be witnessed rather than fixed.
+At the brand level, it means awareness. Awareness that the knife on your counter was made by hands that spent forty years perfecting a single craft. Awareness that the season outside your window shifted five days ago and you didn't notice. Awareness that the person sitting next to you on the train is carrying something heavy. Awareness that your own emotions, even the difficult ones, carry meaning and deserve to be witnessed rather than fixed.
 
-This is the opposite of the Western wellness model, which centres on the self. Japanese collectivist philosophy starts from connection: you are not the centre, you are part of a whole. The reason Japan's streets are clean, its temples preserved, its service culture extraordinary is not rules — it's awareness. Awareness of others. Awareness of shared space. Awareness that your actions ripple outward. This is Yaoyorozu no Kami in daily practice.
+This is the opposite of the Western wellness model, which centres on the self. Japanese collectivist philosophy starts from connection: you are not the centre, you are part of a whole. The reason Japan's streets are clean, its temples preserved, its service culture extraordinary is not rules. It's awareness. Awareness of others. Awareness of shared space. Awareness that your actions ripple outward.
 
-Today, with record tourism (42.7M visitors in 2025), Japan is experiencing the tension of that philosophy colliding with cultures that lack it — visitors chasing Maiko in Gion, doodling on ancient temples, disrespecting sacred spaces. AUWA doesn't lecture about this. It builds the awareness that makes it unnecessary. When you understand that a 400-year-old temple has kokoro, you don't need a sign telling you not to vandalise it. When you see the person next to you as connected to you, you behave differently. This is gentle education through philosophy, not rules — and it's why AUWA will resonate deeply with people in Japan who are watching their culture be consumed without understanding.
+In an era where efficiency and economics became the top priority, much of this was lost. But as Matsuba Tomi, who runs a folk house inn in Japan, puts it: "If we reexamine the inefficient, the values of the past, we can have a better way of life." AUWA exists to do exactly that: to bring forward what Japanese philosophy preserved, and to show that even if you can't live this way all the time, it can be a model, informing the choices you make and slowly changing things for the better.
 
-When you see the kokoro in a ceramic cup, a forest, a stranger's face, your own sadness — you make more conscious choices. About what you consume. How you travel. How you treat your environment. How you relate to others. As Robin Sharma put it: "With better awareness you can make better choices, and when you make better choices, you will see better results."
+Today, with record tourism (42.7M visitors in 2025), Japan is experiencing the tension of this philosophy colliding with cultures that lack it. AUWA doesn't lecture about this. It builds the awareness that makes lectures unnecessary. When you sense the life force in a 400-year-old temple, you don't need a sign telling you not to vandalise it. When you see the person next to you as connected to you, you behave differently. This is gentle education through philosophy, not rules.
+
+When you see the kokoro in a ceramic cup, a forest, a stranger's face, your own sadness, you make more conscious choices. About what you consume. How you travel. How you treat your environment. How you relate to others.
 
 ### How the Philosophy Powers Each Pillar
 
@@ -54,18 +56,23 @@ When you see the kokoro in a ceramic cup, a forest, a stranger's face, your own 
 
 ---
 
-## 3. Vision, Mission & Values
+## 3. Massive Transformative Purpose, Vision, Mission & Values
 
-**Vision:** A world where people live with deeper awareness — of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people — guided by Japanese philosophy. A world where that awareness leads to a more intentional, purposeful life: what the Japanese call ikigai.
+**MTP:** To show the world that a more aware, more intentional life is possible, guided by Japanese philosophy that has practised it for centuries.
 
-**Mission:** To build the world's first Japanese lifestyle brand that applies philosophical awareness to modern life, through four interconnected doors: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe — all rooted in the understanding that everything has kokoro.
+Short form (internal): *Restore awareness to a distracted world.* (Robin Sharma)
+
+**Vision:** A world where people live with deeper awareness: of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people. A world where that awareness leads to a more intentional, purposeful life: what the Japanese call ikigai. Real abundance is not material. It is the abundance of the heart.
+
+**Mission:** To apply Japanese philosophical awareness to modern life, through four interconnected doors: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe, all rooted in the ancient Japanese belief that a life force resides in all things.
 
 **Core Values:**
 - Awareness over autopilot: notice more, consume less, choose better
 - Kokoro over commerce: soul precedes sales in every decision
 - Connection over individualism: you are part of a whole, not the centre of it
+- Depth over surface: history and imperfection carry more beauty than polish. Old things made with care, made with the soul, are the most beautiful
 - Respect over consumption: engage with culture, craft, and places as a guest, not a customer
-- Authenticity over algorithm: Rieko's cultural truth and Tom and Rieko's 15+ years of shared experience in Japan are the moat
+- Authenticity over algorithm: cultural truth and 15+ years of shared experience in Japan are the moat
 - Seasonal wisdom over hustle culture: honour cycles, not streaks
 - Clarity over clutter
 

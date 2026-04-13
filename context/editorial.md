@@ -9,7 +9,7 @@
 
 AUWA's editorial voice draws from the same well as Kinfolk, Cereal, and Monocle. Quiet authority. Precise observation. A rhythm that alternates between short, declarative sentences and longer ones that give the reader room to breathe. The writing never announces itself. It arrives, says what it came to say, and trusts the reader to feel the rest.
 
-Tom writes from direct experience. He and Rieko have lived in and travelled through Japan for years. The journal is not research writing or reportage. It is personal essay grounded in real places, real objects, real moments. When we write about a knife, we held that knife. When we write about a temple at dawn, we stood in that silence.
+The journal is written from direct experience. The founders have lived in and travelled through Japan for years. It is not research writing or reportage. It is personal essay grounded in real places, real objects, real moments. When we write about a knife, we held that knife. When we write about a temple at dawn, we stood in that silence.
 
 **Reference writers and publications:**
 - Kinfolk (Nathan Williams, early issues especially): the intersection of craft, place, and philosophy. Clean prose, generous white space.
@@ -36,6 +36,15 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 - Earns its philosophical moments by grounding them first. The idea arrives after the object, the place, the sensation. Never before.
 - Treats Japanese cultural concepts with familiarity, not exoticism. Brief glosses where helpful, never italicised for effect.
 - Trusts silence. Not every paragraph needs to advance an argument. Some paragraphs simply describe.
+
+**Anonymity:** No personal names (Tom, Rieko, Vining) in any public-facing content. Within article text, use "she"/"her" for the creator, "he"/"him" for the producer, "my partner" where a relationship reference is needed. Image captions and alt text must also be anonymised. Author field is "AUWA". No byline display.
+
+**Philosophy and accuracy:**
+- AUWA is "influenced by" the ancient Japanese belief that a life force resides in all things. Never "rooted in Shinto" or presented as a Shinto brand.
+- The correct term for spirits inhabiting things is kami (or tama/tamashii). Kokoro (心) means heart, mind, spirit. It is AUWA's chosen brand word, not the Japanese theological term for spirit-in-objects. Write "AUWA uses the word kokoro" not "the Japanese call this quality kokoro."
+- "Shinto" is fine when describing actual Shinto practices (shrines, priests, ceremonies). It should not be used to frame the broader philosophical worldview that AUWA draws from. Use "ancient Japanese belief" or "ancient Japanese understanding" instead.
+- Yaoyorozu no Kami can appear in articles as a named concept, just not positioned as AUWA's doctrinal foundation.
+- Drop "Japanese lifestyle brand" as a label. AUWA is described through what it does, not through a category.
 
 ---
 
@@ -192,10 +201,10 @@ For each article:
 
 ```
 title:        Short, evocative. One to four words.
-subtitle:     One sentence that draws you in.
+subtitle:     10-13 words. Punchy, with a turn or surprise. Two short sentences work well. Reference: "Japan didn't invent the seasons. It just refused to stop counting."
 category:     Seasons | Craft | Philosophy | Travel
-author:       Tom Vining (or Rieko Vining, or both)
-photographer: Tom Vining (or Rieko Vining)
+author:       AUWA
+photographer: AUWA
 publishedAt:  ISO date
 heroImage:    Path to the hero photograph
 ```
@@ -233,7 +242,7 @@ The website needs 8-10 articles at launch. A mix across all four categories give
 - "Awareness, not mindfulness" (Philosophy) - why AUWA uses "awareness"
 - "What wabi-sabi means" (Philosophy) - reclaiming the concept
 
-Each article follows the production workflow in Section 4. Tom provides the brief and the photographs. The draft is written, checked against the voice rules, and assembled with images.
+Each article follows the production workflow in Section 4. The brief and photographs are provided, the draft is written, checked against the voice rules, and assembled with images.
 
 ---
 

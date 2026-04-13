@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const featuredArticle = {
   title: "The Beginning",
-  subtitle: "On the story that took ten years to find its form.",
+  subtitle: "On the story that took years to find its form.",
   slug: "the-beginning",
   category: "Philosophy",
   image: "/journal/auwa-book/auwa-book-hero.jpg",
@@ -21,17 +21,17 @@ const pillars = [
 ];
 
 const latestArticles: { title: string; excerpt: string; category: string; issue: string; slug: string; image?: string }[] = [
-  { title: "The Beginning", excerpt: "On the story that took ten years to find its form.", category: "Philosophy", issue: "Issue 11", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
-  { title: "Yaoyorozu no Kami", excerpt: "On the spirits that live in everything, and why you already know they\u2019re there.", category: "Philosophy", issue: "Issue 10", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
+  { title: "The Beginning", excerpt: "On the story that took years to find its form.", category: "Philosophy", issue: "Issue 11", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
+  { title: "Yaoyorozu no Kami", excerpt: "Eight million spirits live in everything. You already know they\u2019re there.", category: "Philosophy", issue: "Issue 10", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "On the night an entire village tried to burn down a shrine.", category: "Seasons", issue: "Issue 09", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
   { title: "Shigefusa", excerpt: "On waiting two years for a knife, and what arrived.", category: "Craft", issue: "Issue 08", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },
-  { title: "Oroko Combs", excerpt: "A boxwood comb that learns the shape of your life.", category: "Craft", issue: "Issue 07", slug: "oroko-combs", image: "/journal/oroko/oroko-hero.jpg" },
-  { title: "Koya-san", excerpt: "On the mountain where awareness has been practised for 1,200 years.", category: "Travel", issue: "Issue 06", slug: "koya-san", image: "/journal/koya-san/koya-san-hero.jpg" },
+  { title: "Oroku-gushi", excerpt: "Made from wood that breaks axes. Named after a girl it healed.", category: "Craft", issue: "Issue 07", slug: "oroku-gushi", image: "/journal/oroko/oroko-hero.jpg" },
+  { title: "Koya-san", excerpt: "The same prayers have been chanted on this mountain for 1,200 years.", category: "Travel", issue: "Issue 06", slug: "koya-san", image: "/journal/koya-san/koya-san-hero.jpg" },
   { title: "72 Seasons", excerpt: "Japan didn\u2019t invent the seasons. It just refused to stop counting.", category: "Seasons", issue: "Issue 05", slug: "72-seasons", image: "/journal/72-seasons/72-seasons-hero.jpg" },
   { title: "The Onsen Lesson", excerpt: "What hot water and strangers teach you about being alive.", category: "Philosophy", issue: "Issue 04", slug: "the-onsen-lesson", image: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg" },
-  { title: "Making Washi", excerpt: "On cold water, mulberry bark, and a thousand years of the same gesture.", category: "Craft", issue: "Issue 03", slug: "making-washi", image: "/journal/washi/washi-hero.jpg" },
-  { title: "Narai in Snow", excerpt: "A Nakasendo post town, four hundred years of silence, and the case for standing still.", category: "Travel", issue: "Issue 02", slug: "narai-juku", image: "/journal/narai-juku/narai-juku-hero.jpg" },
-  { title: "Yakushima", excerpt: "On the island where the trees remember everything.", category: "Travel", issue: "Issue 01", slug: "yakushima-island", image: "/journal/yakushima-island/yakushima-island-hero.jpg" },
+  { title: "Making Washi", excerpt: "Cold water, mulberry bark, and a gesture repeated for a thousand years.", category: "Craft", issue: "Issue 03", slug: "making-washi", image: "/journal/washi/washi-hero.jpg" },
+  { title: "Narai in Snow", excerpt: "Four hundred years of the same street. Nobody thought to change it.", category: "Travel", issue: "Issue 02", slug: "narai-juku", image: "/journal/narai-juku/narai-juku-hero.jpg" },
+  { title: "Yakushima", excerpt: "On the island where the trees have been alive longer than history.", category: "Travel", issue: "Issue 01", slug: "yakushima-island", image: "/journal/yakushima-island/yakushima-island-hero.jpg" },
 ];
 
 const secondFeature = {

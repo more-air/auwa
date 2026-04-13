@@ -6,9 +6,9 @@
 
 ## WHAT AUWA IS
 
-AUWA is a Japanese lifestyle brand rooted in the philosophy of Yaoyorozu no Kami — the ancient Shinto understanding that all things possess kokoro (心 — the Japanese word for heart, soul, and spirit). In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. AUWA uses the word kokoro (心: heart, soul, spirit) as its own expression of this idea. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
 
-Where Western wellness centres on the self, AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward — it extends to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is "Japanese philosophical awareness applied to modern life."
+Where Western wellness centres on the self, AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is "Japanese philosophical awareness applied to modern life."
 
 AUWA is built on four interconnected pillars: a daily awareness practice app (Kokoro Mirror), a curated Japanese craftsman store, an editorial journal, and an illustrated story universe. These are not four separate products — they're one world experienced through four doors. The app builds emotional awareness, the store cultivates material awareness, the journal builds cultural awareness, the book teaches philosophical awareness.
 
@@ -34,7 +34,7 @@ The illustrated story universe. The four stories, the WAWA origin, the philosoph
 
 ## THE BRAND PHILOSOPHY
 
-**Yaoyorozu no Kami** is the single philosophical foundation of the AUWA brand. Shinto concept that spirits inhabit all things — no divide between sacred and ordinary. Everything has kokoro. This connects all four pillars: the app reveals kokoro in emotions, the store sells objects with kokoro, the journal shares the world where kokoro lives, the stories show AUWA revealing kokoro in nature. Rieko grew up within this philosophy in Japan — it is not a marketing angle, it is lived experience.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. AUWA uses the word kokoro as its own expression of this idea. This connects all four pillars: the app reveals kokoro in emotions, the store sells objects with kokoro, the journal shares the world where kokoro lives, the stories show AUWA revealing kokoro in nature. AUWA's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
 
 The app uses two additional Japanese philosophical frameworks internally:
 
@@ -46,11 +46,13 @@ The app uses two additional Japanese philosophical frameworks internally:
 
 ## VISION & VALUES
 
-**Vision:** A world where people live with deeper awareness — of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people — guided by Japanese philosophy.
+**MTP:** To show the world that a more aware, more intentional life is possible, guided by Japanese philosophy that has practised it for centuries. Short form: *Restore awareness to a distracted world.* (Robin Sharma)
 
-**Mission:** To build the world's first Japanese lifestyle brand that applies philosophical awareness to modern life, through four interconnected doors: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe — all rooted in the understanding that everything has kokoro.
+**Vision:** A world where people live with deeper awareness: of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people. Real abundance is not material. It is the abundance of the heart.
 
-**Core values:** Awareness over autopilot. Kokoro over commerce. Connection over individualism. Respect over consumption. Authenticity over algorithm. Seasonal wisdom over hustle culture. Clarity over clutter.
+**Mission:** To apply Japanese philosophical awareness to modern life, through four interconnected doors: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe, all rooted in the ancient Japanese belief that a life force resides in all things.
+
+**Core values:** Awareness over autopilot. Kokoro over commerce. Connection over individualism. Depth over surface. Respect over consumption. Authenticity over algorithm. Seasonal wisdom over hustle culture. Clarity over clutter.
 
 **Structural precedents:** Kinfolk (aesthetic philosophy + editorial + experiences, acquired ~$30M), Monocle (worldview + editorial + retail + media, ~$10M+ revenue), Hodinkee (digital-age appreciation for craft, raised $40M+), Goop (wellness + retail + storytelling, ~$100M revenue), Snow Peak (gear + experiences + community, ¥25.7B). AUWA's unique angle: Japanese cultural authenticity rooted in a living philosophy, an illustrated story universe, and an AI-powered awareness practice.
 
@@ -207,6 +209,12 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 **Hero text on mobile:** Add `pr-12 md:pr-0` (or similar right padding) to hero headlines so text wraps earlier and doesn't crowd the right edge of the screen.
 
 **Continue reading spacing on mobile:** Use `gap-y-12` on mobile (vs `gap-y-8` on desktop) so articles in the grid have clear visual separation. On a single-column mobile layout, the text of one article needs more distance from the image of the next.
+
+**Image protection:** All images on the site are protected against casual saving. CSS in `globals.css` sets `-webkit-user-drag: none`, `user-select: none`, and `pointer-events: none` on all `img` elements (with `pointer-events: auto` restored for images inside links/buttons). A script in `layout.tsx` prevents right-click context menu on images. This deters casual copying, not determined users.
+
+**Contact email obfuscation:** The about page uses the `ObfuscatedEmail` client component (`src/components/obfuscated-email.tsx`) to display `hello[at]auwa.life` initially, revealing the real `mailto:` link only on click. Use this component wherever a contact email appears on the site.
+
+**Journal article breadcrumb:** Article pages show "JOURNAL / CATEGORY" as a breadcrumb trail above the article body. Both are clickable links (Journal goes to `/journal`, category goes to `/journal?category=...`).
 
 ---
 

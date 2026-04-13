@@ -322,6 +322,7 @@ Reusable components live in `src/components/`. All are server components unless 
 | SignupForm | `signup-form.tsx` | Yes | Email signup form. Props: `source` (app-waitlist / store-waitlist / book-waitlist / newsletter), `buttonText`, `successMessage`, `theme` (light/dark), `className`. Posts to `/api/signup`. |
 | FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based fade-in animation. Accepts `className`, `delay`, `children`. Not Framer Motion. |
 | MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |
+| ObfuscatedEmail | `obfuscated-email.tsx` | Yes | Bot-proof email display. Shows `user[at]domain` initially, reveals real `mailto:` link on click. Props: `user`, `domain`. |
 
 **API routes:**
 

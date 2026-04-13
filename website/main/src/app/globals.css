@@ -79,6 +79,19 @@ body {
   display: none;
 }
 
+/* Image protection — deters casual right-click/drag saving */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Re-enable pointer events on images inside interactive elements */
+a img,
+button img {
+  pointer-events: auto;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {

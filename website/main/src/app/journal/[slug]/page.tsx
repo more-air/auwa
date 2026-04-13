@@ -29,11 +29,11 @@ const articles: Record<
 > = {
   "yakushima-island": {
     title: "Yakushima",
-    subtitle: "On the island where the trees remember everything.",
+    subtitle: "On the island where the trees have been alive longer than history.",
     category: "Travel",
     issue: "Issue 08",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/yakushima-island/yakushima-island-hero.jpg",
     content: [
@@ -43,7 +43,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We had been walking for two hours along the Shiratani Unsuikyo trail. The path, such as it was, moved between granite boulders wrapped in moss so deep it looked like upholstery. Roots crossed the trail in thick tangles, some of them exposed and polished smooth by decades of hikers, others hidden beneath the moss layer, waiting to catch a boot. Rieko walked ahead. She had not spoken in some time. There was nothing to say that the forest was not already saying.",
+        text: "We had been walking for two hours along the Shiratani Unsuikyo trail. The path, such as it was, moved between granite boulders wrapped in moss so deep it looked like upholstery. Roots crossed the trail in thick tangles, some of them exposed and polished smooth by decades of hikers, others hidden beneath the moss layer, waiting to catch a boot. My partner walked ahead. She had not spoken in some time. There was nothing to say that the forest was not already saying.",
       },
       {
         type: "text",
@@ -73,7 +73,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "In Shinto, this awareness has a name. Yakushima\u2019s cedars are not sacred because someone designated them. They are sacred because they are inhabited. Yaoyorozu no kami, the understanding that spirit exists in all things, is not an abstract concept on this island. It is obvious. You stand in front of a tree that has been alive for three thousand years, its roots gripping granite, its branches holding an entire aerial garden of ferns and orchids, and the idea that it possesses kokoro requires no argument at all. The tree makes the case itself.",
+        text: "In the ancient Japanese understanding, Yakushima\u2019s cedars are not sacred because someone designated them. They are sacred because they are inhabited. Yaoyorozu no kami, the belief that spirit exists in all things, is not an abstract concept on this island. It is obvious. You stand in front of a tree that has been alive for three thousand years, its roots gripping granite, its branches holding an entire aerial garden of ferns and orchids, and the idea that it possesses spirit requires no argument at all. The tree makes the case itself.",
       },
       {
         type: "pullquote",
@@ -100,7 +100,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We stopped at a viewpoint where a gap in the canopy opened onto a valley filled with cloud. The tops of the cedars below us rose through the mist like islands. Rieko sat on a rock and pulled out her sketchbook. I stood and watched the cloud move through the valley, slow and purposeful, filling one gap between the trees and then the next, the way water fills a vessel.",
+        text: "We stopped at a viewpoint where a gap in the canopy opened onto a valley filled with cloud. The tops of the cedars below us rose through the mist like islands. She sat on a rock and pulled out her sketchbook. I stood and watched the cloud move through the valley, slow and purposeful, filling one gap between the trees and then the next, the way water fills a vessel.",
       },
       {
         type: "text",
@@ -108,17 +108,17 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We walked back down as the afternoon light softened. The trail was quieter now, most hikers already heading for the bus. At the trailhead, the sound of the road and the bus engine and a vending machine humming felt like re-entry from somewhere very far away. Rieko closed her sketchbook. Her pages were full of roots.",
+        text: "We walked back down as the afternoon light softened. The trail was quieter now, most hikers already heading for the bus. At the trailhead, the sound of the road and the bus engine and a vending machine humming felt like re-entry from somewhere very far away. She closed her sketchbook. Her pages were full of roots.",
       },
     ],
   },
   "koya-san": {
     title: "Koya-san",
-    subtitle: "On the mountain where awareness has been practised for 1,200 years.",
+    subtitle: "The same prayers have been chanted on this mountain for 1,200 years.",
     category: "Travel",
     issue: "Issue 06",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/koya-san/koya-san-hero.jpg",
     content: [
@@ -203,7 +203,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Neither of us spoke much. There is a particular kind of quiet that follows sustained attention. Not tired, not reflective exactly. More like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. Rieko leaned against the window and closed her eyes. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
+        text: "Neither of us spoke much. There is a particular kind of quiet that follows sustained attention. Not tired, not reflective exactly. More like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. My partner leaned against the window and closed her eyes. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
       },
     ],
   },
@@ -212,8 +212,8 @@ const articles: Record<
     subtitle: "On the night an entire village tried to burn down a shrine.",
     category: "Seasons",
     issue: "Issue 09",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-01-15",
     heroImage: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg",
     content: [
@@ -223,7 +223,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "This is the Dosojin Matsuri. Every year on 15 January, the men of Nozawa Onsen build a shrine, dedicate it to the dosojin (the protective spirits of the village), and then fight over whether it burns. The 25-year-olds defend it. Everyone else attacks. The whole village watches, drinks, and participates in a ritual that has been repeated for over three hundred years.",
+        text: "This is the Dosojin Matsuri. Every year on 15 January, the men of Nozawa Onsen build a shrine, dedicate it to the dosojin (the protective spirits of the village), and then fight over whether it burns. The 42-year-olds defend the roof, the 25-year-olds defend the base. Everyone else attacks. The whole village watches, drinks, and participates in a ritual that has been repeated for over three hundred years.",
       },
       {
         type: "text",
@@ -249,7 +249,7 @@ const articles: Record<
       },
       {
         type: "pullquote",
-        text: "You could feel the heat on your face from thirty metres away. The defenders sat on top of the shaden, legs dangling, watching the fire climb toward them through the logs.",
+        text: "You could feel the heat on your face from thirty metres away. The defenders crouched on top of the shaden, watching the fire climb toward them through the logs.",
       },
       {
         type: "image-pair",
@@ -260,7 +260,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "What struck me was the calm on the defenders' faces. Six men sat on top of the shaden, legs dangling over the edge, watching the fire climb toward them through the logs. They were not performing bravery. They were doing something their fathers had done, and their grandfathers before that. Sitting in the smoke, watching the sparks, waiting.",
+        text: "What struck me was the calm on the defenders' faces. Six men crouched on top of the shaden, silhouetted against the smoke, watching the fire climb toward them through the logs. They were not performing bravery. They were doing something their fathers had done, and their grandfathers before that. Sitting in the smoke, watching the sparks, waiting.",
       },
       {
         type: "text",
@@ -268,7 +268,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Dosojin are the boundary spirits of Japanese villages. They protect the community from disease, disaster, and evil spirits. They guard crossroads and borders. In the Shinto understanding of yaoyorozu no kami, these are not abstract concepts. The dosojin are present. They inhabit the stone markers at the edges of the village, and once a year the village renews its relationship with them through fire.",
+        text: "Dosojin are the boundary spirits of Japanese villages. They protect the community from disease, disaster, and evil spirits. They guard crossroads and borders. In the ancient Japanese understanding of yaoyorozu no kami, these are not abstract concepts. The dosojin are present. They inhabit the stone markers at the edges of the village, and once a year the village renews its relationship with them through fire.",
       },
       {
         type: "text",
@@ -282,11 +282,11 @@ const articles: Record<
   },
   "making-washi": {
     title: "Making Washi",
-    subtitle: "On cold water, mulberry bark, and a thousand years of the same gesture.",
+    subtitle: "Cold water, mulberry bark, and a gesture repeated for a thousand years.",
     category: "Craft",
     issue: "Issue 03",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/washi/washi-hero.jpg",
     content: [
@@ -305,8 +305,8 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/washi/washi-rieko.jpg",
-        alt: "Rieko dipping a wooden sugeta frame into the vat of mulberry pulp at Shinshu Matsuzaki workshop",
-        caption: "Rieko at the vat. The postcard-sized frame for the introductory course, the same motion the workshop has practised since 1042.",
+        alt: "Dipping a wooden sugeta frame into the vat of mulberry pulp at Shinshu Matsuzaki workshop",
+        caption: "At the vat. The postcard-sized frame for the introductory course, the same motion the workshop has practised since 1042.",
       },
       {
         type: "text",
@@ -314,11 +314,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The whole thing took perhaps twenty seconds. He has been doing it since he was young. The workshop has been doing it since 1042, when shrine attendants at the Nishina Shinmei Shrine first made paper from wild mulberry for sacred offerings. Nearly a thousand years of the same gesture: dip, settle, drain, turn.",
+        text: "The whole thing took perhaps twenty seconds. He has been doing it since he was young. The tradition in this valley goes back to 1042, when shrine attendants at the Nishina Shinmei Shrine first made paper from wild mulberry for sacred offerings. Matsuzaki\u2019s own workshop is younger, roughly ninety years, but the gesture is the same one those attendants practised nearly a thousand years ago: dip, settle, drain, turn.",
       },
       {
         type: "text",
-        text: "Then it was our turn. Rieko stepped up to a smaller vat with a postcard-sized frame. The motion looks simple when Matsuzaki-san does it. It is not simple. The pulp has a weight and a will. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. Rieko found it after a few attempts. I did not.",
+        text: "Then it was our turn. My partner stepped up to a smaller vat with a postcard-sized frame. The motion looks simple when Matsuzaki-san does it. It is not simple. The pulp has a weight and a will. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. She found it after a few attempts. I did not.",
       },
       {
         type: "text",
@@ -359,49 +359,53 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The drive back to Matsumoto took forty minutes. Neither of us said much. There is a particular quiet that follows making something with your hands, especially something that took your full attention. The afternoon light came through the car windows and hit the paper envelope on Rieko's lap, and for a moment you could see the leaves inside, held there in the fibres, going nowhere.",
+        text: "The drive back to Matsumoto took forty minutes. Neither of us said much. There is a particular quiet that follows making something with your hands, especially something that took your full attention. The afternoon light came through the car windows and hit the paper envelope on her lap, and for a moment you could see the leaves inside, held there in the fibres, going nowhere.",
       },
     ],
   },
-  "oroko-combs": {
-    title: "Oroko Combs",
-    subtitle: "A boxwood comb that learns the shape of your life.",
+  "oroku-gushi": {
+    title: "Oroku-gushi",
+    subtitle: "Made from wood that breaks axes. Named after a girl it healed.",
     category: "Craft",
     issue: "Issue 07",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/oroko/oroko-hero.jpg",
     content: [
       {
         type: "text",
-        text: "It came in a small cardboard box, wrapped in a single sheet of tissue paper. No ceremony. No kiri wood, no calligraphy. Just a comb in a cloth pouch, tucked inside a plain envelope with a printed receipt. The most understated arrival imaginable, which turned out to be exactly right.",
+        text: "We bought it from a small shop in Japan, the kind of place you find by asking, not by searching. The owner was a craftsman himself, responsible for the final polishing stage of every comb that left the workshop. He wrapped it in tissue paper, slid it into its cloth pouch, and handed it across the counter. No box. No ceremony. Just a comb in a pouch, and a quiet nod that said: take care of it.",
       },
       {
         type: "text",
-        text: "The comb sat on our kitchen table for a few minutes before either of us picked it up. Pale honey-coloured wood, fine teeth cut so close together they looked like the lines on a ruler. The body curved gently, shaped to sit in the palm. It weighed almost nothing. The kind of object you could walk past a hundred times without stopping. The kind of object that, once you do stop, won\u2019t let you go.",
+        text: "The comb sat on our kitchen table for a few minutes before either of us picked it up. Pale, dense wood, fine teeth cut so close together they looked like the lines on a ruler. The body curved gently, shaped to sit in the palm. It weighed more than you would expect from something so small. The kind of object you could walk past a hundred times without stopping. The kind of object that, once you do stop, won\u2019t let you go.",
       },
       {
         type: "text",
-        text: "This is a tsuge-gushi, a traditional Japanese boxwood comb, made by Oroko in the old quarter of Kyoto. Tsuge (Buxus microphylla var. japonica) is a slow-growing evergreen native to Japan\u2019s warmer regions. The wood is dense, fine-grained, and naturally oily. It doesn\u2019t splinter. It doesn\u2019t generate static. It glides through hair the way a good pen moves across paper: without resistance, without friction, without you needing to think about it.",
+        text: "This is an oroku-gushi, a traditional fine-toothed comb from Yabuhara in the Kiso Valley, Nagano Prefecture. The craft is roughly three hundred years old, rooted in the Edo period, and named after a girl called Oroku. The story goes that Oroku suffered from terrible headaches. She visited Gokoku Daigongen Shrine to pray for relief and received a message: comb your hair every day with a comb made from the minebari tree. She did, and the headaches stopped. The combs have carried her name ever since.",
       },
       {
         type: "image",
         src: "/journal/oroko/oroko-teeth.jpg",
-        alt: "Close-up of the Oroko tsuge-gushi boxwood comb showing finely cut teeth emerging from its asanoha-patterned cotton pouch",
-        caption: "Tsuge teeth, cut by hand and polished until there are no edges left to catch. The asanoha pouch is cotton, printed with one of Japan\u2019s oldest geometric patterns.",
+        alt: "Close-up of an oroku-gushi comb showing finely cut minebari wood teeth emerging from its asanoha-patterned cotton pouch",
+        caption: "Minebari teeth, cut by hand and polished until there are no edges left to catch. The asanoha pouch is cotton, printed with one of Japan\u2019s oldest geometric patterns.",
       },
       {
         type: "text",
-        text: "The teeth are cut by hand, one by one, using a series of progressively finer saws. After cutting, each tooth is rounded and polished so there are no sharp edges that could catch or break hair. The whole process takes days. A single comb passes through dozens of steps before it\u2019s finished, most of them invisible in the final object. You wouldn\u2019t know, looking at it, how much work went into making it feel like nothing at all. That\u2019s the point.",
+        text: "Minebari (Onoore Kanba) is an extraordinary wood. Its Japanese name translates roughly as \"the tree that breaks axes,\" which tells you everything about its density. It sinks in water. It has a natural bitterness and antibacterial properties that the old craft families believe contribute to the comb\u2019s reputation for healing. The wood is dried for thirteen years before a craftsman touches it. Thirteen years of waiting, just for the raw material to be ready. After that, the making begins.",
       },
       {
         type: "text",
-        text: "Oroko is not the most famous comb maker in Japan. That distinction probably belongs to Yoshi ya, the Kyoto shop that has been making tsuge-gushi since 1717. But Oroko makes beautiful combs at a more accessible price, and their work carries the same philosophy: objects made properly, from the right material, by people who understand what the object is for. No shortcuts. No substitutions. No plastic teeth pretending to be something they\u2019re not.",
+        text: "A standard oroku-gushi is about ten centimetres wide, with seventy to a hundred teeth packed into that small space. Master-level combs push further: over a hundred and forty teeth in just eight centimetres, each spaced at intervals of roughly 0.6 millimetres. The teeth are cut one by one using more than twenty specialised tools, then hand-finished and polished until every edge is smooth enough to pass through hair without catching a single strand. The density of the teeth eliminates static and distributes natural oils evenly. After a few weeks of use, your hair changes. It becomes smoother, shinier. The comb is doing something a plastic comb cannot.",
       },
       {
         type: "text",
-        text: "The comb arrived in a drawstring pouch of cotton fabric printed with asanoha, the hemp leaf pattern that appears across Japanese craft and textiles. Asanoha is one of the oldest geometric patterns in Japan, associated with growth and good health. It\u2019s a fitting wrapper. The pouch protects the comb, gives it a home in a bag or drawer, and adds a small, quiet layer of consideration to the whole experience. Someone thought about this. Someone decided the comb deserved a proper place to rest.",
+        text: "The number of craftsmen who can make oroku-gushi is declining. Plastic combs arrived in the late 1940s and the industry contracted sharply. Some makers left the craft entirely, returning only decades later. The Kiso Village Orokugushi Comb Association now runs training programmes in local schools, trying to develop successors. It is a familiar story in Japanese craft: a tradition sustained by fewer hands each generation, each pair of hands carrying more weight.",
+      },
+      {
+        type: "text",
+        text: "The comb arrived in a drawstring pouch of cotton fabric printed with asanoha, the hemp leaf pattern that appears across Japanese craft and textiles. Asanoha is one of the oldest geometric patterns in Japan, associated with growth and good health. The pouch protects the comb, gives it a home in a bag or drawer, and adds a small, quiet layer of consideration to the whole experience. Someone thought about where the comb would rest when it wasn\u2019t being used. Someone decided it deserved a proper place.",
       },
       {
         type: "pullquote",
@@ -410,21 +414,21 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/oroko/oroko-teeth.jpg", alt: "Detail of the Oroko comb\u2019s fine teeth against the red and white asanoha fabric", caption: "The teeth are so closely spaced they catch light like the lines on a ruled page." },
-          { src: "/journal/oroko/oroko-stamp.jpg", alt: "Close-up of the Oroko maker\u2019s stamp pressed into the boxwood, with the asanoha pouch behind", caption: "The maker\u2019s mark, pressed into the tsuge wood. Small, deliberate, permanent." },
+          { src: "/journal/oroko/oroko-teeth.jpg", alt: "Detail of the oroku-gushi comb\u2019s fine minebari wood teeth against the red and white asanoha fabric", caption: "The teeth are so closely spaced they catch light like the lines on a ruled page." },
+          { src: "/journal/oroko/oroko-stamp.jpg", alt: "Close-up of the craftsman\u2019s stamp pressed into the minebari wood, with the asanoha pouch behind", caption: "The craftsman\u2019s mark, pressed into the minebari. Small, deliberate, permanent." },
         ],
       },
       {
         type: "text",
-        text: "Tsuge wood changes over time. The natural oils from your hair and scalp absorb into the grain, darkening it gradually from pale honey to a deep amber. A tsuge-gushi that has been used for twenty years looks completely different from a new one. The wood remembers. It carries a record of use that no other material can replicate. Plastic stays the same forever. Tsuge becomes yours.",
+        text: "Minebari changes over time. The natural oils from your hair and scalp absorb into the grain, darkening it gradually from pale straw to a deep, warm amber. A comb that has been used for twenty years looks completely different from a new one. The wood remembers. It carries a record of use that no other material can replicate. Plastic stays the same forever. Minebari becomes yours.",
       },
       {
         type: "text",
-        text: "There is a word for this in Japanese craft: the idea that an object acquires character, even spirit, through sustained contact with the person who uses it. In the Shinto understanding of yaoyorozu no kami, all things can possess kokoro. Not just mountains and rivers, but bowls, knives, brooms, and combs. An object made with care and used with attention accumulates something over time. It becomes more than what it was when it left the workshop.",
+        text: "There is an ancient Japanese belief that objects used with care accumulate a kind of spirit. Not just mountains and rivers, but bowls, knives, brooms, and combs. An object made with enough skill, from the right material, used with enough attention, becomes more than what it was when it left the workshop. AUWA uses the word kokoro for this quality. A mass-produced comb has no kokoro. It can\u2019t. But one made from wood that waited thirteen years to be ready, shaped by hands using tools passed between generations, polished tooth by tooth until it could move through hair like water: that comb carries something of every person who touched it on its way to you.",
       },
       {
         type: "text",
-        text: "We keep ours in the asanoha pouch on a shelf in the bathroom. Rieko uses it most mornings. It\u2019s already a shade darker than the day it arrived, though you\u2019d have to hold it next to a new one to tell. In ten years, it will be unmistakable. The pale wood gone, replaced by something richer. A comb that knows her.",
+        text: "We keep ours in the asanoha pouch on a shelf in the bathroom. My partner uses it most mornings. It\u2019s already a shade darker than the day it arrived, though you\u2019d have to hold it next to a new one to tell. In ten years, it will be unmistakable. The pale wood gone, replaced by something richer. A comb that knows her.",
       },
     ],
   },
@@ -433,8 +437,8 @@ const articles: Record<
     subtitle: "Japan didn\u2019t invent the seasons. It just refused to stop counting.",
     category: "Seasons",
     issue: "Issue 05",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/72-seasons/72-seasons-hero.jpg",
     content: [
@@ -448,7 +452,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The system dates to 1685, adapted from an earlier Chinese model by the court astronomer Shibukawa Shunkai. Where the Chinese version described egrets and millet, Shibukawa rewrote the entries to match what a person would actually see in Japan. Hawks learning to fly. The first distant thunder. Warm winds melting the ice. Each k\u014d lasts roughly five days. Each one names something specific, something you could verify by walking outside and looking.",
+        text: "The system dates to 1685, adapted from an earlier Chinese model by the shogunate astronomer Shibukawa Shunkai. Where the Chinese version described egrets and millet, Shibukawa rewrote the entries to match what a person would actually see in Japan. Hawks learning to fly. The first distant thunder. Warm winds melting the ice. Each k\u014d lasts roughly five days. Each one names something specific, something you could verify by walking outside and looking.",
       },
       {
         type: "image",
@@ -506,8 +510,8 @@ const articles: Record<
     subtitle: "What hot water and strangers teach you about being alive.",
     category: "Philosophy",
     issue: "Issue 04",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg",
     content: [
@@ -526,7 +530,7 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/the-onsen-lesson/the-onsen-lesson-bath.jpg",
-        alt: "Rieko soaking in a natural rock onsen bath, warm light filtering through wooden slats above",
+        alt: "A woman soaking in a natural rock onsen bath, warm light filtering through wooden slats above",
         caption: "A private rotenburo carved from natural rock. The water comes from deep underground, the same source that feeds the village.",
       },
       {
@@ -570,7 +574,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Rieko grew up with this. Weekly visits to the local sento with her mother. For her, the communal bath is not a revelation. It is ordinary life. She once told me that the closest English word for what the onsen does is \"disarm.\" Not relax, not heal, not cleanse. Disarm. You put down whatever you were carrying, and you sit with other people who have done the same.",
+        text: "My partner grew up with this. Weekly visits to the local sento with her mother. For her, the communal bath is not a revelation. It is ordinary life. She once told me that the closest English word for what the onsen does is \"disarm.\" Not relax, not heal, not cleanse. Disarm. You put down whatever you were carrying, and you sit with other people who have done the same.",
       },
       {
         type: "text",
@@ -595,14 +599,14 @@ const articles: Record<
     subtitle: "On waiting two years for a knife, and what arrived.",
     category: "Craft",
     issue: "Issue 01",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/shigefusa/shigefusa-hero.jpg",
     content: [
       {
         type: "text",
-        text: "The knife arrived on a Tuesday in June, two years after we ordered it. No tracking number, no shipping notification. Just a card from the shop in Niigata saying it was ready, and then a box at the door wrapped in brown paper with that particular Japanese precision. Every fold exact, every edge aligned.",
+        text: "We ordered the knife in an unassuming hardware store in Japan. Nothing fancy. The kind of place you'd walk past without a second glance, except that its owner happened to have a direct connection to Shigefusa. My partner translated as I made the request, and the initial response was what you'd expect: years, possibly. But as the conversation continued, the owner agreed to put our names down on a waitlist. A couple of years later, back in the UK, we received word that the knife was ready for collection. On our next visit to Japan, we picked it up in person. A box wrapped in brown paper with that particular Japanese precision. Every fold exact, every edge aligned.",
       },
       {
         type: "text",
@@ -624,7 +628,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Shigefusa is the working name of a single bladesmith in Sanjo, Niigata prefecture, a region that has produced metalwork for over four hundred years. He doesn't have a website. He doesn't take custom orders. He makes what he makes (gyutos, nakiris, petty knives) in the quantities his hands and his days allow, and when they're finished, they go to a handful of shops in Japan. Waitlists run one to three years. There is no way to expedite.",
+        text: "Shigefusa is the working name of Tokifusa Iizuka, a bladesmith in Sanjo, Niigata prefecture, who works alongside his two sons in a family workshop in a region that has produced metalwork for over four hundred years. They don't have a website. They don't take custom orders. They make what they make (gyutos, nakiris, petty knives) in the quantities their hands and their days allow, and when the knives are finished, they go to a handful of shops in Japan. Waitlists run one to three years. There is no way to expedite.",
       },
       {
         type: "text",
@@ -651,7 +655,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The Japanese have a word for the spirit that lives in things: kokoro. In the Shinto understanding of yaoyorozu no kami, everything possesses it. Not just living beings but rivers, mountains, and objects made with enough care and accumulated skill. A mass-produced knife has no kokoro. It can't. It was made by a machine that doesn't know what a knife is for. But a blade that a single person spent days forging, shaping, polishing, and signing, that blade carries something of the person who made it into the life of the person who uses it.",
+        text: "Since ancient times, the Japanese have believed that a life force resides in all things. Yaoyorozu no kami: the understanding that spirit inhabits everything, not just living beings but rivers, mountains, and objects made with enough care and accumulated skill. A mass-produced knife carries nothing of its maker. It was made by a machine that doesn't know what a knife is for. But a blade that a single person spent days forging, shaping, polishing, and signing carries something of the person who made it into the life of the person who uses it.",
       },
       {
         type: "text",
@@ -659,7 +663,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Two years is a long time to wait for a knife. It's also, it turns out, exactly the right amount of time. Long enough to forget about it, then remember. Long enough to wonder if it will ever come, then stop wondering. Long enough that when the box finally arrives on a Tuesday in June, you open it slowly. You pay attention. You notice the oil, the wood, the weight, the grain in the steel, the chiseled name of the man who made it. You notice everything.",
+        text: "Two years is a long time to wait for a knife. It's also, it turns out, exactly the right amount of time. Long enough to forget about it, then remember. Long enough to wonder if it will ever come, then stop wondering. Long enough that when you finally collect it from that same unassuming shop, you open it slowly. You pay attention. You notice the oil, the wood, the weight, the grain in the steel, the chiseled name of the man who made it. You notice everything.",
       },
       {
         type: "text",
@@ -669,25 +673,25 @@ const articles: Record<
   },
   "narai-juku": {
     title: "Narai in Snow",
-    subtitle: "A Nakasendo post town, four hundred years of silence, and the case for standing still.",
+    subtitle: "Four hundred years of the same street. Nobody thought to change it.",
     category: "Travel",
     issue: "Issue 02",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/narai-juku/narai-juku-hero.jpg",
     content: [
       {
         type: "text",
-        text: "The snow had been falling for an hour when we arrived. Not the heavy, committed snow of a storm, but the fine, silent kind that doesn\u2019t seem to accumulate until you look down and realise the road has disappeared. Narai-juku sat in it like a photograph of itself. Dark wooden buildings on both sides of a single street, a kilometre long, the mountains behind them dissolving into white.",
+        text: "The snow had been falling for hours when we arrived. Not the heavy, committed snow of a storm, but the fine, silent kind that doesn\u2019t seem to accumulate until you look down and realise the road has disappeared. Narai-juku sat in it like a photograph of itself. Dark wooden buildings on both sides of a single street, a kilometre long, the mountains behind them dissolving into white. Minus ten, and dropping.",
       },
       {
         type: "text",
-        text: "Nobody was there.",
+        text: "Almost nobody was there. A few figures in the distance, moving slowly between buildings, but the street itself belonged to the snow. Not surprisingly, given the temperature.",
       },
       {
         type: "text",
-        text: "Not empty in the way a city street is empty at three in the morning, with the suggestion of people recently departed and soon to return. Empty the way a place can be when it has been this quiet for so long that silence is its natural state and people are the interruption.",
+        text: "There is a particular quality to near-emptiness that full emptiness doesn\u2019t have. A city street at three in the morning suggests people recently departed and soon to return. Narai in a snowstorm suggested that silence was its natural state and people were the interruption.",
       },
       {
         type: "text",
@@ -730,6 +734,14 @@ const articles: Record<
         text: "I stopped in front of a shopfront with a round wooden sign and dark noren. The bench outside was dusted with snow. The door was closed. I stood there for what might have been two minutes or ten. In a place with no noise and no agenda, time becomes unreliable. Not in a mystical sense. In the plain sense that your internal clock, which usually calibrates itself against conversations and notifications and the rhythm of other people\u2019s movement, has nothing to calibrate against. You are left with the snow and the wood and the sound of water you can hear but not see.",
       },
       {
+        type: "text",
+        text: "At some point, standing still in the middle of the street, I watched the snow being blown sideways across the rooftops. The dark wood, the white sky, the silence, the cold on my face. And something happened that I didn\u2019t expect. My eyes filled with tears. Not from sadness, not from the wind. From something closer to joy, though that word doesn\u2019t quite cover it. A feeling I get only occasionally, and always outdoors. Snowboarding down a particularly beautiful run with music in my ears. Standing on a ridge at the right moment. Complete absorption. No distance between you and what you\u2019re looking at. For a few seconds, there was no observer and no scene. Just the snow and the wood and the cold and the fact of being there.",
+      },
+      {
+        type: "text",
+        text: "There is a tendency, when writing about places like this, to reach for large claims. To say that the place teaches you something, or changes you, or reveals a truth about the way we live now. Narai doesn\u2019t do any of that. It is a street with old buildings and, on the day we visited, a lot of snow. What it offers is not a lesson but a duration. An hour, maybe two, in which nothing happens and nothing needs to. The buildings stand. The snow falls. The water runs. You walk, or you stop walking. Both are fine.",
+      },
+      {
         type: "image-pair",
         images: [
           { src: "/journal/narai-juku/narai-juku-ukiyoe.jpg", alt: "A framed ukiyo-e print displayed in a glass case above a wooden letterbox on the front of a traditional building in Narai-juku", caption: "An ukiyo-e print on a house front. Not in a museum, not labelled. Just part of the street." },
@@ -738,15 +750,15 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "There is a tendency, when writing about places like this, to reach for large claims. To say that the place teaches you something, or changes you, or reveals a truth about the way we live now. Narai doesn\u2019t do any of that. It is a street with old buildings and, on the day we visited, a lot of snow. What it offers is not a lesson but a duration. An hour, maybe two, in which nothing happens and nothing needs to. The buildings stand. The snow falls. The water runs. You walk, or you stop walking. Both are fine.",
+        text: "We had four hours before our train back to Matsumoto. At minus ten, four hours is not something your body lets you forget. Twice we took refuge. First in a soba restaurant, where the noodles arrived in a hot broth that made the cold feel like a distant rumour. Then, later, in a small tea house, where a woman brought us matcha in ceramic bowls and we sat by the window watching the snow pile up on the street outside. Both times, the warmth did something physical. Circulation returning to fingers and feet, the particular pleasure of thawing that only exists because you were frozen first. You don\u2019t appreciate a warm room the same way if you haven\u2019t earned it.",
       },
       {
         type: "text",
-        text: "We reached the end of the town and turned around. The street looked different in the other direction, the way all streets do. The same facades, the same snow, but the light had shifted and the mountains on this side had reappeared briefly before the next band of cloud arrived. Our footprints were already filling in.",
+        text: "We walked the street twice in the end, once in each direction. It looked different on the return. The same facades, the same snow, but the light had shifted and the mountains on this side had reappeared briefly before the next band of cloud arrived. Our footprints from earlier were already filling in.",
       },
       {
         type: "text",
-        text: "On the train back, the Kiso Valley opened up below us, the river grey-green and fast, the hills covered in cedar. Rieko said that Narai reminded her of a place that existed before the idea of tourism. Not a place that rejected modernity or performed simplicity for visitors, but one that had simply continued on its own terms for so long that the question of what it was for had stopped being relevant. It was for the people who lived there. If you happened to walk through it on a January afternoon, that was incidental.",
+        text: "On the train back, the Kiso Valley opened up below us, the river grey-green and fast, the hills covered in cedar. My partner said that Narai reminded her of a place that existed before the idea of tourism. Not a place that rejected modernity or performed simplicity for visitors, but one that had simply continued on its own terms for so long that the question of what it was for had stopped being relevant. It was for the people who lived there. If you happened to walk through it on a January afternoon, that was incidental.",
       },
       {
         type: "text",
@@ -756,11 +768,11 @@ const articles: Record<
   },
   "the-beginning": {
     title: "The Beginning",
-    subtitle: "On the story that took ten years to find its form.",
+    subtitle: "On the story that took years to find its form.",
     category: "Philosophy",
     issue: "Issue 11",
-    author: "Rieko Vining",
-    photographer: "Rieko Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-10",
     heroImage: "/journal/auwa-book/auwa-book-hero.jpg",
     content: [
@@ -770,16 +782,16 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "That was ten years ago.",
+        text: "That was several years ago.",
       },
       {
         type: "text",
-        text: "I kept drawing it. Every few days, sometimes every day, the same figure appearing in different settings: floating above a forest, standing beside a flower, surrounded by tiny creatures in the dark. I did not plan these scenes. They arrived, fully formed, the way certain dreams do. Tom would ask me what the character was, what it wanted, where it came from. I could not answer in words. I could only show him the next drawing.",
+        text: "I kept drawing it. Every few days, sometimes every day, the same figure appearing in different settings: floating above a forest, standing beside a flower, surrounded by tiny creatures in the dark. I did not plan these scenes. They arrived, fully formed, the way certain dreams do. He would ask me what the character was, what it wanted, where it came from. I could not answer in words. I could only show him the next drawing.",
       },
       {
         type: "image",
         src: "/journal/auwa-book/auwa-book-canvas.jpg",
-        alt: "Rieko Vining\u2019s original acrylic painting of AUWA on gold canvas, propped on a wooden desk beside a plant in a blue and white ceramic pot",
+        alt: "Original acrylic painting of AUWA on gold canvas, propped on a wooden desk beside a plant in a blue and white ceramic pot",
         caption: "The original. Acrylic on gold canvas, painted years before the book took shape.",
       },
       {
@@ -806,7 +818,7 @@ const articles: Record<
         type: "image-pair",
         images: [
           { src: "/journal/auwa-book/auwa-book-sketches.jpg", alt: "Pencil sketches of AUWA character scenes laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case", caption: "The first sketches. Pencil on paper, working out how AUWA moves through the forest." },
-          { src: "/journal/auwa-book/auwa-book-procreate.jpg", alt: "Rieko Vining drawing AUWA in Procreate on an iPad Pro with Apple Pencil, her original gold canvas painting of the character visible on the desk behind", caption: "From paper to Procreate. The original canvas painting watches over its digital self." },
+          { src: "/journal/auwa-book/auwa-book-procreate.jpg", alt: "Drawing AUWA in Procreate on an iPad Pro with Apple Pencil, the original gold canvas painting of the character visible on the desk behind", caption: "From paper to Procreate. The original canvas painting watches over its digital self." },
         ],
       },
       {
@@ -833,7 +845,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. The original AUWA was acrylic on gold canvas. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed. More recently, AI tools helped me refine and polish the vision for final production. But the hand that drew the character ten years ago is the same hand that draws it now. The technology is the printmaker to my artist, following the old ukiyo-e tradition where the vision belongs to one person and the production is a partnership.",
+        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. The original AUWA was acrylic on gold canvas. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed. More recently, AI tools helped me refine and polish the vision for final production. But the hand that first drew the character is the same hand that draws it now. The technology is the printmaker to my artist, following the old ukiyo-e tradition where the vision belongs to one person and the production is a partnership.",
       },
       {
         type: "text",
@@ -853,25 +865,21 @@ const articles: Record<
   },
   "yaoyorozu-no-kami": {
     title: "Yaoyorozu no Kami",
-    subtitle: "On the spirits that live in everything, and why you already know they\u2019re there.",
+    subtitle: "Eight million spirits live in everything. You already know they\u2019re there.",
     category: "Philosophy",
     issue: "Issue 10",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
+    author: "AUWA",
+    photographer: "AUWA",
     publishedAt: "2026-04-09",
     heroImage: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg",
     content: [
       {
         type: "text",
-        text: "Rieko bumped into the corner of a table in our kitchen in London. Without thinking, she said \u201Cgomen ne\u201D to it. Sorry. Not ironically, not as a joke. A small, reflexive apology to a piece of furniture, the way you might apologise to a person whose space you had entered clumsily. She grew up doing this. Her mother did it. Her grandmother did it. It is not a quirk. It is the residue of a worldview so deeply embedded in Japanese culture that most people who carry it have never stopped to examine why.",
+        text: "The worldview has a name: Yaoyorozu no Kami. Literally, \u201Ceight million gods,\u201D though the number is not a count. It means something closer to \u201Can uncountable multitude.\u201D Spirits in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
       },
       {
         type: "text",
-        text: "The worldview has a name: Yaoyorozu no Kami. Literally, \u201Ceight million gods,\u201D though the number is not a count. It means something closer to \u201Can uncountable multitude.\u201D Spirits in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The concept sits at the foundation of Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
-      },
-      {
-        type: "text",
-        text: "In Japanese, the word for what these things possess is kokoro. It translates as heart, or mind, or spirit, but none of those words are quite right because in English they describe human qualities. Kokoro does not belong exclusively to humans. A tree has kokoro. A stone has kokoro. A knife forged by hand over three days in a workshop in Sanjo has a different kokoro from a knife stamped from a sheet of steel in a factory. You can feel this difference the first time you pick one up. The weight is different. The balance. Something in the way the handle sits in your hand, shaped by the decisions of a person who understood what your hand would need before you did.",
+        text: "What lives within these things is kami: spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A knife forged by hand over three days in a workshop in Sanjo carries something different from a knife stamped from a sheet of steel in a factory. You can feel the difference the first time you pick one up. The weight is different. The balance. Something in the way the handle sits in your hand, shaped by the decisions of a person who understood what your hand would need before you did. This is the belief that AUWA draws from. We use the word kokoro to describe it: heart, soul, spirit. The quality you sense when something has been made, or lived, with care.",
       },
       {
         type: "image",
@@ -881,7 +889,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there. This is the critical distinction. Yaoyorozu no Kami is not an act of consecration. It is an act of recognition. The tree was alive with kokoro before anyone tied a rope around it. The rope is simply a way of saying: we noticed.",
+        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there. This is the critical distinction. Yaoyorozu no Kami is not an act of consecration. It is an act of recognition. The tree was alive with kami before anyone tied a rope around it. The rope is simply a way of saying: we noticed.",
       },
       {
         type: "text",
@@ -903,7 +911,7 @@ const articles: Record<
         type: "image-pair",
         images: [
           { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-gate.jpg", alt: "The red zuijinmon gate of Togakushi Shrine with shimenawa rope, framing a snow-covered path lined with ancient cedar trees receding into the distance", caption: "The gate at Togakushi. Beyond it, the cedar avenue where four centuries of trees stand in deep snow." },
-          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-prayer.jpg", alt: "A woman in a dark coat and white hat standing in prayer at a wooden shrine building with shimenawa rope and shide streamers, snow on the ground and ancient cedars behind", caption: "Rieko at the shrine. Not performing. Participating in something her grandmother taught her mother taught her." },
+          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-prayer.jpg", alt: "A woman in a dark coat and white hat standing in prayer at a wooden shrine building with shimenawa rope and shide streamers, snow on the ground and ancient cedars behind", caption: "At the shrine. Not performing. Participating in something passed down through generations." },
         ],
       },
       {
@@ -912,11 +920,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Japan never stopped. The language of kokoro runs through daily life in ways that have nothing to do with shrines or ceremonies. The way you treat your tools. The way you handle food. The custom of kuy\u014D, memorial services held for objects that have completed their service: needles, dolls, brushes, even spectacles. You do not throw away a thing that served you faithfully. You thank it. This is not sentimentality. It is a coherent relationship with the material world, one that produces less waste, more care, and a fundamentally different experience of being surrounded by objects.",
+        text: "Japan never stopped. This awareness runs through daily life in ways that have nothing to do with shrines or ceremonies. The way you treat your tools. The way you handle food. The custom of kuy\u014D, memorial services held for objects that have completed their service: needles, dolls, brushes, even spectacles. You do not throw away a thing that served you faithfully. You thank it. This is not sentimentality. It is a coherent relationship with the material world, one that produces less waste, more care, and a fundamentally different experience of being surrounded by objects.",
       },
       {
         type: "text",
-        text: "We walked back through the cedar avenue as the light began to flatten. Snow sat on every branch, undisturbed. Rieko stopped at the shimenawa tree and stood there for a moment, hands together, eyes closed. Not performing. Participating. Continuing something her grandmother taught her mother taught her, a thread that runs back centuries to a time before anyone needed to explain why you would thank a tree for standing.",
+        text: "We walked back through the cedar avenue as the light began to flatten. Snow sat on every branch, undisturbed. She stopped at the shimenawa tree and stood there for a moment, hands together, eyes closed. Not performing. Participating. Continuing something her grandmother taught her mother taught her, a thread that runs back centuries to a time before anyone needed to explain why you would thank a tree for standing.",
       },
     ],
   },
@@ -928,8 +936,8 @@ const fallbackArticle = {
   subtitle: "A lifetime spent perfecting a single blade.",
   category: "Craft",
   issue: "Issue 02",
-  author: "Tom Vining",
-  photographer: "Rieko Vining",
+  author: "AUWA",
+  photographer: "AUWA's creator",
   publishedAt: "2026-04-09",
   heroImage: null,
   content: [
@@ -1130,15 +1138,14 @@ export default async function ArticlePage({
         <FadeIn delay={200}>
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-6 md:py-8 border-b border-void/8">
             <div className="flex flex-wrap items-center justify-between gap-4 text-void/40">
-              <div className="flex flex-wrap items-center gap-6 md:gap-10">
+              <div className="flex flex-wrap items-center">
+                <Link href="/journal" className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-void transition-colors duration-300">
+                  Journal
+                </Link>
+                <span className="font-sans text-[12px] tracking-[0.08em] uppercase mx-2">/</span>
                 <Link href={`/journal?category=${article.category.toLowerCase()}`} className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-void transition-colors duration-300">
                   {article.category}
                 </Link>
-                <span className="font-sans text-[12px] tracking-[0.08em] uppercase">
-                  {article.author === article.photographer
-                    ? `Words & Photos: ${article.author}`
-                    : `Words: ${article.author} · Photos: ${article.photographer}`}
-                </span>
               </div>
               <div className="flex items-center gap-4">
                 <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" className="hover:text-void transition-colors duration-300">

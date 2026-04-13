@@ -92,6 +92,31 @@ Tom and Rieko developed Animaru for Nokia San Francisco (~2014): a character-bas
 
 ---
 
+## Inspirations & Alignment
+
+### Matsuba Tomi — Folk House Inn, Japan
+**Source:** [YouTube: Matsuba Tomi interview](https://www.youtube.com/watch?v=rK4-msUbl2c) (April 2026)
+
+Matsuba Tomi runs a folk house inn in Japan. Her words align directly with AUWA's philosophy and were a catalyst for refining the brand's messaging direction. Key extracts:
+
+**On real abundance:** "Real abundance isn't about things. It's the abundance of the heart. Being somewhere you feel calm, when you have peace of mind. A time and place of spiritual abundance. We're in an era where that is what's needed most."
+
+**On reexamining the past:** "In the era I grew up in, efficiency and economics were the top priority. But I think if we reexamine the inefficient, the values of the past, we can have a better way of life."
+
+**On being a model for living:** "I want to show everyone that such a thing is possible. That's the role I want for my inn. Even if you can't live like this in the city, it can be a model, informing the choices we make, how we live, and change society for the better."
+
+**On pretty versus beautiful:** "Beautiful living makes a happy life. I often say 'pretty' and 'beautiful' mean different things. I want beautiful things in my life. True beauty is different from surface beauty, don't you think? Young people have 'pretty,' smooth hands. As we age, they have more wrinkles and blemishes, but this is truly 'beautiful.' There's so much history, a record of what the hands have done or made. That's why old things made with care, made with the soul, are so beautiful."
+
+**On objects and their souls:** "There's a belief in Japan that objects used with care have their own souls. And I can definitely sense that."
+
+**On daily gratitude:** "I give thanks when I wake up each morning. I express my gratitude for all things. For the trees and the grass, even the flies and the ants."
+
+**Narrator's framing:** "Since ancient times the Japanese have believed that a life force resides in all creations. Valuing and caring for the things we use."
+
+These words informed the April 2026 messaging refinement: shifting from explicitly referencing "Shinto philosophy" to the broader, more accurate framing of an ancient Japanese belief in a life force within all things. Also shaped the MTP ("To show the world that a more aware, more intentional life is possible") and the addition of "depth over surface" to the brand values.
+
+---
+
 ## Document Reference
 
 - **Original Word docs (March 2026):** Archived in Dropbox at `3 venture/auwa/documents/20260313/`
