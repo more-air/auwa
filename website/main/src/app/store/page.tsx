@@ -23,7 +23,7 @@ export default function StorePage() {
               </FadeIn>
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  Curated Japanese craftsman products. Knives, ceramics, textiles. Each one chosen because a master poured their soul into making it.
+                  Curated Japanese craftsman products. Each one chosen because a master poured their soul into making it.
                 </p>
               </FadeIn>
               <FadeIn delay={300}>

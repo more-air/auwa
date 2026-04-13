@@ -87,8 +87,7 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={100}>
             <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              AUWA (written あうわ in Japanese) means "the harmony between the unseen and the seen." The three characters span the Japanese syllabary: あ (a) represents the heavens, わ (wa) represents the earth, and う (u) is the connection between them. The brand makes the invisible visible: invisible emotions, invisible craftsmanship, the invisible life force within all things. It also sounds like "our." Our life. Our world. Our awareness. That wasn't the origin, but we like where it lands.
-            </p>
+              AUWA (written あうわ in Japanese) is a word from an ancient Japanese writing system. あ (a) is the unseen, the source of all things. わ (wa) is the seen, the physical world we inhabit. う (u) is the act of bringing one into the other. The brand makes the invisible visible: the emotions you haven't named, the craft you haven't witnessed, the life force in things you pass every day without noticing. It also sounds like "our." Our life. Our world. Our awareness.             </p>
           </FadeIn>
         </section>
 
@@ -101,7 +100,7 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={100}>
             <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              AUWA is made by two people. The Creator (Eshi, 絵師): Japanese illustrator and the creator of the AUWA illustrated universe. Born and raised in Kansai, she grew up within the philosophy that AUWA now shares with the world. The Producer (Hanmoto, 版元): British designer and strategist. Twenty years building products for global tech and design. Published photographer whose Japan work has been used by Vogue, Condé Nast Traveler, and the World Economic Forum. Together, they follow the traditional Japanese ukiyo-e partnership of artist and publisher.
+              AUWA is made by two people. A Japanese and a British designer who have spent twenty years working together across technology and design, and travelling Japan. After many years, AUWA is the thing they always wanted to create: illustration, photography, writing, product design, all in service of something they believe in.
             </p>
           </FadeIn>
         </section>
