@@ -5,40 +5,51 @@ import {
   Heading,
   Hr,
   Html,
+  Img,
   Link,
   Preview,
   Section,
   Text,
 } from "@react-email/components";
 
+const BASE_URL = "https://auwa.life";
+
 const sourceContent = {
   newsletter: {
     preview: "Something quiet is on its way.",
-    heading: "Welcome.",
-    body: "You've joined a small group of people building a more aware life. We send occasional letters on Japanese craft, seasonal living, and the philosophy behind AUWA. Nothing noisy. Nothing frequent. Just things worth reading.",
+    heading: "Stay close.",
+    body: "You've joined a small group of people building a more aware life. We send occasional letters on Japanese craft, seasonal living, and the philosophy behind AUWA. Nothing noisy. Just things worth reading.",
+    image: `${BASE_URL}/pillars/store.jpg`,
+    imageAlt: "Japanese ceramics in afternoon light",
     cta: null,
     ctaUrl: null,
   },
   "app-waitlist": {
     preview: "You're on the Kokoro Mirror waitlist.",
-    heading: "You're in.",
-    body: "Kokoro Mirror is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it when we open the doors. We'll write to you when it's ready. Until then, the journal has plenty to explore.",
+    heading: "A practice is taking shape.",
+    body: "Kokoro Mirror is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
+    image: `${BASE_URL}/pillars/app.jpg`,
+    imageAlt: "AUWA Kokoro Mirror app",
     cta: "Read the journal",
-    ctaUrl: "https://auwa.life/journal",
+    ctaUrl: `${BASE_URL}/journal`,
   },
   "store-waitlist": {
     preview: "You're on the AUWA Store waitlist.",
-    heading: "You're in.",
-    body: "The AUWA Store will bring together lifetime objects from Japan's finest craftsmen. Knives, ceramics, tea caddies, textiles. Every piece chosen because a master poured their spirit into making it. We'll let you know when the doors open.",
+    heading: "Made by hand, chosen with care.",
+    body: "The AUWA Store will bring together lifetime objects from Japanese craftsmen. Every piece chosen because a master poured their soul into making it. We'll let you know when the doors open.",
+    image: `${BASE_URL}/pillars/store.jpg`,
+    imageAlt: "Japanese ceramics and wooden bowl in afternoon light",
     cta: "Read the journal",
-    ctaUrl: "https://auwa.life/journal",
+    ctaUrl: `${BASE_URL}/journal`,
   },
   "book-waitlist": {
     preview: "You're on the AUWA Book waitlist.",
-    heading: "You're in.",
-    body: "The AUWA stories are an illustrated universe ten years in the making: four tales that reveal the kokoro hidden in all things. We'll write to you when the book is ready. It will be worth the wait.",
+    heading: "Four stories, one light.",
+    body: "The AUWA book will initially span four illustrated stories about a being who reveals the kokoro hidden in all things. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
+    image: `${BASE_URL}/pillars/book.jpg`,
+    imageAlt: "AUWA: The Beginning illustrated book",
     cta: "Read the journal",
-    ctaUrl: "https://auwa.life/journal",
+    ctaUrl: `${BASE_URL}/journal`,
   },
 };
 
@@ -66,6 +77,16 @@ export default function WelcomeEmail({
             <Text style={wordmark}>AUWA</Text>
           </Section>
 
+          {/* Hero image */}
+          <Section style={imageSection}>
+            <Img
+              src={content.image}
+              alt={content.imageAlt}
+              width="520"
+              style={heroImage}
+            />
+          </Section>
+
           {/* Content */}
           <Section style={contentSection}>
             <Heading style={heading}>{content.heading}</Heading>
@@ -85,19 +106,19 @@ export default function WelcomeEmail({
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerLinks}>
-              <Link href="https://auwa.life/journal" style={footerLink}>
+              <Link href={`${BASE_URL}/journal`} style={footerLink}>
                 Journal
               </Link>
               {"  ·  "}
-              <Link href="https://auwa.life/store" style={footerLink}>
+              <Link href={`${BASE_URL}/store`} style={footerLink}>
                 Store
               </Link>
               {"  ·  "}
-              <Link href="https://auwa.life/app" style={footerLink}>
+              <Link href={`${BASE_URL}/app`} style={footerLink}>
                 App
               </Link>
               {"  ·  "}
-              <Link href="https://auwa.life/book" style={footerLink}>
+              <Link href={`${BASE_URL}/book`} style={footerLink}>
                 Book
               </Link>
             </Text>
@@ -126,7 +147,7 @@ const container: React.CSSProperties = {
 
 const logoSection: React.CSSProperties = {
   textAlign: "center",
-  padding: "0 0 40px",
+  padding: "0 0 32px",
 };
 
 const wordmark: React.CSSProperties = {
@@ -137,6 +158,17 @@ const wordmark: React.CSSProperties = {
   color: "#141318",
   textAlign: "center" as const,
   margin: "0",
+};
+
+const imageSection: React.CSSProperties = {
+  padding: "0 0 36px",
+};
+
+const heroImage: React.CSSProperties = {
+  width: "100%",
+  height: "auto",
+  display: "block",
+  borderRadius: "2px",
 };
 
 const contentSection: React.CSSProperties = {
