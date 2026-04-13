@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Instrument_Sans, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -102,6 +103,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Analytics />
         <script
           dangerouslySetInnerHTML={{
             __html: `document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault()})`,
