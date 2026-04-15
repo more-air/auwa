@@ -163,6 +163,7 @@ export function HeroFlipbookV4b() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [orders, setOrders] = useState<number[]>(CARDS.map((_, i) => i));
   const [inView, setInView] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // Preload images
   useEffect(() => {
@@ -174,9 +175,11 @@ export function HeroFlipbookV4b() {
     });
   }, []);
 
-  // Capture stable viewport height on mount (before mobile chrome changes it)
+  // Capture stable viewport height on mount, then mark as ready
   useEffect(() => {
     viewportHeight.current = window.innerHeight;
+    // Defer mounted flag to next frame so scroll handler runs first
+    requestAnimationFrame(() => setMounted(true));
   }, []);
 
   // Keep header visible while flipbook is active
@@ -220,8 +223,11 @@ export function HeroFlipbookV4b() {
     >
       {/* Sticky below header: top-16 (mobile 64px) / top-20 (desktop 80px) */}
       {/* Use svh on mobile to avoid snap-back when browser chrome hides/shows */}
+      {/* Hidden until mounted to prevent flash of unsorted cards on load/back-nav */}
       <div
-        className="sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center"
+        className={`sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 ${
+          mounted ? "opacity-100" : "opacity-0"
+        }`}
         style={{ height: "calc(100svh - 4rem)" }}
       >
         <div className="relative w-full" style={{ height: "calc(100svh - 4rem)" }}>
