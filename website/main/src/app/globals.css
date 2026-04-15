@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
 /* Footer parallax reveal: page content sits above sticky footer */
-header, main {
+main {
   position: relative;
   z-index: 1;
   background-color: oklch(1 0 0); /* --color-surface (white) */
-}
-header {
-  z-index: 50; /* header above main */
 }
 
 /* Lenis smooth scroll */
