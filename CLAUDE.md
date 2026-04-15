@@ -218,6 +218,8 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Journal article breadcrumb:** Article pages show "JOURNAL / CATEGORY" as a breadcrumb trail above the article body. Both are clickable links (Journal goes to `/journal`, category goes to `/journal?category=...`).
 
+**Article excerpts:** Excerpts shown on article cards (horizontal scroll, two-up, journal index) must be 55 characters or fewer. This keeps them to 2 lines max at 14px in the card width. Tighter is better. Lead with the image, not the text.
+
 **Flipbook card headings:** Headings in the homepage flipbook hero (`hero-flipbook-v4b.tsx`) must be 28 characters or fewer. This guarantees they fit on 2 lines maximum in the right-side text column (320px wide at `clamp(1.5rem, 2.5vw, 2.2rem)`). No `\n` line breaks. Let the text wrap naturally. Test at the `lg` breakpoint (1024px viewport) where the column is narrowest. When adding new cards, count characters before committing.
 
 **SEO and social sharing (OG meta):**
