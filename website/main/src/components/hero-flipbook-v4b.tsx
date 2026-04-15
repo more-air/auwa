@@ -383,23 +383,23 @@ export function HeroFlipbookV4b() {
             })}
           </div>
 
-          {/* ── Mobile text: pinned to bottom of sticky viewport ── */}
+          {/* ── Mobile text: pinned to bottom of sticky viewport, fixed height ── */}
           <div
             className={`lg:hidden absolute bottom-6 inset-x-0 z-30 transition-opacity duration-500 ${
               activeIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
           >
-            <div className="relative px-6">
+            <div className="relative px-6 h-[72px]">
               {CARDS.map((card, i) => (
                 <div
                   key={`mtext-${i}`}
-                  className={`transition-[opacity,transform] duration-500 ease-out ${
+                  className={`absolute inset-x-0 px-6 bottom-0 transition-[opacity,transform] duration-500 ease-out ${
                     i === activeIndex
                       ? "opacity-100 translate-y-0"
                       : i < activeIndex
                       ? "opacity-0 -translate-y-3"
                       : "opacity-0 translate-y-3"
-                  } ${i !== activeIndex ? "absolute bottom-0 left-0 right-0 px-6" : ""}`}
+                  }`}
                 >
                   {i === activeIndex && (
                     <>
