@@ -317,11 +317,11 @@ export function HeroFlipbookV4b() {
             {CARDS.map((card, i) => {
               const order = orders[i];
               const absOrder = Math.abs(order);
-              const scale = 1 - absOrder * 0.03;
-              const scaleX = 1 - absOrder * 0.1;
-              const translateY = order * 4;
+              const scale = 1 - absOrder * 0.025;
+              const scaleX = 1 - absOrder * 0.06;
+              const translateY = order * 2; // subtle peek, not a big gap
               const zIndex = 20 - absOrder;
-              const opacity = absOrder > 1 ? 0 : 1; // only 1 behind
+              const opacity = absOrder > 1 ? 0 : 1;
               const isActive = i === activeIndex;
               const href = PILLAR_LINKS[card.pillar] || "/about";
 
