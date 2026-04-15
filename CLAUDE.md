@@ -343,6 +343,68 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - For scroll-driven flipbook frames or image sequences: resize to 1920px wide (landscape) or 1080px wide (portrait) and convert to JPG at 85% quality using `sips -s format jpeg -s formatOptions 85 -Z [width] [input.png] --out [output.jpg]`.
 - Source images/frames often arrive as 3000-5500px PNGs (5-18MB each). After optimisation, landscape JPGs should be 200-600KB, portrait JPGs 100-200KB.
 
+**Rounded image corners:** All image containers site-wide use `rounded-xl overflow-hidden`. This applies to homepage cards, journal index, article images (inline and image-pair), continue reading, about page pillars, and the flipbook cards. The only exception is the article hero image on mobile, which goes edge-to-edge without rounding.
+
+**Scroll-driven flipbook hero (Obsidian Assembly pattern):**
+- Stacked portrait cards centred on the page, driven by scroll position.
+- Component: `hero-flipbook-v4b.tsx`. Cards defined in a `CARDS` array with type (image/video), src, label, heading, pillar.
+- Desktop (lg+): three-column layout. Left: pillar label + card label (uppercase) + counter. Centre: stacked cards. Right: heading text (clickable, links to pillar page).
+- Mobile/tablet (below lg): single card centred with dots above and text pinned at bottom.
+- Mobile uses `100svh` (not `dvh`) for stable sizing. Viewport height captured on mount for scroll calculations. This prevents snap-back when mobile browser chrome hides/shows.
+- Cards show only 1 behind the active card, narrower (`scaleX` reduces faster than `scaleY`).
+- The `mounted` flag uses double `requestAnimationFrame` before revealing the flipbook, preventing a flash of unsorted cards on page load or back-navigation.
+- Header stays visible during flipbook via `data-flipbook-active` attribute on body, read by the header component.
+- Video cards: the first card can be a video. Plays when active, pauses when not.
+
+**Lenis smooth scrolling:**
+- Installed via `npm install lenis`. Wrapper component: `smooth-scroll.tsx`.
+- Wrapped around children in `layout.tsx`. Uses `duration: 1.2` with ease-out-expo easing.
+- CSS in `globals.css`: `html.lenis` height auto, scroll-behavior override, `[data-lenis-prevent]` for opt-out.
+- To disable on specific elements: add `data-lenis-prevent` attribute.
+- To remove entirely: unwrap `SmoothScroll` from layout.tsx and remove the CSS.
+
+**Page transitions:**
+- Lightweight crossfade on route change via `page-transition.tsx`.
+- Uses `usePathname()` to detect navigation, fades out and back in (500ms opacity transition).
+- Wrapped around children in `layout.tsx` inside `SmoothScroll`.
+- To remove: unwrap `PageTransition` from layout.tsx.
+
+**FadeIn component variants:**
+- `variant="fade"` (default): opacity + 12px translateY. For text and general elements.
+- `variant="reveal"`: opacity + 24px translateY with slightly longer duration. For image cards and visual elements. Creates a more pronounced cascading entrance.
+- Stagger delays: use 150ms between grid items (pillar cards, two-up articles, continue reading). Use 60ms for horizontal scroll items. Cap at 480ms for longer lists.
+- All elements should cascade in one after another when they enter the viewport. This looks elegant and intentional.
+
+**Image hover zoom (global CSS):**
+- All images inside links (`a img`) get `scale(1.04)` on hover with `0.8s` ease-out transition.
+- Defined globally in `globals.css`. No per-component hover classes needed.
+- Do NOT add inline `group-hover:scale-[...]` Tailwind classes. The global CSS rule handles everything consistently.
+- The zoom should be clearly visible but still smooth. Too subtle (1.01) feels broken. Too much (1.08) feels cheap.
+
+**Footer parallax reveal:**
+- Footer has `sticky bottom-0 z-0`. Main content has `position: relative; z-index: 1; background-color: white` (set in globals.css).
+- As user scrolls to the bottom, the white content slides up and away, revealing the dark footer beneath.
+- Do NOT set `position: relative` on the `header` element in globals.css. This breaks the header's `sticky` positioning. Only `main` gets the override.
+
+**Mobile viewport units:**
+- Use `svh` (small viewport height) instead of `dvh` (dynamic viewport height) for any element that needs a stable height on mobile. `dvh` changes as mobile browser chrome shows/hides, causing layout shifts and scroll snap-back.
+- Capture `window.innerHeight` on mount (via `useRef`) and use that for scroll calculations instead of reading `window.innerHeight` on every scroll event.
+
+**Dynamic OG images (Next.js):**
+- Do NOT use `opengraph-image.tsx` (file-based dynamic OG) alongside `metadata.openGraph.images`. The file-based version takes priority and generates text-on-colour which looks poor on social platforms.
+- Use a static photo as `public/og-image.jpg` (1200x630) and reference it in the metadata export. Real photography always outperforms generated graphics on social.
+
+**Awwwards-level polish (lessons learned):**
+- Lenis smooth scroll is the single highest-impact upgrade. Transforms the entire feel for minimal effort.
+- Image reveals (fade + slide-up) look better than clip-mask reveals. Clip-path creates sharp edges during animation that conflict with rounded corners.
+- Custom cursors are polarising. Test with real users before shipping. They can feel fiddly and inaccessible. We removed ours.
+- Horizontal scroll hijacking (converting vertical scroll to horizontal) can feel strange and disorienting. Native horizontal scroll/swipe is usually better. We removed ours.
+- Page transitions (crossfade) are worth the small effort. They make the site feel like one continuous experience.
+- Footer parallax reveal is a high-impact, low-effort detail that signals craft.
+- Hover zoom on images should be clearly visible (1.04 scale) not barely perceptible (1.015). Users need to see the response to feel the interactivity.
+- Staggered cascade animations on grid items (150ms between each) look elegant and intentional. Apply to all grid/row layouts.
+
 **Build/type errors:**
 - When passing props between components, prefer explicit union types over `as` casts of generic strings.
 - The ESLint `core-web-vitals` import warning is a known Next.js 15 issue. It doesn't block the build.
+- When deleting routes or renaming components, always restart the dev server and delete `.next/` to clear stale caches. Hot reload doesn't always pick up deleted files.

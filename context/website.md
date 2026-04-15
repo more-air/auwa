@@ -59,23 +59,31 @@ auwa.life/brand             → Living style guide (logo, colours, typography, s
 
 ## 3. Page Layouts
 
-### Home Page
+### Home Page (Implemented)
 
-The homepage should feel like opening a beautiful magazine, not landing on a product page.
+The homepage uses a scroll-driven stacked-card flipbook hero inspired by Obsidian Assembly, followed by editorial content sections. All images have rounded corners (`rounded-xl`). Lenis smooth scrolling active site-wide. Page transitions crossfade between routes.
 
 **Structure (top to bottom):**
 
-1. **Header** — AUWA wordmark (Cormorant Light, tracked) left-aligned. Navigation right: Journal, App, Store, Book, About. Instrument Sans, small caps, tracked. Dark background (void). Minimal, fixed on scroll.
+1. **Header** — AUWA wordmark (EB Garamond, SVG) left-aligned. Navigation right: Journal, Store, App, Book, About. Instrument Sans, tracked. White background, sticky, stays visible during flipbook scroll. Hides on scroll down elsewhere, shows on scroll up.
 
-2. **Hero** — Full-width atmospheric image or the latest journal article as a hero card. Large Cormorant headline, one line of subtext, atmospheric photography behind. Slow, subtle parallax or gentle fade-in on load. No CTA button in the hero — the content IS the invitation.
+2. **Flipbook hero** — Stacked portrait cards (Obsidian Assembly pattern). 10 cards mixing product shots, editorial photography, and a video. Cards centred on screen, scroll-driven. Desktop: three-column layout with pillar label left, card centre, heading text right. Mobile/tablet: card centred with text pinned at bottom. First card is a looping video of the AUWA character. Cards are clickable (link to their pillar page). See `hero-flipbook-v4b.tsx`.
 
-3. **Brand statement** — A single line of philosophical text. Centred, Cormorant, generous whitespace above and below. Something like: "Japanese philosophical awareness applied to modern life." This is the only "explanation" on the page. Let it breathe.
+3. **Three pillar cards** — Book, Store, App. Portrait 4:5 aspect, rounded corners, gradient overlay with pillar name. Staggered cascade fade-up animation (150ms stagger). Each links to its teaser page.
 
-4. **Journal grid** — 3-6 recent articles in a Kinfolk-style grid. Mix of card sizes (one large, two medium, or asymmetric layout). Each card: atmospheric photography, Cormorant headline, one-line description, category tag. Dark backgrounds, warm photography.
+4. **Micro-season** — 72 micro-season kanji display. Breathing room between pillars and editorial content.
 
-5. **The Four Doors** — A quiet section introducing the four pillars. Not a feature grid — four atmospheric panels (image + short text) that invite exploration. App, Store, Journal, Book. Each links to its section. Think Hoshinoya's room selection: atmospheric, not informational.
+5. **Latest articles (horizontal scroll)** — 11 article cards in a horizontal scrolling row. Native scroll (no momentum hijacking). Each card: 4:5 portrait image, rounded corners, category label, title, excerpt (55 chars max).
 
-6. **Footer** — Three sections stacked: (1) "Stay close." newsletter signup on dark void background with `SignupForm` component, (2) pillar links (Journal · Store · App · Book) centred in EB Garamond, (3) bottom bar with © AUWA and social icons (Instagram, X). LinkedIn hidden until account is active.
+6. **AUWA face video** — Full-width rounded video of the AUWA character face-on with moving shadows. Landscape on desktop (16:9), square on mobile. Auto-plays when visible, pauses when not. Links to `/store`.
+
+7. **Two-up articles** — Onsen Lesson + Nozawa Fire Festival. Two large portrait cards side by side. Staggered cascade animation.
+
+8. **Meet AUWA video moment** — Portrait video of the AUWA character in a rounded card (left on desktop, stacked on mobile) with descriptive text alongside. Video and heading link to `/journal/the-beginning`. "The story behind AUWA" link goes to `/about`.
+
+9. **72 Seasons feature** — Large portrait card with text overlay. Links to the 72 Seasons article.
+
+10. **Footer** — Dark (`bg-void`), sticky at bottom with parallax reveal effect (content slides over it as you scroll). "Stay close." newsletter signup, pillar links, copyright + social icons.
 
 ### Journal Index
 
@@ -317,10 +325,17 @@ Reusable components live in `src/components/`. All are server components unless 
 
 | Component | File | Client? | Purpose |
 |-----------|------|---------|---------|
-| Header | `header.tsx` | Yes | Site header with AUWA wordmark, nav links, mobile menu. Hides on scroll down, shows on scroll up. |
-| Footer | `footer.tsx` | No | "Stay close" newsletter signup (dark), pillar links, copyright + social icons. Shared across all pages. |
+| Header | `header.tsx` | Yes | Site header with AUWA wordmark, nav links, mobile menu. Hides on scroll down, shows on scroll up. Stays visible during flipbook via `data-flipbook-active` body attribute. |
+| Footer | `footer.tsx` | No | "Stay close" newsletter signup (dark), pillar links, copyright + social icons. Sticky at bottom with parallax reveal. |
 | SignupForm | `signup-form.tsx` | Yes | Email signup form. Props: `source` (app-waitlist / store-waitlist / book-waitlist / newsletter), `buttonText`, `successMessage`, `theme` (light/dark), `className`. Posts to `/api/signup`. |
-| FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based fade-in animation. Accepts `className`, `delay`, `children`. Not Framer Motion. |
+| FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based animation. Two variants: `"fade"` (default, 12px rise) and `"reveal"` (24px rise, for image cards). Accepts `className`, `delay`, `duration`, `variant`. |
+| TextReveal | `text-reveal.tsx` | Yes | Word-by-word text animation. Splits text into words, each rises from below with stagger. For hero headlines. Props: `as` (tag), `delay`, `stagger`. |
+| SmoothScroll | `smooth-scroll.tsx` | Yes | Lenis smooth scrolling wrapper. Wraps children in layout.tsx. |
+| PageTransition | `page-transition.tsx` | Yes | Crossfade transition on route change (500ms). Wraps children in layout.tsx. |
+| HeroFlipbookV4b | `hero-flipbook-v4b.tsx` | Yes | Stacked-card flipbook hero. 10 cards (video + images). Scroll-driven. Obsidian Assembly-style. |
+| HeroVideo | `hero-video.tsx` | Yes | Video hero with poster fallback. Portrait/landscape responsive. Used on `/home-1`. |
+| VideoMoment | `video-moment.tsx` | Yes | "Meet AUWA" section: portrait video card + text. Desktop: side-by-side. Mobile: stacked. |
+| AuwaVideoBlock | `auwa-video-block.tsx` | Yes | Full-width AUWA face video. Landscape desktop, square mobile. Auto-plays on visibility. |
 | MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |
 | ObfuscatedEmail | `obfuscated-email.tsx` | Yes | Bot-proof email display. Shows `user[at]domain` initially, reveals real `mailto:` link on click. Props: `user`, `domain`. |
 
