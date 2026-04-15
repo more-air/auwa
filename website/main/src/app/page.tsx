@@ -5,6 +5,7 @@ import { MicroSeason } from "@/components/micro-season";
 import { HeroFlipbookV4b } from "@/components/hero-flipbook-v4b";
 import { VideoMoment } from "@/components/video-moment";
 import { AuwaVideoBlock } from "@/components/auwa-video-block";
+import { HorizontalScroll } from "@/components/horizontal-scroll";
 import Link from "next/link";
 
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
@@ -56,7 +57,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
               <FadeIn key={pillar.label} delay={i * 80} variant="reveal">
-                <Link href={pillar.href} className="group block">
+                <Link href={pillar.href} className="group block" data-cursor="Explore">
                   <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                     {pillar.image ? (
                       <img
@@ -85,10 +86,10 @@ export default function Home() {
 
         {/* ── Latest articles (horizontal scroll) ── */}
         <section className="pb-16 md:pb-24">
-          <div className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
+          <HorizontalScroll className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
             {latestArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 60} className="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]">
-                <Link href={`/journal/${article.slug}`} className="group block">
+                <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden relative">
                     {article.image ? (
                       <img
@@ -116,7 +117,7 @@ export default function Home() {
                 </Link>
               </FadeIn>
             ))}
-          </div>
+          </HorizontalScroll>
         </section>
 
         {/* ── AUWA face video (atmospheric break) ── */}
@@ -127,7 +128,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
             {twoUpArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 100} variant="reveal">
-                <Link href={`/journal/${article.slug}`} className="group block">
+                <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                     {article.image ? (
                       <img
@@ -160,7 +161,7 @@ export default function Home() {
         {/* ── 72 Seasons feature ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
           <FadeIn variant="reveal">
-            <Link href={`/journal/${secondFeature.slug}`} className="group block">
+            <Link href={`/journal/${secondFeature.slug}`} className="group block" data-cursor="Read">
               <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                 <img
                   src={secondFeature.image}

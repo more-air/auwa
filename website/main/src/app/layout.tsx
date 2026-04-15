@@ -3,6 +3,7 @@ import { EB_Garamond, Instrument_Sans, Noto_Sans_JP, Noto_Serif_JP } from "next/
 import { Analytics } from "@vercel/analytics/react";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { PageTransition } from "@/components/page-transition";
+import { CustomCursor } from "@/components/custom-cursor";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -113,6 +114,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <CustomCursor />
         <SmoothScroll>
           <PageTransition>
             {children}
