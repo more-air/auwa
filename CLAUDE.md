@@ -319,6 +319,15 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - No image conversion tools (ImageMagick, librsvg) are installed on this machine. Use `sips` (macOS built-in) for basic image operations.
 - For email templates, use text-based logos (styled with CSS) rather than image logos, since SVG support in email clients is unreliable and PNG conversion tools aren't available.
 
+**Video and image optimisation (for web):**
+- Hero/background videos must be compressed before placing in `public/`. Source videos are often 20-40MB; web target is 2-6MB.
+- Use `ffmpeg` for compression. Install via npm if not available: `cd /tmp && npm install ffmpeg-static`, then use `/private/tmp/node_modules/ffmpeg-static/ffmpeg`.
+- Video compression command: `ffmpeg -i [input] -vf "scale=[width]:-2" -c:v libx264 -preset slow -crf 26 -an -movflags +faststart -pix_fmt yuv420p [output]`. Use `scale=1920` for landscape, `scale=1080` for portrait.
+- Always extract a poster frame for the `<video poster="">` attribute: `ffmpeg -i [video] -vframes 1 -q:v 2 [poster.jpg]`.
+- Always strip audio from background/hero videos (`-an` flag) since they autoplay muted.
+- For scroll-driven flipbook frames or image sequences: resize to 1920px wide (landscape) or 1080px wide (portrait) and convert to JPG at 85% quality using `sips -s format jpeg -s formatOptions 85 -Z [width] [input.png] --out [output.jpg]`.
+- Source images/frames often arrive as 3000-5500px PNGs (5-18MB each). After optimisation, landscape JPGs should be 200-600KB, portrait JPGs 100-200KB.
+
 **Build/type errors:**
 - When passing props between components, prefer explicit union types over `as` casts of generic strings.
 - The ESLint `core-web-vitals` import warning is a known Next.js 15 issue. It doesn't block the build.
