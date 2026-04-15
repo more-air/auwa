@@ -110,12 +110,12 @@ button img {
   pointer-events: auto;
 }
 
-/* Gentle hover zoom on all linked images — soft, slow, barely perceptible */
+/* Hover zoom on all linked images — visible but smooth, matching More Air */
 a img {
-  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 a:hover img {
-  transform: scale(1.015);
+  transform: scale(1.04);
 }
 
 /* Reduced motion */

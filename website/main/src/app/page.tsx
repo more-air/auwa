@@ -5,7 +5,6 @@ import { MicroSeason } from "@/components/micro-season";
 import { HeroFlipbookV4b } from "@/components/hero-flipbook-v4b";
 import { VideoMoment } from "@/components/video-moment";
 import { AuwaVideoBlock } from "@/components/auwa-video-block";
-import { HorizontalScroll } from "@/components/horizontal-scroll";
 import Link from "next/link";
 
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
@@ -86,7 +85,7 @@ export default function Home() {
 
         {/* ── Latest articles (horizontal scroll) ── */}
         <section className="pb-16 md:pb-24">
-          <HorizontalScroll className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
+          <div className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
             {latestArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 60} className="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]">
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
@@ -117,7 +116,7 @@ export default function Home() {
                 </Link>
               </FadeIn>
             ))}
-          </HorizontalScroll>
+          </div>
         </section>
 
         {/* ── AUWA face video (atmospheric break) ── */}

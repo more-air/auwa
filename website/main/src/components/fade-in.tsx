@@ -8,7 +8,7 @@ interface FadeInProps {
   delay?: number;
   duration?: number;
   translateY?: number;
-  /** "fade" (default): opacity + translateY. "reveal": clip-mask reveal from bottom, ideal for images. */
+  /** "fade" (default): opacity + translateY. "reveal": same but with more lift (24px), for image cards. */
   variant?: "fade" | "reveal";
 }
 
@@ -38,24 +38,9 @@ export function FadeIn({
     return () => observer.disconnect();
   }, []);
 
-  if (variant === "reveal") {
-    return (
-      <div
-        ref={ref}
-        className={className}
-        style={{
-          clipPath: isVisible
-            ? "inset(0 0 0% 0 round 12px)"
-            : "inset(0 0 8% 0 round 12px)",
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? "scale(1)" : "scale(1.03)",
-          transition: `clip-path ${duration * 1.2}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, opacity ${duration * 0.6}ms ease-out ${delay}ms, transform ${duration * 1.4}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        }}
-      >
-        {children}
-      </div>
-    );
-  }
+  // "reveal" uses more lift (24px) and slightly longer duration for image cards
+  const lift = variant === "reveal" ? 24 : translateY;
+  const dur = variant === "reveal" ? duration * 1.1 : duration;
 
   return (
     <div
@@ -65,8 +50,8 @@ export function FadeIn({
         opacity: isVisible ? 1 : 0,
         transform: isVisible
           ? "translateY(0)"
-          : `translateY(${translateY}px)`,
-        transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+          : `translateY(${lift}px)`,
+        transition: `opacity ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
       }}
     >
       {children}

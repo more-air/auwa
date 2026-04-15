@@ -29,6 +29,7 @@ type Card = {
   pillar: string;
 };
 
+// MAX 28 CHARS per heading (fits 2 lines at 2.2rem in 320px column)
 const CARDS: Card[] = [
   {
     type: "video",
@@ -36,14 +37,6 @@ const CARDS: Card[] = [
     poster: "/hero/poster-portrait.jpg",
     label: "Meet AUWA",
     heading: "Everything has Kokoro.",
-    // MAX 28 CHARS per heading (fits 2 lines at 2.2rem in 320px column)
-    pillar: "Character",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/04.jpg",
-    label: "A luminous being",
-    heading: "A life force in all things.",
     pillar: "Character",
   },
   {
@@ -101,13 +94,6 @@ const CARDS: Card[] = [
     label: "Daily awareness",
     heading: "Reveal your kokoro.",
     pillar: "App",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/08.jpg",
-    label: "The AUWA universe",
-    heading: "Four stories. One world.",
-    pillar: "Book",
   },
   {
     type: "image",
@@ -176,10 +162,14 @@ export function HeroFlipbookV4b() {
   }, []);
 
   // Capture stable viewport height on mount, then mark as ready
+  // Double rAF ensures scroll handler has run and cards are sorted before revealing
   useEffect(() => {
     viewportHeight.current = window.innerHeight;
-    // Defer mounted flag to next frame so scroll handler runs first
-    requestAnimationFrame(() => setMounted(true));
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setMounted(true);
+      });
+    });
   }, []);
 
   // Keep header visible while flipbook is active
@@ -316,8 +306,8 @@ export function HeroFlipbookV4b() {
 
           {/* ── Mobile: card centred in upper area, leaving room for text at bottom ── */}
           <div
-            className="lg:hidden absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-56px)] max-w-[380px]"
-            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 18rem)" }}
+            className="lg:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[55%] w-[calc(100%-56px)] max-w-[380px]"
+            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 20rem)" }}
           >
             {CARDS.map((card, i) => {
               const order = orders[i];
