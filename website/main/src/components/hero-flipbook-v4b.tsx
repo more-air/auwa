@@ -160,6 +160,7 @@ function VideoCard({ src, poster, isActive }: { src: string; poster?: string; is
 
 export function HeroFlipbookV4b() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const viewportHeight = useRef(0); // Stable height, captured on mount
   const [activeIndex, setActiveIndex] = useState(0);
   const [orders, setOrders] = useState<number[]>(CARDS.map((_, i) => i));
   const [inView, setInView] = useState(false);
@@ -172,6 +173,11 @@ export function HeroFlipbookV4b() {
         img.src = card.src;
       }
     });
+  }, []);
+
+  // Capture stable viewport height on mount (before mobile chrome changes it)
+  useEffect(() => {
+    viewportHeight.current = window.innerHeight;
   }, []);
 
   // Keep header visible while flipbook is active
@@ -189,7 +195,8 @@ export function HeroFlipbookV4b() {
     if (!container) return;
 
     const rect = container.getBoundingClientRect();
-    const scrollableHeight = container.offsetHeight - window.innerHeight;
+    const vh = viewportHeight.current || window.innerHeight;
+    const scrollableHeight = container.offsetHeight - vh;
     const scrolled = -rect.top;
     const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
 
@@ -213,11 +220,12 @@ export function HeroFlipbookV4b() {
       style={{ height: `${CARD_COUNT * 70}vh` }}
     >
       {/* Sticky below header: top-16 (mobile 64px) / top-20 (desktop 80px) */}
+      {/* Use svh on mobile to avoid snap-back when browser chrome hides/shows */}
       <div
         className="sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center"
-        style={{ height: "calc(100dvh - 4rem)", minHeight: 0 }}
+        style={{ height: "calc(100svh - 4rem)" }}
       >
-        <div className="relative w-full" style={{ height: "calc(100dvh - 4rem)", maxHeight: "calc(100dvh - 4rem)" }}>
+        <div className="relative w-full" style={{ height: "calc(100svh - 4rem)" }}>
 
           {/* ── Left text column (desktop) — aligned to card centre ── */}
           <div className="hidden lg:flex absolute left-8 lg:left-20 top-[46%] -translate-y-1/2 flex-col items-start gap-6 w-[200px] lg:w-[240px]">
@@ -304,7 +312,7 @@ export function HeroFlipbookV4b() {
           {/* ── Mobile: larger card container (near 9:16, centred) ── */}
           <div
             className="lg:hidden absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-48px)] max-w-[400px]"
-            style={{ aspectRatio: "9/16", maxHeight: "calc(100dvh - 12rem)" }}
+            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 12rem)" }}
           >
             {CARDS.map((card, i) => {
               const order = orders[i];
@@ -388,8 +396,12 @@ export function HeroFlipbookV4b() {
             })}
           </div>
 
-          {/* ── Mobile text overlay ── */}
-          <div className="lg:hidden absolute bottom-0 inset-x-0 z-30">
+          {/* ── Mobile text overlay (hidden on first card, visible once scrolling) ── */}
+          <div
+            className={`lg:hidden absolute bottom-0 inset-x-0 z-30 transition-opacity duration-500 ${
+              activeIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          >
             <div className="relative px-6 pb-4">
               {CARDS.map((card, i) => (
                 <div
