@@ -1080,7 +1080,7 @@ export default async function ArticlePage({
 
         {/* ── Hero: split layout, viewport height ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
-          <div className="relative aspect-[4/5] md:aspect-auto bg-surface-raised rounded-xl md:rounded-none overflow-hidden">
+          <div className="relative aspect-[4/5] md:aspect-auto bg-surface-raised overflow-hidden">
             {article.heroImage ? (
               <img
                 src={article.heroImage}

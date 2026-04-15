@@ -316,8 +316,8 @@ export function HeroFlipbookV4b() {
 
           {/* ── Mobile: card centred in upper area, leaving room for text at bottom ── */}
           <div
-            className="lg:hidden absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-48px)] max-w-[400px]"
-            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 16rem)" }}
+            className="lg:hidden absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-56px)] max-w-[380px]"
+            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 18rem)" }}
           >
             {CARDS.map((card, i) => {
               const order = orders[i];

@@ -45,8 +45,8 @@ export function FadeIn({
         className={className}
         style={{
           clipPath: isVisible
-            ? "inset(0 0 0% 0)"
-            : "inset(0 0 8% 0)",
+            ? "inset(0 0 0% 0 round 12px)"
+            : "inset(0 0 8% 0 round 12px)",
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? "scale(1)" : "scale(1.03)",
           transition: `clip-path ${duration * 1.2}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, opacity ${duration * 0.6}ms ease-out ${delay}ms, transform ${duration * 1.4}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
