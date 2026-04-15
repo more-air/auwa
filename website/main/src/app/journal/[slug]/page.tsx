@@ -1225,9 +1225,9 @@ export default async function ArticlePage({
                 const a = articles[s];
                 return { title: a.title, category: a.category, slug: s, image: a.heroImage };
               });
-            })().map((related) => (
+            })().map((related, i) => (
+              <FadeIn key={related.title} delay={i * 150} variant="reveal">
               <Link
-                key={related.title}
                 href={`/journal/${related.slug}`}
                 className="group block"
               >
@@ -1251,6 +1251,7 @@ export default async function ArticlePage({
                   </h3>
                 </div>
               </Link>
+              </FadeIn>
             ))}
           </div>
         </section>

@@ -305,7 +305,7 @@ export function HeroFlipbookV4b() {
                     <img
                       src={card.src}
                       alt={card.label}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      className="absolute inset-0 w-full h-full object-cover "
                     />
                   )}
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.04] transition-colors duration-400 rounded-xl" />

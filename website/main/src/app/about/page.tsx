@@ -63,7 +63,7 @@ export default function AboutPage() {
                     <img
                       src={pillar.image}
                       alt={pillar.label}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      className="absolute inset-0 w-full h-full object-cover "
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 p-4 md:p-6">

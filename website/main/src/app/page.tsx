@@ -56,14 +56,14 @@ export default function Home() {
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
-              <FadeIn key={pillar.label} delay={i * 80} variant="reveal">
+              <FadeIn key={pillar.label} delay={i * 150} variant="reveal">
                 <Link href={pillar.href} className="group block" data-cursor="Explore">
                   <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                     {pillar.image ? (
                       <img
                         src={pillar.image}
                         alt={pillar.label}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        className="absolute inset-0 w-full h-full object-cover "
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -127,14 +127,14 @@ export default function Home() {
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
             {twoUpArticles.map((article, i) => (
-              <FadeIn key={article.slug} delay={i * 100} variant="reveal">
+              <FadeIn key={article.slug} delay={i * 150} variant="reveal">
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                     {article.image ? (
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        className="absolute inset-0 w-full h-full object-cover "
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -166,7 +166,7 @@ export default function Home() {
                 <img
                   src={secondFeature.image}
                   alt={secondFeature.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  className="absolute inset-0 w-full h-full object-cover "
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6 md:p-12 lg:p-20 xl:p-28 max-w-[700px]">

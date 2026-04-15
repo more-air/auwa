@@ -73,7 +73,8 @@ export default async function JournalPage({
             {filtered.map((article, i) => (
               <FadeIn
                 key={article.slug}
-                delay={Math.min(i * 60, 360)}
+                delay={Math.min(i * 120, 480)}
+                variant="reveal"
               >
                 <Link href={`/journal/${article.slug}`} className="group block">
                   <div className="bg-surface-raised rounded-xl overflow-hidden relative aspect-[4/5]">
