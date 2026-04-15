@@ -216,6 +216,17 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Journal article breadcrumb:** Article pages show "JOURNAL / CATEGORY" as a breadcrumb trail above the article body. Both are clickable links (Journal goes to `/journal`, category goes to `/journal?category=...`).
 
+**Flipbook card headings:** Headings in the homepage flipbook hero (`hero-flipbook-v4b.tsx`) must be 28 characters or fewer. This guarantees they fit on 2 lines maximum in the right-side text column (320px wide at `clamp(1.5rem, 2.5vw, 2.2rem)`). No `\n` line breaks. Let the text wrap naturally. Test at the `lg` breakpoint (1024px viewport) where the column is narrowest. When adding new cards, count characters before committing.
+
+**SEO and social sharing (OG meta):**
+- Every page needs `title`, `description`, and an `openGraph.images` array in its metadata export.
+- Page titles: "[Page Name] | AUWA" format. Keep under 60 characters so Google doesn't truncate.
+- Descriptions: 150-160 characters. Lead with what it is, not who you are. No marketing fluff.
+- OG image: 1200x630px JPG. Use a real photograph, not generated text-on-colour. The OG image must exist as a static file in `public/` (e.g. `public/og-image.jpg`) and be referenced in both `openGraph.images` and `twitter.images`.
+- Twitter card: always `summary_large_image` for visual brands.
+- For article pages: generate per-article OG images using the article's hero photo, cropped to 1200x630. Use `sips -c 630 1200` to centre-crop.
+- Test link previews on LinkedIn, WhatsApp, and Twitter using their respective preview tools before shipping.
+
 ---
 
 ## DEPLOYMENT

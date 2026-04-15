@@ -33,7 +33,7 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "AUWA | Japanese philosophical awareness applied to modern life",
+  title: "AUWA | Everything has kokoro",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   description:
-    "A Japanese lifestyle brand rooted in the philosophy that everything has kokoro. Journal, stories, craft, and a daily awareness practice.",
+    "Japanese philosophical awareness applied to modern life. A daily awareness practice, craftsman objects, illustrated stories, and an editorial journal. Rooted in the ancient belief that a life force resides in all things.",
   metadataBase: new URL("https://auwa.life"),
   alternates: {
     canonical: "https://auwa.life",
@@ -49,16 +49,25 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AUWA | Everything has kokoro",
     description:
-      "Japanese philosophical awareness applied to modern life. Journal, stories, craft, and a daily awareness practice.",
+      "Japanese philosophical awareness applied to modern life. A daily awareness practice, craftsman objects, illustrated stories, and an editorial journal.",
     url: "https://auwa.life",
     siteName: "AUWA",
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AUWA",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AUWA",
+    title: "AUWA | Everything has kokoro",
     description: "Japanese philosophical awareness applied to modern life.",
+    images: ["/og-image.jpg"],
   },
 };
 

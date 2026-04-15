@@ -23,10 +23,14 @@ export function Header() {
   }, [pathname]);
 
   // Hide on scroll down, show on scroll up
+  // Stay visible when a flipbook hero is active (data-flipbook-active on body)
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      if (y > lastScrollY.current && y > 80) {
+      const flipbookActive = document.body.hasAttribute("data-flipbook-active");
+      if (flipbookActive) {
+        setHidden(false);
+      } else if (y > lastScrollY.current && y > 80) {
         setHidden(true);
       } else {
         setHidden(false);

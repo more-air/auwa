@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "AUWA | Japanese philosophical awareness applied to modern life";
+export const alt = "AUWA | Everything has kokoro";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
