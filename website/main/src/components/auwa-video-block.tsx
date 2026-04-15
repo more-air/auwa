@@ -41,8 +41,8 @@ export function AuwaVideoBlock() {
       ref={sectionRef}
       className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24"
     >
-      {/* Square on mobile, ~16:9 on desktop */}
-      <div className="relative aspect-square md:aspect-[16/9] w-full rounded-xl overflow-hidden bg-surface-raised">
+      {/* Square on mobile, ~16:9 on desktop — links to store */}
+      <a href="/store" className="block relative aspect-square md:aspect-[16/9] w-full rounded-xl overflow-hidden bg-surface-raised">
         <img
           src="/hero/poster-auwa.jpg"
           alt="AUWA"
@@ -63,7 +63,7 @@ export function AuwaVideoBlock() {
         >
           <source src="/hero/landscape-auwa.mp4" type="video/mp4" />
         </video>
-      </div>
+      </a>
     </section>
   );
 }

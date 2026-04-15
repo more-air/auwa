@@ -49,8 +49,8 @@ export function VideoMoment() {
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: video card left, text right */}
         <div className="hidden md:grid grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Video card */}
-          <div className="relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
+          {/* Video card — links to the article */}
+          <a href="/journal/the-beginning" className="block relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
             <img
               src="/hero/poster-portrait.jpg"
               alt="AUWA"
@@ -71,7 +71,7 @@ export function VideoMoment() {
             >
               <source src="/hero/portrait.mp4" type="video/mp4" />
             </video>
-          </div>
+          </a>
 
           {/* Text */}
           <div className="flex flex-col justify-center">
@@ -79,9 +79,11 @@ export function VideoMoment() {
               Meet AUWA
             </span>
             <div className="mt-3 w-8 h-[1px] bg-void/12" />
-            <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-void">
-              A luminous being who reveals<br />the kokoro in all things.
-            </h2>
+            <a href="/journal/the-beginning" className="block group/heading">
+              <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-void group-hover/heading:text-void/70 transition-colors duration-300">
+                A luminous being who reveals<br />the kokoro in all things.
+              </h2>
+            </a>
             <p className="mt-4 font-display text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.6] text-void/50 max-w-[380px]">
               Created by Japanese illustrator Eko Maeda over a decade of development. AUWA appears in the stories and the app, making those spaces special.
             </p>
@@ -96,8 +98,8 @@ export function VideoMoment() {
 
         {/* Mobile: stacked */}
         <div className="md:hidden flex flex-col items-center">
-          {/* Video card */}
-          <div className="relative aspect-[9/16] w-full max-w-[300px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
+          {/* Video card — links to article */}
+          <a href="/journal/the-beginning" className="block relative aspect-[9/16] w-full max-w-[300px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
             <img
               src="/hero/poster-portrait.jpg"
               alt="AUWA"
@@ -118,16 +120,18 @@ export function VideoMoment() {
             >
               <source src="/hero/portrait.mp4" type="video/mp4" />
             </video>
-          </div>
+          </a>
 
           {/* Text below */}
           <div className="mt-8 text-center">
             <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/35">
               Meet AUWA
             </span>
-            <h2 className="mt-3 font-display text-[clamp(1.4rem,5vw,1.8rem)] leading-[1.15] tracking-[0.01em] text-void">
-              A luminous being who reveals<br />the kokoro in all things.
-            </h2>
+            <a href="/journal/the-beginning" className="block">
+              <h2 className="mt-3 font-display text-[clamp(1.4rem,5vw,1.8rem)] leading-[1.15] tracking-[0.01em] text-void">
+                A luminous being who reveals<br />the kokoro in all things.
+              </h2>
+            </a>
             <a
               href="/about"
               className="inline-block mt-5 font-sans text-[13px] tracking-[0.04em] text-void/40 hover:text-void/70 transition-colors duration-300"
