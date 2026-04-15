@@ -309,17 +309,17 @@ export function HeroFlipbookV4b() {
             })}
           </div>
 
-          {/* ── Mobile: larger card container (near 9:16, centred) ── */}
+          {/* ── Mobile: card centred in upper area, leaving room for text at bottom ── */}
           <div
-            className="lg:hidden absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-48px)] max-w-[400px]"
-            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 12rem)" }}
+            className="lg:hidden absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-48px)] max-w-[400px]"
+            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 16rem)" }}
           >
             {CARDS.map((card, i) => {
               const order = orders[i];
               const absOrder = Math.abs(order);
-              const scale = 1 - absOrder * 0.025;
-              const scaleX = 1 - absOrder * 0.06;
-              const translateY = order * 2; // subtle peek, not a big gap
+              const scale = 1 - absOrder * 0.03;
+              const scaleX = 1 - absOrder * 0.1;
+              const translateY = order * 4;
               const zIndex = 20 - absOrder;
               const opacity = absOrder > 1 ? 0 : 1;
               const isActive = i === activeIndex;
@@ -396,13 +396,13 @@ export function HeroFlipbookV4b() {
             })}
           </div>
 
-          {/* ── Mobile text overlay (hidden on first card, visible once scrolling) ── */}
+          {/* ── Mobile text: pinned to bottom of sticky viewport ── */}
           <div
-            className={`lg:hidden absolute bottom-0 inset-x-0 z-30 transition-opacity duration-500 ${
+            className={`lg:hidden absolute bottom-6 inset-x-0 z-30 transition-opacity duration-500 ${
               activeIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
           >
-            <div className="relative px-6 pb-4">
+            <div className="relative px-6">
               {CARDS.map((card, i) => (
                 <div
                   key={`mtext-${i}`}
@@ -412,7 +412,7 @@ export function HeroFlipbookV4b() {
                       : i < activeIndex
                       ? "opacity-0 -translate-y-3"
                       : "opacity-0 translate-y-3"
-                  } ${i !== activeIndex ? "absolute bottom-0 left-0 right-0 px-6 pb-4" : ""}`}
+                  } ${i !== activeIndex ? "absolute bottom-0 left-0 right-0 px-6" : ""}`}
                 >
                   {i === activeIndex && (
                     <>
@@ -490,9 +490,9 @@ export function HeroFlipbookV4b() {
             ))}
           </div>
 
-          {/* ── Mobile scroll hint ── */}
+          {/* ── Mobile scroll hint (same bottom position as text, shown only on first card) ── */}
           <div
-            className={`lg:hidden absolute bottom-2 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 transition-opacity duration-500 ${
+            className={`lg:hidden absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 transition-opacity duration-500 ${
               activeIndex === 0 ? "opacity-100" : "opacity-0"
             }`}
           >
