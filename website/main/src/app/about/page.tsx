@@ -59,7 +59,7 @@ export default function AboutPage() {
             ].map((pillar, i) => (
               <FadeIn key={pillar.label} delay={i * 80}>
                 <Link href={pillar.href} className="group block">
-                  <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
+                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                     <img
                       src={pillar.image}
                       alt={pillar.label}

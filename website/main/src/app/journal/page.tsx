@@ -76,7 +76,7 @@ export default async function JournalPage({
                 delay={Math.min(i * 60, 360)}
               >
                 <Link href={`/journal/${article.slug}`} className="group block">
-                  <div className="bg-surface-raised rounded-sm overflow-hidden relative aspect-[4/5]">
+                  <div className="bg-surface-raised rounded-xl overflow-hidden relative aspect-[4/5]">
                     {article.image ? (
                       <img
                         src={article.image}

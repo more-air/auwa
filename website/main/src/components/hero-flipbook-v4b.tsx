@@ -100,7 +100,6 @@ const CARDS: Card[] = [
     src: "/hero/frames/v2/06.jpg",
     label: "Daily awareness",
     heading: "Reveal your kokoro.",
-    sub: "A daily awareness practice.",
     pillar: "App",
   },
   {
@@ -383,14 +382,6 @@ export function HeroFlipbookV4b() {
                       {card.sub}
                     </p>
                   )}
-                  {i === CARD_COUNT - 1 && (
-                    <a
-                      href="/journal/yaoyorozu-no-kami"
-                      className="inline-block mt-6 font-sans text-[13px] tracking-[0.04em] text-void/40 hover:text-void/70 transition-colors duration-300"
-                    >
-                      Read the essay &rarr;
-                    </a>
-                  )}
                 </div>
               );
             })}
@@ -426,14 +417,6 @@ export function HeroFlipbookV4b() {
                         <p className="mt-1 font-display text-[clamp(0.95rem,3.5vw,1.15rem)] leading-[1.3] text-void/50">
                           {card.sub}
                         </p>
-                      )}
-                      {i === CARD_COUNT - 1 && (
-                        <a
-                          href="/journal/yaoyorozu-no-kami"
-                          className="inline-block mt-3 font-sans text-[13px] tracking-[0.04em] text-void/40 hover:text-void/70 transition-colors duration-300"
-                        >
-                          Read the essay &rarr;
-                        </a>
                       )}
                     </>
                   )}

@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+/* Footer parallax reveal: page content sits above sticky footer */
+header, main {
+  position: relative;
+  z-index: 1;
+  background-color: oklch(1 0 0); /* --color-surface (white) */
+}
+header {
+  z-index: 50; /* header above main */
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
 @theme inline {
   /* Foundation palette */
   --color-void: oklch(0.08 0.025 250);

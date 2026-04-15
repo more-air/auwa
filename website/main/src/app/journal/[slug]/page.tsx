@@ -1080,7 +1080,7 @@ export default async function ArticlePage({
 
         {/* ── Hero: split layout, viewport height ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
-          <div className="relative aspect-[4/5] md:aspect-auto bg-surface-raised overflow-hidden">
+          <div className="relative aspect-[4/5] md:aspect-auto bg-surface-raised rounded-xl md:rounded-none overflow-hidden">
             {article.heroImage ? (
               <img
                 src={article.heroImage}
@@ -1155,11 +1155,11 @@ export default async function ArticlePage({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       {section.images.map((img, j) => (
                         <figure key={j}>
-                          <div className="relative aspect-[4/5] overflow-hidden">
+                          <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                             <img src={img.src} alt={img.alt} className="absolute inset-0 w-full h-full object-cover" />
                           </div>
                           {img.caption && (
-                            <figcaption className="mt-4 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
+                            <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
                               {img.caption}
                             </figcaption>
                           )}
@@ -1178,7 +1178,7 @@ export default async function ArticlePage({
                   <div className="px-6 md:pl-12 lg:pl-20 xl:pl-28 md:pr-16 lg:pr-24 xl:pr-32 mb-8 md:mb-0">
                     <FadeIn delay={100}>
                       <figure>
-                        <div className="relative aspect-[4/5] overflow-hidden">
+                        <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                           <img
                             src={section.image.src}
                             alt={section.image.alt}
@@ -1186,7 +1186,7 @@ export default async function ArticlePage({
                           />
                         </div>
                         {section.image.caption && (
-                          <figcaption className="mt-4 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
+                          <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
                             {section.image.caption}
                           </figcaption>
                         )}
@@ -1231,7 +1231,7 @@ export default async function ArticlePage({
                 href={`/journal/${related.slug}`}
                 className="group block"
               >
-                <div className="aspect-[4/5] bg-surface-raised rounded-sm overflow-hidden relative">
+                <div className="aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden relative">
                   {related.image ? (
                     <img
                       src={related.image}

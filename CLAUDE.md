@@ -214,6 +214,8 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Contact email obfuscation:** The about page uses the `ObfuscatedEmail` client component (`src/components/obfuscated-email.tsx`) to display `hello[at]auwa.life` initially, revealing the real `mailto:` link only on click. Use this component wherever a contact email appears on the site.
 
+**Image caption spacing:** Captions below images need `mb-8 md:mb-12` to create sufficient breathing room before the next image or content block. Without this, captions run into the next image on mobile. Applies to all `figcaption` elements in article layouts and anywhere captions appear below images.
+
 **Journal article breadcrumb:** Article pages show "JOURNAL / CATEGORY" as a breadcrumb trail above the article body. Both are clickable links (Journal goes to `/journal`, category goes to `/journal?category=...`).
 
 **Flipbook card headings:** Headings in the homepage flipbook hero (`hero-flipbook-v4b.tsx`) must be 28 characters or fewer. This guarantees they fit on 2 lines maximum in the right-side text column (320px wide at `clamp(1.5rem, 2.5vw, 2.2rem)`). No `\n` line breaks. Let the text wrap naturally. Test at the `lg` breakpoint (1024px viewport) where the column is narrowest. When adding new cards, count characters before committing.

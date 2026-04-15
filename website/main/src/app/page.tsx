@@ -2,17 +2,12 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { MicroSeason } from "@/components/micro-season";
+import { HeroFlipbookV4b } from "@/components/hero-flipbook-v4b";
+import { VideoMoment } from "@/components/video-moment";
+import { AuwaVideoBlock } from "@/components/auwa-video-block";
 import Link from "next/link";
 
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
-
-const featuredArticle = {
-  title: "The Beginning",
-  subtitle: "Light in a dark forest. A dream that wouldn't let go.",
-  slug: "the-beginning",
-  category: "Philosophy",
-  image: "/journal/auwa-book/auwa-book-hero.jpg",
-};
 
 const pillars = [
   { label: "Book", description: "The illustrated universe", href: "/book", image: "/pillars/book.jpg" },
@@ -53,58 +48,16 @@ export default function Home() {
       <Header />
       <main>
 
-        {/* ── Hero headline ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-10 md:pb-16">
-          <FadeIn>
-            <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[680px] pr-12 md:pr-0">
-              Everything has<br />Kokoro.
-            </h1>
-          </FadeIn>
-          <FadeIn delay={150}>
-            <Link
-              href="/journal/yaoyorozu-no-kami"
-              className="inline-block mt-6 md:mt-8 font-sans text-[14px] tracking-[0.04em] text-void/45 hover:text-void/70 transition-colors duration-300"
-            >
-              Begin here &rarr;
-            </Link>
-          </FadeIn>
-        </section>
-
-        {/* ── Featured article ── */}
-        <section className="pb-16 md:pb-24">
-          <FadeIn delay={100}>
-            <Link href={`/journal/${featuredArticle.slug}`} className="group block">
-              <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
-                {featuredArticle.image ? (
-                  <img
-                    src={featuredArticle.image}
-                    alt={featuredArticle.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100 to-surface-raised" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 md:p-12 lg:p-20 xl:px-28 xl:pb-14 max-w-[700px]">
-                  <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.1] text-white">
-                    {featuredArticle.title}:
-                  </h2>
-                  <p className="font-display text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.15] text-white mt-2">
-                    {featuredArticle.subtitle}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </FadeIn>
-        </section>
+        {/* ── Stacked-card flipbook hero ── */}
+        <HeroFlipbookV4b />
 
         {/* ── Three pillars ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
-              <FadeIn key={pillar.label} delay={i * 80}>
+              <FadeIn key={pillar.label} delay={i * 80} variant="reveal">
                 <Link href={pillar.href} className="group block">
-                  <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
+                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                     {pillar.image ? (
                       <img
                         src={pillar.image}
@@ -127,13 +80,16 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Micro-season (breathing room between pillars and editorial) ── */}
+        <MicroSeason />
+
         {/* ── Latest articles (horizontal scroll) ── */}
         <section className="pb-16 md:pb-24">
           <div className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
             {latestArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 60} className="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]">
                 <Link href={`/journal/${article.slug}`} className="group block">
-                  <div className="aspect-[4/5] bg-surface-raised overflow-hidden relative">
+                  <div className="aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden relative">
                     {article.image ? (
                       <img
                         src={article.image}
@@ -163,44 +119,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Second feature image ── */}
-        <section className="pb-16 md:pb-24">
-          <FadeIn>
-            <Link href={`/journal/${secondFeature.slug}`} className="group block">
-              <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
-                {secondFeature.image ? (
-                  <img
-                    src={secondFeature.image}
-                    alt={secondFeature.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100 to-surface-raised" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 md:p-12 lg:p-20 xl:px-28 xl:pb-14 max-w-[700px]">
-                  <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.1] text-white">
-                    72 Seasons:
-                  </h2>
-                  <p className="font-display text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.15] text-white mt-2">
-                    {secondFeature.title}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </FadeIn>
-        </section>
+        {/* ── AUWA face video (atmospheric break) ── */}
+        <AuwaVideoBlock />
 
-        {/* ── Micro-season ── */}
-        <MicroSeason />
-
-        {/* ── Two-up articles ── */}
+        {/* ── Two-up articles (Onsen + Nozawa) ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
             {twoUpArticles.map((article, i) => (
-              <FadeIn key={article.slug} delay={i * 100}>
+              <FadeIn key={article.slug} delay={i * 100} variant="reveal">
                 <Link href={`/journal/${article.slug}`} className="group block">
-                  <div className="relative aspect-[4/5] bg-surface-raised overflow-hidden">
+                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
                     {article.image ? (
                       <img
                         src={article.image}
@@ -224,6 +152,33 @@ export default function Home() {
               </FadeIn>
             ))}
           </div>
+        </section>
+
+        {/* ── Video moment: Meet AUWA ── */}
+        <VideoMoment />
+
+        {/* ── 72 Seasons feature ── */}
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
+          <FadeIn variant="reveal">
+            <Link href={`/journal/${secondFeature.slug}`} className="group block">
+              <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
+                <img
+                  src={secondFeature.image}
+                  alt={secondFeature.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 md:p-12 lg:p-20 xl:p-28 max-w-[700px]">
+                  <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.1] text-white">
+                    72 Seasons:
+                  </h2>
+                  <p className="font-display text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.15] text-white mt-2">
+                    {secondFeature.title}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </FadeIn>
         </section>
 
       </main>

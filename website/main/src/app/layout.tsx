@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Instrument_Sans, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -111,7 +112,9 @@ export default function RootLayout({
             }),
           }}
         />
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <Analytics />
         <script
           dangerouslySetInnerHTML={{

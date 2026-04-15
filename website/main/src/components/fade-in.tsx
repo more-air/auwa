@@ -8,6 +8,8 @@ interface FadeInProps {
   delay?: number;
   duration?: number;
   translateY?: number;
+  /** "fade" (default): opacity + translateY. "reveal": clip-mask reveal from bottom, ideal for images. */
+  variant?: "fade" | "reveal";
 }
 
 export function FadeIn({
@@ -16,6 +18,7 @@ export function FadeIn({
   delay = 0,
   duration = 800,
   translateY = 12,
+  variant = "fade",
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -34,6 +37,25 @@ export function FadeIn({
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  if (variant === "reveal") {
+    return (
+      <div
+        ref={ref}
+        className={className}
+        style={{
+          clipPath: isVisible
+            ? "inset(0 0 0% 0)"
+            : "inset(0 0 8% 0)",
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "scale(1)" : "scale(1.03)",
+          transition: `clip-path ${duration * 1.2}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, opacity ${duration * 0.6}ms ease-out ${delay}ms, transform ${duration * 1.4}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        }}
+      >
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div

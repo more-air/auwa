@@ -39,7 +39,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-void flex flex-col min-h-[520px] md:min-h-[480px]">
+    <footer className="bg-void flex flex-col min-h-[520px] md:min-h-[480px] sticky bottom-0 z-0">
       {/* Main footer content — two columns */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-20">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-16 md:gap-16">
