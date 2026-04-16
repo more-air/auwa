@@ -25,13 +25,12 @@ export default function BookPage() {
 
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  Four illustrated stories about a luminous being who reveals the kokoro in all things. Created by Japanese illustrator Eko Maeda over a decade.
+                  Four illustrated stories about a luminous being who reveals the kokoro in all things. A world years in the making.
                 </p>
               </FadeIn>
 
               <FadeIn delay={300}>
-                <p className="mt-6 font-sans text-[14px] text-void/40">Join the waitlist for updates.</p>
-                <div className="mt-4">
+                <div className="mt-12 md:mt-16">
                   <SignupForm source="book-waitlist" />
                 </div>
               </FadeIn>

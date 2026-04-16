@@ -337,7 +337,7 @@ export function HeroFlipbookV4b() {
           </div>
 
           {/* ── Right text column (desktop) — clickable heading, aligned to card centre ── */}
-          <div className="hidden lg:block absolute right-8 lg:right-20 top-[46%] -translate-y-1/2 w-[260px] lg:w-[320px]">
+          <div className="hidden lg:block absolute right-8 lg:right-20 top-[46%] -translate-y-1/2 w-[220px] lg:w-[260px]">
             {CARDS.map((card, i) => {
               const href = PILLAR_LINKS[card.pillar] || "/about";
               return (
@@ -424,11 +424,11 @@ export function HeroFlipbookV4b() {
           </div>
 
           {/* ── Progress bar + scroll hint (desktop) ── */}
-          <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3 z-20">
+          <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-5 z-20">
             <div className="flex items-center gap-3">
-              <div className="w-24 h-[1px] bg-void/8 overflow-hidden">
+              <div className="w-28 h-[2px] bg-void/8 overflow-hidden rounded-full">
                 <div
-                  className="h-full bg-void/30 transition-all duration-500 ease-out"
+                  className="h-full bg-void/35 transition-all duration-500 ease-out rounded-full"
                   style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
                 />
               </div>

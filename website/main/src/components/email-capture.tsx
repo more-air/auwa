@@ -27,10 +27,10 @@ export function EmailCapture() {
               <p className="mt-4 font-display text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.6] text-void/50 max-w-[380px]">
                 Seasonal essays, craftsman stories, and quiet reflections on Japanese philosophy. No noise, no frequency.
               </p>
-              <div className="mt-8">
+              <div className="mt-8 max-w-[340px]">
                 <SignupForm
                   source="newsletter"
-                  buttonText="Join"
+                  buttonText="Subscribe"
                   successMessage="Welcome. We'll be in touch."
                   theme="light"
                 />

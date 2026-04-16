@@ -23,12 +23,11 @@ export default function AppPage() {
               </FadeIn>
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  Share how you feel. AUWA reveals it back in a way you haven't heard before. A daily practice rooted in Japanese philosophy.
+                  A daily awareness practice rooted in Japanese philosophy, reflecting what you feel in words not yet found.
                 </p>
               </FadeIn>
               <FadeIn delay={300}>
-                <p className="mt-6 font-sans text-[14px] text-void/40">Join the waitlist for early access.</p>
-                <div className="mt-4">
+                <div className="mt-12 md:mt-16">
                   <SignupForm source="app-waitlist" />
                 </div>
               </FadeIn>
