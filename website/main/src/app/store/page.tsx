@@ -23,11 +23,12 @@ export default function StorePage() {
               </FadeIn>
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  Curated Japanese craftsman products. Each one chosen because a master poured their soul into making it.
+                  Knives, ceramics, tea caddies, washi. Curated Japanese craftsman products, each chosen because a master poured their soul into making it.
                 </p>
               </FadeIn>
               <FadeIn delay={300}>
-                <div className="mt-12 md:mt-16">
+                <p className="mt-6 font-sans text-[14px] text-void/40">Join the waitlist for early access.</p>
+                <div className="mt-4">
                   <SignupForm source="store-waitlist" />
                 </div>
               </FadeIn>

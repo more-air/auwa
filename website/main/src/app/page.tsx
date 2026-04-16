@@ -5,14 +5,15 @@ import { MicroSeason } from "@/components/micro-season";
 import { HeroFlipbookV4b } from "@/components/hero-flipbook-v4b";
 import { VideoMoment } from "@/components/video-moment";
 import { AuwaVideoBlock } from "@/components/auwa-video-block";
+import { EmailCapture } from "@/components/email-capture";
 import Link from "next/link";
 
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
 const pillars = [
-  { label: "Book", description: "The illustrated universe", href: "/book", image: "/pillars/book.jpg" },
-  { label: "Store", description: "Objects with kokoro", href: "/store", image: "/pillars/store.jpg" },
-  { label: "App", description: "A daily awareness ritual", href: "/app", image: "/pillars/app.jpg" },
+  { label: "Book", description: "Four illustrated stories", href: "/book", image: "/pillars/book.jpg" },
+  { label: "Store", description: "Craftsman objects with soul", href: "/store", image: "/pillars/store.jpg" },
+  { label: "App", description: "A daily awareness practice", href: "/app", image: "/pillars/app.jpg" },
 ];
 
 const latestArticles: { title: string; excerpt: string; category: string; issue: string; slug: string; image?: string }[] = [
@@ -72,6 +73,9 @@ export default function Home() {
                       <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.01em] text-white">
                         {pillar.label}
                       </h3>
+                      <p className="mt-1 font-sans text-[13px] text-white/60">
+                        {pillar.description}
+                      </p>
                     </div>
                   </div>
                 </Link>
@@ -121,6 +125,9 @@ export default function Home() {
 
         {/* ── AUWA face video (atmospheric break) ── */}
         <AuwaVideoBlock />
+
+        {/* ── Email capture ── */}
+        <EmailCapture />
 
         {/* ── Two-up articles (Onsen + Nozawa) ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">

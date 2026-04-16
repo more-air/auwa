@@ -187,6 +187,7 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 - `context/website.md` — Website specification for auwa.life: Kinfolk-inspired editorial site structure, page layouts, Sanity CMS content model, responsive design, serif typography, motion principles, v0/Stitch prompt ideas, reference websites, article preparation plan. Now includes full implemented design system (type scale, colour opacities, spacing values, grid gaps, content widths, motion specs), component library, API routes, email templates, and SEO infrastructure.
 - `context/editorial.md` — Editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan.
 - `context/newsletter.md` — Newsletter system: welcome email templates (auto-sent per source), newsletter template (manual send via API), sending workflow, email design principles, subject line format, Resend configuration, cadence guidance.
+- `context/structure.md` — Business structure, IP & legal: corporate entities (AUWA Limited + More Air Limited), directors, shareholders, ownership chain, all trademark filings (word mark UK00004341028 + UK00004373944, design mark UK00004373930), 7 Nice classes, Madrid Protocol deadline (15 Aug 2026), copyright, licensing agreements, domains, social handles, costs, key dates, open actions.
 
 Previous context summaries archived in `context/archive/`.
 
@@ -291,6 +292,7 @@ Then move the output: `mv context/[file].pdf documents/AUWA-[Name].pdf`
 - `context/manifesto.md` → `documents/AUWA-Manifesto.pdf`
 - `context/reference.md` → `documents/AUWA-Reference.pdf`
 - `context/website.md` → `documents/AUWA-Website-Specification.pdf`
+- `context/structure.md` → `documents/AUWA-Business-Structure.pdf`
 
 **If it hangs:** Kill Chrome (`pkill -9 -f "chromium"`), wait 2 seconds, retry. Never run two md-to-pdf commands in parallel.
 

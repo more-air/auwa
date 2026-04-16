@@ -30,27 +30,28 @@ type Card = {
 };
 
 // MAX 28 CHARS per heading (fits 2 lines at 2.2rem in 320px column)
+// 8 cards: narrative arc from introduction → philosophy → four pillars → invitation
 const CARDS: Card[] = [
   {
     type: "video",
     src: "/hero/portrait.mp4",
     poster: "/hero/poster-portrait.jpg",
     label: "Meet AUWA",
-    heading: "Everything has Kokoro.",
+    heading: "A world worth noticing.",
     pillar: "Character",
   },
   {
     type: "image",
     src: "/hero/frames/v2/knife.jpg",
-    label: "Japanese craft",
-    heading: "In the hands that made them.",
+    label: "Craftsman objects",
+    heading: "Objects made with soul.",
     pillar: "Store",
   },
   {
     type: "image",
     src: "/hero/frames/v2/02.jpg",
     label: "Illustrated stories",
-    heading: "Ten years in the making.",
+    heading: "Stories that open the eyes.",
     pillar: "Book",
   },
   {
@@ -63,37 +64,23 @@ const CARDS: Card[] = [
   {
     type: "image",
     src: "/hero/frames/v2/03.jpg",
-    label: "Kokoro Mirror",
+    label: "Daily awareness",
     heading: "How are you feeling?",
     pillar: "App",
   },
   {
     type: "image",
     src: "/hero/frames/v2/narai.jpg",
-    label: "Narai-juku in snow",
-    heading: "The same street, unchanged.",
+    label: "Four doors, one world",
+    heading: "Japan, through four doors.",
     pillar: "Journal",
   },
   {
     type: "image",
     src: "/hero/frames/v2/10.jpg",
-    label: "Lifetime objects",
-    heading: "Objects with soul.",
+    label: "Craft over disposability",
+    heading: "Craft over disposability.",
     pillar: "Store",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/onsen.jpg",
-    label: "The onsen lesson",
-    heading: "What hot water teaches.",
-    pillar: "Journal",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/06.jpg",
-    label: "Daily awareness",
-    heading: "Reveal your kokoro.",
-    pillar: "App",
   },
   {
     type: "image",
@@ -209,7 +196,7 @@ export function HeroFlipbookV4b() {
     <div
       ref={containerRef}
       className="relative"
-      style={{ height: `${CARD_COUNT * 70}vh` }}
+      style={{ height: `${CARD_COUNT * 50}vh` }}
     >
       {/* Sticky below header: top-16 (mobile 64px) / top-20 (desktop 80px) */}
       {/* Use svh on mobile to avoid snap-back when browser chrome hides/shows */}
@@ -220,7 +207,7 @@ export function HeroFlipbookV4b() {
         }`}
         style={{ height: "calc(100svh - 4rem)" }}
       >
-        <div className="relative w-full" style={{ height: "calc(100svh - 4rem)" }}>
+        <div className="relative w-full max-w-[1400px] mx-auto" style={{ height: "calc(100svh - 4rem)" }}>
 
           {/* ── Left text column (desktop) — aligned to card centre ── */}
           <div className="hidden lg:flex absolute left-8 lg:left-20 top-[46%] -translate-y-1/2 flex-col items-start gap-6 w-[200px] lg:w-[240px]">
@@ -383,17 +370,13 @@ export function HeroFlipbookV4b() {
             })}
           </div>
 
-          {/* ── Mobile text: pinned to bottom of sticky viewport, fixed height ── */}
-          <div
-            className={`lg:hidden absolute bottom-6 inset-x-0 z-30 transition-opacity duration-500 ${
-              activeIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
-          >
-            <div className="relative px-6 h-[72px]">
+          {/* ── Mobile text: always visible (including card 1), centred, pinned to bottom ── */}
+          <div className="lg:hidden absolute bottom-6 inset-x-0 z-30">
+            <div className="relative h-[72px]">
               {CARDS.map((card, i) => (
                 <div
                   key={`mtext-${i}`}
-                  className={`absolute inset-x-0 px-6 bottom-0 transition-[opacity,transform] duration-500 ease-out ${
+                  className={`absolute inset-x-0 bottom-0 text-center transition-[opacity,transform] duration-500 ease-out ${
                     i === activeIndex
                       ? "opacity-100 translate-y-0"
                       : i < activeIndex
@@ -403,21 +386,28 @@ export function HeroFlipbookV4b() {
                 >
                   {i === activeIndex && (
                     <>
-                      <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/35">
-                        {card.pillar} / {card.label}
+                      <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-void/30">
+                        {card.pillar}
                       </span>
-                      <h2 className="mt-1.5 font-display text-[clamp(1.4rem,5vw,1.8rem)] leading-[1.15] tracking-[0.01em] text-void">
+                      <h2 className="mt-1 font-display text-[clamp(1.3rem,4.5vw,1.7rem)] leading-[1.15] tracking-[0.01em] text-void">
                         {card.heading}
                       </h2>
-                      {card.sub && (
-                        <p className="mt-1 font-display text-[clamp(0.95rem,3.5vw,1.15rem)] leading-[1.3] text-void/50">
-                          {card.sub}
-                        </p>
-                      )}
                     </>
                   )}
                 </div>
               ))}
+            </div>
+            {/* Scroll arrow */}
+            <div className="flex justify-center mt-3">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="animate-bounce opacity-20"
+              >
+                <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </div>
           </div>
 
@@ -469,19 +459,6 @@ export function HeroFlipbookV4b() {
             ))}
           </div>
 
-          {/* ── Mobile scroll hint (same bottom position as text, shown only on first card) ── */}
-          <div
-            className={`lg:hidden absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 transition-opacity duration-500 ${
-              activeIndex === 0 ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <span className="font-sans text-[9px] tracking-[0.12em] uppercase text-void/25">
-              Scroll to explore
-            </span>
-            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-25">
-              <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
         </div>
       </div>
     </div>

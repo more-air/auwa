@@ -363,32 +363,19 @@ Year 1 is an investment year funded by More Air client work. Self-sustaining thr
 
 ## 12. Corporate & Legal Structure
 
-**IP Owner: AUWA Limited** (Co. 17033727)
-- Incorporated 15 February 2026
-- Rieko & Tom Vining (50/50 shareholders and directors)
-- Currently dormant (holds IP assets)
-- Licences AUWA IP to More Air Limited
-- Virtual office: 85 Great Portland Street, London W1W 5PF
+> Full details in `context/structure.md` (AUWA-Business-Structure.pdf). Summary below.
 
-**Operating Company: More Air Limited** (Co. 7051794)
-- Active since 2009
-- Operates AUWA under exclusive worldwide licence
-- Receives AUWA revenue, pays AUWA expenses, develops products
-- AUWA Limited receives royalty when profitable (structure TBD Year 2)
+**AUWA Limited** (Co. 17033727) owns all IP. Dormant. Rieko + Tom 50/50. Licenses to More Air.
+**More Air Limited** (Co. 7051794) operates AUWA. Active since 2009. Receives revenue, pays expenses.
 
-**Trademark:**
-- Mark: AUWA (word mark + design mark)
-- Filed: 15 February 2026 (UK IPO)
-- Application Number: UK00004341028
-- Classes: 9, 16, 20, 25, 28, 35, 41
-- International (Week 12): Madrid Protocol, Japan, USA, EU
+**Trademarks (UK IPO):**
+- Word mark "AUWA": UK00004341028 (Classes 9, 16, 20, 41, in advertisement phase) + UK00004373944 (Classes 25, 28, 35, filed 16 April 2026)
+- Design mark (AUWA character): UK00004373930 (Classes 20, 28, filed 16 April 2026)
+- International (Madrid Protocol): Japan, USA, EU planned by August 2026
 
-**Digital Assets:**
-- Primary domain: auwa.life (single domain with /app, /store, /journal, /book subpaths)
-- Mirror: auwalife.com (.com mirror, important for Japan market where .life TLD is less familiar)
-- Domains (held): auwa.app, auwa.world, auwa.store, auwa.art, auwa.gallery + .com equivalents (all redirect to auwa.life)
-- Social: @auwa.life (Instagram — primary platform, TikTok, YouTube deferred until 5K+ IG followers) | @auwa_life (X) | @Auwa (LinkedIn)
-- Email: hello@auwa.life
+**Domains:** auwa.life (primary), auwa.app, auwa.world, auwa.store + .com equivalents. 11 domains total.
+**Social:** @auwa.life (Instagram, TikTok) | @auwalife (YouTube, X) | See structure.md for full account map.
+**Email:** hello@auwa.life
 
 ---
 
@@ -463,6 +450,6 @@ As AI accelerates and automates more of life's cognitive tasks, the human layer 
 - Contact: hello@auwa.life
 - Social: @auwa.life (Instagram, TikTok, YouTube) | @auwa_life (X) | @Auwa (LinkedIn)
 - Companies House: AUWA Ltd 17033727 | More Air Ltd 7051794
-- Trademark: UK00004341028 (pending, 7 classes)
+- Trademarks: UK00004341028 (word mark, advertisement phase) | UK00004373944 (word mark, filed) | UK00004373930 (design mark, filed)
 
 *Confidential. AUWA Limited. All rights reserved.*
