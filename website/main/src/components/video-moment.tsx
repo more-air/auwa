@@ -44,7 +44,7 @@ export function VideoMoment() {
   return (
     <section
       ref={sectionRef}
-      className="px-6 md:px-12 lg:px-20 xl:px-28 py-24 md:py-36"
+      className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24"
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: video card left, text right */}
@@ -85,7 +85,7 @@ export function VideoMoment() {
               </h2>
             </a>
             <p className="mt-4 font-display text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.6] text-void/50 max-w-[380px]">
-              Created by Japanese illustrator Eko Maeda over a decade of development. AUWA appears in the stories and the app, making those spaces special.
+              A character from four illustrated stories who reveals what the world has been too busy to notice. AUWA appears in the stories and the app.
             </p>
             <a
               href="/about"

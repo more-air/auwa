@@ -38,9 +38,9 @@ export function EmailCapture() {
             </div>
           </FadeIn>
 
-          {/* Right: image */}
+          {/* Right: image (same ratio as Meet AUWA video card) */}
           <FadeIn delay={150} variant="reveal">
-            <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-surface-raised">
+            <div className="relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden bg-surface-raised shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
               <img
                 src="/hero/frames/v2/10.jpg"
                 alt="Japanese craftsman tea caddy"
@@ -53,7 +53,7 @@ export function EmailCapture() {
         {/* Mobile: stacked */}
         <div className="md:hidden">
           <FadeIn variant="reveal">
-            <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-surface-raised">
+            <div className="relative aspect-[9/16] max-w-[300px] mx-auto rounded-xl overflow-hidden bg-surface-raised shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
               <img
                 src="/hero/frames/v2/10.jpg"
                 alt="Japanese craftsman tea caddy"
