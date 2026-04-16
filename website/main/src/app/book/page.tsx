@@ -19,7 +19,7 @@ export default function BookPage() {
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
               <FadeIn>
                 <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
-                  Stories that open<br />the eyes.
+                  Stories that<br />open the eyes.
                 </h1>
               </FadeIn>
 

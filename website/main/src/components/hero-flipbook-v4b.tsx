@@ -293,8 +293,8 @@ export function HeroFlipbookV4b() {
 
           {/* ── Mobile: card centred in upper area, leaving room for text at bottom ── */}
           <div
-            className="lg:hidden absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-56px)] max-w-[380px]"
-            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 17rem)" }}
+            className="lg:hidden absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-48px)] max-w-[380px]"
+            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 18rem)" }}
           >
             {CARDS.map((card, i) => {
               const order = orders[i];
@@ -370,9 +370,9 @@ export function HeroFlipbookV4b() {
             })}
           </div>
 
-          {/* ── Mobile text: always visible (including card 1), centred, pinned to bottom ── */}
-          <div className="lg:hidden absolute bottom-6 inset-x-0 z-30">
-            <div className="relative h-[72px]">
+          {/* ── Mobile text: always visible, centred, pinned to bottom ── */}
+          <div className="lg:hidden absolute bottom-5 inset-x-0 z-30">
+            <div className="relative h-[64px]">
               {CARDS.map((card, i) => (
                 <div
                   key={`mtext-${i}`}
@@ -389,7 +389,7 @@ export function HeroFlipbookV4b() {
                       <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-void/30">
                         {card.pillar}
                       </span>
-                      <h2 className="mt-1 font-display text-[clamp(1.3rem,4.5vw,1.7rem)] leading-[1.15] tracking-[0.01em] text-void">
+                      <h2 className="mt-1 font-display text-[clamp(1.2rem,4.5vw,1.6rem)] leading-[1.15] tracking-[0.01em] text-void">
                         {card.heading}
                       </h2>
                     </>
@@ -398,7 +398,7 @@ export function HeroFlipbookV4b() {
               ))}
             </div>
             {/* Progress bar + scroll hint */}
-            <div className="flex flex-col items-center mt-4 gap-2">
+            <div className="flex flex-col items-center mt-3 gap-1.5">
               <div className="w-20 h-[2px] bg-void/10 overflow-hidden rounded-full">
                 <div
                   className="h-full bg-void transition-all duration-500 ease-out rounded-full"
