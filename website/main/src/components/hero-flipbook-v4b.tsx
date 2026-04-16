@@ -37,8 +37,8 @@ const CARDS: Card[] = [
     src: "/hero/portrait.mp4",
     poster: "/hero/poster-portrait.jpg",
     label: "Meet AUWA",
-    heading: "What if everything had a soul?",
-    pillar: "Character",
+    heading: "What if all things had a soul?",
+    pillar: "Welcome",
   },
   {
     type: "image",
@@ -87,7 +87,7 @@ const CARDS: Card[] = [
     src: "/hero/frames/v2/12.jpg",
     label: "The world of AUWA",
     heading: "Welcome to AUWA.",
-    pillar: "AUWA",
+    pillar: "Begin",
   },
 ];
 
