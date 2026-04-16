@@ -19,7 +19,7 @@ export default function AboutPage() {
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-16 md:pb-24">
           <FadeIn>
             <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[700px] pr-12 md:pr-0">
-              A more aware life is possible.
+              The architecture of Kokoro
             </h1>
           </FadeIn>
         </section>
@@ -28,22 +28,17 @@ export default function AboutPage() {
         <section className="mx-auto max-w-[680px] px-6 md:px-10 pb-16 md:pb-24">
           <FadeIn>
             <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              Since ancient times, the Japanese have believed that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. They call this quality kokoro (心): a holistic word for what English splits into heart, mind, soul, and spirit. In Japanese, these are not separate. Kokoro is felt before it is understood.
+              Since ancient times, the Japanese have believed a life force resides in all things. It lives not just in people, but in rivers, handmade bowls, and the shifting light of a season. They call this quality kokoro (心): a holistic word uniting heart, mind, soul, and spirit. It is felt before it is understood.
             </p>
           </FadeIn>
           <FadeIn delay={100}>
             <p className="mt-8 font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              AUWA is influenced by this philosophy. In a culture of speed, distraction, and disposability, we build awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
+              AUWA is built on this philosophy. In a culture of speed and disposability, we cultivate awareness of how you feel, the things you live with, and your connection to the world. True abundance is not material. It is a quality of attention. You don't need a mountain temple to practice this. It is a way of moving through the world, shaping what you choose and what you pass on.
             </p>
           </FadeIn>
           <FadeIn delay={200}>
             <p className="mt-8 font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              The truest abundance is not material. It is a quality of attention. A willingness to be where you are, to notice what is in front of you, to let the ordinary reveal itself as anything but. You don't have to live in a mountain temple to practise this. The philosophy can travel with you, shaping what you choose, how you move through the world, and what you pass on.
-            </p>
-          </FadeIn>
-          <FadeIn delay={300}>
-            <p className="mt-8 font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              AUWA takes shape through illustrated stories, a journal, a daily awareness practice, and a store for lifetime objects made by craftsmen. Some are here now. Others are on their way.
+              We bring this to life through illustrated stories, a daily awareness practice, and a curated store for lifetime objects. Some are here now. Others are on their way.
             </p>
           </FadeIn>
         </section>
