@@ -44,7 +44,7 @@ export function VideoMoment() {
   return (
     <section
       ref={sectionRef}
-      className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24"
+      className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-24 pb-28 md:pb-48"
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: video card left, text right */}
@@ -88,10 +88,10 @@ export function VideoMoment() {
               A character from four illustrated stories who reveals what the world has been too busy to notice. AUWA appears in the stories and the app.
             </p>
             <a
-              href="/about"
-              className="inline-block mt-8 font-sans text-[13px] tracking-[0.04em] text-void/40 hover:text-void/70 transition-colors duration-300"
+              href="/journal/the-beginning"
+              className="self-start inline-block mt-8 font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
             >
-              The story behind AUWA &rarr;
+              The Story
             </a>
           </div>
         </div>
@@ -133,10 +133,10 @@ export function VideoMoment() {
               </h2>
             </a>
             <a
-              href="/about"
-              className="inline-block mt-5 font-sans text-[13px] tracking-[0.04em] text-void/40 hover:text-void/70 transition-colors duration-300"
+              href="/journal/the-beginning"
+              className="inline-block mt-5 font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
             >
-              The story behind AUWA &rarr;
+              The Story
             </a>
           </div>
         </div>

@@ -10,7 +10,7 @@ import { FadeIn } from "@/components/fade-in";
 
 export function EmailCapture() {
   return (
-    <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
+    <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-24 pb-28 md:pb-48">
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: side by side */}
         <div className="hidden md:grid grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -40,10 +40,10 @@ export function EmailCapture() {
 
           {/* Right: image (same ratio as Meet AUWA video card) */}
           <FadeIn delay={150} variant="reveal">
-            <div className="relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden bg-surface-raised shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
+            <div className="relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden bg-surface-raised ">
               <img
-                src="/hero/frames/v2/10.jpg"
-                alt="Japanese craftsman tea caddy"
+                src="/hero/frames/v2/narai.jpg"
+                alt="Narai-juku in snow"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -53,10 +53,10 @@ export function EmailCapture() {
         {/* Mobile: stacked */}
         <div className="md:hidden">
           <FadeIn variant="reveal">
-            <div className="relative aspect-[9/16] max-w-[300px] mx-auto rounded-xl overflow-hidden bg-surface-raised shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
+            <div className="relative aspect-[9/16] max-w-[300px] mx-auto rounded-xl overflow-hidden bg-surface-raised ">
               <img
-                src="/hero/frames/v2/10.jpg"
-                alt="Japanese craftsman tea caddy"
+                src="/hero/frames/v2/narai.jpg"
+                alt="Narai-juku in snow"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
