@@ -1,19 +1,19 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
-import { MicroSeasonFeature } from "@/components/micro-season-feature";
+import { MicroSeason } from "@/components/micro-season";
 import { HeroFlipbookV4b } from "@/components/hero-flipbook-v4b";
 import { VideoMoment } from "@/components/video-moment";
+import { AuwaVideoBlock } from "@/components/auwa-video-block";
 import { EmailCapture } from "@/components/email-capture";
-import { HeroVideoIntro } from "@/components/hero-video-intro";
 import Link from "next/link";
 
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
 const pillars = [
-  { label: "Book", description: "Illustrated stories", href: "/book", image: "/pillars/book.jpg" },
-  { label: "Store", description: "Craftsman objects", href: "/store", image: "/pillars/store.jpg" },
-  { label: "App", description: "Daily awareness", href: "/app", image: "/pillars/app.jpg" },
+  { label: "Book", description: "Four illustrated stories", href: "/book", image: "/pillars/book.jpg" },
+  { label: "Store", description: "Craftsman objects with soul", href: "/store", image: "/pillars/store.jpg" },
+  { label: "App", description: "A daily awareness practice", href: "/app", image: "/pillars/app.jpg" },
 ];
 
 const latestArticles: { title: string; excerpt: string; category: string; issue: string; slug: string; image?: string }[] = [
@@ -30,65 +30,65 @@ const latestArticles: { title: string; excerpt: string; category: string; issue:
   { title: "Yakushima", excerpt: "The island where the trees outlived history.", category: "Travel", issue: "Issue 01", slug: "yakushima-island", image: "/journal/yakushima-island/yakushima-island-hero.jpg" },
 ];
 
+const secondFeature = {
+  title: "Japan didn\u2019t invent the seasons. Just kept counting.",
+  slug: "72-seasons",
+  image: "/journal/72-seasons/72-seasons-hero.jpg",
+};
+
 const twoUpArticles = [
   { title: "The Onsen Lesson", excerpt: "What hot water teaches about being alive.", slug: "the-onsen-lesson", image: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "On the night a village burned a shrine.", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
 ];
 
-/* ─── Separator ─── */
-
-function Separator() {
-  return (
-    <div className="px-6 md:px-12 lg:px-20 xl:px-28">
-      <div className="w-full h-[1px] bg-void/10" />
-    </div>
-  );
-}
-
 /* ─── Page ─── */
 
-export default function Home() {
+export default function Home3() {
   return (
     <>
-      <Header disableFlipbookStick transparent />
+      <Header />
       <main>
 
-        {/* ── Full-bleed AUWA face video ── */}
-        <HeroVideoIntro />
+        {/* ── Stacked-card flipbook hero ── */}
+        <HeroFlipbookV4b />
 
-        {/* ── Brand intro module ── */}
-        <section className="px-12 md:px-16 lg:px-20 xl:px-28 py-16 md:py-24">
-          <div className="max-w-[560px] mx-auto text-center">
-            <FadeIn>
-              <h2 className="font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.08] tracking-[0.01em] text-void">
-                Meet AUWA.
-              </h2>
-            </FadeIn>
-            <FadeIn delay={150}>
-              <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/55">
-                A character born from the Japanese belief that a life force resides in all things. Craftsman objects, editorials from Japan, a daily awareness app, and illustrated stories for the quietly curious.
-              </p>
-            </FadeIn>
-            <FadeIn delay={300}>
-              <Link
-                href="/about"
-                className="inline-block mt-8 md:mt-10 font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
-              >
-                Our story
-              </Link>
-            </FadeIn>
+        {/* ── Three pillars ── */}
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
+            {pillars.map((pillar, i) => (
+              <FadeIn key={pillar.label} delay={i * 150} variant="reveal">
+                <Link href={pillar.href} className="group block" data-cursor="Explore">
+                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
+                    {pillar.image ? (
+                      <img
+                        src={pillar.image}
+                        alt={pillar.label}
+                        className="absolute inset-0 w-full h-full object-cover "
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4 md:p-6">
+                      <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.01em] text-white">
+                        {pillar.label}
+                      </h3>
+                      <p className="mt-1 font-sans text-[13px] text-white/60">
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
           </div>
         </section>
 
-        <Separator />
-
-        {/* ── Stacked-card flipbook hero ── */}
-        <HeroFlipbookV4b fullHeight />
-
-        <Separator />
+        {/* ── Micro-season (breathing room between pillars and editorial) ── */}
+        <MicroSeason />
 
         {/* ── Latest articles (horizontal scroll) ── */}
-        <section className="py-16 md:py-24">
+        <section className="pb-16 md:pb-24">
           <div className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
             {latestArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 60} className="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]">
@@ -123,50 +123,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Micro-season ── */}
-        <MicroSeasonFeature />
-
-        {/* ── Three pillars ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
-            {pillars.map((pillar, i) => (
-              <FadeIn key={pillar.label} delay={i * 150} variant="reveal">
-                <Link href={pillar.href} className="group block" data-cursor="Explore">
-                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
-                    {pillar.image ? (
-                      <img
-                        src={pillar.image}
-                        alt={pillar.label}
-                        className="absolute inset-0 w-full h-full object-cover "
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-4 md:p-6">
-                      <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.01em] text-white">
-                        {pillar.label}
-                      </h3>
-                      <p className="mt-1 font-sans text-[13px] text-white/60">
-                        {pillar.description}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
-        </section>
-
-        <Separator />
+        {/* ── AUWA face video (atmospheric break) ── */}
+        <AuwaVideoBlock />
 
         {/* ── Email capture ── */}
         <EmailCapture />
 
-        <Separator />
-
         {/* ── Two-up articles (Onsen + Nozawa) ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
             {twoUpArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 150} variant="reveal">
@@ -197,10 +161,32 @@ export default function Home() {
           </div>
         </section>
 
-        <Separator />
-
         {/* ── Video moment: Meet AUWA ── */}
         <VideoMoment />
+
+        {/* ── 72 Seasons feature ── */}
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
+          <FadeIn variant="reveal">
+            <Link href={`/journal/${secondFeature.slug}`} className="group block" data-cursor="Read">
+              <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
+                <img
+                  src={secondFeature.image}
+                  alt={secondFeature.title}
+                  className="absolute inset-0 w-full h-full object-cover "
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 md:p-12 lg:p-20 xl:p-28 max-w-[700px]">
+                  <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.1] text-white">
+                    72 Seasons:
+                  </h2>
+                  <p className="font-display text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.15] text-white mt-2">
+                    {secondFeature.title}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </FadeIn>
+        </section>
 
       </main>
       <Footer />
