@@ -29,50 +29,50 @@ type Card = {
   pillar: string;
 };
 
-// MAX 28 CHARS per heading (fits 2 lines at 2.2rem in 320px column)
-// 8 cards: narrative arc from introduction → philosophy → four pillars → invitation
+// MAX 28 CHARS per heading (fits 2 lines at 2.2rem in 260px column)
+// 8 cards: clear narrative arc for a cold visitor
 const CARDS: Card[] = [
   {
     type: "video",
     src: "/hero/portrait.mp4",
     poster: "/hero/poster-portrait.jpg",
     label: "Meet AUWA",
-    heading: "A world worth noticing.",
+    heading: "What if everything had a soul?",
     pillar: "Character",
   },
   {
     type: "image",
     src: "/hero/frames/v2/knife.jpg",
     label: "Craftsman objects",
-    heading: "Objects made with soul.",
+    heading: "A craftsman store.",
     pillar: "Store",
   },
   {
     type: "image",
     src: "/hero/frames/v2/02.jpg",
     label: "Illustrated stories",
-    heading: "Stories that open the eyes.",
+    heading: "Four illustrated stories.",
     pillar: "Book",
   },
   {
     type: "image",
     src: "/hero/frames/v2/washi.jpg",
     label: "Making washi",
-    heading: "A thousand-year gesture.",
+    heading: "An editorial journal.",
     pillar: "Journal",
   },
   {
     type: "image",
     src: "/hero/frames/v2/03.jpg",
     label: "Daily awareness",
-    heading: "How are you feeling?",
+    heading: "A daily awareness practice.",
     pillar: "App",
   },
   {
     type: "image",
     src: "/hero/frames/v2/narai.jpg",
-    label: "Four doors, one world",
-    heading: "Japan, through four doors.",
+    label: "Rooted in Japan",
+    heading: "All rooted in Japan.",
     pillar: "Journal",
   },
   {
@@ -86,7 +86,7 @@ const CARDS: Card[] = [
     type: "image",
     src: "/hero/frames/v2/12.jpg",
     label: "The world of AUWA",
-    heading: "Begin here.",
+    heading: "This is AUWA.",
     pillar: "AUWA",
   },
 ];
@@ -426,9 +426,9 @@ export function HeroFlipbookV4b() {
           {/* ── Progress bar + scroll hint (desktop) ── */}
           <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-5 z-20">
             <div className="flex items-center gap-3">
-              <div className="w-28 h-[2px] bg-void/8 overflow-hidden rounded-full">
+              <div className="w-28 h-[2px] bg-void/10 overflow-hidden rounded-full">
                 <div
-                  className="h-full bg-void/35 transition-all duration-500 ease-out rounded-full"
+                  className="h-full bg-void transition-all duration-500 ease-out rounded-full"
                   style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
                 />
               </div>

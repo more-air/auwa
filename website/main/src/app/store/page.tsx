@@ -18,17 +18,17 @@ export default function StorePage() {
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
               <FadeIn>
                 <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
-                  Lifetime objects<br />with kokoro.
+                  Craft over<br />disposability.
                 </h1>
               </FadeIn>
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  Curated Japanese craftsman products. Each one chosen because a master poured their soul into making it.
+                  A Japanese craftsman store. Objects curated for people who care about what they live with. The antithesis of throwaway.
                 </p>
               </FadeIn>
               <FadeIn delay={300}>
                 <div className="mt-12 md:mt-16">
-                  <SignupForm source="store-waitlist" />
+                  <SignupForm source="store-waitlist" buttonText="Notify me" />
                 </div>
               </FadeIn>
             </div>

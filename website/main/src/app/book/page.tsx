@@ -19,19 +19,19 @@ export default function BookPage() {
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
               <FadeIn>
                 <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
-                  The kokoro<br />in all things.
+                  Stories that open<br />the eyes.
                 </h1>
               </FadeIn>
 
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  Four illustrated stories about a luminous being who reveals the kokoro in all things. A world years in the making.
+                  Four illustrated stories about a luminous being who shows the world what it's been too busy to notice.
                 </p>
               </FadeIn>
 
               <FadeIn delay={300}>
                 <div className="mt-12 md:mt-16">
-                  <SignupForm source="book-waitlist" />
+                  <SignupForm source="book-waitlist" buttonText="Notify me" />
                 </div>
               </FadeIn>
             </div>
