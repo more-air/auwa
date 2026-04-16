@@ -45,7 +45,7 @@ const sourceContent = {
   "book-waitlist": {
     preview: "You're on the AUWA Book waitlist.",
     heading: "Four stories, one light.",
-    body: "The AUWA book is four illustrated stories about a luminous being who shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
+    body: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
     image: `${BASE_URL}/pillars/book.jpg`,
     imageAlt: "AUWA: The Beginning illustrated book",
     cta: "Read the journal",

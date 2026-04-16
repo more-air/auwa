@@ -36,58 +36,30 @@ const CARDS: Card[] = [
     type: "video",
     src: "/hero/portrait.mp4",
     poster: "/hero/poster-portrait.jpg",
-    label: "Meet AUWA",
-    heading: "What if all things had a soul?",
-    pillar: "Welcome",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/knife.jpg",
     label: "Craftsman objects",
-    heading: "A craftsman store.",
+    heading: "Objects made with love.",
     pillar: "Store",
   },
   {
     type: "image",
     src: "/hero/frames/v2/02.jpg",
     label: "Illustrated stories",
-    heading: "Stories that open the eyes.",
+    heading: "Stories that open\u00A0the\u00A0eyes.",
     pillar: "Book",
   },
   {
     type: "image",
     src: "/hero/frames/v2/washi.jpg",
-    label: "Making washi",
-    heading: "An editorial journal.",
+    label: "Travel writing",
+    heading: "Travel writing from Japan.",
     pillar: "Journal",
   },
   {
     type: "image",
     src: "/hero/frames/v2/03.jpg",
-    label: "Daily awareness",
+    label: "How you feel",
     heading: "Daily awareness practice.",
     pillar: "App",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/narai.jpg",
-    label: "Rooted in Japan",
-    heading: "All rooted in Japan.",
-    pillar: "Journal",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/10.jpg",
-    label: "Craft over disposability",
-    heading: "Craft over disposability.",
-    pillar: "Store",
-  },
-  {
-    type: "image",
-    src: "/hero/frames/v2/12.jpg",
-    label: "The world of AUWA",
-    heading: "Welcome to AUWA.",
-    pillar: "Begin",
   },
 ];
 
@@ -130,7 +102,7 @@ function VideoCard({ src, poster, isActive }: { src: string; poster?: string; is
   );
 }
 
-export function HeroFlipbookV4b() {
+export function HeroFlipbookV4b({ fullHeight = false }: { fullHeight?: boolean } = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewportHeight = useRef(0); // Stable height, captured on mount
   const [activeIndex, setActiveIndex] = useState(0);
@@ -179,7 +151,8 @@ export function HeroFlipbookV4b() {
     const scrolled = -rect.top;
     const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
 
-    setInView(scrolled >= -100 && scrolled <= scrollableHeight + 100);
+    // Release header before the last card scrolls under it (end margin negative)
+    setInView(scrolled >= -100 && scrolled <= scrollableHeight - 200);
 
     const idx = Math.min(CARD_COUNT - 1, Math.floor(progress * CARD_COUNT));
     setActiveIndex(idx);
@@ -202,15 +175,17 @@ export function HeroFlipbookV4b() {
       {/* Use svh on mobile to avoid snap-back when browser chrome hides/shows */}
       {/* Hidden until mounted to prevent flash of unsorted cards on load/back-nav */}
       <div
-        className={`sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 ${
+        className={`sticky z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 ${
+          fullHeight ? "top-0" : "top-16 lg:top-20"
+        } ${
           mounted ? "opacity-100" : "opacity-0"
         }`}
-        style={{ height: "calc(100svh - 4rem)" }}
+        style={{ height: fullHeight ? "100svh" : "calc(100svh - 4rem)" }}
       >
-        <div className="relative w-full max-w-[1400px] mx-auto" style={{ height: "calc(100svh - 4rem)" }}>
+        <div className="relative w-full max-w-[1400px] mx-auto" style={{ height: fullHeight ? "100svh" : "calc(100svh - 4rem)" }}>
 
           {/* ── Left text column (desktop) — aligned to card centre ── */}
-          <div className="hidden lg:flex absolute left-8 lg:left-16 top-[46%] -translate-y-1/2 flex-col items-start gap-6 w-[200px] lg:w-[240px]">
+          <div className="hidden lg:flex absolute left-8 lg:left-16 xl:left-[8%] top-[40%] -translate-y-1/2 flex-col items-start w-[200px] lg:w-[240px]">
             {CARDS.map((card, i) => (
               <div
                 key={`label-${i}`}
@@ -231,7 +206,7 @@ export function HeroFlipbookV4b() {
                 </p>
               </div>
             ))}
-            <div className="absolute top-24 left-0">
+            <div className="absolute top-[72px] left-0">
               <div className="flex items-baseline gap-1">
                 <span className="font-display text-[38px] tracking-[0.01em] text-void/18 tabular-nums">
                   {String(activeIndex + 1).padStart(2, "0")}
@@ -337,7 +312,7 @@ export function HeroFlipbookV4b() {
           </div>
 
           {/* ── Right text column (desktop) — clickable heading, aligned to card centre ── */}
-          <div className="hidden lg:block absolute right-8 lg:right-16 top-[46%] -translate-y-1/2 w-[200px] lg:w-[240px]">
+          <div className="hidden lg:block absolute right-8 lg:right-16 xl:right-[8%] top-[40%] -translate-y-1/2 w-[200px] lg:w-[240px]">
             {CARDS.map((card, i) => {
               const href = PILLAR_LINKS[card.pillar] || "/about";
               return (

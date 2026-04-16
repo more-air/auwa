@@ -16,7 +16,7 @@ export function EmailCapture() {
         <div className="hidden md:grid grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: text + form */}
           <FadeIn>
-            <div className="max-w-[440px]">
+            <div className="max-w-[440px] ml-auto mr-auto lg:ml-[10%] lg:mr-0">
               <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/30">
                 Stay close
               </span>
@@ -27,7 +27,7 @@ export function EmailCapture() {
               <p className="mt-4 font-display text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.6] text-void/50 max-w-[380px]">
                 Seasonal essays, craftsman stories, and quiet reflections on Japanese philosophy. No noise, no frequency.
               </p>
-              <div className="mt-8 max-w-[340px]">
+              <div className="mt-16 max-w-[340px]">
                 <SignupForm
                   source="newsletter"
                   buttonText="Subscribe"
@@ -42,8 +42,8 @@ export function EmailCapture() {
           <FadeIn delay={150} variant="reveal">
             <div className="relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden bg-surface-raised ">
               <img
-                src="/hero/frames/v2/narai.jpg"
-                alt="Narai-juku in snow"
+                src="/email/kumanokodo.jpg"
+                alt="Kumano Kodo pilgrimage trail"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -55,8 +55,8 @@ export function EmailCapture() {
           <FadeIn variant="reveal">
             <div className="relative aspect-[9/16] max-w-[300px] mx-auto rounded-xl overflow-hidden bg-surface-raised ">
               <img
-                src="/hero/frames/v2/narai.jpg"
-                alt="Narai-juku in snow"
+                src="/email/kumanokodo.jpg"
+                alt="Kumano Kodo pilgrimage trail"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -69,7 +69,7 @@ export function EmailCapture() {
               <p className="mt-3 font-sans text-[14px] leading-[1.6] text-void/50 max-w-[320px] mx-auto">
                 Seasonal essays, craftsman stories, and quiet reflections. No noise.
               </p>
-              <div className="mt-6 max-w-[320px] mx-auto">
+              <div className="mt-10 max-w-[320px] mx-auto">
                 <SignupForm
                   source="newsletter"
                   buttonText="Join"

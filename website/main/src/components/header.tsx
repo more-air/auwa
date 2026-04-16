@@ -12,7 +12,7 @@ const navItems = [
   { label: "About", href: "/about" },
 ];
 
-export function Header() {
+export function Header({ disableFlipbookStick = false, transparent = false }: { disableFlipbookStick?: boolean; transparent?: boolean } = {}) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -27,7 +27,7 @@ export function Header() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      const flipbookActive = document.body.hasAttribute("data-flipbook-active");
+      const flipbookActive = !disableFlipbookStick && document.body.hasAttribute("data-flipbook-active");
       if (flipbookActive) {
         setHidden(false);
       } else if (y > lastScrollY.current && y > 80) {
@@ -53,7 +53,9 @@ export function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 bg-surface transition-transform duration-300 ease-out ${
+        className={`sticky top-0 z-50 transition-transform duration-300 ease-out ${
+          transparent ? "bg-transparent" : "bg-surface"
+        } ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
       >
@@ -63,7 +65,8 @@ export function Header() {
               <img
                 src="/auwa-logo.svg"
                 alt="AUWA"
-                className="h-[16px] md:h-[21px] w-auto"
+                className={`h-[16px] md:h-[21px] w-auto ${transparent ? "invert brightness-0 invert" : ""}`}
+                style={transparent ? { filter: "invert(1) brightness(2)" } : undefined}
               />
             </Link>
 
@@ -73,13 +76,17 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={`relative font-sans text-[14px] tracking-[0.06em] transition-all duration-300 group ${
-                      pathname === item.href
-                        ? "text-void"
-                        : "text-void/50 hover:text-void"
+                      transparent
+                        ? "text-white"
+                        : pathname === item.href
+                          ? "text-void"
+                          : "text-void/50 hover:text-void"
                     }`}
                   >
                     {item.label}
-                    <span className={`absolute -bottom-1 left-0 h-[1.5px] bg-void transition-all duration-300 ease-out ${
+                    <span className={`absolute -bottom-1 left-0 h-[1.5px] transition-all duration-300 ease-out ${
+                      transparent ? "bg-white" : "bg-void"
+                    } ${
                       pathname === item.href
                         ? "w-full"
                         : "w-0 group-hover:w-full"
@@ -90,7 +97,7 @@ export function Header() {
             </ul>
 
             <button
-              className="md:hidden p-2 -mr-2 relative z-[60] cursor-pointer"
+              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer ${transparent ? "text-white" : ""}`}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               onClick={() => setMenuOpen(!menuOpen)}
             >

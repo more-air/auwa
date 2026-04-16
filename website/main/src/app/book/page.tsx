@@ -4,7 +4,7 @@ import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
   title: "Stories that open the eyes | AUWA",
-  description: "Four illustrated stories about a luminous being who shows the world what it's been too busy to notice.",
+  description: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.",
 };
 
 export default function BookPage() {
@@ -25,7 +25,7 @@ export default function BookPage() {
 
               <FadeIn delay={150}>
                 <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
-                  Four illustrated stories about a luminous being who shows the world what it's been too busy to notice.
+                  Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.
                 </p>
               </FadeIn>
 

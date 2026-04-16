@@ -81,11 +81,11 @@ export function VideoMoment() {
             <div className="mt-3 w-8 h-[1px] bg-void/12" />
             <a href="/journal/the-beginning" className="block group/heading">
               <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-void group-hover/heading:text-void/70 transition-colors duration-300">
-                A luminous being who reveals<br />the kokoro in all things.
+                The soul in all things.
               </h2>
             </a>
             <p className="mt-4 font-display text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.6] text-void/50 max-w-[380px]">
-              A character from four illustrated stories who reveals what the world has been too busy to notice. AUWA appears in the stories and the app.
+              A character from our illustrated stories who reveals what the world has been too busy to notice. AUWA appears in the stories and the app.
             </p>
             <a
               href="/journal/the-beginning"
@@ -129,7 +129,7 @@ export function VideoMoment() {
             </span>
             <a href="/journal/the-beginning" className="block">
               <h2 className="mt-3 font-display text-[clamp(1.4rem,5vw,1.8rem)] leading-[1.15] tracking-[0.01em] text-void">
-                A luminous being who reveals<br />the kokoro in all things.
+                The soul in all things.
               </h2>
             </a>
             <a
