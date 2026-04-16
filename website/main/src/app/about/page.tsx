@@ -51,24 +51,22 @@ export default function AboutPage() {
               { label: "Journal", href: "/journal", image: "/journal/washi/washi-hero.jpg" },
               { label: "App", href: "/app", image: "/pillars/app.jpg" },
               { label: "Store", href: "/store", image: "/pillars/store.jpg" },
-            ].map((pillar, i) => (
-              <FadeIn key={pillar.label} delay={i * 80}>
-                <Link href={pillar.href} className="group block">
-                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
-                    <img
-                      src={pillar.image}
-                      alt={pillar.label}
-                      className="absolute inset-0 w-full h-full object-cover "
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-4 md:p-6">
-                      <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.01em] text-white">
-                        {pillar.label}
-                      </h3>
-                    </div>
+            ].map((pillar) => (
+              <Link key={pillar.label} href={pillar.href} className="group block">
+                <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.label}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-4 md:p-6">
+                    <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.01em] text-white">
+                      {pillar.label}
+                    </h3>
                   </div>
-                </Link>
-              </FadeIn>
+                </div>
+              </Link>
             ))}
           </div>
         </section>
