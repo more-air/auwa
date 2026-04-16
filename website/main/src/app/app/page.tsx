@@ -3,8 +3,8 @@ import { FadeIn } from "@/components/fade-in";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
-  title: "Kokoro Mirror | AUWA",
-  description: "A daily awareness practice. Reveal your kokoro.",
+  title: "Daily awareness practice | AUWA",
+  description: "Share how you feel. The app reflects it back through ancient Japanese philosophy. No advice, just awareness.",
 };
 
 export default function AppPage() {
@@ -18,7 +18,7 @@ export default function AppPage() {
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
               <FadeIn>
                 <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
-                  A daily awareness<br />practice.
+                  Daily awareness<br />practice.
                 </h1>
               </FadeIn>
               <FadeIn delay={150}>

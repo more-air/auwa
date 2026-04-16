@@ -25,11 +25,11 @@ const sourceContent = {
     ctaUrl: null,
   },
   "app-waitlist": {
-    preview: "You're on the Kokoro Mirror waitlist.",
+    preview: "You're on the AUWA app waitlist.",
     heading: "A practice is taking shape.",
-    body: "Kokoro Mirror is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
+    body: "The AUWA app is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
     image: `${BASE_URL}/pillars/app.jpg`,
-    imageAlt: "AUWA Kokoro Mirror app",
+    imageAlt: "AUWA awareness app",
     cta: "Read the journal",
     ctaUrl: `${BASE_URL}/journal`,
   },
@@ -45,7 +45,7 @@ const sourceContent = {
   "book-waitlist": {
     preview: "You're on the AUWA Book waitlist.",
     heading: "Four stories, one light.",
-    body: "The AUWA book will initially span four illustrated stories about a being who reveals the kokoro hidden in all things. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
+    body: "The AUWA book is four illustrated stories about a luminous being who shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
     image: `${BASE_URL}/pillars/book.jpg`,
     imageAlt: "AUWA: The Beginning illustrated book",
     cta: "Read the journal",
@@ -124,6 +124,11 @@ export default function WelcomeEmail({
             </Text>
             <Text style={footerText}>
               © AUWA {new Date().getFullYear()}
+            </Text>
+            <Text style={footerText}>
+              <Link href="{{{RESEND_UNSUBSCRIBE_URL}}}" style={{ color: "#999", textDecoration: "underline" }}>
+                Unsubscribe
+              </Link>
             </Text>
           </Section>
         </Container>

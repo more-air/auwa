@@ -3,8 +3,8 @@ import { FadeIn } from "@/components/fade-in";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
-  title: "Book | AUWA",
-  description: "Four illustrated stories about a luminous being who reveals the kokoro hidden within all things.",
+  title: "Stories that open the eyes | AUWA",
+  description: "Four illustrated stories about a luminous being who shows the world what it's been too busy to notice.",
 };
 
 export default function BookPage() {

@@ -3,8 +3,8 @@ import { FadeIn } from "@/components/fade-in";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
-  title: "Store | AUWA",
-  description: "Curated Japanese craftsman products. Lifetime objects with kokoro.",
+  title: "Craft over disposability | AUWA",
+  description: "A Japanese craftsman store. Curated for people who care about what they live with. The antithesis of throwaway.",
 };
 
 export default function StorePage() {
