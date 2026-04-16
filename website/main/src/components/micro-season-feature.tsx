@@ -18,7 +18,7 @@ export function MicroSeasonFeature() {
               72 Seasons
             </span>
 
-            <p className="mt-8 text-[clamp(3rem,8vw,6.5rem)] leading-[1] tracking-[0.06em] text-void" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>
+            <p className="mt-5 text-[clamp(3rem,8vw,6.5rem)] leading-[1] tracking-[0.06em] text-void" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>
               {season.kanji}
             </p>
 

@@ -85,6 +85,7 @@ export default function Home() {
         {/* ── Stacked-card flipbook hero ── */}
         <HeroFlipbookV4b fullHeight />
 
+        <div className="h-16 md:h-24" />
         <Separator />
 
         {/* ── Latest articles (horizontal scroll) ── */}
