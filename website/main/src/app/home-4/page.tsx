@@ -30,12 +30,6 @@ const latestArticles: { title: string; excerpt: string; category: string; issue:
   { title: "Yakushima", excerpt: "The island where the trees outlived history.", category: "Travel", issue: "Issue 01", slug: "yakushima-island", image: "/journal/yakushima-island/yakushima-island-hero.jpg" },
 ];
 
-const secondFeature = {
-  title: "Japan didn\u2019t invent the seasons. Just kept counting.",
-  slug: "72-seasons",
-  image: "/journal/72-seasons/72-seasons-hero.jpg",
-};
-
 const twoUpArticles = [
   { title: "The Onsen Lesson", excerpt: "What hot water teaches about being alive.", slug: "the-onsen-lesson", image: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "On the night a village burned a shrine.", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
@@ -134,7 +128,7 @@ export default function Home4() {
                       <img
                         src={pillar.image}
                         alt={pillar.label}
-                        className="absolute inset-0 w-full h-full object-cover "
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -170,7 +164,7 @@ export default function Home4() {
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover "
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />

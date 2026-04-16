@@ -169,7 +169,7 @@ export function HeroFlipbookV4b({ fullHeight = false }: { fullHeight?: boolean }
     <div
       ref={containerRef}
       className="relative"
-      style={{ height: `${CARD_COUNT * 50}vh` }}
+      style={{ height: `${CARD_COUNT * 80}vh` }}
     >
       {/* Sticky below header: top-16 (mobile 64px) / top-20 (desktop 80px) */}
       {/* Use svh on mobile to avoid snap-back when browser chrome hides/shows */}
@@ -257,7 +257,7 @@ export function HeroFlipbookV4b({ fullHeight = false }: { fullHeight?: boolean }
                     <img
                       src={card.src}
                       alt={card.label}
-                      className="absolute inset-0 w-full h-full object-cover "
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                   )}
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.04] transition-colors duration-400 rounded-xl" />

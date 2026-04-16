@@ -414,13 +414,34 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 **Homepage variant routes:**
 - `/home-1` — Video hero variant (kept for reference)
 - `/home-2` — Editorial split-screen flipbook (kept for reference)
-- Root `/` — The production homepage with stacked-card flipbook hero (v4b)
+- `/home-3` — Previous flipbook-first homepage (pre-April 2026 redesign)
+- `/home-4` — Demo route used during April 2026 redesign (same as current root)
+- Root `/` — Full-bleed AUWA face video hero → brand intro → 4-card flipbook → editorial content
 
 **Flipbook card data:**
-- 8 cards with clear narrative arc: hook → four pillars → context → philosophy → welcome
-- Current cards: "What if all things had a soul?" → "A craftsman store." → "Stories that open the eyes." → "An editorial journal." → "Daily awareness practice." → "All rooted in Japan." → "Craft over disposability." → "Welcome to AUWA."
-- Pillar labels on first/last cards: WELCOME and BEGIN (not pillar names)
-- Scroll height: 50vh per card (400vh total for 8 cards)
+- 4 cards, one per pillar: Store (video), Book, Journal, App
+- Current cards: "Objects made with love." → "Stories that open the eyes." → "Travel writing from Japan." → "Daily awareness practice."
+- Scroll height: 80vh per card (320vh total for 4 cards)
+- `fullHeight` prop: when true, sticky container uses `top-0` and `100svh` (used when header scrolls away)
+
+**Homepage structure (current root):**
+- Full-bleed AUWA face video (parallax zoom-in on scroll, desktop scroll indicator, transparent header overlay)
+- Brand intro module: "Meet AUWA." heading, centred text, "Our story" CTA to /about
+- Separator line (only after intro text, and above+below 72 Seasons)
+- 4-card flipbook hero
+- Latest articles (horizontal scroll)
+- Micro-season (72 Seasons centred kanji + "Read the essay" button)
+- Three pillar cards (Book, Store, App)
+- Email capture (Kumano Kodo image)
+- Two-up articles (Onsen + Nozawa)
+- Meet AUWA video moment
+- Extra spacing before footer
+
+**Header `transparent` prop:**
+- When true: background transparent, logo inverted to white via CSS filter, nav links white, hamburger white. Used on root homepage over video hero.
+- `disableFlipbookStick` prop: prevents header from staying pinned during flipbook scroll.
+
+**Body copy standard:** All paragraph text across homepage modules, teaser pages, and articles uses `font-display text-[18px] md:text-[19px]` for consistency.
 
 **Two-column modules (Meet AUWA, Email Capture):**
 - Both use `pt-16 md:pt-24 pb-28 md:pb-48` for equal visual top/bottom spacing (bottom needs more padding because the image extends below the text centre)

@@ -40,7 +40,7 @@ export function EmailCapture() {
 
           {/* Right: image (same ratio as Meet AUWA video card) */}
           <FadeIn delay={150} variant="reveal">
-            <div className="relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden bg-surface-raised ">
+            <div className="relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden bg-surface-raised">
               <img
                 src="/email/kumanokodo.jpg"
                 alt="Kumano Kodo pilgrimage trail"
@@ -53,7 +53,7 @@ export function EmailCapture() {
         {/* Mobile: stacked */}
         <div className="md:hidden">
           <FadeIn variant="reveal">
-            <div className="relative aspect-[9/16] max-w-[300px] mx-auto rounded-xl overflow-hidden bg-surface-raised ">
+            <div className="relative aspect-[9/16] max-w-[300px] mx-auto rounded-xl overflow-hidden bg-surface-raised">
               <img
                 src="/email/kumanokodo.jpg"
                 alt="Kumano Kodo pilgrimage trail"

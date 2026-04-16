@@ -65,7 +65,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: { 
               <img
                 src="/auwa-logo.svg"
                 alt="AUWA"
-                className={`h-[16px] md:h-[21px] w-auto ${transparent ? "invert brightness-0 invert" : ""}`}
+                className="h-[16px] md:h-[21px] w-auto"
                 style={transparent ? { filter: "invert(1) brightness(2)" } : undefined}
               />
             </Link>

@@ -85,9 +85,6 @@ export default function Home() {
         {/* ── Stacked-card flipbook hero ── */}
         <HeroFlipbookV4b fullHeight />
 
-        <div className="h-16 md:h-24" />
-        <Separator />
-
         {/* ── Latest articles (horizontal scroll) ── */}
         <section className="py-16 md:py-24">
           <div className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
@@ -142,7 +139,7 @@ export default function Home() {
                       <img
                         src={pillar.image}
                         alt={pillar.label}
-                        className="absolute inset-0 w-full h-full object-cover "
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -163,12 +160,8 @@ export default function Home() {
           </div>
         </section>
 
-        <Separator />
-
         {/* ── Email capture ── */}
         <EmailCapture />
-
-        <Separator />
 
         {/* ── Two-up articles (Onsen + Nozawa) ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
@@ -181,7 +174,7 @@ export default function Home() {
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover "
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -202,10 +195,11 @@ export default function Home() {
           </div>
         </section>
 
-        <Separator />
-
         {/* ── Video moment: Meet AUWA ── */}
         <VideoMoment />
+
+        {/* Extra space before footer */}
+        <div className="h-16 md:h-24" />
 
       </main>
       <Footer />
