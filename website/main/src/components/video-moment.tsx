@@ -44,7 +44,7 @@ export function VideoMoment() {
   return (
     <section
       ref={sectionRef}
-      className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-24 pb-28 md:pb-48"
+      className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24"
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: video card left, text right */}

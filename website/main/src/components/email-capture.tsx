@@ -10,7 +10,7 @@ import { FadeIn } from "@/components/fade-in";
 
 export function EmailCapture() {
   return (
-    <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-24 pb-28 md:pb-48">
+    <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: side by side */}
         <div className="hidden md:grid grid-cols-2 gap-12 lg:gap-20 items-center">

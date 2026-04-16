@@ -11,11 +11,7 @@ export function MicroSeasonFeature() {
   const season = getCurrentMicroSeason();
 
   return (
-    <section className="px-6 md:px-12 lg:px-20 xl:px-28">
-      {/* Separator above */}
-      <div className="w-full h-[1px] bg-void/10" />
-
-      <div className="py-20 md:py-28">
+    <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
         <FadeIn>
           <div className="flex flex-col items-center text-center">
             <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/30">
@@ -38,10 +34,6 @@ export function MicroSeasonFeature() {
             </Link>
           </div>
         </FadeIn>
-      </div>
-
-      {/* Separator below */}
-      <div className="w-full h-[1px] bg-void/10" />
     </section>
   );
 }

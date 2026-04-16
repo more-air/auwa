@@ -123,8 +123,12 @@ export default function Home() {
           </div>
         </section>
 
+        <Separator />
+
         {/* ── Micro-season ── */}
         <MicroSeasonFeature />
+
+        <Separator />
 
         {/* ── Three pillars ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
