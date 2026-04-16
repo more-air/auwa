@@ -410,3 +410,40 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - When passing props between components, prefer explicit union types over `as` casts of generic strings.
 - The ESLint `core-web-vitals` import warning is a known Next.js 15 issue. It doesn't block the build.
 - When deleting routes or renaming components, always restart the dev server and delete `.next/` to clear stale caches. Hot reload doesn't always pick up deleted files.
+
+**Homepage variant routes:**
+- `/home-1` — Video hero variant (kept for reference)
+- `/home-2` — Editorial split-screen flipbook (kept for reference)
+- Root `/` — The production homepage with stacked-card flipbook hero (v4b)
+
+**Flipbook card data:**
+- 8 cards with clear narrative arc: hook → four pillars → context → philosophy → welcome
+- Current cards: "What if all things had a soul?" → "A craftsman store." → "Stories that open the eyes." → "An editorial journal." → "Daily awareness practice." → "All rooted in Japan." → "Craft over disposability." → "Welcome to AUWA."
+- Pillar labels on first/last cards: WELCOME and BEGIN (not pillar names)
+- Scroll height: 50vh per card (400vh total for 8 cards)
+
+**Two-column modules (Meet AUWA, Email Capture):**
+- Both use `pt-16 md:pt-24 pb-28 md:pb-48` for equal visual top/bottom spacing (bottom needs more padding because the image extends below the text centre)
+- Image ratio: 9:16 portrait card with `max-w-[380px]` and `max-h-[70vh]`
+- Meet AUWA: video card left, text right. Links to `/journal/the-beginning`. CTA is a bordered button "THE STORY"
+- Email Capture: text + form left, Narai snow image right. No shadow on image.
+
+**Button style (bordered CTA):**
+- `font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300`
+- Always add `self-start` when inside a flex column to prevent full-width stretch
+
+**Desktop nav hover:**
+- Active page: full opacity + underline
+- Hover: underline animates from left (`w-0 group-hover:w-full`), text darkens from 50% to 100%
+- Underline: `h-[1.5px] bg-void`, positioned at `-bottom-1`
+
+**Teaser page copy pattern:**
+- Headers should clearly state what the product IS (not poetic abstractions)
+- Current: App: "Daily awareness practice." / Store: "Craft over disposability." / Book: "Stories that open the eyes."
+- Button text: "Notify me" (not "Join Waitlist")
+- No extra "Join the waitlist" text line. The header + paragraph + button do the work.
+
+**Email unsubscribe:**
+- All emails (welcome + newsletter) include `{{{RESEND_UNSUBSCRIBE_URL}}}` which Resend replaces with a per-recipient unsubscribe link
+- Resend also adds `List-Unsubscribe` header automatically (required by Gmail/Yahoo since Feb 2024)
+- No additional API code needed. Clicking the link removes the contact from the Resend audience.
