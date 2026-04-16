@@ -210,7 +210,7 @@ export function HeroFlipbookV4b() {
         <div className="relative w-full max-w-[1400px] mx-auto" style={{ height: "calc(100svh - 4rem)" }}>
 
           {/* ── Left text column (desktop) — aligned to card centre ── */}
-          <div className="hidden lg:flex absolute left-8 lg:left-20 top-[46%] -translate-y-1/2 flex-col items-start gap-6 w-[200px] lg:w-[240px]">
+          <div className="hidden lg:flex absolute left-8 lg:left-16 top-[46%] -translate-y-1/2 flex-col items-start gap-6 w-[200px] lg:w-[240px]">
             {CARDS.map((card, i) => (
               <div
                 key={`label-${i}`}
@@ -337,7 +337,7 @@ export function HeroFlipbookV4b() {
           </div>
 
           {/* ── Right text column (desktop) — clickable heading, aligned to card centre ── */}
-          <div className="hidden lg:block absolute right-8 lg:right-20 top-[46%] -translate-y-1/2 w-[220px] lg:w-[260px]">
+          <div className="hidden lg:block absolute right-8 lg:right-16 top-[46%] -translate-y-1/2 w-[200px] lg:w-[240px]">
             {CARDS.map((card, i) => {
               const href = PILLAR_LINKS[card.pillar] || "/about";
               return (
@@ -417,15 +417,15 @@ export function HeroFlipbookV4b() {
             </div>
           </div>
 
-          {/* ── Decorative lines (desktop) ── */}
+          {/* ── Decorative lines (desktop) — closer to card ── */}
           <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
             <div
               className="absolute top-[15%] bottom-[15%] w-[1px] bg-void/5"
-              style={{ left: "calc(50% - min(27.5vh, 22vw) - 40px)" }}
+              style={{ left: "calc(50% - min(27.5vh, 22vw) - 24px)" }}
             />
             <div
               className="absolute top-[15%] bottom-[15%] w-[1px] bg-void/5"
-              style={{ right: "calc(50% - min(27.5vh, 22vw) - 40px)" }}
+              style={{ right: "calc(50% - min(27.5vh, 22vw) - 24px)" }}
             />
           </div>
 
