@@ -24,7 +24,7 @@ export function EmailCapture() {
               <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-void">
                 Awareness, delivered.
               </h2>
-              <p className="mt-4 font-display text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.6] text-void/50 max-w-[380px]">
+              <p className="mt-4 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/50 max-w-[380px]">
                 Seasonal essays, craftsman stories, and quiet reflections on Japanese philosophy. No noise, no frequency.
               </p>
               <div className="mt-16 max-w-[340px]">
@@ -66,7 +66,7 @@ export function EmailCapture() {
               <h2 className="font-display text-[clamp(1.4rem,5vw,1.8rem)] leading-[1.15] tracking-[0.01em] text-void">
                 Awareness, delivered.
               </h2>
-              <p className="mt-3 font-sans text-[14px] leading-[1.6] text-void/50 max-w-[320px] mx-auto">
+              <p className="mt-3 font-display text-[18px] leading-[1.65] text-void/50 max-w-[320px] mx-auto">
                 Seasonal essays, craftsman stories, and quiet reflections. No noise.
               </p>
               <div className="mt-10 max-w-[320px] mx-auto">

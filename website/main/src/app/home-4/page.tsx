@@ -52,18 +52,26 @@ export default function Home4() {
         {/* ── Full-bleed AUWA face video ── */}
         <HeroVideoIntro />
 
-        {/* ── Brand intro module (teaser-style) ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
-          <div className="md:grid md:grid-cols-2 md:gap-16 lg:gap-24">
+        {/* ── Brand intro module ── */}
+        <section className="px-12 md:px-16 lg:px-20 xl:px-28 py-16 md:py-24">
+          <div className="max-w-[560px] mx-auto text-center">
             <FadeIn>
               <h2 className="font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.08] tracking-[0.01em] text-void">
-                What if all things<br />had a soul?
+                Meet AUWA.
               </h2>
             </FadeIn>
             <FadeIn delay={150}>
-              <p className="mt-8 md:mt-2 font-display text-[clamp(1.05rem,1.8vw,1.3rem)] leading-[1.55] text-void/55 max-w-[440px]">
-                AUWA is a character from our illustrated stories, born from the ancient Japanese belief that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife. The world around AUWA comes to life through thoughtful editorials from Japan, craftsman objects made with love, a daily awareness app, and illustrated stories for the quietly curious.
+              <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/55">
+                A character born from the Japanese belief that a life force resides in all things. Craftsman objects, editorials from Japan, a daily awareness app, and illustrated stories for the quietly curious.
               </p>
+            </FadeIn>
+            <FadeIn delay={300}>
+              <Link
+                href="/about"
+                className="inline-block mt-8 md:mt-10 font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
+              >
+                Our story
+              </Link>
             </FadeIn>
           </div>
         </section>

@@ -22,7 +22,7 @@ export default function StorePage() {
                 </h1>
               </FadeIn>
               <FadeIn delay={150}>
-                <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
+                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[420px]">
                   A Japanese craftsman store. Curated for people who care about what they live with. The antithesis of throwaway.
                 </p>
               </FadeIn>

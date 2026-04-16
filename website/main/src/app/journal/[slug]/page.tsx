@@ -1099,7 +1099,7 @@ export default async function ArticlePage({
               </h1>
             </FadeIn>
             <FadeIn delay={100}>
-              <p className="mt-4 md:mt-6 font-display text-[clamp(1.1rem,2vw,1.5rem)] leading-[1.35] text-void/60">
+              <p className="mt-4 md:mt-6 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-void/60">
                 {article.subtitle}
               </p>
             </FadeIn>

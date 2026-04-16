@@ -24,7 +24,7 @@ export default function BookPage() {
               </FadeIn>
 
               <FadeIn delay={150}>
-                <p className="mt-8 md:mt-10 font-display text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-void/60 max-w-[420px]">
+                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[420px]">
                   Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.
                 </p>
               </FadeIn>

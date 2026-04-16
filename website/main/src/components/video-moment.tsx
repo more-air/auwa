@@ -84,7 +84,7 @@ export function VideoMoment() {
                 The soul in all things.
               </h2>
             </a>
-            <p className="mt-4 font-display text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.6] text-void/50 max-w-[380px]">
+            <p className="mt-4 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/50 max-w-[380px]">
               A character from our illustrated stories who reveals what the world has been too busy to notice. AUWA appears in the stories and the app.
             </p>
             <a
