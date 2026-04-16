@@ -293,7 +293,7 @@ export function HeroFlipbookV4b() {
 
           {/* ── Mobile: card centred in upper area, leaving room for text at bottom ── */}
           <div
-            className="lg:hidden absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-48px)] max-w-[380px]"
+            className="lg:hidden absolute left-1/2 top-[44%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-48px)] max-w-[380px]"
             style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 18rem)" }}
           >
             {CARDS.map((card, i) => {
@@ -397,18 +397,22 @@ export function HeroFlipbookV4b() {
                 </div>
               ))}
             </div>
-            {/* Progress bar + scroll hint */}
-            <div className="flex flex-col items-center mt-3 gap-1.5">
-              <div className="w-20 h-[2px] bg-void/10 overflow-hidden rounded-full">
-                <div
-                  className="h-full bg-void transition-all duration-500 ease-out rounded-full"
-                  style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
-                />
-              </div>
-              <div className={`transition-opacity duration-500 ${activeIndex === 0 ? "opacity-100" : "opacity-0"}`}>
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-25">
+            {/* Arrow (initial) fades out → progress bar fades in */}
+            <div className="relative flex justify-center mt-3 h-5">
+              {/* Down arrow: visible on card 1, fades out on scroll */}
+              <div className={`absolute inset-0 flex justify-center transition-opacity duration-500 ${activeIndex === 0 ? "opacity-100" : "opacity-0"}`}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-30">
                   <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
+              </div>
+              {/* Progress bar: hidden on card 1, fades in on scroll */}
+              <div className={`absolute inset-0 flex justify-center items-center transition-opacity duration-500 ${activeIndex === 0 ? "opacity-0" : "opacity-100"}`}>
+                <div className="w-20 h-[2px] bg-void/10 overflow-hidden rounded-full">
+                  <div
+                    className="h-full bg-void transition-all duration-500 ease-out rounded-full"
+                    style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
+                  />
+                </div>
               </div>
             </div>
           </div>
