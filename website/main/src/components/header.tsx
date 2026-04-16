@@ -72,13 +72,18 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`font-sans text-[14px] tracking-[0.06em] transition-opacity duration-300 ${
+                    className={`relative font-sans text-[14px] tracking-[0.06em] transition-all duration-300 group ${
                       pathname === item.href
-                        ? "text-void opacity-100"
-                        : "text-void/70 hover:opacity-100"
+                        ? "text-void"
+                        : "text-void/50 hover:text-void"
                     }`}
                   >
                     {item.label}
+                    <span className={`absolute -bottom-1 left-0 h-[1.5px] bg-void transition-all duration-300 ease-out ${
+                      pathname === item.href
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`} />
                   </Link>
                 </li>
               ))}

@@ -293,8 +293,8 @@ export function HeroFlipbookV4b() {
 
           {/* ── Mobile: card centred in upper area, leaving room for text at bottom ── */}
           <div
-            className="lg:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[55%] w-[calc(100%-56px)] max-w-[380px]"
-            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 20rem)" }}
+            className="lg:hidden absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-56px)] max-w-[380px]"
+            style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 17rem)" }}
           >
             {CARDS.map((card, i) => {
               const order = orders[i];
@@ -405,11 +405,8 @@ export function HeroFlipbookV4b() {
                   style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
                 />
               </div>
-              <div className={`flex items-center gap-1.5 transition-opacity duration-500 ${activeIndex === 0 ? "opacity-100" : "opacity-0"}`}>
-                <span className="font-sans text-[9px] tracking-[0.12em] uppercase text-void/25">
-                  Scroll
-                </span>
-                <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-25">
+              <div className={`transition-opacity duration-500 ${activeIndex === 0 ? "opacity-100" : "opacity-0"}`}>
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-25">
                   <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
@@ -452,17 +449,6 @@ export function HeroFlipbookV4b() {
             </div>
           </div>
 
-          {/* ── Mobile progress dots ── */}
-          <div className="lg:hidden absolute top-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1">
-            {CARDS.map((_, i) => (
-              <div
-                key={`dot-${i}`}
-                className={`rounded-full transition-all duration-300 ${
-                  i === activeIndex ? "w-3 h-[2px] bg-void/40" : "w-[3px] h-[2px] bg-void/15"
-                }`}
-              />
-            ))}
-          </div>
 
         </div>
       </div>
