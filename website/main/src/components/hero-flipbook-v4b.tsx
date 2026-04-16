@@ -51,7 +51,7 @@ const CARDS: Card[] = [
     type: "image",
     src: "/hero/frames/v2/02.jpg",
     label: "Illustrated stories",
-    heading: "Four illustrated stories.",
+    heading: "Stories that open the eyes.",
     pillar: "Book",
   },
   {
@@ -65,7 +65,7 @@ const CARDS: Card[] = [
     type: "image",
     src: "/hero/frames/v2/03.jpg",
     label: "Daily awareness",
-    heading: "A daily awareness practice.",
+    heading: "Daily awareness practice.",
     pillar: "App",
   },
   {
@@ -86,7 +86,7 @@ const CARDS: Card[] = [
     type: "image",
     src: "/hero/frames/v2/12.jpg",
     label: "The world of AUWA",
-    heading: "This is AUWA.",
+    heading: "Welcome to AUWA.",
     pillar: "AUWA",
   },
 ];
@@ -397,17 +397,22 @@ export function HeroFlipbookV4b() {
                 </div>
               ))}
             </div>
-            {/* Scroll arrow */}
-            <div className="flex justify-center mt-3">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="animate-bounce opacity-20"
-              >
-                <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            {/* Progress bar + scroll hint */}
+            <div className="flex flex-col items-center mt-4 gap-2">
+              <div className="w-20 h-[2px] bg-void/10 overflow-hidden rounded-full">
+                <div
+                  className="h-full bg-void transition-all duration-500 ease-out rounded-full"
+                  style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
+                />
+              </div>
+              <div className={`flex items-center gap-1.5 transition-opacity duration-500 ${activeIndex === 0 ? "opacity-100" : "opacity-0"}`}>
+                <span className="font-sans text-[9px] tracking-[0.12em] uppercase text-void/25">
+                  Scroll
+                </span>
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-25">
+                  <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -439,7 +444,7 @@ export function HeroFlipbookV4b() {
               }`}
             >
               <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-void/25">
-                Scroll to explore
+                Scroll
               </span>
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-25">
                 <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
