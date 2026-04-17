@@ -3,33 +3,35 @@
 import { useEffect, useRef, useState } from "react";
 
 /*
-  Full-bleed AUWA face video hero, variant 2.
-  Differences from hero-video-intro.tsx:
-  - "Explore" label is larger and clearer on both mobile and desktop
-  - Chevron (v-shape) below the label instead of the down-arrow
-  - Mobile fills the viewport height (svh) rather than a square crop,
-    with the Explore + chevron shown on mobile too
-  - Square -> landscape responsive behaviour preserved for desktop
+  Full-bleed AUWA face video hero.
+  Mobile: portrait video at natural aspect, pinned to the bottom of the
+    visible area. Beige shows above if video is shorter; if taller, the
+    top is clipped (overflow-hidden on the stage).
+  Desktop: landscape 16:9 video, native aspect ratio.
+  Parallax zoom on scroll, chevron + "Explore" label fades on scroll.
 */
 
 export function HeroVideo() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const scaleRef = useRef<HTMLDivElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [posterLoaded, setPosterLoaded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Pick which video to drive based on viewport. Avoid double playback.
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
+    const mq = window.matchMedia("(max-width: 767px)");
+    let currentRef = mq.matches ? mobileVideoRef : desktopVideoRef;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const video = videoRef.current;
+        const video = currentRef.current;
         if (!video) return;
         if (entry.isIntersecting) {
-          video.play().then(() => setPlaying(true)).catch(() => {});
+          video.play().catch(() => {});
         } else {
           video.pause();
         }
@@ -37,16 +39,21 @@ export function HeroVideo() {
       { threshold: 0.2 }
     );
 
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+    const onMqChange = () => {
+      currentRef.current?.pause();
+      currentRef = mq.matches ? mobileVideoRef : desktopVideoRef;
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        currentRef.current?.play().catch(() => {});
+      }
+    };
 
-  // Preload poster; avoids brief grey flash by waiting until image is ready
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => setPosterLoaded(true);
-    img.src = "/hero/poster-auwa.jpg";
-    if (img.complete) setPosterLoaded(true);
+    observer.observe(section);
+    mq.addEventListener("change", onMqChange);
+    return () => {
+      observer.disconnect();
+      mq.removeEventListener("change", onMqChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -57,6 +64,7 @@ export function HeroVideo() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Parallax zoom-in on scroll
   useEffect(() => {
     const section = sectionRef.current;
     const scaleEl = scaleRef.current;
@@ -82,23 +90,29 @@ export function HeroVideo() {
 
   return (
     <section ref={sectionRef} className="-mt-16 md:-mt-20">
-      <div className="relative h-[100svh] md:h-auto md:aspect-[16/9] w-full overflow-hidden" style={{ backgroundColor: "#e9dcc3" }}>
+      <div
+        className="relative h-[100svh] md:h-auto md:aspect-[16/9] w-full overflow-hidden"
+        style={{ backgroundColor: "#e9dcc3" }}
+      >
         <div ref={scaleRef} className="absolute inset-0 will-change-transform">
-          <img
-            src="/hero/poster-auwa.jpg"
-            alt="AUWA"
-            onLoad={() => setPosterLoaded(true)}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{
-              opacity: playing ? 0 : posterLoaded ? 1 : 0,
-              transition: "opacity 1.2s ease-out",
-            }}
-          />
+          {/* Mobile: video at natural aspect, pinned to bottom. The
+              top is clipped by the parent overflow-hidden if too tall. */}
           <video
-            ref={videoRef}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-              playing ? "opacity-100" : "opacity-0"
-            }`}
+            ref={mobileVideoRef}
+            className="md:hidden absolute bottom-0 left-0 w-full h-auto"
+            poster="/hero/poster-auwa-portrait.jpg"
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/hero/portrait-auwa.mp4" type="video/mp4" />
+          </video>
+
+          {/* Desktop: landscape, object-cover fills the 16:9 stage */}
+          <video
+            ref={desktopVideoRef}
+            className="hidden md:block absolute inset-0 w-full h-full object-cover"
             poster="/hero/poster-auwa.jpg"
             loop
             muted
@@ -109,7 +123,7 @@ export function HeroVideo() {
           </video>
         </div>
 
-        {/* Explore label + chevron (both mobile and desktop) */}
+        {/* Explore label + chevron */}
         <div
           className="absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 md:gap-4"
           style={{
@@ -128,7 +142,13 @@ export function HeroVideo() {
             className="text-white animate-bounce"
             aria-hidden="true"
           >
-            <path d="M1 1l10 10L21 1" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M1 1l10 10L21 1"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </div>
       </div>

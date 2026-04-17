@@ -4,8 +4,8 @@ import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
-  title: "Daily awareness practice | AUWA",
-  description: "Share how you feel. The app reflects it back through ancient Japanese philosophy. No advice, just awareness.",
+  title: "Awareness, daily | AUWA",
+  description: "A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention.",
 };
 
 export default function AppPage() {
@@ -22,11 +22,11 @@ export default function AppPage() {
                 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
                 stagger={90}
               >
-                The App.
+                Awareness, daily.
               </TextReveal>
               <FadeIn delay={400}>
                 <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[440px]">
-                  A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we&rsquo;ll write when the app is ready to drop.
+                  A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we&rsquo;ll write when the app arrives.
                 </p>
               </FadeIn>
               <FadeIn delay={600}>

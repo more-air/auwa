@@ -175,18 +175,15 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
       className="relative"
       style={{ height: `${CARD_COUNT * 80}vh` }}
     >
-      {/* Sticky below header: top-16 (mobile 64px) / top-20 (desktop 80px) */}
-      {/* Use svh on mobile to avoid snap-back when browser chrome hides/shows */}
-      {/* Hidden until mounted to prevent flash of unsorted cards on load/back-nav */}
+      {/* Sits below the header so content is vertically centred in visible area.
+          Using svh avoids snap-back when mobile browser chrome hides/shows.
+          Hidden until mounted to prevent flash of unsorted cards on load/back-nav. */}
       <div
-        className={`sticky z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 ${
-          fullHeight ? "top-0" : "top-16 lg:top-20"
-        } ${
+        className={`sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 h-[calc(100svh-4rem)] lg:h-[calc(100svh-5rem)] ${
           mounted ? "opacity-100" : "opacity-0"
         }`}
-        style={{ height: fullHeight ? "100svh" : "calc(100svh - 4rem)" }}
       >
-        <div className="relative w-full max-w-[1400px] mx-auto" style={{ height: fullHeight ? "100svh" : "calc(100svh - 4rem)" }}>
+        <div className="relative w-full max-w-[1400px] mx-auto h-full">
 
           {/* ── Left text column (desktop) — aligned to card centre ── */}
           <div className="hidden lg:flex absolute left-8 lg:left-16 xl:left-[8%] top-[40%] -translate-y-1/2 flex-col items-start w-[200px] lg:w-[240px]">
@@ -271,16 +268,18 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
           </div>
 
           {/* ── Mobile: card + text stacked and centred vertically ── */}
-          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 pb-6">
+          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-[5vh] px-6">
             <div
-              className="relative w-full max-w-[340px]"
-              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 14rem)" }}
+              className="relative w-full max-w-[320px]"
+              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 18rem)" }}
             >
               {CARDS.map((card, i) => {
                 const order = orders[i];
                 const absOrder = Math.abs(order);
                 const scale = 1 - absOrder * 0.03;
                 const scaleX = 1 - absOrder * 0.1;
+                // Peek of the next card — gap-[5vh] below the wrapper keeps
+                // the peek clear of the text block.
                 const translateY = order * 4;
                 const zIndex = 20 - absOrder;
                 const opacity = absOrder > 1 ? 0 : 1;
@@ -316,7 +315,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
               })}
             </div>
 
-            {/* Mobile text + progress, directly below the card (no viewport gap) */}
+            {/* Mobile text + progress, directly below the card */}
             <div className="w-full text-center">
               <div className="relative h-[58px]">
                 {CARDS.map((card, i) => (

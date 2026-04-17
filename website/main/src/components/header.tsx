@@ -25,6 +25,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
   const [atTop, setAtTop] = useState(true);
   const [mounted, setMounted] = useState(false);
   const lastScrollY = useRef(0);
+  const atTopRef = useRef(true);
 
   useEffect(() => {
     setMounted(true);
@@ -36,12 +37,20 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
 
   // Hide on scroll down, show on scroll up.
   // Stay visible when a flipbook hero is active (data-flipbook-active on body).
+  // Hysteresis on atTop: once we leave the top, require a larger rollback to
+  // re-enter — prevents flip-flop near the threshold while Lenis is easing.
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastScrollY.current;
       const flipbookActive = !disableFlipbookStick && document.body.hasAttribute("data-flipbook-active");
-      setAtTop(y <= 40);
+
+      const nextAtTop = atTopRef.current ? y <= 40 : y <= 8;
+      if (nextAtTop !== atTopRef.current) {
+        atTopRef.current = nextAtTop;
+        setAtTop(nextAtTop);
+      }
+
       if (flipbookActive || y <= 80) {
         setHidden(false);
       } else if (delta > 4) {
@@ -57,8 +66,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
   }, [disableFlipbookStick]);
 
   // Transparent styling applies only while at the top. Once the user has
-  // scrolled, the header becomes solid white with dark text even on pages
-  // that open with transparent=true.
+  // scrolled, the header becomes solid white with dark text.
   const isTransparent = transparent && atTop;
 
   useEffect(() => {
@@ -72,7 +80,21 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
         menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="flex flex-col justify-center h-full px-6">
+      {/* Close button — mirrors header layout so the tap target is in the same place */}
+      <div className="px-6 h-16 flex items-center justify-end">
+        <button
+          className="p-2 -mr-2 text-void cursor-pointer"
+          aria-label="Close menu"
+          onClick={() => setMenuOpen(false)}
+        >
+          <div className="w-[20px] h-[14px] relative">
+            <span className="absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current rotate-45" />
+            <span className="absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current -rotate-45" />
+          </div>
+        </button>
+      </div>
+
+      <div className="flex flex-col justify-center h-[calc(100%-4rem)] px-6">
         <nav>
           <ul className="space-y-1">
             {navItems.map((item, i) => (
@@ -135,16 +157,11 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
   return (
     <>
       <header
-        className={`sticky top-0 z-50 ease-out will-change-transform ${
+        className={`sticky top-0 z-50 transition-[transform,background-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
           isTransparent ? "bg-transparent" : "bg-surface"
         } ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
-        style={{
-          transitionProperty: "transform, background-color",
-          transitionDuration: "500ms, 250ms",
-          transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1), ease-out",
-        }}
       >
         <div className="px-6 md:px-12 lg:px-20 xl:px-28">
           <nav className="flex items-center justify-between h-16 md:h-20">
@@ -152,7 +169,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
               <img
                 src="/auwa-logo.svg"
                 alt="AUWA"
-                className="h-[16px] md:h-[21px] w-auto"
+                className="h-[16px] md:h-[21px] w-auto transition-[filter] duration-300 ease-out"
                 style={isTransparent ? { filter: "invert(1) brightness(2)" } : undefined}
               />
             </Link>
@@ -165,7 +182,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
                     <Link
                       href={item.href}
                       aria-current={active ? "page" : undefined}
-                      className={`group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase transition-colors duration-250 ${
+                      className={`group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase transition-colors duration-300 ${
                         isTransparent
                           ? "text-white"
                           : active
@@ -189,28 +206,16 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
             </ul>
 
             <button
-              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer transition-colors duration-250 ${
+              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer transition-colors duration-300 ${
                 isTransparent ? "text-white" : "text-void"
               }`}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Open menu"
+              onClick={() => setMenuOpen(true)}
             >
               <div className="w-[20px] h-[14px] relative">
-                <span
-                  className={`absolute left-0 w-full h-[1.5px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    menuOpen ? "top-[6.5px] rotate-45" : "top-0 rotate-0"
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current transition-opacity duration-200 ${
-                    menuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 w-full h-[1.5px] bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    menuOpen ? "top-[6.5px] -rotate-45" : "top-[13px] rotate-0"
-                  }`}
-                />
+                <span className="absolute left-0 top-0 w-full h-[1.5px] bg-current" />
+                <span className="absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current" />
+                <span className="absolute left-0 top-[13px] w-full h-[1.5px] bg-current" />
               </div>
             </button>
           </nav>

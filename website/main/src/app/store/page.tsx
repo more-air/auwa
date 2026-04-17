@@ -4,8 +4,8 @@ import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
-  title: "Craft over disposability | AUWA",
-  description: "A Japanese craftsman store. Curated for people who care about what they live with. The antithesis of throwaway.",
+  title: "Lifetime objects | AUWA",
+  description: "A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime, the antithesis of throwaway.",
 };
 
 export default function StorePage() {
@@ -22,7 +22,7 @@ export default function StorePage() {
                 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
                 stagger={90}
               >
-                The Store.
+                Lifetime objects.
               </TextReveal>
               <FadeIn delay={400}>
                 <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[440px]">

@@ -104,7 +104,7 @@ The most important page. Built with a content block system designed to map clean
   - **Text-only sections** — Text and pullquotes, always positioned on the right half (`md:ml-[50%]`). This alignment is consistent throughout the article.
   - **Image-beside sections** — Image on the left (4:5 portrait, with extra right padding to make it visually smaller), text on the right in a 50/50 grid. Text blocks that follow an image are automatically grouped beside it.
   - **Image-pair sections** — Two side-by-side images, full width, each with its own caption. Used for detail/close-up photography.
-  - **Pullquotes** — EB Garamond at clamp(1.75rem, 3.5vw, 2.75rem), full opacity.
+  - **Pullquotes** — EB Garamond *italic* at clamp(1.75rem, 3.5vw, 2.75rem), full opacity. Always italic inside article bodies to distinguish them from surrounding text.
 - **Full-width divider** — `border-void/8`
 - **Continue reading** — 3 related article cards in a grid
 - **Footer** — The shared footer component handles the newsletter signup ("Stay close.") and pillar links. No per-page newsletter section needed.
@@ -174,7 +174,7 @@ The order of content blocks in the CMS determines the article layout. No manual 
 - 20-22px — card titles, pillar headings (EB Garamond). Tracking: 0.01em
 - 28-32px — section headings ("Continue reading", "Stay close", "The name"). Tracking: 0.01em
 - clamp(2.5rem, 5.5vw, 4.5rem) — page titles (h1). Tracking: 0.01em
-- clamp(1.75rem, 3.5vw, 2.75rem) — pullquotes (EB Garamond). Tracking: 0.005em
+- clamp(1.75rem, 3.5vw, 2.75rem) — pullquotes (EB Garamond italic). Tracking: 0.005em. Hero-scale break pullquotes on the homepage are NOT italic — only in-article pullquotes.
 - clamp(3rem, 8vw, 6.5rem) — micro-season kanji (Noto Serif JP). Tracking: 0.06em
 
 **Form CTA buttons** use `font-medium` (500 weight) across all pages. All other UI text is weight 400.

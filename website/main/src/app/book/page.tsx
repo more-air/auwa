@@ -4,7 +4,7 @@ import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
-  title: "Stories that open the eyes | AUWA",
+  title: "Open the eyes | AUWA",
   description: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.",
 };
 
@@ -23,7 +23,7 @@ export default function BookPage() {
                 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
                 stagger={90}
               >
-                The Book.
+                Open the eyes.
               </TextReveal>
 
               <FadeIn delay={400}>

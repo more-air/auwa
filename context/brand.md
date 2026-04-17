@@ -114,7 +114,8 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 | Section heading (h2) | EB Garamond | 400 | 28px / 32px | 0.01em |
 | Card title | EB Garamond | 400 | 20px / 22px | 0.01em |
 | Article body | EB Garamond | 400 | 18px / 19px | 0.005em |
-| Pullquote | EB Garamond | 400 | clamp(1.75rem, 3.5vw, 2.75rem) | 0.005em |
+| Pullquote (in-article) | EB Garamond *italic* | 400 | clamp(1.75rem, 3.5vw, 2.75rem) | 0.005em |
+| Pullquote (hero-scale) | EB Garamond | 400 | clamp(2rem, 5.5vw, 4.5rem) | 0.005em |
 | Page subtitle | EB Garamond | 400 | clamp(1.1rem, 2vw, 1.4rem) | — |
 | About page prose | EB Garamond | 400 | 18px / 20px | — |
 | Navigation | Instrument Sans | 400 | 14px | 0.06em |
