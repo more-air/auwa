@@ -38,7 +38,7 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={200}>
             <p className="mt-8 font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              We bring this to life through illustrated stories, a daily awareness practice, and a curated store for lifetime objects. Some are here now. Others are on their way.
+              We bring this to life through four things: a journal from Japan, a daily awareness practice, a curated store of craftsman objects, and illustrated stories.
             </p>
           </FadeIn>
         </section>

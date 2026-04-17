@@ -95,11 +95,13 @@ export function HeroVideo() {
         style={{ backgroundColor: "#e9dcc3" }}
       >
         <div ref={scaleRef} className="absolute inset-0 will-change-transform">
-          {/* Mobile: video at natural aspect, pinned to bottom. The
-              top is clipped by the parent overflow-hidden if too tall. */}
+          {/* Mobile: video fills the screen, anchored to the bottom.
+              object-fit cover scales up to cover; object-position keeps
+              the character visible while the top crops off. */}
           <video
             ref={mobileVideoRef}
-            className="md:hidden absolute bottom-0 left-0 w-full h-auto"
+            className="md:hidden absolute inset-0 w-full h-full"
+            style={{ objectFit: "cover", objectPosition: "center bottom" }}
             poster="/hero/poster-auwa-portrait.jpg"
             loop
             muted

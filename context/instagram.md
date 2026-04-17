@@ -11,6 +11,24 @@ Instagram is AUWA's sole social platform until 5,000 followers. The audience (af
 
 ---
 
+## The Gift Ethos
+
+Everything AUWA posts should feel like a gift, not a sale. Brands that behave like businesses plateau on Instagram; brands that behave like contributions compound. Every post should give the reader something. A new word, a moment of beauty, a piece of craft knowledge, a reflection they want to hold. The commercial messaging (teaser signups, product launches, store openings) appears rarely and quietly, as a natural consequence of trust already built, never as the driver of content.
+
+Touchstones: Kinfolk, The Marginalian (Maria Popova), School of Life, Blackbird Spyplane. All gave freely for years before monetising lightly.
+
+Tension to manage: "gift" is a feeling, not an identity. AUWA *is* a business. The posture is "a brand that behaves like a gift, and occasionally invites you to buy something we've made." Giving sets the default. Selling is an exception earned by giving first.
+
+---
+
+## Restart Context (April 2026)
+
+Rieko's earlier AUWA IG account reached roughly 700 followers through animated character posts. Those posts have been archived as the execution didn't match current ambition. The account now restarts fresh, but the 700 are an asset: they chose AUWA when it was quieter, smaller, less polished. Do not apologise for the archive or explain the hiatus. Welcome them by not referencing it. New visitors simply arrive alongside them.
+
+Animated character content was the original growth hook and remains AUWA's single most uncopyable asset. In the new mix, it should carry more than a quarter of the grid weight (see Recommended Mix below).
+
+---
+
 ## Image & Video Specs (2025-2026 Standards)
 
 ### Reels (Primary Growth Format)
@@ -83,20 +101,44 @@ Atmospheric content tied to the rhythm of the year. Not micro-season taxonomy, b
 
 ---
 
-## Posting Cadence
+## Weekly Cadence (Sustainable Three-Post Rhythm)
 
-### Feed (4-5 posts/week)
-- **Tuesday:** Kokoro Reveal (single image or atmospheric Reel)
-- **Wednesday:** Japanese Wisdom (carousel)
-- **Thursday:** Behind the Kokoro (process Reel or Stories sequence)
-- **Friday:** Seasonal Living (atmospheric content or text Reel)
-- **Saturday/Sunday:** Seasonal Living or Kokoro Reveal (atmospheric weekend content)
+Three posts per week, sustainable indefinitely. Over-posting burns out the creator and confuses the algorithm. Consistency beats volume. A steady three-post rhythm for 52 weeks outperforms five posts a week for three months.
+
+- **Mid-week Reel** (character animation) — Tuesday or Wednesday. The growth engine. Brings new followers in.
+- **Weekend Slideshow** (article digest, see Editorial Slideshow Format below) — Friday or Saturday. Deepens the audience already there. Drives traffic to auwa.life.
+- **Sunday post** (micro-season photograph + kanji, or atmospheric Seasonal Living image) — Sunday evening. The quiet close to the week.
 
 ### Stories (daily, 1-3 slides)
-Rotate across pillars. Use interactive stickers at least twice/week (polls, sliders, question boxes).
+Rotate across pillars. Process snippets, studio moments, reactions to the week. Stories are looser than the grid. Use interactive stickers at least twice/week (polls, sliders, question boxes).
 
-### Recommended Mix
-40% carousels, 35% Reels, 25% single images
+### Recommended Mix (weighted by pillar, not format)
+- **35%** Kokoro Reveal — the character, the uncopyable asset, the growth driver
+- **25%** Editorial Slideshows — journal articles digested for the grid
+- **20%** Seasonal Living — atmospheric photography, micro-season rhythm, moody
+- **10%** Japanese Wisdom — carousel explainers, save-worthy
+- **10%** Behind the Kokoro — studio moments, process, humanising
+
+Format mix that results from the weighted pillars: roughly 40% Reels, 40% Slideshows/Carousels, 20% single images. Reels drive reach and new followers; slideshows drive saves, shares, and return visits.
+
+---
+
+## Editorial Slideshow Format
+
+For each Journal article, a companion Instagram carousel turns editorial writing into swipeable grid content. The format honours the Gift Ethos: readers learn something or hold something beautiful, rather than being sold to.
+
+**Template (5 slides):**
+
+1. **Hero** — the article's hero image, no text overlay (or a single floating title in small caps)
+2. **Pull quote A** — short phrase, large serif, on white or colour wash. Make the viewer pause.
+3. **Pull quote B** — different typography from A. Medium-length excerpt overlaid on a photo detail or colour field.
+4. **Pull quote C** — third and final quote. Shortest of the three. Returns emotional weight.
+5. **Close** — a final quiet image with "auwa.life/journal" beneath it. No loud CTA. "Continue reading at auwa.life" is fine if a line is needed.
+
+Key principles:
+- The three pull quotes must feel typographically distinct from each other. Identical layouts = scrolled past.
+- Each article generates one slideshow. With a weekly cadence, that's ~50 slideshows per year — a meaningful editorial pipeline.
+- Never use the format to sell anything. If a product teaser is needed, make that a separate post.
 
 ---
 
@@ -129,12 +171,19 @@ Rotate across pillars. Use interactive stickers at least twice/week (polls, slid
 ## Growth Plan: 700 → 5,000 Followers
 
 ### Phase 1: Relaunch (Weeks 1-4)
-- Unarchive/refresh profile with polished content
-- Pin 3 best posts to top of grid (brand intro, illustration showcase, philosophy)
-- Post 4-5 times/week from vault content
-- Daily Stories (1-2 slides, stickers, behind-scenes)
+
+**First post (Week 1, Monday):** The AUWA face video from the website hero. A Reel. Caption short, warm, unapologetic. Don't explain the archive or the hiatus. Three sentences maximum. Suggested draft:
+
+*"Hello. Kokoro (心) is the Japanese word for heart, mind and spirit held as one — the quality you sense in a handmade knife, in a season you almost missed, in your own feelings when you stop long enough to notice. auwa.life."*
+
+The 700 existing followers get a gentle re-anchor. New visitors get a self-contained introduction. The video carries the emotional weight.
+
+**Weeks 1-4:**
+- Pin 3 best posts to top of grid (first face-video post, the first character Reel, the first editorial slideshow)
+- Settle into the three-post weekly cadence (Reel, slideshow, Sunday post) from Week 2
+- Daily Stories (1-3 slides, stickers, behind-scenes glimpses)
 - Engage genuinely on 10-15 relevant accounts daily (Japanese art, calligraphy, seasonal living, emotional wellness, design culture)
-- Bio: "AUWA | Japanese Awareness Practice" — 150 chars, clear value prop, link to auwa.life
+- Bio: "AUWA | Japanese Awareness Practice" — clear value prop, link to auwa.life
 - Highlights: Universe, Kokoro, Seasons, Process (4-6 with custom covers matching brand aesthetic)
 
 ### Phase 2: Paid Acceleration (Weeks 5-10)

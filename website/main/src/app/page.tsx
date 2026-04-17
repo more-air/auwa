@@ -65,7 +65,7 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-void"
             >
-              AUWA is a quiet return to the Japanese belief that a life force, a kokoro, resides in all things. Not only in people, but in a river, a handmade bowl, the wind through bamboo at dusk. Four doors into one world: craftsman objects, stories, editorial from Japan, and a daily practice for paying attention.
+              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. Not only in people, but in a river, a handmade bowl, the wind through bamboo at dusk. A way of restoring awareness to a distracted world. AUWA expresses this through four things: a journal from Japan, a daily awareness practice, a store of craftsman objects, and illustrated stories.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
@@ -158,11 +158,19 @@ export default function Home() {
 
         <MicroSeasonFeature />
 
-        <Separator />
-
-        {/* ── Three pillars ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
+        {/* ── Waitlist: three pillars ── */}
+        <section className="pt-16 md:pt-24 pb-16 md:pb-24">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28">
+            <div className="w-full h-[1px] bg-void/10" />
+          </div>
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28 mt-8 md:mt-10 mb-10 md:mb-14">
+            <FadeIn>
+              <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void">
+                Waitlist
+              </h2>
+            </FadeIn>
+          </div>
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
               <FadeIn key={pillar.label} delay={i * 150} variant="reveal">
                 <Link href={pillar.href} className="group block" data-cursor="Explore">
