@@ -16,6 +16,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: { 
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [atTop, setAtTop] = useState(true);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -27,19 +28,27 @@ export function Header({ disableFlipbookStick = false, transparent = false }: { 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
+      const delta = y - lastScrollY.current;
       const flipbookActive = !disableFlipbookStick && document.body.hasAttribute("data-flipbook-active");
-      if (flipbookActive) {
+      setAtTop(y <= 50);
+      if (flipbookActive || y <= 80) {
         setHidden(false);
-      } else if (y > lastScrollY.current && y > 80) {
+      } else if (delta > 4) {
         setHidden(true);
-      } else {
+      } else if (delta < -4) {
         setHidden(false);
       }
       lastScrollY.current = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [disableFlipbookStick]);
+
+  // Transparent styling only applies while at the top of the page; once the
+  // user has scrolled past the hero, the header becomes an opaque white bar
+  // with dark text (even on pages that open with transparent=true).
+  const isTransparent = transparent && atTop;
 
   useEffect(() => {
     if (menuOpen) {
@@ -53,8 +62,8 @@ export function Header({ disableFlipbookStick = false, transparent = false }: { 
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-transform duration-300 ease-out ${
-          transparent ? "bg-transparent" : "bg-surface"
+        className={`sticky top-0 z-50 transition-[transform,background-color] duration-300 ease-out ${
+          isTransparent ? "bg-transparent" : "bg-surface"
         } ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
@@ -65,39 +74,44 @@ export function Header({ disableFlipbookStick = false, transparent = false }: { 
               <img
                 src="/auwa-logo.svg"
                 alt="AUWA"
-                className="h-[16px] md:h-[21px] w-auto"
-                style={transparent ? { filter: "invert(1) brightness(2)" } : undefined}
+                className="h-[16px] md:h-[21px] w-auto transition-[filter] duration-300"
+                style={isTransparent ? { filter: "invert(1) brightness(2)" } : undefined}
               />
             </Link>
 
             <ul className="hidden md:flex items-center gap-8 lg:gap-10">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`relative font-sans text-[14px] tracking-[0.06em] transition-all duration-300 group ${
-                      transparent
-                        ? "text-white"
-                        : pathname === item.href
-                          ? "text-void"
-                          : "text-void/50 hover:text-void"
-                    }`}
-                  >
-                    {item.label}
-                    <span className={`absolute -bottom-1 left-0 h-[1.5px] transition-all duration-300 ease-out ${
-                      transparent ? "bg-white" : "bg-void"
-                    } ${
-                      pathname === item.href
-                        ? "w-full"
-                        : "w-0 group-hover:w-full"
-                    }`} />
-                  </Link>
-                </li>
-              ))}
+              {navItems.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase transition-colors duration-300 ${
+                        isTransparent
+                          ? "text-white"
+                          : active
+                            ? "text-void"
+                            : "text-void hover:text-void/55"
+                      }`}
+                    >
+                      <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
+                        {item.label}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+                      >
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
 
             <button
-              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer ${transparent ? "text-white" : ""}`}
+              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer transition-colors duration-300 ${isTransparent ? "text-white" : "text-void"}`}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               onClick={() => setMenuOpen(!menuOpen)}
             >

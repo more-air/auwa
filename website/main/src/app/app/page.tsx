@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { FadeIn } from "@/components/fade-in";
+import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
@@ -16,17 +17,19 @@ export default function AppPage() {
           <div className="flex flex-col h-[calc(100dvh-4rem)] md:grid md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
 
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
-              <FadeIn>
-                <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
-                  Daily awareness<br />practice.
-                </h1>
-              </FadeIn>
-              <FadeIn delay={150}>
-                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[420px]">
-                  Share how you feel. The app reflects it back through ancient Japanese philosophy. No advice, just awareness.
+              <TextReveal
+                as="h1"
+                className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
+                stagger={90}
+              >
+                The App.
+              </TextReveal>
+              <FadeIn delay={400}>
+                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[440px]">
+                  A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we&rsquo;ll write when the app is ready to drop.
                 </p>
               </FadeIn>
-              <FadeIn delay={300}>
+              <FadeIn delay={600}>
                 <div className="mt-12 md:mt-16">
                   <SignupForm source="app-waitlist" buttonText="Notify me" />
                 </div>

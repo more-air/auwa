@@ -44,7 +44,7 @@ function Separator() {
   );
 }
 
-export default function Home() {
+export default function Home5() {
   return (
     <>
       <Header disableFlipbookStick transparent />

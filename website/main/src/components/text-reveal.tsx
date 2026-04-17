@@ -50,7 +50,9 @@ export function TextReveal({
       {words.map((word, i) => (
         <span
           key={i}
-          className="inline-block overflow-hidden"
+          // pb + -mb gives descenders (p, j, period) room inside the
+          // overflow-hidden clip without pushing layout height downward.
+          className="inline-block overflow-hidden pb-[0.18em] -mb-[0.18em] align-top"
         >
           <span
             className="inline-block transition-all ease-out"

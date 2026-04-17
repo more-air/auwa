@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { FadeIn } from "@/components/fade-in";
+import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 
 export const metadata = {
@@ -17,19 +18,21 @@ export default function BookPage() {
 
             {/* Left: copy + email */}
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
-              <FadeIn>
-                <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
-                  Stories that<br />open the eyes.
-                </h1>
-              </FadeIn>
+              <TextReveal
+                as="h1"
+                className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
+                stagger={90}
+              >
+                The Book.
+              </TextReveal>
 
-              <FadeIn delay={150}>
-                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[420px]">
-                  Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.
+              <FadeIn delay={400}>
+                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[440px]">
+                  Illustrated stories following AUWA the character as it shows the world what it&rsquo;s been too busy to notice. Add your email and we&rsquo;ll write when the first book arrives.
                 </p>
               </FadeIn>
 
-              <FadeIn delay={300}>
+              <FadeIn delay={600}>
                 <div className="mt-12 md:mt-16">
                   <SignupForm source="book-waitlist" buttonText="Notify me" />
                 </div>

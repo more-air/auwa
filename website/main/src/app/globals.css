@@ -40,6 +40,9 @@ html.lenis, html.lenis body {
   --color-glow: oklch(0.85 0.15 105);
   --color-glow-dim: oklch(0.70 0.10 105);
 
+  /* Warm accent — muted washi/sumi tone, used sparingly on eyebrow labels, newsletter header, etc. */
+  --color-accent: oklch(0.5 0.035 60);
+
   /* Yamato emotional states */
   --color-hare: oklch(0.82 0.14 85);
   --color-takaburi: oklch(0.60 0.18 25);
@@ -72,8 +75,12 @@ body {
 }
 
 ::selection {
-  background: oklch(0.08 0.025 250 / 0.12);
-  color: var(--color-void);
+  background: var(--color-accent);
+  color: #ffffff;
+}
+::-moz-selection {
+  background: var(--color-accent);
+  color: #ffffff;
 }
 
 /* Scrollbar */
@@ -124,4 +131,9 @@ a:hover img {
     animation-duration: 0.2s !important;
     transition-duration: 0.2s !important;
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

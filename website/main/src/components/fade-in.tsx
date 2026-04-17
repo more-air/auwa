@@ -8,7 +8,11 @@ interface FadeInProps {
   delay?: number;
   duration?: number;
   translateY?: number;
-  /** "fade" (default): opacity + translateY. "reveal": same but with more lift (24px), for image cards. */
+  /**
+   * "fade" (default): opacity + small translateY rise, for text.
+   * "reveal": opacity + slide in from the right, for image cards.
+   *   (Singer Reimagined-inspired entrance.)
+   */
   variant?: "fade" | "reveal";
 }
 
@@ -38,9 +42,12 @@ export function FadeIn({
     return () => observer.disconnect();
   }, []);
 
-  // "reveal" uses more lift (24px) and slightly longer duration for image cards
-  const lift = variant === "reveal" ? 24 : translateY;
-  const dur = variant === "reveal" ? duration * 1.1 : duration;
+  const isReveal = variant === "reveal";
+  const dur = isReveal ? 1200 : duration;
+  // Reveal slides in from the right; fade rises up.
+  const hiddenTransform = isReveal
+    ? "translate3d(80px, 0, 0)"
+    : `translate3d(0, ${translateY}px, 0)`;
 
   return (
     <div
@@ -48,10 +55,9 @@ export function FadeIn({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible
-          ? "translateY(0)"
-          : `translateY(${lift}px)`,
+        transform: isVisible ? "translate3d(0, 0, 0)" : hiddenTransform,
         transition: `opacity ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        willChange: isVisible ? "auto" : "opacity, transform",
       }}
     >
       {children}

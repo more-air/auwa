@@ -109,6 +109,7 @@ export function HeroFlipbookV4b({ fullHeight = false }: { fullHeight?: boolean }
   const [orders, setOrders] = useState<number[]>(CARDS.map((_, i) => i));
   const [inView, setInView] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [progressVisible, setProgressVisible] = useState(true);
 
   // Preload images
   useEffect(() => {
@@ -153,6 +154,9 @@ export function HeroFlipbookV4b({ fullHeight = false }: { fullHeight?: boolean }
 
     // Release header before the last card scrolls under it (end margin negative)
     setInView(scrolled >= -100 && scrolled <= scrollableHeight - 200);
+
+    // Fade progress bar near the end of the flipbook and once past
+    setProgressVisible(progress < 0.92 && scrolled < scrollableHeight);
 
     const idx = Math.min(CARD_COUNT - 1, Math.floor(progress * CARD_COUNT));
     setActiveIndex(idx);
@@ -380,8 +384,8 @@ export function HeroFlipbookV4b({ fullHeight = false }: { fullHeight?: boolean }
                   <path d="M8 3v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              {/* Progress bar: hidden on card 1, fades in on scroll */}
-              <div className={`absolute inset-0 flex justify-center items-center transition-opacity duration-500 ${activeIndex === 0 ? "opacity-0" : "opacity-100"}`}>
+              {/* Progress bar: hidden on card 1, fades in on scroll, fades out past flipbook */}
+              <div className={`absolute inset-0 flex justify-center items-center transition-opacity duration-500 ${activeIndex === 0 || !progressVisible ? "opacity-0" : "opacity-100"}`}>
                 <div className="w-20 h-[2px] bg-void/10 overflow-hidden rounded-full">
                   <div
                     className="h-full bg-void transition-all duration-500 ease-out rounded-full"
@@ -405,7 +409,7 @@ export function HeroFlipbookV4b({ fullHeight = false }: { fullHeight?: boolean }
           </div>
 
           {/* ── Progress bar + scroll hint (desktop) ── */}
-          <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-5 z-20">
+          <div className={`hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-5 z-20 transition-opacity duration-500 ${progressVisible ? "opacity-100" : "opacity-0"}`}>
             <div className="flex items-center gap-3">
               <div className="w-28 h-[2px] bg-void/10 overflow-hidden rounded-full">
                 <div

@@ -44,9 +44,13 @@ export function Footer() {
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-20">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-16 md:gap-16">
           {/* Left — signup */}
-          <div className="max-w-[440px]">
-            <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-white">
-              Stay close.
+          <div className="max-w-[520px]">
+            <span className="block font-sans text-[12px] tracking-[0.18em] uppercase mb-5 text-white/50">
+              Newsletter
+            </span>
+            <h2 className="font-display text-[28px] md:text-[34px] leading-[1.2] tracking-[0.005em] text-white">
+              Letters from Japan.{" "}
+              <span className="text-white/55">Seasonal essays, craftsman stories, and early news of everything we make.</span>
             </h2>
             <div className="mt-8">
               <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" successMessage="Something quiet is on its way." />

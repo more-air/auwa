@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import { TextReveal } from "@/components/text-reveal";
 import Link from "next/link";
 
 /* ─── Article data (will come from Sanity CMS) ─── */
@@ -985,7 +986,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
     return (
       <FadeIn key={i} delay={Math.min(i * 30, 200)}>
         <blockquote className="my-12 md:my-16">
-          <p className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-void">
+          <p className="font-display italic text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-void">
             &ldquo;{block.text}&rdquo;
           </p>
         </blockquote>
@@ -1093,12 +1094,14 @@ export default async function ArticlePage({
           </div>
 
           <div className="flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:pb-16 lg:pb-20">
-            <FadeIn>
-              <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
-                {article.title}
-              </h1>
-            </FadeIn>
-            <FadeIn delay={100}>
+            <TextReveal
+              as="h1"
+              className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
+              stagger={70}
+            >
+              {article.title}
+            </TextReveal>
+            <FadeIn delay={400}>
               <p className="mt-4 md:mt-6 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-void/60">
                 {article.subtitle}
               </p>

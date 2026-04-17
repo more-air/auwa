@@ -41,23 +41,31 @@ export function SignupForm({
     }
   }
 
+  const isDark = theme === "dark";
+  // Shared container keeps height identical between idle/submitting/success
+  // states so the block above never shifts when the form swaps to the
+  // "thank you" message.
+  const rowClasses = `flex items-center gap-4 border-b pb-3 min-h-[44px] transition-colors duration-300 ${
+    isDark
+      ? "border-white/20 focus-within:border-white/50"
+      : "border-void/20 focus-within:border-void/50"
+  }`;
+
   if (status === "success") {
     return (
-      <p className={`font-display text-[16px] md:text-[18px] min-h-[44px] flex items-center ${theme === "dark" ? "text-white" : "text-void"}`}>
-        {successMessage}
-      </p>
+      <div className={className || "max-w-[440px]"}>
+        <div className={rowClasses}>
+          <p className={`font-sans text-[14px] ${isDark ? "text-white" : "text-void"}`}>
+            {successMessage}
+          </p>
+        </div>
+      </div>
     );
   }
 
-  const isDark = theme === "dark";
-
   return (
     <form onSubmit={handleSubmit} className={className || "max-w-[440px]"}>
-      <div className={`flex items-center gap-4 border-b pb-3 transition-colors duration-300 ${
-        isDark
-          ? "border-white/20 focus-within:border-white/50"
-          : "border-void/20 focus-within:border-void/50"
-      }`}>
+      <div className={rowClasses}>
         <input
           type="email"
           placeholder="Email address"
@@ -76,8 +84,8 @@ export function SignupForm({
           disabled={status === "submitting"}
           className={`font-sans text-[14px] font-medium tracking-[0.02em] transition-colors duration-300 whitespace-nowrap cursor-pointer disabled:opacity-50 ${
             isDark
-              ? "text-white/70 hover:text-white"
-              : "text-void hover:text-void/70"
+              ? "text-white hover:text-white/55"
+              : "text-void hover:text-void/55"
           }`}
         >
           {status === "submitting" ? "..." : status === "error" ? "Try again" : buttonText}

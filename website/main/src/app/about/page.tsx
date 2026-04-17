@@ -19,7 +19,7 @@ export default function AboutPage() {
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-16 md:pb-24">
           <FadeIn>
             <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[700px] pr-12 md:pr-0">
-              The architecture of Kokoro
+              The architecture<br />of Kokoro
             </h1>
           </FadeIn>
         </section>
