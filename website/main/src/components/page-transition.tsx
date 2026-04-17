@@ -84,9 +84,13 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     prevPathname.current = pathname;
   }, [pathname]);
 
+  // At rest (visible) we drop the transform so the wrapper doesn't create a
+  // stacking context. Otherwise the portalled mobile-menu overlay (z-[90])
+  // at body level ends up above the header (z-[100] but trapped inside the
+  // transformed wrapper's context), which hides the X button during menu open.
   const contentStyle =
     phase === "visible"
-      ? { opacity: 1, transform: "translate3d(0, 0, 0)" }
+      ? { opacity: 1 }
       : phase === "entering"
         ? { opacity: 0, transform: "translate3d(0, 18px, 0)" }
         : /* leaving */ { opacity: 0, transform: "translate3d(0, 24px, 0)" };
