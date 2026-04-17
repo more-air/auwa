@@ -64,7 +64,9 @@ Short form (internal): *Restore awareness to a distracted world.* (Robin Sharma)
 
 **Vision:** A world where people live with deeper awareness: of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people. A world where that awareness leads to a more intentional, purposeful life: what the Japanese call ikigai. Real abundance is not material. It is the abundance of the heart.
 
-**Mission:** To apply Japanese philosophical awareness to modern life, through four interconnected doors: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe, all rooted in the ancient Japanese belief that a life force resides in all things.
+**Mission:** To apply Japanese philosophical awareness to modern life, expressed through four interconnected things: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe, all rooted in the ancient Japanese belief that a life force resides in all things.
+
+*Public framing on auwa.life uses "AUWA expresses this through four things" and "four ways in" as the customer-facing language for how the pillars relate to the philosophy. "Expressions" is the internal frame for how the four pillars sit in relation to the philosophy — not separate products, but one philosophy made visible four ways.*
 
 **Core Values:**
 - Awareness over autopilot: notice more, consume less, choose better

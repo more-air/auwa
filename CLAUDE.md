@@ -10,7 +10,7 @@ AUWA is influenced by the ancient Japanese belief that a life force resides in a
 
 Where Western wellness centres on the self, AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is "Japanese philosophical awareness applied to modern life."
 
-AUWA is built on four interconnected pillars: a daily awareness practice app (Kokoro Mirror), a curated Japanese craftsman store, an editorial journal, and an illustrated story universe. These are not four separate products — they're one world experienced through four doors. The app builds emotional awareness, the store cultivates material awareness, the journal builds cultural awareness, the book teaches philosophical awareness.
+AUWA is built on four interconnected pillars: a daily awareness practice app (Kokoro Mirror), a curated Japanese craftsman store, an editorial journal, and an illustrated story universe. These are not four separate products. They're one philosophy expressed four ways, one world with four ways in. The app builds emotional awareness, the store cultivates material awareness, the journal builds cultural awareness, the book teaches philosophical awareness. Public-facing copy uses the "four ways in" / "AUWA expresses this through four things" framing. The word "expressions" is the internal frame for how the pillars relate to the philosophy.
 
 Within the book and app, AUWA is also a character — a luminous being who reveals the kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, created by Japanese illustrator Rieko Vining over a decade of development. It appears only in the stories and the app, making those spaces special. The broader brand — store, journal, overall identity — expresses the philosophy through design, editorial, and craft without needing the character.
 
@@ -329,7 +329,8 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Images need `object-cover` to fill their container without distortion.
 
 **Footer:**
-- The footer includes the "Stay close" newsletter signup. Don't duplicate newsletter sections on individual pages.
+- The footer includes the "Letters from Japan" newsletter signup block. Don't duplicate newsletter sections on individual pages.
+- Newsletter copy: "NEWSLETTER / Letters from Japan. Seasonal essays, craftsman stories, and early news of everything we make."
 - Pillar links in the footer are Journal, Store, App, Book (the four brand pillars).
 
 **Images:**
@@ -426,16 +427,16 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 
 **Homepage structure (current root):**
 - Full-bleed AUWA face video (parallax zoom-in on scroll, desktop scroll indicator, transparent header overlay)
-- Brand intro module: "Meet AUWA." heading, centred text, "Our story" CTA to /about
-- Separator line (only after intro text, and above+below 72 Seasons)
-- 4-card flipbook hero
-- Latest articles (horizontal scroll)
+- "Our Philosophy" intro module: opens with "AUWA. A character, a philosophy, a world." then the quiet-return/kokoro thesis, sensory line, MTP line ("A way of restoring awareness to a distracted world."), and "AUWA expresses this through four things" list. "OUR STORY" CTA to /about.
+- Pull quote 1: "If we lived in a world where the soul in all things was visible, it would be a much kinder place."
+- 4-card flipbook hero (Store, Book, Journal, App)
+- "The Journal" section: heading + "View all" link + latest articles horizontal scroll
 - Micro-season (72 Seasons centred kanji + "Read the essay" button)
-- Three pillar cards (Book, Store, App)
-- Email capture (Kumano Kodo image)
+- Three pillar cards (Book, Store, App) — the three waitlist products, labelled as upcoming. Journal has its own section above, so this block doesn't include it.
+- Pull quote 2: "In every handmade bowl, in every river, in every person you pass, a kokoro is waiting to be seen."
 - Two-up articles (Onsen + Nozawa)
-- Meet AUWA video moment
-- Extra spacing before footer
+- "Meet AUWA / The soul in all things" bottom section with "THE STORY" button linking to /journal/the-beginning
+- Newsletter block: "NEWSLETTER / Letters from Japan. Seasonal essays, craftsman stories, and early news of everything we make."
 
 **Header `transparent` prop:**
 - When true: background transparent, logo inverted to white via CSS filter, nav links white, hamburger white. Used on root homepage over video hero.
@@ -459,10 +460,12 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Underline: `h-[1.5px] bg-void`, positioned at `-bottom-1`
 
 **Teaser page copy pattern:**
-- Headers should clearly state what the product IS (not poetic abstractions)
-- Current: App: "Daily awareness practice." / Store: "Craft over disposability." / Book: "Stories that open the eyes."
+- Each teaser page stack: small-caps super-header thesis line / main H1 label / body copy / "Notify me" form. Two-line hierarchy does the work: super-header carries the thesis, H1 is the clean label.
+- **App:** "A DAILY MIRROR" / "The App." / *"A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we'll write when the app arrives."*
+- **Store:** "MADE TO LAST" / "The Store." / *"A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime, the antithesis of throwaway. Add your email and we'll write when our store opens."*
+- **Book:** "OPEN THE EYES" / "The Book." / *"Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice. Add your email and we'll write when the first book arrives."*
 - Button text: "Notify me" (not "Join Waitlist")
-- No extra "Join the waitlist" text line. The header + paragraph + button do the work.
+- Super-header thesis lines also live in each page's `<title>` metadata ("Daily awareness practice | AUWA" etc.)
 
 **Email unsubscribe:**
 - All emails (welcome + newsletter) include `{{{RESEND_UNSUBSCRIBE_URL}}}` which Resend replaces with a per-recipient unsubscribe link

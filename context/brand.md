@@ -186,7 +186,7 @@ The auwa.life website uses a light-mode, Kinfolk-inspired editorial aesthetic. T
 
 ### Dark Theme (App, Social, Newsletter Module)
 
-The brand's natural state. Used for the Kokoro Mirror app, social content templates, and the "Stay close" newsletter section on the website.
+The brand's natural state. Used for the Kokoro Mirror app, social content templates, and the "Letters from Japan" newsletter section on the website.
 
 - **Background:** void (`oklch(0.08 0.025 250)`)
 - **Primary text:** white at various opacities

@@ -65,7 +65,7 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-void"
             >
-              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. Not only in people, but in a river, a handmade bowl, the wind through bamboo at dusk. A way of restoring awareness to a distracted world. AUWA expresses this through four things: a journal from Japan, a daily awareness practice, a store of craftsman objects, and illustrated stories.
+              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of restoring awareness to a distracted world. AUWA expresses this through four things: a journal from Japan, a daily awareness practice, a store of craftsman objects, and an illustrated world.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
