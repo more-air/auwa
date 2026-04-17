@@ -489,3 +489,56 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - `store-waitlist` → "A note from AUWA."
 - `book-waitlist` → "A note from AUWA."
 - Store and Book use a softer subject because Gmail's Promotions classifier latches onto "Store" and "Book" as commerce keywords. Changing the subject (while keeping the hero image and body) was enough to shift them toward Primary.
+
+---
+
+## TAILWIND 4 GOTCHAS
+
+Lessons from shipping the AUWA site on Tailwind 4. These bite on day one of any new build.
+
+**Translate/rotate use the CSS `translate`/`rotate` properties, not `transform`.**
+`-translate-y-full` generates `translate: var(--tw-translate-x) -100%;` — it does not touch `transform`. Any inline `transition: transform ...` you add will not animate the hide/show slide. Transitions must target `translate` (and `rotate` if you're rotating via class). On the auwa.life header:
+```css
+transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease-out;
+```
+
+**Class-based transitions can get stuck.** `transition-opacity duration-500` with a React-driven class swap (`opacity-0` → `opacity-100`) sometimes leaves a CSSTransition in `playState: "running", currentTime: 0, easing: linear` — especially when the element is portalled, or when a hot-reload occurs, or when `document.timeline.currentTime` is 0 (headless preview browsers). The overlay never animates; computed opacity stays at the start value even though the class is correct. The reliable fix: move the transitioning property to `style={{ opacity: menuOpen ? 1 : 0, transition: "opacity 500ms cubic-bezier(...)" }}`. Inline styles bypass the class-swap edge case. Apply this pattern to any "must-fire" transition — overlays, modals, drawers, menu-button morphs.
+
+**Explicit `transform` and rendering hints on sibling animated elements.** iOS Safari will render two otherwise-identical spans at different thicknesses if their rasterisation layers differ. Give every animated span the same combination: `transform: rotate(0deg)` (present even when static), `willChange: "top, transform"`, `backfaceVisibility: "hidden"` (both `backfaceVisibility` and `WebkitBackfaceVisibility`). Same layer, same anti-aliasing, equal weight.
+
+---
+
+## PAGE-LEVEL ARCHITECTURE
+
+Lessons learned placing global UI around Next.js App Router + page transitions.
+
+**Render shared UI (header, footer) in `layout.tsx`, not in individual pages.** The AUWA site used to render `<Header />` from every page file. That put the header inside the `PageTransition` wrapper, which applies `opacity` and `transform` during leave/enter — both of which create a stacking context. A portalled body-level overlay (mobile menu, modals) at z-[90] then sits above the header (z-[100], but trapped inside the wrapper's context). Consequence: the logo and menu button fade out with the page during link clicks, and the mobile menu's X button disappears behind the white overlay. Rendering `<Header />` once in `layout.tsx`, outside the `PageTransition` wrapper, keeps it above every transition state. Infer page-specific props (e.g. `transparent` for a hero overlay) from `usePathname()` inside the header itself.
+
+**Drop transform at rest in page-transition wrappers.** If the wrapper always sets `transform: translate3d(0, 0, 0)` even when the `visible` state is steady, it creates a permanent stacking context, with the same consequences as above for anything else body-level. Only apply transform during `entering`/`leaving`; at rest, leave the wrapper untransformed.
+
+**Mobile menu overlay is a portal, header lives in sticky position.**
+- Overlay: `createPortal(menuJSX, document.body)` at `z-[90]`. Fixed `inset-0`, white `bg-surface`, fades via inline opacity transition.
+- Header: `sticky top-0 z-[100]`. Stays above the overlay so the logo + X read on top.
+- Close on `pathname` change (not on link click). PageTransition intercepts internal-link clicks and delays `router.push` by ~440ms — if the menu closes on click, you briefly see the old page behind the fading menu before the page transition kicks in. Keep the menu open through the leave phase by closing it in a `useEffect` that fires when pathname actually updates.
+
+---
+
+## MOBILE MENU PATTERNS
+
+The specific pattern that shipped on auwa.life and should be reused on More Air client builds.
+
+**Hamburger icon geometry.** Container `w-[28px] h-[22px]`, lines at `top: 2px / 10px / 18px` with `height: 2px`. That gives ~18px visible span (top of first line to bottom of third) which reads as the same visual weight as a `h-[20px]` serif logo next to it. Don't use `top: 0px` — iOS renders an edge-flush 2px span slightly thicker than the others. All three spans need identical `transform` (even when static), `willChange`, and `backfaceVisibility` so the rasterisation path is identical across them.
+
+**Hamburger → X morph.** Inline styles only. Middle line fades (`opacity: menuOpen ? 0 : 1`); top + bottom lines converge to centre (`top: menuOpen ? "10px" : "2px" | "18px"`) and rotate (`transform: menuOpen ? "rotate(±45deg)" : "rotate(0deg)"`). Transitions on `top` and `transform`, both 500ms ease-out-expo. The rotated 28px line has a ~20px vertical diagonal span, so the X and the hamburger feel the same size.
+
+**Logo fades out when the menu opens.** Cleanest handling across a transparent-header homepage and solid-header inner pages is to not try to colour-match the logo to the overlay state. Just set `opacity: 0` on the logo when `menuOpen`, with a 300ms transition. Open-menu state is always: white overlay + nav items + X. No logo to manage.
+
+**Menu button (X) colour flips immediately on `menuOpen`.** The button sits inside the header (z-[100]) above the overlay (z-[90]), so as soon as the overlay starts fading in white, the X needs to already be dark or it's invisible. Delay-state patterns for the logo are fine; the button colour is not.
+
+**Header `transparent` mode uses a wide atTop range.** On a page with a transparent-over-hero header, use `atTop <= 400px (enter) / <= 100px (leave, hysteresis)` and trigger `hidden` at `y > 10`. A narrow atTop range (e.g. `y <= 40`) with a distant hide trigger (e.g. `y > 80`) creates a visible dead-zone where the header flashes solid-white before it slides away. Keep `atTop` true through the entire scroll-up-slide distance.
+
+---
+
+## ARTICLE SHARE ICONS
+
+Article pages include Facebook, Pinterest, and X share links. Sizes currently `width="18"` (FB, Pinterest) and `width="17"` (X, accounting for its tighter glyph). `gap-5` between icons. Don't include Instagram — it has no link-share preview flow. All share URLs route to the article's OG image via `{slug}-og.jpg`.

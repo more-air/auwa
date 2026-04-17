@@ -244,28 +244,46 @@ export function Header() {
                 transition: "color 300ms ease-out",
               }}
             >
-              <div className="w-[24px] h-[16px] relative">
+              {/*
+                Container h-[22px] with lines at y=2, 10, 18. Visible span
+                from top of first line to bottom of third is ~18px, sized
+                to feel like the AUWA logo (20px mobile) beside it. 6px
+                gaps between lines, 2px breathing room top + bottom. All
+                three spans carry identical transform + rendering hints
+                so iOS anti-aliases them the same way and no line looks
+                thicker.
+              */}
+              <div className="w-[28px] h-[22px] relative">
                 <span
                   className="absolute left-0 w-full h-[2px] bg-current"
                   style={{
-                    top: menuOpen ? "7px" : "1px",
+                    top: menuOpen ? "10px" : "2px",
                     transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
+                    willChange: "top, transform",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
                     transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 />
                 <span
-                  className="absolute left-0 top-[7px] w-full h-[2px] bg-current"
+                  className="absolute left-0 top-[10px] w-full h-[2px] bg-current"
                   style={{
                     opacity: menuOpen ? 0 : 1,
                     transform: "rotate(0deg)",
+                    willChange: "opacity, transform",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
                     transition: "opacity 200ms ease-out",
                   }}
                 />
                 <span
                   className="absolute left-0 w-full h-[2px] bg-current"
                   style={{
-                    top: menuOpen ? "7px" : "13px",
+                    top: menuOpen ? "10px" : "18px",
                     transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
+                    willChange: "top, transform",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
                     transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 />

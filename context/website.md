@@ -325,7 +325,7 @@ Reusable components live in `src/components/`. All are server components unless 
 
 | Component | File | Client? | Purpose |
 |-----------|------|---------|---------|
-| Header | `header.tsx` | Yes | Site header with AUWA wordmark, nav links, mobile menu. Hides on scroll down, shows on scroll up. Stays visible during flipbook via `data-flipbook-active` body attribute. |
+| Header | `header.tsx` | Yes | Rendered once in `layout.tsx` (outside `PageTransition`) so the logo + menu button stay above page-leave animations. `transparent` mode inferred from pathname (`/` only). Mobile menu is portalled to body. Morphing hamburger→X via inline-style transitions. Logo fades out when menu opens. |
 | Footer | `footer.tsx` | No | "Stay close" newsletter signup (dark), pillar links, copyright + social icons. Sticky at bottom with parallax reveal. |
 | SignupForm | `signup-form.tsx` | Yes | Email signup form. Props: `source` (app-waitlist / store-waitlist / book-waitlist / newsletter), `buttonText`, `successMessage`, `theme` (light/dark), `className`. Posts to `/api/signup`. |
 | FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based animation. Two variants: `"fade"` (default, 12px rise) and `"reveal"` (24px rise, for image cards). Accepts `className`, `delay`, `duration`, `variant`. |
