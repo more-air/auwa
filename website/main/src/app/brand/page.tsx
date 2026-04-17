@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 
 export const metadata = {
   title: "Brand | AUWA",
@@ -61,7 +60,6 @@ const spacingSystem = [
 export default function BrandPage() {
   return (
     <>
-      <Header />
       <main>
 
         {/* ── Title ── */}

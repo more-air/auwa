@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
@@ -1077,7 +1076,6 @@ export default async function ArticlePage({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Header />
       <main>
 
         {/* ── Hero: split layout, viewport height ── */}

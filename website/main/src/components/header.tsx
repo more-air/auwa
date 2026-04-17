@@ -13,22 +13,15 @@ const navItems = [
   { label: "About", href: "/about" },
 ];
 
-interface HeaderProps {
-  disableFlipbookStick?: boolean;
-  transparent?: boolean;
-}
-
-export function Header({ disableFlipbookStick = false, transparent = false }: HeaderProps = {}) {
+export function Header() {
   const pathname = usePathname();
+  // Homepage is the only page with a transparent header (it sits over the
+  // full-bleed video hero). Every other page has a solid-white header.
+  const transparent = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [mounted, setMounted] = useState(false);
-  // Flips to true ~400ms after the menu opens — the point at which the
-  // overlay has mostly faded in. Used to delay the logo swap on the
-  // transparent homepage so the white-logo-on-video doesn't flip to
-  // dark-logo-on-video BEFORE the overlay has had a chance to cover it.
-  const [overlayCovers, setOverlayCovers] = useState(false);
   const lastScrollY = useRef(0);
   const atTopRef = useRef(true);
 
@@ -36,39 +29,24 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (menuOpen) {
-      const t = setTimeout(() => setOverlayCovers(true), 400);
-      return () => clearTimeout(t);
-    }
-    // On close, flip back immediately so the logo starts transitioning
-    // white while the overlay fades out — both end together.
-    setOverlayCovers(false);
-  }, [menuOpen]);
-
-  // Close the menu when the route actually changes. We don't close it on
-  // link click — PageTransition intercepts internal links and delays the
-  // route change by ~440ms. Keeping the menu open through that window lets
-  // it crossfade with the page transition instead of flashing the old page
-  // between menu-fade-out and page-fade-out.
+  // Close the menu when the route changes. PageTransition intercepts link
+  // clicks and delays navigation by ~440ms; keeping the menu open through
+  // that window lets it crossfade with the page transition instead of
+  // flashing the old page in between.
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
   // Hide on scroll down, show on scroll up.
-  // Stay visible when a flipbook hero is active (data-flipbook-active on body).
   //
-  // atTop uses a deliberately wide range (up to 400px) with hysteresis. This
-  // matters on the transparent homepage header: if atTop flipped off at a
-  // small threshold (y=40) but the header didn't hide until y=80, the user
-  // would see a flash of solid-white header in the 40-80 dead zone before it
-  // slid away. Keeping atTop true well past the hide threshold lets the
-  // header slide up WHILE still transparent, so there's no flash.
+  // atTop uses a wide range (up to 400px) with hysteresis so the transparent
+  // homepage header can slide up WHILE still transparent — no flash of solid
+  // white between the transparent state at the top and the hidden state past
+  // the fold.
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastScrollY.current;
-      const flipbookActive = !disableFlipbookStick && document.body.hasAttribute("data-flipbook-active");
 
       const prevAtTop = atTopRef.current;
       const nextAtTop = prevAtTop ? y <= 400 : y <= 100;
@@ -77,7 +55,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
         setAtTop(nextAtTop);
       }
 
-      if (flipbookActive || y <= 10) {
+      if (y <= 10) {
         setHidden(false);
       } else if (delta > 4) {
         setHidden(true);
@@ -89,16 +67,15 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [disableFlipbookStick]);
+  }, []);
 
-  // Header "transparent" mode holds while at top of a hero page AND the
-  // overlay isn't covering. Using `overlayCovers` (delayed) instead of
-  // `menuOpen` avoids a flash of solid-white header (or dark-logo-on-video)
-  // before the overlay has had time to fade in over the hero.
-  const isTransparent = transparent && atTop && !overlayCovers;
-  // The menu button flips to dark as soon as the menu opens so the X stays
-  // readable on the incoming white overlay — even before the overlay has
-  // fully faded in.
+  // Header bg + logo styling is driven purely by scroll position. The mobile
+  // menu overlay (which is portalled to body) provides the white covering
+  // when the menu is open — so the header itself can stay transparent and
+  // we avoid any flash of solid-white bg before the overlay has faded in.
+  const isTransparent = transparent && atTop;
+  // The button (X) flips to dark as soon as the menu opens so it remains
+  // readable against the incoming white overlay.
   const buttonIsLight = transparent && atTop && !menuOpen;
 
   useEffect(() => {
@@ -130,13 +107,6 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
                 }`}
                 style={{ transitionDelay: menuOpen ? `${100 + i * 60}ms` : "0ms" }}
               >
-                {/*
-                  No onClick={setMenuOpen(false)} here. PageTransition
-                  intercepts internal links and delays navigation. We close
-                  the menu on the pathname useEffect above, which fires when
-                  the route actually changes — this keeps the menu visible
-                  during the page transition's leave phase.
-                */}
                 <Link
                   href={item.href}
                   className={`block font-display text-[2.5rem] leading-[1.3] tracking-[0.01em] transition-colors duration-300 ${
@@ -201,12 +171,30 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
       >
         <div className="px-6 md:px-12 lg:px-20 xl:px-28">
           <nav className="flex items-center justify-between h-16 md:h-20">
-            <Link href="/" className="block relative z-[60]">
+            {/*
+              Logo fades out when the mobile menu opens so the open menu is
+              clean (nav items + X, no logo). On desktop menuOpen stays false,
+              so the logo is always visible.
+            */}
+            <Link
+              href="/"
+              className="block relative z-[60]"
+              aria-hidden={menuOpen ? true : undefined}
+              tabIndex={menuOpen ? -1 : undefined}
+              style={{
+                opacity: menuOpen ? 0 : 1,
+                pointerEvents: menuOpen ? "none" : undefined,
+                transition: "opacity 300ms ease-out",
+              }}
+            >
               <img
                 src="/auwa-logo.svg"
                 alt="AUWA"
-                className="h-[20px] md:h-[22px] w-auto transition-[filter] duration-300 ease-out"
-                style={isTransparent ? { filter: "invert(1) brightness(2)" } : undefined}
+                className="h-[20px] md:h-[22px] w-auto"
+                style={{
+                  filter: isTransparent ? "invert(1) brightness(2)" : undefined,
+                  transition: "filter 300ms ease-out",
+                }}
               />
             </Link>
 
@@ -242,11 +230,9 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
             </ul>
 
             {/*
-              Single menu button that morphs between hamburger and X. Lives in
-              the header (z-[100]) so it sits above the overlay (z-[90]) and
-              the logo stays visible while the menu is open. Color flips on
-              menuOpen directly (not delayed) so the X is visible against the
-              overlay as soon as it starts fading in.
+              Single menu button that morphs between hamburger and X. Lines
+              offset 1px from container edges so iOS doesn't render the top
+              line thicker than the rest.
             */}
             <button
               className="md:hidden p-2 -mr-2 relative z-[60] cursor-pointer"
@@ -258,13 +244,6 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
                 transition: "color 300ms ease-out",
               }}
             >
-              {/*
-                Lines offset 1px from top/bottom edges of the container so
-                iOS doesn't render the top line thicker than the others —
-                an edge-rendering quirk when a 2px span sits flush at top:0.
-                All three spans also carry an explicit transform so they
-                share a rasterisation path and anti-alias identically.
-              */}
               <div className="w-[24px] h-[16px] relative">
                 <span
                   className="absolute left-0 w-full h-[2px] bg-current"

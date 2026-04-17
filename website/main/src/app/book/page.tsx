@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
@@ -11,7 +10,6 @@ export const metadata = {
 export default function BookPage() {
   return (
     <>
-      <Header />
       <main>
         <div>
           <div className="flex flex-col h-[calc(100dvh-4rem)] md:grid md:grid-cols-2 md:h-[calc(100dvh-5rem)]">

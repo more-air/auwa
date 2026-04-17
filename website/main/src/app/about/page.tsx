@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { ObfuscatedEmail } from "@/components/obfuscated-email";
@@ -12,7 +11,6 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Header />
       <main>
 
         {/* Hero */}

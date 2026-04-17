@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import Link from "next/link";
@@ -40,7 +39,6 @@ export default async function JournalPage({
 
   return (
     <>
-      <Header />
       <main>
 
         {/* Title + filters */}

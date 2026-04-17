@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { MicroSeasonFeature } from "@/components/micro-season-feature";
@@ -47,7 +46,6 @@ function Separator() {
 export default function Home() {
   return (
     <>
-      <Header disableFlipbookStick transparent />
       <main>
 
         {/* ── Full-bleed AUWA face video (mobile full-height, chevron) ── */}
