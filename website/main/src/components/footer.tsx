@@ -22,7 +22,7 @@ const socialLinks = [
   },
   {
     label: "X",
-    href: "https://x.com/auwa_life",
+    href: "https://x.com/auwalife",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -44,12 +44,12 @@ export function Footer() {
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-20">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-16 md:gap-16">
           {/* Left — signup */}
-          <div className="max-w-[520px]">
+          <div className="max-w-[440px]">
             <span className="block font-sans text-[12px] tracking-[0.18em] uppercase mb-5 text-white/50">
               Newsletter
             </span>
             <h2 className="font-display text-[28px] md:text-[34px] leading-[1.2] tracking-[0.005em] text-white">
-              Letters from Japan.{" "}
+              Quiet letters.{" "}
               <span className="text-white/55">Seasonal essays, craftsman stories, and early news of everything we make.</span>
             </h2>
             <div className="mt-8">

@@ -186,7 +186,7 @@ The auwa.life website uses a light-mode, Kinfolk-inspired editorial aesthetic. T
 
 ### Dark Theme (App, Social, Newsletter Module)
 
-The brand's natural state. Used for the Kokoro Mirror app, social content templates, and the "Letters from Japan" newsletter section on the website.
+The brand's natural state. Used for the Kokoro Mirror app, social content templates, and the "Quiet letters" newsletter section in the website footer.
 
 - **Background:** void (`oklch(0.08 0.025 250)`)
 - **Primary text:** white at various opacities
@@ -340,7 +340,7 @@ This means:
 
 ## 10. Across the Four Sections
 
-All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwa.life (Instagram, TikTok, YouTube), @auwa_life (X), @Auwa (LinkedIn).
+All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwa.life (Instagram, TikTok, YouTube), @auwalife (X), @Auwa (LinkedIn).
 
 ### /app (Kokoro Mirror)
 Dark-first. Minimal chrome during the experience. Cormorant for AUWA's voice, Instrument Sans for UI. The revelation screen is the hero — everything else supports getting there and reflecting afterward.

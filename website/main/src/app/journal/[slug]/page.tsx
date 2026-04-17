@@ -1028,6 +1028,7 @@ export async function generateMetadata({
   const title = `${article.title} | AUWA`;
   const description = article.subtitle;
   const url = `https://auwa.life/journal/${slug}`;
+  const ogImage = article.heroImage?.replace(/-hero\.jpg$/, "-og.jpg") ?? null;
 
   return {
     title,
@@ -1039,15 +1040,15 @@ export async function generateMetadata({
       type: "article",
       publishedTime: article.publishedAt,
       authors: [article.author],
-      ...(article.heroImage && {
-        images: [{ url: article.heroImage, width: 1200, height: 630, alt: article.title }],
+      ...(ogImage && {
+        images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
       }),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      ...(article.heroImage && { images: [article.heroImage] }),
+      ...(ogImage && { images: [ogImage] }),
     },
   };
 }

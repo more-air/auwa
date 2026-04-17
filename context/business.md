@@ -450,7 +450,7 @@ As AI accelerates and automates more of life's cognitive tasks, the human layer 
 - AUWA: auwa.life (auwalife.com mirror)
 - More Air: moreair.co
 - Contact: hello@auwa.life
-- Social: @auwa.life (Instagram, TikTok, YouTube) | @auwa_life (X) | @Auwa (LinkedIn)
+- Social: @auwa.life (Instagram, TikTok, YouTube) | @auwalife (X) | @Auwa (LinkedIn)
 - Companies House: AUWA Ltd 17033727 | More Air Ltd 7051794
 - Trademarks: UK00004341028 (word mark, advertisement phase) | UK00004373944 (word mark, filed) | UK00004373930 (design mark, filed)
 

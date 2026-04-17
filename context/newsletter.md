@@ -8,9 +8,9 @@
 
 Three pieces: welcome emails (automatic), newsletter sends (manual via API), and the templates that power both.
 
-**Welcome emails** fire automatically when someone signs up on the website. Each signup source gets a different message: newsletter subscribers hear about the journal and what to expect; app/store/book waitlisters get confirmation they're on the list with a pointer to the journal. No verification step. No double opt-in. The email is a quiet nod, not a sales funnel.
+**Welcome emails** fire automatically when someone signs up on the website. Each signup source gets a different message: newsletter subscribers hear about the journal and what to expect; app/store/book waitlisters get confirmation they're on the list with a pointer to the journal. No verification step. No double opt-in. The email is a quiet nod, not a sales funnel. These are sent transactionally via `resend.emails.send()`, and the unsubscribe link in the footer is a `mailto:hello@auwa.life?subject=Unsubscribe` rather than a merge variable (merge vars only substitute in Broadcasts).
 
-**Newsletters** are sent manually by calling the API endpoint. You pass the content (heading, intro, articles, images) as JSON and it sends to your full Resend audience. Protected by a secret token so it can't be triggered accidentally.
+**Newsletters** are sent manually by calling the API endpoint, which creates and dispatches a Resend **Broadcast** (not a transactional email). This routes through `resend.broadcasts.create()` + `resend.broadcasts.send()` so `{{{RESEND_UNSUBSCRIBE_URL}}}` is replaced with a working per-recipient unsubscribe link and the `List-Unsubscribe` header is attached (required by Gmail/Yahoo since Feb 2024). You pass the content (heading, intro, articles, images) as JSON. Protected by a secret token so it can't be triggered accidentally.
 
 ---
 
@@ -19,11 +19,11 @@ Three pieces: welcome emails (automatic), newsletter sends (manual via API), and
 Both templates live in `website/main/src/emails/` as React Email components.
 
 ### welcome.tsx
-Sent automatically on signup. Four variants based on source:
-- **newsletter**: "Welcome." + description of what they'll receive
-- **app-waitlist**: "You're in." + what Kokoro Mirror is, link to journal
-- **store-waitlist**: "You're in." + what the store will be, link to journal
-- **book-waitlist**: "You're in." + what the book is, link to journal
+Sent automatically on signup. Four variants based on source, with subjects tuned so Store and Book don't fall into Gmail Promotions:
+- **newsletter**: subject "Welcome to AUWA" · "Stay close." body
+- **app-waitlist**: subject "You're on the AUWA App waitlist" · "A practice is taking shape." body
+- **store-waitlist**: subject "A note from AUWA." · "Made by hand, chosen with care." body
+- **book-waitlist**: subject "A note from AUWA." · "Four stories, one light." body
 
 ### newsletter.tsx
 The template for manual newsletter sends. Accepts:

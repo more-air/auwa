@@ -456,12 +456,22 @@ After the initial 10 articles, publish 1-2 articles per week aligned with the 72
 
 Fully documented in `context/newsletter.md`. Summary:
 
-- **Welcome emails** auto-send on signup (4 variants per source: newsletter, app-waitlist, store-waitlist, book-waitlist)
-- **Newsletter sends** are manual via `/send-newsletter` slash command or API endpoint
-- **Signup points**: shared footer on every page ("Stay close."), plus dedicated forms on app/store/book teaser pages
+- **Welcome emails** auto-send on signup (4 variants per source: newsletter, app-waitlist, store-waitlist, book-waitlist). Sent as transactional via `resend.emails.send()`. Unsubscribe is a plain `mailto:hello@auwa.life?subject=Unsubscribe` because the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge var does not substitute in transactional sends.
+- **Welcome email subjects**: "Welcome to AUWA" (newsletter) · "You're on the AUWA App waitlist" (app) · "A note from AUWA." (store and book — softer subject keeps them out of Gmail Promotions).
+- **Newsletter sends** go through Resend's **Broadcasts API** (`resend.broadcasts.create()` + `.send()`), not the transactional Emails API. This is what enables the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge variable and the `List-Unsubscribe` header. Triggered manually via the `/send-newsletter` slash command or the `/api/newsletter/send` endpoint.
+- **Signup points**: shared footer on every page ("Quiet letters."), plus dedicated forms on app/store/book teaser pages
 - **Templates**: React Email components in `src/emails/` (welcome.tsx, newsletter.tsx)
 - **Resend segments**: App Waitlist, Store Waitlist, Book Waitlist (3 segments, free plan limit). Newsletter subscribers go to audience without a segment.
 - **Subject format**: `[Topic] | AUWA` — poetic, not clickbait
+
+### Social share previews (journal articles)
+
+Each article has a dedicated 1200×630 landscape OG image at `/journal/{slug}/{slug}-og.jpg`, alongside the portrait 4:5 hero. `generateMetadata()` in `src/app/journal/[slug]/page.tsx` derives the OG path from the hero filename. FB, Pinterest, and X pull this image into their link previews. Instagram is intentionally not supported — IG has no link-share flow. To regenerate after a hero change:
+
+```bash
+cd website/main/public/journal/{slug} && cp {slug}-hero.jpg {slug}-og.jpg && \
+  sips --resampleWidth 1200 {slug}-og.jpg && sips -c 630 1200 {slug}-og.jpg
+```
 
 ---
 

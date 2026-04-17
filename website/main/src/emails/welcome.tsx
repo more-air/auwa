@@ -25,7 +25,7 @@ const sourceContent = {
     ctaUrl: null,
   },
   "app-waitlist": {
-    preview: "You're on the AUWA app waitlist.",
+    preview: "You're on the AUWA App waitlist.",
     heading: "A practice is taking shape.",
     body: "The AUWA app is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
     image: `${BASE_URL}/pillars/app.jpg`,
@@ -126,7 +126,7 @@ export default function WelcomeEmail({
               © AUWA {new Date().getFullYear()}
             </Text>
             <Text style={footerText}>
-              <Link href="{{{RESEND_UNSUBSCRIBE_URL}}}" style={{ color: "#999", textDecoration: "underline" }}>
+              <Link href="mailto:hello@auwa.life?subject=Unsubscribe" style={{ color: "#999", textDecoration: "underline" }}>
                 Unsubscribe
               </Link>
             </Text>

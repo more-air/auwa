@@ -3,9 +3,9 @@ import WelcomeEmail from "@/emails/welcome";
 
 const SUBJECT_MAP: Record<string, string> = {
   newsletter: "Welcome to AUWA",
-  "app-waitlist": "You're on the Kokoro Mirror waitlist",
-  "store-waitlist": "You're on the AUWA Store waitlist",
-  "book-waitlist": "You're on the AUWA Book waitlist",
+  "app-waitlist": "You're on the AUWA App waitlist",
+  "store-waitlist": "A note from AUWA.",
+  "book-waitlist": "A note from AUWA.",
 };
 
 export async function POST(request: Request) {

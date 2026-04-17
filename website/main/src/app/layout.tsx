@@ -96,7 +96,7 @@ export default function RootLayout({
               description: "A Japanese lifestyle brand rooted in the philosophy that everything has kokoro.",
               sameAs: [
                 "https://instagram.com/auwa.life",
-                "https://x.com/auwa_life",
+                "https://x.com/auwalife",
                 "https://linkedin.com/company/auwa",
               ],
             }),

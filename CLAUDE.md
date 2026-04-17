@@ -329,9 +329,10 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Images need `object-cover` to fill their container without distortion.
 
 **Footer:**
-- The footer includes the "Letters from Japan" newsletter signup block. Don't duplicate newsletter sections on individual pages.
-- Newsletter copy: "NEWSLETTER / Letters from Japan. Seasonal essays, craftsman stories, and early news of everything we make."
+- The footer includes the "Quiet letters." newsletter signup block. Don't duplicate newsletter sections on individual pages.
+- Newsletter copy: "NEWSLETTER / Quiet letters. Seasonal essays, craftsman stories, and early news of everything we make."
 - Pillar links in the footer are Journal, Store, App, Book (the four brand pillars).
+- The left signup column uses `max-w-[440px]` so the newsletter copy wraps at the same width as the SignupForm below it (form is also `max-w-[440px]`). Do not widen back to 520px — the text would overhang the form edge and look unresolved.
 
 **Images:**
 - No image conversion tools (ImageMagick, librsvg) are installed on this machine. Use `sips` (macOS built-in) for basic image operations.
@@ -436,7 +437,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Pull quote 2: "In every handmade bowl, in every river, in every person you pass, a kokoro is waiting to be seen."
 - Two-up articles (Onsen + Nozawa)
 - "Meet AUWA / The soul in all things" bottom section with "THE STORY" button linking to /journal/the-beginning
-- Newsletter block: "NEWSLETTER / Letters from Japan. Seasonal essays, craftsman stories, and early news of everything we make."
+- Newsletter block: "NEWSLETTER / Quiet letters. Seasonal essays, craftsman stories, and early news of everything we make."
 
 **Header `transparent` prop:**
 - When true: background transparent, logo inverted to white via CSS filter, nav links white, hamburger white. Used on root homepage over video hero.
@@ -468,6 +469,23 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Super-header thesis lines also live in each page's `<title>` metadata ("Daily awareness practice | AUWA" etc.)
 
 **Email unsubscribe:**
-- All emails (welcome + newsletter) include `{{{RESEND_UNSUBSCRIBE_URL}}}` which Resend replaces with a per-recipient unsubscribe link
-- Resend also adds `List-Unsubscribe` header automatically (required by Gmail/Yahoo since Feb 2024)
-- No additional API code needed. Clicking the link removes the contact from the Resend audience.
+- The `{{{RESEND_UNSUBSCRIBE_URL}}}` merge variable is ONLY substituted when sending through Resend's Broadcasts API. In transactional sends via `resend.emails.send()` it stays as literal text and the link breaks.
+- Newsletters therefore use `resend.broadcasts.create({ audienceId, from, subject, name, react })` followed by `resend.broadcasts.send(id)` — this substitutes the merge var AND attaches the `List-Unsubscribe` header required by Gmail/Yahoo since Feb 2024.
+- Welcome emails (transactional) use a plain `mailto:hello@auwa.life?subject=Unsubscribe` instead, since the merge var cannot work there.
+- Clicking a broadcast unsubscribe link removes the contact from the Resend audience automatically.
+
+**Per-article OG images (social sharing):**
+- Article `generateMetadata()` points `openGraph.images` at `/journal/{slug}/{slug}-og.jpg` — a 1200×630 landscape crop dedicated to social previews. The portrait 4:5 hero is never used for OG directly (platforms crop portrait awkwardly).
+- Generate the OG file from the hero with sips:
+  ```bash
+  cp hero.jpg og.jpg && sips --resampleWidth 1200 og.jpg && sips -c 630 1200 og.jpg
+  ```
+- Every article folder under `public/journal/{slug}/` should contain both `{slug}-hero.jpg` (portrait) and `{slug}-og.jpg` (landscape). When adding a new article, generate both.
+- Instagram is not included in the article share icon row: IG has no link-share preview flow. FB, Pinterest, and X are the only three.
+
+**Welcome email subject lines (spam-avoidance tuned):**
+- `newsletter` → "Welcome to AUWA"
+- `app-waitlist` → "You're on the AUWA App waitlist"
+- `store-waitlist` → "A note from AUWA."
+- `book-waitlist` → "A note from AUWA."
+- Store and Book use a softer subject because Gmail's Promotions classifier latches onto "Store" and "Book" as commerce keywords. Changing the subject (while keeping the hero image and body) was enough to shift them toward Primary.
