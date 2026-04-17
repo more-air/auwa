@@ -31,27 +31,38 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
     setMounted(true);
   }, []);
 
+  // Close the menu when the route actually changes. We don't close it on
+  // link click — PageTransition intercepts internal links and delays the
+  // route change by ~440ms. Keeping the menu open through that window lets
+  // it crossfade with the page transition instead of flashing the old page
+  // between menu-fade-out and page-fade-out.
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
   // Hide on scroll down, show on scroll up.
   // Stay visible when a flipbook hero is active (data-flipbook-active on body).
-  // Hysteresis on atTop: once we leave the top, require a larger rollback to
-  // re-enter — prevents flip-flop near the threshold while Lenis is easing.
+  //
+  // atTop uses a deliberately wide range (up to 400px) with hysteresis. This
+  // matters on the transparent homepage header: if atTop flipped off at a
+  // small threshold (y=40) but the header didn't hide until y=80, the user
+  // would see a flash of solid-white header in the 40-80 dead zone before it
+  // slid away. Keeping atTop true well past the hide threshold lets the
+  // header slide up WHILE still transparent, so there's no flash.
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastScrollY.current;
       const flipbookActive = !disableFlipbookStick && document.body.hasAttribute("data-flipbook-active");
 
-      const nextAtTop = atTopRef.current ? y <= 40 : y <= 8;
-      if (nextAtTop !== atTopRef.current) {
+      const prevAtTop = atTopRef.current;
+      const nextAtTop = prevAtTop ? y <= 400 : y <= 100;
+      if (nextAtTop !== prevAtTop) {
         atTopRef.current = nextAtTop;
         setAtTop(nextAtTop);
       }
 
-      if (flipbookActive || y <= 80) {
+      if (flipbookActive || y <= 10) {
         setHidden(false);
       } else if (delta > 4) {
         setHidden(true);
@@ -65,9 +76,16 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
     return () => window.removeEventListener("scroll", onScroll);
   }, [disableFlipbookStick]);
 
-  // Transparent styling applies only while at the top. Once the user has
-  // scrolled, the header becomes solid white with dark text.
+  // Transparent bg + inverted logo are tied ONLY to scroll position, not to
+  // the menu. When the menu opens, the overlay sitting just below the header
+  // (z-[90] vs header's z-[100]) provides the white background visually, so
+  // the header itself can stay transparent. This avoids a flash of solid
+  // header background before the overlay has finished fading in.
   const isTransparent = transparent && atTop;
+  // The menu button flips to dark as soon as the menu opens so the X stays
+  // readable on the incoming white overlay — even before the overlay has
+  // fully faded in.
+  const buttonIsLight = transparent && atTop && !menuOpen;
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -76,23 +94,16 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
 
   const mobileMenu = (
     <div
-      className={`fixed inset-0 z-[90] bg-surface transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
-        menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      className={`fixed inset-0 z-[90] bg-surface md:hidden ${
+        menuOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
+      style={{
+        opacity: menuOpen ? 1 : 0,
+        transition: "opacity 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
     >
-      {/* Close button — mirrors header layout so the tap target is in the same place */}
-      <div className="px-6 h-16 flex items-center justify-end">
-        <button
-          className="p-2 -mr-2 text-void cursor-pointer"
-          aria-label="Close menu"
-          onClick={() => setMenuOpen(false)}
-        >
-          <div className="w-[24px] h-[17px] relative">
-            <span className="absolute left-0 top-[7.75px] w-full h-[1.5px] bg-current rotate-45" />
-            <span className="absolute left-0 top-[7.75px] w-full h-[1.5px] bg-current -rotate-45" />
-          </div>
-        </button>
-      </div>
+      {/* Spacer mirrors the header row so the nav starts below the logo/button */}
+      <div className="h-16" />
 
       <div className="flex flex-col justify-center h-[calc(100%-4rem)] px-6">
         <nav>
@@ -105,12 +116,18 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
                 }`}
                 style={{ transitionDelay: menuOpen ? `${100 + i * 60}ms` : "0ms" }}
               >
+                {/*
+                  No onClick={setMenuOpen(false)} here. PageTransition
+                  intercepts internal links and delays navigation. We close
+                  the menu on the pathname useEffect above, which fires when
+                  the route actually changes — this keeps the menu visible
+                  during the page transition's leave phase.
+                */}
                 <Link
                   href={item.href}
                   className={`block font-display text-[2.5rem] leading-[1.3] tracking-[0.01em] transition-colors duration-300 ${
                     pathname === item.href ? "text-void" : "text-void/50 hover:text-void"
                   }`}
-                  onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
@@ -139,7 +156,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
             </svg>
           </a>
           <a
-            href="https://x.com/auwa_life"
+            href="https://x.com/auwalife"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X"
@@ -157,11 +174,14 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-[transform,background-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
+        className={`sticky top-0 z-[100] will-change-transform ${
           isTransparent ? "bg-transparent" : "bg-surface"
         } ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
+        style={{
+          transition: "transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease-out",
+        }}
       >
         <div className="px-6 md:px-12 lg:px-20 xl:px-28">
           <nav className="flex items-center justify-between h-16 md:h-20">
@@ -205,17 +225,40 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
               })}
             </ul>
 
+            {/*
+              Single menu button that morphs between hamburger and X. Lives in
+              the header (z-[100]) so it sits above the overlay (z-[90]) and
+              the logo stays visible while the menu is open. Color flips on
+              menuOpen directly (not delayed) so the X is visible against the
+              overlay as soon as it starts fading in.
+            */}
             <button
-              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer transition-colors duration-300 ${
-                isTransparent ? "text-white" : "text-void"
+              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer transition-colors duration-300 ease-out ${
+                buttonIsLight ? "text-white" : "text-void"
               }`}
-              aria-label="Open menu"
-              onClick={() => setMenuOpen(true)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
             >
-              <div className="w-[24px] h-[17px] relative">
-                <span className="absolute left-0 top-0 w-full h-[1.5px] bg-current" />
-                <span className="absolute left-0 top-[7.75px] w-full h-[1.5px] bg-current" />
-                <span className="absolute left-0 top-[15.5px] w-full h-[1.5px] bg-current" />
+              <div className="w-[24px] h-[16px] relative">
+                <span
+                  className="absolute left-0 w-full h-[2px] bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  style={{
+                    top: menuOpen ? "7px" : "0px",
+                    transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
+                  }}
+                />
+                <span
+                  className="absolute left-0 top-[7px] w-full h-[2px] bg-current transition-opacity duration-200"
+                  style={{ opacity: menuOpen ? 0 : 1 }}
+                />
+                <span
+                  className="absolute left-0 w-full h-[2px] bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  style={{
+                    top: menuOpen ? "7px" : "14px",
+                    transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
+                  }}
+                />
               </div>
             </button>
           </nav>
