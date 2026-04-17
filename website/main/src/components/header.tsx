@@ -24,12 +24,27 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [mounted, setMounted] = useState(false);
+  // Flips to true ~400ms after the menu opens — the point at which the
+  // overlay has mostly faded in. Used to delay the logo swap on the
+  // transparent homepage so the white-logo-on-video doesn't flip to
+  // dark-logo-on-video BEFORE the overlay has had a chance to cover it.
+  const [overlayCovers, setOverlayCovers] = useState(false);
   const lastScrollY = useRef(0);
   const atTopRef = useRef(true);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      const t = setTimeout(() => setOverlayCovers(true), 400);
+      return () => clearTimeout(t);
+    }
+    // On close, flip back immediately so the logo starts transitioning
+    // white while the overlay fades out — both end together.
+    setOverlayCovers(false);
+  }, [menuOpen]);
 
   // Close the menu when the route actually changes. We don't close it on
   // link click — PageTransition intercepts internal links and delays the
@@ -76,12 +91,11 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
     return () => window.removeEventListener("scroll", onScroll);
   }, [disableFlipbookStick]);
 
-  // Transparent bg + inverted logo are tied ONLY to scroll position, not to
-  // the menu. When the menu opens, the overlay sitting just below the header
-  // (z-[90] vs header's z-[100]) provides the white background visually, so
-  // the header itself can stay transparent. This avoids a flash of solid
-  // header background before the overlay has finished fading in.
-  const isTransparent = transparent && atTop;
+  // Header "transparent" mode holds while at top of a hero page AND the
+  // overlay isn't covering. Using `overlayCovers` (delayed) instead of
+  // `menuOpen` avoids a flash of solid-white header (or dark-logo-on-video)
+  // before the overlay has had time to fade in over the hero.
+  const isTransparent = transparent && atTop && !overlayCovers;
   // The menu button flips to dark as soon as the menu opens so the X stays
   // readable on the incoming white overlay — even before the overlay has
   // fully faded in.
@@ -244,11 +258,18 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
                 transition: "color 300ms ease-out",
               }}
             >
+              {/*
+                Lines offset 1px from top/bottom edges of the container so
+                iOS doesn't render the top line thicker than the others —
+                an edge-rendering quirk when a 2px span sits flush at top:0.
+                All three spans also carry an explicit transform so they
+                share a rasterisation path and anti-alias identically.
+              */}
               <div className="w-[24px] h-[16px] relative">
                 <span
                   className="absolute left-0 w-full h-[2px] bg-current"
                   style={{
-                    top: menuOpen ? "7px" : "0px",
+                    top: menuOpen ? "7px" : "1px",
                     transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
                     transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
@@ -257,13 +278,14 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
                   className="absolute left-0 top-[7px] w-full h-[2px] bg-current"
                   style={{
                     opacity: menuOpen ? 0 : 1,
+                    transform: "rotate(0deg)",
                     transition: "opacity 200ms ease-out",
                   }}
                 />
                 <span
                   className="absolute left-0 w-full h-[2px] bg-current"
                   style={{
-                    top: menuOpen ? "7px" : "14px",
+                    top: menuOpen ? "7px" : "13px",
                     transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
                     transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
