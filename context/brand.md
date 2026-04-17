@@ -43,7 +43,7 @@ The wordmark works because:
 - **Case:** All uppercase
 - **Letter-spacing:** 0.25em
 - **Colour:** void (oklch 0.08 0.025 250) on light backgrounds; white (inverted) on dark backgrounds
-- **Size:** 16px height on mobile, 21px on desktop (website header)
+- **Size:** 20px height on mobile, 22px on desktop (website header)
 
 **Minimum clear space:** The height of the letter "U" on all sides.
 
@@ -109,7 +109,7 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 
 | Element | Typeface | Weight | Size | Tracking |
 |---------|----------|--------|------|----------|
-| Wordmark / Logo | EB Garamond (SVG) | — | 16px mobile / 21px desktop | — |
+| Wordmark / Logo | EB Garamond (SVG) | — | 20px mobile / 22px desktop | — |
 | Page title (h1) | EB Garamond | 400 | clamp(2.5rem, 5.5vw, 4.5rem) | 0.01em |
 | Section heading (h2) | EB Garamond | 400 | 28px / 32px | 0.01em |
 | Card title | EB Garamond | 400 | 20px / 22px | 0.01em |

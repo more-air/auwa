@@ -87,9 +87,9 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
           aria-label="Close menu"
           onClick={() => setMenuOpen(false)}
         >
-          <div className="w-[20px] h-[14px] relative">
-            <span className="absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current rotate-45" />
-            <span className="absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current -rotate-45" />
+          <div className="w-[24px] h-[17px] relative">
+            <span className="absolute left-0 top-[7.75px] w-full h-[1.5px] bg-current rotate-45" />
+            <span className="absolute left-0 top-[7.75px] w-full h-[1.5px] bg-current -rotate-45" />
           </div>
         </button>
       </div>
@@ -169,7 +169,7 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
               <img
                 src="/auwa-logo.svg"
                 alt="AUWA"
-                className="h-[16px] md:h-[21px] w-auto transition-[filter] duration-300 ease-out"
+                className="h-[20px] md:h-[22px] w-auto transition-[filter] duration-300 ease-out"
                 style={isTransparent ? { filter: "invert(1) brightness(2)" } : undefined}
               />
             </Link>
@@ -212,10 +212,10 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
             >
-              <div className="w-[20px] h-[14px] relative">
+              <div className="w-[24px] h-[17px] relative">
                 <span className="absolute left-0 top-0 w-full h-[1.5px] bg-current" />
-                <span className="absolute left-0 top-[6.5px] w-full h-[1.5px] bg-current" />
-                <span className="absolute left-0 top-[13px] w-full h-[1.5px] bg-current" />
+                <span className="absolute left-0 top-[7.75px] w-full h-[1.5px] bg-current" />
+                <span className="absolute left-0 top-[15.5px] w-full h-[1.5px] bg-current" />
               </div>
             </button>
           </nav>

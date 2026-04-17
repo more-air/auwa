@@ -125,6 +125,12 @@ export function HeroVideo() {
           </video>
         </div>
 
+        {/* Subtle gradient from top — keeps the white header legible over the video */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-black/15 to-transparent z-[5]"
+        />
+
         {/* Explore label + chevron */}
         <div
           className="absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 md:gap-4"
