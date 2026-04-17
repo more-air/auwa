@@ -2,122 +2,134 @@
 
 import { useEffect, useRef, useState } from "react";
 
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
-  useEffect(() => {
-    const mql = window.matchMedia(query);
-    setMatches(mql.matches);
-    const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
-    mql.addEventListener("change", handler);
-    return () => mql.removeEventListener("change", handler);
-  }, [query]);
-  return matches;
-}
+/*
+  Full-bleed AUWA face video hero, variant 2.
+  Differences from hero-video-intro.tsx:
+  - "Explore" label is larger and clearer on both mobile and desktop
+  - Chevron (v-shape) below the label instead of the down-arrow
+  - Mobile fills the viewport height (svh) rather than a square crop,
+    with the Explore + chevron shown on mobile too
+  - Square -> landscape responsive behaviour preserved for desktop
+*/
 
-function VideoPanel({
-  src,
-  poster,
-  className,
-}: {
-  src: string;
-  poster: string;
-  className?: string;
-}) {
+export function HeroVideo() {
+  const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const scaleRef = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [posterLoaded, setPosterLoaded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-    const onPlaying = () => setPlaying(true);
-    video.addEventListener("playing", onPlaying);
-    video.play().catch(() => {});
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const video = videoRef.current;
+        if (!video) return;
+        if (entry.isIntersecting) {
+          video.play().then(() => setPlaying(true)).catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.2 }
+    );
 
-    return () => video.removeEventListener("playing", onPlaying);
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  // Preload poster; avoids brief grey flash by waiting until image is ready
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setPosterLoaded(true);
+    img.src = "/hero/poster-auwa.jpg";
+    if (img.complete) setPosterLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) setScrolled(true);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const scaleEl = scaleRef.current;
+    if (!section || !scaleEl) return;
+
+    let raf: number;
+    const onScroll = () => {
+      raf = requestAnimationFrame(() => {
+        const rect = section.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
+        const scale = 1 + progress * 0.06;
+        scaleEl.style.transform = `scale(${scale})`;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
-    <div className={className}>
-      {/* Poster shows instantly, hides once video plays */}
-      <img
-        src={poster}
-        alt="AUWA"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-          playing ? "opacity-0" : "opacity-100"
-        }`}
-      />
-      <video
-        ref={videoRef}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-          playing ? "opacity-100" : "opacity-0"
-        }`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-      >
-        <source src={src} type="video/mp4" />
-      </video>
-      {/* Gradient + text */}
-      <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-void/10 to-transparent z-10" />
-    </div>
-  );
-}
-
-export function HeroVideo() {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
-  // On first render (SSR/hydration), default to showing poster via img only
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  return (
-    <section className="relative w-full overflow-hidden">
-      {/* Container with correct aspect ratio per breakpoint */}
-      <div className="relative aspect-[9/16] max-h-[90vh] md:aspect-[16/9] md:max-h-[85vh] w-full bg-surface-raised">
-        {mounted ? (
-          isDesktop ? (
-            <VideoPanel
-              src="/hero/landscape.mp4"
-              poster="/hero/poster-landscape.jpg"
-              className="absolute inset-0"
-            />
-          ) : (
-            <VideoPanel
-              src="/hero/portrait.mp4"
-              poster="/hero/poster-portrait.jpg"
-              className="absolute inset-0"
-            />
-          )
-        ) : (
-          /* SSR fallback: poster image only, no video element */
-          <>
-            <img
-              src="/hero/poster-landscape.jpg"
-              alt="AUWA"
-              className="hidden md:block absolute inset-0 w-full h-full object-cover"
-            />
-            <img
-              src="/hero/poster-portrait.jpg"
-              alt="AUWA"
-              className="md:hidden absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-void/10 to-transparent z-10" />
-          </>
-        )}
-
-        {/* Text overlay — always visible immediately */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 pb-10 md:p-12 lg:p-20 xl:px-28 xl:pb-14 z-20">
-          <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-white max-w-[680px] pr-12 md:pr-0">
-            Everything has Kokoro.
-          </h1>
-          <a
-            href="/journal/yaoyorozu-no-kami"
-            className="inline-block mt-6 md:mt-8 font-sans text-[14px] tracking-[0.04em] text-white/50 hover:text-white/80 transition-colors duration-300"
+    <section ref={sectionRef} className="-mt-16 md:-mt-20">
+      <div className="relative h-[100svh] md:h-auto md:aspect-[16/9] w-full overflow-hidden" style={{ backgroundColor: "#e9dcc3" }}>
+        <div ref={scaleRef} className="absolute inset-0 will-change-transform">
+          <img
+            src="/hero/poster-auwa.jpg"
+            alt="AUWA"
+            onLoad={() => setPosterLoaded(true)}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              opacity: playing ? 0 : posterLoaded ? 1 : 0,
+              transition: "opacity 1.2s ease-out",
+            }}
+          />
+          <video
+            ref={videoRef}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              playing ? "opacity-100" : "opacity-0"
+            }`}
+            poster="/hero/poster-auwa.jpg"
+            loop
+            muted
+            playsInline
+            preload="auto"
           >
-            Begin here &rarr;
-          </a>
+            <source src="/hero/landscape-auwa.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* Explore label + chevron (both mobile and desktop) */}
+        <div
+          className="absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 md:gap-4"
+          style={{
+            opacity: scrolled ? 0 : 1,
+            transition: "opacity 0.7s ease-out",
+          }}
+        >
+          <span className="font-sans text-[13px] md:text-[14px] tracking-[0.22em] uppercase text-white">
+            Explore
+          </span>
+          <svg
+            width="22"
+            height="12"
+            viewBox="0 0 22 12"
+            fill="none"
+            className="text-white animate-bounce"
+            aria-hidden="true"
+          >
+            <path d="M1 1l10 10L21 1" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
       </div>
     </section>

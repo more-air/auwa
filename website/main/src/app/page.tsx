@@ -2,9 +2,9 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { MicroSeasonFeature } from "@/components/micro-season-feature";
-import { HeroFlipbookV4b } from "@/components/hero-flipbook-v4b";
+import { HeroFlipbook } from "@/components/hero-flipbook";
 import { VideoMoment } from "@/components/video-moment";
-import { HeroVideoIntroV2 } from "@/components/hero-video-intro-v2";
+import { HeroVideo } from "@/components/hero-video";
 import { ScrollFadeText } from "@/components/scroll-fade-text";
 import { CtaLink } from "@/components/cta-link";
 import Link from "next/link";
@@ -51,9 +51,9 @@ export default function Home() {
       <main>
 
         {/* ── Full-bleed AUWA face video (mobile full-height, chevron) ── */}
-        <HeroVideoIntroV2 />
+        <HeroVideo />
 
-        {/* ── Revised intro block — left-aligned eyebrow + larger paragraph, no CTA ── */}
+        {/* ── Intro block: eyebrow + scroll-fade paragraph + CTA ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-28 pb-20 md:pb-32">
           <div className="max-w-[880px]">
             <FadeIn>
@@ -67,13 +67,18 @@ export default function Home() {
             >
               AUWA is a quiet return to the Japanese belief that a life force, a kokoro, resides in all things. Not only in people, but in a river, a handmade bowl, the wind through bamboo at dusk. Four doors into one world: craftsman objects, stories, editorial from Japan, and a daily practice for paying attention.
             </ScrollFadeText>
+            <FadeIn delay={200}>
+              <div className="mt-10 md:mt-14">
+                <CtaLink href="/about">Our story</CtaLink>
+              </div>
+            </FadeIn>
           </div>
         </section>
 
         <Separator />
 
         {/* ── Big pullquote block ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-28 md:py-44">
+        <section className="px-10 md:px-12 lg:px-20 xl:px-28 py-28 md:py-44">
           <div className="max-w-[1100px] mx-auto text-center">
             <ScrollFadeText
               as="p"
@@ -88,7 +93,7 @@ export default function Home() {
         <Separator />
 
         {/* ── Stacked-card flipbook hero ── */}
-        <HeroFlipbookV4b fullHeight />
+        <HeroFlipbook fullHeight />
 
         {/* ── Latest from the Journal ── */}
         <section className="pt-16 md:pt-24 pb-16 md:pb-24">
@@ -187,8 +192,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Breather: mid-page pullquote + CTA ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-28 md:py-44">
+        {/* ── Breather: mid-page pullquote ── */}
+        <section className="px-10 md:px-12 lg:px-20 xl:px-28 py-28 md:py-44">
           <div className="max-w-[1100px] mx-auto text-center">
             <ScrollFadeText
               as="p"
@@ -197,11 +202,6 @@ export default function Home() {
             >
               &ldquo;In every handmade bowl, in every river, in every person you pass, a kokoro is waiting to be seen.&rdquo;
             </ScrollFadeText>
-            <FadeIn delay={200}>
-              <div className="mt-12 md:mt-16 inline-block">
-                <CtaLink href="/about">Our philosophy</CtaLink>
-              </div>
-            </FadeIn>
           </div>
         </section>
 

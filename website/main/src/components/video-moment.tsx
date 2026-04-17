@@ -1,44 +1,47 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 /*
-  A standalone cinematic video moment.
-  Portrait video centred in a rounded card frame with text alongside.
-  Used as a mid-page section to bring the AUWA character to life.
+  Meet AUWA video moment.
+  Portrait video in a rounded card with text alongside (desktop) or stacked
+  (mobile). A poster image sits behind the <video>; it fades out only once
+  the video fires its `playing` event, which prevents the momentary "flash"
+  of the raw video element's first frame on slower connections.
 */
 
+const VIDEO_SRC = "/hero/portrait.mp4";
+const POSTER_SRC = "/hero/poster-portrait.jpg";
+const ARTICLE_HREF = "/journal/the-beginning";
+
 export function VideoMoment() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [playing, setPlaying] = useState(false);
 
-  // Play/pause based on visibility
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
     );
-
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (isVisible) {
-      video.play().then(() => setPlaying(true)).catch(() => {});
-    } else {
-      video.pause();
-    }
+    [desktopVideoRef.current, mobileVideoRef.current].forEach((video) => {
+      if (!video) return;
+      if (isVisible) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
   }, [isVisible]);
 
   return (
@@ -49,95 +52,97 @@ export function VideoMoment() {
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: video card left, text right */}
         <div className="hidden md:grid grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Video card — links to the article */}
-          <a href="/journal/the-beginning" className="block relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
+          <Link
+            href={ARTICLE_HREF}
+            className="block relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
+          >
             <img
-              src="/hero/poster-portrait.jpg"
+              src={POSTER_SRC}
               alt="AUWA"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
                 playing ? "opacity-0" : "opacity-100"
               }`}
             />
             <video
-              ref={videoRef}
+              ref={desktopVideoRef}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
                 playing ? "opacity-100" : "opacity-0"
               }`}
-              poster="/hero/poster-portrait.jpg"
               loop
               muted
               playsInline
               preload="metadata"
+              onPlaying={() => setPlaying(true)}
             >
-              <source src="/hero/portrait.mp4" type="video/mp4" />
+              <source src={VIDEO_SRC} type="video/mp4" />
             </video>
-          </a>
+          </Link>
 
-          {/* Text */}
           <div className="flex flex-col justify-center">
             <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/35">
               Meet AUWA
             </span>
             <div className="mt-3 w-8 h-[1px] bg-void/12" />
-            <a href="/journal/the-beginning" className="block group/heading">
+            <Link href={ARTICLE_HREF} className="block group/heading">
               <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-void group-hover/heading:text-void/70 transition-colors duration-300">
                 The soul in all things.
               </h2>
-            </a>
+            </Link>
             <p className="mt-4 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/50 max-w-[380px]">
               A character from our illustrated stories who reveals what the world has been too busy to notice. AUWA appears in the stories and the app.
             </p>
-            <a
-              href="/journal/the-beginning"
+            <Link
+              href={ARTICLE_HREF}
               className="self-start inline-block mt-8 font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
             >
               The Story
-            </a>
+            </Link>
           </div>
         </div>
 
         {/* Mobile: stacked */}
         <div className="md:hidden flex flex-col items-center">
-          {/* Video card — links to article */}
-          <a href="/journal/the-beginning" className="block relative aspect-[9/16] w-full max-w-[300px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
+          <Link
+            href={ARTICLE_HREF}
+            className="block relative aspect-[9/16] w-full max-w-[300px] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
+          >
             <img
-              src="/hero/poster-portrait.jpg"
+              src={POSTER_SRC}
               alt="AUWA"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
                 playing ? "opacity-0" : "opacity-100"
               }`}
             />
             <video
+              ref={mobileVideoRef}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
                 playing ? "opacity-100" : "opacity-0"
               }`}
-              poster="/hero/poster-portrait.jpg"
-              autoPlay
               loop
               muted
               playsInline
               preload="metadata"
+              onPlaying={() => setPlaying(true)}
             >
-              <source src="/hero/portrait.mp4" type="video/mp4" />
+              <source src={VIDEO_SRC} type="video/mp4" />
             </video>
-          </a>
+          </Link>
 
-          {/* Text below */}
           <div className="mt-8 text-center">
             <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/35">
               Meet AUWA
             </span>
-            <a href="/journal/the-beginning" className="block">
+            <Link href={ARTICLE_HREF} className="block">
               <h2 className="mt-3 font-display text-[clamp(1.4rem,5vw,1.8rem)] leading-[1.15] tracking-[0.01em] text-void">
                 The soul in all things.
               </h2>
-            </a>
-            <a
-              href="/journal/the-beginning"
+            </Link>
+            <Link
+              href={ARTICLE_HREF}
               className="inline-block mt-5 font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
             >
               The Story
-            </a>
+            </Link>
           </div>
         </div>
       </div>
