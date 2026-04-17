@@ -180,7 +180,9 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
         style={{
-          transition: "transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease-out",
+          // Tailwind 4 uses the `translate` CSS property (not `transform`)
+          // for translate-y utilities, so the transition must target that.
+          transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease-out",
         }}
       >
         <div className="px-6 md:px-12 lg:px-20 xl:px-28">
@@ -233,30 +235,37 @@ export function Header({ disableFlipbookStick = false, transparent = false }: He
               overlay as soon as it starts fading in.
             */}
             <button
-              className={`md:hidden p-2 -mr-2 relative z-[60] cursor-pointer transition-colors duration-300 ease-out ${
-                buttonIsLight ? "text-white" : "text-void"
-              }`}
+              className="md:hidden p-2 -mr-2 relative z-[60] cursor-pointer"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
+              style={{
+                color: buttonIsLight ? "#ffffff" : "oklch(0.08 0.025 250)",
+                transition: "color 300ms ease-out",
+              }}
             >
               <div className="w-[24px] h-[16px] relative">
                 <span
-                  className="absolute left-0 w-full h-[2px] bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="absolute left-0 w-full h-[2px] bg-current"
                   style={{
                     top: menuOpen ? "7px" : "0px",
                     transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
+                    transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 />
                 <span
-                  className="absolute left-0 top-[7px] w-full h-[2px] bg-current transition-opacity duration-200"
-                  style={{ opacity: menuOpen ? 0 : 1 }}
+                  className="absolute left-0 top-[7px] w-full h-[2px] bg-current"
+                  style={{
+                    opacity: menuOpen ? 0 : 1,
+                    transition: "opacity 200ms ease-out",
+                  }}
                 />
                 <span
-                  className="absolute left-0 w-full h-[2px] bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="absolute left-0 w-full h-[2px] bg-current"
                   style={{
                     top: menuOpen ? "7px" : "14px",
                     transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
+                    transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 />
               </div>
