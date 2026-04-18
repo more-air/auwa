@@ -104,7 +104,7 @@ export default function AboutPage() {
                 Rieko Maeda
               </h3>
               <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-                Japanese designer and illustrator, also known as Eko. Creator of the AUWA illustrated universe: years of quiet devotion to stories about a character who reveals the kokoro in all things. Raised in Japan, where the philosophy of kokoro is lived rather than studied. Co-founder of the design studio More Air, and the Japanese voice behind AUWA&rsquo;s store, working with craftsmen across Japan. The heart, the hand, and the cultural anchor of AUWA.
+                Japanese designer and illustrator, also known as Eko. Creator of the AUWA illustrated universe: years of quiet devotion to stories about a character who reveals the kokoro in all things. Raised in Japan, where the philosophy of kokoro is lived rather than studied. Co-founder of the design studio More Air, and the Japanese voice behind AUWA&rsquo;s store, working with craftsmen across Japan. The heart and the hand of AUWA.
               </p>
             </div>
           </FadeIn>
