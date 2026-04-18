@@ -530,8 +530,8 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/the-onsen-lesson/the-onsen-lesson-bath.jpg",
-        alt: "A woman soaking in a natural rock onsen bath, warm light filtering through wooden slats above",
-        caption: "A private rotenburo carved from natural rock. The water comes from deep underground, the same source that feeds the village.",
+        alt: "Yunomine Onsen, a historic hot spring town in Wakayama Prefecture",
+        caption: "Yunomine Onsen, located in Hongucho, Tanabe, Wakayama Prefecture, is a historic, UNESCO-listed hot spring town.",
       },
       {
         type: "text",
