@@ -98,7 +98,7 @@ export default function AboutPage() {
           <FadeIn delay={200}>
             <div id="rieko" className="mt-12 scroll-mt-24 md:scroll-mt-28">
               <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
-                Creator · Eshi
+                Creator
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
                 Rieko Maeda
@@ -112,13 +112,13 @@ export default function AboutPage() {
           <FadeIn delay={300}>
             <div id="tom" className="mt-12 scroll-mt-24 md:scroll-mt-28">
               <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
-                Producer · Hanmoto
+                Producer
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
                 Tom Vining
               </h3>
               <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-                British designer, strategist, and photographer. Twenty years building products in the tech industry, beginning with a Japanese multi-merchant platform in the mid-2000s. Fifteen years photographing Japan, published by Cond&eacute; Nast Traveler, Vogue, and Timeout. The photography on this site is his. Co-founder of the design studio More Air, building the systems, the brand, and the business that bring AUWA&rsquo;s world to life. The producer to Rieko&rsquo;s creator.
+                British designer, strategist, and photographer. Twenty years building products in the tech industry, beginning with a Japanese multi-merchant platform in the mid-2000s. Fifteen years photographing Japan, published by Cond&eacute; Nast Traveler, Vogue, and Timeout. The photography on this site is his. Co-founder of the design studio More Air, building the systems, the brand, and the business that bring AUWA&rsquo;s world to life.
               </p>
             </div>
           </FadeIn>
