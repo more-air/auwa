@@ -97,9 +97,6 @@ export default function AboutPage() {
 
           <FadeIn delay={200}>
             <div id="rieko" className="mt-12 scroll-mt-24 md:scroll-mt-28">
-              <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
-                Creator
-              </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
                 Rieko Maeda
               </h3>
@@ -111,9 +108,6 @@ export default function AboutPage() {
 
           <FadeIn delay={300}>
             <div id="tom" className="mt-12 scroll-mt-24 md:scroll-mt-28">
-              <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
-                Producer
-              </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
                 Tom Vining
               </h3>
