@@ -118,7 +118,7 @@ export default function AboutPage() {
                 Tom Vining
               </h3>
               <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-                British designer, strategist, and photographer. Twenty years building products in the tech industry, beginning with a Japanese multi-merchant platform in the mid-2000s. Fifteen years photographing Japan, published by Cond&eacute; Nast Traveler, Vogue, and Timeout. The photography on this site is his. Co-founder of the design studio More Air, building the systems, the brand, and the business that bring AUWA&rsquo;s world to life.
+                British designer, strategist, and photographer. Twenty years building products in the tech industry, beginning with a Japanese multi-merchant platform in the mid-2000s. Fifteen years photographing Japan, published by Cond&eacute; Nast Traveler, Vogue, and Timeout. The photos you see here are his own. Co-founder of the design studio More Air, building the systems, the brand, and the business that bring AUWA&rsquo;s world to life.
               </p>
             </div>
           </FadeIn>
