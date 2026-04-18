@@ -16,7 +16,7 @@ const articles: { title: string; excerpt: string; category: string; slug: string
   { title: "Nozawa Fire Festival", excerpt: "On the night a village tried to burn down a shrine.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
   { title: "Oroku-gushi", excerpt: "Made from wood that breaks axes. Named after a girl.", category: "Craft", slug: "oroku-gushi", image: "/journal/oroko/oroko-hero.jpg" },
   { title: "Koya-san", excerpt: "Prayers chanted on this mountain for 1,200 years.", category: "Travel", slug: "koya-san", image: "/journal/koya-san/koya-san-hero.jpg" },
-  { title: "72 Seasons", excerpt: "The calendar nobody follows and the world forgot.", category: "Seasons", slug: "72-seasons", image: "/journal/72-seasons/72-seasons-hero.jpg" },
+  { title: "72 Seasons", excerpt: "Five-day seasons, each one worth noticing.", category: "Seasons", slug: "72-seasons", image: "/journal/72-seasons/72-seasons-hero.jpg" },
   { title: "The Onsen Lesson", excerpt: "What hot water and strangers teach about being alive.", category: "Philosophy", slug: "the-onsen-lesson", image: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg" },
   { title: "Making Washi", excerpt: "Cold water, mulberry bark, a thousand-year gesture.", category: "Craft", slug: "making-washi", image: "/journal/washi/washi-hero.jpg" },
   { title: "Narai in Snow", excerpt: "Four hundred years of the same street, unchanged.", category: "Travel", slug: "narai-juku", image: "/journal/narai-juku/narai-juku-hero.jpg" },

@@ -434,7 +434,7 @@ const articles: Record<
   },
   "72-seasons": {
     title: "72 Seasons",
-    subtitle: "The calendar nobody follows and the world forgot.",
+    subtitle: "Five-day seasons, each one worth noticing.",
     category: "Seasons",
     issue: "Issue 05",
     author: "Tom Vining",

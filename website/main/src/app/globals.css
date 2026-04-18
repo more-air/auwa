@@ -127,6 +127,12 @@ a:hover img {
   transform: scale(1.04);
 }
 
+/* The header logo is a wordmark, not editorial imagery — keep it still on
+   hover (only the filter transition for the invert swap still applies). */
+header a:hover img {
+  transform: none;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
