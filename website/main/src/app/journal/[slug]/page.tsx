@@ -1233,9 +1233,7 @@ export default async function ArticlePage({
                 )}
               </p>
               <p className="mt-2 font-display italic text-[15px] leading-[1.5] text-void/45">
-                {article.author === "Rieko Maeda"
-                  ? "Creator of the AUWA illustrated world"
-                  : "Producer and co-founder of AUWA"}
+                Co-founder of AUWA
               </p>
             </div>
           </div>
