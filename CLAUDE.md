@@ -28,7 +28,7 @@ Curated multi-merchant marketplace for Japanese craftsman products — knives, c
 Editorial content. Travel stories, craftsman profiles, onsen retreats, seasonal living, Japanese philosophy in practice. Written by Tom and Rieko from their own experiences in Japan. Builds brand authority, drives SEO, feeds Instagram content, and serves as a portfolio when approaching craftsman partners. The editorial voice that makes the brand feel alive between product launches.
 
 ### AUWA Book (auwa.life/book)
-The illustrated story universe. The four stories, the WAWA origin, the philosophy, creator bios. The canonical source of the AUWA universe. This is where the deeper mythology lives — for those who want to go deeper.
+The illustrated story universe. A series of illustrated stories, the WAWA origin, the philosophy, creator bios. The canonical source of the AUWA universe. This is where the deeper mythology lives — for those who want to go deeper.
 
 ---
 
@@ -152,7 +152,7 @@ Following the traditional Japanese ukiyo-e model (artist + publisher as equal pa
 
 ## THE HIERARCHY OF VALUE
 
-1. **Permanent, uncopyable:** Rieko's original art + manuscripts, the 4 illustrated stories, the AUWA name and etymology (あうわ), Yaoyorozu no Kami foundation, proprietary Yamato emotional framework, Rieko's identity as Japanese creator, craftsman relationships
+1. **Permanent, uncopyable:** Rieko's original art + manuscripts, a series of illustrated stories, the AUWA name and etymology (あうわ), Yaoyorozu no Kami foundation, proprietary Yamato emotional framework, Rieko's identity as Japanese creator, craftsman relationships
 2. **Valuable, adaptable:** Refreshed illustration library, character designs, seasonal content system, brand identity, store curation and presentation
 3. **Useful today, potentially commoditised tomorrow:** The app, the tech stack, the AI reflection engine, the Shopify store platform
 
@@ -188,6 +188,7 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 - `context/editorial.md` — Editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan.
 - `context/newsletter.md` — Newsletter system: welcome email templates (auto-sent per source), newsletter template (manual send via API), sending workflow, email design principles, subject line format, Resend configuration, cadence guidance.
 - `context/structure.md` — Business structure, IP & legal: corporate entities (AUWA Limited + More Air Limited), directors, shareholders, ownership chain, all trademark filings (word mark UK00004341028 + UK00004373944, design mark UK00004373930), 7 Nice classes, Madrid Protocol deadline (15 Aug 2026), copyright, licensing agreements, domains, social handles, costs, key dates, open actions.
+- `context/arrival.md` — Arrival strategy (the 12-month brand launch): why "arrival" not "launch," the four phases (Quiet Debut / Selective Amplification / App Soft Launch / Store Prep), the next 30 days priority list, full channel strategy (IG primary, LinkedIn secondary, Awwwards, guest articles, link-building, press, newsletter), £2-3K marketing budget allocation, first Instagram post spec, the three forks (app vs store, book timing, character exclusivity), Year 1 and Year 2 success pictures.
 
 Previous context summaries archived in `context/archive/`.
 
@@ -288,6 +289,7 @@ Then move the output: `mv context/[file].pdf documents/AUWA-[Name].pdf`
 - `context/business.md` → `documents/AUWA-Business-Plan.pdf`
 - `context/competitors.md` → `documents/AUWA-Competitors.pdf`
 - `context/instagram.md` → `documents/AUWA-Instagram-Strategy.pdf`
+- `context/arrival.md` → `documents/AUWA-Arrival.pdf`
 - `context/japan.md` → `documents/AUWA-Japan-Market.pdf`
 - `context/manifesto.md` → `documents/AUWA-Manifesto.pdf`
 - `context/reference.md` → `documents/AUWA-Reference.pdf`

@@ -16,7 +16,7 @@ Where Western wellness centres on the self, AUWA draws from Japanese collectivis
 1. **Kokoro Mirror** (auwa.life/app) — A daily awareness practice. AI-powered emotional reflection that reveals your kokoro through poetic language and Rieko's illustrated characters.
 2. **AUWA Store** (auwa.life/store) — Curated Japanese craftsman marketplace. Lifetime products made by master artisans, shipped direct from Japan. Plus AUWA's own collectible figures.
 3. **AUWA Journal** (auwa.life/journal) — Editorial content. Travel stories, craftsman profiles, seasonal essays, onsen retreats. Photography-led, long-form, SEO-rich.
-4. **AUWA Book** (auwa.life/book) — The illustrated story universe. Four stories created over a decade by Rieko Vining, grounded in Japanese philosophy.
+4. **AUWA Book** (auwa.life/book) — The illustrated story universe. Four stories created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy.
 
 These are not four separate products — they're one world experienced through four doors. The app builds emotional awareness, the store cultivates material awareness (choosing intention over convenience, craft over disposability), the journal builds cultural awareness (seeing Japan through a philosophical lens, not a tourist one), and the book teaches philosophical awareness (seeing the kokoro in all things through narrative).
 
@@ -178,7 +178,7 @@ The canonical home of the AUWA universe and the illustrated stories. Hub linking
 
 **The AUWA Universe:** AUWA originates from WAWA, a harmonious solar system deep within the Milky Way. When its inhabitants received a mysterious signal from Earth, they channelled energy to form a glowing orb of pure light. From this orb emerged AUWA — a being whose magical light shower reveals the kokoro within every living creature. AUWA communicates through telepathy: gentle, observant, non-judgmental. This mythology enriches the stories and gives depth to the app, but it lives here — in the book section — not in brand communications. The Monocle reader encounters philosophy and craft; those who go deeper find a cosmic story.
 
-**The Four Illustrated Stories (2015-2025):** Created by Rieko Vining over a decade of development. Never published. Being prepared for digital release as illustrated art stories, with limited-edition physical versions to follow. Released over time within the app as narrative segments unlocked through continued engagement.
+**The Four Illustrated Stories (2015-2025):** Created by Rieko Maeda over a decade of development. Never published. Being prepared for digital release as illustrated art stories, with limited-edition physical versions to follow. Released over time within the app as narrative segments unlocked through continued engagement.
 
 1. **The Beginning** — AUWA arrives on Earth, discovers a quiet forest where a lonely blue flower (Bluu) shares memories of a diminished ecosystem. Light shower reveals kokoro within flower and surrounding microbes.
 2. **Umi (Ocean)** — AUWA explores beneath the waves, meeting Key the coral, Lady the fish, and Rai the turtle. Ocean damaged by pollution. AUWA's light restores the sea and leads to the ancient Coral Paradise.
@@ -387,10 +387,10 @@ Year 1 is an investment year funded by More Air client work. Self-sustaining thr
 
 Following the traditional Japanese ukiyo-e model (artist + publisher as equal partnership). Tsutaya Juzaburo is the historical precedent.
 
-**Rieko Vining, Creator (Eshi):** Japanese-born illustrator from Kansai. Creator of the AUWA universe (2015-2025). Native Japanese speaker. 20+ years design and illustration.
+**Rieko Maeda, Creator (Eshi):** Japanese-born illustrator from Kansai, also known by her artist name Eko. Creator of the AUWA universe (2015-2025). Native Japanese speaker. 20+ years design and illustration. (Legal name: Rieko Vining.)
 Year 1: 4 AUWA character variants, seasonal content (social + copy + audio in Suno), figure design, creative direction.
 
-**Thomas Vining, Producer (Hanmoto):** Design technologist and brand strategist. 20+ years experience (Nokia, Apple, Sky). Built and operated a Japanese multi-merchant platform (2005-2007) selling Japanese design objects to Western buyers — including distributing KAWS's first international releases. Published photographer whose Japan work has 17M+ views on Unsplash and has been used by Condé Nast Traveler, Vogue, World Economic Forum, Travel + Leisure, TimeOut, and Culture Trip. Expert in AI-native workflows.
+**Tom Vining, Producer (Hanmoto):** Design technologist and brand strategist. 20+ years experience (Nokia, Apple, Sky). Built and operated a Japanese multi-merchant platform (2005-2007) selling Japanese design objects to Western buyers — including distributing KAWS's first international releases. Published photographer whose Japan work has 17M+ views on Unsplash and has been used by Condé Nast Traveler, Vogue, World Economic Forum, Travel + Leisure, TimeOut, and Culture Trip. Expert in AI-native workflows.
 Year 1: App design and build, brand, business development, financials, marketing, project oversight.
 
 **Capacity:** Tuesday-Friday (3-4 day week, 10am-6pm). AUWA gets 60%, More Air 25%, ventures 10%. Shifts toward AUWA as revenue grows. No work Monday.
@@ -446,7 +446,7 @@ As AI accelerates and automates more of life's cognitive tasks, the human layer 
 ## Key Contacts
 
 - Tom Vining, Producer: tom@moreair.co
-- Rieko Vining, Creator: rieko@moreair.co
+- Rieko Maeda, Creator: rieko@moreair.co
 - AUWA: auwa.life (auwalife.com mirror)
 - More Air: moreair.co
 - Contact: hello@auwa.life

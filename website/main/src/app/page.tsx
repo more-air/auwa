@@ -63,7 +63,7 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-void"
             >
-              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of restoring awareness to a distracted world. AUWA expresses this through four things: a journal from Japan, a daily awareness practice, a store of craftsman objects, and an illustrated world.
+              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
@@ -156,7 +156,7 @@ export default function Home() {
 
         <MicroSeasonFeature />
 
-        {/* ── Waitlist: three pillars ── */}
+        {/* ── What we're making: three pillars ── */}
         <section className="pt-16 md:pt-24 pb-16 md:pb-24">
           <div className="px-6 md:px-12 lg:px-20 xl:px-28">
             <div className="w-full h-[1px] bg-void/10" />
@@ -164,7 +164,7 @@ export default function Home() {
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 mt-8 md:mt-10 mb-10 md:mb-14">
             <FadeIn>
               <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void">
-                Waitlist
+                What we&rsquo;re making
               </h2>
             </FadeIn>
           </div>

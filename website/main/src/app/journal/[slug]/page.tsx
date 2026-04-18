@@ -32,8 +32,8 @@ const articles: Record<
     subtitle: "On the island where the trees outlived history.",
     category: "Travel",
     issue: "Issue 08",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/yakushima-island/yakushima-island-hero.jpg",
     content: [
@@ -43,7 +43,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We had been walking for two hours along the Shiratani Unsuikyo trail. The path, such as it was, moved between granite boulders wrapped in moss so deep it looked like upholstery. Roots crossed the trail in thick tangles, some of them exposed and polished smooth by decades of hikers, others hidden beneath the moss layer, waiting to catch a boot. My partner walked ahead. She had not spoken in some time. There was nothing to say that the forest was not already saying.",
+        text: "We had been walking for two hours along the Shiratani Unsuikyo trail. The path, such as it was, moved between granite boulders wrapped in moss so deep it looked like upholstery. Roots crossed the trail in thick tangles, some of them exposed and polished smooth by decades of hikers, others hidden beneath the moss layer, waiting to catch a boot. Rieko walked ahead. She had not spoken in some time. There was nothing to say that the forest was not already saying.",
       },
       {
         type: "text",
@@ -117,8 +117,8 @@ const articles: Record<
     subtitle: "Prayers chanted on this mountain for 1,200 years.",
     category: "Travel",
     issue: "Issue 06",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/koya-san/koya-san-hero.jpg",
     content: [
@@ -203,7 +203,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Neither of us spoke much. There is a particular kind of quiet that follows sustained attention. Not tired, not reflective exactly. More like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. My partner leaned against the window and closed her eyes. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
+        text: "Neither of us spoke much. There is a particular kind of quiet that follows sustained attention. Not tired, not reflective exactly. More like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. Rieko leaned against the window and closed her eyes. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
       },
     ],
   },
@@ -212,8 +212,8 @@ const articles: Record<
     subtitle: "On the night a village tried to burn down a shrine.",
     category: "Seasons",
     issue: "Issue 09",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-01-15",
     heroImage: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg",
     content: [
@@ -285,8 +285,8 @@ const articles: Record<
     subtitle: "Cold water, mulberry bark, a thousand-year gesture.",
     category: "Craft",
     issue: "Issue 03",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/washi/washi-hero.jpg",
     content: [
@@ -306,7 +306,7 @@ const articles: Record<
         type: "image",
         src: "/journal/washi/washi-rieko.jpg",
         alt: "Dipping a wooden sugeta frame into the vat of mulberry pulp at Shinshu Matsuzaki workshop",
-        caption: "At the vat. The A4 sized frame for the full course, the same motion the workshop has practised since 1042.",
+        caption: "Rieko at the vat. The A4 sized frame for the full course, the same motion the workshop has practised since 1042.",
       },
       {
         type: "text",
@@ -318,7 +318,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Then it was our turn. My partner stepped up to a smaller vat with an A4 sized frame. The motion looks simple when Matsuzaki-san does it. It is not simple. The pulp has a weight and a will. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. She found it after a few attempts.",
+        text: "Then it was our turn. Rieko stepped up to a smaller vat with an A4 sized frame. The motion looks simple when Matsuzaki-san does it. It is not simple. The pulp has a weight and a will. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. She found it after a few attempts.",
       },
       {
         type: "text",
@@ -368,8 +368,8 @@ const articles: Record<
     subtitle: "Made from wood that breaks axes. Named after a girl.",
     category: "Craft",
     issue: "Issue 07",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/oroko/oroko-hero.jpg",
     content: [
@@ -428,7 +428,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "My partner uses it most mornings. Sure enough, her hair looks shinier and healthier than it ever did. I\u2019m envious. Next time we\u2019re in Nagano, I\u2019m buying one for myself.",
+        text: "Rieko uses it most mornings. Sure enough, her hair looks shinier and healthier than it ever did. I\u2019m envious. Next time we\u2019re in Nagano, I\u2019m buying one for myself.",
       },
     ],
   },
@@ -437,8 +437,8 @@ const articles: Record<
     subtitle: "The calendar nobody follows and the world forgot.",
     category: "Seasons",
     issue: "Issue 05",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/72-seasons/72-seasons-hero.jpg",
     content: [
@@ -484,7 +484,7 @@ const articles: Record<
         type: "image-pair",
         images: [
           { src: "/journal/72-seasons/72-seasons-veranda.jpg", alt: "A temple veranda with red felt over tatami mats, afternoon sunlight casting geometric shadows, an autumn garden beyond", caption: "Afternoon light on the veranda. The red felt, the tatami, the garden turning. A room built for looking outward." },
-          { src: "/journal/72-seasons/72-seasons-engawa.jpg", alt: "Two people sitting on a wooden engawa looking out at bamboo and autumn foliage in a temple garden", caption: "The same garden, inhabited. Paying attention is not a solo practice." },
+          { src: "/journal/72-seasons/72-seasons-engawa.jpg", alt: "Rieko and Tom sitting on a wooden engawa looking out at bamboo and autumn foliage in a temple garden", caption: "Rieko and I on the engawa. Paying attention is not a solo practice." },
         ],
       },
       {
@@ -510,14 +510,14 @@ const articles: Record<
     subtitle: "What hot water and strangers teach about being alive.",
     category: "Philosophy",
     issue: "Issue 04",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg",
     content: [
       {
         type: "text",
-        text: "The first time I entered a Japanese onsen, I had been told the rules. Wash before you get in. Small towel on your head, not in the water. Keep your voice low. My partner had walked me through it, and I followed every step. None of that prepared me for how good it felt.",
+        text: "The first time I entered a Japanese onsen, I had been told the rules. Wash before you get in. Small towel on your head, not in the water. Keep your voice low. Rieko had walked me through it, and I followed every step. None of that prepared me for how good it felt.",
       },
       {
         type: "text",
@@ -574,7 +574,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "My partner grew up with this. Not as ordinary life, but as something her family treasured. Her father worked long hours, and the rhythm of daily life left little room for stillness. But from time to time, the family would travel to an onsen town. A hot spring trip. She remembers those visits with a warmth that has nothing to do with temperature.",
+        text: "Rieko grew up with this. Not as ordinary life, but as something her family treasured. Her father worked long hours, and the rhythm of daily life left little room for stillness. But from time to time, the family would travel to an onsen town. A hot spring trip. She remembers those visits with a warmth that has nothing to do with temperature.",
       },
       {
         type: "text",
@@ -599,8 +599,8 @@ const articles: Record<
     subtitle: "On waiting two years for a knife, and what arrived.",
     category: "Craft",
     issue: "Issue 01",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/shigefusa/shigefusa-hero.jpg",
     content: [
@@ -676,8 +676,8 @@ const articles: Record<
     subtitle: "Four hundred years of the same street, unchanged.",
     category: "Travel",
     issue: "Issue 02",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/narai-juku/narai-juku-hero.jpg",
     content: [
@@ -763,8 +763,8 @@ const articles: Record<
     subtitle: "Light in a dark forest. A dream that wouldn't let go.",
     category: "Philosophy",
     issue: "Issue 11",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Rieko Maeda",
+    photographer: "Rieko Maeda",
     publishedAt: "2026-04-10",
     heroImage: "/journal/auwa-book/auwa-book-hero.jpg",
     content: [
@@ -844,8 +844,8 @@ const articles: Record<
     subtitle: "Eight million gods. Even in things you overlook.",
     category: "Philosophy",
     issue: "Issue 10",
-    author: "AUWA",
-    photographer: "AUWA",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg",
     content: [
@@ -883,7 +883,7 @@ const articles: Record<
         type: "image-pair",
         images: [
           { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-gate.jpg", alt: "The red zuijinmon gate of Togakushi Shrine with shimenawa rope, framing a snow-covered path lined with ancient cedar trees receding into the distance", caption: "The gate at Togakushi. Beyond it, the cedar avenue where four centuries of trees stand in deep snow." },
-          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-prayer.jpg", alt: "A woman in a dark coat and white hat standing in prayer at a wooden shrine building with shimenawa rope and shide streamers, snow on the ground and ancient cedars behind", caption: "At the shrine. Not performing. Participating in something passed down through generations." },
+          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-prayer.jpg", alt: "Rieko in a dark coat and white hat standing in prayer at a wooden shrine building with shimenawa rope and shide streamers, snow on the ground and ancient cedars behind", caption: "Rieko at the shrine. Not performing. Participating in something passed down through generations." },
         ],
       },
       {
@@ -908,8 +908,8 @@ const fallbackArticle = {
   subtitle: "A lifetime spent perfecting a single blade.",
   category: "Craft",
   issue: "Issue 02",
-  author: "AUWA",
-  photographer: "AUWA's creator",
+  author: "Tom Vining",
+  photographer: "Tom Vining",
   publishedAt: "2026-04-09",
   heroImage: null,
   content: [
@@ -985,7 +985,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
     return (
       <FadeIn key={i} delay={Math.min(i * 30, 200)}>
         <blockquote className="my-12 md:my-16">
-          <p className="font-display italic text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-void">
+          <p className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-void">
             &ldquo;{block.text}&rdquo;
           </p>
         </blockquote>
@@ -1206,6 +1206,40 @@ export default async function ArticlePage({
             return null;
           })}
         </article>
+
+        {/* ── Byline ── */}
+        <FadeIn>
+          <div className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 pb-16 md:pb-24">
+            <div className="pt-8 border-t border-void/8 max-w-[90%]">
+              <p className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/50">
+                {article.author === "Rieko Maeda" ? (
+                  <>
+                    Words by{" "}
+                    <Link href="/about#rieko" className="text-void/80 hover:text-void transition-colors duration-300">
+                      Rieko Maeda
+                    </Link>
+                    {" · Photos by "}
+                    <Link href="/about#tom" className="text-void/80 hover:text-void transition-colors duration-300">
+                      Tom Vining
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    Words &amp; photos by{" "}
+                    <Link href="/about#tom" className="text-void/80 hover:text-void transition-colors duration-300">
+                      Tom Vining
+                    </Link>
+                  </>
+                )}
+              </p>
+              <p className="mt-2 font-display italic text-[15px] leading-[1.5] text-void/45">
+                {article.author === "Rieko Maeda"
+                  ? "Creator of the AUWA universe"
+                  : "Producer and co-founder of AUWA"}
+              </p>
+            </div>
+          </div>
+        </FadeIn>
 
         {/* ── Divider ── */}
         <div className="px-6 md:px-12 lg:px-20 xl:px-28">

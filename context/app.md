@@ -57,7 +57,7 @@ Five minutes. Once a day (or whenever you need it). No streaks, no badges, no pu
 - Unlimited revelations
 - Full Kokoro Archive with pattern insights
 - Shareable kokoro cards (premium designs)
-- Story unlocks (narrative segments from AUWA's 4 illustrated stories)
+- Story unlocks (narrative segments from AUWA's series of illustrated stories)
 - Early access to figure drops
 - Year in Kokoro review (annual)
 
@@ -211,7 +211,7 @@ Memory is observation, not therapy. Never: "Last time you were sad — are you f
 - "Year in Kokoro" annual review (paid tier, Month 6+ feature)
 
 ### 5.7 Story Unlocks
-- Narrative segments from AUWA's 4 illustrated stories
+- Narrative segments from AUWA's series of illustrated stories
 - Unlocked through continued engagement (5th revelation: Story 1, Chapter 1; etc.)
 - Full-screen illustrated reading experience
 - Paid tier only

@@ -48,9 +48,13 @@ export function Footer() {
             <span className="block font-sans text-[12px] tracking-[0.18em] uppercase mb-5 text-white/50">
               Newsletter
             </span>
-            <h2 className="font-display text-[28px] md:text-[34px] leading-[1.2] tracking-[0.005em] text-white">
+            <h2 className="font-display text-[26px] md:text-[34px] leading-[1.2] tracking-[0.005em] text-white">
               Quiet letters.{" "}
-              <span className="text-white/55">Seasonal essays, craftsman stories, and early news of everything we make.</span>
+              <span className="text-white/55">
+                Seasonal essays,<br className="md:hidden" />
+                {" "}craftsman stories, and early news<br className="md:hidden" />
+                {" "}of everything we make.
+              </span>
             </h2>
             <div className="mt-8">
               <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" successMessage="Something quiet is on its way." />

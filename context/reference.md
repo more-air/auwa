@@ -13,7 +13,7 @@
 
 **Timeline:** ~10-12 working days. Style lock 2 days, batch generation 3 days, Rieko curation + refinement 4-5 days, batch resize half day.
 
-**Authenticity protocol:** Always credit Rieko as creator ("Illustrated by Rieko Vining, produced with AI tools"). Social mix: polished AI-assisted cards + Rieko's hand-drawing process. Original manuscripts preserved for exhibition/proof.
+**Authenticity protocol:** Always credit Rieko as creator ("Illustrated by Rieko Maeda, produced with AI tools", or "Eko" for art-only credits). Social mix: polished AI-assisted cards + Rieko's hand-drawing process. Original manuscripts preserved for exhibition/proof.
 
 **Crossover audience:** Illustration style looks like "children's book" but reaches adults because it disarms and bypasses cynicism. Precedents: Charlie Mackesy (7M copies, Oscar-winning film), Oliver Jeffers, Studio Ghibli, Moomin. The format is a Trojan horse for philosophy.
 

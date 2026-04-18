@@ -244,9 +244,12 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                     isActive ? "cursor-pointer" : "pointer-events-none"
                   }`}
                   style={{
-                    transform: `translateY(${translateY}vh) scale(${scaleX}, ${scale})`,
+                    transform: `translate3d(0, ${translateY}vh, 0) scale(${scaleX}, ${scale})`,
                     zIndex,
                     opacity,
+                    willChange: "transform, opacity",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
                     transition: "transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease-out",
                   }}
                   tabIndex={isActive ? 0 : -1}
@@ -294,9 +297,12 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                       isActive ? "" : "pointer-events-none"
                     }`}
                     style={{
-                      transform: `translateY(${translateY}vh) scale(${scaleX}, ${scale})`,
+                      transform: `translate3d(0, ${translateY}vh, 0) scale(${scaleX}, ${scale})`,
                       zIndex,
                       opacity,
+                      willChange: "transform, opacity",
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
                       transition: "transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease-out",
                     }}
                     tabIndex={isActive ? 0 : -1}

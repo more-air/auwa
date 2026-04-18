@@ -94,6 +94,34 @@ export default function AboutPage() {
               AUWA is made by two people. A Japanese and a British designer who have spent twenty years working together across technology and design, and travelling Japan. After many years, AUWA is the thing they always wanted to create: illustration, photography, writing, product design, all in service of something they believe in.
             </p>
           </FadeIn>
+
+          <FadeIn delay={200}>
+            <div id="rieko" className="mt-12 scroll-mt-24 md:scroll-mt-28">
+              <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
+                Creator · Eshi
+              </p>
+              <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
+                Rieko Maeda
+              </h3>
+              <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
+                Japanese designer and illustrator, also known as Eko. Creator of the AUWA illustrated universe: years of quiet devotion to stories about a character who reveals the kokoro in all things. Raised in Japan, where the philosophy of kokoro is lived rather than studied. Co-founder of the design studio More Air, and the Japanese voice behind AUWA&rsquo;s store, working with craftsmen across Japan. The heart, the hand, and the cultural anchor of AUWA.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={300}>
+            <div id="tom" className="mt-12 scroll-mt-24 md:scroll-mt-28">
+              <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
+                Producer · Hanmoto
+              </p>
+              <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
+                Tom Vining
+              </h3>
+              <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
+                British designer, strategist, and photographer. Twenty years building products in the tech industry, beginning with a Japanese multi-merchant platform in the mid-2000s. Fifteen years photographing Japan, published by Cond&eacute; Nast Traveler, Vogue, and Timeout. The photography on this site is his. Co-founder of the design studio More Air, building the systems, the brand, and the business that bring AUWA&rsquo;s world to life. The producer to Rieko&rsquo;s creator.
+              </p>
+            </div>
+          </FadeIn>
         </section>
 
         {/* Contact */}

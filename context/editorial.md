@@ -37,7 +37,7 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 - Treats Japanese cultural concepts with familiarity, not exoticism. Brief glosses where helpful, never italicised for effect.
 - Trusts silence. Not every paragraph needs to advance an argument. Some paragraphs simply describe.
 
-**Anonymity:** No personal names (Tom, Rieko, Vining) in any public-facing content. Within article text, use "she"/"her" for the creator, "he"/"him" for the producer, "my partner" where a relationship reference is needed. Image captions and alt text must also be anonymised. Author field is "AUWA". No byline display.
+**Attribution (updated April 2026):** Articles are credited to Rieko Maeda and Tom Vining, as both writers and photographers. The earlier anonymity preference has been retired. Use real names freely within article text where the writer refers to themselves or their partner ("my wife," "we," "Rieko," "Tom" are all fine). Image captions and alt text can name people naturally. Author field on the site is "Tom and Rieko" or split where one led a piece. Photography credit defaults to Tom unless otherwise stated.
 
 **Philosophy and accuracy:**
 - AUWA is "influenced by" the ancient Japanese belief that a life force resides in all things. Never "rooted in Shinto" or presented as a Shinto brand.

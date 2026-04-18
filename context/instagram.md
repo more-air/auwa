@@ -172,9 +172,27 @@ Key principles:
 
 ### Phase 1: Relaunch (Weeks 1-4)
 
-**First post (Week 1, Monday):** The AUWA face video from the website hero. A Reel. Caption short, warm, unapologetic. Don't explain the archive or the hiatus. Three sentences maximum. Suggested draft:
+**First post (Week 1, Monday):** The AUWA face video from the website hero. Post as a **Reel** (not a Story, not a feed post). A Reel is the only format that plays on the Reels tab for non-follower discovery, autoposts to the grid, and gets re-served to users across sessions. Stories disappear in 24 hours and don't reach new audiences; single-image feed posts have a fraction of Reel reach.
 
-*"Hello. Kokoro (心) is the Japanese word for heart, mind and spirit held as one — the quality you sense in a handmade knife, in a season you almost missed, in your own feelings when you stop long enough to notice. auwa.life."*
+**Caption (three sentences, no em dashes):**
+
+*"Hello. Kokoro (心) is the Japanese word for heart, mind and spirit held as one. The quality you sense in a handmade knife, in a season you almost missed, in your own feelings when you stop long enough to notice. auwa.life."*
+
+Don't explain the archive or the hiatus. No "we're back," no "exciting things coming." Just presence.
+
+**Hashtags (in caption, not first comment):**
+
+`#AUWA #kokoro #japanesephilosophy #slowliving #japaneseaesthetic`
+
+Five hashtags: one branded, one niche, two mid-range, one broad. Refine over the first month based on which reach the right audience.
+
+**Share to Story with a link sticker, immediately after posting.** Stories support link stickers (since 2021). Tap "Add yours" or the link sticker, point it to auwa.life, publish. This gives the Reel dual life: Reel drives reach and grid visibility, Story drives direct traffic to the site.
+
+If Instagram's native "Add link" feature on Reels is available to the account (available to many business accounts), add auwa.life there too. The Reel caption should also say "link in bio" for anyone who sees it via the Reels tab.
+
+**Pin the post to the top of the grid** and leave it there for at least two weeks, so every new profile visitor lands on it before anything else.
+
+**Do not post anything else on Day 1.** Let it breathe. The next post (character Reel or editorial slideshow) arrives mid-week per the weekly cadence above.
 
 The 700 existing followers get a gentle re-anchor. New visitors get a self-contained introduction. The video carries the emotional weight.
 
