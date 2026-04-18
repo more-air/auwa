@@ -484,7 +484,7 @@ const articles: Record<
         type: "image-pair",
         images: [
           { src: "/journal/72-seasons/72-seasons-veranda.jpg", alt: "A temple veranda with red felt over tatami mats, afternoon sunlight casting geometric shadows, an autumn garden beyond", caption: "Afternoon light on the veranda. The red felt, the tatami, the garden turning. A room built for looking outward." },
-          { src: "/journal/72-seasons/72-seasons-engawa.jpg", alt: "Rieko and Tom sitting on a wooden engawa looking out at bamboo and autumn foliage in a temple garden", caption: "Rieko and I on the engawa. Paying attention is not a solo practice." },
+          { src: "/journal/72-seasons/72-seasons-engawa.jpg", alt: "A father and son sitting on a wooden engawa looking out at bamboo and autumn foliage in a temple garden", caption: "A father and son on the engawa. Paying attention is not a solo practice." },
         ],
       },
       {
