@@ -44,6 +44,11 @@ export function Header() {
   // white between the transparent state at the top and the hidden state past
   // the fold.
   useEffect(() => {
+    // Seed lastScrollY with the current position so the first onScroll
+    // doesn't compute a huge positive delta (which would incorrectly hide
+    // the header on reload / back-navigation at a scrolled position).
+    lastScrollY.current = window.scrollY;
+
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastScrollY.current;
