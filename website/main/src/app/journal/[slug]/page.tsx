@@ -1211,30 +1211,44 @@ export default async function ArticlePage({
         <FadeIn>
           <div className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 pb-16 md:pb-24">
             <div className="pt-8 border-t border-void/8 max-w-[90%]">
-              <p className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/50">
-                {article.author === "Rieko Maeda" ? (
-                  <>
-                    Words by{" "}
-                    <Link href="/about#rieko" className="text-void/80 hover:text-void transition-colors duration-300">
+              {article.author === "Rieko Maeda" ? (
+                <div className="flex gap-10 md:gap-14">
+                  <div>
+                    <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                      Words
+                    </p>
+                    <Link href="/about#rieko" className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
                       Rieko Maeda
                     </Link>
-                    {" · Photos by "}
-                    <Link href="/about#tom" className="text-void/80 hover:text-void transition-colors duration-300">
+                    <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
+                      Co-founder of AUWA
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                      Photos
+                    </p>
+                    <Link href="/about#tom" className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
                       Tom Vining
                     </Link>
-                  </>
-                ) : (
-                  <>
-                    Words &amp; photos by{" "}
-                    <Link href="/about#tom" className="text-void/80 hover:text-void transition-colors duration-300">
-                      Tom Vining
-                    </Link>
-                  </>
-                )}
-              </p>
-              <p className="mt-2 font-display italic text-[15px] leading-[1.5] text-void/45">
-                Co-founder of AUWA
-              </p>
+                    <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
+                      Co-founder of AUWA
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                    Words &amp; photos
+                  </p>
+                  <Link href="/about#tom" className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
+                    Tom Vining
+                  </Link>
+                  <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
+                    Co-founder of AUWA
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </FadeIn>
