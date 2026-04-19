@@ -49,6 +49,10 @@ export function Header() {
     // the header on reload / back-navigation at a scrolled position).
     lastScrollY.current = window.scrollY;
 
+    // Browsers restore scroll AFTER mount, firing a scroll event whose
+    // delta can be hundreds of pixels. Skip the hide/show decision for
+    // any scroll jump larger than plausible user input so the header
+    // doesn't disappear on reload.
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastScrollY.current;
@@ -60,11 +64,12 @@ export function Header() {
         setAtTop(nextAtTop);
       }
 
+      const isScrollJump = Math.abs(delta) > 200;
       if (y <= 10) {
         setHidden(false);
-      } else if (delta > 4) {
+      } else if (!isScrollJump && delta > 4) {
         setHidden(true);
-      } else if (delta < -4) {
+      } else if (!isScrollJump && delta < -4) {
         setHidden(false);
       }
       lastScrollY.current = y;

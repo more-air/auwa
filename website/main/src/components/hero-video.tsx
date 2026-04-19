@@ -58,9 +58,10 @@ export function HeroVideo() {
 
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 50) setScrolled(true);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
