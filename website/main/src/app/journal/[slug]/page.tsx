@@ -1221,7 +1221,7 @@ export default async function ArticlePage({
                       Rieko Maeda
                     </Link>
                     <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                      Co-founder of AUWA
+                      Creator, AUWA
                     </p>
                   </div>
                   <div>
@@ -1232,7 +1232,7 @@ export default async function ArticlePage({
                       Tom Vining
                     </Link>
                     <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                      Co-founder of AUWA
+                      Producer, AUWA
                     </p>
                   </div>
                 </div>
@@ -1245,7 +1245,7 @@ export default async function ArticlePage({
                     Tom Vining
                   </Link>
                   <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                    Co-founder of AUWA
+                    Producer, AUWA
                   </p>
                 </div>
               )}
