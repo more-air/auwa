@@ -219,7 +219,7 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "The shaden stood in the snow like something from a different century. Fifteen metres of stacked timber, branches, and straw, a handmade wooden shrine topped with live pine trees, rising from a slope above the village of Nozawa Onsen. Around its base, men in brown uniforms lined up in rows. Their breath fogged in the January air. Nobody spoke. A Shinto priest in grey ceremonial robes walked across the snow, blessing the structure that would be destroyed within hours.",
+        text: "The shaden, the wooden shrine tower built by the village for this one night, stood in the snow like something from a different century. Fifteen metres of stacked timber, branches, and straw, topped with live pine trees, rising from a slope above the village of Nozawa Onsen. Around its base, men in brown uniforms lined up in rows. Their breath fogged in the January air. Nobody spoke. A Shinto priest in grey ceremonial robes walked across the snow, blessing the structure that would be destroyed within hours.",
       },
       {
         type: "text",
@@ -574,7 +574,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Rieko grew up with this. Not as ordinary life, but as something her family treasured. Her father worked long hours, and the rhythm of daily life left little room for stillness. But from time to time, the family would travel to an onsen town. A hot spring trip. She remembers those visits with a warmth that has nothing to do with temperature.",
+        text: "Rieko grew up with this. Not as ordinary life, but as something her family treasured. Her father worked long hours, and the rhythm of daily life left little room for stillness. But from time to time, the family would travel to an onsen town. A hot spring trip. Rieko remembers those visits with a warmth unrelated to temperature.",
       },
       {
         type: "text",
@@ -784,7 +784,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Four stories. Each one following this being of light as it encounters a different part of the natural world and reveals the kokoro within it. Kokoro (心) is the Japanese word for what English divides into heart, mind, soul, and spirit. In Japanese, these are not separate things. Kokoro is holistic: emotion, thought, and essence held together as one. It lives in the chest, not the head. It is felt before it is understood.",
+        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Four stories. Each one following this being of light as it encounters a different part of the natural world and reveals the Kokoro within it. Kokoro (心) is the Japanese word for what English divides into heart, mind, soul, and spirit. In Japanese, these are not separate things. Kokoro is holistic: emotion, thought, and essence held together as one. It lives in the chest, not the head. It is felt before it is understood.",
       },
       {
         type: "text",
@@ -796,15 +796,15 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "That is what AUWA does. It arrives from the stars carrying a gentle light, and when that light reaches something, the kokoro within it becomes visible. A flower. A forest. A handful of soil. Things we walk past every day without noticing. AUWA notices. And in noticing, changes how you see them too.",
+        text: "That is what AUWA does. It arrives from the stars carrying a gentle light, and when that light reaches something, the Kokoro within it becomes visible. A flower. A forest. A handful of soil. Things we walk past every day without noticing. AUWA notices. And in noticing, changes how you see them too.",
       },
       {
         type: "pullquote",
-        text: "You would not throw something away if you could see its kokoro.",
+        text: "You would not throw something away if you could see its Kokoro.",
       },
       {
         type: "text",
-        text: "If we lived in that kind of world, where the soul in all things was visible, I think it would be a much kinder place. You would not throw something away if you could see its kokoro. You would not ignore a person, or a river, or a forest, if you could see what lived inside it. The stories are not really about a character with magical powers. They are about paying attention. About the awareness that everything around us is alive, and connected, and worth caring for. That is what we want to bring into the world with this book.",
+        text: "If we lived in that kind of world, where the soul in all things was visible, I think it would be a much kinder place. You would not throw something away if you could see its Kokoro. You would not ignore a person, or a river, or a forest, if you could see what lived inside it. The stories are not really about a character with magical powers. They are about paying attention. About the awareness that everything around us is alive, and connected, and worth caring for. That is what we want to bring into the world with this book.",
       },
       {
         type: "image-pair",
@@ -825,7 +825,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. Some of my original iterations of AUWA were on canvas. I wanted to paint, so that I would not forget, while working on client projects, to properly start this. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed.",
+        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. Some of my original iterations of AUWA were on canvas. I wanted to paint so that, while working on client projects, I would not forget to properly start this. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed.",
       },
       {
         type: "text",

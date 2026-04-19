@@ -23,7 +23,7 @@ Sent automatically on signup. Four variants based on source, with subjects tuned
 - **newsletter**: subject "Welcome to AUWA" · "Stay close." body
 - **app-waitlist**: subject "You're on the AUWA App waitlist" · "A practice is taking shape." body
 - **store-waitlist**: subject "A note from AUWA." · "Made by hand, chosen with care." body
-- **book-waitlist**: subject "A note from AUWA." · "Four stories, one light." body
+- **book-waitlist**: subject "A note from AUWA." · "Many stories, one light." body
 
 ### newsletter.tsx
 The template for manual newsletter sends. Accepts:

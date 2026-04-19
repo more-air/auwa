@@ -52,7 +52,7 @@ export default function Home() {
         <HeroVideo />
 
         {/* ── Intro block: eyebrow + scroll-fade paragraph + CTA ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-28 pb-20 md:pb-32">
+        <section id="intro" className="scroll-mt-16 md:scroll-mt-20 px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-28 pb-20 md:pb-32">
           <div className="max-w-[880px]">
             <FadeIn>
               <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
@@ -63,7 +63,7 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-void"
             >
-              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
+              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a Kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
@@ -206,7 +206,7 @@ export default function Home() {
               className="font-display text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.2] tracking-[0.005em] text-void"
               finishAt={0.5}
             >
-              &ldquo;In every handmade bowl, in every river, in every person you pass, a kokoro is waiting to be seen.&rdquo;
+              &ldquo;In every handmade bowl, in every river, in every person you pass, a Kokoro is waiting to be seen.&rdquo;
             </ScrollFadeText>
           </div>
         </section>

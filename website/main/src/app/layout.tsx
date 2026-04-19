@@ -36,7 +36,7 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "AUWA | Everything has kokoro",
+  title: "AUWA | Everything has Kokoro",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     canonical: "https://auwa.life",
   },
   openGraph: {
-    title: "AUWA | Everything has kokoro",
+    title: "AUWA | Everything has Kokoro",
     description:
       "Japanese philosophical awareness applied to modern life. A daily awareness practice, craftsman objects, illustrated stories, and an editorial journal.",
     url: "https://auwa.life",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AUWA | Everything has kokoro",
+    title: "AUWA | Everything has Kokoro",
     description: "Japanese philosophical awareness applied to modern life.",
     images: ["/og-image.jpg"],
   },
@@ -94,7 +94,7 @@ export default function RootLayout({
               name: "AUWA",
               url: "https://auwa.life",
               logo: "https://auwa.life/auwa-logo.svg",
-              description: "A Japanese lifestyle brand rooted in the philosophy that everything has kokoro.",
+              description: "A Japanese lifestyle brand rooted in the philosophy that everything has Kokoro.",
               sameAs: [
                 "https://instagram.com/auwa.life",
                 "https://x.com/auwalife",

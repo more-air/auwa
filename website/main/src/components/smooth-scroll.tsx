@@ -34,6 +34,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     });
 
     lenisRef.current = lenis;
+    // Expose for programmatic scrolls from other components (e.g. the
+    // Explore button on the hero video).
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -45,6 +48,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return () => {
       lenis.destroy();
       lenisRef.current = null;
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
   }, []);
 

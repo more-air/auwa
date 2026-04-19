@@ -105,6 +105,7 @@ function VideoCard({ src, poster, isActive }: { src: string; poster?: string; is
 export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewportHeight = useRef(0); // Stable height, captured on mount
+  const activeIndexRef = useRef(0); // Gate scroll-driven state updates to prevent iOS flicker
   const [activeIndex, setActiveIndex] = useState(0);
   const [orders, setOrders] = useState<number[]>(CARDS.map((_, i) => i));
   const [inView, setInView] = useState(false);
@@ -159,8 +160,15 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
     setProgressVisible(progress < 0.92 && scrolled < scrollableHeight);
 
     const idx = Math.min(CARD_COUNT - 1, Math.floor(progress * CARD_COUNT));
-    setActiveIndex(idx);
-    setOrders(CARDS.map((_, i) => i - idx));
+    // Only re-render when the active card actually changes.
+    // Previously setOrders created a new array every scroll tick, forcing
+    // React to re-apply inline styles on every card on every scroll frame,
+    // which caused visible flicker on iOS Safari.
+    if (idx !== activeIndexRef.current) {
+      activeIndexRef.current = idx;
+      setActiveIndex(idx);
+      setOrders(CARDS.map((_, i) => i - idx));
+    }
   }, []);
 
   useEffect(() => {

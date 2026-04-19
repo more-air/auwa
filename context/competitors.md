@@ -188,7 +188,7 @@ Each would need to fundamentally reinvent themselves to occupy AUWA's position. 
 Tech stack, freemium pricing, 72 micro-seasons content (public domain), AI-generated reflections, collectible format, awareness positioning language.
 
 ### What Competitors Cannot Copy
-Rieko's decade of authentic creative development. Native Japanese cultural depth (lived, not researched). 4 completed illustrated stories. Yaoyorozu no Kami embedded by a Japanese creator. The proprietary Yamato emotional framework. Tom and Rieko's 15+ years of shared Japan experience. The relationship users build with AUWA over time. The soul of the work.
+Rieko's decade of authentic creative development. Native Japanese cultural depth (lived, not researched). A series of completed illustrated stories. Yaoyorozu no Kami embedded by a Japanese creator. The proprietary Yamato emotional framework. Tom and Rieko's 15+ years of shared Japan experience. The relationship users build with AUWA over time. The soul of the work.
 
 **Features can be copied. Cultural authenticity cannot.**
 

@@ -16,7 +16,7 @@ And you're not starting from nothing. You're starting with more relevant experie
 
 ### 1. Rieko's dream, realised.
 
-Ten years of illustrated stories sitting in a drawer. Four complete narratives about a being who reveals the kokoro in flowers, coral, tanuki, and humans. A philosophy of interconnectedness that Rieko grew up with in Kansai, embedded into every page. The original plan was printed books. The pivot to a digital universe (app, social, figures, stories released over time) is bigger and better. This is the release Rieko's work has been waiting for. Not a compromise. An evolution.
+Ten years of illustrated stories sitting in a drawer. A series of complete narratives about a being who reveals the kokoro in flowers, coral, tanuki, and humans. A philosophy of interconnectedness that Rieko grew up with in Kansai, embedded into every page. The original plan was printed books. The pivot to a digital universe (app, social, figures, stories released over time) is bigger and better. This is the release Rieko's work has been waiting for. Not a compromise. An evolution.
 
 ### 2. Making something that actually matters.
 
@@ -42,7 +42,7 @@ Once you've done this once, you can do it again. Faster. Better. AUWA teaches th
 
 Look at what you're each bringing to this:
 
-**Rieko:** Ten years creating the AUWA universe. Four complete illustrated stories. Native Japanese speaker who grew up in Kansai with Yaoyorozu no Kami as lived philosophy, not something researched from a book. Decade of Japanese corporate experience (understanding merchant relationships, business culture, communication norms). The ability to call a ceramicist in Arita or a knife-maker in Seki and have a real conversation in their language, on their terms.
+**Rieko:** Ten years creating the AUWA universe. A series of complete illustrated stories. Native Japanese speaker who grew up in Kansai with Yaoyorozu no Kami as lived philosophy, not something researched from a book. Decade of Japanese corporate experience (understanding merchant relationships, business culture, communication norms). The ability to call a ceramicist in Arita or a knife-maker in Seki and have a real conversation in their language, on their terms.
 
 **Tom:** Built and operated a Japanese multi-merchant platform (2005-2007) selling Japanese design objects to Western buyers — the exact same model the AUWA Store will use. Distributed KAWS's first international releases. Designed the Monolise Japanese craftsman store concept. Published photographer whose Japan work has 17M+ views on Unsplash and been used by Condé Nast Traveler, Vogue, WEF, Travel + Leisure, TimeOut, and Culture Trip — from just 7 photos uploaded and left untouched. 15+ years of Japan trips producing a massive content vault. Nokia Animaru: designed a character-based wellness app for Nokia San Francisco — the exact same DNA as Kokoro Mirror. 20+ years at Nokia, Apple, Sky building products at scale.
 

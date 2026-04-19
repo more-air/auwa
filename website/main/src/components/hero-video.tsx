@@ -132,11 +132,26 @@ export function HeroVideo() {
           className="pointer-events-none absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-black/15 to-transparent z-[5]"
         />
 
-        {/* Explore label + chevron */}
-        <div
-          className="absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 md:gap-4"
+        {/* Explore label + chevron — tappable, scrolls to intro */}
+        <button
+          type="button"
+          onClick={() => {
+            const intro = document.getElementById("intro");
+            if (!intro) return;
+            const headerOffset = window.matchMedia("(min-width: 768px)").matches ? 80 : 64;
+            const lenis = (window as unknown as { __lenis?: { scrollTo: (t: HTMLElement, o?: { offset?: number; duration?: number }) => void } }).__lenis;
+            if (lenis) {
+              lenis.scrollTo(intro, { offset: -headerOffset, duration: 1.4 });
+            } else {
+              const y = intro.getBoundingClientRect().top + window.scrollY - headerOffset;
+              window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+            }
+          }}
+          aria-label="Scroll to introduction"
+          className="absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 md:gap-4 cursor-pointer p-2"
           style={{
             opacity: scrolled ? 0 : 1,
+            pointerEvents: scrolled ? "none" : "auto",
             transition: "opacity 0.7s ease-out",
           }}
         >
@@ -159,7 +174,7 @@ export function HeroVideo() {
               strokeLinejoin="round"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </section>
   );

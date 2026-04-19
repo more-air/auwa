@@ -26,7 +26,7 @@ export default function AboutPage() {
         <section className="mx-auto max-w-[680px] px-6 md:px-10 pb-16 md:pb-24">
           <FadeIn>
             <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              Since ancient times, the Japanese have believed a life force resides in all things. It lives not just in people, but in rivers, handmade bowls, and the shifting light of a season. We call this quality kokoro (心): a holistic word uniting heart, mind, soul, and spirit. It is felt before it is understood.
+              Since ancient times, the Japanese have believed a life force resides in all things. It lives not just in people, but in rivers, handmade bowls, and the shifting light of a season. We call this quality Kokoro (心): a holistic word uniting heart, mind, soul, and spirit. It is felt before it is understood.
             </p>
           </FadeIn>
           <FadeIn delay={100}>
@@ -104,7 +104,7 @@ export default function AboutPage() {
                 Rieko Maeda
               </h3>
               <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-                Japanese illustrator and designer, also known by her artist name Eko. Creator of the AUWA illustrated universe: years of quiet devotion to stories about a character who reveals the kokoro in all things. She tells how it came to her in <Link href="/journal/the-beginning" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">The Beginning</Link>. Raised in Japan, where kokoro is lived rather than studied. Co-founder of design studio <a href="https://moreair.co" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">More Air</a>, and the Japanese voice behind AUWA&rsquo;s store, working with craftsmen across Japan.
+                Japanese illustrator and designer, also known by her artist name Eko. Creator of the AUWA illustrated universe: years of quiet devotion to stories about a character who reveals the Kokoro in all things. She tells how it came to her in <Link href="/journal/the-beginning" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">The Beginning</Link>. Raised in Japan, where Kokoro is lived rather than studied. Co-founder of design studio <a href="https://moreair.co" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">More Air</a>, and the Japanese voice behind AUWA&rsquo;s store, working with craftsmen across Japan.
               </p>
             </div>
           </FadeIn>

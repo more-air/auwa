@@ -16,7 +16,7 @@ Where Western wellness centres on the self, AUWA draws from Japanese collectivis
 1. **Kokoro Mirror** (auwa.life/app) — A daily awareness practice. AI-powered emotional reflection that reveals your kokoro through poetic language and Rieko's illustrated characters.
 2. **AUWA Store** (auwa.life/store) — Curated Japanese craftsman marketplace. Lifetime products made by master artisans, shipped direct from Japan. Plus AUWA's own collectible figures.
 3. **AUWA Journal** (auwa.life/journal) — Editorial content. Travel stories, craftsman profiles, seasonal essays, onsen retreats. Photography-led, long-form, SEO-rich.
-4. **AUWA Book** (auwa.life/book) — The illustrated story universe. Four stories created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy.
+4. **AUWA Book** (auwa.life/book) — The illustrated story universe. A series of illustrated stories created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy.
 
 These are not four separate products — they're one world experienced through four doors. The app builds emotional awareness, the store cultivates material awareness (choosing intention over convenience, craft over disposability), the journal builds cultural awareness (seeing Japan through a philosophical lens, not a tourist one), and the book teaches philosophical awareness (seeing the kokoro in all things through narrative).
 
@@ -52,7 +52,7 @@ When you see the kokoro in a ceramic cup, a forest, a stranger's face, your own 
 
 **The Journal** builds cultural awareness. Travel stories, craftsman profiles, and seasonal essays that share Japan through AUWA's philosophical lens — written by Tom and Rieko from over 15 years of travelling Japan together. Not tourist itineraries but atmospheric writing about onsen culture, temple mornings, rural craft towns, the changing seasons. The journal naturally models how to engage with Japan respectfully: with curiosity, patience, and an understanding that you are a guest in someone else's home. Photography-led, contemplative, grounded.
 
-**The Book** teaches philosophical awareness. Four illustrated stories show the AUWA character revealing the kokoro in a flower, a coral, a displaced tanuki, a human. The narrative makes the abstract philosophy concrete and felt — the best way to understand Yaoyorozu no Kami is to see it embodied in story.
+**The Book** teaches philosophical awareness. A series of illustrated stories show the AUWA character revealing the kokoro in a flower, a coral, a displaced tanuki, a human. The narrative makes the abstract philosophy concrete and felt — the best way to understand Yaoyorozu no Kami is to see it embodied in story.
 
 ---
 
@@ -178,7 +178,7 @@ The canonical home of the AUWA universe and the illustrated stories. Hub linking
 
 **The AUWA Universe:** AUWA originates from WAWA, a harmonious solar system deep within the Milky Way. When its inhabitants received a mysterious signal from Earth, they channelled energy to form a glowing orb of pure light. From this orb emerged AUWA — a being whose magical light shower reveals the kokoro within every living creature. AUWA communicates through telepathy: gentle, observant, non-judgmental. This mythology enriches the stories and gives depth to the app, but it lives here — in the book section — not in brand communications. The Monocle reader encounters philosophy and craft; those who go deeper find a cosmic story.
 
-**The Four Illustrated Stories (2015-2025):** Created by Rieko Maeda over a decade of development. Never published. Being prepared for digital release as illustrated art stories, with limited-edition physical versions to follow. Released over time within the app as narrative segments unlocked through continued engagement.
+**The Series of Illustrated Stories (2015-2025):** Created by Rieko Maeda over a decade of development. Never published. Being prepared for digital release as illustrated art stories, with limited-edition physical versions to follow. Released over time within the app as narrative segments unlocked through continued engagement.
 
 1. **The Beginning** — AUWA arrives on Earth, discovers a quiet forest where a lonely blue flower (Bluu) shares memories of a diminished ecosystem. Light shower reveals kokoro within flower and surrounding microbes.
 2. **Umi (Ocean)** — AUWA explores beneath the waves, meeting Key the coral, Lady the fish, and Rai the turtle. Ocean damaged by pollution. AUWA's light restores the sea and leads to the ancient Coral Paradise.
@@ -211,7 +211,7 @@ Stories originally written in Japanese. Limited-edition physical printed version
 **Target audience:** Design-conscious, culturally curious people drawn to Japanese aesthetics, philosophy, and craft. They value meaning over metrics, intention over convenience, and quality over quantity. They read Kinfolk and Monocle, appreciate Aesop's retail experience, follow Studio Ghibli, and are more likely to buy one handmade knife than a drawer full of disposable ones. They are underserved by Headspace (too clinical), generic wellness apps (lack cultural depth), and most "self-help" products (too prescriptive). AUWA's different pillars attract different entry points within this audience — some arrive through the journal and photography, others through the app, others through the store — but all share the same sensibility.
 
 **Uncopyable advantages ("The Authenticity Moat"):**
-- Rieko's decade of creation + 4 completed illustrated stories
+- Rieko's decade of creation + a series of completed illustrated stories
 - Japanese cultural authenticity (Kansai-born, Japanese-educated, native Japanese speaker)
 - Yaoyorozu no Kami embedded by a Japanese creator who grew up within the philosophy
 - Proprietary emotional framework based on Yamato language
