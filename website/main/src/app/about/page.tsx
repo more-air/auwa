@@ -91,20 +91,20 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={100}>
             <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-              AUWA is made by two people: a Japanese illustrator who created the world, and a British designer who brings it to life. A contemporary take on the old Japanese tradition of eshi and hanmoto, artist and producer. Twenty years working together across design, technology, and travelling Japan. They have always wanted their work to be of use to other people. AUWA is their offering: illustration, photography, writing, product design, gathered in service of an idea they believe in.
+              AUWA is made by two people: a Japanese designer who created the world, and a British designer who brings it to life. Twenty years working together across design, technology, and travelling Japan. They have always wanted their work to be of use to other people. AUWA is their offering: illustration, photography, writing, product design, gathered in service of an idea they believe in.
             </p>
           </FadeIn>
 
           <FadeIn delay={200}>
             <div id="rieko" className="mt-12 scroll-mt-24 md:scroll-mt-28">
               <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
-                Creator &middot; Eshi
+                Co-founder
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
                 Rieko Maeda
               </h3>
               <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-                Japanese illustrator and designer, also known by her artist name Eko. Creator of the AUWA illustrated universe: years of quiet devotion to stories about a character who reveals the kokoro in all things. She tells how it came to her in <Link href="/journal/the-beginning" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">The Beginning</Link>. Raised in Japan, where kokoro is lived rather than studied. Co-founder of design studio <a href="https://moreair.co" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">More Air</a>, and the Japanese voice behind AUWA&rsquo;s store, working with craftsmen across Japan. The heart and the hand of AUWA.
+                Japanese illustrator and designer, also known by her artist name Eko. Creator of the AUWA illustrated universe: years of quiet devotion to stories about a character who reveals the kokoro in all things. She tells how it came to her in <Link href="/journal/the-beginning" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">The Beginning</Link>. Raised in Japan, where kokoro is lived rather than studied. Co-founder of design studio <a href="https://moreair.co" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">More Air</a>, and the Japanese voice behind AUWA&rsquo;s store, working with craftsmen across Japan.
               </p>
             </div>
           </FadeIn>
@@ -112,13 +112,13 @@ export default function AboutPage() {
           <FadeIn delay={300}>
             <div id="tom" className="mt-12 scroll-mt-24 md:scroll-mt-28">
               <p className="font-sans text-[13px] tracking-[0.06em] text-void/45 uppercase mb-2">
-                Producer &middot; Hanmoto
+                Co-founder
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-void mb-4">
                 Tom Vining
               </h3>
               <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
-                British designer, strategist, and photographer. Twenty years building products in the design and tech industries. Fifteen years of photographing Japan; his images have appeared in Cond&eacute; Nast Traveler, Vogue, Time Out, and across this site. Co-founder of design studio <a href="https://moreair.co" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">More Air</a>, leading brand, strategy, and product. For AUWA, he produces the brand, the systems, and co-creates the products that bring Rieko&rsquo;s world to life. The producer to Rieko&rsquo;s creator.
+                British designer, strategist, and photographer. Twenty years building products in the design and tech industries. Fifteen years of photographing Japan; his images have appeared in Cond&eacute; Nast Traveler, Vogue, Time Out, and across this site. Co-founder of design studio <a href="https://moreair.co" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-void/30 hover:decoration-void/70 transition-colors duration-300">More Air</a>, leading brand, strategy, and product. For AUWA, he produces the brand, the systems, and co-creates the products that bring Rieko&rsquo;s world to life.
               </p>
             </div>
           </FadeIn>

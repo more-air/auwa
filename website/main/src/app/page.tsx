@@ -63,11 +63,11 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-void"
             >
-              AUWA. A character, a philosophy, a world. Everything is moving faster. Something essential is getting lost in the speeding up. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
+              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
-                <CtaLink href="/journal/the-beginning">The Beginning</CtaLink>
+                <CtaLink href="/journal/the-beginning">The Story</CtaLink>
               </div>
             </FadeIn>
           </div>
