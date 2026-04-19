@@ -1216,7 +1216,7 @@ export default async function ArticlePage({
                   const isRieko = name === "Rieko Maeda";
                   return {
                     href: isRieko ? "/about#rieko" : "/about#tom",
-                    role: isRieko ? "Creator, AUWA" : "Producer, AUWA",
+                    role: "Co-Founder, AUWA",
                   };
                 };
                 const author = credit(article.author);
