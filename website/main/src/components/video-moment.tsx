@@ -8,7 +8,7 @@ import { CtaLink } from "./cta-link";
 */
 
 const IMAGE_SRC = "/journal/auwa-book/auwa-book-cosmic.jpg";
-const ARTICLE_HREF = "/journal/the-beginning";
+const ARTICLE_HREF = "/about";
 
 export function VideoMoment() {
   return (
@@ -41,7 +41,7 @@ export function VideoMoment() {
               A character from our illustrated stories who reveals what the world has been too busy to notice. AUWA appears in the stories and the app.
             </p>
             <CtaLink href={ARTICLE_HREF} className="self-start mt-8">
-              The Story
+              Our Story
             </CtaLink>
           </div>
         </div>
@@ -69,7 +69,7 @@ export function VideoMoment() {
               </h2>
             </Link>
             <CtaLink href={ARTICLE_HREF} className="mt-5">
-              The Story
+              Our Story
             </CtaLink>
           </div>
         </div>
