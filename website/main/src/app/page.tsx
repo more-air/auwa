@@ -63,7 +63,7 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-void"
             >
-              Everything is moving faster. Something essential is getting lost in the speeding up. AUWA is a quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
+              AUWA. A character, a philosophy, a world. Everything is moving faster. Something essential is getting lost in the speeding up. A quiet return to the Japanese belief that a life force, a kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
@@ -83,7 +83,7 @@ export default function Home() {
               className="font-display text-[clamp(2rem,5.5vw,4.5rem)] leading-[1.15] tracking-[0.005em] text-void"
               finishAt={0.4}
             >
-              &ldquo;What you pay attention to, you begin to love. What you love, you care for.&rdquo;
+              &ldquo;What you pay attention to, whether a river or a feeling, you begin to love. What you love, you care for.&rdquo;
             </ScrollFadeText>
           </div>
         </section>
