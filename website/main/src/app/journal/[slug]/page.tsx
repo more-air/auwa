@@ -1211,44 +1211,57 @@ export default async function ArticlePage({
         <FadeIn>
           <div className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 pb-16 md:pb-24">
             <div className="pt-8 border-t border-void/8 max-w-[90%]">
-              {article.author === "Rieko Maeda" ? (
-                <div className="flex gap-10 md:gap-14">
+              {(() => {
+                const credit = (name: string) => {
+                  const isRieko = name === "Rieko Maeda";
+                  return {
+                    href: isRieko ? "/about#rieko" : "/about#tom",
+                    role: isRieko ? "Creator, AUWA" : "Producer, AUWA",
+                  };
+                };
+                const author = credit(article.author);
+                const photographer = credit(article.photographer);
+                const samePerson = article.author === article.photographer;
+
+                return samePerson ? (
                   <div>
                     <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
-                      Words
+                      Words &amp; photos
                     </p>
-                    <Link href="/about#rieko" className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
-                      Rieko Maeda
+                    <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
+                      {article.author}
                     </Link>
                     <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                      Creator, AUWA
+                      {author.role}
                     </p>
                   </div>
-                  <div>
-                    <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
-                      Photos
-                    </p>
-                    <Link href="/about#tom" className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
-                      Tom Vining
-                    </Link>
-                    <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                      Producer, AUWA
-                    </p>
+                ) : (
+                  <div className="flex gap-10 md:gap-14">
+                    <div>
+                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                        Words
+                      </p>
+                      <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
+                        {article.author}
+                      </Link>
+                      <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
+                        {author.role}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                        Photos
+                      </p>
+                      <Link href={photographer.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
+                        {article.photographer}
+                      </Link>
+                      <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
+                        {photographer.role}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div>
-                  <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
-                    Words &amp; photos
-                  </p>
-                  <Link href="/about#tom" className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
-                    Tom Vining
-                  </Link>
-                  <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                    Producer, AUWA
-                  </p>
-                </div>
-              )}
+                );
+              })()}
             </div>
           </div>
         </FadeIn>
