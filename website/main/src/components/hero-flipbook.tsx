@@ -187,14 +187,15 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
           Using svh avoids snap-back when mobile browser chrome hides/shows.
           Hidden until mounted to prevent flash of unsorted cards on load/back-nav. */}
       {/*
-        Sticky uses dvh so the flipbook area always fills the visible
-        viewport. With svh, when Android/iOS chrome retracts the visible
-        viewport grows but the sticky stayed at the smaller svh size,
-        leaving a large empty gap below the card+text. dvh re-sizes once
-        when chrome retracts — a single gentle reflow, not continuous.
+        Sticky uses svh (not dvh) so the card stays anchored when mobile
+        chrome hides/shows during scroll. dvh looked good initially but
+        caused the flipbook to visibly shift up and down as the browser
+        URL bar retracted, because the sticky resized and re-centered its
+        contents. svh trades a bit of empty space below the card (when
+        chrome is retracted) for a rock-solid anchored position.
       */}
       <div
-        className={`sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 h-[calc(100dvh-4rem)] lg:h-[calc(100dvh-5rem)] ${
+        className={`sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 h-[calc(100svh-4rem)] lg:h-[calc(100svh-5rem)] ${
           mounted ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -297,10 +298,10 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
             card (clearing the separator above the flipbook) and below
             the text on every mobile viewport height.
           */}
-          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-10 px-6">
+          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-12 px-6">
             <div
               className="relative w-full max-w-[360px]"
-              style={{ aspectRatio: "9/16", maxHeight: "calc(100dvh - 17rem)" }}
+              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 17rem)" }}
             >
               {CARDS.map((card, i) => {
                 const order = orders[i];
