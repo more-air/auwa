@@ -92,7 +92,7 @@ export function HeroVideo() {
   return (
     <section ref={sectionRef} className="-mt-16 md:-mt-20">
       <div
-        className="relative h-[100svh] md:h-auto md:aspect-[16/9] w-full overflow-hidden"
+        className="relative h-[100svh] w-full overflow-hidden"
         style={{ backgroundColor: "#e9dcc3" }}
       >
         <div ref={scaleRef} className="absolute inset-0 will-change-transform">

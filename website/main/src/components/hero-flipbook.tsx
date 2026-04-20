@@ -180,7 +180,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
   return (
     <div
       ref={containerRef}
-      className="relative"
+      className="relative pt-[8vh] md:pt-0"
       style={{ height: `${CARD_COUNT * 80}vh` }}
     >
       {/* Sits below the header so content is vertically centred in visible area.
@@ -298,10 +298,16 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
             card (clearing the separator above the flipbook) and below
             the text on every mobile viewport height.
           */}
+          {/*
+            Content centred within the sticky (which sits below the header).
+            19rem reservation keeps enough padding top so the prev-card peek
+            (translateY -4vh) renders fully inside the sticky instead of
+            getting clipped at the top edge.
+          */}
           <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-12 px-6">
             <div
               className="relative w-full max-w-[360px]"
-              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 17rem)" }}
+              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 19rem)" }}
             >
               {CARDS.map((card, i) => {
                 const order = orders[i];
