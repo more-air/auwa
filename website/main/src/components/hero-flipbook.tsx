@@ -285,12 +285,15 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
           {/* ── Mobile: card + text stacked and centred vertically ── */}
           {/*
             gap uses a fixed rem instead of 5vh so the layout doesn't
-            shift when the iOS URL bar retracts mid-scroll.
+            shift when the iOS URL bar retracts mid-scroll. The maxHeight
+            reservation and max-width leave reliable breathing above the
+            card (clearing the separator above the flipbook) and below
+            the text on every mobile viewport height.
           */}
-          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-8 px-6">
+          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-10 px-6">
             <div
-              className="relative w-full max-w-[380px]"
-              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 13rem)" }}
+              className="relative w-full max-w-[360px]"
+              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 17rem)" }}
             >
               {CARDS.map((card, i) => {
                 const order = orders[i];
