@@ -39,10 +39,10 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-void flex flex-col min-h-[680px] md:min-h-[480px] sticky bottom-0 z-0">
+    <footer className="bg-void flex flex-col sticky bottom-0 z-0">
       {/* Main footer content — two columns */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-20">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-16 md:gap-16">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12 md:gap-16">
           {/* Left — signup */}
           <div className="max-w-[440px]">
             <span className="block font-sans text-[12px] tracking-[0.18em] uppercase mb-5 text-white/50">
@@ -56,7 +56,7 @@ export function Footer() {
                 {" "}of everything we make.
               </span>
             </h2>
-            <div className="mt-8">
+            <div className="mt-12">
               <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" successMessage="Something quiet is on its way." />
             </div>
           </div>
@@ -76,11 +76,8 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Spacer pushes bottom bar down */}
-      <div className="flex-1" />
-
       {/* Bottom bar */}
-      <div className="px-6 md:px-12 lg:px-20 xl:px-28 pb-10 md:pb-12 pt-16 md:pt-6 flex items-center justify-between">
+      <div className="px-6 md:px-12 lg:px-20 xl:px-28 pb-10 md:pb-12 pt-12 md:pt-20 flex items-center justify-between">
         <p className="font-sans text-[14px] tracking-[0.02em] text-white">
           &copy; AUWA {new Date().getFullYear()}
         </p>
