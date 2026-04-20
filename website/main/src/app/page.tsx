@@ -18,9 +18,9 @@ const pillars = [
 
 const latestArticles: { title: string; excerpt: string; category: string; issue: string; slug: string; image?: string }[] = [
   { title: "The Beginning", excerpt: "Light in a dark forest. A dream that wouldn't let go.", category: "Philosophy", issue: "Issue 11", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
-  { title: "Yaoyorozu no Kami", excerpt: "Eight million gods. Even in things you overlook.", category: "Philosophy", issue: "Issue 10", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
-  { title: "Nozawa Fire Festival", excerpt: "On the night a village burned a shrine.", category: "Seasons", issue: "Issue 09", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
-  { title: "Shigefusa", excerpt: "Waiting two years for a knife, and what arrived.", category: "Craft", issue: "Issue 08", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },
+  { title: "Yaoyorozu no Kami", excerpt: "Eight million gods live in the world around you.", category: "Philosophy", issue: "Issue 10", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
+  { title: "Nozawa Fire Festival", excerpt: "A fire rite to honour guardian spirits.", category: "Seasons", issue: "Issue 09", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
+  { title: "Shigefusa", excerpt: "Waiting over a year for a knife, and what arrived.", category: "Craft", issue: "Issue 08", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },
   { title: "Oroku-gushi", excerpt: "Wood that breaks axes. Named after a girl.", category: "Craft", issue: "Issue 07", slug: "oroku-gushi", image: "/journal/oroko/oroko-hero.jpg" },
   { title: "Koya-san", excerpt: "Prayers chanted on this mountain for 1,200 years.", category: "Travel", issue: "Issue 06", slug: "koya-san", image: "/journal/koya-san/koya-san-hero.jpg" },
   { title: "72 Seasons", excerpt: "Five-day seasons, each one worth noticing.", category: "Seasons", issue: "Issue 05", slug: "72-seasons", image: "/journal/72-seasons/72-seasons-hero.jpg" },
@@ -32,7 +32,7 @@ const latestArticles: { title: string; excerpt: string; category: string; issue:
 
 const twoUpArticles = [
   { title: "The Onsen Lesson", excerpt: "What hot water teaches about being alive.", slug: "the-onsen-lesson", image: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg" },
-  { title: "Nozawa Fire Festival", excerpt: "On the night a village burned a shrine.", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
+  { title: "Nozawa Fire Festival", excerpt: "A fire rite to honour guardian spirits.", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
 ];
 
 function Separator() {

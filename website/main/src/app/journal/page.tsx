@@ -12,9 +12,9 @@ const categories = ["All", "Seasons", "Craft", "Philosophy", "Travel"];
 
 const articles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
   { title: "The Beginning", excerpt: "Light in a dark forest. A dream that wouldn't let go.", category: "Philosophy", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
-  { title: "Yaoyorozu no Kami", excerpt: "Eight million gods. Even in things you overlook.", category: "Philosophy", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
-  { title: "Shigefusa", excerpt: "On waiting two years for a knife, and what arrived.", category: "Craft", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },
-  { title: "Nozawa Fire Festival", excerpt: "On the night a village tried to burn down a shrine.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
+  { title: "Yaoyorozu no Kami", excerpt: "Eight million gods live in the world around you.", category: "Philosophy", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
+  { title: "Shigefusa", excerpt: "On waiting over a year for a knife, and what arrived.", category: "Craft", slug: "shigefusa-knife", image: "/journal/shigefusa/shigefusa-hero.jpg" },
+  { title: "Nozawa Fire Festival", excerpt: "A village renews its bond with its guardian spirits.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg" },
   { title: "Oroku-gushi", excerpt: "Made from wood that breaks axes. Named after a girl.", category: "Craft", slug: "oroku-gushi", image: "/journal/oroko/oroko-hero.jpg" },
   { title: "Koya-san", excerpt: "Prayers chanted on this mountain for 1,200 years.", category: "Travel", slug: "koya-san", image: "/journal/koya-san/koya-san-hero.jpg" },
   { title: "72 Seasons", excerpt: "Five-day seasons, each one worth noticing.", category: "Seasons", slug: "72-seasons", image: "/journal/72-seasons/72-seasons-hero.jpg" },

@@ -51,9 +51,9 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/yakushima-island/yakushima-island-moss-forest.jpg",
-        alt: "Moss-covered boulders and twisted tree roots on the forest floor of Yakushima's Shiratani Unsuikyo ravine, every surface a deep saturated green",
-        caption: "The forest floor of Shiratani Unsuikyo. Every surface wrapped in moss so deep it looks like upholstery.",
+        src: "/journal/yakushima-island/yakushima-island-banyan.jpg",
+        alt: "A natural archway formed by the tangled aerial roots of an ancient banyan tree on Yakushima, ferns growing at its base and a path passing beneath",
+        caption: "A banyan archway. Roots becoming walls, walls becoming doorway.",
       },
       {
         type: "text",
@@ -88,11 +88,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We reached a clearing where two boulders, each the size of a small car, leaned against one another with a gap between them just wide enough to pass through. The moss on their surfaces was six inches deep, a dozen shades of green depending on exposure and moisture. A spider had built a web between two branches at the entrance, the silk beaded with water droplets so fine they caught the diffused light like a string of tiny lenses. It must have taken hours to build. The rain would destroy it by evening.",
+        text: "We reached a clearing where two boulders, each the size of a small car, leaned against one another with a gap between them just wide enough to pass through. The moss on their surfaces was deep, a dozen shades of green depending on exposure and moisture. A spider had built a web between two branches at the entrance, the silk beaded with water droplets so fine they caught the diffused light like a string of tiny lenses. It must have taken hours to build. The rain would destroy it by evening.",
       },
       {
         type: "text",
-        text: "That contrast stayed with me. A web that lasts a day, strung between branches of a tree that has lasted millennia. Both of them doing exactly the same thing: being alive, in this place, for as long as their nature allows. The spider does not know the tree is ancient. The tree does not know the spider is ephemeral. Only we stand here assigning meaning to the difference, measuring one lifespan against another, calling one permanent and the other fragile. The forest makes no such distinction. Everything in it is simply present.",
+        text: "That contrast stayed with me. A web that lasts a day, strung between branches of a tree that has lasted millennia. Both of them doing exactly the same thing: being alive, in this place, for as long as their nature allows. The spider does not know the tree is ancient. The tree does not know the spider is ephemeral. Only we assign meaning to the difference, measuring one lifespan against another. The forest makes no such distinction. Everything in it is simply present.",
       },
       {
         type: "text",
@@ -100,7 +100,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We stopped at a viewpoint where a gap in the canopy opened onto a valley filled with cloud. The tops of the cedars below us rose through the mist like islands. She sat on a rock and pulled out her sketchbook. I stood and watched the cloud move through the valley, slow and purposeful, filling one gap between the trees and then the next, the way water fills a vessel.",
+        text: "We stopped at a viewpoint where a gap in the canopy opened onto a valley filled with cloud. The tops of the cedars below us rose through the mist like islands. She sat on a rock and pulled out her water bottle. I stood and watched the cloud move through the valley, slow and purposeful, filling one gap between the trees and then the next, the way water fills a vessel.",
       },
       {
         type: "text",
@@ -108,7 +108,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We walked back down as the afternoon light softened. The trail was quieter now, most hikers already heading for the bus. At the trailhead, the sound of the road and the bus engine and a vending machine humming felt like re-entry from somewhere very far away. She closed her sketchbook. Her pages were full of roots.",
+        text: "We walked back down as the afternoon light softened. The trail was quieter now, most hikers already heading for the bus. At the trailhead, the sound of the road and the bus engine and a vending machine humming felt like re-entry from somewhere very far away. Our boots were soaked through. Time for the onsen.",
       },
     ],
   },
@@ -146,15 +146,15 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Koya-san is a town of 117 temples on a plateau in the mountains of Wakayama Prefecture. Kukai, the founder of Shingon Buddhism, established it as a monastic centre in the early ninth century. Twelve hundred years later, the mountain still operates on his terms. Monks walk between temples in wooden geta. Incense smoke drifts from every doorway. The food is shojin ryori, the vegetarian cuisine of the monasteries, served on lacquer trays in the quiet of your room.",
+        text: "Koya-san is a town of 117 temples on a plateau in the mountains of Wakayama Prefecture. Kukai, the founder of Shingon Buddhism, established it as a monastic centre in the early ninth century. Twelve hundred years later, the mountain still operates on his terms. Monks walk between temples in wooden geta. Incense smoke drifts from every doorway. The food is shojin ryori, the vegetarian cuisine of the monasteries, served on lacquer trays in the shared dining hall.",
       },
       {
         type: "text",
-        text: "We ate dinner cross-legged on the tatami the night before. Sesame tofu, pickled daikon, simmered vegetables in a light dashi, rice, miso. Small dishes, precisely arranged. No protein except the tofu. No alcohol. The meal was not restrictive. It was clarifying. Like the mountain itself, it removed options until what remained had your full attention.",
+        text: "We ate dinner cross-legged on the tatami the night before. Sesame tofu, pickled daikon, simmered vegetables in a light dashi, rice, miso. Small dishes, precisely arranged. Protein mainly from soya. No alcohol. The meal was not restrictive, it was focusing. The meal removed options. What remained had your full attention.",
       },
       {
         type: "text",
-        text: "After morning prayers, we walked to Okunoin.",
+        text: "After our breakfast, we walked to Okunoin.",
       },
       {
         type: "text",
@@ -162,28 +162,21 @@ const articles: Record<
       },
       {
         type: "pullquote",
-        text: "You walk through Okunoin and something in your breathing changes. Not because you decided it should. Because the mountain has been doing this longer than you, and it is patient.",
+        text: "You walk through Okunoin and your breathing slows without you noticing. The mountain doesn\u2019t ask anything of you. It just waits, the way it has for 1,200 years.",
       },
       {
         type: "image",
         src: "/journal/koya-san/koya-san-monk.jpg",
-        alt: "A monk in orange kesa and black robes walking with a clear umbrella through Okunoin cemetery in light rain, stone lanterns and cedars on either side",
+        alt: "A monk in orange kesa and black robes walking with an umbrella through Okunoin cemetery in light rain, stone lanterns and cedars on either side",
         caption: "A monk on the Okunoin path. His pace was deliberate, unhurried. The walk of someone for whom this is a daily practice.",
       },
       {
         type: "text",
-        text: "The silence was not empty. It was occupied. Birdsong, water dripping from branches, the distant percussion of a wooden bell from somewhere deeper in the cemetery. Our footsteps on the gravel path sounded like the loudest thing on the mountain. I slowed down without meaning to. Everyone does.",
+        text: "The silence was not empty. It was occupied. Birdsong, water dripping from branches, the distant sound of a wooden bell from somewhere deeper in the cemetery. Our footsteps on the stone path sounded like the loudest thing on the mountain. I slowed down without meaning to. Everyone does.",
       },
       {
         type: "text",
-        text: "Halfway along the path, we passed a monk walking in the opposite direction. Orange kesa over black robes, a clear umbrella held against the fine rain that had started falling. He didn\u2019t look at us. He didn\u2019t need to. His pace was deliberate, unhurried, the walk of someone for whom this path is not a destination but a daily practice. He passed between the graves and the cedars the way a thread passes through fabric, belonging to it completely.",
-      },
-      {
-        type: "image-pair",
-        images: [
-          { src: "/journal/koya-san/koya-san-jizo.jpg", alt: "A stone Jizo statue wearing a hand-knitted red cap and bib, hands pressed together in prayer, snow and graves behind", caption: "Jizo at Okunoin. The red cap and bib are placed by the living, renewed with the seasons." },
-          { src: "/journal/koya-san/koya-san-robed-statue.jpg", alt: "A stone statue dressed in an orange cap, pink bib, and floral kimono, holding a staff among the cedars and graves of Okunoin", caption: "Another figure dressed by visitors. The floral kimono is recent. The stone beneath it is not." },
-        ],
+        text: "Halfway along the path, we passed a monk walking in the opposite direction. Orange kesa over black robes, an umbrella held against the fine rain that had started falling. He didn\u2019t look at us. He didn\u2019t need to. His pace was deliberate, unhurried, the walk of someone for whom this path is not a destination but a daily practice. He moved along the straight path as though he and it were the same thing.",
       },
       {
         type: "text",
@@ -194,8 +187,15 @@ const articles: Record<
         text: "At the end of the path, beyond a small bridge that marks the boundary of the innermost sanctuary, is the Torodo, the Hall of Lanterns. Over 10,000 lanterns burn inside, two of which are said to have been lit for over 900 years. Behind the hall is the mausoleum of Kukai himself. In Shingon belief, Kukai is not dead. He entered eternal meditation in 835, and the monks still bring him meals twice a day. Every morning, every evening, for 1,200 years.",
       },
       {
+        type: "image-pair",
+        images: [
+          { src: "/journal/koya-san/koya-san-temple.jpg", alt: "A figure with an umbrella approaching a weathered wooden temple building on Koya-san, snow banked on either side of the path, ancient cedars framing the scene", caption: "A temple on the plateau. The wood has weathered for centuries. The figure approaching it could be from any of them." },
+          { src: "/journal/koya-san/koya-san-robed-statue.jpg", alt: "A stone statue dressed in an orange cap, pink bib, and floral kimono, holding a staff among the cedars and graves of Okunoin", caption: "Another figure dressed by visitors. The floral kimono is recent. The stone beneath it is not." },
+        ],
+      },
+      {
         type: "text",
-        text: "Whether you accept that literally does not matter. What matters is that people have been walking this path, tending these graves, chanting these sutras, and carrying those meals without interruption for longer than most nations have existed. The awareness on this mountain is not a concept. It is a practice so deeply embedded in the place that you absorb it by proximity.",
+        text: "Whether you accept that literally does not matter. What matters is that people have been walking this path, tending these graves, chanting these sutras, and carrying those meals without interruption for longer than most nations have existed. The awareness on this mountain is a practice, so deeply embedded in the place that you absorb it by proximity.",
       },
       {
         type: "text",
@@ -203,13 +203,13 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Neither of us spoke much. There is a particular kind of quiet that follows sustained attention. Not tired, not reflective exactly. More like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. Rieko leaned against the window and closed her eyes. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
+        text: "Neither of us spoke much. A kind of quiet settles in after sustained attention. Not tired, not reflective exactly. More like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
       },
     ],
   },
   "nozawa-fire-festival": {
     title: "Nozawa Fire Festival",
-    subtitle: "On the night a village tried to burn down a shrine.",
+    subtitle: "A village renews its bond with its guardian spirits.",
     category: "Seasons",
     issue: "Issue 09",
     author: "Tom Vining",
@@ -219,52 +219,54 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "The shaden, the wooden shrine tower built by the village for this one night, stood in the snow like something from a different century. Fifteen metres of stacked timber, branches, and straw, topped with live pine trees, rising from a slope above the village of Nozawa Onsen. Around its base, men in brown uniforms lined up in rows. Their breath fogged in the January air. Nobody spoke. A Shinto priest in grey ceremonial robes walked across the snow, blessing the structure that would be destroyed within hours.",
+        text: "The shaden, the wooden shrine tower built by the village for this one night, stood in the snow like something from a different century. Fifteen metres of stacked timber, branches, and straw, topped with live pine trees, rising from a slope above the village of Nozawa Onsen. Around its base, men in brown uniforms lined up in rows. Their breath fogged in the January air. A Shinto priest in ceremonial robes walked across the snow, blessing the structure that would be destroyed within hours.",
       },
       {
         type: "text",
-        text: "This is the Dosojin Matsuri. Every year on 15 January, the men of Nozawa Onsen build a shrine, dedicate it to the dosojin (the protective spirits of the village), and then fight over whether it burns. The 42-year-olds defend the roof, the 25-year-olds defend the base. Everyone else attacks. The whole village watches, drinks, and participates in a ritual that has been repeated for over three hundred years.",
-      },
-      {
-        type: "text",
-        text: "There is no audience at the Dosojin Matsuri. There are participants. The distinction matters.",
+        text: "This is the Dosojin Matsuri, one of Japan's three great fire festivals, held every 15 January since the Edo period. The men of Nozawa Onsen build the shaden, dedicate it to the dosojin (the protective spirits of the village), and then fight over whether it burns. Defence falls to the men in their yakudoshi, the unlucky years: the 25-year-olds hold the base against the flames, while the 42-year-olds climb to the roof and sing to liven the night. Everyone else attacks. The whole village watches, drinks, and participates.",
       },
       {
         type: "image",
         src: "/journal/nozawa-fire-festival/nozawa-fire-festival-priest.jpg",
-        alt: "A Shinto priest in grey ceremonial robes walking across the snow at Nozawa Onsen, the wooden shaden shrine rising behind him",
+        alt: "A Shinto priest in ceremonial robes walking across the snow at Nozawa Onsen, the wooden shaden shrine rising behind him",
         caption: "The priest crosses the snow after blessing the shaden. Within hours, the structure behind him will be on fire.",
       },
       {
         type: "text",
-        text: "By late afternoon the shrine had been blessed, the group photographs taken, sake poured for the spirits and for the men who would defend them. The priest walked back across the snow alone, his formal robes dark against the white hillside. Behind him, the shaden waited. Straw-wrapped, timber-braced, impossibly tall. A thing built to be beautiful and then to be burned.",
+        text: "By late afternoon the shrine had been blessed, the group photographs taken, sake poured for the spirits and for the men who would defend them. The priest walked back across the snow alone, his formal robes dark against the white hillside. Behind him, the shaden waited. Straw-wrapped, timber-braced. A thing built to be beautiful and then to be burned.",
       },
       {
         type: "text",
-        text: "Night fell fast. The temperature dropped with it, and the village filled from the edges. Families carried children on their shoulders. Old women stood in doorways with cups of amazake. At the base of the slope, fire stations had been prepared: massive bonfires fed with cedar branches, their heat pushing back the cold in shifting waves. Torches were distributed. Long bundles of straw bound tight, lit from the communal fires, carried uphill toward the shaden by anyone who wanted one.",
+        text: "Night fell fast. The temperature dropped with it, and the village filled from the edges. Families carried children on their shoulders. Old women stood in doorways with cups of amazake, the warm, sweet fermented-rice drink that Japanese villages have poured at winter festivals for centuries. At the base of the slope, fire stations had been prepared: massive bonfires fed with cedar branches, their heat pushing back the cold in shifting waves. Torches were distributed. Long bundles of straw bound tight, lit from the communal fires, carried uphill toward the shaden.",
       },
       {
         type: "text",
-        text: "The attack began without signal. Men rushed the base of the shrine with burning torches, pressing fire against the straw and timber. From above, the defenders kicked the torches away, stamped out flames with their boots, hauled up burning bundles and threw them back. The crowd surged. Sparks rose in spiralling columns. The heat was immediate and total. You could feel it on your face from thirty metres away.",
+        text: "The attack began without signal. Men rushed towards the base of the shrine with burning torches, pressing fire against the straw and timber. From above, the defenders kicked the torches away, stamped out flames with their boots, hauled up burning bundles and threw them back. The crowd surged. Sparks rose in spiralling columns. The heat was immediate and total. You could feel it on your face from thirty metres away.",
       },
       {
         type: "pullquote",
-        text: "You could feel the heat on your face from thirty metres away. The defenders crouched on top of the shaden, watching the fire climb toward them through the logs.",
+        text: "You could feel the heat on your face from thirty metres away. On top of the shaden, the 42-year-olds sang as the fire climbed toward them through the logs.",
       },
       {
         type: "image-pair",
         images: [
-          { src: "/journal/nozawa-fire-festival/nozawa-fire-festival-torches.jpg", alt: "Men carrying burning straw torches press toward the base of the wooden shaden at Nozawa Onsen's Dosojin Matsuri", caption: "Attackers press fire against the base. The straw catches fast, the timber slower." },
+          { src: "/journal/nozawa-fire-festival/nozawa-fire-festival-sparks.jpg", alt: "A tower of flame and sparks rising into the night sky above the crowd at Nozawa Onsen's Dosojin Matsuri, the dosojin pillar silhouetted to the left", caption: "Sparks rise hundreds of feet as the fire takes hold. The crowd below roars." },
           { src: "/journal/nozawa-fire-festival/nozawa-fire-festival-assault.jpg", alt: "Close-up of villagers wielding torches beneath kanji-painted banners at the Dosojin Matsuri fire festival", caption: "Banners and torches. The kanji reads prayers for the year ahead." },
         ],
       },
       {
         type: "text",
-        text: "What struck me was the calm on the defenders' faces. Six men crouched on top of the shaden, silhouetted against the smoke, watching the fire climb toward them through the logs. They were not performing bravery. They were doing something their fathers had done, and their grandfathers before that. Sitting in the smoke, watching the sparks, waiting.",
+        text: "What struck us was the calm on the defenders' faces. On top of the shaden, the 42-year-olds sang, silhouetted against the smoke, their voices carrying out over the crowd even as sparks rose past them. Below, the 25-year-olds held the base, beating back the torches with their boots and their bare hands. They were not performing bravery. They were doing something their fathers had done, and their grandfathers before that. Singing in the smoke. Waiting.",
       },
       {
         type: "text",
-        text: "The fighting lasted hours. Waves of attackers with fresh torches, the defenders always outnumbered, always retreating slightly, always holding. Sake flowed in both directions. Men who had been grappling over a burning torch shared a cup minutes later. There was no animosity in any of it. The violence was real (clothes caught fire, eyebrows singed, skin reddened from heat and contact) but the spirit was communal. This was not competition. It was participation.",
+        text: "The fighting lasted about an hour and a half. Waves of attackers with fresh torches, the defenders always outnumbered, always retreating slightly, always holding. Sake flowed in both directions. Men who had been grappling over a burning torch shared a cup minutes later. There was no animosity in any of it. The violence was real (clothes caught fire, eyebrows singed, skin reddened from heat and contact) but the spirit was communal. Nobody was competing. They were doing this together.",
+      },
+      {
+        type: "image",
+        src: "/journal/nozawa-fire-festival/nozawa-fire-festival-blaze.jpg",
+        alt: "The shaden fully engulfed in flames at the Nozawa Onsen Dosojin Matsuri, timbers glowing white-hot as the structure begins to collapse",
+        caption: "The shaden at full intensity. Forty feet of roaring flame before the collapse.",
       },
       {
         type: "text",
@@ -272,11 +274,15 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The burning is not destruction. It is renewal. The old year's impurities are consumed. The protective spirits are honoured through the offering. The young men prove their commitment to the village by defending the shrine, and the village proves its collective strength by eventually, inevitably, burning it down. By midnight the shaden was a column of flame, forty feet of fire against the black Nagano sky, and every face in the crowd was lit orange.",
+        text: "The burning is not destruction. It is renewal. The village performs this rite to ward off evil spirits, to pray for a bountiful harvest, and to celebrate the firstborn children of the year. The men in their yakudoshi offer their presence at the shrine as protection against the ill fortune their age is said to carry. The village proves its collective strength by eventually, inevitably, burning the shaden down. By midnight it was a column of flame, forty feet of fire against the black Nagano sky, and every face in the crowd was lit orange.",
       },
       {
         type: "text",
-        text: "Nobody left when it fell. They stood in the heat and the smoke and the snow and they watched it burn to nothing. Then they walked home through the village, past the stone dosojin markers at every intersection, past the onsen steam rising from the bathhouses, past the darkened ski rental shops and the closed restaurants. The streets smelled of woodsmoke and sulphur. In the morning, the snow where the shaden had stood would be black. By February, fresh snow would cover even that. By next January, they would build it again.",
+        text: "The collapse was majestic. Forty feet of blazing timber folding in on itself, a column of roaring flame that pushed the crowd back in waves of heat. The shaden fell in stages, each collapse sending fresh geysers of sparks into the black sky. The fire was as beautiful as anything we had seen in Japan. Not the soft, controlled beauty of a tea ceremony or a raked garden, but something older and wilder. The kind of beauty that reminds you fire was sacred long before it was useful.",
+      },
+      {
+        type: "text",
+        text: "Some drifted home as the flames subsided. Others stayed until the last timbers fell. When we finally walked back through the village, we passed the stone dosojin markers at every intersection, the onsen steam rising from the bathhouses, the darkened ski rental shops and the closed restaurants. The streets smelled of woodsmoke and sulphur. In the morning, the snow where the shaden had stood would be black. By February, fresh snow would cover even that. By next January, they would build it again.",
       },
     ],
   },
@@ -300,7 +306,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Matsuzaki-san met us in the main workshop. He explained the process the way someone explains breathing: simply, because it is simple, and because he has done it every day for decades. Washi begins as kozo, the inner bark of the mulberry tree. The fibres are stripped, soaked, boiled with wood ash, rinsed in river water, then beaten by hand until they separate into a cloudy pulp suspended in a vat of water. The vat in front of us was waist-high, wide as a dining table.",
+        text: "Matsuzaki-san met us in the main workshop. He explained the process simply, the way you might explain breathing. He has done it every day for decades. Washi begins as kozo, the inner bark of the mulberry tree. The fibres are stripped, soaked, boiled with wood ash, rinsed in river water, then beaten by hand until they separate into a cloudy pulp suspended in a vat of water. The vat in front of us was waist-high, wide as a dining table.",
       },
       {
         type: "image",
@@ -322,7 +328,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "What surprised me was how physical it felt. Your hands in cold water, your forearms bracing the frame, your whole body leaning into the motion. There is no abstraction in papermaking. You are standing in a cold room, hands wet, making something one sheet at a time. The process does not scale. It is not designed to.",
+        text: "What surprised me was how physical it felt. Your hands in cold water, your forearms bracing the frame, your whole body leaning into the motion. There is no abstraction in papermaking. You are standing in a cold room, hands wet, making something one sheet at a time. The process does not scale, and does not need to.",
       },
       {
         type: "pullquote",
@@ -359,7 +365,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "There is a particular quiet that follows making something with your hands, especially something that took your full attention. When we got back to our hotel we dried them on our window following Matsuzaki-san's instructions. The afternoon light came through the window and hit the paper where we could see the leaves inside, held there in the fibres, going nowhere. Absolutely beautiful. By late the next day, the paper was completely dry and ready for our journey home.",
+        text: "A quiet settles in after making something with your hands, especially something that took your full attention. When we got back to our hotel we dried them on our window following Matsuzaki-san's instructions. The afternoon light came through the window and hit the paper where we could see the leaves inside, held there in the fibres, going nowhere. Absolutely beautiful. By late the next day, the paper was completely dry and ready for our journey home.",
       },
     ],
   },
@@ -437,14 +443,14 @@ const articles: Record<
     subtitle: "Five-day seasons, each one worth noticing.",
     category: "Seasons",
     issue: "Issue 05",
-    author: "Tom Vining",
+    author: "Rieko Maeda",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/72-seasons/72-seasons-hero.jpg",
     content: [
       {
         type: "text",
-        text: "The plum blossoms opened on a Thursday. Not all of them. Three branches on the tree outside the ryokan in Hakone, the lower ones that caught the most sun. By Saturday the rest had followed, and by the following week the petals were already falling, collecting in the stone gutter that ran along the path to the bath. The whole thing lasted ten days. If you weren\u2019t paying attention, you\u2019d have missed it entirely.",
+        text: "The plum blossoms opened on a Thursday. Not all of them. Three branches on the tree outside our ryokan, the lower ones that caught the most sun. By Saturday the rest had followed, and by the following week the petals were already falling, collecting in the stone gutter that ran along the path. The whole thing lasted about a week. If you weren\u2019t paying attention, you\u2019d have missed it entirely.",
       },
       {
         type: "text",
@@ -466,7 +472,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We first encountered the system on a trip to Kyoto in autumn. A small printed card at a teahouse listed the current k\u014d: kirigirisu togane ni aru. Crickets chirp on doorsteps. It was late October, and that evening, walking back through Higashiyama, we heard them. Not because they hadn\u2019t been there before. Because nobody had told us to listen.",
+        text: "We first encountered the system on a trip to Kyoto. A small printed card at a teahouse listed the current k\u014d: kirigirisu togane ni aru. Crickets chirp on doorsteps. It was late September, and that evening, walking back to the station, we heard them. Not because they hadn\u2019t been there before, but because nobody had told us to listen.",
       },
       {
         type: "text",
@@ -493,15 +499,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "In Japan, this awareness is woven into daily life in ways that don\u2019t announce themselves. The wagashi at a tea ceremony changes with the k\u014d. Kaiseki menus shift every five days. Flower arrangements follow what is blooming now, not what looks best in general. There is no special effort involved. The culture simply never stopped paying attention to what most modern societies filtered out when they moved indoors.",
+        text: "In Japan, this awareness is woven into daily life in ways that don\u2019t announce themselves. Wagashi, traditional Japanese sweets, are designed to reflect the 72 micro-seasons. Flower arrangements follow what is blooming now, not what looks best in general. There is no special effort involved. The culture simply never stopped paying attention to what most modern societies filtered out when they moved indoors.",
       },
       {
         type: "text",
-        text: "AUWA\u2019s journal follows this rhythm. Not as a rigid system, and not as a history lesson. As a prompt. Every five days, the season offers something worth noticing. A shift in light. A sound at dusk. A particular quality in the morning air that wasn\u2019t there last week and won\u2019t be there next week. The seventy-two k\u014d are not an almanac. They are an invitation to treat the year as something that is happening to you, around you, right now.",
-      },
-      {
-        type: "text",
-        text: "Spring rain moistens the soil. That\u2019s the k\u014d for early April. Step outside and check.",
+        text: "AUWA\u2019s journal follows this rhythm. Not as a rigid system, and not as a history lesson, but as a prompt. Every five days, the season offers something worth noticing. A shift in light. A sound at dusk. A particular quality in the morning air that wasn\u2019t there last week and won\u2019t be there next week. The seventy-two k\u014d aren\u2019t a schedule. They are a way of treating the year as something happening around you, now.",
       },
     ],
   },
@@ -543,15 +545,15 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "This is what the onsen teaches, if you let it. Not relaxation (though that comes). Not wellness (though the minerals are real). The onsen teaches you what remains when you remove everything you normally hide behind.",
+        text: "The onsen teaches something quieter than relaxation, and less packaged than wellness. It teaches you what remains when you remove everything you normally hide behind.",
       },
       {
         type: "text",
-        text: "In daily life, we carry layers. Clothes signal who we are. Phones signal how busy we are. Conversation signals how clever we are. The onsen strips all of it. You sit in hot water with strangers and you are, for a few minutes, simply a body among bodies. Vulnerable, equal, warm.",
+        text: "In daily life we carry layers. Clothes, phones, the way we talk. All of them signalling something. The onsen strips all of it. You sit in hot water with strangers and you are, for a few minutes, simply a body among bodies. Vulnerable, equal, warm.",
       },
       {
         type: "text",
-        text: "The Japanese word hadaka (裸) means naked, but it carries a secondary meaning closer to \"without pretence.\" Hadaka no tsukiai, the practice of \"naked socialising,\" is an old concept. Business deals were once sealed in the bathhouse because the logic was sound: a person without clothes, without armour, without the props of their professional life, is harder to deceive and easier to trust. Not because nakedness reveals character. Because it removes the things that obscure it.",
+        text: "The Japanese word hadaka (裸) means naked, but it carries a secondary meaning closer to \"without pretence.\" Hadaka no tsukiai, the practice of \"naked socialising,\" is an old concept. Business deals were once sealed in the bathhouse because the logic was sound: a person without clothes, without armour, without the props of their professional life, is harder to deceive and easier to trust. Not because nakedness reveals character, but because it removes the things that obscure it.",
       },
       {
         type: "pullquote",
@@ -586,17 +588,17 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We do not think of vulnerability as something to practise. We think of it as something to survive. But the onsen makes a case for voluntary vulnerability as a form of attention. When you have nothing to protect, you stop scanning for threats. When you stop scanning, you start noticing. The grain of the stone beneath your feet. The particular blue of the sky through steam. The fact that the stranger across from you has closed his eyes and looks, for the first time today, like he is not carrying anything at all.",
+        text: "We do not think of vulnerability as something to practise. We think of it as something to survive. But the onsen makes a case for voluntary vulnerability as a form of attention. With nothing to protect, you stop watching for threats, and begin noticing instead. The stranger across from you has closed his eyes and looks, for the first time today, like he is not carrying anything at all.",
       },
       {
         type: "text",
-        text: "The bathwater cools eventually. You step out, dry off, dress. The layers return. But something stays different for a while. A looseness in the chest, a wider peripheral vision, a willingness to let the next thing happen without already planning for the thing after that. Walking back through the town afterwards, steam still rising from the drains, your skin flushed and cooling in the night air, you understand why people have been doing this for centuries. And why they will keep doing it long after you are gone.",
+        text: "The bathwater cools eventually. You step out, dry off, dress. The layers return. But something stays different for a while. A looseness in the chest, a wider peripheral vision, a willingness to let the next thing happen without already planning for the thing after that. Walking back through the town afterwards, steam still rising from the drains, your skin flushed and cooling in the night air, you understand why people have been doing this for centuries.",
       },
     ],
   },
   "shigefusa-knife": {
     title: "Shigefusa",
-    subtitle: "On waiting two years for a knife, and what arrived.",
+    subtitle: "On waiting over a year for a knife, and what arrived.",
     category: "Craft",
     issue: "Issue 01",
     author: "Tom Vining",
@@ -606,7 +608,7 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "We ordered the knife in a small hardware store in Japan. We'd been drawn in by its friendly owner and the shelves full of interesting little bits and pieces. Not one of the larger, fancier knife shops. It had a more authentic feel. As it turned out, the owner had a direct connection to Shigefusa. We asked if it would be possible to place an order. Years, possibly, came the reply. But as the conversation continued, the owner agreed to put our names down on a waitlist. A couple of years later, back in the UK, we received word that the knife was ready for collection. On our next visit to Japan, we picked it up in person. A box wrapped in brown paper with that particular Japanese precision. Every fold exact, every edge aligned.",
+        text: "We ordered the knife in a small hardware store in Japan. We'd been drawn in by its friendly owner and the shelves full of interesting little bits and pieces. It had this wonderful authentic feel to it. As it turned out, the owner had a direct connection to Shigefusa. We asked if it would be possible to place an order. It could take years, he said. But as the conversation continued, the owner agreed to put our names down on a waitlist. Over a year later, back in the UK, we received word that the knife was ready for collection, and that we'd been very lucky. On our next visit to Japan, we picked it up in person. A box wrapped in paper with that particular Japanese precision. Every fold exact, every edge aligned.",
       },
       {
         type: "text",
@@ -620,7 +622,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We lifted the lid and there it was. A Shigefusa kitaeji wa-gyuto, 210 millimetres of hand-forged Swedish carbon steel, resting on wooden supports. The blade coated in a thin film of tsubaki oil, camellia, applied by hand at the workshop to protect it during its journey. No plastic. No foam. Just wood cradling steel, and the faint scent of the oil.",
+        text: "I lifted the lid and there it was. A Shigefusa kitaeji wa-gyuto, 210 millimetres of hand-forged Swedish carbon steel, resting on wooden supports. The blade coated in a thin film of tsubaki oil, camellia, applied by hand at the workshop to protect it during its journey. No plastic. No foam. Just wood cradling steel, and the faint scent of the oil.",
       },
       {
         type: "text",
@@ -628,11 +630,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Shigefusa is the working name of Tokifusa Iizuka, a bladesmith in Sanjo, Niigata prefecture, who works alongside his two sons in a family workshop in a region that has produced metalwork for over four hundred years. They don't have a website. They don't take custom orders. They make what they make (gyutos, nakiris, petty knives) in the quantities their hands and their days allow, and when the knives are finished, they go to a handful of shops in Japan. Waitlists run one to three years. There is no way to expedite.",
+        text: "Shigefusa is the working name of Tokifusa Iizuka, a bladesmith in Sanjo, Niigata prefecture, who works alongside his two sons in a family workshop in a region that has produced metalwork for over four hundred years. They don't have a website. They don't take custom orders. They make what they make in the quantities their hands and their days allow, and when the knives are finished, they go to a handful of shops in Japan. Waitlists run one to three years. There is no way to expedite.",
       },
       {
         type: "text",
-        text: "In a world that has optimised almost everything else, this pace feels radical. Not as a statement. Shigefusa isn't making a point about slow living or mindful consumption. He's simply making knives the way he knows how to make them, at the speed the process requires. The radicalism is ours. We're the ones who've forgotten that some things take the time they take.",
+        text: "In a world that has optimised almost everything else, this pace feels rare. Not as a statement. Shigefusa isn't making a point about slow living or mindful consumption. He's simply making knives the way he knows how to make them, at the speed the process requires. The rarity is ours. We're the ones who've forgotten that some things take the time they take.",
       },
       {
         type: "pullquote",
@@ -655,19 +657,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Since ancient times, the Japanese have believed that a life force resides in all things. Yaoyorozu no kami: the understanding that spirit inhabits everything, not just living beings but rivers, mountains, and objects made with enough care and accumulated skill. A mass-produced knife carries nothing of its maker. It was made by a machine that doesn't know what a knife is for. But a blade that a single person spent days forging, shaping, polishing, and signing carries something of the person who made it into the life of the person who uses it.",
+        text: "Since ancient times, the Japanese have believed that a life force resides in all things. Yaoyorozu no kami: the understanding that spirit inhabits everything, not just living beings but rivers, mountains, and objects made with enough care and accumulated skill. A mass-produced knife carries nothing of its maker. It was made by a machine that doesn't know what a knife is for. But a blade that a single person spent days forging, shaping, polishing, and signing carries something of the person who made it into the life of the person who uses it. When we collected ours, the shop owner reminded us that Shigefusa wants his blades to be used, not kept for display.",
       },
       {
         type: "text",
-        text: "We haven't used ours yet. It sits in its kiri box, coated in camellia oil, and we're still in the admiring stage. Still holding it up to the window to watch the light move across those layered patterns in the steel. Still marvelling at the artistry. When we collected it, the shop owner reminded us that Shigefusa wants his blades to be used, not kept for display. We will. But not quite yet.",
-      },
-      {
-        type: "text",
-        text: "Two years is a long time to wait for a knife. It's also, it turns out, exactly the right amount of time. Long enough to forget about it, then remember. Long enough to wonder if it will ever come, then stop wondering. Long enough that when you finally collect it from that same small shop, you open it slowly. You pay attention. You notice the oil, the wood, the weight, the grain in the steel, the chiseled name of the man who made it. You notice everything.",
-      },
-      {
-        type: "text",
-        text: "Which might be the most valuable thing a knife can teach you.",
+        text: "Over a year is a long time to wait for a knife. It's also, it turns out, exactly the right amount of time. Long enough to forget about it, then remember. Long enough to wonder if it will ever come, then stop wondering. Long enough that when you finally collect it from that same small shop, you open it slowly. You pay attention. You notice the oil, the wood, the weight, the grain in the steel, the chiseled name of the man who made it. You notice everything. A truly memorable experience.",
       },
     ],
   },
@@ -774,7 +768,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "I kept drawing it. Every few days, sometimes every day, the same figure appearing in different settings: floating above a forest, standing beside a flower, surrounded by tiny creatures in the dark. I did not plan these scenes. They arrived, fully formed, the way certain dreams do. My partner would ask me what the character was, what it wanted, where it came from. I could not answer in words. I could only show him the next drawing.",
+        text: "I kept drawing it. Every few days, sometimes every day, the same figure appearing in different settings: floating above a forest, standing beside a flower, surrounded by tiny creatures in the dark. I did not plan these scenes. They arrived, fully formed, the way certain dreams do. Tom would ask me what the character was, what it wanted, where it came from. I could not answer in words. I could only show him the next drawing.",
       },
       {
         type: "image",
@@ -784,7 +778,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Four stories. Each one following this being of light as it encounters a different part of the natural world and reveals the Kokoro within it. Kokoro (心) is the Japanese word for what English divides into heart, mind, soul, and spirit. In Japanese, these are not separate things. Kokoro is holistic: emotion, thought, and essence held together as one. It lives in the chest, not the head. It is felt before it is understood.",
+        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Several stories. Each one following this being of light as it encounters a different part of the natural world and reveals the Kokoro within it. Kokoro (心) is the Japanese word for what English divides into heart, mind, soul, and spirit. In Japanese, these are not separate things. Kokoro is holistic: emotion, thought, and essence held together as one. It lives in the chest, not the head. It is felt before it is understood.",
       },
       {
         type: "text",
@@ -815,7 +809,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. I drew the first sketch nearly ten years ago, and the simplicity has never changed because it was never a constraint. It is the method. It looks like a children\u2019s book. That is the point. Adults build defences around ideas about the soul. They want evidence, argument, logic. A picture book walks straight past all of that. Charlie Mackesy understood this. Miyazaki has understood it for decades. Simplicity is not a limitation. It is the way in.",
+        text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. I drew the first sketch nearly ten years ago, and the simplicity has never changed because it was never a constraint, it is the method. It looks like a children\u2019s book, which is the point. Adults build defences around ideas about what cannot be seen. They want evidence, argument, logic. A picture book walks straight past all of that. Charlie Mackesy understood this. Miyazaki has understood it for decades.",
       },
       {
         type: "image",
@@ -825,11 +819,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The sketches came first, always in pencil. Then I moved to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. Some of my original iterations of AUWA were on canvas. I wanted to paint so that, while working on client projects, I would not forget to properly start this. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed.",
+        text: "The sketches came first, always in pencil. Then I moved to Illustrator, and then to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. Some of my original iterations of AUWA were on canvas. I wanted to paint so that, while working on client projects, I would not forget to properly start this. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed.",
       },
       {
         type: "text",
-        text: "The first book is complete and will be released later this year. I am currently working on the remaining stories. There are four so far, each taking AUWA somewhere new: the ocean, the city, the stars where AUWA is from. How many there will be in the end, I do not know yet. The character has a way of deciding that for me.",
+        text: "The first book is complete and will be released later this year. I am currently working on the remaining stories. There are several to come, each taking AUWA somewhere new: the ocean, the city, the stars where AUWA is from. How many there will be in the end, I do not know yet. The character has a way of deciding that for me.",
       },
       {
         type: "cta" as const,
@@ -841,7 +835,7 @@ const articles: Record<
   },
   "yaoyorozu-no-kami": {
     title: "Yaoyorozu no Kami",
-    subtitle: "Eight million gods. Even in things you overlook.",
+    subtitle: "Eight million gods live in the world around you.",
     category: "Philosophy",
     issue: "Issue 10",
     author: "Tom Vining",
@@ -851,11 +845,11 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "The worldview has a name: Yaoyorozu no Kami. Literally, \u201Ceight million gods,\u201D though the number is not a count. It means something closer to \u201Can uncountable multitude.\u201D Spirits in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
+        text: "Yaoyorozu no Kami. Literally, \u201Ceight million gods,\u201D though the number is not a count. It means something closer to \u201Can uncountable multitude.\u201D Gods in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
       },
       {
         type: "text",
-        text: "What lives within these things is kami: spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that AUWA draws from.",
+        text: "What lives within these things is kami: god, spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that AUWA draws from.",
       },
       {
         type: "image",
@@ -896,7 +890,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "You do not arrive at Yaoyorozu no Kami through study. You arrive by paying attention long enough that the boundary between alive and not alive stops feeling useful. The tree, the stone, the bowl, the river. You already knew. You just stopped saying it out loud.",
+        text: "You do not arrive at Yaoyorozu no Kami through study. You arrive by paying attention long enough that the boundary between alive and not alive stops feeling useful. The tree, the stone, the bowl, the river.",
       },
     ],
   },
@@ -1216,7 +1210,6 @@ export default async function ArticlePage({
                   const isRieko = name === "Rieko Maeda";
                   return {
                     href: isRieko ? "/about#rieko" : "/about#tom",
-                    role: "Co-Founder, AUWA",
                   };
                 };
                 const author = credit(article.author);
@@ -1231,9 +1224,6 @@ export default async function ArticlePage({
                     <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
                       {article.author}
                     </Link>
-                    <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                      {author.role}
-                    </p>
                   </div>
                 ) : (
                   <div className="flex gap-10 md:gap-14">
@@ -1244,9 +1234,6 @@ export default async function ArticlePage({
                       <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
                         {article.author}
                       </Link>
-                      <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                        {author.role}
-                      </p>
                     </div>
                     <div>
                       <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
@@ -1255,9 +1242,6 @@ export default async function ArticlePage({
                       <Link href={photographer.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
                         {article.photographer}
                       </Link>
-                      <p className="mt-1 font-display italic text-[14px] leading-[1.5] text-void/45">
-                        {photographer.role}
-                      </p>
                     </div>
                   </div>
                 );
