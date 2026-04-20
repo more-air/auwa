@@ -238,7 +238,11 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
               // Only 1 card visible behind, clearly narrower
               const scale = 1 - absOrder * 0.03;
               const scaleX = 1 - absOrder * 0.1; // much narrower behind
-              const translateY = order * 4; // more vertical offset so it sticks out more
+              // Convert vh-based offset to stable pixels using the viewport
+              // height captured on mount. Using live vh in the transform
+              // causes iOS jitter whenever the URL bar retracts or expands.
+              const vhPx = viewportHeight.current || 800;
+              const translateYPx = (order * 4 * vhPx) / 100;
               const zIndex = 20 - absOrder;
               const opacity = absOrder > 1 ? 0 : 1; // only 1 behind
               const isActive = i === activeIndex;
@@ -252,7 +256,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                     isActive ? "cursor-pointer" : "pointer-events-none"
                   }`}
                   style={{
-                    transform: `translate3d(0, ${translateY}vh, 0) scale(${scaleX}, ${scale})`,
+                    transform: `translate3d(0, ${translateYPx}px, 0) scale(${scaleX}, ${scale})`,
                     zIndex,
                     opacity,
                     willChange: "transform, opacity",
@@ -279,19 +283,26 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
           </div>
 
           {/* ── Mobile: card + text stacked and centred vertically ── */}
-          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-[5vh] px-6">
+          {/*
+            gap uses a fixed rem instead of 5vh so the layout doesn't
+            shift when the iOS URL bar retracts mid-scroll.
+          */}
+          <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-8 px-6">
             <div
-              className="relative w-full max-w-[320px]"
-              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 18rem)" }}
+              className="relative w-full max-w-[380px]"
+              style={{ aspectRatio: "9/16", maxHeight: "calc(100svh - 13rem)" }}
             >
               {CARDS.map((card, i) => {
                 const order = orders[i];
                 const absOrder = Math.abs(order);
                 const scale = 1 - absOrder * 0.03;
                 const scaleX = 1 - absOrder * 0.1;
-                // Peek of the next card — gap-[5vh] below the wrapper keeps
-                // the peek clear of the text block.
-                const translateY = order * 4;
+                // Convert vh-based peek offset to fixed pixels using the
+                // viewport height captured on mount. Live vh inside the
+                // transform caused visible jitter on iOS whenever the URL
+                // bar retracted during scroll.
+                const vhPx = viewportHeight.current || 800;
+                const translateYPx = (order * 4 * vhPx) / 100;
                 const zIndex = 20 - absOrder;
                 const opacity = absOrder > 1 ? 0 : 1;
                 const isActive = i === activeIndex;
@@ -305,7 +316,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                       isActive ? "" : "pointer-events-none"
                     }`}
                     style={{
-                      transform: `translate3d(0, ${translateY}vh, 0) scale(${scaleX}, ${scale})`,
+                      transform: `translate3d(0, ${translateYPx}px, 0) scale(${scaleX}, ${scale})`,
                       zIndex,
                       opacity,
                       willChange: "transform, opacity",

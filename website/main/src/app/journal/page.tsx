@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import { TextReveal } from "@/components/text-reveal";
 import Link from "next/link";
 
 export const metadata = {
@@ -43,11 +44,13 @@ export default async function JournalPage({
 
         {/* Title + filters */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-8 md:pb-12">
-          <FadeIn>
-            <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[0.01em] text-void">
-              Journal
-            </h1>
-          </FadeIn>
+          <TextReveal
+            as="h1"
+            className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[0.01em] text-void"
+            stagger={90}
+          >
+            Journal
+          </TextReveal>
           <FadeIn delay={100}>
             <div className="mt-8 flex flex-wrap gap-4 md:gap-6">
               {categories.map((cat) => (

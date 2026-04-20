@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import { TextReveal } from "@/components/text-reveal";
 import { ObfuscatedEmail } from "@/components/obfuscated-email";
 import Link from "next/link";
 
@@ -15,11 +16,14 @@ export default function AboutPage() {
 
         {/* Hero */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-16 md:pb-24">
-          <FadeIn>
-            <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[700px] pr-12 md:pr-0">
-              The architecture<br />of Kokoro
-            </h1>
-          </FadeIn>
+          <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[700px] pr-12 md:pr-0">
+            <TextReveal as="span" className="block" stagger={90}>
+              The architecture
+            </TextReveal>
+            <TextReveal as="span" className="block" stagger={90} delay={180}>
+              of Kokoro
+            </TextReveal>
+          </h1>
         </section>
 
         {/* Philosophy */}

@@ -55,7 +55,7 @@ export function SignupForm({
     return (
       <div className={className || "max-w-[440px]"}>
         <div className={rowClasses}>
-          <p className={`font-sans text-[14px] ${isDark ? "text-white" : "text-void"}`}>
+          <p className={`font-sans text-[16px] ${isDark ? "text-white" : "text-void"}`}>
             {successMessage}
           </p>
         </div>
@@ -73,7 +73,7 @@ export function SignupForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={status === "submitting"}
-          className={`flex-1 bg-transparent font-sans text-[14px] outline-none disabled:opacity-50 ${
+          className={`flex-1 bg-transparent font-sans text-[16px] outline-none disabled:opacity-50 ${
             isDark
               ? "text-white placeholder:text-white/35"
               : "text-void placeholder:text-void/35"
@@ -82,7 +82,7 @@ export function SignupForm({
         <button
           type="submit"
           disabled={status === "submitting"}
-          className={`font-sans text-[14px] font-medium tracking-[0.02em] transition-colors duration-300 whitespace-nowrap cursor-pointer disabled:opacity-50 ${
+          className={`font-sans text-[16px] font-medium tracking-[0.02em] transition-colors duration-300 whitespace-nowrap cursor-pointer disabled:opacity-50 ${
             isDark
               ? "text-white hover:text-white/55"
               : "text-void hover:text-void/55"

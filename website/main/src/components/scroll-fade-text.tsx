@@ -57,7 +57,13 @@ export function ScrollFadeText({
           ref={(el) => {
             charRefs.current[idx] = el;
           }}
-          className="inline-block transition-opacity duration-300 ease-out"
+          // Plain inline (not inline-block) preserves letter kerning and
+          // shared subpixel positioning. iOS Safari was rendering each
+          // inline-block letter as its own composite box with slightly
+          // different subpixel offsets, making text appear to shimmer as
+          // opacity changed. No CSS transition either — the raf loop
+          // drives opacity directly every frame, so a trailing transition
+          // only adds lag and compositor thrash.
           style={{ opacity: mounted ? from : from }}
         >
           {ch}
