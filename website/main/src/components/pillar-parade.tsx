@@ -119,57 +119,59 @@ export function PillarParade() {
         className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide"
       >
         {CARDS.map((card, i) => (
-          // No FadeIn wrapper. Earlier iterations wrapped each card in
-          // FadeIn for a staggered cascade, but FadeIn uses an
-          // IntersectionObserver with a 10% threshold: cards 2-4 sit
-          // off-viewport to the right, never intersect, and stay at
-          // opacity: 0. When the user swipes to reveal them, IO fires
-          // and FadeIn starts a 1200ms transition — reading on iPhone
-          // as "the second image isn't loading until I swipe right".
-          // A horizontal scroller's entrance IS the swipe. Keep cards
-          // visible from the start; loading="eager" below ensures the
-          // image bytes are fetched up-front.
-          <Link
+          // Reveal slide-in matches the Journal strip and About pillar
+          // grid. FadeIn's `reveal` variant now uses a 200% right
+          // rootMargin on its IntersectionObserver, so cards 2-4 (sitting
+          // off-viewport-right on mobile) still trigger when the section
+          // scrolls into view vertically — no more "second image missing"
+          // on iPhone.
+          <FadeIn
             key={i}
-            href={card.href}
-            data-cursor="Open"
-            className="group relative block aspect-[3/4] rounded-xl overflow-hidden flex-shrink-0 w-[72vw] sm:w-[320px] max-w-[360px]"
+            variant="reveal"
+            delay={i * 60}
+            className="flex-shrink-0 w-[72vw] sm:w-[320px] max-w-[360px]"
           >
-            {card.type === "video" ? (
-              <video
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={card.poster}
-                preload="metadata"
-              >
-                <source src={card.src} type="video/mp4" />
-              </video>
-            ) : (
-              <Image
-                src={card.src}
-                alt={card.heading}
-                fill
-                sizes="(max-width: 768px) 72vw, 360px"
-                className="object-cover"
-                loading="eager"
-                priority={i < 2}
-              />
-            )}
-            {/* Readability gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-void/70 via-void/10 to-transparent pointer-events-none" />
-            {/* Caption */}
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <span className="block font-sans text-[11px] tracking-[0.16em] uppercase text-white/70">
-                {card.eyebrow}
-              </span>
-              <h3 className="mt-3 font-display text-[clamp(1.75rem,5vw,2.25rem)] leading-[1.1] tracking-[0.005em] text-white whitespace-nowrap">
-                {card.heading}
-              </h3>
-            </div>
-          </Link>
+            <Link
+              href={card.href}
+              data-cursor="Open"
+              className="group relative block aspect-[3/4] rounded-xl overflow-hidden"
+            >
+              {card.type === "video" ? (
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster={card.poster}
+                  preload="metadata"
+                >
+                  <source src={card.src} type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src={card.src}
+                  alt={card.heading}
+                  fill
+                  sizes="(max-width: 768px) 72vw, 360px"
+                  className="object-cover"
+                  loading="eager"
+                  priority={i < 2}
+                />
+              )}
+              {/* Readability gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-void/70 via-void/10 to-transparent pointer-events-none" />
+              {/* Caption */}
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <span className="block font-sans text-[11px] tracking-[0.16em] uppercase text-white/70">
+                  {card.eyebrow}
+                </span>
+                <h3 className="mt-3 font-display text-[clamp(1.75rem,5vw,2.25rem)] leading-[1.1] tracking-[0.005em] text-white whitespace-nowrap">
+                  {card.heading}
+                </h3>
+              </div>
+            </Link>
+          </FadeIn>
         ))}
       </div>
 
