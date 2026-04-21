@@ -28,7 +28,11 @@ const FADE_MS = 1200;
 export function SoundToggle() {
   const [playing, setPlaying] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [onDark, setOnDark] = useState(false);
+  // How many pixels to lift the button upward so it never enters the
+  // dark footer region. 0 when `<main>`'s bottom is below the viewport
+  // (natural position); grows as the footer is revealed on scroll so
+  // the button sits cleanly above main's bottom edge.
+  const [lift, setLift] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeRafRef = useRef<number | null>(null);
 
@@ -68,45 +72,57 @@ export function SoundToggle() {
     };
   }, [mounted]);
 
-  // Invert the button colour when the dark footer is showing behind it.
-  // Footer is `sticky bottom-0 z-0`, so it sits pinned to the viewport at
-  // all times; what actually changes is `main` (z-1, white bg), which
-  // slides up as the user scrolls down. The footer only becomes visible
-  // under the button once `main`'s bottom edge has risen above the button.
+  // Stop the button from drifting into the dark footer. Track `<main>`'s
+  // bottom edge; if it rises above the button's natural position, lift
+  // the button by exactly enough to keep a 12px gap above main.bottom.
+  // When the footer is not yet revealed (main.bottom ≥ viewport bottom)
+  // the lift is 0 and the button sits at its natural offset.
   //
-  // We watch a zero-height sentinel appended as `<main>`'s last child — its
-  // top edge tracks main's bottom edge — and use an IntersectionObserver
-  // with the root margin reduced by the button zone. IO fires reliably
-  // regardless of which scroll mechanism is in play (Lenis, native, touch).
+  // Measures on every scroll + resize + Lenis scroll event; rAF-gated
+  // and state-gated so React only re-renders when the lift value
+  // actually changes by ≥1px.
   useEffect(() => {
     if (!mounted) return;
     const main = document.querySelector("main");
     if (!main) return;
 
-    const sentinel = document.createElement("div");
-    sentinel.setAttribute("aria-hidden", "true");
-    sentinel.style.cssText = "width:100%;height:0;pointer-events:none;";
-    main.appendChild(sentinel);
+    let rafId: number | null = null;
+    let lastLift = 0;
 
-    // rootMargin shrinks the viewport bottom by the button zone.
-    //   sentinel in [0, innerHeight - 64]  → intersecting   → dark
-    //   sentinel below viewport            → not intersecting, top ≥ 0   → light
-    //   sentinel above viewport            → not intersecting, top < 0   → dark
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setOnDark(true);
-        } else {
-          setOnDark(entry.boundingClientRect.top < 0);
-        }
-      },
-      { rootMargin: "0px 0px -64px 0px", threshold: 0 }
-    );
-    io.observe(sentinel);
+    // Natural offset of the button from the viewport bottom (bottom-5
+    // class = 20px). Button height is 40px (w-10/h-10). We want its
+    // bottom edge 12px above main.bottom when main.bottom is close to
+    // or above the viewport floor.
+    const NATURAL_BOTTOM_PX = 20;
+    const GAP_ABOVE_FOOTER_PX = 12;
+
+    const measure = () => {
+      rafId = null;
+      const mainBottom = main.getBoundingClientRect().bottom;
+      // Desired button bottom = main.bottom - GAP. Lift needed = natural - desired.
+      const needed = window.innerHeight - NATURAL_BOTTOM_PX - (mainBottom - GAP_ABOVE_FOOTER_PX);
+      const next = Math.max(0, needed);
+      if (Math.abs(next - lastLift) >= 1) {
+        lastLift = next;
+        setLift(next);
+      }
+    };
+    const schedule = () => {
+      if (rafId === null) rafId = requestAnimationFrame(measure);
+    };
+
+    measure();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+
+    const lenis = (window as unknown as { __lenis?: { on: (e: string, cb: () => void) => void; off: (e: string, cb: () => void) => void } }).__lenis;
+    lenis?.on?.("scroll", schedule);
 
     return () => {
-      io.disconnect();
-      sentinel.remove();
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      lenis?.off?.("scroll", schedule);
     };
   }, [mounted]);
 
@@ -168,21 +184,16 @@ export function SoundToggle() {
       onClick={toggle}
       aria-label={playing ? "Turn ambient sound off" : "Turn ambient sound on"}
       aria-pressed={playing}
-      className={`fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md cursor-pointer ${
-        onDark
-          ? "bg-white/90 text-void hover:bg-white"
-          : "bg-void/85 text-white hover:bg-void"
-      }`}
+      className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md cursor-pointer bg-void/85 text-white hover:bg-void transition-colors duration-300"
       style={{
         WebkitBackdropFilter: "blur(8px)",
-        // When the footer is revealed behind the button, slide it well
-        // above the bottom-bar (copyright + social icons) so the whole
-        // row is clear. Bottom bar is ~100px tall on mobile (pt-12 + row
-        // + pb-10). -96px from bottom-5 puts the button centre at
-        // ~116px off the viewport floor, clear of the bar.
-        transform: onDark ? "translateY(-96px)" : "translateY(0)",
-        transition:
-          "background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), color 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+        // Lift the button so it never drifts into the dark footer.
+        // Driven by the scroll effect above: 0 when main.bottom is
+        // below the viewport; otherwise enough to sit 12px above main's
+        // bottom edge. No CSS transition on transform — the rAF-driven
+        // lift already animates smoothly frame-by-frame, and adding a
+        // 500ms easing on top would lag behind the scroll.
+        transform: `translateY(-${lift}px)`,
       }}
     >
       <svg

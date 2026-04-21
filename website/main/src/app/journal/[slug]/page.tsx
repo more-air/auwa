@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
+import { CtaLink } from "@/components/cta-link";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -979,12 +980,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
           <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void/55 mb-8">
             {block.text}
           </p>
-          <Link
-            href={block.href}
-            className="inline-block font-sans text-[13px] tracking-[0.06em] uppercase text-void/50 border border-void/15 px-8 py-3.5 hover:text-void hover:border-void/40 transition-all duration-300"
-          >
-            {block.label}
-          </Link>
+          <CtaLink href={block.href} variant="primary">{block.label}</CtaLink>
         </div>
       </FadeIn>
     );

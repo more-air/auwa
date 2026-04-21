@@ -16,6 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
+import { CtaLink } from "@/components/cta-link";
 
 type Frame = {
   eyebrow: string;
@@ -121,20 +122,7 @@ function FrameContent({ frame, isActive }: { frame: Frame; isActive: boolean }) 
 
       <FadeIn delay={650} duration={700}>
         <div className="mt-8 md:mt-10">
-          <Link
-            href={frame.href}
-            className="group relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.14em] uppercase text-void border border-void/20 hover:border-void/60 transition-colors duration-300"
-          >
-            <span className="block px-6 py-3 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
-              {frame.cta}
-            </span>
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
-            >
-              {frame.cta}
-            </span>
-          </Link>
+          <CtaLink href={frame.href} variant="primary">{frame.cta}</CtaLink>
         </div>
       </FadeIn>
     </div>

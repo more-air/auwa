@@ -20,7 +20,7 @@ type Props = {
  * AUWA CTA link with a text-roll hover: the label lifts up and is
  * replaced by the same label rising from below. Three style variants.
  */
-export function CtaLink({ href, children, className = "", variant = "secondary" }: Props) {
+export function CtaLink({ href, children, className = "", variant = "primary" }: Props) {
   const base =
     "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500 ease-[cubic-bezier(0.7,0,0.3,1)]";
 
@@ -28,13 +28,15 @@ export function CtaLink({ href, children, className = "", variant = "secondary" 
   const resolved = variant === "bordered" ? "secondary" : variant;
 
   // Primary = secondary (bordered) + a just-there warm wash. Alpha is
-  // kept low so the colour reads as a trace of late-afternoon light
-  // rather than a tinted fill. No bg change on hover — the label's
-  // text-roll carries the interaction by itself.
+  // kept super low (≈11%) so the colour reads as a barely-there trace
+  // of late-afternoon light — enough to separate the button from the
+  // page, not enough to look like a coloured fill. Text is already
+  // full void at rest; only the border darkens on hover (and the
+  // label's text-roll plays).
   const primary =
-    "bg-[oklch(0.88_0.04_78_/_0.22)] text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40";
+    "bg-[oklch(0.88_0.04_78_/_0.11)] text-void border border-void/15 px-6 py-3 hover:border-void/40";
   const secondary =
-    "text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40";
+    "text-void border border-void/15 px-6 py-3 hover:border-void/40";
   const plain = "text-void/50 hover:text-void";
 
   const variantClasses =

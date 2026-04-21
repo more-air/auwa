@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
+import { CtaLink } from "@/components/cta-link";
 
 export const metadata: Metadata = {
   title: "Lost the path | AUWA",
@@ -39,12 +39,7 @@ export default function NotFound() {
 
             <FadeIn delay={560}>
               <div className="mt-12 flex justify-center">
-                <Link
-                  href="/"
-                  className="font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
-                >
-                  Back to home
-                </Link>
+                <CtaLink href="/" variant="primary">Back to home</CtaLink>
               </div>
             </FadeIn>
           </div>
