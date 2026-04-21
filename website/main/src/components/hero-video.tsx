@@ -121,7 +121,10 @@ export function HeroVideo() {
     <section ref={sectionRef} className="-mt-16 md:-mt-20">
       <div
         className="relative h-[100svh] w-full overflow-hidden"
-        style={{ backgroundColor: "#e9dcc3" }}
+        // Matches the entrance loader background (#f8f7f4) so the flash
+        // before the poster / video paints reads as the same warm off-
+        // white family rather than a jarring beige.
+        style={{ backgroundColor: "#f8f7f4" }}
         onPointerDown={(e) => {
           // Ignore clicks that originate from the scroll cue button — we
           // don't want the whole stage to swell when the user taps the
