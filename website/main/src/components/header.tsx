@@ -142,7 +142,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.12] tracking-[0.005em] transition-colors duration-300 ${
+                  className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.25] tracking-[0.005em] transition-colors duration-300 ${
                     pathname === item.href ? "text-void" : "text-void/40 hover:text-void"
                   }`}
                 >

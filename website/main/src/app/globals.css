@@ -153,6 +153,13 @@ a:focus-visible img {
   outline: none;
 }
 
+/* Signup form text inputs use their row's focus-within border-bottom as the
+   focus indicator, so suppress the generic outline here. */
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {

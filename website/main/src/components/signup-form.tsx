@@ -75,12 +75,14 @@ export function SignupForm({
         <input
           id={inputId}
           type="email"
+          name="email"
+          autoComplete="email"
           placeholder="Email address"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={status === "submitting"}
-          className={`flex-1 bg-transparent font-sans text-[16px] disabled:opacity-50 ${
+          className={`flex-1 bg-transparent font-sans text-[16px] focus:outline-none focus-visible:outline-none disabled:opacity-50 ${
             isDark
               ? "text-white placeholder:text-white/35"
               : "text-void placeholder:text-void/35"

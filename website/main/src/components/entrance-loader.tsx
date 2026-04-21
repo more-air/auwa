@@ -20,10 +20,9 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "auwa.loader-shown";
 
-// Warm off-white pulled from the hero scene's palette. Sits between pure
-// white and the hero video's #e9dcc3 beige, reading as a quieter earlier
-// beat of the same world.
-const LOADER_BG = "#f8f2e5";
+// Matches the newsletter/welcome-email background — keeps the entrance
+// moment in the same warm off-white family as our written voice.
+const LOADER_BG = "#f8f7f4";
 
 // Timeline (all times in ms, relative to mount).
 // Entry and exit share the same duration + easing so the fade-out feels as
