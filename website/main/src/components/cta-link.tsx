@@ -14,7 +14,7 @@ type Props = {
  */
 export function CtaLink({ href, children, className = "", variant = "bordered" }: Props) {
   const base =
-    "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500";
+    "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500 ease-[cubic-bezier(0.7,0,0.3,1)]";
   const bordered =
     "text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40";
   const plain = "text-void/50 hover:text-void";

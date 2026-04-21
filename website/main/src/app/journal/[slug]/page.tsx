@@ -1074,7 +1074,7 @@ export default async function ArticlePage({
 
         {/* ── Hero: split layout, viewport height ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
-          <div className="relative aspect-[4/5] md:aspect-auto bg-surface-raised overflow-hidden">
+          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
             {article.heroImage ? (
               <img
                 src={article.heroImage}
@@ -1275,8 +1275,9 @@ export default async function ArticlePage({
               <Link
                 href={`/journal/${related.slug}`}
                 className="group block"
+                data-cursor="Read"
               >
-                <div className="aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden relative">
+                <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
                   {related.image ? (
                     <img
                       src={related.image}

@@ -1,7 +1,7 @@
 import { getCurrentMicroSeason } from "@/lib/micro-seasons";
 import { FadeIn } from "./fade-in";
 import { ScrollFadeText } from "./scroll-fade-text";
-import Link from "next/link";
+import { CtaLink } from "./cta-link";
 
 /*
   Centred micro-season module with separator lines above and below.
@@ -37,12 +37,9 @@ export function MicroSeasonFeature() {
         </ScrollFadeText>
 
         <FadeIn delay={200}>
-          <Link
-            href="/journal/72-seasons"
-            className="inline-block mt-8 font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300"
-          >
-            Read the essay
-          </Link>
+          <div className="mt-8">
+            <CtaLink href="/journal/72-seasons">Read the essay</CtaLink>
+          </div>
         </FadeIn>
       </div>
     </section>

@@ -6,23 +6,23 @@
 
 ## WHAT AUWA IS
 
-AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. AUWA uses the word kokoro (心) as its own expression of this idea. Unlike English, which separates heart, mind, soul, and spirit into distinct concepts, kokoro holds them as a single, undivided whole. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. AUWA uses the word Kokoro (心) as its own expression of this idea. Unlike English, which separates heart, mind, soul, and spirit into distinct concepts, Kokoro holds them as a single, undivided whole. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
 
 Where Western wellness centres on the self, AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is "Japanese philosophical awareness applied to modern life."
 
 AUWA is built on four interconnected pillars: a daily awareness practice app (Kokoro Mirror), a curated Japanese craftsman store, an editorial journal, and an illustrated story universe. These are not four separate products. They're one philosophy expressed four ways, one world with four ways in. The app builds emotional awareness, the store cultivates material awareness, the journal builds cultural awareness, the book teaches philosophical awareness. Public-facing copy uses the "four ways in" / "AUWA expresses this through four things" framing. The word "expressions" is the internal frame for how the pillars relate to the philosophy.
 
-Within the book and app, AUWA is also a character — a luminous being who reveals the kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, created by Japanese illustrator Rieko Vining over a decade of development. It appears only in the stories and the app, making those spaces special. The broader brand — store, journal, overall identity — expresses the philosophy through design, editorial, and craft without needing the character.
+Within the book and app, AUWA is also a character — a luminous being who reveals the Kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, created by Japanese illustrator Rieko Maeda over a decade of development. It appears only in the stories and the app, making those spaces special. The broader brand — store, journal, overall identity — expresses the philosophy through design, editorial, and craft without needing the character.
 
 ---
 
 ## THE FOUR BRAND PILLARS
 
 ### Kokoro Mirror App (auwa.life/app)
-Daily awareness practice. User shares how they feel, AUWA's AI identifies the emotion using a proprietary Yamato-language framework, reflects it back poetically alongside Rieko's illustrated AUWA character. Shareable kokoro cards, journal, Kokoro Archive for pattern recognition over time. The AUWA character appears here (and in the book) — one of two spaces where it lives. PWA first, wrappable for native via Capacitor. Free tier: 3 revelations/month. Paid: £6.99/month or £49.99/year.
+Daily awareness practice. User shares how they feel, AUWA's AI identifies the emotion using a proprietary Yamato-language framework, reflects it back poetically alongside Rieko's illustrated AUWA character. Shareable Kokoro cards, journal, Kokoro Archive for pattern recognition over time. The AUWA character appears here (and in the book) — one of two spaces where it lives. PWA first, wrappable for native via Capacitor. Free tier: 3 revelations/month. Paid: £6.99/month or £49.99/year.
 
 ### AUWA Store (auwa.life/store)
-Curated multi-merchant marketplace for Japanese craftsman products — knives, ceramics, tea caddies, washi, textiles — plus AUWA's own collectible figures. Lifetime products with kokoro: the antithesis of throwaway culture. Every object is chosen because a master craftsman poured their spirit into making it. Shopify multi-vendor, Stripe Connect for direct merchant payouts to Japan. Rieko leads craftsman outreach in Japanese. Tom's experience running a Japanese multi-merchant platform (2005-2007) is the direct operational precedent.
+Curated multi-merchant marketplace for Japanese craftsman products — knives, ceramics, tea caddies, washi, textiles — plus AUWA's own collectible figures. Lifetime products with Kokoro: the antithesis of throwaway culture. Every object is chosen because a master craftsman poured their spirit into making it. Shopify multi-vendor, Stripe Connect for direct merchant payouts to Japan. Rieko leads craftsman outreach in Japanese. Tom's experience running a Japanese multi-merchant platform (2005-2007) is the direct operational precedent.
 
 ### AUWA Journal (auwa.life/journal)
 Editorial content. Travel stories, craftsman profiles, onsen retreats, seasonal living, Japanese philosophy in practice. Written by Tom and Rieko from their own experiences in Japan. Builds brand authority, drives SEO, feeds Instagram content, and serves as a portfolio when approaching craftsman partners. The editorial voice that makes the brand feel alive between product launches.
@@ -34,7 +34,7 @@ The illustrated story universe. A series of illustrated stories, the WAWA origin
 
 ## THE BRAND PHILOSOPHY
 
-AUWA is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary, between thinking and feeling. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. AUWA uses the word kokoro (心) as its own expression of this idea: the holistic Japanese concept that unifies what English separates into heart, mind, soul, and spirit. This connects all four pillars: the app reveals kokoro in emotions, the store sells objects with kokoro, the journal shares the world where kokoro lives, the stories show AUWA revealing kokoro in nature. AUWA's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary, between thinking and feeling. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. AUWA uses the word Kokoro (心) as its own expression of this idea: the holistic Japanese concept that unifies what English separates into heart, mind, soul, and spirit. This connects all four pillars: the app reveals Kokoro in emotions, the store sells objects with Kokoro, the journal shares the world where Kokoro lives, the stories show AUWA revealing Kokoro in nature. AUWA's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
 
 The app uses two additional Japanese philosophical frameworks internally:
 
@@ -222,7 +222,7 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Article excerpts:** Excerpts shown on article cards (horizontal scroll, two-up, journal index) must be 55 characters or fewer. This keeps them to 2 lines max at 14px in the card width. Tighter is better. Lead with the image, not the text.
 
-**Flipbook card headings:** Headings in the homepage flipbook hero (`hero-flipbook-v4b.tsx`) must be 28 characters or fewer. This guarantees they fit on 2 lines maximum in the right-side text column (320px wide at `clamp(1.5rem, 2.5vw, 2.2rem)`). No `\n` line breaks. Let the text wrap naturally. Test at the `lg` breakpoint (1024px viewport) where the column is narrowest. When adding new cards, count characters before committing.
+**Flipbook card headings:** Headings in the homepage flipbook hero (`hero-flipbook.tsx`) must be 28 characters or fewer. This guarantees they fit on 2 lines maximum in the right-side text column (320px wide at `clamp(1.5rem, 2.5vw, 2.2rem)`). No `\n` line breaks. Let the text wrap naturally. Test at the `lg` breakpoint (1024px viewport) where the column is narrowest. When adding new cards, count characters before committing.
 
 **SEO and social sharing (OG meta):**
 - Every page needs `title`, `description`, and an `openGraph.images` array in its metadata export.
@@ -353,7 +353,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 
 **Scroll-driven flipbook hero (Obsidian Assembly pattern):**
 - Stacked portrait cards centred on the page, driven by scroll position.
-- Component: `hero-flipbook-v4b.tsx`. Cards defined in a `CARDS` array with type (image/video), src, label, heading, pillar.
+- Component: `hero-flipbook.tsx`. Cards defined in a `CARDS` array with type (image/video), src, label, heading, pillar.
 - Desktop (lg+): three-column layout. Left: pillar label + card label (uppercase) + counter. Centre: stacked cards. Right: heading text (clickable, links to pillar page).
 - Mobile/tablet (below lg): single card centred with dots above and text pinned at bottom.
 - Mobile uses `100svh` (not `dvh`) for stable sizing. Viewport height captured on mount for scroll calculations. This prevents snap-back when mobile browser chrome hides/shows.
@@ -368,6 +368,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - CSS in `globals.css`: `html.lenis` height auto, scroll-behavior override, `[data-lenis-prevent]` for opt-out.
 - To disable on specific elements: add `data-lenis-prevent` attribute.
 - To remove entirely: unwrap `SmoothScroll` from layout.tsx and remove the CSS.
+- The Lenis instance is exposed on `window.__lenis` (set in `smooth-scroll.tsx`) so other client components can trigger smooth anchor scrolls: `window.__lenis?.scrollTo(targetEl, { offset: -headerHeight, duration: 1.4 })`. On touch devices Lenis isn't initialised, so callers fall back to `window.scrollTo({ top, behavior: "smooth" })`.
 
 **Page transitions:**
 - Lightweight crossfade on route change via `page-transition.tsx`.
@@ -395,6 +396,8 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 **Mobile viewport units:**
 - Use `svh` (small viewport height) instead of `dvh` (dynamic viewport height) for any element that needs a stable height on mobile. `dvh` changes as mobile browser chrome shows/hides, causing layout shifts and scroll snap-back.
 - Capture `window.innerHeight` on mount (via `useRef`) and use that for scroll calculations instead of reading `window.innerHeight` on every scroll event.
+- For scroll-driven transforms, convert `vh` units to pixels using the captured viewport height. Live `vh` inside `translate3d()` shifts when the iOS URL bar retracts mid-scroll, making stacked or translated elements visibly jitter. Compute `translateYPx = (offsetVh * capturedInnerHeight) / 100` once per render.
+- For scroll-driven React state, gate `setState` via a ref so it fires only when the value actually changes, not on every scroll frame. Per-frame `setState` with fresh array/object identities forces React to re-apply inline styles, which iOS Safari re-rasterises into a visible flicker.
 
 **Dynamic OG images (Next.js):**
 - Do NOT use `opengraph-image.tsx` (file-based dynamic OG) alongside `metadata.openGraph.images`. The file-based version takes priority and generates text-on-colour which looks poor on social platforms.
@@ -415,35 +418,36 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - The ESLint `core-web-vitals` import warning is a known Next.js 15 issue. It doesn't block the build.
 - When deleting routes or renaming components, always restart the dev server and delete `.next/` to clear stale caches. Hot reload doesn't always pick up deleted files.
 
-**Homepage variant routes:**
-- `/home-1` — Video hero variant (kept for reference)
-- `/home-2` — Editorial split-screen flipbook (kept for reference)
-- `/home-3` — Previous flipbook-first homepage (pre-April 2026 redesign)
-- `/home-4` — Demo route used during April 2026 redesign (same as current root)
-- Root `/` — Full-bleed AUWA face video hero → brand intro → 4-card flipbook → editorial content
+**Homepage routes:**
+- Root `/` — Live homepage. EditorialFrames (desktop ≥md) + PillarParade (mobile <md) as the four-pillar module, via a `hidden md:block` / `md:hidden` pair.
+- `/home-1` — Archive of the previous scroll-driven HeroFlipbook homepage. Kept for reference; header treats it as transparent just like root.
 
-**Flipbook card data:**
-- 4 cards, one per pillar: Store (video), Book, Journal, App
-- Current cards: "Objects made with love." → "Stories that open the eyes." → "Travel writing from Japan." → "Daily awareness practice."
-- Scroll height: 80vh per card (320vh total for 4 cards)
-- `fullHeight` prop: when true, sticky container uses `top-0` and `100svh` (used when header scrolls away)
+**Four-pillar module (replaces the scroll-driven flipbook on the live homepage):**
+- `src/components/editorial-frames.tsx` — desktop (≥md). "Magazine index" tab gallery with image crossfade, staggered reveal per frame (eyebrow → TextReveal heading → body → CTA), auto-advance every 7s, pauses on hover. Clickable image (Link with `data-cursor="Open"`) navigates to the active pillar. Image column pinned at 480px, text column flex-1, grid template `[480px_1fr]`, max-w-[1060px] mx-auto so the composition centres on wide viewports. Four frames: **Store / Lifetime objects. / Visit store**, **Book / Open the eyes. / Join waitlist**, **Journal / Quiet moments. / Explore journal**, **App / Awareness, daily. / Join waitlist**.
+- `src/components/pillar-parade.tsx` — mobile (<md). Horizontal scroll row of four tall 3:4 cards; mirrors the Journal strip exactly (native overflow-x-auto, no scroll-snap, no touch-action override, no data-lenis-prevent). Cards at `w-[72vw] max-w-[360px]`, so next card peeks clearly on first load. FadeIn variant="fade" on each card (vertical rise, no horizontal translate — horizontal translate pushes later cards off-viewport and prevents IntersectionObserver firing). Dot indicators below update via a scroll listener on the scroller element.
+- Archive: `src/components/hero-flipbook.tsx` still exists; used only by `/home-1` page now.
 
-**Homepage structure (current root):**
-- Full-bleed AUWA face video (parallax zoom-in on scroll, desktop scroll indicator, transparent header overlay)
-- "Our Philosophy" intro module: opens with "AUWA. A character, a philosophy, a world." then the quiet-return/kokoro thesis, sensory line, MTP line ("A way of restoring awareness to a distracted world."), and "AUWA expresses this through four things" list. "OUR STORY" CTA to /about.
-- Pull quote 1: "If we lived in a world where the soul in all things was visible, it would be a much kinder place."
-- 4-card flipbook hero (Store, Book, Journal, App)
-- "The Journal" section: heading + "View all" link + latest articles horizontal scroll
-- Micro-season (72 Seasons centred kanji + "Read the essay" button)
-- Three pillar cards (Book, Store, App) — the three waitlist products, labelled as upcoming. Journal has its own section above, so this block doesn't include it.
-- Pull quote 2: "In every handmade bowl, in every river, in every person you pass, a kokoro is waiting to be seen."
-- Two-up articles (Onsen + Nozawa)
-- "Meet AUWA / The soul in all things" bottom section with "THE STORY" button linking to /journal/the-beginning
-- Newsletter block: "NEWSLETTER / Quiet letters. Seasonal essays, craftsman stories, and early news of everything we make."
+**Homepage structure (live root `/`):**
+- Full-bleed AUWA face video (parallax zoom on scroll, click-and-hold lifts saturation, "Scroll" label + breathing vertical line instead of bouncing chevron, transparent header overlay). 2.4s Lenis scroll on the "Scroll" button to the intro.
+- "Our Philosophy" intro. Desktop-only 心 (Kokoro) kanji watermark at 3% alpha behind the paragraph, right side.
+- Pullquote 1 ("What you pay attention to…") at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05.
+- Four-pillar module (EditorialFrames desktop / PillarParade mobile).
+- "The Journal" horizontal scroll strip.
+- Micro-season (72 Seasons kanji + CtaLink "Read the essay").
+- Three pillar cards (Book / Store / App).
+- Pullquote 2 ("In every handmade bowl…") at the same size as pullquote 1.
+- Two-up articles (Onsen + Nozawa). "Read the essay" label inside each card has the same text-roll rollover as the nav.
+- VideoMoment (Meet AUWA).
+
+**Global UI layer (mounted in layout.tsx):**
+- `EntranceLoader` — once-per-session あうわ reveal on a warm `#f8f2e5` overlay. Chars rise in with 180ms stagger, reverse-stagger exit (わ→う→あ), overlay fades, unmount. Respects prefers-reduced-motion and sessionStorage flag.
+- `CursorLabel` — 72px black disc with uppercase text following the cursor on desktop (`pointer: fine`). Reads the target's `data-cursor` attribute ("Read" or "Open"). Scales from 0→1 on enter, 1→0 on leave. Applied to every clickable editorial image/card.
+- `SoundToggle` — bottom-right corner speaker button. Plays `/audio/drift.mp3` at 28% volume with 1.2s fade in/out. Muted by default, preference stored in localStorage. Swap the filename in `sound-toggle.tsx` to rotate through the 7 tracks in `public/audio/` (aurora, begin, crystal, drift, float, light, silk).
+- Shared `AuwaLogo` component (`src/components/auwa-logo.tsx`) — inline SVG using `fill="currentColor"`, so the header transitions between white/void via CSS `color` instead of `filter: invert()`. Fixes the "ghost logo" flash Safari showed on the previous filter-based approach.
 
 **Header `transparent` prop:**
-- When true: background transparent, logo inverted to white via CSS filter, nav links white, hamburger white. Used on root homepage over video hero.
-- `disableFlipbookStick` prop: prevents header from staying pinned during flipbook scroll.
+- Derived from pathname inside the Header itself: root `/` and `/home-1` get transparent mode (sit over the video hero). Background transparent, logo inherits white via `currentColor` on the inline SVG, nav links white. Every other page has a solid-white header.
+- Background swap uses an opacity-animated solid white layer under the nav, not a `background-color` transition, to avoid a semi-white "veil" flash on scroll-to-top.
 
 **Body copy standard:** All paragraph text across homepage modules, teaser pages, and articles uses `font-display text-[18px] md:text-[19px]` for consistency.
 
@@ -507,6 +511,12 @@ transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300m
 **Class-based transitions can get stuck.** `transition-opacity duration-500` with a React-driven class swap (`opacity-0` → `opacity-100`) sometimes leaves a CSSTransition in `playState: "running", currentTime: 0, easing: linear` — especially when the element is portalled, or when a hot-reload occurs, or when `document.timeline.currentTime` is 0 (headless preview browsers). The overlay never animates; computed opacity stays at the start value even though the class is correct. The reliable fix: move the transitioning property to `style={{ opacity: menuOpen ? 1 : 0, transition: "opacity 500ms cubic-bezier(...)" }}`. Inline styles bypass the class-swap edge case. Apply this pattern to any "must-fire" transition — overlays, modals, drawers, menu-button morphs.
 
 **Explicit `transform` and rendering hints on sibling animated elements.** iOS Safari will render two otherwise-identical spans at different thicknesses if their rasterisation layers differ. Give every animated span the same combination: `transform: rotate(0deg)` (present even when static), `willChange: "top, transform"`, `backfaceVisibility: "hidden"` (both `backfaceVisibility` and `WebkitBackfaceVisibility`). Same layer, same anti-aliasing, equal weight.
+
+**Form inputs need font-size ≥ 16px or iOS Safari auto-zooms on focus.** Any `<input>` smaller than 16px triggers a zoom-in when tapped, which can push adjacent in-row buttons off-screen. Set the input (and for visual consistency the button and success message) to `text-[16px]`. Don't try to gate this with a breakpoint — at any viewport width, the zoom fires on iOS if the focused input is under 16px.
+
+**Per-letter opacity animations use plain `<span>` (inline), not `inline-block`.** Wrapping each character in `inline-block` creates separate composite boxes; iOS re-subpixel-positions each letter independently as opacity changes, causing a visible shimmer. Plain inline preserves letter kerning and shared baseline. Also skip CSS opacity transitions when opacity is already being driven by a raf scroll loop — the transition lags behind and compounds with the iOS compositor.
+
+**Bordered element + `overflow-hidden` + descendant transform causes iOS border flashes.** When a hover-triggered descendant transform runs (e.g. a text-roll inside a bordered CTA), iOS WebKit (including DuckDuckGo) briefly clips the top border during compositor re-raster. Move the `overflow-hidden` to an inner mask span; keep the border on the outer element. The mask still clips the animation, but the border lives on an element that never has its overflow manipulated.
 
 ---
 

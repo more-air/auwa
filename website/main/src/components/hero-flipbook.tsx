@@ -111,6 +111,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
   const [inView, setInView] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [progressVisible, setProgressVisible] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   // Preload images
   useEffect(() => {
@@ -126,6 +127,9 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
   // Double rAF ensures scroll handler has run and cards are sorted before revealing
   useEffect(() => {
     viewportHeight.current = window.innerHeight;
+    setReducedMotion(
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         setMounted(true);
@@ -217,7 +221,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                 <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/30">
                   {card.pillar}
                 </span>
-                <div className="mt-3 w-8 h-[1px] bg-void/12" />
+                <div className="mt-3 w-8 h-[1px] bg-void/10" />
                 <p className="font-sans text-[11px] tracking-[0.08em] uppercase text-void/80 mt-4">
                   {card.label}
                 </p>
@@ -225,11 +229,11 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
             ))}
             <div className="absolute top-[72px] left-0">
               <div className="flex items-baseline gap-1">
-                <span className="font-display text-[38px] tracking-[0.01em] text-void/18 tabular-nums">
+                <span className="font-display text-[38px] tracking-[0.01em] text-void/20 tabular-nums">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
-                <span className="font-sans text-[13px] text-void/18 ml-0.5">/</span>
-                <span className="font-sans text-[13px] text-void/18 ml-0.5">{CARD_COUNT}</span>
+                <span className="font-sans text-[13px] text-void/20 ml-0.5">/</span>
+                <span className="font-sans text-[13px] text-void/20 ml-0.5">{CARD_COUNT}</span>
               </div>
             </div>
           </div>
@@ -244,22 +248,30 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
               const order = orders[i];
               const absOrder = Math.abs(order);
               // Only 1 card visible behind, clearly narrower
-              const scale = 1 - absOrder * 0.03;
-              const scaleX = 1 - absOrder * 0.1; // much narrower behind
+              const scale = reducedMotion ? 1 : 1 - absOrder * 0.03;
+              const scaleX = reducedMotion ? 1 : 1 - absOrder * 0.1;
               // Convert vh-based offset to stable pixels using the viewport
               // height captured on mount. Using live vh in the transform
               // causes iOS jitter whenever the URL bar retracts or expands.
               const vhPx = viewportHeight.current || 800;
-              const translateYPx = (order * 4 * vhPx) / 100;
+              const translateYPx = reducedMotion ? 0 : (order * 4 * vhPx) / 100;
               const zIndex = 20 - absOrder;
-              const opacity = absOrder > 1 ? 0 : 1; // only 1 behind
               const isActive = i === activeIndex;
+              // Under reduced motion, only the active card shows (no depth stack).
+              const opacity = reducedMotion
+                ? isActive
+                  ? 1
+                  : 0
+                : absOrder > 1
+                  ? 0
+                  : 1;
               const href = PILLAR_LINKS[card.pillar] || "/about";
 
               return (
                 <a
                   key={`card-${i}`}
                   href={href}
+                  data-cursor="Open"
                   className={`absolute inset-0 rounded-xl overflow-hidden group ${
                     isActive ? "cursor-pointer" : "pointer-events-none"
                   }`}
@@ -312,23 +324,30 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
               {CARDS.map((card, i) => {
                 const order = orders[i];
                 const absOrder = Math.abs(order);
-                const scale = 1 - absOrder * 0.03;
-                const scaleX = 1 - absOrder * 0.1;
+                const scale = reducedMotion ? 1 : 1 - absOrder * 0.03;
+                const scaleX = reducedMotion ? 1 : 1 - absOrder * 0.1;
                 // Convert vh-based peek offset to fixed pixels using the
                 // viewport height captured on mount. Live vh inside the
                 // transform caused visible jitter on iOS whenever the URL
                 // bar retracted during scroll.
                 const vhPx = viewportHeight.current || 800;
-                const translateYPx = (order * 4 * vhPx) / 100;
+                const translateYPx = reducedMotion ? 0 : (order * 4 * vhPx) / 100;
                 const zIndex = 20 - absOrder;
-                const opacity = absOrder > 1 ? 0 : 1;
                 const isActive = i === activeIndex;
+                const opacity = reducedMotion
+                  ? isActive
+                    ? 1
+                    : 0
+                  : absOrder > 1
+                    ? 0
+                    : 1;
                 const href = PILLAR_LINKS[card.pillar] || "/about";
 
                 return (
                   <a
                     key={`mcard-${i}`}
                     href={href}
+                    data-cursor="Open"
                     className={`absolute inset-0 rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)] active:scale-[0.98] ${
                       isActive ? "" : "pointer-events-none"
                     }`}

@@ -118,19 +118,39 @@ button img {
   pointer-events: auto;
 }
 
-/* Hover zoom on all linked images — visible but smooth, matching More Air.
-   Filter transitions alongside so the header logo invert swap is smooth. */
-a img {
+/* Hover zoom on all linked media — a longer, gentler curve than the
+   brand's ease-out-expo. The softer glide reads as quieter on large
+   editorial imagery; using the punchier brand curve made the zoom feel
+   too sudden on full-bleed cards. Applies to both images and videos so
+   mixed-media surfaces (flipbook, pillar parade) read consistently. */
+a img,
+a video {
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-a:hover img {
+a:hover img,
+a:hover video {
   transform: scale(1.04);
 }
 
 /* The header logo is a wordmark, not editorial imagery — keep it still on
    hover (only the filter transition for the invert swap still applies). */
-header a:hover img {
+header a:hover img,
+header a:hover video {
   transform: none;
+}
+
+/* Keyboard focus — quiet outline that still announces itself. Default
+   browser outlines are disabled by Tailwind's reset, so this restores a
+   visible, on-brand focus ring for users navigating with Tab. */
+:focus-visible {
+  outline: 2px solid oklch(0.08 0.025 250 / 0.55);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Don't show the ring on cards/links that wrap large imagery — the outline
+   would chase the image edge. The inner interactive targets handle focus. */
+a:focus-visible img {
+  outline: none;
 }
 
 /* Reduced motion */
@@ -145,3 +165,14 @@ header a:hover img {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* Hero scroll cue — thin vertical line that slowly breathes its height
+   and opacity. Quieter replacement for the default bouncing chevron. */
+@keyframes scrollCueBreathe {
+  0%, 100% { transform: scaleY(0.25); opacity: 0.25; }
+  50%      { transform: scaleY(1);    opacity: 1;    }
+}
+.scroll-cue-line {
+  animation: scrollCueBreathe 2800ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+

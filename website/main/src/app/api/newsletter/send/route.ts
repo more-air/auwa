@@ -1,11 +1,29 @@
 import { NextResponse } from "next/server";
 import Newsletter from "@/emails/newsletter";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 // Sends the newsletter as a Resend Broadcast (not a transactional email).
 // Broadcasts substitute {{{RESEND_UNSUBSCRIBE_URL}}} and attach the
 // List-Unsubscribe header, so subscribers can actually opt out.
 export async function POST(request: Request) {
   try {
+    // Belt + braces: the secret already gates access, but a strict per-IP
+    // limit prevents a leaked secret from becoming a send-storm.
+    const limit = rateLimit({
+      key: `newsletter:${clientIp(request)}`,
+      limit: 3,
+      windowMs: 60_000,
+    });
+    if (!limit.ok) {
+      return NextResponse.json(
+        { error: "Too many newsletter send attempts. Try again in a minute." },
+        {
+          status: 429,
+          headers: { "Retry-After": Math.ceil((limit.resetAt - Date.now()) / 1000).toString() },
+        }
+      );
+    }
+
     const { secret, subject, previewText, heroImage, heroAlt, heading, intro, articles, closingNote } = await request.json();
 
     const expectedSecret = process.env.NEWSLETTER_SECRET;

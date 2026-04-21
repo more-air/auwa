@@ -211,7 +211,7 @@ export default function BrandPage() {
               </thead>
               <tbody>
                 {typeScale.map((row) => (
-                  <tr key={row.name} className="border-b border-void/5">
+                  <tr key={row.name} className="border-b border-void/8">
                     <td className="font-sans text-[13px] text-void py-3 pr-6 whitespace-nowrap">{row.name}</td>
                     <td className="font-sans text-[13px] text-void/60 py-3 pr-6 whitespace-nowrap">{row.font}</td>
                     <td className="font-sans text-[13px] text-void/60 py-3 pr-6">{row.weight}</td>
@@ -241,7 +241,7 @@ export default function BrandPage() {
               </thead>
               <tbody>
                 {spacingSystem.map((row) => (
-                  <tr key={row.name} className="border-b border-void/5">
+                  <tr key={row.name} className="border-b border-void/8">
                     <td className="font-sans text-[13px] text-void py-3 pr-6 whitespace-nowrap">{row.name}</td>
                     <td className="font-sans text-[13px] text-void/60 py-3 pr-6">{row.mobile}</td>
                     <td className="font-sans text-[13px] text-void/60 py-3 pr-6">{row.tablet}</td>
@@ -368,22 +368,22 @@ export default function BrandPage() {
               <span className="text-void">Easing</span>
               <span className="text-void/50">cubic-bezier(0.16, 1, 0.3, 1)</span>
             </div>
-            <div className="border-b border-void/5" />
+            <div className="border-b border-void/8" />
             <div className="flex justify-between font-sans text-[13px]">
               <span className="text-void">FadeIn duration</span>
               <span className="text-void/50">800ms</span>
             </div>
-            <div className="border-b border-void/5" />
+            <div className="border-b border-void/8" />
             <div className="flex justify-between font-sans text-[13px]">
               <span className="text-void">FadeIn translate</span>
               <span className="text-void/50">12px (translateY)</span>
             </div>
-            <div className="border-b border-void/5" />
+            <div className="border-b border-void/8" />
             <div className="flex justify-between font-sans text-[13px]">
               <span className="text-void">Hover transitions</span>
               <span className="text-void/50">300ms</span>
             </div>
-            <div className="border-b border-void/5" />
+            <div className="border-b border-void/8" />
             <div className="flex justify-between font-sans text-[13px]">
               <span className="text-void">Stagger delay</span>
               <span className="text-void/50">60-100ms per item</span>

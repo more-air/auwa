@@ -46,7 +46,7 @@ export default async function JournalPage({
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-8 md:pb-12">
           <TextReveal
             as="h1"
-            className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[0.01em] text-void"
+            className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.05] tracking-[0.01em] text-void"
             stagger={90}
           >
             Journal
@@ -77,8 +77,8 @@ export default async function JournalPage({
                 delay={Math.min(i * 120, 480)}
                 variant="reveal"
               >
-                <Link href={`/journal/${article.slug}`} className="group block">
-                  <div className="bg-surface-raised rounded-xl overflow-hidden relative aspect-[4/5]">
+                <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
+                  <div className="rounded-xl overflow-hidden relative aspect-[4/5]">
                     {article.image ? (
                       <img
                         src={article.image}

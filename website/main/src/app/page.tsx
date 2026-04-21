@@ -1,7 +1,8 @@
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { MicroSeasonFeature } from "@/components/micro-season-feature";
-import { HeroFlipbook } from "@/components/hero-flipbook";
+import { EditorialFrames } from "@/components/editorial-frames";
+import { PillarParade } from "@/components/pillar-parade";
 import { VideoMoment } from "@/components/video-moment";
 import { HeroVideo } from "@/components/hero-video";
 import { ScrollFadeText } from "@/components/scroll-fade-text";
@@ -52,8 +53,21 @@ export default function Home() {
         <HeroVideo />
 
         {/* ── Intro block: eyebrow + scroll-fade paragraph + CTA ── */}
-        <section id="intro" className="scroll-mt-16 md:scroll-mt-20 px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-28 pb-20 md:pb-32">
-          <div className="max-w-[880px]">
+        <section id="intro" className="relative scroll-mt-16 md:scroll-mt-20 px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-28 pb-20 md:pb-32">
+          {/*
+            心 — Kokoro watermark. A quiet acknowledgement, within the first
+            scroll, that this site's worldview is rooted in Japanese
+            philosophy. Desktop only, 3% alpha — atmospheric texture, never
+            competes with the paragraph.
+          */}
+          <span
+            aria-hidden="true"
+            className="hidden lg:block pointer-events-none select-none absolute top-1/2 -translate-y-1/2 lg:right-12 xl:right-20 font-jp-serif leading-none text-void/[0.03]"
+            style={{ fontSize: "clamp(16rem, 38vw, 30rem)" }}
+          >
+            心
+          </span>
+          <div className="relative max-w-[880px]">
             <FadeIn>
               <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
                 Our philosophy
@@ -80,7 +94,7 @@ export default function Home() {
           <div className="max-w-[1100px] mx-auto text-center">
             <ScrollFadeText
               as="p"
-              className="font-display text-[clamp(2rem,5.5vw,4.5rem)] leading-[1.15] tracking-[0.005em] text-void"
+              className="font-display text-[clamp(2.25rem,6vw,4.75rem)] leading-[1.05] tracking-[0.003em] text-void"
               finishAt={0.4}
             >
               &ldquo;What you pay attention to, whether a river or a feeling, you begin to love. What you love, you care for.&rdquo;
@@ -90,8 +104,17 @@ export default function Home() {
 
         <Separator />
 
-        {/* ── Stacked-card flipbook hero ── */}
-        <HeroFlipbook fullHeight />
+        {/* ── Four-pillar module ──
+            Desktop (md+): Editorial Frames tab gallery with crossfade +
+            staggered reveals — tab-driven, no scroll-hijacking.
+            Mobile (<md): Pillar Parade horizontal scroll-snap row —
+            native swipe, fits the viewport. Both are self-contained. */}
+        <div className="hidden md:block">
+          <EditorialFrames />
+        </div>
+        <div className="md:hidden">
+          <PillarParade />
+        </div>
 
         {/* ── Latest from the Journal ── */}
         <section className="pt-16 md:pt-24 pb-16 md:pb-24">
@@ -107,7 +130,7 @@ export default function Home() {
             <FadeIn delay={120}>
               <Link
                 href="/journal"
-                className="group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.14em] uppercase text-void/50 hover:text-void transition-colors duration-500"
+                className="group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.14em] uppercase text-void/50 hover:text-void transition-colors duration-500 ease-[cubic-bezier(0.7,0,0.3,1)]"
               >
                 <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
                   View all
@@ -122,7 +145,7 @@ export default function Home() {
             {latestArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 60} variant="reveal" className="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]">
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
-                  <div className="aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden relative">
+                  <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
                     {article.image ? (
                       <img
                         src={article.image}
@@ -171,8 +194,8 @@ export default function Home() {
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
               <FadeIn key={pillar.label} delay={i * 150} variant="reveal">
-                <Link href={pillar.href} className="group block" data-cursor="Explore">
-                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
+                <Link href={pillar.href} className="group block" data-cursor="Open">
+                  <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {pillar.image ? (
                       <img
                         src={pillar.image}
@@ -203,7 +226,7 @@ export default function Home() {
           <div className="max-w-[1100px] mx-auto text-center">
             <ScrollFadeText
               as="p"
-              className="font-display text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.2] tracking-[0.005em] text-void"
+              className="font-display text-[clamp(2.25rem,6vw,4.75rem)] leading-[1.05] tracking-[0.003em] text-void"
               finishAt={0.5}
             >
               &ldquo;In every handmade bowl, in every river, in every person you pass, a Kokoro is waiting to be seen.&rdquo;
@@ -216,7 +239,7 @@ export default function Home() {
             {twoUpArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * 150} variant="reveal">
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
-                  <div className="relative aspect-[4/5] bg-surface-raised rounded-xl overflow-hidden">
+                  <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {article.image ? (
                       <img
                         src={article.image}
@@ -231,8 +254,18 @@ export default function Home() {
                       <h3 className="font-display text-[32px] md:text-[40px] leading-[1.05] tracking-[0.005em] text-white">
                         {article.title}
                       </h3>
-                      <p className="mt-3 font-sans text-[13px] tracking-[0.08em] uppercase text-white">
-                        Read the essay
+                      <p className="mt-3">
+                        <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.08em] uppercase text-white">
+                          <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
+                            Read the essay
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0 flex items-center translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+                          >
+                            Read the essay
+                          </span>
+                        </span>
                       </p>
                     </div>
                   </div>

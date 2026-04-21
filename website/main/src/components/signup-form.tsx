@@ -63,10 +63,17 @@ export function SignupForm({
     );
   }
 
+  // Stable ID so the hidden label binds to the right input on every render.
+  const inputId = `auwa-signup-${source}`;
+
   return (
     <form onSubmit={handleSubmit} className={className || "max-w-[440px]"}>
+      <label htmlFor={inputId} className="sr-only">
+        Email address
+      </label>
       <div className={rowClasses}>
         <input
+          id={inputId}
           type="email"
           placeholder="Email address"
           required

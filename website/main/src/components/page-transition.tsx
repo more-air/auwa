@@ -103,7 +103,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
           ...contentStyle,
           transition:
             phase === "leaving"
-              ? `opacity ${LEAVE_MS}ms cubic-bezier(0.6, 0.192, 0.098, 1.03), transform ${LEAVE_MS + 200}ms cubic-bezier(0.6, 0.192, 0.098, 1.03)`
+              ? `opacity ${LEAVE_MS}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${LEAVE_MS + 200}ms cubic-bezier(0.16, 1, 0.3, 1)`
               : `opacity ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         }}
       >
@@ -121,10 +121,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         style={{
           backgroundColor: "var(--color-surface)",
           opacity: phase === "leaving" ? 1 : 0,
-          transition:
-            phase === "leaving"
-              ? `opacity ${LEAVE_MS}ms cubic-bezier(0.6, 0.192, 0.098, 1.03)`
-              : `opacity ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+          transition: `opacity ${LEAVE_MS}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         }}
       />
     </>

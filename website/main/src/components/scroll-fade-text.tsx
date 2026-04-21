@@ -85,6 +85,18 @@ export function ScrollFadeText({
 
     const totalChars = charRefs.current.length;
 
+    // Respect OS-level reduced motion: snap every character to full opacity
+    // and skip the scroll-driven ramp entirely. Users with vestibular
+    // sensitivity shouldn't see a character-by-character reveal.
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) {
+      for (let i = 0; i < totalChars; i++) {
+        const el = charRefs.current[i];
+        if (el) el.style.opacity = "1";
+      }
+      return;
+    }
+
     let raf: number;
     const update = () => {
       raf = requestAnimationFrame(() => {

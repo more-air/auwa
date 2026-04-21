@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { AuwaLogo } from "./auwa-logo";
 
 const navItems = [
   { label: "Journal", href: "/journal" },
@@ -15,9 +16,10 @@ const navItems = [
 
 export function Header() {
   const pathname = usePathname();
-  // Homepage is the only page with a transparent header (it sits over the
-  // full-bleed video hero). Every other page has a solid-white header.
-  const transparent = pathname === "/";
+  // Homepage + the /home-1 flipbook archive both sit over the full-bleed
+  // video hero, so they share the transparent header treatment. Every
+  // other page has a solid-white header.
+  const transparent = pathname === "/" || pathname === "/home-1";
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
@@ -169,17 +171,33 @@ export function Header() {
     <>
       <header
         className={`sticky top-0 z-[100] will-change-transform ${
-          isTransparent ? "bg-transparent" : "bg-surface"
-        } ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
         style={{
           // Tailwind 4 uses the `translate` CSS property (not `transform`)
           // for translate-y utilities, so the transition must target that.
-          transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease-out",
+          transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        <div className="px-6 md:px-12 lg:px-20 xl:px-28">
+        {/*
+          Background as a separate layer underneath the nav. Fading the
+          opacity of a solid white layer (rather than transitioning the
+          header's own background-color between bg-transparent and
+          bg-surface) avoids the "white veil" frames that produce a
+          subtle flicker when the homepage scrolls back to the top.
+          Animating opacity also compositor-hints far better than
+          animating background-color, which the browser paints on every
+          frame.
+        */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-surface pointer-events-none"
+          style={{
+            opacity: isTransparent ? 0 : 1,
+            transition: "opacity 260ms cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        />
+        <div className="relative px-6 md:px-12 lg:px-20 xl:px-28">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/*
               Logo fades out when the mobile menu opens so the open menu is
@@ -197,13 +215,21 @@ export function Header() {
                 transition: "opacity 300ms ease-out",
               }}
             >
-              <img
-                src="/auwa-logo.svg"
-                alt="AUWA"
-                className="h-[20px] md:h-[22px] w-auto"
+              {/*
+                Inline SVG + CSS color transition instead of filter: invert
+                on an <img>. Safari composites filter animations unevenly
+                and briefly renders both the pre- and post-filter states,
+                which produced the "two logos stacked" flash when
+                scrolling back to the top of the homepage.
+              */}
+              <span className="sr-only">AUWA</span>
+              <AuwaLogo
+                className="block h-[20px] md:h-[22px] w-auto"
                 style={{
-                  filter: isTransparent ? "invert(1) brightness(2)" : undefined,
-                  transition: "filter 300ms ease-out",
+                  color: isTransparent
+                    ? "#ffffff"
+                    : "oklch(0.08 0.025 250)",
+                  transition: "color 300ms ease-out",
                 }}
               />
             </Link>

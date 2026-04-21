@@ -20,6 +20,7 @@ export function VideoMoment() {
           <FadeIn variant="reveal">
             <Link
               href={ARTICLE_HREF}
+              data-cursor="Read"
               className="block relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden"
             >
               <img
@@ -35,7 +36,7 @@ export function VideoMoment() {
               <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/35">
                 Meet AUWA
               </span>
-              <div className="mt-3 w-8 h-[1px] bg-void/12" />
+              <div className="mt-3 w-8 h-[1px] bg-void/10" />
             </FadeIn>
             <FadeIn delay={320}>
               <Link href={ARTICLE_HREF} className="block group/heading">
@@ -62,6 +63,7 @@ export function VideoMoment() {
           <FadeIn variant="reveal" className="w-full flex justify-center">
             <Link
               href={ARTICLE_HREF}
+              data-cursor="Read"
               className="block relative aspect-[9/16] w-full max-w-[300px] rounded-xl overflow-hidden"
             >
               <img

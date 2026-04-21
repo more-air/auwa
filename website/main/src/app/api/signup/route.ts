@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import WelcomeEmail from "@/emails/welcome";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 const SUBJECT_MAP: Record<string, string> = {
   newsletter: "Welcome to AUWA",
@@ -10,6 +11,23 @@ const SUBJECT_MAP: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
+    // 5 signups per IP per minute is plenty for a human; bots that hit harder
+    // get a 429 so they stop polluting the Resend audience.
+    const limit = rateLimit({
+      key: `signup:${clientIp(request)}`,
+      limit: 5,
+      windowMs: 60_000,
+    });
+    if (!limit.ok) {
+      return NextResponse.json(
+        { error: "Too many signups. Try again in a minute." },
+        {
+          status: 429,
+          headers: { "Retry-After": Math.ceil((limit.resetAt - Date.now()) / 1000).toString() },
+        }
+      );
+    }
+
     const { email, source } = await request.json();
 
     if (!email || typeof email !== "string") {

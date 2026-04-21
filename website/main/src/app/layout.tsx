@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { EB_Garamond, Instrument_Sans, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { PageTransition } from "@/components/page-transition";
+import { EntranceLoader } from "@/components/entrance-loader";
+import { CursorLabel } from "@/components/cursor-label";
+import { SoundToggle } from "@/components/sound-toggle";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -74,6 +77,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#ffffff",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -114,6 +124,9 @@ export default function RootLayout({
             }),
           }}
         />
+        <EntranceLoader />
+        <CursorLabel />
+        <SoundToggle />
         <SmoothScroll>
           {/*
             Header lives outside PageTransition. PageTransition's wrapper
