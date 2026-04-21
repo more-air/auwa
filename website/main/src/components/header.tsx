@@ -131,7 +131,7 @@ export function Header() {
 
       <div className="relative flex flex-col justify-center h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] px-6 md:px-12 lg:px-20 xl:px-28">
         <nav className="max-w-[600px]">
-          <ul className="flex flex-col gap-1 md:gap-2">
+          <ul className="flex flex-col">
             {navItems.map((item, i) => (
               <li
                 key={item.href}
@@ -142,17 +142,17 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.25] tracking-[0.005em] transition-colors duration-300 ${
+                  className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.08] tracking-[0.005em] transition-colors duration-300 ${
                     pathname === item.href ? "text-void" : "text-void/40 hover:text-void"
                   }`}
                 >
-                  <span className="relative inline-block overflow-hidden">
-                    <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
+                  <span className="relative inline-block overflow-hidden pb-[0.12em]">
+                    <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-[110%]">
                       {item.label}
                     </span>
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+                      className="absolute inset-0 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
                     >
                       {item.label}
                     </span>
@@ -163,7 +163,7 @@ export function Header() {
           </ul>
 
           <div
-            className={`mt-12 md:mt-16 flex items-center gap-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`mt-8 md:mt-10 flex items-center gap-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: menuOpen ? `${80 + navItems.length * 60 + 60}ms` : "0ms" }}
