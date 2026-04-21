@@ -89,18 +89,20 @@ export function SoundToggle() {
     let rafId: number | null = null;
     let lastLift = 0;
 
-    // Natural offset of the button from the viewport bottom (bottom-5
-    // class = 20px). Button height is 40px (w-10/h-10). We want its
-    // bottom edge 12px above main.bottom when main.bottom is close to
-    // or above the viewport floor.
-    const NATURAL_BOTTOM_PX = 20;
-    const GAP_ABOVE_FOOTER_PX = 12;
+    // Button sits at `bottom-5 right-5` on mobile (20px each) and
+    // `md:bottom-6 md:right-6` on desktop (24px each). We match the
+    // gap above main.bottom to the button's distance from the right
+    // edge so the breathing space is visually square.
+    const gap = () =>
+      window.matchMedia("(min-width: 768px)").matches ? 24 : 20;
 
     const measure = () => {
       rafId = null;
       const mainBottom = main.getBoundingClientRect().bottom;
-      // Desired button bottom = main.bottom - GAP. Lift needed = natural - desired.
-      const needed = window.innerHeight - NATURAL_BOTTOM_PX - (mainBottom - GAP_ABOVE_FOOTER_PX);
+      const g = gap();
+      // Button's natural bottom offset == gap we want above main.bottom.
+      // Desired button bottom = main.bottom - g. Lift = natural - desired.
+      const needed = window.innerHeight - g - (mainBottom - g);
       const next = Math.max(0, needed);
       if (Math.abs(next - lastLift) >= 1) {
         lastLift = next;
