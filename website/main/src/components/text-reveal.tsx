@@ -29,6 +29,8 @@ export function TextReveal({
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Fire ~120px before entry so Safari can set up the per-word
+    // compositor layers before Lenis scroll reaches the element.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -36,7 +38,7 @@ export function TextReveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2, rootMargin: "0px 0px -20px 0px" }
+      { threshold: 0, rootMargin: "0px 0px 120px 0px" }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -67,7 +69,10 @@ export function TextReveal({
                 ? "translate3d(0, 0, 0)"
                 : "translate3d(0, 100%, 0)",
               transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms`,
-              willChange: isVisible ? "auto" : "opacity, transform",
+              // No will-change: toggling it to "auto" when isVisible
+              // flipped caused Safari to demote the layer mid-transition
+              // and stutter a scroll frame. Letting Safari auto-promote
+              // during the active transition is smoother.
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
             }}

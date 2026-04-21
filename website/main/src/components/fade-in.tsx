@@ -40,16 +40,20 @@ export function FadeIn({
   const isReveal = variant === "reveal";
 
   useEffect(() => {
-    // For reveal (horizontal slide), widen the right edge of the observer's
-    // root so cards sitting off-viewport-right in a horizontal scroller
-    // (e.g. the Journal strip, two-up article module) still intersect when
-    // the section enters viewport. Without this, card 2+ stays at opacity
-    // 0 until the user swipes — producing an apparently missing image on
-    // iPhone. Page-flow layouts never place cards more than one viewport
-    // to the right, so the wider margin has no effect there.
+    // Fire the observer ~120px BEFORE the element crosses the viewport so
+    // the transition can start painting and Safari can promote the
+    // compositor layer BEFORE the user has scrolled to it. Triggering at
+    // the exact moment of entry (the previous `-40px`) meant Safari had to
+    // set up a new layer on the same frame as Lenis smooth-scroll was
+    // advancing, which read as a one-frame stutter.
+    //
+    // Reveal variant also widens the RIGHT margin 200% so off-viewport-right
+    // cards in horizontal scrollers (Journal strip, two-up) still intersect
+    // when the section enters vertically. Otherwise card 2+ stays at opacity
+    // 0 on iPhone until the user swipes.
     const rootMargin = isReveal
-      ? "0px 200% -40px 0px"
-      : "0px 0px -40px 0px";
+      ? "0px 200% 120px 0px"
+      : "0px 0px 120px 0px";
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -84,7 +88,13 @@ export function FadeIn({
         // the entrance animation finishes.
         transform: isVisible ? "none" : hiddenTransform,
         transition: `opacity ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        willChange: isVisible ? "auto" : "opacity, transform",
+        // No will-change: Safari tore down the preallocated layer the
+        // moment isVisible flipped (before the transition had even
+        // started painting), which made each section reveal land with a
+        // one-frame stutter during Lenis smooth scroll. Letting Safari
+        // auto-promote the layer when the transition starts and demote
+        // it when the transition ends is smoother on Safari and
+        // visually identical on Chrome.
       }}
     >
       {children}
