@@ -27,11 +27,13 @@ export function CtaLink({ href, children, className = "", variant = "secondary" 
   // `bordered` stays as a legacy alias for the now-standard `secondary`.
   const resolved = variant === "bordered" ? "secondary" : variant;
 
-  // Warm biscuit / muted amber — a quiet, late-afternoon-light tone
-  // that picks up the Hare (radiant) family from the brand palette
-  // without the saturation. Sits warmly on white, doesn't shout.
+  // Primary = secondary (bordered) + a very faint warm cream wash.
+  // Hare-family hue pulled way up in lightness and way down in chroma
+  // so it reads as "the button quietly held a tint of late-afternoon
+  // light" rather than a coloured button. Border and type colour stay
+  // the same as secondary so the two variants feel like cousins.
   const primary =
-    "bg-[oklch(0.9_0.045_78)] text-void px-7 py-3.5 hover:bg-[oklch(0.85_0.07_78)]";
+    "bg-[oklch(0.97_0.015_78)] text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40 hover:bg-[oklch(0.94_0.025_78)]";
   const secondary =
     "text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40";
   const plain = "text-void/50 hover:text-void";
