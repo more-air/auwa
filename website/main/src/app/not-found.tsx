@@ -22,7 +22,7 @@ export default function NotFound() {
               </p>
             </FadeIn>
 
-            <h1 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void">
+            <h1 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void">
               <TextReveal as="span" className="block" stagger={90}>
                 Nothing here.
               </TextReveal>

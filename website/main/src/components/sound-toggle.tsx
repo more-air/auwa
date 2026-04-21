@@ -168,12 +168,21 @@ export function SoundToggle() {
       onClick={toggle}
       aria-label={playing ? "Turn ambient sound off" : "Turn ambient sound on"}
       aria-pressed={playing}
-      className={`fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md transition-colors duration-500 cursor-pointer ${
+      className={`fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md cursor-pointer ${
         onDark
           ? "bg-white/90 text-void hover:bg-white"
           : "bg-void/85 text-white hover:bg-void"
       }`}
-      style={{ WebkitBackdropFilter: "blur(8px)" }}
+      style={{
+        WebkitBackdropFilter: "blur(8px)",
+        // When the footer is revealed behind the button, slide it up so
+        // it clears the footer's bottom-bar (copyright + social icons).
+        // Social X icon sits ~32px from the footer bottom; the button
+        // bottom-5 (20px) would otherwise sit right on top of it.
+        transform: onDark ? "translateY(-48px)" : "translateY(0)",
+        transition:
+          "background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), color 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
     >
       <svg
         width="16"

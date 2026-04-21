@@ -14,6 +14,16 @@ const navItems = [
   { label: "About", href: "/about" },
 ];
 
+/*
+  Header — wordmark left, hamburger right, same on every viewport.
+
+  The inline desktop-nav that shipped originally is archived at
+  `components/_archive/header-desktop-nav.tsx`. We kept the data
+  (`navItems`) so restoring it is a copy-paste away.
+
+  The menu overlay is full-screen, centred, with links sized by clamp
+  so it reads cleanly from iPhone to 4K.
+*/
 export function Header() {
   const pathname = usePathname();
   // Homepage + the /home-1 flipbook archive both sit over the full-bleed
@@ -39,22 +49,11 @@ export function Header() {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Hide on scroll down, show on scroll up.
-  //
-  // atTop uses a wide range (up to 400px) with hysteresis so the transparent
-  // homepage header can slide up WHILE still transparent — no flash of solid
-  // white between the transparent state at the top and the hidden state past
-  // the fold.
+  // Hide on scroll down, show on scroll up. atTop has hysteresis so the
+  // transparent homepage header can slide up WHILE still transparent
+  // (no flash of solid white between transparent and hidden).
   useEffect(() => {
-    // Seed lastScrollY with the current position so the first onScroll
-    // doesn't compute a huge positive delta (which would incorrectly hide
-    // the header on reload / back-navigation at a scrolled position).
     lastScrollY.current = window.scrollY;
-
-    // Browsers restore scroll AFTER mount, firing a scroll event whose
-    // delta can be hundreds of pixels. Skip the hide/show decision for
-    // any scroll jump larger than plausible user input so the header
-    // doesn't disappear on reload.
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastScrollY.current;
@@ -81,23 +80,43 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Header bg + logo styling is driven purely by scroll position. The mobile
-  // menu overlay (which is portalled to body) provides the white covering
-  // when the menu is open — so the header itself can stay transparent and
-  // we avoid any flash of solid-white bg before the overlay has faded in.
+  // Header bg + logo styling driven purely by scroll position. The menu
+  // overlay (portalled to body) provides the white covering when the
+  // menu is open — the header itself stays transparent to avoid a flash
+  // of solid-white background before the overlay has faded in.
   const isTransparent = transparent && atTop;
-  // The button (X) flips to dark as soon as the menu opens so it remains
-  // readable against the incoming white overlay.
   const buttonIsLight = transparent && atTop && !menuOpen;
 
+  // Scroll-lock while the menu is open.
+  //
+  // Earlier this used `body.style.overflow = "hidden"`, which on iOS
+  // Safari triggered the URL bar to re-show — shifting the layout
+  // viewport upward and causing the page title to "lift" by ~50px a
+  // fraction of a second before the overlay faded in. The position-
+  // fixed-with-negative-top technique locks scroll without touching
+  // overflow, so iOS leaves the URL bar state alone.
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (!menuOpen) return;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    return () => {
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      window.scrollTo(0, scrollY);
+    };
   }, [menuOpen]);
 
-  const mobileMenu = (
+  const menuOverlay = (
     <div
-      className={`fixed inset-0 z-[90] bg-surface md:hidden ${
+      className={`fixed inset-0 z-[90] bg-surface ${
         menuOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
       style={{
@@ -105,12 +124,12 @@ export function Header() {
         transition: "opacity 500ms cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
-      {/* Spacer mirrors the header row so the nav starts below the logo/button */}
-      <div className="h-16" />
+      {/* Spacer matches the header row so the nav starts below the logo/button */}
+      <div className="h-16 md:h-20" />
 
-      <div className="flex flex-col justify-center h-[calc(100%-4rem)] px-6">
-        <nav>
-          <ul className="space-y-1">
+      <div className="flex flex-col justify-center h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] px-6 md:px-12 lg:px-20 xl:px-28">
+        <nav className="max-w-[900px] mx-auto w-full">
+          <ul className="flex flex-col gap-1 md:gap-2">
             {navItems.map((item, i) => (
               <li
                 key={item.href}
@@ -121,48 +140,64 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`block font-display text-[2.5rem] leading-[1.3] tracking-[0.01em] transition-colors duration-300 ${
-                    pathname === item.href ? "text-void" : "text-void/50 hover:text-void"
+                  className={`group relative inline-flex items-baseline gap-5 md:gap-8 font-display text-[clamp(2.5rem,9vw,6rem)] leading-[1.1] tracking-[0.005em] transition-colors duration-300 ${
+                    pathname === item.href ? "text-void" : "text-void/40 hover:text-void"
                   }`}
                 >
-                  {item.label}
+                  <span
+                    aria-hidden="true"
+                    className="font-sans text-[11px] md:text-[12px] tracking-[0.16em] uppercase text-void/30 tabular-nums self-center"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="relative inline-block overflow-hidden">
+                    <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
+                      {item.label}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+                    >
+                      {item.label}
+                    </span>
+                  </span>
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
 
-        <div
-          className={`mt-16 flex gap-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-          style={{ transitionDelay: menuOpen ? `${100 + navItems.length * 60 + 60}ms` : "0ms" }}
-        >
-          <a
-            href="https://instagram.com/auwa.life"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="text-void hover:text-void/60 transition-colors duration-300"
+          <div
+            className={`mt-12 md:mt-16 flex gap-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: menuOpen ? `${100 + navItems.length * 60 + 60}ms` : "0ms" }}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="5" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-          <a
-            href="https://x.com/auwalife"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X"
-            className="text-void hover:text-void/60 transition-colors duration-300"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-          </a>
-        </div>
+            <a
+              href="https://instagram.com/auwa.life"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-void/70 hover:text-void transition-colors duration-300"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/auwalife"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+              className="text-void/70 hover:text-void transition-colors duration-300"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+          </div>
+        </nav>
       </div>
     </div>
   );
@@ -174,18 +209,11 @@ export function Header() {
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
         style={{
-          // Sticky breaks when body.overflow is locked to hidden (we do
-          // that while the mobile menu is open). On iOS Safari the
-          // sticky header drops back to its natural document position,
-          // which — if the user tapped the hamburger after scrolling —
-          // places the X button hundreds of px above the viewport and
-          // out of reach. Switching to `position: fixed` while the menu
-          // is open pins the header to the viewport regardless of scroll
-          // state. Outside that state, sticky keeps the hide-on-scroll
-          // behaviour working as before.
+          // position-fixed body-lock handles scroll when menu is open, so
+          // sticky stays safe here. Still, switch to fixed while the menu
+          // is open as a belt-and-braces guarantee that the X button
+          // remains reachable on iOS regardless of the scroll-lock path.
           position: menuOpen ? "fixed" : "sticky",
-          // Tailwind 4 uses the `translate` CSS property (not `transform`)
-          // for translate-y utilities, so the transition must target that.
           transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
@@ -195,9 +223,6 @@ export function Header() {
           header's own background-color between bg-transparent and
           bg-surface) avoids the "white veil" frames that produce a
           subtle flicker when the homepage scrolls back to the top.
-          Animating opacity also compositor-hints far better than
-          animating background-color, which the browser paints on every
-          frame.
         */}
         <div
           aria-hidden="true"
@@ -210,9 +235,8 @@ export function Header() {
         <div className="relative px-6 md:px-12 lg:px-20 xl:px-28">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/*
-              Logo fades out when the mobile menu opens so the open menu is
-              clean (nav items + X, no logo). On desktop menuOpen stays false,
-              so the logo is always visible.
+              Logo fades out when the menu opens so the open menu is
+              clean (nav items + X, no logo).
             */}
             <Link
               href="/"
@@ -225,13 +249,6 @@ export function Header() {
                 transition: "opacity 300ms ease-out",
               }}
             >
-              {/*
-                Inline SVG + CSS color transition instead of filter: invert
-                on an <img>. Safari composites filter animations unevenly
-                and briefly renders both the pre- and post-filter states,
-                which produced the "two logos stacked" flash when
-                scrolling back to the top of the homepage.
-              */}
               <span className="sr-only">AUWA</span>
               <AuwaLogo
                 className="block h-[20px] md:h-[22px] w-auto"
@@ -244,44 +261,13 @@ export function Header() {
               />
             </Link>
 
-            <ul className="hidden md:flex items-center gap-8 lg:gap-10">
-              {navItems.map((item) => {
-                const active = pathname === item.href;
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      aria-current={active ? "page" : undefined}
-                      className={`group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase transition-colors duration-300 ${
-                        isTransparent
-                          ? "text-white"
-                          : active
-                            ? "text-void"
-                            : "text-void hover:text-void/55"
-                      }`}
-                    >
-                      <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
-                        {item.label}
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
-                      >
-                        {item.label}
-                      </span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-
             {/*
-              Single menu button that morphs between hamburger and X. Lines
-              offset 1px from container edges so iOS doesn't render the top
-              line thicker than the rest.
+              Hamburger-to-X menu button. Shown at every viewport — the
+              inline desktop nav that used to sit here is archived at
+              `_archive/header-desktop-nav.tsx`.
             */}
             <button
-              className="md:hidden p-2 -mr-2 relative z-[60] cursor-pointer"
+              className="p-2 -mr-2 relative z-[60] cursor-pointer"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
@@ -291,13 +277,11 @@ export function Header() {
               }}
             >
               {/*
-                Container h-[22px] with lines at y=2, 10, 18. Visible span
-                from top of first line to bottom of third is ~18px, sized
-                to feel like the AUWA logo (20px mobile) beside it. 6px
-                gaps between lines, 2px breathing room top + bottom. All
-                three spans carry identical transform + rendering hints
-                so iOS anti-aliases them the same way and no line looks
-                thicker.
+                Container h-[22px] with lines at y=2, 10, 18. Visible
+                span is ~18px, sized to feel like the AUWA logo (20px
+                mobile / 22px desktop) beside it. All three spans carry
+                identical transform + rendering hints so iOS anti-aliases
+                them the same way.
               */}
               <div className="w-[28px] h-[22px] relative">
                 <span
@@ -340,12 +324,11 @@ export function Header() {
       </header>
 
       {/*
-        Mobile menu is portalled to document.body so the page-transition
-        wrapper's transform doesn't clip it. Without this, `fixed inset-0`
-        is relative to the transformed ancestor and the overlay ends up
-        off-screen on small viewports.
+        Menu is portalled to document.body so the page-transition wrapper's
+        transform doesn't clip it. Without this, `fixed inset-0` is relative
+        to the transformed ancestor and the overlay ends up off-screen.
       */}
-      {mounted ? createPortal(mobileMenu, document.body) : null}
+      {mounted ? createPortal(menuOverlay, document.body) : null}
     </>
   );
 }

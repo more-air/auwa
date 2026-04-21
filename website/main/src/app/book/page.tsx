@@ -36,7 +36,7 @@ export default function BookPage() {
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
               <TextReveal
                 as="h1"
-                className="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void"
+                className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void"
                 stagger={90}
               >
                 Open the eyes.

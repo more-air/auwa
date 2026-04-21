@@ -171,7 +171,7 @@ export function PillarParade() {
                 <span className="block font-sans text-[11px] tracking-[0.16em] uppercase text-white/70">
                   {card.eyebrow}
                 </span>
-                <h3 className="mt-3 font-display text-[clamp(1.35rem,2.2vw,2rem)] leading-[1.1] tracking-[0.005em] text-white whitespace-nowrap">
+                <h3 className="mt-3 font-display text-[clamp(1.75rem,5vw,2.25rem)] leading-[1.1] tracking-[0.005em] text-white whitespace-nowrap">
                   {card.heading}
                 </h3>
               </div>

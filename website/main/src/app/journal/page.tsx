@@ -62,7 +62,7 @@ export default async function JournalPage({
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-8 md:pb-12">
           <TextReveal
             as="h1"
-            className="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] tracking-[0.01em] text-void"
+            className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.05] tracking-[0.01em] text-void"
             stagger={90}
           >
             Journal

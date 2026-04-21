@@ -80,6 +80,16 @@ export function Footer() {
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pb-10 md:pb-12 pt-12 md:pt-20 flex items-center justify-between">
         <p className="font-sans text-[14px] tracking-[0.02em] text-white">
           &copy; AUWA {new Date().getFullYear()}
+          <span aria-hidden="true" className="mx-3 text-white/35">&middot;</span>
+          <span className="text-white/60">Site </span>
+          <a
+            href="https://moreair.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-white transition-colors duration-300"
+          >
+            More Air
+          </a>
         </p>
 
         <div className="flex items-center gap-6">
