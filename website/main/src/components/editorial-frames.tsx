@@ -87,7 +87,10 @@ function FrameContent({ frame, isActive }: { frame: Frame; isActive: boolean }) 
   }, [isActive]);
 
   return (
-    <div key={animKey}>
+    // Centre the stack on tablet (single-column layout) so the title,
+    // body and CTA sit beneath the centred image as one composition.
+    // Reverts to left-aligned at lg once the 2-column grid takes over.
+    <div key={animKey} className="text-center lg:text-left">
       <FadeIn delay={0}>
         <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
           {frame.eyebrow}
@@ -110,7 +113,7 @@ function FrameContent({ frame, isActive }: { frame: Frame; isActive: boolean }) 
           has finished settling. Feels like a slow sigh rather than a
           swing into place. */}
       <FadeIn delay={500} duration={1600} translateY={3}>
-        <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-void/70 max-w-[460px]">
+        <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-void/70 max-w-[460px] mx-auto lg:mx-0">
           {frame.body}
         </p>
       </FadeIn>
@@ -259,7 +262,12 @@ export function EditorialFrames() {
 
           {/* Editorial column */}
           <div>
-            <div className="relative min-h-[420px] md:min-h-[440px]">
+            {/* Tighter min-height on tablet (single column) — content is
+                only ~280px tall per frame, so the desktop-era 440px left
+                ~150px of dead air between the CTA and the tab row. Full
+                440px reservation returns at lg when the crossfade sits
+                beside the 480px portrait image. */}
+            <div className="relative min-h-[300px] lg:min-h-[440px]">
               {FRAMES.map((f, i) => {
                 const isActive = i === active;
                 return (
@@ -280,9 +288,12 @@ export function EditorialFrames() {
               })}
             </div>
 
-            {/* Pillar tab row */}
-            <div className="mt-20 md:mt-24">
-              <div className="flex items-end gap-5 md:gap-8 max-w-[450px]">
+            {/* Pillar tab row. On tablet, the row is centred beneath the
+                composition; on lg it anchors to the left of the editorial
+                column. mt-10 keeps the tabs close to the CTA on tablet —
+                mt-24 on lg matches the desktop rhythm. */}
+            <div className="mt-10 lg:mt-24">
+              <div className="flex items-end gap-5 md:gap-8 max-w-[450px] mx-auto lg:mx-0">
                 {FRAMES.map((f, i) => (
                   <button
                     key={i}

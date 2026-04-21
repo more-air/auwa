@@ -110,7 +110,8 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 | Element | Typeface | Weight | Size | Tracking |
 |---------|----------|--------|------|----------|
 | Wordmark / Logo | EB Garamond (SVG) | — | 20px mobile / 22px desktop | — |
-| Page title (h1) | EB Garamond | 400 | clamp(2.5rem, 5.5vw, 4.5rem) | 0.01em |
+| Page title (h1) — Journal, About, teasers | EB Garamond | 400 | clamp(2.25rem, 5vw, 3.75rem) | 0.01em |
+| Article hero title (h1) — journal/[slug] | EB Garamond | 400 | clamp(2.5rem, 5.5vw, 4.5rem) | 0.01em |
 | Section heading (h2) | EB Garamond | 400 | 28px / 32px | 0.01em |
 | Card title | EB Garamond | 400 | 20px / 22px | 0.01em |
 | Article body | EB Garamond | 400 | 18px / 19px | 0.005em |

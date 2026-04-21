@@ -202,7 +202,7 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Mobile hamburger:** Minimum line thickness of 1.5px for hamburger menu icons. Thinner lines disappear on some screens.
 
-**Teaser pages (pre-launch):** On mobile, use `aspect-[3/4]` (not `4/5`) for images and `min-h-[calc(100dvh-4rem)]` on the grid container so the full page fits within the viewport without scrolling. Tighten vertical padding to `py-12` on mobile.
+**Teaser pages (pre-launch):** The stacked text-above-image layout runs all the way through tablet — the 2-column grid only engages at `lg` (1024px+). Tablet portrait in the split layout felt cramped (text and image both lost breathing room), so the mobile config extends up. Grid container: `flex flex-col h-[calc(100dvh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100dvh-5rem)]`. Image: `w-full h-full object-cover lg:absolute lg:inset-0`. Vertical padding tightens to `py-12` below lg. Page-title h1 scale is `clamp(2.25rem,5vw,3.75rem)` — matches Journal, About, and the homepage module headings.
 
 **Form success states:** Use full contrast for success messages. `text-void` on white backgrounds, `text-white` on dark backgrounds. Never use reduced opacity for confirmation text. Success message element must match the form's height to prevent layout shift: use `min-h-[44px] flex items-center`.
 

@@ -180,7 +180,8 @@ The order of content blocks in the CMS determines the article layout. No manual 
 - 18-20px — about page prose (EB Garamond). Line-height: 1.7
 - 20-22px — card titles, pillar headings (EB Garamond). Tracking: 0.01em
 - 28-32px — section headings ("Continue reading", "Stay close", "The name"). Tracking: 0.01em
-- clamp(2.5rem, 5.5vw, 4.5rem) — page titles (h1). Tracking: 0.01em
+- clamp(2.25rem, 5vw, 3.75rem) — page titles (h1) on Journal, About, and the three teaser pages. Tracking: 0.01em
+- clamp(2.5rem, 5.5vw, 4.5rem) — article hero titles only (journal/[slug]). Tracking: 0.01em. Kept at the larger scale because the hero pairs with a full-height photograph and needs the extra weight.
 - clamp(1.75rem, 3.5vw, 2.75rem) — pullquotes (EB Garamond, upright). Tracking: 0.005em. Pullquotes are never italic — in-article and homepage treatments match.
 - clamp(3rem, 8vw, 6.5rem) — micro-season kanji (Noto Serif JP). Tracking: 0.06em
 

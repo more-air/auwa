@@ -12,12 +12,14 @@ export default function AppPage() {
     <>
       <main>
         <div>
-          <div className="flex flex-col h-[calc(100dvh-4rem)] md:grid md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
+          {/* Stacked mobile config extends through tablet; grid only
+              splits in at lg. See store/page.tsx for the reasoning. */}
+          <div className="flex flex-col h-[calc(100dvh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100dvh-5rem)]">
 
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
               <TextReveal
                 as="h1"
-                className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
+                className="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void"
                 stagger={90}
               >
                 Awareness, daily.
@@ -38,7 +40,7 @@ export default function AppPage() {
               <img
                 src="/pillars/app.jpg"
                 alt="AUWA Kokoro Mirror app on a phone"
-                className="w-full h-full object-cover md:absolute md:inset-0"
+                className="w-full h-full object-cover lg:absolute lg:inset-0"
               />
             </FadeIn>
 
