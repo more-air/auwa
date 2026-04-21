@@ -6,9 +6,10 @@
   No scroll-hijacking, no sticky transforms. Auto-advances every 7s,
   pauses on hover, resets on interaction. Safe on iOS by design.
 
-  Inside each active frame the content is revealed with a staggered
-  choreography: eyebrow fades first, heading cascades word-by-word via
-  TextReveal, body text follows, and the CTA lands last.
+  Reveal: each frame's content is static. The only animation is the outer
+  wrapper's 700ms opacity crossfade between frames. Nesting FadeIn /
+  TextReveal inside that wrapper caused visible subpixel jitter in Safari,
+  as the compositor re-rasterised layers when opacities compounded.
 */
 
 import { useEffect, useRef, useState } from "react";
@@ -17,6 +18,14 @@ import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { CtaLink } from "@/components/cta-link";
+
+// Note: inside FrameContent we deliberately DO NOT use FadeIn or TextReveal.
+// The parent wrapper is already opacity-fading between frames (700ms
+// crossfade). Nesting further opacity+transform animations underneath it
+// causes visible subpixel jitter in Safari — the compositor re-rasterises
+// the layers as opacities compound. The section heading ("Four ways in.")
+// still uses TextReveal because it plays once on scroll-in, with no outer
+// animation wrapping it.
 
 type Frame = {
   eyebrow: string;
@@ -72,58 +81,31 @@ const FRAMES: Frame[] = [
 const ADVANCE_MS = 7000;
 
 /*
-  One frame's editorial content (eyebrow, heading, body, CTA) with a
-  staggered reveal choreography. `isActive` drives the animation retrigger:
-  each time the frame becomes active, animKey bumps so FadeIn/TextReveal
-  remount and play from their initial states.
+  One frame's editorial content. Static — no inner animation. The parent
+  wrapper's opacity crossfade (700ms) is the entire reveal. See the note
+  at the top of the file for why nested fades were removed.
 */
-function FrameContent({ frame, isActive }: { frame: Frame; isActive: boolean }) {
-  const [animKey, setAnimKey] = useState(0);
-  const wasActiveRef = useRef(isActive);
-
-  useEffect(() => {
-    if (isActive && !wasActiveRef.current) {
-      setAnimKey((k) => k + 1);
-    }
-    wasActiveRef.current = isActive;
-  }, [isActive]);
-
+function FrameContent({ frame }: { frame: Frame }) {
   return (
     // Centre the stack on tablet (single-column layout) so the title,
     // body and CTA sit beneath the centred image as one composition.
     // Reverts to left-aligned at lg once the 2-column grid takes over.
-    <div key={animKey} className="text-center lg:text-left">
-      <FadeIn delay={0}>
-        <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
-          {frame.eyebrow}
-        </span>
-      </FadeIn>
+    <div className="text-center lg:text-left">
+      <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
+        {frame.eyebrow}
+      </span>
 
-      <div className="mt-5 md:mt-7">
-        <TextReveal
-          as="h3"
-          delay={150}
-          stagger={80}
-          className="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-[0.005em] text-void"
-        >
-          {frame.heading}
-        </TextReveal>
+      <h3 className="mt-5 md:mt-7 font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-[0.005em] text-void">
+        {frame.heading}
+      </h3>
+
+      <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-void/70 max-w-[460px] mx-auto lg:mx-0">
+        {frame.body}
+      </p>
+
+      <div className="mt-8 md:mt-10">
+        <CtaLink href={frame.href} variant="primary">{frame.cta}</CtaLink>
       </div>
-
-      {/* Matches the teaser-page paragraph arrival: default 800ms / 12px
-          rise. The tiny 3px rise over 1600ms read as "still settling"
-          under the crossfade — the crisper teaser motion lands cleanly. */}
-      <FadeIn delay={500}>
-        <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-void/70 max-w-[460px] mx-auto lg:mx-0">
-          {frame.body}
-        </p>
-      </FadeIn>
-
-      <FadeIn delay={700}>
-        <div className="mt-8 md:mt-10">
-          <CtaLink href={frame.href} variant="primary">{frame.cta}</CtaLink>
-        </div>
-      </FadeIn>
     </div>
   );
 }
@@ -296,7 +278,7 @@ export function EditorialFrames() {
                     }}
                     aria-hidden={!isActive}
                   >
-                    <FrameContent frame={f} isActive={isActive} />
+                    <FrameContent frame={f} />
                   </div>
                 );
               })}
