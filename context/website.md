@@ -2,6 +2,7 @@
 
 *Created: April 2026. The specification for the auwa.life website — the brand's home and editorial hub.*
 *Load when building the website, planning content, or working on site structure.*
+*For implementation work (component tweaks, bug fixes, deploys), also load `context/website-patterns.md` — they're a paired set.*
 
 ---
 

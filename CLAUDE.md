@@ -176,6 +176,15 @@ Interest in Japan is at an all-time high (42.7M visitors in 2025, anime market $
 
 These files are NOT auto-loaded. Only read them when you need deeper context on a specific topic. Ask which file is relevant before loading, to conserve tokens.
 
+**Shortcut phrases.** When the user's first message contains any of these phrases, load the listed files together without asking:
+
+- *"website session"*, *"website updates"*, *"website work"*, *"website tweak"*, *"website fix"*, *"website bug"* → load `context/website.md` + `context/website-patterns.md` + `context/brand.md`.
+- *"newsletter send"*, *"send newsletter"* → load `context/newsletter.md` + `context/editorial.md` + `context/brand.md`.
+- *"social session"*, *"instagram"*, *"social post"* → load `context/instagram.md` + `context/brand.md` + `context/arrival.md`.
+- *"article"*, *"journal article"*, *"write article"* → load `context/editorial.md` + `context/website-patterns.md` + `context/brand.md`.
+
+Whenever `context/website.md` is loaded for implementation work (component changes, bug fixes, deploys), ALSO load `context/website-patterns.md`. The two are paired.
+
 - `context/app.md` — Kokoro Mirror app specification: core UX flow (input → light shower → revelation → journal → share → archive), AI reflection principles and voice, sub-expression definitions, vague input handling, screen-by-screen detail, technical architecture (Next.js, Claude API, Vercel Postgres, Sanity, Stripe), data model, API routes, build phases, design principles, colour system, FigJam flow reference.
 - `context/brand.md` — Brand guidelines: logo/wordmark specs, typography system (EB Garamond + Instrument Sans + Noto Sans/Serif JP), colour system (OKLCH cosmic palette + emotional state colours), light/dark theme specs, photography direction, illustration integration, social content templates, motion principles, cross-site consistency (auwa.life subpaths).
 - `context/business.md` — Master business plan: executive summary, brand philosophy (Yaoyorozu no Kami), vision/values, AUWA name/origin, products (Kokoro Mirror app, AUWA Store, AUWA Journal, AUWA Book, figures, Year 2+), market analysis, go-to-market phases, content engine, customer acquisition, financial projections, corporate/legal, team, risk analysis, strategic priorities.

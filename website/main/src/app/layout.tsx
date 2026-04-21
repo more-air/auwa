@@ -6,7 +6,11 @@ import { SmoothScroll } from "@/components/smooth-scroll";
 import { PageTransition } from "@/components/page-transition";
 import { EntranceLoader } from "@/components/entrance-loader";
 import { CursorLabel } from "@/components/cursor-label";
-import { SoundToggle } from "@/components/sound-toggle";
+// SoundToggle is parked for launch — reads as distracting at arrival.
+// Re-enable when we decide to bring ambient sound back; the component
+// itself is feature-complete (lifts above the footer, pauses on tab
+// hidden, iOS audio cleanup wired up).
+// import { SoundToggle } from "@/components/sound-toggle";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -126,7 +130,7 @@ export default function RootLayout({
         />
         <EntranceLoader />
         <CursorLabel />
-        <SoundToggle />
+        {/* <SoundToggle /> — parked for launch, see comment on import above */}
         <SmoothScroll>
           {/*
             Header lives outside PageTransition. PageTransition's wrapper
