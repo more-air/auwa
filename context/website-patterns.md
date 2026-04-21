@@ -26,48 +26,7 @@ This deploys from the `website/main/` directory using the `.vercel/project.json`
 
 ---
 
-## PDF GENERATION
-
-**IMPORTANT: Puppeteer (used by md-to-pdf) hangs when multiple instances run concurrently. Always generate PDFs one at a time, in the foreground, never in background mode.**
-
-**Step 1 — Ensure the CSS file exists.** Check for `/tmp/auwa-pdf.css`. If missing (e.g. after a restart), recreate it:
-
-```css
-body { font-family: Georgia, 'Times New Roman', serif; font-size: 11pt; line-height: 1.65; color: #1a1a1a; max-width: 100%; }
-h1, h2, h3, h4, h5, h6 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; margin-top: 1.5em; margin-bottom: 0.5em; }
-h1 { font-size: 22pt; } h2 { font-size: 16pt; border-bottom: 1px solid #ccc; padding-bottom: 0.3em; } h3 { font-size: 13pt; } h4 { font-size: 11pt; font-style: italic; }
-table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 10pt; } th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; } th { background-color: #f5f5f5; font-weight: bold; }
-blockquote { border-left: 3px solid #ccc; margin-left: 0; padding-left: 1em; color: #555; }
-code { font-size: 9.5pt; background: #f5f5f5; padding: 2px 4px; border-radius: 3px; }
-hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
-@page { size: A4; margin: 25mm 20mm; }
-```
-
-**Step 2 — Kill any stuck Chromium processes first:**
-```
-pkill -9 -f "chromium" 2>/dev/null; pkill -9 -f "chrome" 2>/dev/null; sleep 1
-```
-
-**Step 3 — Generate ONE PDF at a time, in the FOREGROUND (not background), with PATH set:**
-```
-export PATH="/usr/local/bin:$PATH" && npx md-to-pdf context/[file].md --stylesheet /tmp/auwa-pdf.css 2>&1
-```
-Then move the output: `mv context/[file].pdf documents/AUWA-[Name].pdf`
-
-**File → PDF name mapping:**
-- `context/app.md` → `documents/AUWA-App-Specification.pdf`
-- `context/brand.md` → `documents/AUWA-Brand-Guidelines.pdf`
-- `context/business.md` → `documents/AUWA-Business-Plan.pdf`
-- `context/competitors.md` → `documents/AUWA-Competitors.pdf`
-- `context/instagram.md` → `documents/AUWA-Instagram-Strategy.pdf`
-- `context/arrival.md` → `documents/AUWA-Arrival.pdf`
-- `context/japan.md` → `documents/AUWA-Japan-Market.pdf`
-- `context/manifesto.md` → `documents/AUWA-Manifesto.pdf`
-- `context/reference.md` → `documents/AUWA-Reference.pdf`
-- `context/website.md` → `documents/AUWA-Website-Specification.pdf`
-- `context/structure.md` → `documents/AUWA-Business-Structure.pdf`
-
-**If it hangs:** Kill Chrome (`pkill -9 -f "chromium"`), wait 2 seconds, retry. Never run two md-to-pdf commands in parallel.
+*(For PDF generation from any `context/*.md` file, see `context/tooling.md`.)*
 
 ---
 
