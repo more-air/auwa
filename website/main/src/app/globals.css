@@ -6,11 +6,6 @@ main {
   z-index: 1;
   background-color: oklch(1 0 0); /* --color-surface (white) */
   overflow-x: clip; /* Contain FadeIn reveal slide-in from the right */
-  /* Promote main to its own compositor layer so Lenis's scroll transform
-     on the html ancestor only translates the layer reference — Safari
-     doesn't need to re-rasterise everything inside on every scroll frame.
-     This is the biggest single win for Safari scroll smoothness. */
-  transform: translateZ(0);
 }
 
 /* Lenis smooth scroll */

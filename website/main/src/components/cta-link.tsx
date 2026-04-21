@@ -40,13 +40,6 @@ export function CtaLink({ href, children, className = "", variant = "primary" }:
     <Link
       href={href}
       className={`${base} ${variantClasses} ${className}`}
-      // Promote CtaLink to its own GPU compositor layer. FadeIn wrappers
-      // hold a persistent `translate3d(0, 0, 0)` once visible (to avoid
-      // subpixel settle at transition end), and iOS Safari was using that
-      // ancestor layer's bounds to clip this element's top border.
-      // Giving the Link its own layer means its border is rasterised
-      // independently of any ancestor's compositor bounds.
-      style={{ transform: "translateZ(0)" }}
     >
       {/*
         Inner mask carries overflow-hidden, not the Link itself. On iOS

@@ -21,19 +21,29 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const prevPathname = useRef(pathname);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     // Skip Lenis on touch devices — native mobile momentum scrolling is
     // already smooth, and Lenis adds perceptible stickiness on iOS/Android.
-    if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
-      return;
-    }
+    if (window.matchMedia("(pointer: coarse)").matches) return;
 
-    // lerp (continuous interpolation) instead of duration (per-event
-    // animation). Safari handles lerp more smoothly on slow scroll —
-    // duration-mode restarts the animation curve on every wheel tick,
-    // which reads as micro-jitter. 0.1 is Lenis's own default and
-    // matches the feel of sites like moreair.co that use native scroll.
+    // Skip Lenis on Safari — no matter how tuned, Lenis's rAF-driven
+    // transform fights Safari's native scroll and reads as micro-jitter
+    // during slow scroll and mid-transition reveals. Safari's native
+    // scroll is already smooth (More Air feels buttery on Safari
+    // precisely because it uses native scroll). Detect Safari by UA,
+    // excluding Chrome/Chromium/Edge which also include "Safari" in
+    // their UA string.
+    const ua = navigator.userAgent;
+    const isSafari = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(ua);
+    if (isSafari) return;
+
+    // Duration mode with ease-out-expo was the Chrome-smooth config we
+    // shipped with. Switching to lerp was worse on Chrome; Safari is now
+    // on native scroll so Lenis tuning only affects Chrome / Firefox.
     const lenis = new Lenis({
-      lerp: 0.1,
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       infinite: false,
     });
 

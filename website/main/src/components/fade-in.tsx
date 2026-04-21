@@ -80,21 +80,13 @@ export function FadeIn({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        // Keep the persistent GPU layer after the transition ends (mirrors
-        // More Air's pattern: `transform: translateY(0) translateZ(0)` as
-        // the end state). Reverting to `transform: none` at rest demotes
-        // the compositor layer and Safari re-rasterises the element at
-        // integer pixels, producing the subtle "settle" shift at the end
-        // of every reveal. Keeping the layer means the final position is
-        // mathematically identical to `none` but stays GPU-composited, so
-        // nothing shifts when the transition completes.
-        //
-        // The trade-off is that iOS Safari can clip the top border of a
-        // bordered descendant within this persistent layer (observed on
-        // the "THE STORY" primary CtaLink). The fix lives on CtaLink
-        // itself: it promotes its own layer with `translateZ(0)` so its
-        // border renders independently of this wrapper's layer.
-        transform: isVisible ? "translate3d(0, 0, 0)" : hiddenTransform,
+        // `transform: none` at rest. Holding `translate3d(0, 0, 0)`
+        // permanently leaves a compositor layer per FadeIn wrapper — with
+        // many reveals on the homepage, that became enough layer churn to
+        // make both Chrome and Safari jitter during Lenis scroll. Safari's
+        // remaining subpixel "settle" at transition end is a fair trade
+        // for overall scroll smoothness.
+        transform: isVisible ? "none" : hiddenTransform,
         transition: `opacity ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
       }}
     >

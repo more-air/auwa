@@ -60,16 +60,13 @@ export function TextReveal({
             className="inline-block"
             style={{
               opacity: isVisible ? 1 : 0,
-              // translate3d forces a compositor layer so Safari animates the
-              // word as a single GPU surface instead of re-rasterising the
-              // inline-block's subpixel position every frame. The end-state
-              // is `translate3d(0, 0, 0)` — NOT `none` — because demoting
-              // the layer at transition end made each word snap to integer
-              // pixels, producing the subtle "settle" Safari users saw.
-              // Keeping the layer means the position at rest is mathematically
-              // identical to `none` but stays GPU-composited.
+              // End-state `none` (not `translate3d(0, 0, 0)`). Keeping a
+              // persistent layer per word on every TextReveal ran up the
+              // compositor layer count enough to hurt scroll smoothness on
+              // both Chrome and Safari. Hidden state still uses
+              // `translate3d` so the entrance animation GPU-composites.
               transform: isVisible
-                ? "translate3d(0, 0, 0)"
+                ? "none"
                 : "translate3d(0, 100%, 0)",
               transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms`,
               // No will-change: toggling it to "auto" when isVisible
