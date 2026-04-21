@@ -27,13 +27,12 @@ export function CtaLink({ href, children, className = "", variant = "secondary" 
   // `bordered` stays as a legacy alias for the now-standard `secondary`.
   const resolved = variant === "bordered" ? "secondary" : variant;
 
-  // Primary = secondary (bordered) + a very faint warm cream wash.
-  // Hare-family hue pulled way up in lightness and way down in chroma
-  // so it reads as "the button quietly held a tint of late-afternoon
-  // light" rather than a coloured button. Border and type colour stay
-  // the same as secondary so the two variants feel like cousins.
+  // Primary = secondary (bordered) + a just-there warm wash. Alpha is
+  // kept low so the colour reads as a trace of late-afternoon light
+  // rather than a tinted fill. No bg change on hover — the label's
+  // text-roll carries the interaction by itself.
   const primary =
-    "bg-[oklch(0.97_0.015_78)] text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40 hover:bg-[oklch(0.94_0.025_78)]";
+    "bg-[oklch(0.88_0.04_78_/_0.22)] text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40";
   const secondary =
     "text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40";
   const plain = "text-void/50 hover:text-void";
