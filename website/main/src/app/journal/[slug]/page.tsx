@@ -1068,7 +1068,7 @@ export default async function ArticlePage({
 
         {/* ── Hero: split layout, viewport height ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
-          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
+          <FadeIn duration={1400} translateY={0} className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
             {article.heroImage ? (
               <Image
                 src={article.heroImage}
@@ -1081,7 +1081,7 @@ export default async function ArticlePage({
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100 to-surface-raised" />
             )}
-          </div>
+          </FadeIn>
 
           <div className="flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:pb-16 lg:pb-20">
             <TextReveal

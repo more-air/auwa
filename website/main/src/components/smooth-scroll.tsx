@@ -27,9 +27,13 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       return;
     }
 
+    // lerp (continuous interpolation) instead of duration (per-event
+    // animation). Safari handles lerp more smoothly on slow scroll —
+    // duration-mode restarts the animation curve on every wheel tick,
+    // which reads as micro-jitter. 0.1 is Lenis's own default and
+    // matches the feel of sites like moreair.co that use native scroll.
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease-out-expo
+      lerp: 0.1,
       infinite: false,
     });
 
