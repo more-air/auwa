@@ -143,9 +143,11 @@ export function Header() {
         className="absolute inset-0 bg-surface"
         style={{
           opacity: menuOpen ? 1 : 0,
-          transition: menuOpen
-            ? "opacity 80ms linear"
-            : "opacity 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+          // Same duration + easing on open and close so the overlay feels
+          // like it breathes in and out rather than snapping on. Longer than
+          // the original 80ms open, but still fast enough to cover the page
+          // before scroll activity is visible on mobile.
+          transition: "opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       />
       {/* Spacer matches the header row so the nav starts below the logo/button */}

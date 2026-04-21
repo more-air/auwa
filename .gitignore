@@ -2,5 +2,6 @@
 node_modules
 .next
 .vercel
+.vercel.disabled
 .env
 .env.local

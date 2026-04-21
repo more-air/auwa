@@ -69,24 +69,26 @@ export default function AboutPage() {
               { label: "Journal", href: "/journal", image: "/journal/washi/washi-hero.jpg" },
               { label: "App", href: "/app", image: "/pillars/app.jpg" },
               { label: "Store", href: "/store", image: "/pillars/store.jpg" },
-            ].map((pillar) => (
-              <Link key={pillar.label} href={pillar.href} className="group block" data-cursor={pillar.href === "/journal" ? "Read" : "Open"}>
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                  <Image
-                    src={pillar.image}
-                    alt={pillar.label}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-4 md:p-6">
-                    <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.01em] text-white">
-                      {pillar.label}
-                    </h3>
+            ].map((pillar, i) => (
+              <FadeIn key={pillar.label} variant="reveal" delay={i * 120}>
+                <Link href={pillar.href} className="group block" data-cursor={pillar.href === "/journal" ? "Read" : "Open"}>
+                  <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.label}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4 md:p-6">
+                      <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.01em] text-white">
+                        {pillar.label}
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </section>
