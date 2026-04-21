@@ -164,7 +164,11 @@ export function EntranceLoader() {
       }}
     >
       <div
-        className="flex items-baseline text-void font-jp-serif"
+        // Characters sit at 80% of text-void rather than 100%. Full
+        // strength felt stamped onto the warm cream field; at /80 they
+        // read as part of the scene and match the Aesop/Aman restraint
+        // the rest of the brand is tuned to.
+        className="flex items-baseline text-void/80 font-jp-serif"
         style={{
           fontSize: "clamp(3.25rem, 10.5vw, 7.5rem)",
           letterSpacing: "0.18em",
