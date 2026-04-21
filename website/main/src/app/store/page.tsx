@@ -1,10 +1,26 @@
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
+import Image from "next/image";
 
 export const metadata = {
   title: "Lifetime objects | AUWA",
   description: "A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime, the antithesis of throwaway.",
+  openGraph: {
+    title: "Lifetime objects | AUWA",
+    description: "A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime.",
+    url: "https://auwa.life/store",
+    siteName: "AUWA",
+    locale: "en_GB",
+    type: "website",
+    images: [{ url: "/og/store.jpg", width: 1200, height: 630, alt: "AUWA Store" }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Lifetime objects | AUWA",
+    description: "A curated home for Japanese craftsman objects.",
+    images: ["/og/store.jpg"],
+  },
 };
 
 export default function StorePage() {
@@ -40,10 +56,13 @@ export default function StorePage() {
             </div>
 
             <FadeIn delay={200} className="relative overflow-hidden flex-1 min-h-0">
-              <img
+              <Image
                 src="/pillars/store.jpg"
                 alt="Japanese ceramics and wooden bowl in afternoon light"
-                className="w-full h-full object-cover lg:absolute lg:inset-0"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </FadeIn>
 

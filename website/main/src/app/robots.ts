@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/brand"],
+      disallow: ["/api/", "/brand", "/book/1", "/book/2", "/home-1", "/instagram"],
     },
     sitemap: "https://auwa.life/sitemap.xml",
   };

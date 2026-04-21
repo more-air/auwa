@@ -15,6 +15,7 @@
 */
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 
@@ -148,10 +149,19 @@ export function PillarParade() {
                   <source src={card.src} type="video/mp4" />
                 </video>
               ) : (
-                <img
+                <Image
                   src={card.src}
                   alt={card.heading}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 72vw, 360px"
+                  className="object-cover"
+                  // Horizontal scrollers defeat the default lazy-loading
+                  // heuristic: cards 2-4 sit just off-viewport to the right
+                  // and don't load until the user scrolls sideways, leaving
+                  // a blank card on swipe. Load all four up front — they're
+                  // small portrait JPGs and there are only four of them.
+                  loading="eager"
+                  priority={i < 2}
                 />
               )}
               {/* Readability gradient */}

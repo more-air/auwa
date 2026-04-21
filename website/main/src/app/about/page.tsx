@@ -2,11 +2,27 @@ import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { ObfuscatedEmail } from "@/components/obfuscated-email";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
   title: "About | AUWA",
   description: "The story of AUWA and the ancient Japanese belief that a life force resides in all things.",
+  openGraph: {
+    title: "About | AUWA",
+    description: "The story of AUWA and the ancient Japanese belief that a life force resides in all things.",
+    url: "https://auwa.life/about",
+    siteName: "AUWA",
+    locale: "en_GB",
+    type: "website",
+    images: [{ url: "/og/about.jpg", width: 1200, height: 630, alt: "About AUWA" }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "About | AUWA",
+    description: "The story of AUWA.",
+    images: ["/og/about.jpg"],
+  },
 };
 
 export default function AboutPage() {
@@ -56,10 +72,12 @@ export default function AboutPage() {
             ].map((pillar) => (
               <Link key={pillar.label} href={pillar.href} className="group block" data-cursor={pillar.href === "/journal" ? "Read" : "Open"}>
                 <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                  <img
+                  <Image
                     src={pillar.image}
                     alt={pillar.label}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 p-4 md:p-6">

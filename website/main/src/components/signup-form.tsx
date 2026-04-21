@@ -80,7 +80,7 @@ export function SignupForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={status === "submitting"}
-          className={`flex-1 bg-transparent font-sans text-[16px] outline-none disabled:opacity-50 ${
+          className={`flex-1 bg-transparent font-sans text-[16px] disabled:opacity-50 ${
             isDark
               ? "text-white placeholder:text-white/35"
               : "text-void placeholder:text-void/35"

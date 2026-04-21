@@ -155,8 +155,8 @@ function TabBar() {
     <div className="border-b border-[#dbdbdb] max-w-[935px] mx-auto">
       <div className="flex justify-around md:justify-start">
         {/* Grid tab (active) */}
-        <button className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-6 py-3 border-t border-void text-void -mb-px">
-          <svg className="w-[22px] h-[22px] md:w-3 md:h-3" viewBox="0 0 24 24" fill="currentColor">
+        <button type="button" aria-label="Posts" className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-6 py-3 border-t border-void text-void -mb-px">
+          <svg className="w-[22px] h-[22px] md:w-3 md:h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <rect x="1" y="1" width="6" height="6" rx="0.5"/>
             <rect x="9" y="1" width="6" height="6" rx="0.5"/>
             <rect x="17" y="1" width="6" height="6" rx="0.5"/>
@@ -170,15 +170,15 @@ function TabBar() {
           <span className="hidden md:inline text-[12px] font-sans font-medium uppercase tracking-[0.08em]">Posts</span>
         </button>
         {/* Reels tab */}
-        <button className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-6 py-3 text-void/30 -mb-px cursor-default">
-          <svg className="w-[22px] h-[22px] md:w-3 md:h-3" viewBox="0 0 24 24" fill="currentColor">
+        <button type="button" aria-label="Reels" className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-6 py-3 text-void/30 -mb-px cursor-default">
+          <svg className="w-[22px] h-[22px] md:w-3 md:h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
           </svg>
           <span className="hidden md:inline text-[12px] font-sans font-medium uppercase tracking-[0.08em]">Reels</span>
         </button>
         {/* Tagged tab */}
-        <button className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-6 py-3 text-void/30 -mb-px cursor-default">
-          <svg className="w-[22px] h-[22px] md:w-3 md:h-3" viewBox="0 0 24 24" fill="currentColor">
+        <button type="button" aria-label="Tagged" className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-6 py-3 text-void/30 -mb-px cursor-default">
+          <svg className="w-[22px] h-[22px] md:w-3 md:h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6v-2zm0 4h8v2H6v-2zm10 0h2v2h-2v-2zm-6-4h8v2h-8v-2z"/>
           </svg>
           <span className="hidden md:inline text-[12px] font-sans font-medium uppercase tracking-[0.08em]">Tagged</span>

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { MicroSeasonFeature } from "@/components/micro-season-feature";
@@ -7,6 +8,10 @@ import { HeroVideo } from "@/components/hero-video";
 import { ScrollFadeText } from "@/components/scroll-fade-text";
 import { CtaLink } from "@/components/cta-link";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 /*
   Archive of the scroll-driven stacked-card flipbook homepage.

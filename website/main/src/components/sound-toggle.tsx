@@ -28,6 +28,7 @@ const FADE_MS = 1200;
 export function SoundToggle() {
   const [playing, setPlaying] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [onDark, setOnDark] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeRafRef = useRef<number | null>(null);
 
@@ -39,6 +40,75 @@ export function SoundToggle() {
     // actually start it. Treat the persisted flag as "user prefers sound on"
     // rather than a command to play immediately.
   }, []);
+
+  // Stop audio when the tab is backgrounded or the page is unloaded. iOS
+  // Safari otherwise keeps a paused-media badge active and, in some cases,
+  // continues playback after the user switches tabs or closes the window.
+  // We also pause on `pagehide` (bfcache) because `unload` is unreliable
+  // on iOS. When the user comes back, the UI still reflects the last
+  // preference — they just tap the speaker again if they want sound.
+  useEffect(() => {
+    if (!mounted) return;
+    const pause = () => {
+      const a = audioRef.current;
+      if (a && !a.paused) {
+        a.pause();
+        a.currentTime = 0;
+        setPlaying(false);
+      }
+    };
+    const onVisibility = () => {
+      if (document.hidden) pause();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", pause);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pagehide", pause);
+    };
+  }, [mounted]);
+
+  // Invert the button colour when the dark footer is showing behind it.
+  // Footer is `sticky bottom-0 z-0`, so it sits pinned to the viewport at
+  // all times; what actually changes is `main` (z-1, white bg), which
+  // slides up as the user scrolls down. The footer only becomes visible
+  // under the button once `main`'s bottom edge has risen above the button.
+  //
+  // We watch a zero-height sentinel appended as `<main>`'s last child — its
+  // top edge tracks main's bottom edge — and use an IntersectionObserver
+  // with the root margin reduced by the button zone. IO fires reliably
+  // regardless of which scroll mechanism is in play (Lenis, native, touch).
+  useEffect(() => {
+    if (!mounted) return;
+    const main = document.querySelector("main");
+    if (!main) return;
+
+    const sentinel = document.createElement("div");
+    sentinel.setAttribute("aria-hidden", "true");
+    sentinel.style.cssText = "width:100%;height:0;pointer-events:none;";
+    main.appendChild(sentinel);
+
+    // rootMargin shrinks the viewport bottom by the button zone.
+    //   sentinel in [0, innerHeight - 64]  → intersecting   → dark
+    //   sentinel below viewport            → not intersecting, top ≥ 0   → light
+    //   sentinel above viewport            → not intersecting, top < 0   → dark
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setOnDark(true);
+        } else {
+          setOnDark(entry.boundingClientRect.top < 0);
+        }
+      },
+      { rootMargin: "0px 0px -64px 0px", threshold: 0 }
+    );
+    io.observe(sentinel);
+
+    return () => {
+      io.disconnect();
+      sentinel.remove();
+    };
+  }, [mounted]);
 
   const fadeTo = (target: number, onDone?: () => void) => {
     const audio = audioRef.current;
@@ -98,7 +168,11 @@ export function SoundToggle() {
       onClick={toggle}
       aria-label={playing ? "Turn ambient sound off" : "Turn ambient sound on"}
       aria-pressed={playing}
-      className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full bg-void/85 text-white backdrop-blur-md hover:bg-void transition-colors duration-300 cursor-pointer"
+      className={`fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md transition-colors duration-500 cursor-pointer ${
+        onDark
+          ? "bg-white/90 text-void hover:bg-white"
+          : "bg-void/85 text-white hover:bg-void"
+      }`}
       style={{ WebkitBackdropFilter: "blur(8px)" }}
     >
       <svg

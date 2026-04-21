@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
+import Image from "next/image";
 import Link from "next/link";
 
 /* ─── Article data (will come from Sanity CMS) ─── */
@@ -896,22 +898,6 @@ const articles: Record<
   },
 };
 
-/* ─── Fallback article for unknown slugs ─── */
-const fallbackArticle = {
-  title: "The knife maker of Seki",
-  subtitle: "A lifetime spent perfecting a single blade.",
-  category: "Craft",
-  issue: "Issue 02",
-  author: "Tom Vining",
-  photographer: "Tom Vining",
-  publishedAt: "2026-04-09",
-  heroImage: null,
-  content: [
-    { type: "text" as const, text: "Many of the world's great craftsmen have transformed making from an act of production to something that leans closer to the spiritual. In the workshops of Seki, a small city in Gifu prefecture long known as Japan's capital of bladesmithing, the air carries the scent of steel and charcoal." },
-    { type: "text" as const, text: "The sound of hammers against anvils has echoed through these streets for seven hundred years." },
-  ],
-};
-
 /* ─── Group content blocks into layout sections ─── */
 type Section =
   | { kind: "text-only"; blocks: ContentBlock[] }
@@ -1006,6 +992,12 @@ function renderTextBlock(block: ContentBlock, i: number) {
   return null;
 }
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return Object.keys(articles).map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -1015,7 +1007,10 @@ export async function generateMetadata({
   const article = articles[slug];
 
   if (!article) {
-    return { title: "Article | AUWA" };
+    return {
+      title: "Article | AUWA",
+      robots: { index: false, follow: false },
+    };
   }
 
   const title = `${article.title} | AUWA`;
@@ -1052,7 +1047,10 @@ export default async function ArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = articles[slug] || fallbackArticle;
+  const article = articles[slug];
+  if (!article) {
+    notFound();
+  }
   const sections = groupIntoSections(article.content);
 
   const jsonLd = {
@@ -1076,10 +1074,13 @@ export default async function ArticlePage({
         <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
           <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
             {article.heroImage ? (
-              <img
+              <Image
                 src={article.heroImage}
                 alt={article.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100 to-surface-raised" />
@@ -1152,7 +1153,7 @@ export default async function ArticlePage({
                       {section.images.map((img, j) => (
                         <figure key={j}>
                           <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                            <img src={img.src} alt={img.alt} className="absolute inset-0 w-full h-full object-cover" />
+                            <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                           </div>
                           {img.caption && (
                             <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
@@ -1175,10 +1176,12 @@ export default async function ArticlePage({
                     <FadeIn delay={100}>
                       <figure>
                         <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                          <img
+                          <Image
                             src={section.image.src}
                             alt={section.image.alt}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover"
                           />
                         </div>
                         {section.image.caption && (
@@ -1279,10 +1282,12 @@ export default async function ArticlePage({
               >
                 <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
                   {related.image ? (
-                    <img
+                    <Image
                       src={related.image}
                       alt={related.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/40 to-surface-raised" />

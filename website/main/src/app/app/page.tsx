@@ -1,10 +1,26 @@
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
+import Image from "next/image";
 
 export const metadata = {
   title: "Awareness, daily | AUWA",
   description: "A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention.",
+  openGraph: {
+    title: "Awareness, daily | AUWA",
+    description: "A daily practice for awareness, guided by ancient Japanese philosophy.",
+    url: "https://auwa.life/app",
+    siteName: "AUWA",
+    locale: "en_GB",
+    type: "website",
+    images: [{ url: "/og/app.jpg", width: 1200, height: 630, alt: "AUWA App" }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Awareness, daily | AUWA",
+    description: "A daily practice for awareness, guided by ancient Japanese philosophy.",
+    images: ["/og/app.jpg"],
+  },
 };
 
 export default function AppPage() {
@@ -37,10 +53,13 @@ export default function AppPage() {
             </div>
 
             <FadeIn delay={200} className="relative overflow-hidden flex-1 min-h-0">
-              <img
+              <Image
                 src="/pillars/app.jpg"
                 alt="AUWA Kokoro Mirror app on a phone"
-                className="w-full h-full object-cover lg:absolute lg:inset-0"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </FadeIn>
 

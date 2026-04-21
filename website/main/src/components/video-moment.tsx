@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CtaLink } from "./cta-link";
 import { FadeIn } from "./fade-in";
@@ -23,10 +24,12 @@ export function VideoMoment() {
               data-cursor="Read"
               className="block relative aspect-[9/16] max-h-[70vh] mx-auto w-full max-w-[380px] rounded-xl overflow-hidden"
             >
-              <img
+              <Image
                 src={IMAGE_SRC}
                 alt="AUWA, a luminous being surrounded by light"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                sizes="380px"
+                className="object-cover"
               />
             </Link>
           </FadeIn>
@@ -66,10 +69,12 @@ export function VideoMoment() {
               data-cursor="Read"
               className="block relative aspect-[9/16] w-full max-w-[300px] rounded-xl overflow-hidden"
             >
-              <img
+              <Image
                 src={IMAGE_SRC}
                 alt="AUWA, a luminous being surrounded by light"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-cover"
               />
             </Link>
           </FadeIn>

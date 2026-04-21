@@ -442,7 +442,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 **Global UI layer (mounted in layout.tsx):**
 - `EntranceLoader` — once-per-session あうわ reveal on a warm `#f8f2e5` overlay. Chars rise in with 180ms stagger, reverse-stagger exit (わ→う→あ), overlay fades, unmount. Respects prefers-reduced-motion and sessionStorage flag.
 - `CursorLabel` — 72px black disc with uppercase text following the cursor on desktop (`pointer: fine`). Reads the target's `data-cursor` attribute ("Read" or "Open"). Scales from 0→1 on enter, 1→0 on leave. Applied to every clickable editorial image/card.
-- `SoundToggle` — bottom-right corner speaker button. Plays `/audio/drift.mp3` at 28% volume with 1.2s fade in/out. Muted by default, preference stored in localStorage. Swap the filename in `sound-toggle.tsx` to rotate through the 7 tracks in `public/audio/` (aurora, begin, crystal, drift, float, light, silk).
+- `SoundToggle` — bottom-right corner speaker button. Plays `/audio/drift.mp3` at 28% volume with 1.2s fade in/out. Muted by default, preference stored in localStorage. Swap the filename in `sound-toggle.tsx` to rotate through the 7 tracks in `public/audio/` (aurora, begin, crystal, drift, float, light, silk). **Inverts colour when the sticky footer is revealed behind it** — uses an IntersectionObserver on a zero-height sentinel appended as `<main>`'s last child (scroll listeners are Lenis-swallowed and unreliable). **Pauses playback on `visibilitychange` (hidden) and `pagehide`** — iOS Safari would otherwise keep the media badge live and, in some cases, continue playback after the user switches tabs.
 - Shared `AuwaLogo` component (`src/components/auwa-logo.tsx`) — inline SVG using `fill="currentColor"`, so the header transitions between white/void via CSS `color` instead of `filter: invert()`. Fixes the "ghost logo" flash Safari showed on the previous filter-based approach.
 
 **Header `transparent` prop:**
@@ -554,3 +554,42 @@ The specific pattern that shipped on auwa.life and should be reused on More Air 
 ## ARTICLE SHARE ICONS
 
 Article pages include Facebook, Pinterest, and X share links. Sizes currently `width="18"` (FB, Pinterest) and `width="17"` (X, accounting for its tighter glyph). `gap-5` between icons. Don't include Instagram — it has no link-share preview flow. All share URLs route to the article's OG image via `{slug}-og.jpg`.
+
+---
+
+## AWWWARDS READINESS (KEEP IN FORCE)
+
+Lessons baked in from the April 2026 SOTD-prep pass. Every future site (AUWA, More Air client, or venture) should pass these before submission or launch. Missing any single one costs real jury points.
+
+**404 + dynamic-route hygiene.** `src/app/not-found.tsx` exists and is branded (header/footer/type consistent with the rest of the site). Every `[slug]/page.tsx` calls `notFound()` when the slug isn't found, AND exports both `generateStaticParams` returning all known slugs AND `export const dynamicParams = false`. Never fall through to a fallback article/product — that returns 200 and indexes. `generateMetadata()` for unknown slugs returns `robots: { index: false, follow: false }`.
+
+**Draft / review / archive routes.** Any route that isn't meant to be publicly indexed (`/home-1`, `/book/1`, `/book/2`, /brand, /instagram, iteration mockups) needs BOTH: `robots: { index: false, follow: false }` in a sibling `layout.tsx` (client routes can't export metadata directly), AND an entry in `src/app/robots.ts` disallow list.
+
+**Per-page OG images.** Every top-level route (`/`, `/journal`, `/about`, `/app`, `/store`, `/book`, `/brand`) exports its own `openGraph.images` and `twitter.images` — don't rely on the root layout fallback. Pasting `/store` or `/book` into LinkedIn must show a specific image, not the homepage OG. Images live at `public/og/{page}.jpg`, 1200×630 JPG. Generate via `cp source.jpg dst.jpg && sips --resampleWidth 1200 dst.jpg && sips -c 630 1200 dst.jpg`. For articles, `generateMetadata()` derives OG path by replacing `-hero.jpg` with `-og.jpg`, so the article folder needs both files.
+
+**PWA manifest + icons.** `src/app/manifest.ts` must exist with name, short_name, start_url, theme_color, and icons. `public/favicon.svg` AND `public/apple-touch-icon.png` (180×180) both present. Awwwards favicon-quality checks flag missing manifests.
+
+**Focus + a11y.** Do NOT use `outline-none` on form inputs or buttons without a `:focus-visible` replacement. globals.css already has a global `:focus-visible { outline: 2px solid ... }` rule that handles keyboard focus if you don't strip it — don't strip it. Every icon-only button has `aria-label`; decorative SVG inside has `aria-hidden="true"`. Judges tab through.
+
+**Horizontal scrollers + lazy loading.** `<Image>` in a horizontal scroller (Journal strip, Pillar Parade, carousels) must use `loading="eager"` on all cards, with `priority={i < 2}` on the first two. The default `lazy` heuristic waits for viewport intersection, but cards 2–4 sit just off-viewport to the right and never intersect until swiped to — resulting in a blank card on first swipe on iOS. First iPhone feedback from real users.
+
+**Audio / media cleanup.** Any background `Audio` element gets `document.addEventListener("visibilitychange", pause)` AND `window.addEventListener("pagehide", pause)`. iOS Safari otherwise keeps a paused-media badge live and, in some cases, continues playback when the tab is backgrounded or the user opens a new tab. Applied on `SoundToggle`.
+
+**Floating UI over sticky footer.** Fixed-position UI (sound toggle, cursor label, chat button) living over a `sticky bottom-0` dark footer needs to invert when the footer is revealed behind it. Don't use scroll events — Lenis swallows some on certain setups. Use an IntersectionObserver with a zero-height sentinel appended as `<main>`'s last child:
+
+```ts
+const sentinel = document.createElement("div");
+sentinel.style.cssText = "width:100%;height:0;pointer-events:none;";
+main.appendChild(sentinel);
+const io = new IntersectionObserver(([entry]) => {
+  if (entry.isIntersecting) setOnDark(true);
+  else setOnDark(entry.boundingClientRect.top < 0);
+}, { rootMargin: "0px 0px -64px 0px", threshold: 0 });
+io.observe(sentinel);
+```
+
+**Auto-advancing modules must wait for viewport.** Any carousel or slideshow that auto-advances (EditorialFrames' 7s rotation, future hero crossfaders) must gate its setTimeout/setInterval on an IntersectionObserver one-shot so rotation only starts when the module enters the viewport. Otherwise a visitor sitting on the hero video for 20s arrives at the module already showing frame 3 or 4 — not pillar 01. First impression broken.
+
+**Sticky header + PageTransition.** Render `<Header />` in `layout.tsx` OUTSIDE the `PageTransition` wrapper. Inside it, the header inherits the wrapper's transform/opacity stacking context and fades out with every route change. Mobile menu overlays portal to `document.body` with the header at `z-[100]` above a `z-[90]` overlay.
+
+**Submission cadence.** Tuesday or Wednesday morning UK time is the window — Monday is judges' backlog day, Thursday/Friday/weekend land in the "Nominee" pile after SOTD slots are allocated. Avoid the first week of any month (carryover backlog). Submit only once the hero video and entrance loader are the absolute final cut — those are the first four seconds and carry 80% of the judge's vote. Primary category for AUWA-tier brands: **Wellbeing** (least crowded premium lane). Tags to pick: Editorial, Typography, Animation, Transitions, Interaction Design, Cultural. Main preview image: 1400×787 JPG under 1MB, and for AUWA specifically it's a close crop of the AUWA face from the hero video — nothing else on Awwwards looks like it.

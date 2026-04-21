@@ -1,11 +1,27 @@
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
   title: "Journal | AUWA",
   description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
+  openGraph: {
+    title: "Journal | AUWA",
+    description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
+    url: "https://auwa.life/journal",
+    siteName: "AUWA",
+    locale: "en_GB",
+    type: "website",
+    images: [{ url: "/og/journal.jpg", width: 1200, height: 630, alt: "AUWA Journal" }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Journal | AUWA",
+    description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
+    images: ["/og/journal.jpg"],
+  },
 };
 
 const categories = ["All", "Seasons", "Craft", "Philosophy", "Travel"];
@@ -80,10 +96,12 @@ export default async function JournalPage({
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="rounded-xl overflow-hidden relative aspect-[4/5]">
                     {article.image ? (
-                      <img
+                      <Image
                         src={article.image}
                         alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />

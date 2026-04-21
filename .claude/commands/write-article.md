@@ -30,9 +30,16 @@ If photos have been provided in `auwa/photos/[slug]/`:
 2. List all images in the source folder and show them to the user
 3. Ask: "Which image should be the hero? And are any of these a pair (two detail shots to sit side by side)?"
 4. Optimise each image following the pipeline in editorial.md (resize to 2400px max, JPEG quality 85, rename to convention)
-5. Report the final file sizes
+5. **Generate the social-share OG image from the hero.** Every article needs a landscape 1200×630 crop for LinkedIn, Facebook, WhatsApp, Pinterest, and X previews. The portrait 4:5 hero crops badly on every platform. From the article's public folder:
+   ```bash
+   cp [slug]-hero.jpg [slug]-og.jpg && \
+   sips --resampleWidth 1200 [slug]-og.jpg && \
+   sips -c 630 1200 [slug]-og.jpg
+   ```
+   Verify both files exist: `[slug]-hero.jpg` (portrait) and `[slug]-og.jpg` (1200×630 landscape). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
+6. Report the final file sizes
 
-If no photos yet, proceed with writing and note where images will go.
+If no photos yet, proceed with writing and note where images will go — but remember to generate both `-hero.jpg` AND `-og.jpg` before publishing.
 
 ## Step 3: Write the Article
 
@@ -86,4 +93,4 @@ Once approved:
 4. Add the article slug to the `articleSlugs` array in `website/main/src/app/sitemap.ts`
 5. Test the build compiles cleanly
 
-**SEO note:** Dynamic metadata (og:title, og:description, og:image, twitter card, Article JSON-LD) is generated automatically from the article data in the articles object. No extra metadata work needed per article.
+**SEO note:** Dynamic metadata (og:title, og:description, og:image, twitter card, Article JSON-LD) is generated automatically from the article data in the articles object. No extra metadata work needed per article — BUT the social-share image only works if the `-og.jpg` file exists alongside the `-hero.jpg` in `public/journal/[slug]/`. Step 2 covers this; double-check both files are present before shipping.

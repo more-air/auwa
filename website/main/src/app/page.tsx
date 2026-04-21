@@ -7,6 +7,7 @@ import { VideoMoment } from "@/components/video-moment";
 import { HeroVideo } from "@/components/hero-video";
 import { ScrollFadeText } from "@/components/scroll-fade-text";
 import { CtaLink } from "@/components/cta-link";
+import Image from "next/image";
 import Link from "next/link";
 
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
@@ -147,10 +148,12 @@ export default function Home() {
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
                     {article.image ? (
-                      <img
+                      <Image
                         src={article.image}
                         alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 260px, (max-width: 1024px) 280px, 300px"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/40 to-surface-raised" />
@@ -197,10 +200,12 @@ export default function Home() {
                 <Link href={pillar.href} className="group block" data-cursor="Open">
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {pillar.image ? (
-                      <img
+                      <Image
                         src={pillar.image}
                         alt={pillar.label}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -241,10 +246,12 @@ export default function Home() {
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {article.image ? (
-                      <img
+                      <Image
                         src={article.image}
                         alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />

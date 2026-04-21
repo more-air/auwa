@@ -1,10 +1,26 @@
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
+import Image from "next/image";
 
 export const metadata = {
   title: "Open the eyes | AUWA",
   description: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.",
+  openGraph: {
+    title: "Open the eyes | AUWA",
+    description: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.",
+    url: "https://auwa.life/book",
+    siteName: "AUWA",
+    locale: "en_GB",
+    type: "website",
+    images: [{ url: "/og/book.jpg", width: 1200, height: 630, alt: "AUWA Book" }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Open the eyes | AUWA",
+    description: "Illustrated stories following AUWA the character.",
+    images: ["/og/book.jpg"],
+  },
 };
 
 export default function BookPage() {
@@ -41,10 +57,13 @@ export default function BookPage() {
 
             {/* Right: book cover */}
             <FadeIn delay={200} className="relative overflow-hidden flex-1 min-h-0">
-              <img
+              <Image
                 src="/pillars/book.jpg"
                 alt="AUWA: The Beginning — illustrated book on a wooden table"
-                className="w-full h-full object-cover lg:absolute lg:inset-0"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </FadeIn>
 

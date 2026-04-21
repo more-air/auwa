@@ -12,6 +12,7 @@
 */
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
@@ -144,16 +145,39 @@ export function EditorialFrames() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [tick, setTick] = useState(0);
+  const [inView, setInView] = useState(false);
   const hoveredRef = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Don't start the auto-advance rotation until the module scrolls into
+  // view. If we started the timer on mount, a visitor sitting on the hero
+  // video for 20 seconds would arrive at this section already showing
+  // pillar 3 or 4. Judges (and first-time visitors) should always see
+  // pillar 01 / Store first, played from its opening frame.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect(); // one-shot; from here on hover-pause is the only gate
+        }
+      },
+      { rootMargin: "0px 0px -20% 0px", threshold: 0 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || !inView) return;
     const id = window.setTimeout(() => {
       setActive((a) => (a + 1) % FRAMES.length);
       setTick((t) => t + 1);
     }, ADVANCE_MS);
     return () => window.clearTimeout(id);
-  }, [paused, tick, active]);
+  }, [paused, tick, active, inView]);
 
   const select = (i: number) => {
     if (i === active) return;
@@ -163,6 +187,7 @@ export function EditorialFrames() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative bg-white"
       onMouseEnter={() => {
         hoveredRef.current = true;
@@ -240,10 +265,12 @@ export function EditorialFrames() {
                       <source src={f.src} type="video/mp4" />
                     </video>
                   ) : (
-                    <img
+                    <Image
                       src={f.src}
                       alt={f.heading}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="480px"
+                      className="object-cover"
                     />
                   )}
                 </div>

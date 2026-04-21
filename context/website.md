@@ -37,13 +37,16 @@ All sections live under **auwa.life** with subpaths. All variants (auwalife.com,
 ```
 auwa.life/                  → Home (editorial hub + brand introduction)
 auwa.life/journal           → Journal index (all articles)
-auwa.life/journal/[slug]    → Individual article
+auwa.life/journal/[slug]    → Individual article (static-only: dynamicParams = false)
 auwa.life/app               → Kokoro Mirror introduction (pre-launch: coming soon with email capture)
 auwa.life/store             → Store introduction (pre-launch: coming soon with craftsman preview)
 auwa.life/book              → The AUWA story universe (pre-launch: introduction + email capture)
 auwa.life/about             → Tom & Rieko, the philosophy, the origin
-auwa.life/brand             → Living style guide (logo, colours, typography, spacing, components)
+auwa.life/brand             → Living style guide (noindex, disallowed in robots.txt)
+auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves any unmatched URL
 ```
+
+**Noindex / disallowed routes:** `/home-1` (archive of the flipbook hero), `/book/1`, `/book/2` (draft book-viewer mockups), `/brand`, `/instagram`, `/api/`. Each has both `robots: { index: false, follow: false }` in its `layout.tsx` (or page metadata for server routes) AND an entry in `src/app/robots.ts` disallow list. `/app/sitemap.ts` lists only the real public routes and the article slugs.
 
 ### Information Architecture
 
@@ -491,6 +494,23 @@ cd website/main/public/journal/{slug} && cp {slug}-hero.jpg {slug}-og.jpg && \
 - **Key metrics:** Page views, unique visitors, time on page (especially journal articles), newsletter signups (conversion rate by page), referral sources
 - **Lighthouse target:** 95+ across all categories
 - **Core Web Vitals:** LCP < 2.5s, FID < 100ms, CLS < 0.1
+
+---
+
+## 10. Awwwards Submission Checklist
+
+Baked in from the April 2026 SOTD-prep pass. CLAUDE.md carries the full list of learnings; this section is the quick site-level audit before any submission.
+
+- Branded `src/app/not-found.tsx` renders for any unmatched URL (test with `/definitely-not-a-page`).
+- Every dynamic slug route (`/journal/[slug]`) calls `notFound()` for unknown slugs AND exports `generateStaticParams` + `dynamicParams = false`. Never fall through to a fallback article.
+- Draft / archive / internal routes (`/home-1`, `/book/1`, `/book/2`, `/brand`, `/instagram`) are noindex'd via metadata AND disallowed in `src/app/robots.ts`.
+- `src/app/manifest.ts` exists with name, theme_color, icons. Both `favicon.svg` and `apple-touch-icon.png` present.
+- Every top-level route exports its own `openGraph.images` + `twitter.images` at 1200×630. OG files under `public/og/{page}.jpg`. Article OGs live at `public/journal/{slug}/{slug}-og.jpg` — the `write-article` command now covers generation.
+- All site imagery uses `next/image` (including inside horizontal scrollers with `loading="eager"` and `priority={i < 2}` on the first two cards — the default lazy-load heuristic misses off-viewport-right cards on iOS).
+- `globals.css` has a `:focus-visible` ring. No component strips it with `outline-none` without an explicit replacement.
+- Icon-only buttons carry `aria-label`; decorative inline SVG gets `aria-hidden="true"`.
+- `SoundToggle` inverts over the dark footer via IntersectionObserver, and pauses on `visibilitychange` + `pagehide`.
+- `EditorialFrames` auto-advance is gated on an IO one-shot so rotation only starts when the module enters the viewport — first-time visitors see pillar 01 / Store first.
 
 ---
 
