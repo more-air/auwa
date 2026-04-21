@@ -55,12 +55,21 @@ export function TextReveal({
           className="inline-block overflow-hidden pb-[0.18em] -mb-[0.18em] align-top"
         >
           <span
-            className="inline-block transition-all ease-out"
+            className="inline-block"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(100%)",
-              transitionDuration: "600ms",
-              transitionDelay: `${delay + i * stagger}ms`,
+              // translate3d forces a compositor layer so Safari animates the
+              // word as a single GPU surface instead of re-rasterising the
+              // inline-block's subpixel position every frame. Fixes the
+              // visible jerk Safari shows on lines that start mid-cascade
+              // (second TextReveal with a non-zero delay).
+              transform: isVisible
+                ? "translate3d(0, 0, 0)"
+                : "translate3d(0, 100%, 0)",
+              transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms`,
+              willChange: isVisible ? "auto" : "opacity, transform",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
             }}
           >
             {word}
