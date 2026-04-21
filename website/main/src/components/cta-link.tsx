@@ -27,14 +27,8 @@ export function CtaLink({ href, children, className = "", variant = "primary" }:
   // `bordered` stays as a legacy alias for the now-standard `secondary`.
   const resolved = variant === "bordered" ? "secondary" : variant;
 
-  // Primary = secondary (bordered) + a just-there warm wash. Alpha is
-  // kept super low (≈11%) so the colour reads as a barely-there trace
-  // of late-afternoon light — enough to separate the button from the
-  // page, not enough to look like a coloured fill. Text is already
-  // full void at rest; only the border darkens on hover (and the
-  // label's text-roll plays).
   const primary =
-    "bg-[oklch(0.88_0.04_78_/_0.11)] text-void border border-void/15 px-6 py-3 hover:border-void/40";
+    "text-void border border-void/15 px-6 py-3 hover:border-void/40";
   const secondary =
     "text-void border border-void/15 px-6 py-3 hover:border-void/40";
   const plain = "text-void/50 hover:text-void";
