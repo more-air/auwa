@@ -143,11 +143,13 @@ export function Header() {
         className="absolute inset-0 bg-surface"
         style={{
           opacity: menuOpen ? 1 : 0,
-          // Same duration + easing on open and close so the overlay feels
-          // like it breathes in and out rather than snapping on. Longer than
-          // the original 80ms open, but still fast enough to cover the page
-          // before scroll activity is visible on mobile.
-          transition: "opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)",
+          // Asymmetric: open is 700ms (fast enough to cover the page
+          // instantly on mobile) and close is 1100ms (a slower exhale —
+          // the menu lingers as it releases). Same easing in both
+          // directions so the feel is consistent.
+          transition: menuOpen
+            ? "opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)"
+            : "opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       />
       {/* Spacer matches the header row so the nav starts below the logo/button */}
@@ -159,10 +161,16 @@ export function Header() {
             {navItems.map((item, i) => (
               <li
                 key={item.href}
-                className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`transition-all ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
-                style={{ transitionDelay: menuOpen ? `${80 + i * 60}ms` : "0ms" }}
+                // Open: 500ms with a per-item stagger. Close: 900ms, no
+                // stagger — every item glides out together under the slower
+                // backdrop exhale so nothing snaps away first.
+                style={{
+                  transitionDuration: menuOpen ? "500ms" : "900ms",
+                  transitionDelay: menuOpen ? `${80 + i * 60}ms` : "0ms",
+                }}
               >
                 <Link
                   href={item.href}
@@ -187,10 +195,13 @@ export function Header() {
           </ul>
 
           <div
-            className={`mt-8 md:mt-10 flex items-center gap-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`mt-8 md:mt-10 flex items-center gap-7 transition-all ease-[cubic-bezier(0.16,1,0.3,1)] ${
               menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
-            style={{ transitionDelay: menuOpen ? `${80 + navItems.length * 60 + 60}ms` : "0ms" }}
+            style={{
+              transitionDuration: menuOpen ? "500ms" : "900ms",
+              transitionDelay: menuOpen ? `${80 + navItems.length * 60 + 60}ms` : "0ms",
+            }}
           >
             <a
               href="https://instagram.com/auwa.life"
