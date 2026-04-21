@@ -12,17 +12,21 @@ The AUWA website lives at `website/main/` and deploys to the Vercel project "auw
 
 **Git push to `origin main` does NOT auto-deploy to the correct Vercel project.** Multiple Vercel projects are connected to this repo, so use the Vercel CLI instead.
 
-**To deploy:**
+**CRITICAL — always `cd` first.** The Vercel command MUST be run from `/Users/admin/Github/auwa/website/main/`, not the repo root. Running it from `/Users/admin/Github/auwa/` deploys to a *different* Vercel project (`auwa-app.vercel.app`) instead of `auwa-life` (which aliases to `auwa.life`). The only correct deploy:
+
 ```bash
 cd /Users/admin/Github/auwa/website/main && export PATH="/usr/local/bin:$PATH" && npx vercel --prod --yes
 ```
 
-This deploys from the `website/main/` directory using the `.vercel/project.json` config (project ID: `prj_doT3hBKj6wDaSBXMFmkv24Lbp23V`).
+This uses the `.vercel/project.json` at `website/main/.vercel/project.json` (project ID: `prj_doT3hBKj6wDaSBXMFmkv24Lbp23V`).
+
+**Confirmation.** The output must contain `auwa-life-<hash>` in the Production URL and `Aliased: https://auwa.life`. If you see any other project prefix, you're in the wrong directory — redeploy from `website/main/`.
 
 **Full deploy workflow:**
-1. Commit and push changes to git (so code is saved)
-2. Run the Vercel CLI deploy command above
-3. Confirm the deployment URL in the output
+1. Commit and `git push origin main` in the AUWA repo (github: `more-air/auwa`).
+2. **If any files under `/Users/admin/Github/moreair/.claude/skills/**` or other More Air shared assets were touched in this session**, commit and push those from inside `/Users/admin/Github/moreair/` as well — separate repo, separate push. Do this BEFORE the Vercel deploy so the repos stay in sync.
+3. Run the Vercel CLI command above from `website/main/`.
+4. Verify the output lists `Aliased: https://auwa.life` before reporting success.
 
 ---
 
