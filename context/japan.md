@@ -80,7 +80,7 @@ Several small businesses have proven the model of curating Japanese craft for We
 **Key insight:** All of these are small, independently run, and successful within their niche. None have: a digital wellness app, a character universe, an emotional framework, or a broader brand narrative. They sell products. AUWA sells a philosophy with products inside it.
 
 ### What AUWA Store Adds That Others Don't
-- **Narrative context:** Each craft object exists within the AUWA philosophy of kokoro and interconnectedness
+- **Narrative context:** Each craft object exists within the AUWA philosophy of Kokoro and interconnectedness
 - **Digital companion:** The app creates an ongoing relationship; the store is where that relationship becomes physical
 - **Content engine:** Craftsman stories, making videos, Japan trip content all feed Instagram and YouTube
 - **Cultural bridge:** Rieko's Japanese fluency and cultural understanding means genuine relationships with makers, not transactional sourcing

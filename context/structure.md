@@ -49,7 +49,7 @@ More Air pays AUWA-related expenses (trademark filings, domains, hosting) and re
 
 Following the traditional Japanese ukiyo-e model: eshi (artist) + hanmoto (publisher) as equal partnership.
 
-**Rieko Vining, Creator (Eshi):** Japanese-born illustrator from Kansai. Creator of the AUWA universe (2015 onwards). Native Japanese speaker. 20+ years design and illustration. Leads: character art, seasonal content, figure design, creative direction, Japanese craftsman outreach.
+**Rieko Maeda, Creator (Eshi):** Japanese-born illustrator from Kansai, also known by her artist name Eko. Creator of the AUWA universe (2015 onwards). Native Japanese speaker. 20+ years design and illustration. Leads: character art, seasonal content, figure design, creative direction, Japanese craftsman outreach. (Legal name: Rieko Vining.)
 
 **Thomas Vining, Producer (Hanmoto):** Design technologist and brand strategist. 20+ years experience (Nokia, Apple, Sky). Built and operated a Japanese multi-merchant platform (2005-2007). Leads: app design and build, brand, business development, marketing, project oversight, store platform and operations.
 
@@ -358,7 +358,7 @@ Dots are allowed on some platforms but not others. Where dots aren't supported, 
 | | Detail |
 |---|---|
 | Tom Vining, Producer | tom@moreair.co |
-| Rieko Vining, Creator | rieko@moreair.co |
+| Rieko Maeda, Creator | rieko@moreair.co |
 | AUWA | hello@auwa.life |
 | More Air | moreair.co |
 | Companies House | AUWA Ltd 17033727, More Air Ltd 7051794 |

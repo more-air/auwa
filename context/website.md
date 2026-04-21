@@ -61,35 +61,41 @@ auwa.life/brand             → Living style guide (logo, colours, typography, s
 
 ### Home Page (Implemented)
 
-The homepage uses a scroll-driven stacked-card flipbook hero inspired by Obsidian Assembly, followed by editorial content sections. All images have rounded corners (`rounded-xl`). Lenis smooth scrolling active site-wide. Page transitions crossfade between routes.
+The homepage leads with a full-bleed AUWA face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet AUWA" video moment. All images use `rounded-xl`. Lenis smooth scrolling runs site-wide. Page transitions crossfade between routes. The scroll-driven flipbook hero lives on at `/home-1` as an archive.
 
 **Structure (top to bottom):**
 
-1. **Header** — AUWA wordmark (EB Garamond, SVG) left-aligned. Navigation right: Journal, Store, App, Book, About. Instrument Sans, tracked. White background, sticky, stays visible during flipbook scroll. Hides on scroll down elsewhere, shows on scroll up.
+1. **Header** — AUWA wordmark (inline SVG, `currentColor`) left-aligned. Navigation right: Journal, Store, App, Book, About. Transparent mode inferred from pathname (root `/` and `/home-1` only), otherwise solid white. Sticky, hides on scroll down, reveals on scroll up. Rendered once in `layout.tsx` outside `PageTransition` so the logo and menu button sit above all page-leave animations.
 
-2. **Flipbook hero** — Stacked portrait cards (Obsidian Assembly pattern). 10 cards mixing product shots, editorial photography, and a video. Cards centred on screen, scroll-driven. Desktop: three-column layout with pillar label left, card centre, heading text right. Mobile/tablet: card centred with text pinned at bottom. First card is a looping video of the AUWA character. Cards are clickable (link to their pillar page). See `hero-flipbook-v4b.tsx`.
+2. **HeroVideo** — Full-bleed AUWA face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. Parallax zoom-in on scroll. Click-and-hold lifts saturation. "Scroll" label + breathing vertical line replaces the bouncing chevron, smooth-scrolls 2.4s via `window.__lenis.scrollTo` to the intro section.
 
-3. **Three pillar cards** — Book, Store, App. Portrait 4:5 aspect, rounded corners, gradient overlay with pillar name. Staggered cascade fade-up animation (150ms stagger). Each links to its teaser page.
+3. **Intro block** — "Our philosophy" eyebrow, `ScrollFadeText` paragraph introducing AUWA and its four expressions, "The Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha behind the paragraph.
 
-4. **Micro-season** — 72 micro-season kanji display. Breathing room between pillars and editorial content.
+4. **Pullquote 1** — Hero-scale `ScrollFadeText` ("What you pay attention to…") at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05.
 
-5. **Latest articles (horizontal scroll)** — 11 article cards in a horizontal scrolling row. Native scroll (no momentum hijacking). Each card: 4:5 portrait image, rounded corners, category label, title, excerpt (55 chars max).
+5. **Four-pillar module** — Desktop (`md+`) renders `EditorialFrames`: a tab gallery that crossfades the active pillar's image (portrait 4:5, 480px column) with its editorial content (eyebrow, heading via `TextReveal`, body, CTA). Auto-advances every 7s, pauses on hover. Mobile (`<md`) renders `PillarParade`: horizontal overflow-x-auto row of four 3:4 cards with right-to-left reveal entrance (matches the Journal strip), dot indicators below. Both modules use the same heading ("Four ways in."). No scroll-hijacking; no sticky transforms.
 
-6. **AUWA face video** — Full-width rounded video of the AUWA character face-on with moving shadows. Landscape on desktop (16:9), square on mobile. Auto-plays when visible, pauses when not. Links to `/store`.
+6. **Journal strip** — 11 article cards in a horizontal scrolling row. Each card: 4:5 portrait image, rounded corners, category label, title, excerpt (55 chars max). FadeIn `variant="reveal"` cascade (60ms stagger).
 
-7. **Two-up articles** — Onsen Lesson + Nozawa Fire Festival. Two large portrait cards side by side. Staggered cascade animation.
+7. **Micro-season** — 72 micro-season kanji display (`MicroSeasonFeature`). Breathing room either side. CtaLink "Read the essay" to the 72 Seasons article.
 
-8. **Meet AUWA video moment** — Portrait video of the AUWA character in a rounded card (left on desktop, stacked on mobile) with descriptive text alongside. Video and heading link to `/journal/the-beginning`. "The story behind AUWA" link goes to `/about`.
+8. **Three pillar cards** — Book, Store, App. Portrait 4:5 aspect, rounded corners, gradient overlay with pillar name. Staggered cascade `variant="reveal"` (150ms stagger).
 
-9. **72 Seasons feature** — Large portrait card with text overlay. Links to the 72 Seasons article.
+9. **Pullquote 2** — Hero-scale `ScrollFadeText` ("In every handmade bowl…"), matching pullquote 1 size.
 
-10. **Footer** — Dark (`bg-void`), sticky at bottom with parallax reveal effect (content slides over it as you scroll). "Stay close." newsletter signup, pillar links, copyright + social icons.
+10. **Two-up articles** — Onsen Lesson + Nozawa Fire Festival. Two large portrait cards side by side. Staggered cascade animation. "Read the essay" label has a text-roll rollover matching the nav.
+
+11. **Meet AUWA video moment** — `VideoMoment` component. Portrait video of the AUWA character in a rounded card (left on desktop, stacked on mobile) with descriptive text alongside. Video and heading link to `/journal/the-beginning`. "The story behind AUWA" link goes to `/about`.
+
+12. **Footer** — Dark (`bg-void`), sticky at bottom with parallax reveal effect (content slides over it as you scroll). "Quiet letters." newsletter signup, pillar links, copyright + social icons.
+
+**Archive: `/home-1`** — The previous scroll-driven stacked-card flipbook hero (Obsidian Assembly pattern, `HeroFlipbook` component) is kept at this route for reference. The header treats it as transparent like root. Lessons learned there (mobile `svh` sticky, pixel-based transforms computed from captured viewport height, `activeIndexRef`-gated scroll state) are preserved in `hero-flipbook.tsx` and noted under Tailwind gotchas in CLAUDE.md.
 
 ### Journal Index
 
 **Structure:**
-- Page title: "Journal" in Cormorant
-- Filter/category tags: Seasons, Craft, Travel, Philosophy (Instrument Sans, subtle)
+- Page title: "Journal" — rendered via `TextReveal` (same word-cascade entrance as the teaser H1s)
+- Filter/category tags: Seasons, Craft, Philosophy, Travel (Instrument Sans, subtle)
 - Article grid: Kinfolk-style cards, atmospheric photography, varied sizes
 - Pagination or infinite scroll (start with pagination — cleaner, more intentional)
 
@@ -123,7 +129,7 @@ The order of content blocks in the CMS determines the article layout. No manual 
 ### App Page (Pre-Launch)
 
 - Atmospheric hero (dark, orb glow or AUWA character illustration)
-- One line: "A daily awareness practice. Reveal your kokoro."
+- One line: "A daily awareness practice. Reveal your Kokoro."
 - Brief poetic description (3-4 sentences, Cormorant)
 - Email capture: "Be the first to know."
 - No screenshots, no feature lists, no pricing
@@ -131,7 +137,7 @@ The order of content blocks in the CMS determines the article layout. No manual 
 ### Store Page (Pre-Launch)
 
 - Atmospheric hero (craftsman photography from Monolise research trips)
-- One line: "Lifetime objects with kokoro."
+- One line: "Lifetime objects with Kokoro."
 - Brief description of the philosophy (craft over disposability, every object chosen because a master poured their spirit into making it)
 - 2-3 preview images of the kinds of objects that will be available
 - Email capture: "Be the first to know."
@@ -139,7 +145,7 @@ The order of content blocks in the CMS determines the article layout. No manual 
 ### Book Page (Pre-Launch)
 
 - Atmospheric hero (illustration from AUWA stories)
-- One line: "A cosmic being who reveals the kokoro in all things."
+- One line: "A cosmic being who reveals the Kokoro in all things."
 - Brief introduction to the series of illustrated stories
 - Illustration samples (2-3 atmospheric images)
 - Email capture
@@ -151,6 +157,7 @@ The order of content blocks in the CMS determines the article layout. No manual 
 - The origin of AUWA (the name, the decade of development)
 - The Eshi + Hanmoto model (brief, charming)
 - Photography of Tom and Rieko (atmospheric, not corporate headshots)
+- Title "The architecture / of Kokoro" uses two stacked `TextReveal` spans (second delayed 180ms) to preserve the explicit line break while keeping the word-cascade entrance
 
 ---
 
@@ -327,13 +334,15 @@ Reusable components live in `src/components/`. All are server components unless 
 |-----------|------|---------|---------|
 | Header | `header.tsx` | Yes | Rendered once in `layout.tsx` (outside `PageTransition`) so the logo + menu button stay above page-leave animations. `transparent` mode inferred from pathname (`/` only). Mobile menu is portalled to body. Morphing hamburger→X via inline-style transitions. Logo fades out when menu opens. |
 | Footer | `footer.tsx` | No | "Stay close" newsletter signup (dark), pillar links, copyright + social icons. Sticky at bottom with parallax reveal. |
-| SignupForm | `signup-form.tsx` | Yes | Email signup form. Props: `source` (app-waitlist / store-waitlist / book-waitlist / newsletter), `buttonText`, `successMessage`, `theme` (light/dark), `className`. Posts to `/api/signup`. |
+| SignupForm | `signup-form.tsx` | Yes | Email signup form. Props: `source` (app-waitlist / store-waitlist / book-waitlist / newsletter), `buttonText`, `successMessage`, `theme` (light/dark), `className`. Posts to `/api/signup`. Input, button, and success message all use `text-[16px]` (not 14px) to prevent iOS Safari's focus auto-zoom — anything under 16px fires the zoom, which pushed the submit button off-screen on smaller iPhones. |
 | FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based animation. Two variants: `"fade"` (default, 12px rise) and `"reveal"` (24px rise, for image cards). Accepts `className`, `delay`, `duration`, `variant`. |
-| TextReveal | `text-reveal.tsx` | Yes | Word-by-word text animation. Splits text into words, each rises from below with stagger. For hero headlines. Props: `as` (tag), `delay`, `stagger`. |
-| SmoothScroll | `smooth-scroll.tsx` | Yes | Lenis smooth scrolling wrapper. Wraps children in layout.tsx. |
+| TextReveal | `text-reveal.tsx` | Yes | Word-by-word text animation. Splits text into words, each rises from below with stagger. For hero headlines. Props: `as` (tag), `delay`, `stagger`. Used on teaser H1s ("Open the eyes.", "Awareness, daily.", "Lifetime objects.") and on the Journal + About page titles. For explicit multi-line headings (e.g. About's "The architecture / of Kokoro"), stack two TextReveal spans with `as="span" className="block"` and `delay={180}` on the second so the cascade flows from line 1 into line 2. |
+| SmoothScroll | `smooth-scroll.tsx` | Yes | Lenis smooth scrolling wrapper. Wraps children in layout.tsx. Exposes the Lenis instance on `window.__lenis` so any client component can call `window.__lenis?.scrollTo(el, { offset: -80, duration: 1.4 })` for smooth anchor scrolls. On touch devices Lenis isn't initialised — callers fall back to `window.scrollTo({ behavior: "smooth" })`. |
 | PageTransition | `page-transition.tsx` | Yes | Crossfade transition on route change (500ms). Wraps children in layout.tsx. |
-| HeroFlipbookV4b | `hero-flipbook-v4b.tsx` | Yes | Stacked-card flipbook hero. 10 cards (video + images). Scroll-driven. Obsidian Assembly-style. |
-| HeroVideo | `hero-video.tsx` | Yes | Video hero with poster fallback. Portrait/landscape responsive. Used on `/home-1`. |
+| HeroVideo | `hero-video.tsx` | Yes | Full-bleed video hero for the live homepage. `h-[100svh]` on all viewports (no desktop aspect cap), so the video bottom pins to the browser bottom whatever the monitor ratio. Portrait `.mp4` on mobile, landscape on desktop. Parallax zoom-in on scroll. Click-and-hold lifts saturation. "Scroll" label + breathing vertical line is a `<button>` that smooth-scrolls to the intro via `window.__lenis.scrollTo` on desktop and native smooth scroll on touch devices. |
+| EditorialFrames | `editorial-frames.tsx` | Yes | Desktop (≥md) four-pillar module. Tab gallery crossfading through four frames (Store / Book / Journal / App) with staggered reveal per frame (eyebrow → `TextReveal` heading → body → CTA). Image column pinned at 480px, text column flexible, grid template `[480px_1fr]`, `lg:gap-28` horizontal gap, `max-w-[1100px] lg:mx-auto`. Auto-advance every 7s, pauses on hover. Image crossfade: 1500ms `cubic-bezier(0.4, 0, 0.2, 1)` (symmetric ease-in-out, gentle). |
+| PillarParade | `pillar-parade.tsx` | Yes | Mobile (<md) four-pillar module. Horizontal `overflow-x-auto` row of four 3:4 cards mirroring the Journal strip (native scroll, no snap, no `touch-action` override). Cards at `w-[72vw] max-w-[360px]` so card 2 peeks clearly. FadeIn `variant="reveal"` with `revealDistance={40}` so the right-to-left cascade matches the Journal strip without pushing card 2 below the IntersectionObserver's 10% threshold. Dot indicators update via scroll listener on the scroller element. |
+| HeroFlipbook | `hero-flipbook.tsx` | Yes | Archive — scroll-driven stacked-card flipbook hero (Obsidian Assembly pattern). No longer on the live homepage; still used by `/home-1`. Mobile uses `svh`-based sticky + pixel-based transforms (computed from captured viewport height) to stay stable through iOS URL-bar retraction. Scroll-driven state updates gated by `activeIndexRef` to prevent per-frame re-renders. |
 | VideoMoment | `video-moment.tsx` | Yes | "Meet AUWA" section: portrait video card + text. Desktop: side-by-side. Mobile: stacked. |
 | AuwaVideoBlock | `auwa-video-block.tsx` | Yes | Full-width AUWA face video. Landscape desktop, square mobile. Auto-plays on visibility. |
 | MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |

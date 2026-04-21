@@ -35,7 +35,12 @@ const ENTER_STAGGER = 180; // between あ → う → わ starts
 const EXIT_STAGGER = 180; // between わ → う → あ exits (reverse of entrance)
 const HOLD = 140; // beat between the last char arriving and the first leaving
 const OVERLAY_GAP = 40; // beat between the last char leaving and overlay fading
-const OVERLAY_DURATION = 700;
+// Overlay fade tuned long and symmetric so the warm field drains through
+// the hero rather than lifts off it — feels like dawn rising, not a
+// curtain pulled back. Uses an ease-in-out curve (not the brand ease-out-
+// expo) so the first and last moments of the fade are equally gentle.
+const OVERLAY_DURATION = 1800;
+const OVERLAY_EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
 
 // Each char moves through three explicit phases so the transform can
 // differ between "below, waiting to rise" and "above, drifting away".
@@ -155,7 +160,7 @@ export function EntranceLoader() {
         backgroundColor: LOADER_BG,
         opacity: overlayVisible ? 1 : 0,
         pointerEvents: overlayVisible ? "auto" : "none",
-        transition: `opacity ${OVERLAY_DURATION}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+        transition: `opacity ${OVERLAY_DURATION}ms ${OVERLAY_EASING}`,
       }}
     >
       <div

@@ -14,6 +14,15 @@ interface FadeInProps {
    *   (Singer Reimagined-inspired entrance.)
    */
   variant?: "fade" | "reveal";
+  /**
+   * Horizontal distance (px) for the "reveal" slide. Default 80.
+   * Used in horizontal scrollers (e.g. PillarParade) where peeking
+   * cards sit close to the viewport edge — the full 80px translate
+   * pushes later cards below the IntersectionObserver's 10% threshold
+   * so they never trigger. A smaller distance (e.g. 40) keeps the
+   * cue while staying within threshold.
+   */
+  revealDistance?: number;
 }
 
 export function FadeIn({
@@ -23,6 +32,7 @@ export function FadeIn({
   duration = 800,
   translateY = 12,
   variant = "fade",
+  revealDistance = 80,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +56,7 @@ export function FadeIn({
   const dur = isReveal ? 1200 : duration;
   // Reveal slides in from the right; fade rises up.
   const hiddenTransform = isReveal
-    ? "translate3d(80px, 0, 0)"
+    ? `translate3d(${revealDistance}px, 0, 0)`
     : `translate3d(0, ${translateY}px, 0)`;
 
   return (

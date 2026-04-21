@@ -131,7 +131,7 @@ Each send should feature 1-3 journal articles, optionally tied to the current se
 
 Examples:
 - `Light rain. | AUWA`
-- `Three objects with kokoro. | AUWA`
+- `Three objects with Kokoro. | AUWA`
 - `A letter from Kyoto. | AUWA`
 - `The spring journal. | AUWA`
 

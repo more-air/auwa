@@ -6,23 +6,23 @@
 
 ## 1. Executive Summary
 
-AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Mountains, rivers, handmade objects, animals, other people, and your own emotions: everything carries an essence worth noticing. The Japanese call this quality kokoro (心): heart, soul, spirit. When you use something with care, over years and decades, it accumulates a kind of soul. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
+AUWA is influenced by the ancient Japanese belief that a life force resides in all things. Mountains, rivers, handmade objects, animals, other people, and your own emotions: everything carries an essence worth noticing. The Japanese call this quality Kokoro (心): heart, soul, spirit. When you use something with care, over years and decades, it accumulates a kind of soul. In a culture of speed, distraction, and disposability, AUWA builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
 
 Where Western wellness centres on the self, AUWA draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends outward: to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is the philosophical foundation that connects everything AUWA does.
 
 **The thesis:** In an age of acceleration and artificial intelligence, awareness is the human skill that matters most. The answers already exist in what previous generations practised and what modern life left behind. Japanese philosophy preserved them: the 72 micro-seasons, the craftsman traditions, the daily gratitude for all living things. AUWA brings these forward. With better awareness you make better choices, about what you consume, how you treat your environment, how you relate to others, and how you understand yourself.
 
 **The four pillars of the brand:**
-1. **Kokoro Mirror** (auwa.life/app) — A daily awareness practice. AI-powered emotional reflection that reveals your kokoro through poetic language and Rieko's illustrated characters.
+1. **Kokoro Mirror** (auwa.life/app) — A daily awareness practice. AI-powered emotional reflection that reveals your Kokoro through poetic language and Rieko's illustrated characters.
 2. **AUWA Store** (auwa.life/store) — Curated Japanese craftsman marketplace. Lifetime products made by master artisans, shipped direct from Japan. Plus AUWA's own collectible figures.
 3. **AUWA Journal** (auwa.life/journal) — Editorial content. Travel stories, craftsman profiles, seasonal essays, onsen retreats. Photography-led, long-form, SEO-rich.
 4. **AUWA Book** (auwa.life/book) — The illustrated story universe. A series of illustrated stories created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy.
 
-These are not four separate products — they're one world experienced through four doors. The app builds emotional awareness, the store cultivates material awareness (choosing intention over convenience, craft over disposability), the journal builds cultural awareness (seeing Japan through a philosophical lens, not a tourist one), and the book teaches philosophical awareness (seeing the kokoro in all things through narrative).
+These are not four separate products — they're one world experienced through four doors. The app builds emotional awareness, the store cultivates material awareness (choosing intention over convenience, craft over disposability), the journal builds cultural awareness (seeing Japan through a philosophical lens, not a tourist one), and the book teaches philosophical awareness (seeing the Kokoro in all things through narrative).
 
 **Structural precedents:** Kinfolk (aesthetic philosophy + editorial + experiences, acquired ~$30M), Monocle (worldview + editorial + retail + media, ~$10M+ revenue), Hodinkee (digital-age appreciation for craft, raised $40M+), Goop (wellness + curated retail + storytelling, ~$100M revenue), Snow Peak (gear + experiences + community, ¥25.7B). Multi-pillar lifestyle brands where each element reinforces the others. AUWA's unique angle: Japanese cultural authenticity rooted in a living philosophy, an illustrated story universe as foundation, and an AI-powered awareness practice as the daily touchpoint.
 
-**Opportunity in one sentence:** AUWA is the first lifestyle brand to apply Japanese philosophical awareness — the understanding that everything has kokoro — to modern life, through a daily practice, curated craft, editorial storytelling, and an illustrated universe rooted in centuries of Japanese wisdom.
+**Opportunity in one sentence:** AUWA is the first lifestyle brand to apply Japanese philosophical awareness — the understanding that everything has Kokoro — to modern life, through a daily practice, curated craft, editorial storytelling, and an illustrated universe rooted in centuries of Japanese wisdom.
 
 ---
 
@@ -30,7 +30,7 @@ These are not four separate products — they're one world experienced through f
 
 Since ancient times, the Japanese have believed that a life force resides in all things. Mountains, rivers, trees, animals, handmade objects, and even fleeting emotions: everything carries an essence worth noticing. There is no divide between the sacred and the ordinary, between thinking and feeling. Everything in the universe is interconnected. This worldview is expressed in concepts like Yaoyorozu no Kami (八百万の神, the "countless spirits" that populate the world) and in the folk belief that objects used with care, over years and decades, accumulate a kind of soul.
 
-AUWA is influenced by this philosophy. Not as a marketing angle, but as a lived worldview: one that AUWA's creator grew up with in Kansai and that underpins a decade of her creative work. AUWA uses the word kokoro (心) as its own expression of this idea. Where English divides inner life into heart, mind, soul, and spirit, kokoro holds them as a single, holistic whole: emotion, thought, and essence unified without division. It is the quality you sense in a handmade bowl, in a well-worn knife, in a season you almost didn't notice, in your own emotions when you stop long enough to feel them.
+AUWA is influenced by this philosophy. Not as a marketing angle, but as a lived worldview: one that AUWA's creator grew up with in Kansai and that underpins a decade of her creative work. AUWA uses the word Kokoro (心) as its own expression of this idea. Where English divides inner life into heart, mind, soul, and spirit, Kokoro holds them as a single, holistic whole: emotion, thought, and essence unified without division. It is the quality you sense in a handmade bowl, in a well-worn knife, in a season you almost didn't notice, in your own emotions when you stop long enough to feel them.
 
 ### What This Philosophy Means in Practice
 
@@ -42,17 +42,17 @@ In an era where efficiency and economics became the top priority, much of this w
 
 Today, with record tourism (42.7M visitors in 2025), Japan is experiencing the tension of this philosophy colliding with cultures that lack it. AUWA doesn't lecture about this. It builds the awareness that makes lectures unnecessary. When you sense the life force in a 400-year-old temple, you don't need a sign telling you not to vandalise it. When you see the person next to you as connected to you, you behave differently. This is gentle education through philosophy, not rules.
 
-When you see the kokoro in a ceramic cup, a forest, a stranger's face, your own sadness, you make more conscious choices. About what you consume. How you travel. How you treat your environment. How you relate to others.
+When you see the Kokoro in a ceramic cup, a forest, a stranger's face, your own sadness, you make more conscious choices. About what you consume. How you travel. How you treat your environment. How you relate to others.
 
 ### How the Philosophy Powers Each Pillar
 
-**The App** builds emotional awareness. Through a daily practice of sharing how you feel, AUWA's AI reflects your kokoro back through poetic language and Rieko's illustrated characters. Not just your emotions, but the holistic state of your inner life: feeling, thought, and spirit as one. Over time, you develop deeper self-perception. The app uses a proprietary emotional framework based on Yamato language (ancient Japanese) to identify and reflect nuanced feelings, though users never see the taxonomy.
+**The App** builds emotional awareness. Through a daily practice of sharing how you feel, AUWA's AI reflects your Kokoro back through poetic language and Rieko's illustrated characters. Not just your emotions, but the holistic state of your inner life: feeling, thought, and spirit as one. Over time, you develop deeper self-perception. The app uses a proprietary emotional framework based on Yamato language (ancient Japanese) to identify and reflect nuanced feelings, though users never see the taxonomy.
 
-**The Store** cultivates material awareness. Every object is chosen because a craftsman poured their kokoro into making it. Buying a hand-forged knife or a ceramic tea cup from a master artisan is a conscious act — choosing intention over convenience, craft over disposability, kokoro over commodity.
+**The Store** cultivates material awareness. Every object is chosen because a craftsman poured their Kokoro into making it. Buying a hand-forged knife or a ceramic tea cup from a master artisan is a conscious act — choosing intention over convenience, craft over disposability, Kokoro over commodity.
 
 **The Journal** builds cultural awareness. Travel stories, craftsman profiles, and seasonal essays that share Japan through AUWA's philosophical lens — written by Tom and Rieko from over 15 years of travelling Japan together. Not tourist itineraries but atmospheric writing about onsen culture, temple mornings, rural craft towns, the changing seasons. The journal naturally models how to engage with Japan respectfully: with curiosity, patience, and an understanding that you are a guest in someone else's home. Photography-led, contemplative, grounded.
 
-**The Book** teaches philosophical awareness. A series of illustrated stories show the AUWA character revealing the kokoro in a flower, a coral, a displaced tanuki, a human. The narrative makes the abstract philosophy concrete and felt — the best way to understand Yaoyorozu no Kami is to see it embodied in story.
+**The Book** teaches philosophical awareness. A series of illustrated stories show the AUWA character revealing the Kokoro in a flower, a coral, a displaced tanuki, a human. The narrative makes the abstract philosophy concrete and felt — the best way to understand Yaoyorozu no Kami is to see it embodied in story.
 
 ---
 
@@ -84,9 +84,9 @@ Short form (internal): *Restore awareness to a distracted world.* (Robin Sharma)
 
 The name AUWA (あうわ) derives from Woshite cosmology, one of the oldest streams of Japanese philosophical thought. あ (A) represents the heavens and the unseen, う (U) represents the connection between worlds, わ (WA) represents the earth and the seen. AUWA means "the harmony between the unseen and the seen" — making the invisible visible.
 
-This etymology encodes what the brand does: making invisible things visible. The app makes invisible emotions visible. The store reveals the invisible craftsmanship within everyday objects. The journal makes the invisible world of Japan visible through atmospheric storytelling. The book makes the invisible kokoro within all living things visible through illustrated narrative.
+This etymology encodes what the brand does: making invisible things visible. The app makes invisible emotions visible. The store reveals the invisible craftsmanship within everyday objects. The journal makes the invisible world of Japan visible through atmospheric storytelling. The book makes the invisible Kokoro within all living things visible through illustrated narrative.
 
-Within the book and app, AUWA is also a character — a luminous being who reveals the kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, not a mascot. It appears only in the stories and the app, making those spaces feel special. The broader brand — the store, the journal, the overall identity — expresses the philosophy through design, editorial, and craft without needing the character. Think of it like Studio Ghibli: deep cosmological philosophy underpins every film, but the marketing is just beautiful imagery and a feeling. The depth is there for those who go looking.
+Within the book and app, AUWA is also a character — a luminous being who reveals the Kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, not a mascot. It appears only in the stories and the app, making those spaces feel special. The broader brand — the store, the journal, the overall identity — expresses the philosophy through design, editorial, and craft without needing the character. Think of it like Studio Ghibli: deep cosmological philosophy underpins every film, but the marketing is just beautiful imagery and a feeling. The depth is there for those who go looking.
 
 ---
 
@@ -108,7 +108,7 @@ The AUWA character appears in the app — this is one of the two spaces (alongsi
 - Frontiers in Psychology 2025: documented a global decline of nearly 6% in EQ scores between 2019 and 2024
 - Capgemini: 83% of organisations say highly emotionally intelligent workforce will be a prerequisite for success
 
-The daily practice of noticing and naming your emotions — the core of the Kokoro Mirror — trains all four pillars of EQ (Salovey & Mayer): perceiving emotions (kokoro revelation), using emotions (journal reflection), understanding emotions (Kokoro Archive pattern recognition), and managing emotions (the natural result of sustained awareness practice).
+The daily practice of noticing and naming your emotions — the core of the Kokoro Mirror — trains all four pillars of EQ (Salovey & Mayer): perceiving emotions (Kokoro revelation), using emotions (journal reflection), understanding emotions (Kokoro Archive pattern recognition), and managing emotions (the natural result of sustained awareness practice).
 
 **User Experience Flow:**
 1. **Arrival** — Dark, calm screen. Soft glowing orb pulses. "How are you feeling right now?" Up to 200 words. No signup wall.
@@ -140,7 +140,7 @@ The daily practice of noticing and naming your emotions — the core of the Koko
 
 ### 6.2 AUWA Store (auwa.life/store) - Year 1 Soft Launch
 
-A curated multi-merchant marketplace for Japanese craftsman products, plus AUWA's own collectible figures. Positioned as "lifetime products with kokoro" — the antithesis of throwaway culture. In the same way Hodinkee proved that a digital-age audience would develop deep appreciation for hand-crafted mechanical watches, AUWA bets that AI acceleration makes people more hungry for objects made by human hands with centuries of tradition behind them.
+A curated multi-merchant marketplace for Japanese craftsman products, plus AUWA's own collectible figures. Positioned as "lifetime products with Kokoro" — the antithesis of throwaway culture. In the same way Hodinkee proved that a digital-age audience would develop deep appreciation for hand-crafted mechanical watches, AUWA bets that AI acceleration makes people more hungry for objects made by human hands with centuries of tradition behind them.
 
 **Concept:** Japanese master craftsmen sell through the AUWA platform. Merchants manage their own products, orders, and shipping from Japan. AUWA provides the brand, curation, audience, and premium presentation. Tom's experience running a Japanese multi-merchant platform (2005-2007) is the direct precedent: standardised premium imagery, automated currency conversion, and direct-from-Japan shipping. The Monolise project (designed by More Air for a Japanese craft store connecting local craftspeople with global buyers) provides additional design and operational insight — minimal presentation that lets the products speak, Shopify-based, anti-throwaway culture positioning.
 
@@ -164,7 +164,7 @@ Long-form editorial content that builds brand authority, drives organic search t
 - **Travel stories:** Japan through AUWA's lens — not itineraries, but atmospheric essays. Onsen culture, temple mornings, rural craft towns, seasonal landscapes. Tom's photography (17M+ Unsplash views, published in Condé Nast Traveler, Vogue, Travel + Leisure) provides the visual foundation.
 - **Craftsman profiles:** The makers behind the store. Workshop visits, process photography, the philosophy of a lifetime object. Bridges directly to store products.
 - **Seasonal essays:** Tied to the 72 micro-seasons content calendar. Short, contemplative pieces on noticing change.
-- **Behind the kokoro:** Rieko's illustration process, AUWA's creative development, the philosophy in practice.
+- **Behind the Kokoro:** Rieko's illustration process, AUWA's creative development, the philosophy in practice.
 
 **Production workflow:** Tom provides photo folders + title + bullet points. Claude writes the article in AUWA's voice. Rieko reviews for cultural accuracy. Future: video content from craftsman visits (ASMR-style making films).
 
@@ -176,22 +176,25 @@ Long-form editorial content that builds brand authority, drives organic search t
 
 The canonical home of the AUWA universe and the illustrated stories. Hub linking all four pillars. This is where the deeper mythology lives — the WAWA origin, the character's story, the philosophy in narrative form.
 
-**The AUWA Universe:** AUWA originates from WAWA, a harmonious solar system deep within the Milky Way. When its inhabitants received a mysterious signal from Earth, they channelled energy to form a glowing orb of pure light. From this orb emerged AUWA — a being whose magical light shower reveals the kokoro within every living creature. AUWA communicates through telepathy: gentle, observant, non-judgmental. This mythology enriches the stories and gives depth to the app, but it lives here — in the book section — not in brand communications. The Monocle reader encounters philosophy and craft; those who go deeper find a cosmic story.
+**The AUWA Universe:** AUWA originates from WAWA, a harmonious solar system deep within the Milky Way. When its inhabitants received a mysterious signal from Earth, they channelled energy to form a glowing orb of pure light. From this orb emerged AUWA — a being whose magical light shower reveals the Kokoro within every living creature. AUWA communicates through telepathy: gentle, observant, non-judgmental. This mythology enriches the stories and gives depth to the app, but it lives here — in the book section — not in brand communications. The Monocle reader encounters philosophy and craft; those who go deeper find a cosmic story.
 
 **The Series of Illustrated Stories (2015-2025):** Created by Rieko Maeda over a decade of development. Never published. Being prepared for digital release as illustrated art stories, with limited-edition physical versions to follow. Released over time within the app as narrative segments unlocked through continued engagement.
 
-1. **The Beginning** — AUWA arrives on Earth, discovers a quiet forest where a lonely blue flower (Bluu) shares memories of a diminished ecosystem. Light shower reveals kokoro within flower and surrounding microbes.
+1. **The Beginning** — AUWA arrives on Earth, discovers a quiet forest where a lonely blue flower (Bluu) shares memories of a diminished ecosystem. Light shower reveals Kokoro within flower and surrounding microbes.
 2. **Umi (Ocean)** — AUWA explores beneath the waves, meeting Key the coral, Lady the fish, and Rai the turtle. Ocean damaged by pollution. AUWA's light restores the sea and leads to the ancient Coral Paradise.
 3. **Human** — AUWA encounters Rappon the tanuki (displaced from a changing forest) and Kazu (a human who left city life to live in harmony with nature). Interconnection between human activity, animal displacement, and environmental change.
-4. **Lioma** — AUWA takes human kokoro to Planet Lioma in the WAWA system, where the Maon beings live in harmony through telepathic communication.
+4. **Lioma** — AUWA takes human Kokoro to Planet Lioma in the WAWA system, where the Maon beings live in harmony through telepathic communication.
 
 Stories originally written in Japanese. Limited-edition physical printed versions in Year 2.
 
 **Content also includes:** Brand story and AUWA etymology, Yaoyorozu no Kami philosophy, creator bios, links to app, store, and journal.
 
-### 6.5 Year 2+ Vision (Earned by Year 1 Results)
+### 6.5 Seasonal Journeys (Year 1 Prototype, see `arrival.md`)
 
-- Japan wellness retreats (craftsman tours, EQ sessions, photography, mindful experiences)
+Small, once-a-year guided Japan experiences for foreigners to meet craftsmen and visit places not otherwise accessible. Five people, four to six days. Constrained to one trip per year by the founders' UK life (dog) and by the quality bar. Prototype Autumn 2026 or Spring 2027. At £3-4K per person, a single trip generates £15-20K at healthy margin and produces a year's worth of editorial content. Why this matters: the journal is *about* hidden experiences; the journey *is* that experience; the store sells the craftsmen's objects; the app builds daily awareness. The journey is what binds the pillars into something lived. Interest gathering begins immediately via soft CTAs at the foot of relevant journal articles and a dedicated Resend segment. See `arrival.md` for full plan.
+
+### 6.6 Year 2+ Vision (Earned by Year 1 Results)
+
 - London pop-up workshops (kintsugi, ikebana, EQ classes)
 - Hotel Digital EQ Experience (B2B) - white-label for luxury hotels
 - White-Label EQ Platform (B2B) - hospitals, neurodiversity clinics, corporate wellness, education
@@ -291,7 +294,7 @@ Earned by results. First AUWA figure drop (self-produced, 3D-printed). Retreats,
 
 ### Channels
 
-- **Organic Instagram:** The primary growth engine. 72 micro-seasons content rhythm, illustration reveals, Japan photography, craftsman spotlights, AUWA animation Reels. Shareable kokoro cards from the app as a zero-cost viral mechanic.
+- **Organic Instagram:** The primary growth engine. 72 micro-seasons content rhythm, illustration reveals, Japan photography, craftsman spotlights, AUWA animation Reels. Shareable Kokoro cards from the app as a zero-cost viral mechanic.
 - **Paid Instagram (£2,000 Year 1):** £15-25/day in bursts on best-performing Reels. Split: 60% follower growth/awareness, 30% email capture/waitlist, 10% retargeting. Expected: 1,500-3,000 quality followers + 300-800 email signups.
 - **SEO via Journal:** In 2026, traditional search has evolved — Google's AI Overviews now summarise results directly, reducing click-through for generic queries. But long-tail, specific, expertise-driven content still drives organic traffic. AUWA's journal articles target keywords the brand naturally owns: specific Japanese crafts, artisan traditions, onsen culture, seasonal philosophy, Japan travel through a philosophical lens. These are niche topics where genuine experience (Tom's 15+ years of Japan photography, Rieko's cultural authenticity) signals authority that AI search tools (Google, Perplexity, ChatGPT) surface and cite. Each article serves dual purposes: brand depth for existing audience + discovery for new visitors. SEO compounds over time — articles published in Month 1 are still driving traffic in Month 12.
 - **Collaborations:** Fin DAC (96K IG followers, existing AUWA stencil — warm lead). Japanese culture accounts, illustration accounts, design/philosophy accounts via Instagram's native collab post feature.

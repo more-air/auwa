@@ -170,7 +170,7 @@ export function EditorialFrames() {
         setPaused(false);
       }}
     >
-      <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-20 md:py-32">
+      <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-20 md:pt-32 pb-20 md:pb-8">
         <div className="mb-12 md:mb-20 max-w-[720px]">
           <FadeIn>
             <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
@@ -184,7 +184,7 @@ export function EditorialFrames() {
               stagger={80}
               className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void"
             >
-              One philosophy. Four ways in.
+              Four ways in.
             </TextReveal>
           </div>
         </div>
@@ -193,10 +193,11 @@ export function EditorialFrames() {
             centrally in the viewport on wide screens rather than anchored
             to the left gutter. Grid template is fixed 480px image column +
             flexible text column so the image never stretches past its
-            intended size. Horizontal gap on lg+ (80px) matches the
-            vertical mb-20 under the section header so the module reads as
-            a single rhythm. */}
-        <div className="grid grid-cols-1 lg:grid-cols-[480px_1fr] gap-10 md:gap-14 lg:gap-20 items-center max-w-[1060px] lg:mx-auto">
+            intended size. Horizontal gap on lg+ (112px) gives the image
+            and editorial column clear visual separation — the vertical
+            80px mb-20 under the section header reads generous, so the
+            horizontal gap has to be a touch larger to feel balanced. */}
+        <div className="grid grid-cols-1 lg:grid-cols-[480px_1fr] gap-10 md:gap-14 lg:gap-28 items-center max-w-[1100px] lg:mx-auto">
           {/* Image frame.
               On tablet (single column) the image is centred as a
               framed editorial element. On desktop the grid template
@@ -216,7 +217,11 @@ export function EditorialFrames() {
                   className="absolute inset-0"
                   style={{
                     opacity: i === active ? 1 : 0,
-                    transition: "opacity 900ms cubic-bezier(0.16, 1, 0.3, 1)",
+                    /* Gentle, symmetric ease-in-out so the leaving frame
+                       and the entering frame fade through each other
+                       without either one jumping. Longer duration keeps
+                       the transition unhurried. */
+                    transition: "opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1)",
                   }}
                 >
                   {f.type === "video" ? (

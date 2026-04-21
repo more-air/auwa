@@ -7,7 +7,7 @@
 
 ## 1. What the App Is
 
-A daily awareness practice disguised as a beautiful emotional experience. User shares how they feel in natural language, AUWA's AI identifies their kokoro and reflects it back poetically alongside the AUWA character, a light shower animation, and a calligraphic micro-season stamp. Kokoro (心) is holistic: it holds emotion, thought, and spirit as a single undivided whole, located in the chest and gut rather than the head. The app honours this by asking how you *feel*, not what you *think*. The result is saved to a visual archive and optionally journaled and shared.
+A daily awareness practice disguised as a beautiful emotional experience. User shares how they feel in natural language, AUWA's AI identifies their Kokoro and reflects it back poetically alongside the AUWA character, a light shower animation, and a calligraphic micro-season stamp. Kokoro (心) is holistic: it holds emotion, thought, and spirit as a single undivided whole, located in the chest and gut rather than the head. The app honours this by asking how you *feel*, not what you *think*. The result is saved to a visual archive and optionally journaled and shared.
 
 Five minutes. Once a day (or whenever you need it). No streaks, no badges, no push notifications. AUWA is pull, not push.
 
@@ -33,10 +33,10 @@ Five minutes. Once a day (or whenever you need it). No streaks, no badges, no pu
 
 5. **Post-Revelation Options** (all optional, none forced):
    - **Journal** — If user's input was rich, AUWA pre-populates a suggested journal entry. One tap to save. If sparse, open prompt: "Would you like to add a few words about today?"
-   - **Share** — Generate a shareable kokoro card (9:16 for Stories, 1:1 for feed). The card contains: gradient background, AUWA character, the reflection text, the kō stamp, and subtle AUWA branding. Journal content is never included on shareable cards.
+   - **Share** — Generate a shareable Kokoro card (9:16 for Stories, 1:1 for feed). The card contains: gradient background, AUWA character, the reflection text, the kō stamp, and subtle AUWA branding. Journal content is never included on shareable cards.
    - **Save** — Auto-saved to Kokoro Archive regardless of other choices.
 
-6. **Signup Prompt** — After experiencing the full flow once, gentle prompt: "Create an account to keep your kokoro safe." Email + password or social auth. Never before the first experience.
+6. **Signup Prompt** — After experiencing the full flow once, gentle prompt: "Create an account to keep your Kokoro safe." Email + password or social auth. Never before the first experience.
 
 ### 2.2 Returning User (Logged In)
 
@@ -56,7 +56,7 @@ Five minutes. Once a day (or whenever you need it). No streaks, no badges, no pu
 **Paid tier (£6.99/month or £49.99/year):**
 - Unlimited revelations
 - Full Kokoro Archive with pattern insights
-- Shareable kokoro cards (premium designs)
+- Shareable Kokoro cards (premium designs)
 - Story unlocks (narrative segments from AUWA's series of illustrated stories)
 - Early access to figure drops
 - Year in Kokoro review (annual)
@@ -320,7 +320,7 @@ Story unlocks. Year in Kokoro. Pattern insights. Activity correlation. Morning/e
 
 ## 8. Design Principles
 
-- **Dark by default.** The app lives in darkness. Light comes from AUWA. This isn't aesthetic preference — it's philosophy: the kokoro is revealed from darkness into light.
+- **Dark by default.** The app lives in darkness. Light comes from AUWA. This isn't aesthetic preference — it's philosophy: the Kokoro is revealed from darkness into light.
 - **Serif for AUWA's voice, sans-serif for UI.** The reflection text uses the brand serif (Cormorant or similar). Navigation, buttons, input fields use the functional sans-serif (Instrument Sans).
 - **Minimal UI during the experience.** When the user is typing, when the light shower plays, when the revelation appears — no visible navigation, no hamburger menus, no footer. Just the moment. UI chrome appears after the moment passes.
 - **The orb is the anchor.** The pulsing orb is the only constant through the flow. It's the first thing you see, it transforms during the light shower, and it reappears subtly in the archive. It's AUWA's presence before the character appears.

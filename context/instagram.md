@@ -79,7 +79,7 @@ Every post fits one pillar. Rotate through the week for variety within coherence
 AUWA illustrations paired with poetic reflections. Emotional insight that stops the scroll. The brand's signature content.
 - **Format:** Single stunning image, short atmospheric Reel
 - **Purpose:** Brand building, shareability (DM sends)
-- **Examples:** AUWA character in emotional state + reflection text, shareable kokoro cards
+- **Examples:** AUWA character in emotional state + reflection text, shareable Kokoro cards
 
 ### 2. Japanese Wisdom (Educate / Discover)
 Yamato emotional concepts, micro-season philosophy, Japanese ideas (mono no aware, wabi-sabi, ma, ikigai). The intellectual depth that differentiates.
@@ -182,7 +182,7 @@ Don't explain the archive or the hiatus. No "we're back," no "exciting things co
 
 **Hashtags (in caption, not first comment):**
 
-`#AUWA #kokoro #japanesephilosophy #slowliving #japaneseaesthetic`
+`#AUWA #Kokoro #japanesephilosophy #slowliving #japaneseaesthetic`
 
 Five hashtags: one branded, one niche, two mid-range, one broad. Refine over the first month based on which reach the right audience.
 
@@ -214,7 +214,7 @@ The 700 existing followers get a gentle re-anchor. New visitors get a self-conta
 ### Phase 3: Collaboration + Launch (Weeks 8-12)
 - Fin DAC collab post (his stencil of AUWA, co-authored via Instagram native collab feature)
 - Instagram giveaway tied to first figure drop ("Tag a friend for a chance to win the first AUWA figure")
-- App soft launch content: shareable kokoro cards, light shower video, user testimonials
+- App soft launch content: shareable Kokoro cards, light shower video, user testimonials
 - Reach out to 5-10 complementary accounts (5K-50K followers) for collab posts
 
 ### Expected Results
@@ -238,7 +238,7 @@ The 700 existing followers get a gentle re-anchor. New visitors get a self-conta
 ## Profile Setup
 
 - **Name field:** "AUWA | Japanese Awareness Practice" (searchable, keyword-rich)
-- **Bio:** Lead with what it IS. "Japanese philosophical awareness applied to modern life. Reveal your kokoro. auwa.life launching 2026." Minimal emoji (1-2 max for premium feel)
+- **Bio:** Lead with what it IS. "Japanese philosophical awareness applied to modern life. Reveal your Kokoro. auwa.life launching 2026." Minimal emoji (1-2 max for premium feel)
 - **Category:** Health/Beauty or Art
 - **Profile photo:** AUWA wordmark or character icon at 500x500px minimum
 - **Link:** Use Instagram's native 5-link feature (waitlist, auwa.life/journal, specific content piece). No third-party link tools needed
@@ -260,7 +260,7 @@ The 700 existing followers get a gentle re-anchor. New visitors get a self-conta
 3-5 highly relevant hashtags per post (not 20-30 generic ones):
 - 1-2 broad (500K-5M posts): #emotionalintelligence, #japanesephilosophy
 - 2-3 mid-range (50K-500K): #japaneseart, #japanesecraft, #awarenessjournal
-- 1-2 niche/branded: #AUWA, #kokoromirror, #revealyourkokoro
+- 1-2 niche/branded: #AUWA, #Kokoromirror, #revealyourKokoro
 - Place in caption (not first comment). Vary between posts.
 - Use alt text on images with natural keyword descriptions for additional discovery.
 

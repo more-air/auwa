@@ -22,7 +22,7 @@ Comprehensive AI journaling with 100+ expert-led guided programmes. Enterprise-g
 ### Rosebud
 AI-powered journaling focused on personal growth. Therapist-recommended. Remembers previous entries, builds on them. Weekly review reports. Crisis-appropriate responses. Fundamentally a chatbot-style interaction.
 
-**AUWA wins with:** "AUWA reveals" vs therapeutic questioning. Visual kokoro revelation vs text-only. Shareable cards. Yamato emotional framework gives precise poetic language. Five-colour visual timeline vs text-based reports. Universe creates emotional connection to the practice itself.
+**AUWA wins with:** "AUWA reveals" vs therapeutic questioning. Visual Kokoro revelation vs text-only. Shareable cards. Yamato emotional framework gives precise poetic language. Five-colour visual timeline vs text-based reports. Universe creates emotional connection to the practice itself.
 
 **Audience crossover: High.** Most direct competitor in terms of user intent.
 

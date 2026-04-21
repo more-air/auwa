@@ -170,10 +170,20 @@ export function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-[100] will-change-transform ${
+        className={`top-0 inset-x-0 z-[100] will-change-transform ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
         style={{
+          // Sticky breaks when body.overflow is locked to hidden (we do
+          // that while the mobile menu is open). On iOS Safari the
+          // sticky header drops back to its natural document position,
+          // which — if the user tapped the hamburger after scrolling —
+          // places the X button hundreds of px above the viewport and
+          // out of reach. Switching to `position: fixed` while the menu
+          // is open pins the header to the viewport regardless of scroll
+          // state. Outside that state, sticky keeps the hide-on-scroll
+          // behaviour working as before.
+          position: menuOpen ? "fixed" : "sticky",
           // Tailwind 4 uses the `translate` CSS property (not `transform`)
           // for translate-y utilities, so the transition must target that.
           transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",

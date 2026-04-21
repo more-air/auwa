@@ -7,7 +7,7 @@
 
 ## 1. Brand Essence
 
-AUWA (あうわ) — "the harmony between the unseen and the seen." Kokoro (心) is the holistic Japanese concept that holds heart, mind, soul, and spirit as one undivided whole. The brand makes the invisible visible: invisible emotions (app), invisible craftsmanship (store), invisible kokoro within all living things (stories).
+AUWA (あうわ) — "the harmony between the unseen and the seen." Kokoro (心) is the holistic Japanese concept that holds heart, mind, soul, and spirit as one undivided whole. The brand makes the invisible visible: invisible emotions (app), invisible craftsmanship (store), invisible Kokoro within all living things (stories).
 
 The brand feels like: a quiet room in a Japanese temple at dusk. Dark, warm, still. Then light enters.
 
@@ -133,7 +133,7 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 
 ### The Principle
 
-AUWA lives in darkness. Light comes from within — from the kokoro being revealed. The brand's default state is dark and quiet. Colour enters through gradients, glows, and the Yamato emotional states. This mirrors the app experience: you arrive in darkness, and AUWA's light shower reveals your kokoro in colour.
+AUWA lives in darkness. Light comes from within — from the Kokoro being revealed. The brand's default state is dark and quiet. Colour enters through gradients, glows, and the Yamato emotional states. This mirrors the app experience: you arrive in darkness, and AUWA's light shower reveals your Kokoro in colour.
 
 ### Foundation Palette (Established in Teaser)
 
@@ -165,7 +165,7 @@ Yuragi (揺/Unsettled):  oklch(0.65  0.12  55)   — amber/ochre
 Nagomi (和/Serene):      oklch(0.75  0.10  160)  — soft sage/green
 ```
 
-These are the starting points for the 5 gradient families used in the app's kokoro revelation screens and across social content. Each emotional state has a 3-4 stop gradient to be developed in Figma:
+These are the starting points for the 5 gradient families used in the app's Kokoro revelation screens and across social content. Each emotional state has a 3-4 stop gradient to be developed in Figma:
 
 - **Hare (Radiant):** Gold → amber → soft peach (warm, expanding, light)
 - **Takaburi (Intense):** Crimson → burnt orange → dark rust (intense, rising, hot)

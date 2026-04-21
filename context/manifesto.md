@@ -16,7 +16,7 @@ And you're not starting from nothing. You're starting with more relevant experie
 
 ### 1. Rieko's dream, realised.
 
-Ten years of illustrated stories sitting in a drawer. A series of complete narratives about a being who reveals the kokoro in flowers, coral, tanuki, and humans. A philosophy of interconnectedness that Rieko grew up with in Kansai, embedded into every page. The original plan was printed books. The pivot to a digital universe (app, social, figures, stories released over time) is bigger and better. This is the release Rieko's work has been waiting for. Not a compromise. An evolution.
+Ten years of illustrated stories sitting in a drawer. A series of complete narratives about a being who reveals the Kokoro in flowers, coral, tanuki, and humans. A philosophy of interconnectedness that Rieko grew up with in Kansai, embedded into every page. The original plan was printed books. The pivot to a digital universe (app, social, figures, stories released over time) is bigger and better. This is the release Rieko's work has been waiting for. Not a compromise. An evolution.
 
 ### 2. Making something that actually matters.
 
@@ -77,12 +77,12 @@ Small but genuine user base (50-200 regular users). Few thousand social follower
 
 AUWA quietly serves four purposes:
 
-1. **Living portfolio piece.** Hand your phone to a potential client. They type how they feel, the light shower plays, AUWA reveals their kokoro. In 60 seconds they've experienced AI integration, brand design, product strategy, animation, and emotional design.
+1. **Living portfolio piece.** Hand your phone to a potential client. They type how they feel, the light shower plays, AUWA reveals their Kokoro. In 60 seconds they've experienced AI integration, brand design, product strategy, animation, and emotional design.
 2. **Social content engine on autopilot.** 72 micro-seasons refresh every 5 days. Rieko batch-produces a quarter's content. The accounts post themselves. Slow communities are the ones that last.
 3. **A platform ready for its moment.** If awareness enters mainstream conversation, AUWA is already there. Most opportunities are missed because people weren't ready. You'll be ready.
 4. **An ongoing creative practice.** Every five days, a new micro-season. Every few months, a new figure or story segment. A reason to keep making meaningful things outside of client work.
 
-Slow burners compound. The content archive grows. Early users' Kokoro Archives deepen. One viral kokoro card, one press mention, one influencer discovery, and the slow burn catches.
+Slow burners compound. The content archive grows. Early users' Kokoro Archives deepen. One viral Kokoro card, one press mention, one influencer discovery, and the slow burn catches.
 
 ---
 

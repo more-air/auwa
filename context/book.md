@@ -6,9 +6,9 @@
 
 ## THE FOUR BOOKS
 
-The AUWA illustrated story universe comprises four books, each following AUWA — a luminous being sent from the stars — as it encounters different aspects of Earth and reveals the kokoro (heart/soul) hidden within all things.
+The AUWA illustrated story universe comprises four books, each following AUWA — a luminous being sent from the stars — as it encounters different aspects of Earth and reveals the Kokoro (heart/soul) hidden within all things.
 
-**Book 1: The Beginning** — AUWA arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her kokoro through a light shower, restores the forest, and meets the soil microorganisms who explain that everything is connected. *Status: Complete. 18 pages, ~380 words. Fully revised. PDF: `book/1/AUWA01_8x10_Compressed.pdf`. Old version: `book/1/AUWA_01_Old.pdf`. Mockup: `/book/1` on the website.*
+**Book 1: The Beginning** — AUWA arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microorganisms who explain that everything is connected. *Status: Complete. 18 pages, ~380 words. Fully revised. PDF: `book/1/AUWA01_8x10_Compressed.pdf`. Old version: `book/1/AUWA_01_Old.pdf`. Mockup: `/book/1` on the website.*
 
 **Book 2: Umi (The Ocean)** — AUWA explores the ocean, meets Key (coral), Lady (fish), and Rai (turtle), encounters ocean pollution and ghost nets, discovers the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale), and hears stories of humans from the sea creatures' perspective. *Status: Old version, 30 pages, ~1,500 words. Needs comprehensive revision. PDF: `book/2/AUWA_02_Old.pdf`. Mockup: `/book/2` on the website.*
 
@@ -131,6 +131,6 @@ Book 2 (Umi/Ocean) has the same structural issues as old Book 1, likely amplifie
 
 - The microorganisms from Book 1 reappear in Book 2 (Reco says "the soil microorganisms told us about you")
 - Each book ends with AUWA setting off on the next adventure
-- The kokoro/light shower mechanic is consistent across all books
+- The Kokoro/light shower mechanic is consistent across all books
 - Eko Maeda is the author credit on all books
 - The "everything is connected" philosophy deepens with each book: land (Book 1) → sea (Book 2) → [TBC] (Book 3) → [TBC] (Book 4)

@@ -13,7 +13,7 @@ export function AboutContent() {
         </p>
 
         <p>
-          The universe was created by Japanese illustrator Rieko Vining over a
+          The universe was created by Japanese illustrator Rieko Maeda over a
           decade of quiet, dedicated work. Four illustrated books. Three pillars
           of Japanese philosophy. One vision: that emotional intelligence
           matters more than ever in a world where cognitive work is being

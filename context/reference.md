@@ -21,7 +21,7 @@
 
 ## Archival & Authentication
 
-Rieko's archive sketches (20-30 total, 1-2 hours each): key book scenes, character evolution, 72 emotions in rough form, WAWA planets, kokoro revelation moments. Deployed strategically for credibility: exhibitions, press interviews, collector's editions, social ("10 years in the making" series). Not shared immediately.
+Rieko's archive sketches (20-30 total, 1-2 hours each): key book scenes, character evolution, 72 emotions in rough form, WAWA planets, Kokoro revelation moments. Deployed strategically for credibility: exhibitions, press interviews, collector's editions, social ("10 years in the making" series). Not shared immediately.
 
 ---
 
@@ -65,7 +65,7 @@ Tom and Rieko developed Animaru for Nokia San Francisco (~2014): a character-bas
 
 **Hodinkee:** Content-first authority building in a niche (mechanical watches) that shouldn't have thrived in the digital age — but did precisely because the digital age created hunger for craft. Blog → commerce → community → acquisition. Proves that as technology accelerates, audiences develop deeper appreciation for hand-made objects. AUWA Store follows the same logic for Japanese craft.
 
-**Labubu:** Build collector psychology (31 sub-expressions to collect). Mystery/reveal (blind kokoro revelation). Chase variants (special seasonal editions). Distribute strategically (hotel B2B is unique channel).
+**Labubu:** Build collector psychology (31 sub-expressions to collect). Mystery/reveal (blind Kokoro revelation). Chase variants (special seasonal editions). Distribute strategically (hotel B2B is unique channel).
 
 **Goop:** Multi-category lifestyle brand precedent. Launched as newsletter (2008), added e-commerce (2012), apps (2013), physical stores (2017). Proves wellness + curated retail + storytelling work under one brand. AUWA's advantage: cultural authenticity and depth Goop lacks.
 

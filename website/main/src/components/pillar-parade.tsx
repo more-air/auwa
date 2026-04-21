@@ -104,7 +104,7 @@ export function PillarParade() {
         </FadeIn>
         <FadeIn delay={120}>
           <h2 className="mt-4 font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void">
-            One philosophy. Four ways in.
+            Four ways in.
           </h2>
         </FadeIn>
       </div>
@@ -118,17 +118,16 @@ export function PillarParade() {
         className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide"
       >
         {CARDS.map((card, i) => (
-          // Plain `fade` variant (not `reveal`) so the cards rise in place
-          // rather than slide in from 80px to the right. The slide-from-
-          // right transform pushes later cards off-viewport on mobile,
-          // which prevents the IntersectionObserver inside FadeIn from
-          // firing — the result was only card 1 being visible on first
-          // load with no peek of card 2.
+          // `reveal` with a shorter 40px distance mirrors the right-to-
+          // left cascade used on the Journal strip while keeping card 2
+          // above the FadeIn IntersectionObserver's 10% threshold on
+          // narrow mobile viewports — the default 80px slide pushed the
+          // peeking card too far right and it never triggered.
           <FadeIn
             key={i}
-            delay={i * 80}
-            variant="fade"
-            translateY={8}
+            delay={i * 100}
+            variant="reveal"
+            revealDistance={40}
             className="flex-shrink-0 w-[72vw] sm:w-[320px] max-w-[360px]"
           >
             <Link

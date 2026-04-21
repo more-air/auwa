@@ -30,6 +30,18 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 - **No thesis-callback endings.** Don't end a piece by restating the opening idea with a neat bow. End by looking forward or outward, or with a single image that lingers.
 - **No telling the reader what to think.** "This is what matters." "This is why it's important." Cut these. The writing should make the case without announcing it.
 
+**AI rhythm patterns (learned the hard way, April 2026 review).** These slip in unnoticed when drafting. They are the biggest giveaway across a set of articles because they repeat. Hunt for them:
+
+- **"Not X. It is Y." / "Not X, but Y."** One per article maximum, and only if the reveal genuinely lands. Offenders to watch for: *"is not a message. It is a frequency,"* *"not competition. It was participation,"* *"not destruction. It is renewal,"* *"not a concept. It is a practice,"* *"is not a lesson but a duration."*
+- **"There is a particular..."** A repeating tic. *"a particular quality,"* *"a particular kind of quiet,"* *"a particular pleasure."* At most once per article, and check the rest of the journal before reusing it.
+- **Escalating three-part lists in the body.** *"Clothes signal who we are. Phones signal how busy we are. Conversation signals how clever we are."* *"The grain of the stone. The particular blue of the sky. The fact that the stranger..."* Cut to two, or to one strong image.
+- **Rhyming cause-effect aphorisms.** *"When you have nothing to protect, you stop scanning for threats. When you stop scanning, you start noticing."* Collapse into one sentence.
+- **Meta-wisdom about the subject.** Any sentence that tells the reader what they were supposed to learn. *"Which might be the most valuable thing a knife can teach you."* *"Like the mountain itself, it removed options..."* Cut them. The concrete detail already did the work.
+- **Stacked aphoristic closers.** *"The steel remembers every strike of the hammer."* *"The wood remembers."* One per article, usually the pullquote. If they pile up, the piece reads like fortune cookies.
+- **Overly symmetrical constructions.** *"Simply, because it is simple, and because he has done it every day for decades."* Break the symmetry.
+
+**Cross-article check.** Before publishing, re-read the other articles in the journal and confirm this one isn't reusing the same signature phrase or construction. Repetition across the set is what lets a reader spot the pattern. Any phrase already used in two or more published articles is off-limits.
+
 **What good AUWA writing does:**
 - Leads with concrete, sensory detail. Specificity is authority.
 - Uses fragments for rhythm. "No plastic. No foam. Just wood cradling steel."
@@ -41,7 +53,7 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 
 **Philosophy and accuracy:**
 - AUWA is "influenced by" the ancient Japanese belief that a life force resides in all things. Never "rooted in Shinto" or presented as a Shinto brand.
-- The correct term for spirits inhabiting things is kami (or tama/tamashii). Kokoro (心) means heart, mind, spirit. It is AUWA's chosen brand word, not the Japanese theological term for spirit-in-objects. Write "AUWA uses the word kokoro" not "the Japanese call this quality kokoro."
+- The correct term for spirits inhabiting things is kami (or tama/tamashii). Kokoro (心) means heart, mind, spirit. It is AUWA's chosen brand word, not the Japanese theological term for spirit-in-objects. Write "AUWA uses the word Kokoro" not "the Japanese call this quality Kokoro."
 - "Shinto" is fine when describing actual Shinto practices (shrines, priests, ceremonies). It should not be used to frame the broader philosophical worldview that AUWA draws from. Use "ancient Japanese belief" or "ancient Japanese understanding" instead.
 - Yaoyorozu no Kami can appear in articles as a named concept, just not positioned as AUWA's doctrinal foundation.
 - Drop "Japanese lifestyle brand" as a label. AUWA is described through what it does, not through a category.
@@ -219,7 +231,7 @@ Each article belongs to one of four categories. These map to the brand's four pi
 
 **Craft:** Profiles of craftsmen and the objects they make. Also essays on the philosophy of living with handmade things. The relationship between maker and user. Why a knife that took two years to arrive changes how you cook. These articles often overlap with the store's curatorial voice.
 
-**Philosophy:** The Japanese philosophical concepts that underpin AUWA. Yaoyorozu no Kami, kokoro, wabi-sabi, mono no aware. Written accessibly, grounded in daily life, never academic. The goal is to make these ideas feel practical and present, not abstract and historical.
+**Philosophy:** The Japanese philosophical concepts that underpin AUWA. Yaoyorozu no Kami, Kokoro, wabi-sabi, mono no aware. Written accessibly, grounded in daily life, never academic. The goal is to make these ideas feel practical and present, not abstract and historical.
 
 **Travel:** Japan through the lens of awareness. Not travel guides. Not "top 10 temples in Kyoto." Personal essays about specific places and what they taught. The onsen lesson. The temple at dawn. The train station where nobody was in a hurry.
 
@@ -235,10 +247,10 @@ The website needs 8-10 articles at launch. A mix across all four categories give
 **To write:**
 - "Seimei: the light returns" (Seasons) - current micro-season at launch
 - "The fifth day" (Seasons) - introduction to 72 micro-seasons
-- "Objects with kokoro" (Craft) - philosophy of lifetime objects
+- "Objects with Kokoro" (Craft) - philosophy of lifetime objects
 - "Temple mornings" (Travel) - the ritual of arriving before dawn
 - "The onsen lesson" (Travel) - shared space, vulnerability, hot water
-- "Everything has kokoro" (Philosophy) - foundational essay on Yaoyorozu no Kami
+- "Everything has Kokoro" (Philosophy) - foundational essay on Yaoyorozu no Kami
 - "Awareness, not mindfulness" (Philosophy) - why AUWA uses "awareness"
 - "What wabi-sabi means" (Philosophy) - reclaiming the concept
 
