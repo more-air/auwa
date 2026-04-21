@@ -66,27 +66,54 @@ export function HeroVideo() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Parallax zoom-in on scroll
+  // Parallax zoom-in on scroll. iOS Safari batches scroll events around
+  // URL-bar retraction — without smoothing the scale updates, this reads
+  // as a sudden zoom jump on the first scroll. The section height is
+  // captured on mount (and on resize), so the progress calculation doesn't
+  // flicker as svh/dvh shift on mobile.
   useEffect(() => {
     const section = sectionRef.current;
     const scaleEl = scaleRef.current;
     if (!section || !scaleEl) return;
 
-    let raf: number;
+    let sectionHeight = section.getBoundingClientRect().height;
+    let currentScale = 1;
+    let targetScale = 1;
+    let raf: number | null = null;
+
+    const tick = () => {
+      // Smoothly chase the target scale. Lerp factor 0.18 lands in roughly
+      // 150ms — gentle enough to mask a scroll-event burst, fast enough to
+      // track smooth scrolling without lag.
+      const next = currentScale + (targetScale - currentScale) * 0.18;
+      const delta = Math.abs(next - currentScale);
+      currentScale = next;
+      scaleEl.style.transform = `scale(${currentScale.toFixed(4)})`;
+      if (delta > 0.0005) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = null;
+      }
+    };
+
     const onScroll = () => {
-      raf = requestAnimationFrame(() => {
-        const rect = section.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
-        const scale = 1 + progress * 0.06;
-        scaleEl.style.transform = `scale(${scale})`;
-      });
+      const rect = section.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, -rect.top / sectionHeight));
+      targetScale = 1 + progress * 0.06;
+      if (raf === null) raf = requestAnimationFrame(tick);
+    };
+
+    const onResize = () => {
+      sectionHeight = section.getBoundingClientRect().height;
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     onScroll();
     return () => {
       window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
+      if (raf !== null) cancelAnimationFrame(raf);
     };
   }, []);
 
