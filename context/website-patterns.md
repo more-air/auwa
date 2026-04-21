@@ -22,6 +22,10 @@ This uses the `.vercel/project.json` at `website/main/.vercel/project.json` (pro
 
 **Confirmation.** The output must contain `auwa-life-<hash>` in the Production URL and `Aliased: https://auwa.life`. If you see any other project prefix, you're in the wrong directory — redeploy from `website/main/`.
 
+**Safeguards in place (April 2026).** Chaining git/push commands that contain their own `cd` before the vercel call landed the shell back at the repo root, where a stale `.vercel/project.json` pointed to the wrong project (`auwa-app`). Fixes:
+1. The repo-root `.vercel/` folder was renamed to `.vercel.disabled/` and added to `.gitignore`. The Vercel CLI now has nothing to auto-link from the root, so a deploy from the wrong cwd fails loudly instead of silently shipping the wrong build.
+2. The deploy slash command now includes a `pwd` guard that aborts if cwd isn't `website/main/`. Don't chain a `cd /Users/admin/Github/auwa && ...` before the vercel call — always make the vercel command its own bash invocation starting with `cd website/main`.
+
 **Full deploy workflow:**
 1. Commit and `git push origin main` in the AUWA repo (github: `more-air/auwa`).
 2. **If any files under `/Users/admin/Github/moreair/.claude/skills/**` or other More Air shared assets were touched in this session**, commit and push those from inside `/Users/admin/Github/moreair/` as well — separate repo, separate push. Do this BEFORE the Vercel deploy so the repos stay in sync.
@@ -45,6 +49,8 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 **Teaser pages (pre-launch):** The stacked text-above-image layout runs all the way through tablet — the 2-column grid only engages at `lg` (1024px+). Tablet portrait in the split layout felt cramped (text and image both lost breathing room), so the mobile config extends up. Grid container: `flex flex-col h-[calc(100dvh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100dvh-5rem)]`. Image: `w-full h-full object-cover lg:absolute lg:inset-0`. Vertical padding tightens to `py-12` below lg. Page-title h1 scale is `clamp(2.25rem,5vw,3.75rem)` — matches Journal, About, and the homepage module headings.
 
 **Form success states:** Use full contrast for success messages. `text-void` on white backgrounds, `text-white` on dark backgrounds. Never use reduced opacity for confirmation text. Success message element must match the form's height to prevent layout shift: use `min-h-[44px] flex items-center`.
+
+**Email inputs: `autoComplete="email" name="email"` and suppress the global focus outline.** Without these attributes iOS Safari offers the Contacts + iCloud Keychain autofill icons inside the field (a blue padlock + "i" chip). They look alarming on a quiet editorial signup. The site-wide `:focus-visible { outline: ... }` in globals.css also draws a rectangle around the input on focus — the signup form already indicates focus via the row's `focus-within:border-void/50` border-bottom, so the outline is redundant. globals.css has `input:focus-visible, textarea:focus-visible { outline: none; }` override for this.
 
 **Footer pattern:** The footer is one unified dark (`bg-void`) block with three zones: (1) two-column layout with signup left and pillar nav right, (2) spacer via `flex-1` to push the bottom bar down, (3) copyright + social icons. The footer uses `min-h` and `flex flex-col` so the bottom bar always sits at the base. Pillar links are left-aligned text on both mobile and desktop.
 
@@ -293,6 +299,20 @@ transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300m
 
 **Bordered element + `overflow-hidden` + descendant transform causes iOS border flashes.** When a hover-triggered descendant transform runs (e.g. a text-roll inside a bordered CTA), iOS WebKit (including DuckDuckGo) briefly clips the top border during compositor re-raster. Move the `overflow-hidden` to an inner mask span; keep the border on the outer element. The mask still clips the animation, but the border lives on an element that never has its overflow manipulated.
 
+**Persistent `translate3d(0,0,0)` on a FadeIn wrapper clips iOS descendant borders.** Keeping the wrapper at `translate3d(0,0,0)` when visible leaves an always-on compositor layer. Any bordered descendant inside (e.g. the primary CtaLink "THE STORY" under the homepage intro) will have its top border clipped by that layer on iOS. Set `transform: none` (not `translate3d(0,0,0)`) when visible — the layer dissolves after the entrance animation finishes and the border renders cleanly.
+
+**Nested opacity animations jitter in Safari.** Running per-word `TextReveal` or inner `FadeIn` animations INSIDE a wrapper that's also opacity-fading (e.g. a tab gallery crossfade) makes Safari's compositor re-rasterise layers as opacities compound. Symptom: visible subpixel jitter on the inner text "settling into place" during a frame change. Fix: pick one. Let the outer crossfade carry the reveal and make the inner content static, OR drop the outer crossfade and rely solely on the inner cascade. `EditorialFrames` chose the former — content inside each frame is now plain HTML and the 700ms outer opacity transition is the entire reveal.
+
+**`will-change` toggling on IntersectionObserver trigger causes Safari scroll jitter.** `will-change: "opacity, transform"` while hidden + `"auto"` when visible made Safari tear down the preallocated compositor layer the instant IO flipped `isVisible` — before the transition had painted a single frame. Safari then had to create a new layer on-demand for the active transition, dropping a scroll frame in the process. Tiny but noticeable during Lenis smooth scroll. Fix: **omit `will-change` entirely** on `FadeIn` / `TextReveal`. Safari auto-promotes a layer when the transition starts and demotes cleanly when it ends; that path is smoother than managing it by hand. Chrome is fine either way.
+
+**IntersectionObserver bottom rootMargin of `120px` smooths Safari + Lenis scroll.** Triggering at the exact viewport edge (`-40px`) meant Safari had to set up the transition's compositor layer on the same scroll frame Lenis was advancing — one-frame stutter per section. Extending the observer root `120px` BELOW the viewport fires the transition before the user reaches the element: paint starts, layer stabilises, and by the time the element is actually in view the transition is already settled. Applied to both `FadeIn` and `TextReveal`. The animation still reads as an entrance because 120px at typical scroll velocity is only ~150-250ms.
+
+**IntersectionObserver right rootMargin of `200%` for horizontal scrollers.** Cards sitting off-viewport-right (card 2+ in the Journal strip, two-up articles) never intersect the default root, so they stay at the FadeIn reveal variant's `translate3d(80px, 0, 0) opacity: 0` until the user swipes — producing an apparently missing image on iPhone. Widening the right rootMargin to `200%` catches cards up to 2 viewport widths to the right, so they fire when the SECTION scrolls in vertically. Page-flow layouts never place cards more than one viewport to the right, so the wider margin has no effect on non-scroller layouts.
+
+**iOS Safari bfcache preserves React state — re-sync scroll-dependent UI on pageshow.** The header's hide-on-scroll flag would stay `true` after closing/reopening the tab from the home page: bfcache restored React state from before backgrounding, scroll position was restored to 0, but `hidden` was still true — so the header stayed off-screen until the user tried to scroll up. Fix: listen to both `window.pageshow` and `document.visibilitychange`, and on each, re-sync any scroll-derived state against current `window.scrollY`.
+
+**Hero parallax scale needs RAF lerp smoothing for iOS URL-bar retraction.** A direct `scale = 1 + progress * 0.06` assignment per scroll event reads as a sudden zoom on iPhone when iOS Safari batches scroll events around URL-bar retraction. Fix: keep `currentScale` and `targetScale` refs; onScroll updates `targetScale`; a RAF loop lerps `currentScale += (target - current) * 0.18` (about 150ms to land). Cache the section height on mount + resize so the progress calc doesn't flicker when `svh` / `dvh` shifts. Shipped on `HeroVideo`.
+
 ---
 
 ## PAGE-LEVEL ARCHITECTURE
@@ -323,6 +343,10 @@ The specific pattern that shipped on auwa.life and should be reused on More Air 
 **Menu button (X) colour flips immediately on `menuOpen`.** The button sits inside the header (z-[100]) above the overlay (z-[90]), so as soon as the overlay starts fading in white, the X needs to already be dark or it's invisible. Delay-state patterns for the logo are fine; the button colour is not.
 
 **Header `transparent` mode uses a wide atTop range.** On a page with a transparent-over-hero header, use `atTop <= 400px (enter) / <= 100px (leave, hysteresis)` and trigger `hidden` at `y > 10`. A narrow atTop range (e.g. `y <= 40`) with a distant hide trigger (e.g. `y > 80`) creates a visible dead-zone where the header flashes solid-white before it slides away. Keep `atTop` true through the entire scroll-up-slide distance.
+
+**Nav link text-roll at display type sizes.** The nav links use the CtaLink-style text-roll (original rises up, duplicate rises from below). At `clamp(2.5rem, 6vw, 4.5rem)` and `leading-[1.08]` the mask must accommodate descenders: `<span className="inline-block overflow-hidden pb-[0.12em]">`. Also **over-translate** the rolling spans: use `-translate-y-[110%]` on the outgoing and an initial `translate-y-[110%]` on the incoming (not `-translate-y-full` / `translate-y-full`). The extra 10% catches any subpixel rendering slack in Safari where ascenders can otherwise peek over the top of the mask mid-transition.
+
+**Menu overlay breathes — asymmetric open / close.** Overlay backdrop opens at 700ms and closes at 1100ms. Nav items open at 500ms with per-item 60ms stagger, and close at 900ms with no stagger — everything glides out together under the slower backdrop exhale. Same `cubic-bezier(0.16, 1, 0.3, 1)` both ways.
 
 ---
 
