@@ -4,23 +4,40 @@ type Props = {
   href: string;
   children: string;
   className?: string;
-  variant?: "bordered" | "plain";
+  /**
+   * - "primary" — solid void (near-black) background with white text.
+   *   Reserved for the single most important CTA on a page (homepage
+   *   intro, key editorial moments).
+   * - "secondary" (default) — bordered, text-only. Used everywhere else.
+   * - "plain" — no border, just text. Quietest option.
+   *
+   * Legacy `"bordered"` maps to `"secondary"` for backwards compatibility.
+   */
+  variant?: "primary" | "secondary" | "plain" | "bordered";
 };
 
 /**
- * Bordered CTA with a text-roll hover: the label lifts up and is replaced
- * by the same label rising from below. Keeps the quiet AUWA tone, adds a
- * small moment of delight on interaction.
+ * AUWA CTA link with a text-roll hover: the label lifts up and is
+ * replaced by the same label rising from below. Three style variants.
  */
-export function CtaLink({ href, children, className = "", variant = "bordered" }: Props) {
+export function CtaLink({ href, children, className = "", variant = "secondary" }: Props) {
   const base =
     "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500 ease-[cubic-bezier(0.7,0,0.3,1)]";
-  const bordered =
+
+  // `bordered` stays as a legacy alias for the now-standard `secondary`.
+  const resolved = variant === "bordered" ? "secondary" : variant;
+
+  const primary =
+    "bg-void text-white px-7 py-3.5 hover:bg-void/85";
+  const secondary =
     "text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/40";
   const plain = "text-void/50 hover:text-void";
 
+  const variantClasses =
+    resolved === "primary" ? primary : resolved === "plain" ? plain : secondary;
+
   return (
-    <Link href={href} className={`${base} ${variant === "bordered" ? bordered : plain} ${className}`}>
+    <Link href={href} className={`${base} ${variantClasses} ${className}`}>
       {/*
         Inner mask carries overflow-hidden, not the Link itself. On iOS
         WebKit (including DuckDuckGo), border + overflow-hidden + descendant

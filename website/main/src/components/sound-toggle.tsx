@@ -175,11 +175,12 @@ export function SoundToggle() {
       }`}
       style={{
         WebkitBackdropFilter: "blur(8px)",
-        // When the footer is revealed behind the button, slide it up so
-        // it clears the footer's bottom-bar (copyright + social icons).
-        // Social X icon sits ~32px from the footer bottom; the button
-        // bottom-5 (20px) would otherwise sit right on top of it.
-        transform: onDark ? "translateY(-48px)" : "translateY(0)",
+        // When the footer is revealed behind the button, slide it well
+        // above the bottom-bar (copyright + social icons) so the whole
+        // row is clear. Bottom bar is ~100px tall on mobile (pt-12 + row
+        // + pb-10). -96px from bottom-5 puts the button centre at
+        // ~116px off the viewport floor, clear of the bar.
+        transform: onDark ? "translateY(-96px)" : "translateY(0)",
         transition:
           "background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), color 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
       }}

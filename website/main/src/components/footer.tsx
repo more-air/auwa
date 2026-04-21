@@ -81,14 +81,14 @@ export function Footer() {
         <p className="font-sans text-[14px] tracking-[0.02em] text-white">
           &copy; AUWA {new Date().getFullYear()}
           <span aria-hidden="true" className="mx-3 text-white/35">&middot;</span>
-          <span className="text-white/60">Site </span>
+          <span className="text-white/50">SITE </span>
           <a
             href="https://moreair.co"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/80 hover:text-white transition-colors duration-300"
+            className="text-white hover:text-white/70 transition-colors duration-300"
           >
-            More Air
+            MORE AIR
           </a>
         </p>
 

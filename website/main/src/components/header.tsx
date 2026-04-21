@@ -87,48 +87,50 @@ export function Header() {
   const isTransparent = transparent && atTop;
   const buttonIsLight = transparent && atTop && !menuOpen;
 
-  // Scroll-lock while the menu is open.
-  //
-  // Earlier this used `body.style.overflow = "hidden"`, which on iOS
-  // Safari triggered the URL bar to re-show — shifting the layout
-  // viewport upward and causing the page title to "lift" by ~50px a
-  // fraction of a second before the overlay faded in. The position-
-  // fixed-with-negative-top technique locks scroll without touching
-  // overflow, so iOS leaves the URL bar state alone.
-  useEffect(() => {
-    if (!menuOpen) return;
-    const scrollY = window.scrollY;
-    const body = document.body;
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.left = "0";
-    body.style.right = "0";
-    body.style.width = "100%";
-    return () => {
-      body.style.position = "";
-      body.style.top = "";
-      body.style.left = "";
-      body.style.right = "";
-      body.style.width = "";
-      window.scrollTo(0, scrollY);
-    };
-  }, [menuOpen]);
+  // No body scroll-lock. Both `body.style.overflow = "hidden"` and
+  // `body.style.position = "fixed"` triggered a visible vertical jump
+  // on mobile iOS when the menu opened (overflow caused the URL bar to
+  // re-show and shift the layout viewport; position-fixed caused a
+  // one-frame content shift before the negative-top compensation
+  // applied). Since the menu overlay is full-screen opaque and its BG
+  // fades in within 80ms, the underlying page is covered before any
+  // scroll would be visible. The overlay itself uses
+  // `overscroll-behavior: contain` so touch scrolls on the overlay
+  // don't propagate to the body beneath.
 
   const menuOverlay = (
     <div
-      className={`fixed inset-0 z-[90] bg-surface ${
+      className={`fixed inset-0 z-[90] ${
         menuOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
+      // The overlay has two layers: an opaque white BG that snaps on
+      // almost instantly when the menu opens, and the inner content that
+      // cascades in over 500ms. The fast BG is essential on mobile — it
+      // covers the page before any scroll/URL-bar activity could be
+      // seen. `overscroll-behavior: contain` stops touch scrolls on the
+      // overlay from propagating to the body beneath, and
+      // `touch-action: manipulation` preserves taps while disabling
+      // gesture-scroll chaining.
       style={{
-        opacity: menuOpen ? 1 : 0,
-        transition: "opacity 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+        overscrollBehavior: "contain",
+        touchAction: "manipulation",
       }}
     >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-surface"
+        style={{
+          opacity: menuOpen ? 1 : 0,
+          transition: menuOpen
+            ? "opacity 80ms linear"
+            : "opacity 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
+      />
       {/* Spacer matches the header row so the nav starts below the logo/button */}
-      <div className="h-16 md:h-20" />
+      <div className="relative h-16 md:h-20" />
 
-      <div className="flex flex-col justify-center h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] px-6 md:px-12 lg:px-20 xl:px-28">
-        <nav className="max-w-[900px] mx-auto w-full">
+      <div className="relative flex flex-col justify-center h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] px-6 md:px-12 lg:px-20 xl:px-28">
+        <nav className="max-w-[600px]">
           <ul className="flex flex-col gap-1 md:gap-2">
             {navItems.map((item, i) => (
               <li
@@ -136,20 +138,14 @@ export function Header() {
                 className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
-                style={{ transitionDelay: menuOpen ? `${100 + i * 60}ms` : "0ms" }}
+                style={{ transitionDelay: menuOpen ? `${80 + i * 60}ms` : "0ms" }}
               >
                 <Link
                   href={item.href}
-                  className={`group relative inline-flex items-baseline gap-5 md:gap-8 font-display text-[clamp(2.5rem,9vw,6rem)] leading-[1.1] tracking-[0.005em] transition-colors duration-300 ${
+                  className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.12] tracking-[0.005em] transition-colors duration-300 ${
                     pathname === item.href ? "text-void" : "text-void/40 hover:text-void"
                   }`}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="font-sans text-[11px] md:text-[12px] tracking-[0.16em] uppercase text-void/30 tabular-nums self-center"
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <span className="relative inline-block overflow-hidden">
                     <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
                       {item.label}
@@ -167,10 +163,10 @@ export function Header() {
           </ul>
 
           <div
-            className={`mt-12 md:mt-16 flex gap-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`mt-12 md:mt-16 flex items-center gap-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
-            style={{ transitionDelay: menuOpen ? `${100 + navItems.length * 60 + 60}ms` : "0ms" }}
+            style={{ transitionDelay: menuOpen ? `${80 + navItems.length * 60 + 60}ms` : "0ms" }}
           >
             <a
               href="https://instagram.com/auwa.life"
@@ -179,7 +175,7 @@ export function Header() {
               aria-label="Instagram"
               className="text-void/70 hover:text-void transition-colors duration-300"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="5" />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -192,7 +188,7 @@ export function Header() {
               aria-label="X"
               className="text-void/70 hover:text-void transition-colors duration-300"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
@@ -205,15 +201,14 @@ export function Header() {
   return (
     <>
       <header
-        className={`top-0 inset-x-0 z-[100] will-change-transform ${
+        className={`sticky top-0 inset-x-0 z-[100] will-change-transform ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
         style={{
-          // position-fixed body-lock handles scroll when menu is open, so
-          // sticky stays safe here. Still, switch to fixed while the menu
-          // is open as a belt-and-braces guarantee that the X button
-          // remains reachable on iOS regardless of the scroll-lock path.
-          position: menuOpen ? "fixed" : "sticky",
+          // No position switching. Without the body scroll-lock, sticky
+          // keeps working normally while the menu is open, and the
+          // overlay (z-[90]) sits below the header (z-[100]) so the X
+          // button stays on top.
           transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >

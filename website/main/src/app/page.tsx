@@ -82,7 +82,7 @@ export default function Home() {
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
-                <CtaLink href="/journal/the-beginning">The Story</CtaLink>
+                <CtaLink href="/journal/the-beginning" variant="primary">The Story</CtaLink>
               </div>
             </FadeIn>
           </div>
