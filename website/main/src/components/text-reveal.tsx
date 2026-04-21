@@ -62,9 +62,12 @@ export function TextReveal({
               opacity: isVisible ? 1 : 0,
               // translate3d forces a compositor layer so Safari animates the
               // word as a single GPU surface instead of re-rasterising the
-              // inline-block's subpixel position every frame. Fixes the
-              // visible jerk Safari shows on lines that start mid-cascade
-              // (second TextReveal with a non-zero delay).
+              // inline-block's subpixel position every frame. The end-state
+              // is `translate3d(0, 0, 0)` — NOT `none` — because demoting
+              // the layer at transition end made each word snap to integer
+              // pixels, producing the subtle "settle" Safari users saw.
+              // Keeping the layer means the position at rest is mathematically
+              // identical to `none` but stays GPU-composited.
               transform: isVisible
                 ? "translate3d(0, 0, 0)"
                 : "translate3d(0, 100%, 0)",

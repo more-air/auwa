@@ -80,21 +80,22 @@ export function FadeIn({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        // When visible, drop the transform entirely. A persistent
-        // `translate3d(0, 0, 0)` leaves an always-on compositor layer,
-        // which iOS Safari uses to clip the top border of a bordered
-        // descendant (e.g. the primary CtaLink "THE STORY" button under
-        // the intro). Using `none` at rest dissolves the layer after
-        // the entrance animation finishes.
-        transform: isVisible ? "none" : hiddenTransform,
+        // Keep the persistent GPU layer after the transition ends (mirrors
+        // More Air's pattern: `transform: translateY(0) translateZ(0)` as
+        // the end state). Reverting to `transform: none` at rest demotes
+        // the compositor layer and Safari re-rasterises the element at
+        // integer pixels, producing the subtle "settle" shift at the end
+        // of every reveal. Keeping the layer means the final position is
+        // mathematically identical to `none` but stays GPU-composited, so
+        // nothing shifts when the transition completes.
+        //
+        // The trade-off is that iOS Safari can clip the top border of a
+        // bordered descendant within this persistent layer (observed on
+        // the "THE STORY" primary CtaLink). The fix lives on CtaLink
+        // itself: it promotes its own layer with `translateZ(0)` so its
+        // border renders independently of this wrapper's layer.
+        transform: isVisible ? "translate3d(0, 0, 0)" : hiddenTransform,
         transition: `opacity ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        // No will-change: Safari tore down the preallocated layer the
-        // moment isVisible flipped (before the transition had even
-        // started painting), which made each section reveal land with a
-        // one-frame stutter during Lenis smooth scroll. Letting Safari
-        // auto-promote the layer when the transition starts and demote
-        // it when the transition ends is smoother on Safari and
-        // visually identical on Chrome.
       }}
     >
       {children}
