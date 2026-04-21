@@ -77,7 +77,29 @@ export function Header() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // iOS Safari bfcache: when the tab is reopened, React state is restored
+    // from before backgrounding, which can leave `hidden` stuck true even
+    // though the scroll position has reset to the top of the hero. Pageshow
+    // + visibilitychange re-sync against the actual scrollY on return.
+    const resync = () => {
+      const y = window.scrollY;
+      lastScrollY.current = y;
+      if (y <= 10) {
+        setHidden(false);
+        if (!atTopRef.current) {
+          atTopRef.current = true;
+          setAtTop(true);
+        }
+      }
+    };
+    window.addEventListener("pageshow", resync);
+    document.addEventListener("visibilitychange", resync);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("pageshow", resync);
+      document.removeEventListener("visibilitychange", resync);
+    };
   }, []);
 
   // Header bg + logo styling driven purely by scroll position. The menu
