@@ -110,17 +110,16 @@ function FrameContent({ frame, isActive }: { frame: Frame; isActive: boolean }) 
         </TextReveal>
       </div>
 
-      {/* Softer arrival for the paragraph — long duration, barely any
-          rise (3px), and a later start so it arrives after the heading
-          has finished settling. Feels like a slow sigh rather than a
-          swing into place. */}
-      <FadeIn delay={500} duration={1600} translateY={3}>
+      {/* Matches the teaser-page paragraph arrival: default 800ms / 12px
+          rise. The tiny 3px rise over 1600ms read as "still settling"
+          under the crossfade — the crisper teaser motion lands cleanly. */}
+      <FadeIn delay={500}>
         <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-void/70 max-w-[460px] mx-auto lg:mx-0">
           {frame.body}
         </p>
       </FadeIn>
 
-      <FadeIn delay={650} duration={700}>
+      <FadeIn delay={700}>
         <div className="mt-8 md:mt-10">
           <CtaLink href={frame.href} variant="primary">{frame.cta}</CtaLink>
         </div>
