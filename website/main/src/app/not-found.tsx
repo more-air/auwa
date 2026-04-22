@@ -14,7 +14,7 @@ export default function NotFound() {
   return (
     <>
       <main>
-        <section className="min-h-[calc(100svh-5rem)] flex items-center justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-20 md:py-32">
+        <section className="min-h-[calc(100svh-5rem)] flex items-center justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           <div className="w-full max-w-[640px] text-center">
             <FadeIn>
               <p className="font-sans text-[13px] tracking-[0.08em] uppercase text-void/45 mb-6">

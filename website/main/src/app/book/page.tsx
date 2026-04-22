@@ -1,7 +1,7 @@
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
-import Image from "next/image";
+import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
   title: "Open the eyes | AUWA",
@@ -33,7 +33,7 @@ export default function BookPage() {
           <div className="flex flex-col h-[calc(100dvh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100dvh-5rem)]">
 
             {/* Left: copy + email */}
-            <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-12 md:py-24 shrink-0">
+            <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-section shrink-0">
               <TextReveal
                 as="h1"
                 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void"
@@ -56,8 +56,8 @@ export default function BookPage() {
             </div>
 
             {/* Right: book cover */}
-            <FadeIn delay={200} className="relative overflow-hidden flex-1 min-h-0">
-              <Image
+            <div className="relative overflow-hidden flex-1 min-h-0">
+              <ImageFade
                 src="/pillars/book.jpg"
                 alt="AUWA: The Beginning — illustrated book on a wooden table"
                 fill
@@ -65,7 +65,7 @@ export default function BookPage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-            </FadeIn>
+            </div>
 
           </div>
         </div>

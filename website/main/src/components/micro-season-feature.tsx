@@ -12,7 +12,7 @@ export function MicroSeasonFeature() {
   const season = getCurrentMicroSeason();
 
   return (
-    <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-32 md:pt-64 pb-32 md:pb-48">
+    <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-breathing">
       <div className="flex flex-col items-center text-center">
         <FadeIn>
           <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/30">

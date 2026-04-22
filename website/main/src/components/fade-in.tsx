@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { DURATION, EASING } from "@/lib/motion";
 
 interface FadeInProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  /** Override duration (ms). Defaults to DURATION.enter (fade) or DURATION.reveal (reveal). */
   duration?: number;
   translateY?: number;
   /**
@@ -29,7 +31,7 @@ export function FadeIn({
   children,
   className = "",
   delay = 0,
-  duration = 800,
+  duration,
   translateY = 12,
   variant = "fade",
   revealDistance = 80,
@@ -41,11 +43,9 @@ export function FadeIn({
 
   useEffect(() => {
     // Fire the observer ~120px BEFORE the element crosses the viewport so
-    // the transition can start painting and Safari can promote the
-    // compositor layer BEFORE the user has scrolled to it. Triggering at
-    // the exact moment of entry (the previous `-40px`) meant Safari had to
-    // set up a new layer on the same frame as Lenis smooth-scroll was
-    // advancing, which read as a one-frame stutter.
+    // the transition can start painting and the compositor layer is ready
+    // before the user reaches it. Starting at the exact viewport edge
+    // dropped one frame on Safari.
     //
     // Reveal variant also widens the RIGHT margin 200% so off-viewport-right
     // cards in horizontal scrollers (Journal strip, two-up) still intersect
@@ -68,7 +68,10 @@ export function FadeIn({
     return () => observer.disconnect();
   }, [isReveal]);
 
-  const dur = isReveal ? 1200 : duration;
+  // Durations come from motion.ts — reveal uses DURATION.reveal (image
+  // cards need a longer glide); everything else uses DURATION.enter.
+  // Caller can still override with the `duration` prop when needed.
+  const dur = duration ?? (isReveal ? DURATION.reveal : DURATION.enter);
   // Reveal slides in from the right; fade rises up.
   const hiddenTransform = isReveal
     ? `translate3d(${revealDistance}px, 0, 0)`
@@ -83,11 +86,11 @@ export function FadeIn({
         // `transform: none` at rest. Holding `translate3d(0, 0, 0)`
         // permanently leaves a compositor layer per FadeIn wrapper — with
         // many reveals on the homepage, that became enough layer churn to
-        // make both Chrome and Safari jitter during Lenis scroll. Safari's
-        // remaining subpixel "settle" at transition end is a fair trade
-        // for overall scroll smoothness.
+        // make both Chrome and Safari jitter. Safari's remaining subpixel
+        // "settle" at transition end is a fair trade for overall scroll
+        // smoothness.
         transform: isVisible ? "none" : hiddenTransform,
-        transition: `opacity ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${dur}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transition: `opacity ${dur}ms ${EASING.outExpo} ${delay}ms, transform ${dur}ms ${EASING.outExpo} ${delay}ms`,
       }}
     >
       {children}

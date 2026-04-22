@@ -117,14 +117,10 @@ export function SoundToggle() {
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
 
-    const lenis = (window as unknown as { __lenis?: { on: (e: string, cb: () => void) => void; off: (e: string, cb: () => void) => void } }).__lenis;
-    lenis?.on?.("scroll", schedule);
-
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
-      lenis?.off?.("scroll", schedule);
     };
   }, [mounted]);
 

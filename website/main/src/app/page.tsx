@@ -3,10 +3,12 @@ import { FadeIn } from "@/components/fade-in";
 import { MicroSeasonFeature } from "@/components/micro-season-feature";
 import { EditorialFrames } from "@/components/editorial-frames";
 import { PillarParade } from "@/components/pillar-parade";
+import { StripReveal } from "@/components/strip-reveal";
 import { VideoMoment } from "@/components/video-moment";
 import { HeroVideo } from "@/components/hero-video";
 import { ScrollFadeText } from "@/components/scroll-fade-text";
 import { CtaLink } from "@/components/cta-link";
+import { STAGGER } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -54,7 +56,7 @@ export default function Home() {
         <HeroVideo />
 
         {/* ── Intro block: eyebrow + scroll-fade paragraph + CTA ── */}
-        <section id="intro" className="relative scroll-mt-16 md:scroll-mt-20 px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-28 pb-20 md:pb-32">
+        <section id="intro" className="relative scroll-mt-16 md:scroll-mt-20 px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           {/*
             心 — Kokoro watermark. A quiet acknowledgement, within the first
             scroll, that this site's worldview is rooted in Japanese
@@ -91,7 +93,7 @@ export default function Home() {
         <Separator />
 
         {/* ── Big pullquote block ── */}
-        <section className="px-10 md:px-12 lg:px-20 xl:px-28 py-28 md:py-44">
+        <section className="px-10 md:px-12 lg:px-20 xl:px-28 space-breathing">
           <div className="max-w-[1100px] mx-auto text-center">
             <ScrollFadeText
               as="p"
@@ -117,12 +119,11 @@ export default function Home() {
           <PillarParade />
         </div>
 
+        <Separator />
+
         {/* ── Latest from the Journal ── */}
-        <section className="pt-16 md:pt-24 pb-16 md:pb-24">
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28">
-            <div className="w-full h-[1px] bg-void/10" />
-          </div>
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28 flex items-baseline justify-between gap-6 mt-8 md:mt-10 mb-10 md:mb-14">
+        <section className="space-section">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28 flex items-baseline justify-between gap-6 mb-10 md:mb-14">
             <FadeIn>
               <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void">
                 The Journal
@@ -131,63 +132,64 @@ export default function Home() {
             <FadeIn delay={120}>
               <Link
                 href="/journal"
-                className="group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.14em] uppercase text-void/50 hover:text-void transition-colors duration-500 ease-[cubic-bezier(0.7,0,0.3,1)]"
+                className="group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.14em] uppercase text-void/50 hover:text-void transition-colors duration-500 ease-text-roll"
               >
-                <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
+                <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
                   View all
                 </span>
-                <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0">
+                <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-text-roll group-hover:translate-y-0">
                   View all
                 </span>
               </Link>
             </FadeIn>
           </div>
-          <div className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide">
-            {latestArticles.map((article, i) => (
-              <FadeIn key={article.slug} delay={i * 60} variant="reveal" className="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]">
-                <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
-                  <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
-                    {article.image ? (
-                      <Image
-                        src={article.image}
-                        alt={article.title}
-                        fill
-                        sizes="(max-width: 768px) 260px, (max-width: 1024px) 280px, 300px"
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/40 to-surface-raised" />
-                    )}
+          <StripReveal
+            className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide"
+            itemClassName="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]"
+          >
+            {latestArticles.map((article) => (
+              <Link key={article.slug} href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
+                <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
+                  {article.image ? (
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      sizes="(max-width: 768px) 260px, (max-width: 1024px) 280px, 300px"
+                      className="object-cover"
+                      loading="eager"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/40 to-surface-raised" />
+                  )}
+                </div>
+                <div className="mt-4 max-w-[90%]">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
+                      {article.category}
+                    </span>
                   </div>
-                  <div className="mt-4 max-w-[90%]">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
-                        {article.category}
-                      </span>
-                    </div>
-                    <h3 className="font-display text-[18px] md:text-[20px] leading-[1.25] tracking-[0.01em] text-void">
-                      {article.title}
-                    </h3>
-                    <p className="mt-1.5 font-sans text-[14px] leading-[1.5] text-void/55 line-clamp-2">
-                      {article.excerpt}
-                    </p>
-                  </div>
-                </Link>
-              </FadeIn>
+                  <h3 className="font-display text-[18px] md:text-[20px] leading-[1.25] tracking-[0.01em] text-void">
+                    {article.title}
+                  </h3>
+                  <p className="mt-1.5 font-sans text-[14px] leading-[1.5] text-void/55 line-clamp-2">
+                    {article.excerpt}
+                  </p>
+                </div>
+              </Link>
             ))}
-          </div>
+          </StripReveal>
         </section>
 
         <Separator />
 
         <MicroSeasonFeature />
 
+        <Separator />
+
         {/* ── What we're making: three pillars ── */}
-        <section className="pt-16 md:pt-24 pb-16 md:pb-24">
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28">
-            <div className="w-full h-[1px] bg-void/10" />
-          </div>
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28 mt-8 md:mt-10 mb-10 md:mb-14">
+        <section className="space-section">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14">
             <FadeIn>
               <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void">
                 What we&rsquo;re making
@@ -196,7 +198,7 @@ export default function Home() {
           </div>
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
-              <FadeIn key={pillar.label} delay={i * 150} variant="reveal">
+              <FadeIn key={pillar.label} delay={i * STAGGER.grid} variant="reveal">
                 <Link href={pillar.href} className="group block" data-cursor="Open">
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {pillar.image ? (
@@ -227,7 +229,7 @@ export default function Home() {
         </section>
 
         {/* ── Breather: mid-page pullquote ── */}
-        <section className="px-10 md:px-12 lg:px-20 xl:px-28 py-28 md:py-44">
+        <section className="px-10 md:px-12 lg:px-20 xl:px-28 space-breathing">
           <div className="max-w-[1100px] mx-auto text-center">
             <ScrollFadeText
               as="p"
@@ -239,10 +241,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
             {twoUpArticles.map((article, i) => (
-              <FadeIn key={article.slug} delay={i * 150} variant="reveal">
+              <FadeIn key={article.slug} delay={i * STAGGER.grid} variant="reveal">
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {article.image ? (
@@ -263,12 +265,12 @@ export default function Home() {
                       </h3>
                       <p className="mt-3">
                         <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.08em] uppercase text-white">
-                          <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
+                          <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
                             Read the essay
                           </span>
                           <span
                             aria-hidden="true"
-                            className="absolute inset-0 flex items-center translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+                            className="absolute inset-0 flex items-center translate-y-full transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
                           >
                             Read the essay
                           </span>
@@ -284,7 +286,11 @@ export default function Home() {
 
         <VideoMoment />
 
-        <div className="h-16 md:h-24" />
+        {/* Trailing gap before the footer. Mirrors the 96px that sits
+            between adjacent sections elsewhere on the page, so VideoMoment
+            doesn't butt up against the footer. Without this the space
+            below the last module reads tight against the space above it. */}
+        <div className="h-16 md:h-24" aria-hidden="true" />
 
       </main>
       <Footer />

@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { DURATION, EASING } from "@/lib/motion";
 
 /*
   Kinfolk-inspired page transition.
@@ -12,14 +13,13 @@ import { useEffect, useRef, useState } from "react";
   and the incoming content fades in (the "enter" phase).
 
   Implemented with pure CSS transitions driven by React state — no GSAP or
-  framer-motion. Timings are picked to feel close to Kinfolk: 500ms leave,
-  500ms enter, ease-out-expo.
+  framer-motion. Durations come from DURATION.page so tweaks propagate.
 
   To disable, replace this component with `{children}` in layout.tsx.
 */
 
-const LEAVE_MS = 500;
-const ENTER_MS = 500;
+const LEAVE_MS = DURATION.page;
+const ENTER_MS = DURATION.page;
 
 type Phase = "entering" | "visible" | "leaving";
 
@@ -103,8 +103,8 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
           ...contentStyle,
           transition:
             phase === "leaving"
-              ? `opacity ${LEAVE_MS}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${LEAVE_MS + 200}ms cubic-bezier(0.16, 1, 0.3, 1)`
-              : `opacity ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+              ? `opacity ${LEAVE_MS}ms ${EASING.outExpo}, transform ${LEAVE_MS + 200}ms ${EASING.outExpo}`
+              : `opacity ${ENTER_MS}ms ${EASING.outExpo}, transform ${ENTER_MS}ms ${EASING.outExpo}`,
         }}
       >
         {children}
@@ -121,7 +121,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         style={{
           backgroundColor: "var(--color-surface)",
           opacity: phase === "leaving" ? 1 : 0,
-          transition: `opacity ${LEAVE_MS}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+          transition: `opacity ${LEAVE_MS}ms ${EASING.outExpo}`,
         }}
       />
     </>

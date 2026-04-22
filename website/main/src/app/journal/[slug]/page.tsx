@@ -4,6 +4,8 @@ import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { CtaLink } from "@/components/cta-link";
+import { ImageFade } from "@/components/image-fade";
+import { STAGGER } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -951,7 +953,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
   if (block.type === "text") {
     const hasHtml = /<[a-z][\s\S]*>/i.test(block.text);
     return (
-      <FadeIn key={i} delay={Math.min(i * 30, 200)}>
+      <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
         {hasHtml ? (
           <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void mb-8 md:mb-10 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-void/30 hover:[&_a]:decoration-void/60 [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: block.text }} />
         ) : (
@@ -964,7 +966,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
   }
   if (block.type === "pullquote") {
     return (
-      <FadeIn key={i} delay={Math.min(i * 30, 200)}>
+      <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
         <blockquote className="my-12 md:my-16">
           <p className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-void">
             &ldquo;{block.text}&rdquo;
@@ -975,7 +977,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
   }
   if (block.type === "cta") {
     return (
-      <FadeIn key={i} delay={Math.min(i * 30, 200)}>
+      <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
         <div className="mt-12 md:mt-16 pt-10 md:pt-12 border-t border-void/10">
           <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void/55 mb-8">
             {block.text}
@@ -1068,9 +1070,9 @@ export default async function ArticlePage({
 
         {/* ── Hero: split layout, viewport height ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
-          <FadeIn duration={1400} translateY={0} className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
+          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
             {article.heroImage ? (
-              <Image
+              <ImageFade
                 src={article.heroImage}
                 alt={article.title}
                 fill
@@ -1081,7 +1083,7 @@ export default async function ArticlePage({
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100 to-surface-raised" />
             )}
-          </FadeIn>
+          </div>
 
           <div className="flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:pb-16 lg:pb-20">
             <TextReveal
@@ -1091,7 +1093,7 @@ export default async function ArticlePage({
             >
               {article.title}
             </TextReveal>
-            <FadeIn delay={400}>
+            <FadeIn delay={400} translateY={32}>
               <p className="mt-4 md:mt-6 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-void/60">
                 {article.subtitle}
               </p>
@@ -1128,7 +1130,7 @@ export default async function ArticlePage({
         </FadeIn>
 
         {/* ── Article body — text always on right half ── */}
-        <article className="py-16 md:py-24">
+        <article className="space-section">
           {sections.map((section, si) => {
 
             {/* Text-only: right half */}
@@ -1143,7 +1145,7 @@ export default async function ArticlePage({
             {/* Image pair: two side-by-side, full width, each with own caption */}
             if (section.kind === "image-pair") {
               return (
-                <FadeIn key={si} delay={100}>
+                <FadeIn key={si} delay={100} translateY={32}>
                   <div className="my-12 md:my-20 px-6 md:px-12 lg:px-20 xl:px-28">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       {section.images.map((img, j) => (
@@ -1169,7 +1171,7 @@ export default async function ArticlePage({
               return (
                 <div key={si} className="md:grid md:grid-cols-2 my-10 md:my-16">
                   <div className="px-6 md:pl-12 lg:pl-20 xl:pl-28 md:pr-16 lg:pr-24 xl:pr-32 mb-8 md:mb-0">
-                    <FadeIn delay={100}>
+                    <FadeIn delay={100} translateY={32}>
                       <figure>
                         <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                           <Image
@@ -1201,8 +1203,8 @@ export default async function ArticlePage({
         </article>
 
         {/* ── Byline ── */}
-        <FadeIn>
-          <div className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 pb-16 md:pb-24">
+        <FadeIn translateY={32}>
+          <div className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 space-flow">
             <div className="pt-8 border-t border-void/8 max-w-[90%]">
               {(() => {
                 const credit = (name: string) => {
@@ -1255,8 +1257,8 @@ export default async function ArticlePage({
         </div>
 
         {/* ── Related articles ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
-          <h2 className="font-display text-[28px] md:text-[32px] tracking-[0.01em] text-void mb-8 md:mb-12">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
+          <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void mb-8 md:mb-12">
             Continue reading
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-8 gap-x-6 md:gap-x-8">
@@ -1270,7 +1272,7 @@ export default async function ArticlePage({
                 return { title: a.title, category: a.category, slug: s, image: a.heroImage };
               });
             })().map((related, i) => (
-              <FadeIn key={related.title} delay={i * 150} variant="reveal">
+              <FadeIn key={related.title} delay={i * STAGGER.grid} variant="reveal">
               <Link
                 href={`/journal/${related.slug}`}
                 className="group block"

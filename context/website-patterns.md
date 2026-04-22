@@ -143,18 +143,16 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Header stays visible during flipbook via `data-flipbook-active` attribute on body, read by the header component.
 - Video cards: the first card can be a video. Plays when active, pauses when not.
 
-**Lenis smooth scrolling:**
-- Installed via `npm install lenis`. Wrapper component: `smooth-scroll.tsx`.
-- Wrapped around children in `layout.tsx`. Uses `duration: 1.2` with ease-out-expo easing.
-- CSS in `globals.css`: `html.lenis` height auto, scroll-behavior override, `[data-lenis-prevent]` for opt-out.
-- To disable on specific elements: add `data-lenis-prevent` attribute.
-- To remove entirely: unwrap `SmoothScroll` from layout.tsx and remove the CSS.
-- The Lenis instance is exposed on `window.__lenis` (set in `smooth-scroll.tsx`) so other client components can trigger smooth anchor scrolls: `window.__lenis?.scrollTo(targetEl, { offset: -headerHeight, duration: 1.4 })`. On touch devices Lenis isn't initialised, so callers fall back to `window.scrollTo({ top, behavior: "smooth" })`.
+**Scroll — native everywhere.**
+- No smooth-scroll library. Lenis was removed (April 2026) after it was creating more Safari compositor jitter than the assist was worth. Native scroll on modern desktop Chrome / Firefox is silky enough on its own, and mobile Safari's native scroll is already the target feel.
+- Anchor scrolls use `window.scrollTo({ top, behavior: "smooth" })`. Example (HeroVideo scroll button): compute target `y` from `getBoundingClientRect().top + window.scrollY - headerOffset`, then `window.scrollTo({ top: Math.max(0, y), behavior: "smooth" })`.
+- Reveals (FadeIn, TextReveal) are driven by IntersectionObserver independently of scroll smoothness — they work identically regardless of which scroll implementation is in use.
+- Do NOT reintroduce Lenis or any rAF-transform smooth-scroll library. It fights Safari's native compositor; the jitter history in this file was almost entirely a Lenis artefact.
 
 **Page transitions:**
 - Lightweight crossfade on route change via `page-transition.tsx`.
 - Uses `usePathname()` to detect navigation, fades out and back in (500ms opacity transition).
-- Wrapped around children in `layout.tsx` inside `SmoothScroll`.
+- Wrapped around children in `layout.tsx`.
 - To remove: unwrap `PageTransition` from layout.tsx.
 
 **FadeIn component variants:**
@@ -185,7 +183,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Use a static photo as `public/og-image.jpg` (1200x630) and reference it in the metadata export. Real photography always outperforms generated graphics on social.
 
 **Awwwards-level polish (lessons learned):**
-- Lenis smooth scroll is the single highest-impact upgrade. Transforms the entire feel for minimal effort.
+- Native scroll beats rAF-transform smooth-scroll libraries. We shipped with Lenis and then removed it — native scroll on modern Chrome / Firefox is already smooth, and Safari's native scroll is the target feel that libraries spend their energy trying to fake. Less code, less compositor fighting, identical reveal behaviour.
 - Image reveals (fade + slide-up) look better than clip-mask reveals. Clip-path creates sharp edges during animation that conflict with rounded corners.
 - Custom cursors are polarising. Test with real users before shipping. They can feel fiddly and inaccessible. We removed ours.
 - Horizontal scroll hijacking (converting vertical scroll to horizontal) can feel strange and disorienting. Native horizontal scroll/swipe is usually better. We removed ours.
@@ -209,7 +207,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Archive: `src/components/hero-flipbook.tsx` still exists; used only by `/home-1` page now.
 
 **Homepage structure (live root `/`):**
-- Full-bleed AUWA face video (parallax zoom on scroll, click-and-hold lifts saturation, "Scroll" label + breathing vertical line instead of bouncing chevron, transparent header overlay). 2.4s Lenis scroll on the "Scroll" button to the intro.
+- Full-bleed AUWA face video ("Scroll" label + breathing vertical line instead of bouncing chevron, transparent header overlay). The "Scroll" button uses native `window.scrollTo({ top, behavior: "smooth" })` to land on the intro with an offset for the sticky header.
 - "Our Philosophy" intro. Desktop-only 心 (Kokoro) kanji watermark at 3% alpha behind the paragraph, right side.
 - Pullquote 1 ("What you pay attention to…") at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05.
 - Four-pillar module (EditorialFrames desktop / PillarParade mobile).
@@ -301,17 +299,13 @@ transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300m
 
 **Don't hold persistent compositor layers on reveal wrappers.** Once visible, FadeIn and TextReveal set `transform: none` (not `translate3d(0, 0, 0)`). Holding the layer permanently makes the entrance crisper on Safari (no subpixel "settle" at transition end) but the layer count on a page with many FadeIn elements became enough to hurt overall scroll smoothness on BOTH Chrome and Safari. Accept the tiny settle; keep scroll smooth. If you need to fix the settle on a specific high-value hero element, promote that element locally rather than every FadeIn wrapper globally.
 
-**Lenis is for desktop Chrome / Firefox only.** Skip Lenis on touch devices (native mobile momentum is already smooth) and on Safari (Lenis's rAF transform fights Safari's native scroll and reads as micro-jitter). Safari's native scroll is smooth on its own — sites like moreair.co feel buttery precisely because they use native scroll. Detect Safari by UA excluding Chrome/Chromium/Edge/Firefox-iOS:
-```ts
-const isSafari = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
-```
-Duration mode (`duration: 1.2` with ease-out-expo) is the Chrome-smooth default — don't swap for `lerp` without measuring; lerp was worse on Chrome in our testing.
+**Don't add a smooth-scroll library.** Lenis was tried and removed — its rAF transform fights Safari's native compositor, producing micro-jitter that doesn't exist with plain native scroll. Safari's native scroll is already the target feel; sites like moreair.co feel buttery precisely because they don't fight the browser. Chrome and Firefox native scroll on modern hardware are smooth enough that the library's "assist" doesn't register as an upgrade. If scroll feels rough somewhere, investigate the compositor layer count and animation patterns — don't reach for a library.
 
 **Nested opacity animations jitter in Safari.** Running per-word `TextReveal` or inner `FadeIn` animations INSIDE a wrapper that's also opacity-fading (e.g. a tab gallery crossfade) makes Safari's compositor re-rasterise layers as opacities compound. Symptom: visible subpixel jitter on the inner text "settling into place" during a frame change. Fix: pick one. Let the outer crossfade carry the reveal and make the inner content static, OR drop the outer crossfade and rely solely on the inner cascade. `EditorialFrames` chose the former — content inside each frame is now plain HTML and the 700ms outer opacity transition is the entire reveal.
 
-**`will-change` toggling on IntersectionObserver trigger causes Safari scroll jitter.** `will-change: "opacity, transform"` while hidden + `"auto"` when visible made Safari tear down the preallocated compositor layer the instant IO flipped `isVisible` — before the transition had painted a single frame. Safari then had to create a new layer on-demand for the active transition, dropping a scroll frame in the process. Tiny but noticeable during Lenis smooth scroll. Fix: **omit `will-change` entirely** on `FadeIn` / `TextReveal`. Safari auto-promotes a layer when the transition starts and demotes cleanly when it ends; that path is smoother than managing it by hand. Chrome is fine either way.
+**`will-change` toggling on IntersectionObserver trigger causes Safari scroll jitter.** `will-change: "opacity, transform"` while hidden + `"auto"` when visible made Safari tear down the preallocated compositor layer the instant IO flipped `isVisible` — before the transition had painted a single frame. Safari then had to create a new layer on-demand for the active transition, dropping a scroll frame in the process. Fix: **omit `will-change` entirely** on `FadeIn` / `TextReveal`. Safari auto-promotes a layer when the transition starts and demotes cleanly when it ends; that path is smoother than managing it by hand. Chrome is fine either way.
 
-**IntersectionObserver bottom rootMargin of `120px` smooths Safari + Lenis scroll.** Triggering at the exact viewport edge (`-40px`) meant Safari had to set up the transition's compositor layer on the same scroll frame Lenis was advancing — one-frame stutter per section. Extending the observer root `120px` BELOW the viewport fires the transition before the user reaches the element: paint starts, layer stabilises, and by the time the element is actually in view the transition is already settled. Applied to both `FadeIn` and `TextReveal`. The animation still reads as an entrance because 120px at typical scroll velocity is only ~150-250ms.
+**IntersectionObserver bottom rootMargin of `120px` smooths Safari reveals.** Triggering at the exact viewport edge (`-40px`) meant Safari had to set up the transition's compositor layer on the same scroll frame it was advancing — one-frame stutter per section. Extending the observer root `120px` BELOW the viewport fires the transition before the user reaches the element: paint starts, layer stabilises, and by the time the element is actually in view the transition is already settled. Applied to both `FadeIn` and `TextReveal`. The animation still reads as an entrance because 120px at typical scroll velocity is only ~150-250ms.
 
 **IntersectionObserver right rootMargin of `200%` for horizontal scrollers.** Cards sitting off-viewport-right (card 2+ in the Journal strip, two-up articles) never intersect the default root, so they stay at the FadeIn reveal variant's `translate3d(80px, 0, 0) opacity: 0` until the user swipes — producing an apparently missing image on iPhone. Widening the right rootMargin to `200%` catches cards up to 2 viewport widths to the right, so they fire when the SECTION scrolls in vertically. Page-flow layouts never place cards more than one viewport to the right, so the wider margin has no effect on non-scroller layouts.
 
@@ -380,7 +374,7 @@ Lessons baked in from the April 2026 SOTD-prep pass. Every future site (AUWA, Mo
 
 **Audio / media cleanup.** Any background `Audio` element gets `document.addEventListener("visibilitychange", pause)` AND `window.addEventListener("pagehide", pause)`. iOS Safari otherwise keeps a paused-media badge live and, in some cases, continues playback when the tab is backgrounded or the user opens a new tab. Applied on `SoundToggle`.
 
-**Floating UI over sticky footer.** Fixed-position UI (sound toggle, cursor label, chat button) living over a `sticky bottom-0` dark footer needs to invert when the footer is revealed behind it. Don't use scroll events — Lenis swallows some on certain setups. Use an IntersectionObserver with a zero-height sentinel appended as `<main>`'s last child:
+**Floating UI over sticky footer.** Fixed-position UI (sound toggle, cursor label, chat button) living over a `sticky bottom-0` dark footer needs to invert when the footer is revealed behind it. Use an IntersectionObserver with a zero-height sentinel appended as `<main>`'s last child rather than a scroll listener — IO avoids coupling floating-UI behaviour to scroll-event timing and works identically across any scroll implementation:
 
 ```ts
 const sentinel = document.createElement("div");

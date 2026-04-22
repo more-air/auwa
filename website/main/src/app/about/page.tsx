@@ -2,6 +2,7 @@ import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { ObfuscatedEmail } from "@/components/obfuscated-email";
+import { STAGGER } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,8 +31,10 @@ export default function AboutPage() {
     <>
       <main>
 
-        {/* Hero */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-16 md:pb-24">
+        {/* Hero — explicit pt-12 md:pt-16 (hero exception, see website.md)
+            provides breathing from the sticky header without the full
+            symmetric section padding. space-flow handles the bottom. */}
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 space-flow">
           <h1 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void max-w-[700px] pr-12 md:pr-0">
             <TextReveal as="span" className="block" stagger={90}>
               The architecture
@@ -43,7 +46,7 @@ export default function AboutPage() {
         </section>
 
         {/* Philosophy */}
-        <section className="mx-auto max-w-[680px] px-6 md:px-10 pb-16 md:pb-24">
+        <section className="mx-auto max-w-[680px] px-6 md:px-10 space-flow">
           <FadeIn>
             <p className="font-display text-[18px] md:text-[20px] leading-[1.7] text-void/80">
               Since ancient times, the Japanese have believed a life force resides in all things. It lives not just in people, but in rivers, handmade bowls, and the shifting light of a season. We call this quality Kokoro (心): a holistic word uniting heart, mind, soul, and spirit. It is felt before it is understood.
@@ -62,7 +65,7 @@ export default function AboutPage() {
         </section>
 
         {/* Four pillars */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-flow">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {[
               { label: "Book", href: "/book", image: "/pillars/book.jpg" },
@@ -70,7 +73,7 @@ export default function AboutPage() {
               { label: "App", href: "/app", image: "/pillars/app.jpg" },
               { label: "Store", href: "/store", image: "/pillars/store.jpg" },
             ].map((pillar, i) => (
-              <FadeIn key={pillar.label} variant="reveal" delay={i * 120}>
+              <FadeIn key={pillar.label} variant="reveal" delay={i * STAGGER.grid}>
                 <Link href={pillar.href} className="group block" data-cursor={pillar.href === "/journal" ? "Read" : "Open"}>
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     <Image
@@ -94,7 +97,7 @@ export default function AboutPage() {
         </section>
 
         {/* The name */}
-        <section className="mx-auto max-w-[680px] px-6 md:px-10 pb-16 md:pb-24">
+        <section className="mx-auto max-w-[680px] px-6 md:px-10 space-flow">
           <FadeIn>
             <h2 className="font-display text-[28px] md:text-[32px] leading-[1.15] tracking-[0.01em] text-void mb-8">
               The name
@@ -107,7 +110,7 @@ export default function AboutPage() {
         </section>
 
         {/* Founders */}
-        <section className="mx-auto max-w-[680px] px-6 md:px-10 pb-16 md:pb-24">
+        <section className="mx-auto max-w-[680px] px-6 md:px-10 space-flow">
           <FadeIn>
             <h2 className="font-display text-[28px] md:text-[32px] leading-[1.15] tracking-[0.01em] text-void mb-8">
               The creators
@@ -149,7 +152,7 @@ export default function AboutPage() {
         </section>
 
         {/* Contact */}
-        <section className="mx-auto max-w-[680px] px-6 md:px-10 pb-16 md:pb-24">
+        <section className="mx-auto max-w-[680px] px-6 md:px-10 space-flow">
           <FadeIn>
             <h2 className="font-display text-[28px] md:text-[32px] leading-[1.15] tracking-[0.01em] text-void mb-8">
               Get in touch

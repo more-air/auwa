@@ -65,13 +65,13 @@ auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves a
 
 ### Home Page (Implemented)
 
-The homepage leads with a full-bleed AUWA face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet AUWA" video moment. All images use `rounded-xl`. Lenis smooth scrolling runs site-wide. Page transitions crossfade between routes. The scroll-driven flipbook hero lives on at `/home-1` as an archive.
+The homepage leads with a full-bleed AUWA face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet AUWA" video moment. All images use `rounded-xl`. Scroll is native across every browser — no smooth-scroll library. Page transitions crossfade between routes. The scroll-driven flipbook hero lives on at `/home-1` as an archive.
 
 **Structure (top to bottom):**
 
 1. **Header** — AUWA wordmark (inline SVG, `currentColor`) left-aligned. Navigation right: Journal, Store, App, Book, About. Transparent mode inferred from pathname (root `/` and `/home-1` only), otherwise solid white. Sticky, hides on scroll down, reveals on scroll up. Rendered once in `layout.tsx` outside `PageTransition` so the logo and menu button sit above all page-leave animations.
 
-2. **HeroVideo** — Full-bleed AUWA face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. Parallax zoom-in on scroll. Click-and-hold lifts saturation. "Scroll" label + breathing vertical line replaces the bouncing chevron, smooth-scrolls 2.4s via `window.__lenis.scrollTo` to the intro section.
+2. **HeroVideo** — Full-bleed AUWA face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line replaces the bouncing chevron; the button calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro section.
 
 3. **Intro block** — "Our philosophy" eyebrow, `ScrollFadeText` paragraph introducing AUWA and its four expressions, "The Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha behind the paragraph.
 
@@ -129,6 +129,8 @@ type ContentBlock =
 ```
 
 The order of content blocks in the CMS determines the article layout. No manual layout selection needed — the grouping algorithm handles it automatically.
+
+**Slide-up reveals — built into the renderer.** Every `FadeIn` on the article page (text blocks, pullquotes, CTAs, image-pair sections, image-beside images, hero subtitle, byline) uses `translateY={32}` instead of the default 12. This gives article body content a deliberate slide-up as sections enter the viewport, rather than the subtler rise used elsewhere. Because the 32px translateY lives in `renderTextBlock` and the section wrappers (not individual article data), **every future article gets this automatically** — no per-article wiring needed. The article hero image uses `ImageFade` to fade in once the image actually loads, rather than sliding.
 
 ### App Page (Pre-Launch)
 
@@ -217,13 +219,35 @@ The website uses a pure white background with the void/cosmic palette for text. 
 - Desktop: 80px (`lg:px-20`)
 - XL: 112px (`xl:px-28`)
 
-**Vertical section spacing (standard rhythm):**
-- Regular sections: `pb-16 md:pb-24` (64px / 96px) — the default for all modules
-- Hero top padding: `pt-12 md:pt-16` (48px / 64px) — intentionally tighter
-- Micro-season module: `py-24 md:py-36` (96px / 144px) — standalone moment, extra breathing room
-- Newsletter module: `py-28 md:py-40` (112px / 160px) — generous, dark background module
-- Footer category links: `py-16 md:py-24` (matches standard)
-- Header height: `h-16 md:h-20` (64px / 80px)
+**Vertical section spacing — three tokens, locked.**
+
+Every section on the site uses one of three utility classes defined as `@utility` in `globals.css`. No bespoke `py-xx` or `pb-xx` values anywhere. Changing a token in one place propagates across every page.
+
+Why three? Because "consistent rhythm" means different things in different contexts. Two adjacent modules need a breathing gap between them. Paragraphs inside one essay need tight flow. Hero moments need generous airlocks. One token for each pattern, no overlap.
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `space-section` | `py-16 md:py-24` (64/96px, both sides) | **Discrete modules** — home page sections, journal grid, video moment. Two adjacent `space-section` sections produce a 192px gap between content, which reads as "distinct module to distinct module." |
+| `space-flow` | `pb-16 md:pb-24` (64/96px, bottom only) | **Continuous narrative** — About page paragraphs, article byline, any columnar content that feels like parts of one essay. Sections flow with a single 96px gap, not doubled. |
+| `space-breathing` | `py-28 md:py-44` (112/176px, both sides) | **Hero moments** — pullquotes and the 72 micro-seasons kanji module. Content that needs to stand alone and inhale. |
+
+**How to pick.** Ask: is this section an independent module, or a paragraph in a continuous narrative? Home page sections are independent (each has its own identity) → `space-section`. About page paragraphs are narrative (they flow as one essay) → `space-flow`. Pullquotes and the kanji moment are hero content → `space-breathing`.
+
+**Exceptions — the complete list.** These are the only places we deviate from the three tokens. If you need something outside this list, promote the new exception into this table before writing it in code.
+
+- Hero top padding: `pt-12 md:pt-16` (48/64px) — for page heroes that use `space-flow` and need a tighter top to sit close to the header (e.g. About page hero).
+- Header height: `h-16 md:h-20` (64/80px)
+- Newsletter (footer): lives inside `footer.tsx` — the footer has its own internal rhythm and doesn't use any section token.
+
+Any page-section `<section>` in `src/app/**/page.tsx` or `src/components/*.tsx` MUST use `space-section`, `space-flow`, or `space-breathing`. Hardcoded `py-20`, `pb-32`, etc. are drift — treat as bugs.
+
+**Separator placement — always between sections, never inline.**
+
+The `<Separator />` component is a zero-padding, full-width divider line. It sits at the exact boundary between two sections, taking no vertical space of its own. The symmetry rule: each adjacent section's padding token provides the breathing room on its own side, so a `space-section → Separator → space-section` boundary reads as 96px above the line and 96px below on desktop.
+
+NEVER place a divider line inline at the top of a section (inside its top padding) — that pushes the line *into* the section's padding, making the space above the line smaller than the space below and breaking symmetry with other separators on the page. If you need a divider between sections, render `<Separator />` between them in the page tree. If the previous section flows straight into the next without a line, skip the separator entirely.
+
+**Trailing spacer before the footer.** The last module on any page needs a `<div className="h-16 md:h-24" aria-hidden="true" />` before `</main>`. Between adjacent sections mid-page the total gap is 96+96 = 192px (two space-section padding blocks meeting); the trailing spacer recreates that gap against the footer, so the last module doesn't sit tighter to the footer than it does to the module above it.
 
 **Grid gaps:**
 - Article grid (journal index): `gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16`
@@ -245,18 +269,42 @@ The website uses a pure white background with the void/cosmic palette for text. 
 - Image break (about page): 2.5:1 landscape
 - Article hero (mobile): 4:5 portrait; (desktop): fills viewport height
 
-### Motion (Implemented)
+### Motion (Locked tokens)
 
-Uses a custom `FadeIn` client component with IntersectionObserver (not Framer Motion).
+Every animation on the site consumes the same tokens. CSS durations live in `globals.css` (`--duration-*`); JS durations, staggers, and easing live in `src/lib/motion.ts` (`DURATION`, `STAGGER`, `EASING`). Components import from `motion.ts` instead of hardcoding ms values. Changing a token in one place propagates everywhere — FadeIn, TextReveal, hover states, page transitions, the lot.
 
-- **Easing:** `cubic-bezier(0.16, 1, 0.3, 1)` — ease-out-expo
-- **FadeIn duration:** 800ms default
-- **FadeIn translateY:** 12px rise
-- **FadeIn root margin:** `"0px 0px -40px 0px"` — triggers 40px before entering viewport
-- **Stagger delays:** 60-100ms per item (grid cards, nav items)
-- **Hover transitions:** 300ms with `transition-colors duration-300`
-- **Header scroll:** Hides on scroll down, shows on scroll up (no animation library, pure React state)
-- **Mobile menu:** 500ms opacity transition with staggered nav item reveals
+**Durations (single source of truth — `motion.ts` + `globals.css`):**
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `DURATION.enter` / `--duration-enter` | 800ms | FadeIn default, TextReveal — text and general reveals |
+| `DURATION.reveal` / `--duration-reveal` | 1200ms | FadeIn reveal variant — image cards, visual moments |
+| `DURATION.hover` / `--duration-hover` | 300ms | Hover and state transitions |
+| `DURATION.page` / `--duration-page` | 500ms | PageTransition crossfade |
+
+**Stagger ladder — three values, no ad-hoc numbers:**
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `STAGGER.strip` | 60ms | Horizontal scrollers (Journal strip, PillarParade) |
+| `STAGGER.grid` | 120ms | Grid cascades (pillar cards, continue reading, two-up articles) |
+| `STAGGER.hero` | 180ms | Display-type cascades (multi-line TextReveal, stacked hero headings) |
+
+**Easing — three curves only:**
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `EASING.outExpo` / `--ease-out-expo` / Tailwind `ease-out-expo` | `cubic-bezier(0.16, 1, 0.3, 1)` | Brand default — fast departure, gentle arrival. "Like a breath out." |
+| `EASING.inOut` / `--ease-in-out` / Tailwind `ease-in-out` | `cubic-bezier(0.65, 0, 0.35, 1)` | Symmetric — image crossfades, slow ambient transitions |
+| `EASING.textRoll` / `--ease-text-roll` / Tailwind `ease-text-roll` | `cubic-bezier(0.7, 0, 0.3, 1)` | Text-roll hover rollovers (CTAs, nav items, scroll label) — punchier "snap into place" feel, sharper than outExpo |
+
+**FadeIn mechanics (fixed):**
+- `variant="fade"` (default): 12px rise, `DURATION.enter`
+- `variant="reveal"`: 24px rise, `DURATION.reveal`
+- Root margin: `"0px 0px -40px 0px"` (fires 40px before viewport edge); extended to `"0px 200% 0px 0px"` for horizontal scrollers so off-viewport-right cards fire when the section scrolls in
+- No `will-change` toggling (Safari layer-teardown jitter — see `website-patterns.md`)
+
+**Hardcoded ms values are drift.** If you see `duration-500`, `800ms`, or `delay={150}` in a component, it should come from `motion.ts` instead. Treat as a bug.
 
 ### Photography Treatment
 
@@ -340,11 +388,11 @@ Reusable components live in `src/components/`. All are server components unless 
 | Header | `header.tsx` | Yes | Rendered once in `layout.tsx` (outside `PageTransition`) so the logo + menu button stay above page-leave animations. `transparent` mode inferred from pathname (`/` only). Mobile menu is portalled to body. Morphing hamburger→X via inline-style transitions. Logo fades out when menu opens. |
 | Footer | `footer.tsx` | No | "Stay close" newsletter signup (dark), pillar links, copyright + social icons. Sticky at bottom with parallax reveal. |
 | SignupForm | `signup-form.tsx` | Yes | Email signup form. Props: `source` (app-waitlist / store-waitlist / book-waitlist / newsletter), `buttonText`, `successMessage`, `theme` (light/dark), `className`. Posts to `/api/signup`. Input, button, and success message all use `text-[16px]` (not 14px) to prevent iOS Safari's focus auto-zoom — anything under 16px fires the zoom, which pushed the submit button off-screen on smaller iPhones. |
-| FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based animation. Two variants: `"fade"` (default, 12px rise) and `"reveal"` (24px rise, for image cards). Accepts `className`, `delay`, `duration`, `variant`. |
+| FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based animation. Two variants: `"fade"` (default, 12px rise) and `"reveal"` (slides in from the right, for image cards). Accepts `className`, `delay`, `duration`, `translateY`, `variant`. Article pages pass `translateY={32}` for a more pronounced slide-up on body content. |
+| StripReveal | `strip-reveal.tsx` | Yes | Module-level reveal for horizontal scrollers. One IntersectionObserver fires when the container enters viewport and cascades all children in with CSS transition-delay stagger. Replaces per-card FadeIn in horizontal scrollers — the per-card approach fails on narrow viewports (rootMargin 200% only catches the first ~3 cards). After first reveal, swiping right shows already-revealed cards. Props: `className`, `itemClassName`, `stagger`, `translateX`. |
 | TextReveal | `text-reveal.tsx` | Yes | Word-by-word text animation. Splits text into words, each rises from below with stagger. For hero headlines. Props: `as` (tag), `delay`, `stagger`. Used on teaser H1s ("Open the eyes.", "Awareness, daily.", "Lifetime objects.") and on the Journal + About page titles. For explicit multi-line headings (e.g. About's "The architecture / of Kokoro"), stack two TextReveal spans with `as="span" className="block"` and `delay={180}` on the second so the cascade flows from line 1 into line 2. |
-| SmoothScroll | `smooth-scroll.tsx` | Yes | Lenis smooth scrolling wrapper. Wraps children in layout.tsx. Exposes the Lenis instance on `window.__lenis` so any client component can call `window.__lenis?.scrollTo(el, { offset: -80, duration: 1.4 })` for smooth anchor scrolls. On touch devices Lenis isn't initialised — callers fall back to `window.scrollTo({ behavior: "smooth" })`. |
 | PageTransition | `page-transition.tsx` | Yes | Crossfade transition on route change (500ms). Wraps children in layout.tsx. |
-| HeroVideo | `hero-video.tsx` | Yes | Full-bleed video hero for the live homepage. `h-[100svh]` on all viewports (no desktop aspect cap), so the video bottom pins to the browser bottom whatever the monitor ratio. Portrait `.mp4` on mobile, landscape on desktop. Parallax zoom-in on scroll. Click-and-hold lifts saturation. "Scroll" label + breathing vertical line is a `<button>` that smooth-scrolls to the intro via `window.__lenis.scrollTo` on desktop and native smooth scroll on touch devices. |
+| HeroVideo | `hero-video.tsx` | Yes | Full-bleed video hero for the live homepage. `h-[100svh]` on all viewports (no desktop aspect cap), so the video bottom pins to the browser bottom whatever the monitor ratio. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line is a `<button>` that calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro. |
 | EditorialFrames | `editorial-frames.tsx` | Yes | Desktop (≥md) four-pillar module. Tab gallery crossfading through four frames (Store / Book / Journal / App) with staggered reveal per frame (eyebrow → `TextReveal` heading → body → CTA). Image column pinned at 480px, text column flexible, grid template `[480px_1fr]`, `lg:gap-28` horizontal gap, `max-w-[1100px] lg:mx-auto`. Auto-advance every 7s, pauses on hover. Image crossfade: 1500ms `cubic-bezier(0.4, 0, 0.2, 1)` (symmetric ease-in-out, gentle). |
 | PillarParade | `pillar-parade.tsx` | Yes | Mobile (<md) four-pillar module. Horizontal `overflow-x-auto` row of four 3:4 cards mirroring the Journal strip (native scroll, no snap, no `touch-action` override). Cards at `w-[72vw] max-w-[360px]` so card 2 peeks clearly. FadeIn `variant="reveal"` with `revealDistance={40}` so the right-to-left cascade matches the Journal strip without pushing card 2 below the IntersectionObserver's 10% threshold. Dot indicators update via scroll listener on the scroller element. |
 | HeroFlipbook | `hero-flipbook.tsx` | Yes | Archive — scroll-driven stacked-card flipbook hero (Obsidian Assembly pattern). No longer on the live homepage; still used by `/home-1`. Mobile uses `svh`-based sticky + pixel-based transforms (computed from captured viewport height) to stay stable through iOS URL-bar retraction. Scroll-driven state updates gated by `activeIndexRef` to prevent per-frame re-renders. |

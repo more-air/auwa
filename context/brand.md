@@ -325,6 +325,17 @@ This means:
 - **Slow and deliberate.** AUWA doesn't rush. Animations use ease-out-expo (cubic-bezier 0.16, 1, 0.3, 1) — fast departure, gentle arrival. Like a breath out.
 - **Fade, don't slide.** Elements appear by fading in and gently scaling, not sliding in from edges. The app already uses this approach (Framer Motion fade-in components).
 - **The light shower is the hero animation.** All other motion is supporting — subtle, ambient, never competing.
+- **One tempo, not five.** Every duration, stagger, and easing on the website comes from a locked token set. One source of truth; tweaks propagate everywhere. See `context/website.md` Section 4 for the full table.
+
+### Website motion tokens (summary)
+
+The website enforces four durations, three staggers, and two easings. Components import from `src/lib/motion.ts` (JS) and `globals.css` (CSS variables). Full spec in `context/website.md`; at a glance:
+
+- **Durations:** `enter` 800ms · `reveal` 1200ms · `hover` 300ms · `page` 500ms
+- **Staggers:** `strip` 60ms · `grid` 120ms · `hero` 180ms
+- **Easings:** `outExpo` (brand default) · `inOut` (ambient crossfades) · `textRoll` (hover rollovers)
+
+Hardcoded ms values in components are treated as drift. Any new animation requirement either reuses an existing token or promotes a new one into the table first.
 
 ### For Social (Reels / Runway)
 - Slow, atmospheric. Think 0.5-1 second transitions between elements.

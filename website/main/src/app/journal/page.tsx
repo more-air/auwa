@@ -1,6 +1,7 @@
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
+import { STAGGER } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -58,8 +59,8 @@ export default async function JournalPage({
     <>
       <main>
 
-        {/* Title + filters */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-8 md:pb-12">
+        {/* Title, filters, and article grid — one section, one rhythm */}
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           <TextReveal
             as="h1"
             className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.05] tracking-[0.01em] text-void"
@@ -82,15 +83,12 @@ export default async function JournalPage({
               ))}
             </div>
           </FadeIn>
-        </section>
 
-        {/* Article grid */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
+          <div className="mt-12 md:mt-16 grid grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
             {filtered.map((article, i) => (
               <FadeIn
                 key={article.slug}
-                delay={Math.min(i * 120, 480)}
+                delay={Math.min(i * STAGGER.grid, 480)}
                 variant="reveal"
               >
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">

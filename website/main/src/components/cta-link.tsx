@@ -22,7 +22,7 @@ type Props = {
  */
 export function CtaLink({ href, children, className = "", variant = "primary" }: Props) {
   const base =
-    "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500 ease-[cubic-bezier(0.7,0,0.3,1)]";
+    "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500 ease-text-roll";
 
   // `bordered` stays as a legacy alias for the now-standard `secondary`.
   const resolved = variant === "bordered" ? "secondary" : variant;
@@ -49,12 +49,12 @@ export function CtaLink({ href, children, className = "", variant = "primary" }:
         element avoids that class of compositor artefact.
       */}
       <span className="relative inline-flex overflow-hidden">
-        <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-[140%]">
+        <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-[140%]">
           {children}
         </span>
         <span
           aria-hidden="true"
-          className="absolute inset-0 flex items-center justify-center translate-y-[140%] transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+          className="absolute inset-0 flex items-center justify-center translate-y-[140%] transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
         >
           {children}
         </span>

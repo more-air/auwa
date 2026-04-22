@@ -5,9 +5,8 @@
 
   Mirrors the Journal strip's behaviour exactly: a plain flex row with
   native overflow-x-auto, flex-shrink-0 cards, and a FadeIn slide-in-
-  from-right entrance. No scroll-snap, no touch-action overrides, no
-  data-lenis-prevent. That module has zero jitter on iOS, so this one
-  adopts the same contract.
+  from-right entrance. No scroll-snap, no touch-action overrides. That
+  module has zero jitter on iOS, so this one adopts the same contract.
 
   Dot indicators sit below the scroller and update via a scroll listener
   on the scroller element itself — never the window — so page scroll is
@@ -18,6 +17,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
+import { DURATION, EASING, STAGGER } from "@/lib/motion";
 
 type Card = {
   eyebrow: string;
@@ -61,8 +61,17 @@ const CARDS: Card[] = [
 ];
 
 export function PillarParade() {
+  const sectionRef = useRef<HTMLElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  /**
+   * Single reveal fires once when the MODULE (not the individual card)
+   * enters viewport. All four cards slide in together with a CSS
+   * transition-delay stagger. After first reveal they stay visible — so
+   * swiping right doesn't re-trigger the animation; users see the cards
+   * already in place, exactly as intended.
+   */
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
     const el = scrollerRef.current;
@@ -94,8 +103,24 @@ export function PillarParade() {
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRevealed(true);
+          io.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px 120px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section className="relative py-20 md:py-28">
+    <section ref={sectionRef} className="relative space-section">
       {/* Heading row */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14">
         <FadeIn>
@@ -119,17 +144,23 @@ export function PillarParade() {
         className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide"
       >
         {CARDS.map((card, i) => (
-          // Reveal slide-in matches the Journal strip and About pillar
-          // grid. FadeIn's `reveal` variant now uses a 200% right
-          // rootMargin on its IntersectionObserver, so cards 2-4 (sitting
-          // off-viewport-right on mobile) still trigger when the section
-          // scrolls into view vertically — no more "second image missing"
-          // on iPhone.
-          <FadeIn
+          // One module-level reveal drives all four cards. Each card uses
+          // inline transition-delay for staggered entrance — the slide-in
+          // fires once (when the module enters viewport) and then stays
+          // revealed. Swiping right shows already-loaded cards, no repeat
+          // animation. Fixes the "second image missing" behaviour where
+          // each card had its own IntersectionObserver that never fired
+          // for off-viewport-right cards.
+          <div
             key={i}
-            variant="reveal"
-            delay={i * 60}
             className="flex-shrink-0 w-[72vw] sm:w-[320px] max-w-[360px]"
+            style={{
+              opacity: revealed ? 1 : 0,
+              transform: revealed
+                ? "none"
+                : "translate3d(40px, 0, 0)",
+              transition: `opacity ${DURATION.reveal}ms ${EASING.outExpo} ${i * STAGGER.strip}ms, transform ${DURATION.reveal}ms ${EASING.outExpo} ${i * STAGGER.strip}ms`,
+            }}
           >
             <Link
               href={card.href}
@@ -171,7 +202,7 @@ export function PillarParade() {
                 </h3>
               </div>
             </Link>
-          </FadeIn>
+          </div>
         ))}
       </div>
 
@@ -181,7 +212,10 @@ export function PillarParade() {
           <span
             key={i}
             aria-hidden="true"
-            className={`block h-[2px] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            style={{
+              transition: `all ${DURATION.page}ms ${EASING.outExpo}`,
+            }}
+            className={`block h-[2px] ${
               i === active ? "w-10 bg-void" : "w-5 bg-void/20"
             }`}
           />

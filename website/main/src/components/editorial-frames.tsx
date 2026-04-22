@@ -18,6 +18,7 @@ import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { CtaLink } from "@/components/cta-link";
+import { DURATION, EASING } from "@/lib/motion";
 
 // Note: inside FrameContent we deliberately DO NOT use FadeIn or TextReveal.
 // The parent wrapper is already opacity-fading between frames (700ms
@@ -167,7 +168,7 @@ export function EditorialFrames() {
         setPaused(false);
       }}
     >
-      <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-20 md:pt-32 pb-20 md:pb-8">
+      <div className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
         <div className="mb-12 md:mb-20 max-w-[720px]">
           <FadeIn>
             <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
@@ -214,11 +215,11 @@ export function EditorialFrames() {
                   className="absolute inset-0"
                   style={{
                     opacity: i === active ? 1 : 0,
-                    /* Gentle, symmetric ease-in-out so the leaving frame
-                       and the entering frame fade through each other
-                       without either one jumping. Longer duration keeps
-                       the transition unhurried. */
-                    transition: "opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    /* Symmetric ease-in-out so the leaving frame and the
+                       entering frame fade through each other without
+                       either one jumping. DURATION.reveal (the image
+                       reveal token) keeps it unhurried. */
+                    transition: `opacity ${DURATION.reveal}ms ${EASING.inOut}`,
                   }}
                 >
                   {f.type === "video" ? (
@@ -273,8 +274,7 @@ export function EditorialFrames() {
                     style={{
                       opacity: isActive ? 1 : 0,
                       pointerEvents: isActive ? "auto" : "none",
-                      transition:
-                        "opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)",
+                      transition: `opacity ${DURATION.enter}ms ${EASING.outExpo}`,
                     }}
                     aria-hidden={!isActive}
                   >

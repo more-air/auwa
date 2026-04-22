@@ -14,7 +14,7 @@ const ARTICLE_HREF = "/about";
 
 export function VideoMoment() {
   return (
-    <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24">
+    <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
       <div className="max-w-[1200px] mx-auto">
         {/* Desktop: image card left, text right */}
         <div className="hidden md:grid grid-cols-2 gap-12 lg:gap-20 items-center">

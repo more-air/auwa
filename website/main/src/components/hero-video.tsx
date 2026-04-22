@@ -8,16 +8,14 @@ import { useEffect, useRef, useState } from "react";
     visible area. Beige shows above if video is shorter; if taller, the
     top is clipped (overflow-hidden on the stage).
   Desktop: landscape 16:9 video, native aspect ratio.
-  Parallax zoom on scroll, chevron + "Explore" label fades on scroll.
+  "Scroll" cue + breathing line fades on scroll.
 */
 
 export function HeroVideo() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
-  const scaleRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [pressed, setPressed] = useState(false);
 
   // Pick which video to drive based on viewport. Avoid double playback.
   useEffect(() => {
@@ -66,57 +64,6 @@ export function HeroVideo() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Parallax zoom-in on scroll. iOS Safari batches scroll events around
-  // URL-bar retraction — without smoothing the scale updates, this reads
-  // as a sudden zoom jump on the first scroll. The section height is
-  // captured on mount (and on resize), so the progress calculation doesn't
-  // flicker as svh/dvh shift on mobile.
-  useEffect(() => {
-    const section = sectionRef.current;
-    const scaleEl = scaleRef.current;
-    if (!section || !scaleEl) return;
-
-    let sectionHeight = section.getBoundingClientRect().height;
-    let currentScale = 1;
-    let targetScale = 1;
-    let raf: number | null = null;
-
-    const tick = () => {
-      // Smoothly chase the target scale. Lerp factor 0.18 lands in roughly
-      // 150ms — gentle enough to mask a scroll-event burst, fast enough to
-      // track smooth scrolling without lag.
-      const next = currentScale + (targetScale - currentScale) * 0.18;
-      const delta = Math.abs(next - currentScale);
-      currentScale = next;
-      scaleEl.style.transform = `scale(${currentScale.toFixed(4)})`;
-      if (delta > 0.0005) {
-        raf = requestAnimationFrame(tick);
-      } else {
-        raf = null;
-      }
-    };
-
-    const onScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const progress = Math.max(0, Math.min(1, -rect.top / sectionHeight));
-      targetScale = 1 + progress * 0.06;
-      if (raf === null) raf = requestAnimationFrame(tick);
-    };
-
-    const onResize = () => {
-      sectionHeight = section.getBoundingClientRect().height;
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-    onScroll();
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      if (raf !== null) cancelAnimationFrame(raf);
-    };
-  }, []);
-
   return (
     <section ref={sectionRef} className="-mt-16 md:-mt-20">
       <div
@@ -125,64 +72,41 @@ export function HeroVideo() {
         // before the poster / video paints reads as the same warm off-
         // white family rather than a jarring beige.
         style={{ backgroundColor: "#f8f7f4" }}
-        onPointerDown={(e) => {
-          // Ignore clicks that originate from the scroll cue button — we
-          // don't want the whole stage to swell when the user taps the
-          // bottom-centre CTA.
-          if ((e.target as HTMLElement).closest("button")) return;
-          setPressed(true);
-        }}
-        onPointerUp={() => setPressed(false)}
-        onPointerLeave={() => setPressed(false)}
-        onPointerCancel={() => setPressed(false)}
       >
-        <div
-          ref={scaleRef}
-          className="absolute inset-0 will-change-transform"
-          style={{
-            // Press response — a very subtle swell + saturation lift that
-            // makes the AUWA face feel alive to touch. Stacks on top of the
-            // parallax scroll transform which is applied directly to
-            // scaleEl.style.transform by the scroll handler.
-            filter: pressed ? "saturate(1.25)" : "saturate(1)",
-            transition: "filter 500ms cubic-bezier(0.16, 1, 0.3, 1)",
-          }}
+        {/* Mobile: video fills the screen, anchored to the bottom.
+            object-fit cover scales up to cover; object-position keeps
+            the character visible while the top crops off. */}
+        {/*
+          Only the video matching the current viewport preloads its bytes.
+          The other one still downloads its poster frame for instant
+          first-paint on orientation / window resize, but defers the ~2MB
+          video payload until it actually needs to play.
+        */}
+        <video
+          ref={mobileVideoRef}
+          className="md:hidden absolute inset-0 w-full h-full"
+          style={{ objectFit: "cover", objectPosition: "center bottom" }}
+          poster="/hero/poster-auwa-portrait.jpg"
+          loop
+          muted
+          playsInline
+          preload="metadata"
         >
-          {/* Mobile: video fills the screen, anchored to the bottom.
-              object-fit cover scales up to cover; object-position keeps
-              the character visible while the top crops off. */}
-          {/*
-            Only the video matching the current viewport preloads its bytes.
-            The other one still downloads its poster frame for instant
-            first-paint on orientation / window resize, but defers the ~2MB
-            video payload until it actually needs to play.
-          */}
-          <video
-            ref={mobileVideoRef}
-            className="md:hidden absolute inset-0 w-full h-full"
-            style={{ objectFit: "cover", objectPosition: "center bottom" }}
-            poster="/hero/poster-auwa-portrait.jpg"
-            loop
-            muted
-            playsInline
-            preload="metadata"
-          >
-            <source src="/hero/portrait-auwa.mp4" type="video/mp4" />
-          </video>
+          <source src="/hero/portrait-auwa.mp4" type="video/mp4" />
+        </video>
 
-          {/* Desktop: landscape, object-cover fills the 16:9 stage */}
-          <video
-            ref={desktopVideoRef}
-            className="hidden md:block absolute inset-0 w-full h-full object-cover"
-            poster="/hero/poster-auwa.jpg"
-            loop
-            muted
-            playsInline
-            preload="metadata"
-          >
-            <source src="/hero/landscape-auwa.mp4" type="video/mp4" />
-          </video>
-        </div>
+        {/* Desktop: landscape, object-cover fills the 16:9 stage */}
+        <video
+          ref={desktopVideoRef}
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+          poster="/hero/poster-auwa.jpg"
+          loop
+          muted
+          playsInline
+          preload="metadata"
+        >
+          <source src="/hero/landscape-auwa.mp4" type="video/mp4" />
+        </video>
 
         {/* Subtle gradient from top — keeps the white header legible over the video */}
         <div
@@ -203,13 +127,8 @@ export function HeroVideo() {
             const intro = document.getElementById("intro");
             if (!intro) return;
             const headerOffset = window.matchMedia("(min-width: 768px)").matches ? 80 : 64;
-            const lenis = (window as unknown as { __lenis?: { scrollTo: (t: HTMLElement, o?: { offset?: number; duration?: number }) => void } }).__lenis;
-            if (lenis) {
-              lenis.scrollTo(intro, { offset: -headerOffset, duration: 2.4 });
-            } else {
-              const y = intro.getBoundingClientRect().top + window.scrollY - headerOffset;
-              window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
-            }
+            const y = intro.getBoundingClientRect().top + window.scrollY - headerOffset;
+            window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
           }}
           aria-label="Scroll to introduction"
           className="group absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-5 md:gap-6 cursor-pointer p-2"
@@ -220,12 +139,12 @@ export function HeroVideo() {
           }}
         >
           <span className="relative inline-flex overflow-hidden font-sans text-[12px] md:text-[13px] tracking-[0.26em] uppercase text-white">
-            <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">
+            <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
               Scroll
             </span>
             <span
               aria-hidden="true"
-              className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+              className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
             >
               Scroll
             </span>

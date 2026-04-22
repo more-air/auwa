@@ -8,17 +8,6 @@ main {
   overflow-x: clip; /* Contain FadeIn reveal slide-in from the right */
 }
 
-/* Lenis smooth scroll */
-html.lenis, html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
 @theme inline {
   /* Foundation palette */
   --color-void: oklch(0.08 0.025 250);
@@ -57,9 +46,63 @@ html.lenis, html.lenis body {
   --font-jp: var(--font-noto-sans-jp);
   --font-jp-serif: var(--font-noto-serif-jp);
 
-  /* Motion */
+  /* Motion — easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Text-roll: punchier "snap into place" curve used on hover rollovers
+     (CTAs, nav items, scroll label). Distinct feel from the brand's
+     editorial out-expo — sharper departure and return. */
+  --ease-text-roll: cubic-bezier(0.7, 0, 0.3, 1);
+
+  /* Motion — durations. Single source of truth for every animation on the
+     site. FadeIn, TextReveal, hover transitions, and PageTransition all
+     consume these tokens so a tweak here propagates globally. Matches the
+     tokens in src/lib/motion.ts (used for JS-driven delays/staggers). */
+  --duration-enter: 800ms;    /* FadeIn default, TextReveal */
+  --duration-reveal: 1200ms;  /* FadeIn reveal variant — image cards */
+  --duration-hover: 300ms;    /* Hover and state transitions */
+  --duration-page: 500ms;     /* PageTransition crossfade */
+}
+
+/* Section rhythm — three values lock the vertical spacing across every
+   page. Every section on the site uses exactly one of these utilities.
+   No bespoke py-xx values.
+
+   Why three, not two? Because "consistent rhythm" means different things
+   in different contexts:
+
+   space-section: standalone modules with their own visual identity — home
+   page sections, journal grid, video moment. Symmetric 64/96px padding.
+   Two adjacent sections produce a 192px gap between content, which reads
+   as "distinct module to distinct module."
+
+   space-flow: continuous narrative — About page paragraphs, article
+   byline, any columnar content where sections feel like parts of one
+   essay, not independent modules. Bottom-only 64/96px. Sections flow
+   together with a single 96px gap, not doubled.
+
+   space-breathing: hero moments with generous airlocks on both sides
+   (112/176px symmetric). Reserved for pullquotes and the 72 micro-seasons
+   kanji module — content that needs to stand alone and inhale. */
+@utility space-section {
+  padding-block: 4rem;
+  @media (min-width: 768px) {
+    padding-block: 6rem;
+  }
+}
+
+@utility space-flow {
+  padding-bottom: 4rem;
+  @media (min-width: 768px) {
+    padding-bottom: 6rem;
+  }
+}
+
+@utility space-breathing {
+  padding-block: 7rem;
+  @media (min-width: 768px) {
+    padding-block: 11rem;
+  }
 }
 
 html {

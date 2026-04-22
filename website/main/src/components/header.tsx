@@ -45,8 +45,20 @@ export function Header() {
   // clicks and delays navigation by ~440ms; keeping the menu open through
   // that window lets it crossfade with the page transition instead of
   // flashing the old page in between.
+  //
+  // Also reset `hidden` and `atTop` on route change. The Header is rendered
+  // once in layout.tsx and persists across navigations, so if the user
+  // scrolled down on one page (header hidden) then clicked a link, the
+  // header stayed hidden on the new page until scroll events re-synced it.
+  // On Safari this produced a visible "header drops in" after the teaser
+  // content had already rendered. Resetting here means every new page
+  // starts with the header already in place.
   useEffect(() => {
     setMenuOpen(false);
+    setHidden(false);
+    setAtTop(true);
+    atTopRef.current = true;
+    lastScrollY.current = 0;
   }, [pathname]);
 
   // Hide on scroll down, show on scroll up. atTop has hysteresis so the
@@ -164,11 +176,15 @@ export function Header() {
                 className={`transition-all ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
-                // Open: 500ms with a per-item stagger. Close: 900ms, no
-                // stagger — every item glides out together under the slower
-                // backdrop exhale so nothing snaps away first.
+                // Open: 500ms with a per-item stagger.
+                // Close: 300ms, no stagger — items fade out quickly together
+                // so the text is fully gone before the background finishes
+                // its slower exhale (1100ms). Without this, the new page
+                // starts appearing through the fading background while the
+                // menu text is still partially visible — looks like the
+                // text is momentarily sitting on top of page content.
                 style={{
-                  transitionDuration: menuOpen ? "500ms" : "900ms",
+                  transitionDuration: menuOpen ? "500ms" : "300ms",
                   transitionDelay: menuOpen ? `${80 + i * 60}ms` : "0ms",
                 }}
               >
@@ -179,12 +195,12 @@ export function Header() {
                   }`}
                 >
                   <span className="relative inline-block overflow-hidden pb-[0.12em]">
-                    <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-[110%]">
+                    <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-[110%]">
                       {item.label}
                     </span>
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:translate-y-0"
+                      className="absolute inset-0 translate-y-[110%] transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
                     >
                       {item.label}
                     </span>
@@ -199,7 +215,7 @@ export function Header() {
               menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{
-              transitionDuration: menuOpen ? "500ms" : "900ms",
+              transitionDuration: menuOpen ? "500ms" : "300ms",
               transitionDelay: menuOpen ? `${80 + navItems.length * 60 + 60}ms` : "0ms",
             }}
           >

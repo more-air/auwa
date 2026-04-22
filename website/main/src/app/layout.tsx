@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { EB_Garamond, Instrument_Sans, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
-import { SmoothScroll } from "@/components/smooth-scroll";
 import { PageTransition } from "@/components/page-transition";
 import { EntranceLoader } from "@/components/entrance-loader";
 import { CursorLabel } from "@/components/cursor-label";
@@ -131,19 +130,17 @@ export default function RootLayout({
         <EntranceLoader />
         <CursorLabel />
         {/* <SoundToggle /> — parked for launch, see comment on import above */}
-        <SmoothScroll>
-          {/*
-            Header lives outside PageTransition. PageTransition's wrapper
-            applies opacity/transform during leave/enter, which creates a
-            stacking context that would trap the header's z-index and
-            cause the logo + X to fade out with the page on link clicks.
-            Rendering it here keeps it above the transition at all times.
-          */}
-          <Header />
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </SmoothScroll>
+        {/*
+          Header lives outside PageTransition. PageTransition's wrapper
+          applies opacity/transform during leave/enter, which creates a
+          stacking context that would trap the header's z-index and
+          cause the logo + X to fade out with the page on link clicks.
+          Rendering it here keeps it above the transition at all times.
+        */}
+        <Header />
+        <PageTransition>
+          {children}
+        </PageTransition>
         <Analytics />
         <script
           dangerouslySetInnerHTML={{

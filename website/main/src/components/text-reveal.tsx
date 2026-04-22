@@ -1,11 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { DURATION, EASING } from "@/lib/motion";
 
 /*
   Text reveal animation: words fade in and rise one by one.
   Use on hero headlines and key display text only — not every heading.
   To remove: replace <TextReveal> with a plain element.
+
+  Duration and easing come from motion.ts (DURATION.enter / EASING.outExpo)
+  so tweaks propagate globally. Per-word stagger stays local to this
+  component — it lives in its own 70–90ms range and isn't shared with the
+  STAGGER tokens (those cover cards and grids, a different visual context).
 */
 
 interface TextRevealProps {
@@ -14,7 +20,8 @@ interface TextRevealProps {
   className?: string;
   /** Delay before the first word starts (ms) */
   delay?: number;
-  /** Stagger between words (ms) */
+  /** Stagger between words (ms). 80ms reads as considered — each word
+      arrives just before the eye finishes reading the previous. */
   stagger?: number;
 }
 
@@ -30,7 +37,7 @@ export function TextReveal({
 
   useEffect(() => {
     // Fire ~120px before entry so Safari can set up the per-word
-    // compositor layers before Lenis scroll reaches the element.
+    // compositor layers before the scroll reaches the element.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -60,15 +67,17 @@ export function TextReveal({
             className="inline-block"
             style={{
               opacity: isVisible ? 1 : 0,
-              // End-state `none` (not `translate3d(0, 0, 0)`). Keeping a
-              // persistent layer per word on every TextReveal ran up the
-              // compositor layer count enough to hurt scroll smoothness on
-              // both Chrome and Safari. Hidden state still uses
-              // `translate3d` so the entrance animation GPU-composites.
+              // End-state `translate3d(0, 0, 0)` (not `none`). Holding the
+              // GPU layer after the transition completes prevents Safari
+              // from re-rasterising the glyphs at subpixel precision when
+              // the transform clears — that re-rasterise was showing up as
+              // a tiny "nudge" after the letters had visually settled.
+              // Per-headline scope (3-6 words) keeps the compositor layer
+              // count low enough that scroll smoothness isn't affected.
               transform: isVisible
-                ? "none"
+                ? "translate3d(0, 0, 0)"
                 : "translate3d(0, 100%, 0)",
-              transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * stagger}ms`,
+              transition: `opacity ${DURATION.enter}ms ${EASING.outExpo} ${delay + i * stagger}ms, transform ${DURATION.enter}ms ${EASING.outExpo} ${delay + i * stagger}ms`,
               // No will-change: toggling it to "auto" when isVisible
               // flipped caused Safari to demote the layer mid-transition
               // and stutter a scroll frame. Letting Safari auto-promote
