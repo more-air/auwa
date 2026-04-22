@@ -2,13 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { AuwaLogo } from "./auwa-logo";
-
-// useLayoutEffect is a no-op on the server; guard so Next.js doesn't warn
-// during SSR. Behaves like useEffect on the server, useLayoutEffect on client.
-const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const navItems = [
   { label: "Journal", href: "/journal" },
@@ -38,58 +34,39 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [mounted, setMounted] = useState(false);
+  // Track the last pathname we rendered for. When it changes, we reset
+  // state during render itself (see below) so the new page's FIRST render
+  // already has the correct header state — no old-state frame paints.
+  const [renderedPathname, setRenderedPathname] = useState(pathname);
   const lastScrollY = useRef(0);
   const atTopRef = useRef(true);
-  const prevPathname = useRef(pathname);
-  const headerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Close the menu and reset header state on route change. The Header is
-  // rendered once in layout.tsx and persists across navigations, so
-  // without this the previous page's scroll-derived hidden state leaks
-  // into the new page.
+  // Adjust state during render on pathname change. This is a documented
+  // React pattern for "adjusting state while rendering" — calling setState
+  // during render causes React to discard the current render output and
+  // immediately re-render with the new state. The commit (and browser
+  // paint) only reflects the final state, so the old page's hidden state
+  // never leaks into the new page's first frame.
   //
-  // We also directly set `transition: none` on the DOM element BEFORE
-  // the className change from the state reset commits. React's batched
-  // setState + inline style prop approach wasn't reliably suppressing
-  // the 500ms slide-down animation on Safari — the transition property
-  // and className were changing in the same frame and Safari kicked off
-  // the animation anyway. Setting transition directly on the element
-  // and forcing a reflow guarantees the browser observes the new state
-  // as "already settled" before the className commits.
-  useIsomorphicLayoutEffect(() => {
-    if (prevPathname.current === pathname) return;
-    prevPathname.current = pathname;
-
-    const el = headerRef.current;
-    if (el) {
-      el.style.transition = "none";
-      // Force a reflow so the browser commits the no-transition state
-      // before React's className change arrives in the next render.
-      void el.offsetHeight;
-    }
-
+  // This replaces an earlier useLayoutEffect + direct-DOM transition
+  // suppression approach that still animated on Safari, because the first
+  // render committed with the OLD hidden=true state (className
+  // `-translate-y-full`) before the effect could run. The new page's
+  // subsequent class change to `translate-y-0` fired the 500ms transition
+  // regardless of any inline style manipulation.
+  if (renderedPathname !== pathname) {
+    setRenderedPathname(pathname);
     setMenuOpen(false);
     setHidden(false);
     setAtTop(true);
     atTopRef.current = true;
     lastScrollY.current = 0;
+  }
 
-    // Restore the transition after two frames — long enough for the
-    // snap-in paint to commit, short enough that no user-visible scroll
-    // will have happened yet.
-    const r1 = requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        if (headerRef.current) {
-          headerRef.current.style.transition = "";
-        }
-      });
-    });
-    return () => cancelAnimationFrame(r1);
-  }, [pathname]);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
 
   // Hide on scroll down, show on scroll up. atTop has hysteresis so the
   // transparent homepage header can slide up WHILE still transparent
@@ -282,14 +259,10 @@ export function Header() {
   return (
     <>
       <header
-        ref={headerRef}
         className={`sticky top-0 inset-x-0 z-[100] will-change-transform ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
         style={{
-          // Transition is set here for normal scroll-hide behaviour, and
-          // overridden directly on the element during pathname changes —
-          // see the useLayoutEffect above.
           transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >

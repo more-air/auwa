@@ -33,7 +33,7 @@ export default function StorePage() {
               and image both lost the breathing room they deserve. Grid
               splits in at lg (1024px+) so the composition only pairs
               side-by-side at true desktop widths. */}
-          <div className="flex flex-col h-[calc(100dvh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100dvh-5rem)]">
+          <div className="flex flex-col h-[calc(100svh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100svh-5rem)]">
 
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-section shrink-0">
               <TextReveal
