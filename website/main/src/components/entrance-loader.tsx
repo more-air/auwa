@@ -17,6 +17,7 @@
 */
 
 import { useEffect, useState } from "react";
+import { EASING } from "@/lib/motion";
 
 const STORAGE_KEY = "auwa.loader-shown";
 
@@ -147,7 +148,7 @@ export function EntranceLoader() {
       willChange: "opacity, transform",
       backfaceVisibility: "hidden",
       WebkitBackfaceVisibility: "hidden",
-      transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+      transition: `opacity ${duration}ms ${EASING.outExpo}, transform ${duration}ms ${EASING.outExpo}`,
     };
   };
 

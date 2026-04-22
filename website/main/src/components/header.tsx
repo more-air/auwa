@@ -180,7 +180,7 @@ export function Header() {
             {navItems.map((item, i) => (
               <li
                 key={item.href}
-                className={`transition-all ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`transition-all ease-out-expo ${
                   menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 // Open: 500ms with a per-item stagger.
@@ -218,7 +218,7 @@ export function Header() {
           </ul>
 
           <div
-            className={`mt-8 md:mt-10 flex items-center gap-7 transition-all ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`mt-8 md:mt-10 flex items-center gap-7 transition-all ease-out-expo ${
               menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{

@@ -89,7 +89,7 @@ export default async function JournalPage({
               <FadeIn
                 key={article.slug}
                 delay={Math.min(i * STAGGER.grid, 480)}
-                variant="reveal"
+                translateY={32}
               >
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="rounded-xl overflow-hidden relative aspect-[4/5]">

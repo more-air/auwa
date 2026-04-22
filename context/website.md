@@ -132,29 +132,35 @@ The order of content blocks in the CMS determines the article layout. No manual 
 
 **Slide-up reveals — built into the renderer.** Every `FadeIn` on the article page (text blocks, pullquotes, CTAs, image-pair sections, image-beside images, hero subtitle, byline) uses `translateY={32}` instead of the default 12. This gives article body content a deliberate slide-up as sections enter the viewport, rather than the subtler rise used elsewhere. Because the 32px translateY lives in `renderTextBlock` and the section wrappers (not individual article data), **every future article gets this automatically** — no per-article wiring needed. The article hero image uses `ImageFade` to fade in once the image actually loads, rather than sliding.
 
-### App Page (Pre-Launch)
+### Teaser Pages (App, Store, Book — Pre-Launch)
 
-- Atmospheric hero (dark, orb glow or AUWA character illustration)
-- One line: "A daily awareness practice. Reveal your Kokoro."
-- Brief poetic description (3-4 sentences, Cormorant)
-- Email capture: "Be the first to know."
-- No screenshots, no feature lists, no pricing
+All three teaser pages use the **same hero layout as the article page** — this was a deliberate choice after an earlier bespoke viewport-locked flex layout on teasers caused a visible content drop on desktop Safari (font-swap recalculation resized a flex-1 image column as custom fonts loaded). Using the article-page pattern eliminates the shift.
 
-### Store Page (Pre-Launch)
+**Structure (identical across app, store, book):**
+```tsx
+<main>
+  <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
+    <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-0">
+      <TextReveal as="h1" stagger={90}>{label}</TextReveal>
+      <FadeIn delay={400}><p>{body}</p></FadeIn>
+      <FadeIn delay={600}><SignupForm ... /></FadeIn>
+    </div>
+    <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden order-first md:order-last">
+      <ImageFade ... />
+    </div>
+  </div>
+</main>
+```
 
-- Atmospheric hero (craftsman photography from Monolise research trips)
-- One line: "Lifetime objects with Kokoro."
-- Brief description of the philosophy (craft over disposability, every object chosen because a master poured their spirit into making it)
-- 2-3 preview images of the kinds of objects that will be available
-- Email capture: "Be the first to know."
+- Mobile: image with fixed aspect ratio on top, text block below (natural flow). No viewport-height constraint.
+- md+: grid with viewport-minus-header height. Image and text side by side.
+- `ImageFade` fades the image in once it actually loads.
+- No Footer on teaser pages (single-viewport moments; footer would push content below the fold).
 
-### Book Page (Pre-Launch)
-
-- Atmospheric hero (illustration from AUWA stories)
-- One line: "A cosmic being who reveals the Kokoro in all things."
-- Brief introduction to the series of illustrated stories
-- Illustration samples (2-3 atmospheric images)
-- Email capture
+**Content:**
+- **App:** "Awareness, daily." / body about daily practice / app-waitlist signup form / `/pillars/app.jpg`
+- **Store:** "Lifetime objects." / body about craftsman objects / store-waitlist signup / `/pillars/store.jpg`
+- **Book:** "Open the eyes." / body about illustrated stories / book-waitlist signup / `/pillars/book.jpg`
 
 ### About Page
 
@@ -391,7 +397,7 @@ Reusable components live in `src/components/`. All are server components unless 
 | FadeIn | `fade-in.tsx` | Yes | IntersectionObserver-based animation. Two variants: `"fade"` (default, 12px rise) and `"reveal"` (slides in from the right, for image cards). Accepts `className`, `delay`, `duration`, `translateY`, `variant`. Article pages pass `translateY={32}` for a more pronounced slide-up on body content. |
 | StripReveal | `strip-reveal.tsx` | Yes | Module-level reveal for horizontal scrollers. One IntersectionObserver fires when the container enters viewport and cascades all children in with CSS transition-delay stagger. Replaces per-card FadeIn in horizontal scrollers — the per-card approach fails on narrow viewports (rootMargin 200% only catches the first ~3 cards). After first reveal, swiping right shows already-revealed cards. Props: `className`, `itemClassName`, `stagger`, `translateX`. |
 | TextReveal | `text-reveal.tsx` | Yes | Word-by-word text animation. Splits text into words, each rises from below with stagger. For hero headlines. Props: `as` (tag), `delay`, `stagger`. Used on teaser H1s ("Open the eyes.", "Awareness, daily.", "Lifetime objects.") and on the Journal + About page titles. For explicit multi-line headings (e.g. About's "The architecture / of Kokoro"), stack two TextReveal spans with `as="span" className="block"` and `delay={180}` on the second so the cascade flows from line 1 into line 2. |
-| PageTransition | `page-transition.tsx` | Yes | Crossfade transition on route change (500ms). Wraps children in layout.tsx. |
+| PageTransition | `page-transition.tsx` | Yes | Opacity-only crossfade on route change (500ms). Wraps children in layout.tsx. No transform — an earlier version translated content 18px down on enter, which caused a visible drop on teaser pages (viewport-locked layouts expose any page-wrapper translate; article pages absorbed it via natural flow). Opacity-only keeps the handoff smooth on every page. |
 | HeroVideo | `hero-video.tsx` | Yes | Full-bleed video hero for the live homepage. `h-[100svh]` on all viewports (no desktop aspect cap), so the video bottom pins to the browser bottom whatever the monitor ratio. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line is a `<button>` that calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro. |
 | EditorialFrames | `editorial-frames.tsx` | Yes | Desktop (≥md) four-pillar module. Tab gallery crossfading through four frames (Store / Book / Journal / App) with staggered reveal per frame (eyebrow → `TextReveal` heading → body → CTA). Image column pinned at 480px, text column flexible, grid template `[480px_1fr]`, `lg:gap-28` horizontal gap, `max-w-[1100px] lg:mx-auto`. Auto-advance every 7s, pauses on hover. Image crossfade: 1500ms `cubic-bezier(0.4, 0, 0.2, 1)` (symmetric ease-in-out, gentle). |
 | PillarParade | `pillar-parade.tsx` | Yes | Mobile (<md) four-pillar module. Horizontal `overflow-x-auto` row of four 3:4 cards mirroring the Journal strip (native scroll, no snap, no `touch-action` override). Cards at `w-[72vw] max-w-[360px]` so card 2 peeks clearly. FadeIn `variant="reveal"` with `revealDistance={40}` so the right-to-left cascade matches the Journal strip without pushing card 2 below the IntersectionObserver's 10% threshold. Dot indicators update via scroll listener on the scroller element. |

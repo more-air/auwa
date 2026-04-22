@@ -391,4 +391,24 @@ io.observe(sentinel);
 
 **Sticky header + PageTransition.** Render `<Header />` in `layout.tsx` OUTSIDE the `PageTransition` wrapper. Inside it, the header inherits the wrapper's transform/opacity stacking context and fades out with every route change. Mobile menu overlays portal to `document.body` with the header at `z-[100]` above a `z-[90]` overlay.
 
+**PageTransition = opacity-only. No transform.** An earlier version of PageTransition translated content 18px down on enter and 24px up on leave for a "settles into place" feel. This caused a visible content drop on teaser pages (viewport-locked centred layouts expose any page-wrapper translate to the eye — article and journal pages absorb it via natural flow). Keep PageTransition's `contentStyle` to `{ opacity: 1 }` at rest and `{ opacity: 0 }` on enter/leave. The crossfade alone carries the handoff without ever shifting layout.
+
+**Header state must not persist across navigations.** Header is rendered once in `layout.tsx` and persists. If the user scrolled down on page A (header hidden via scroll) then clicks to page B, the new page's first render still has `hidden=true` from A's state — triggering the 500ms slide-down animation on B. Fix: adjust state during render using React's documented pattern:
+
+```tsx
+const [renderedPathname, setRenderedPathname] = useState(pathname);
+if (renderedPathname !== pathname) {
+  setRenderedPathname(pathname);
+  setMenuOpen(false);
+  setHidden(false);
+  setAtTop(true);
+  atTopRef.current = true;
+  lastScrollY.current = 0;
+}
+```
+
+React discards the current render and re-renders with the new state before paint. Do NOT use `key={pathname}` on the Header — remounting the sticky header causes a brief layout shift (header disappears, content below moves up, then header remounts and content moves down). Do NOT use `useLayoutEffect` + setState for this — the first paint still uses the old state on Safari.
+
+**Teaser-style single-viewport pages MUST match the article-page hero pattern.** Earlier AUWA teaser pages (app, store, book) used a bespoke `flex flex-col h-[calc(100dvh-4rem)]` layout with a `flex-1 min-h-0` image column. Custom font swap (next/font `display: swap`) recalculated text heights after initial paint, which resized the flex-1 image, which visibly dropped the whole composition ~1s after load. Use the article hero pattern instead — `grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]` with an `aspect-[4/5]` image on mobile and natural text flow. This absorbs font-swap without layout shift.
+
 **Submission cadence.** Tuesday or Wednesday morning UK time is the window — Monday is judges' backlog day, Thursday/Friday/weekend land in the "Nominee" pile after SOTD slots are allocated. Avoid the first week of any month (carryover backlog). Submit only once the hero video and entrance loader are the absolute final cut — those are the first four seconds and carry 80% of the judge's vote. Primary category for AUWA-tier brands: **Wellbeing** (least crowded premium lane). Tags to pick: Editorial, Typography, Animation, Transitions, Interaction Design, Cultural. Main preview image: 1400×787 JPG under 1MB, and for AUWA specifically it's a close crop of the AUWA face from the hero video — nothing else on Awwwards looks like it.

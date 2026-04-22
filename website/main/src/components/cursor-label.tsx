@@ -15,6 +15,7 @@
 */
 
 import { useEffect, useRef, useState } from "react";
+import { EASING } from "@/lib/motion";
 
 export function CursorLabel() {
   const [enabled, setEnabled] = useState(false);
@@ -110,8 +111,7 @@ export function CursorLabel() {
         style={{
           transform: `translate(-50%, -50%) scale(${visible ? 1 : 0})`,
           opacity: visible ? 1 : 0,
-          transition:
-            "opacity 320ms cubic-bezier(0.16, 1, 0.3, 1), transform 320ms cubic-bezier(0.16, 1, 0.3, 1)",
+          transition: `opacity 320ms ${EASING.outExpo}, transform 320ms ${EASING.outExpo}`,
           backfaceVisibility: "hidden",
           WebkitBackfaceVisibility: "hidden",
         }}
