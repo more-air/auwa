@@ -83,13 +83,14 @@ export function FadeIn({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        // `transform: none` at rest. Holding `translate3d(0, 0, 0)`
-        // permanently leaves a compositor layer per FadeIn wrapper — with
-        // many reveals on the homepage, that became enough layer churn to
-        // make both Chrome and Safari jitter. Safari's remaining subpixel
-        // "settle" at transition end is a fair trade for overall scroll
-        // smoothness.
-        transform: isVisible ? "none" : hiddenTransform,
+        // End-state `translate3d(0, 0, 0)` instead of `none`. Holding the
+        // GPU layer after the transition completes prevents Safari from
+        // re-rasterising the element at subpixel precision when the
+        // transform clears — the re-rasterise was showing up as a tiny
+        // "nudge" after the element had visually settled. Safe now that
+        // we've removed Lenis; on native scroll the browser handles many
+        // persistent layers without compositor contention.
+        transform: isVisible ? "translate3d(0, 0, 0)" : hiddenTransform,
         transition: `opacity ${dur}ms ${EASING.outExpo} ${delay}ms, transform ${dur}ms ${EASING.outExpo} ${delay}ms`,
       }}
     >

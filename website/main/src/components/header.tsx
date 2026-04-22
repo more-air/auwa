@@ -38,52 +38,58 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [mounted, setMounted] = useState(false);
-  const [suppressTransition, setSuppressTransition] = useState(false);
   const lastScrollY = useRef(0);
   const atTopRef = useRef(true);
   const prevPathname = useRef(pathname);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Close the menu when the route changes. PageTransition intercepts link
-  // clicks and delays navigation by ~440ms; keeping the menu open through
-  // that window lets it crossfade with the page transition instead of
-  // flashing the old page in between.
+  // Close the menu and reset header state on route change. The Header is
+  // rendered once in layout.tsx and persists across navigations, so
+  // without this the previous page's scroll-derived hidden state leaks
+  // into the new page.
   //
-  // Also reset `hidden` and `atTop` on route change AND suppress the
-  // translate transition for one frame. The Header is rendered once in
-  // layout.tsx and persists across navigations, so if the user scrolled
-  // down on one page (hidden=true) then clicked a teaser link, the new
-  // page committed with hidden=true first, then the resetting useEffect
-  // flipped to hidden=false — which triggered the 500ms slide-down
-  // animation, reading as "header drops in" after the content had
-  // already rendered. Using useLayoutEffect puts the reset before paint,
-  // and suppressing the transition on that frame means the header simply
-  // appears in place with no animation.
+  // We also directly set `transition: none` on the DOM element BEFORE
+  // the className change from the state reset commits. React's batched
+  // setState + inline style prop approach wasn't reliably suppressing
+  // the 500ms slide-down animation on Safari — the transition property
+  // and className were changing in the same frame and Safari kicked off
+  // the animation anyway. Setting transition directly on the element
+  // and forcing a reflow guarantees the browser observes the new state
+  // as "already settled" before the className commits.
   useIsomorphicLayoutEffect(() => {
     if (prevPathname.current === pathname) return;
     prevPathname.current = pathname;
+
+    const el = headerRef.current;
+    if (el) {
+      el.style.transition = "none";
+      // Force a reflow so the browser commits the no-transition state
+      // before React's className change arrives in the next render.
+      void el.offsetHeight;
+    }
+
     setMenuOpen(false);
-    setSuppressTransition(true);
     setHidden(false);
     setAtTop(true);
     atTopRef.current = true;
     lastScrollY.current = 0;
-  }, [pathname]);
 
-  // Restore the transition after the snap-in frame. Two rAFs ensures the
-  // no-transition paint has committed before we re-enable transitions
-  // for subsequent scroll-hide behaviour.
-  useEffect(() => {
-    if (!suppressTransition) return;
+    // Restore the transition after two frames — long enough for the
+    // snap-in paint to commit, short enough that no user-visible scroll
+    // will have happened yet.
     const r1 = requestAnimationFrame(() => {
-      const r2 = requestAnimationFrame(() => setSuppressTransition(false));
-      return () => cancelAnimationFrame(r2);
+      requestAnimationFrame(() => {
+        if (headerRef.current) {
+          headerRef.current.style.transition = "";
+        }
+      });
     });
     return () => cancelAnimationFrame(r1);
-  }, [suppressTransition]);
+  }, [pathname]);
 
   // Hide on scroll down, show on scroll up. atTop has hysteresis so the
   // transparent homepage header can slide up WHILE still transparent
@@ -276,20 +282,15 @@ export function Header() {
   return (
     <>
       <header
+        ref={headerRef}
         className={`sticky top-0 inset-x-0 z-[100] will-change-transform ${
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
         style={{
-          // No position switching. Without the body scroll-lock, sticky
-          // keeps working normally while the menu is open, and the
-          // overlay (z-[90]) sits below the header (z-[100]) so the X
-          // button stays on top.
-          // Transition suppressed on pathname change so the header snaps
-          // into place on a new page rather than animating the 500ms
-          // slide-down from the previous page's hidden state.
-          transition: suppressTransition
-            ? "none"
-            : "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+          // Transition is set here for normal scroll-hide behaviour, and
+          // overridden directly on the element during pathname changes —
+          // see the useLayoutEffect above.
+          transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         {/*
