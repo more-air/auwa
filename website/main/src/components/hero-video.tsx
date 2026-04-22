@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { DURATION, EASING } from "@/lib/motion";
 
 /*
   Full-bleed AUWA face video hero.
@@ -9,6 +10,11 @@ import { useEffect, useRef, useState } from "react";
     top is clipped (overflow-hidden on the stage).
   Desktop: landscape 16:9 video, native aspect ratio.
   "Scroll" cue + breathing line fades on scroll.
+
+  Fade-in: video + its poster fade from opacity 0 to 1 over DURATION.reveal
+  (1200ms) once the first frame is ready. Matches the ImageFade timing used
+  on every other hero on the site (article, teaser pages) so navigating
+  between pages reads as one consistent entrance grammar.
 */
 
 export function HeroVideo() {
@@ -16,6 +22,12 @@ export function HeroVideo() {
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  const fadeStyle = {
+    opacity: loaded ? 1 : 0,
+    transition: `opacity ${DURATION.reveal}ms ${EASING.outExpo}`,
+  };
 
   // Pick which video to drive based on viewport. Avoid double playback.
   useEffect(() => {
@@ -64,6 +76,18 @@ export function HeroVideo() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Trigger the fade on mount. The video has preload="metadata" so
+  // `loadeddata` only fires once data starts downloading (after play()
+  // is called) — if we wait for that event, the fade can stay at
+  // opacity 0 for seconds. The poster image renders immediately with
+  // the element anyway, so we can start the fade as soon as the
+  // component mounts. One frame delay via rAF ensures the first paint
+  // captures opacity 0 before the transition begins.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setLoaded(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
     <section ref={sectionRef} className="-mt-16 md:-mt-20">
       <div
@@ -85,7 +109,11 @@ export function HeroVideo() {
         <video
           ref={mobileVideoRef}
           className="md:hidden absolute inset-0 w-full h-full"
-          style={{ objectFit: "cover", objectPosition: "center bottom" }}
+          style={{
+            objectFit: "cover",
+            objectPosition: "center bottom",
+            ...fadeStyle,
+          }}
           poster="/hero/poster-auwa-portrait.jpg"
           loop
           muted
@@ -99,6 +127,7 @@ export function HeroVideo() {
         <video
           ref={desktopVideoRef}
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
+          style={fadeStyle}
           poster="/hero/poster-auwa.jpg"
           loop
           muted
