@@ -73,7 +73,7 @@ export default function AboutPage() {
               { label: "App", href: "/app", image: "/pillars/app.jpg" },
               { label: "Store", href: "/store", image: "/pillars/store.jpg" },
             ].map((pillar, i) => (
-              <FadeIn key={pillar.label} variant="reveal" delay={i * STAGGER.grid}>
+              <FadeIn key={pillar.label} delay={i * STAGGER.grid} translateY={32}>
                 <Link href={pillar.href} className="group block" data-cursor={pillar.href === "/journal" ? "Read" : "Open"}>
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     <Image

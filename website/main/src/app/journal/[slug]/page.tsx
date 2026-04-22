@@ -1272,7 +1272,7 @@ export default async function ArticlePage({
                 return { title: a.title, category: a.category, slug: s, image: a.heroImage };
               });
             })().map((related, i) => (
-              <FadeIn key={related.title} delay={i * STAGGER.grid} variant="reveal">
+              <FadeIn key={related.title} delay={i * STAGGER.grid} translateY={32}>
               <Link
                 href={`/journal/${related.slug}`}
                 className="group block"

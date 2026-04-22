@@ -198,7 +198,7 @@ export default function Home() {
           </div>
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
-              <FadeIn key={pillar.label} delay={i * STAGGER.grid} variant="reveal">
+              <FadeIn key={pillar.label} delay={i * STAGGER.grid} translateY={32}>
                 <Link href={pillar.href} className="group block" data-cursor="Open">
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {pillar.image ? (
@@ -208,6 +208,7 @@ export default function Home() {
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"
+                        loading="eager"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -244,7 +245,7 @@ export default function Home() {
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
             {twoUpArticles.map((article, i) => (
-              <FadeIn key={article.slug} delay={i * STAGGER.grid} variant="reveal">
+              <FadeIn key={article.slug} delay={i * STAGGER.grid} translateY={32}>
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                     {article.image ? (

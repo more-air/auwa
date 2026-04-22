@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { AuwaLogo } from "./auwa-logo";
+
+// useLayoutEffect is a no-op on the server; guard so Next.js doesn't warn
+// during SSR. Behaves like useEffect on the server, useLayoutEffect on client.
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const navItems = [
   { label: "Journal", href: "/journal" },
@@ -34,8 +38,10 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [suppressTransition, setSuppressTransition] = useState(false);
   const lastScrollY = useRef(0);
   const atTopRef = useRef(true);
+  const prevPathname = useRef(pathname);
 
   useEffect(() => {
     setMounted(true);
@@ -46,20 +52,38 @@ export function Header() {
   // that window lets it crossfade with the page transition instead of
   // flashing the old page in between.
   //
-  // Also reset `hidden` and `atTop` on route change. The Header is rendered
-  // once in layout.tsx and persists across navigations, so if the user
-  // scrolled down on one page (header hidden) then clicked a link, the
-  // header stayed hidden on the new page until scroll events re-synced it.
-  // On Safari this produced a visible "header drops in" after the teaser
-  // content had already rendered. Resetting here means every new page
-  // starts with the header already in place.
-  useEffect(() => {
+  // Also reset `hidden` and `atTop` on route change AND suppress the
+  // translate transition for one frame. The Header is rendered once in
+  // layout.tsx and persists across navigations, so if the user scrolled
+  // down on one page (hidden=true) then clicked a teaser link, the new
+  // page committed with hidden=true first, then the resetting useEffect
+  // flipped to hidden=false — which triggered the 500ms slide-down
+  // animation, reading as "header drops in" after the content had
+  // already rendered. Using useLayoutEffect puts the reset before paint,
+  // and suppressing the transition on that frame means the header simply
+  // appears in place with no animation.
+  useIsomorphicLayoutEffect(() => {
+    if (prevPathname.current === pathname) return;
+    prevPathname.current = pathname;
     setMenuOpen(false);
+    setSuppressTransition(true);
     setHidden(false);
     setAtTop(true);
     atTopRef.current = true;
     lastScrollY.current = 0;
   }, [pathname]);
+
+  // Restore the transition after the snap-in frame. Two rAFs ensures the
+  // no-transition paint has committed before we re-enable transitions
+  // for subsequent scroll-hide behaviour.
+  useEffect(() => {
+    if (!suppressTransition) return;
+    const r1 = requestAnimationFrame(() => {
+      const r2 = requestAnimationFrame(() => setSuppressTransition(false));
+      return () => cancelAnimationFrame(r2);
+    });
+    return () => cancelAnimationFrame(r1);
+  }, [suppressTransition]);
 
   // Hide on scroll down, show on scroll up. atTop has hysteresis so the
   // transparent homepage header can slide up WHILE still transparent
@@ -260,7 +284,12 @@ export function Header() {
           // keeps working normally while the menu is open, and the
           // overlay (z-[90]) sits below the header (z-[100]) so the X
           // button stays on top.
-          transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+          // Transition suppressed on pathname change so the header snaps
+          // into place on a new page rather than animating the 500ms
+          // slide-down from the previous page's hidden state.
+          transition: suppressTransition
+            ? "none"
+            : "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         {/*
