@@ -84,16 +84,22 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     prevPathname.current = pathname;
   }, [pathname]);
 
-  // At rest (visible) we drop the transform so the wrapper doesn't create a
-  // stacking context. Otherwise the portalled mobile-menu overlay (z-[90])
-  // at body level ends up above the header (z-[100] but trapped inside the
-  // transformed wrapper's context), which hides the X button during menu open.
+  // Pure opacity crossfade — no transform. An earlier version translated
+  // content down 18px on enter and up 24px on leave, but the entering
+  // slide was causing a visible content drop on teaser pages. Teaser
+  // pages are viewport-locked centered layouts — any vertical translation
+  // on the page wrapper is immediately obvious. Article and journal pages
+  // absorb the translate in their natural-flow content, so they looked
+  // fine. Opacity-only keeps navigation smooth everywhere without
+  // shifting layout between pages.
+  //
+  // Also avoids creating a stacking context at rest, so the portalled
+  // mobile-menu overlay (z-[90]) doesn't end up above the header
+  // (z-[100] but trapped inside a transformed wrapper's context).
   const contentStyle =
     phase === "visible"
       ? { opacity: 1 }
-      : phase === "entering"
-        ? { opacity: 0, transform: "translate3d(0, 18px, 0)" }
-        : /* leaving */ { opacity: 0, transform: "translate3d(0, 24px, 0)" };
+      : /* entering or leaving */ { opacity: 0 };
 
   return (
     <>
