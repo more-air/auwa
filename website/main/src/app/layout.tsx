@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { PageTransition } from "@/components/page-transition";
 import { EntranceLoader } from "@/components/entrance-loader";
 import { CursorLabel } from "@/components/cursor-label";
+import { FigureHook } from "@/components/figure-hook";
 // SoundToggle is parked for launch — reads as distracting at arrival.
 // Re-enable when we decide to bring ambient sound back; the component
 // itself is feature-complete (lifts above the footer, pauses on tab
@@ -148,6 +149,7 @@ export default function RootLayout({
         <PageTransition>
           {children}
         </PageTransition>
+        <FigureHook />
         <Analytics />
         <script
           dangerouslySetInnerHTML={{

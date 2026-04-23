@@ -42,7 +42,7 @@ export default function StorePage() {
               </TextReveal>
               <FadeIn delay={400}>
                 <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[440px]">
-                  A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime, the antithesis of throwaway. Add your email and we&rsquo;ll write when our store opens.
+                  Japanese craftsman objects, and our own figure editions. Small, signed, hand-finished. Add your email for the opening, and a chance at the first batch.
                 </p>
               </FadeIn>
               <FadeIn delay={600}>
