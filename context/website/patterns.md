@@ -2,7 +2,7 @@
 
 *Load this file only for sessions that touch the website at `website/main/` — design tweaks, component fixes, deployment, Awwwards submission. Non-website AUWA sessions (social, strategy, copy, newsletter writing, business work) do not need this file and should not load it.*
 
-*For the high-level site specification (information architecture, page layouts, design system tokens, content model), see `context/website.md`. This file is the working lessons-learned log: implementation patterns, Tailwind 4 gotchas, iOS fixes, and the Awwwards-readiness checklist.*
+*For the high-level site specification (information architecture, page layouts, design system tokens, content model), see `context/website/website.md`. This file is the working lessons-learned log: implementation patterns, Tailwind 4 gotchas, iOS fixes, and the Awwwards-readiness checklist.*
 
 ---
 
@@ -34,7 +34,7 @@ This uses the `.vercel/project.json` at `website/main/.vercel/project.json` (pro
 
 ---
 
-*(For PDF generation from any `context/*.md` file, see `context/tooling.md`.)*
+*(For PDF generation from any `context/**/*.md` file, see `context/tooling.md`.)*
 
 ---
 

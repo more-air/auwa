@@ -325,11 +325,11 @@ This means:
 - **Slow and deliberate.** AUWA doesn't rush. Animations use ease-out-expo (cubic-bezier 0.16, 1, 0.3, 1) — fast departure, gentle arrival. Like a breath out.
 - **Fade, don't slide.** Elements appear by fading in and gently scaling, not sliding in from edges. The app already uses this approach (Framer Motion fade-in components).
 - **The light shower is the hero animation.** All other motion is supporting — subtle, ambient, never competing.
-- **One tempo, not five.** Every duration, stagger, and easing on the website comes from a locked token set. One source of truth; tweaks propagate everywhere. See `context/website.md` Section 4 for the full table.
+- **One tempo, not five.** Every duration, stagger, and easing on the website comes from a locked token set. One source of truth; tweaks propagate everywhere. See `context/website/website.md` Section 4 for the full table.
 
 ### Website motion tokens (summary)
 
-The website enforces four durations, three staggers, and two easings. Components import from `src/lib/motion.ts` (JS) and `globals.css` (CSS variables). Full spec in `context/website.md`; at a glance:
+The website enforces four durations, three staggers, and two easings. Components import from `src/lib/motion.ts` (JS) and `globals.css` (CSS variables). Full spec in `context/website/website.md`; at a glance:
 
 - **Durations:** `enter` 800ms · `reveal` 1200ms · `hover` 300ms · `page` 500ms
 - **Staggers:** `strip` 60ms · `grid` 120ms · `hero` 180ms
@@ -352,7 +352,7 @@ Hardcoded ms values in components are treated as drift. Any new animation requir
 
 ## 10. Across the Four Sections
 
-All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/social.md` for the full map.
+All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/marketing/social.md` for the full map.
 
 ### /app (Kokoro Mirror)
 Dark-first. Minimal chrome during the experience. Cormorant for AUWA's voice, Instrument Sans for UI. The revelation screen is the hero — everything else supports getting there and reflecting afterward.
@@ -384,7 +384,7 @@ The four sections should feel like four rooms in the same building, not four sep
 
 The brand lives in three places, all staying in sync:
 
-1. **This document** (`context/brand.md`) — The written rules. Every Claude Code session reads this and applies it. Source of truth for *decisions*.
+1. **This document** (`context/brand/brand.md`) — The written rules. Every Claude Code session reads this and applies it. Source of truth for *decisions*.
 
 2. **The website brand page** (`auwa.life/brand`) — A living visual style guide built as a Next.js page within the website itself. It reads from the same CSS custom properties (`globals.css`) as the production site, so it's always up to date. Shows logo, colour palette, typography specimens, type scale table, spacing system, component examples, motion values, and design principles. Shareable by URL. No separate PDF needed — send the link.
 

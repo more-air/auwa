@@ -7,8 +7,8 @@ description: Prepare a full Instagram post brief (caption, hashtags, alt text, S
 
 You are preparing an Instagram post brief for AUWA. Load these context files before starting:
 
-- `context/instagram.md` (platform strategy, content pillars, hashtag rules, weekly cadence, image specs)
-- `context/arrival.md` (launch phase and tone, especially the Gift Ethos section)
+- `context/marketing/instagram.md` (platform strategy, content pillars, hashtag rules, weekly cadence, image specs)
+- `context/marketing/arrival.md` (launch phase and tone, especially the Gift Ethos section)
 
 The global CLAUDE.md writing style rules apply strictly (no em dashes, no AI vocabulary, no "here's the thing," no marketing fluff).
 

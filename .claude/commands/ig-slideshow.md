@@ -7,8 +7,8 @@ description: Turn a journal article into a 5-slide Instagram editorial carousel.
 
 You are converting a published journal article into an Instagram editorial slideshow. Load these context files before starting:
 
-- `context/instagram.md` (especially the Editorial Slideshow Format section)
-- `context/editorial.md` (voice rules, so the quote selection respects the article's register)
+- `context/marketing/instagram.md` (especially the Editorial Slideshow Format section)
+- `context/pillar/journal.md` (voice rules, so the quote selection respects the article's register)
 
 The global CLAUDE.md writing style rules apply. No em dashes. No AI vocabulary.
 

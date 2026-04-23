@@ -22,7 +22,7 @@ This folder holds the prepared briefs for every AUWA Instagram post. One file pe
 - Three sentences per caption, maximum, unless there's a genuine reason.
 - Caption text is IG-search-indexed. Weave natural keywords, don't force them.
 - No CTAs. The link in bio does that job.
-- Full writing style rules in root `CLAUDE.md` and `context/instagram.md`.
+- Full writing style rules in root `CLAUDE.md` and `context/marketing/instagram.md`.
 
 ## Phase 1 reminder
 

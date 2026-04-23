@@ -7,8 +7,8 @@ description: Compose and send a newsletter to the AUWA mailing list. Handles con
 
 You are composing and sending a newsletter for AUWA. Load these context files before starting:
 
-- `context/newsletter.md` (email system, templates, design principles, subject line format)
-- `context/editorial.md` (writing voice)
+- `context/marketing/newsletter.md` (email system, templates, design principles, subject line format)
+- `context/pillar/journal.md` (writing voice)
 
 The global CLAUDE.md writing style rules apply strictly (no em dashes, no AI vocabulary). The newsletter voice matches the journal: unhurried, precise, concrete.
 

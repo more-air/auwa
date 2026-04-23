@@ -7,10 +7,10 @@ description: Write a new journal article for auwa.life. Handles image optimisati
 
 You are writing a journal article for auwa.life. Load these context files before starting:
 
-- `context/editorial.md` (writing voice, article structure, production workflow, image pipeline)
-- `context/brand.md` (brand guidelines, typography, colour)
+- `context/pillar/journal.md` (writing voice, article structure, production workflow, image pipeline)
+- `context/brand/brand.md` (brand guidelines, typography, colour)
 
-Follow the production workflow in editorial.md exactly. The global CLAUDE.md writing style rules apply strictly (no em dashes, no AI vocabulary).
+Follow the production workflow in journal.md exactly. The global CLAUDE.md writing style rules apply strictly (no em dashes, no AI vocabulary).
 
 ## Step 1: Gather the Brief
 
@@ -29,7 +29,7 @@ If photos have been provided in `auwa/photos/[slug]/`:
 1. Create the output directory: `website/main/public/journal/[slug]/`
 2. List all images in the source folder and show them to the user
 3. Ask: "Which image should be the hero? And are any of these a pair (two detail shots to sit side by side)?"
-4. Optimise each image following the pipeline in editorial.md (resize to 2400px max, JPEG quality 85, rename to convention)
+4. Optimise each image following the pipeline in journal.md (resize to 2400px max, JPEG quality 85, rename to convention)
 5. **Generate the social-share OG image from the hero.** Every article needs a landscape 1200×630 crop for LinkedIn, Facebook, WhatsApp, Pinterest, and X previews. The portrait 4:5 hero crops badly on every platform. From the article's public folder:
    ```bash
    cp [slug]-hero.jpg [slug]-og.jpg && \
@@ -43,7 +43,7 @@ If no photos yet, proceed with writing and note where images will go — but rem
 
 ## Step 3: Write the Article
 
-Write the full article following editorial.md Section 3 (Article Structure):
+Write the full article following journal.md Section 3 (Article Structure):
 
 - Open in the scene. No preamble.
 - 800-1500 words.
@@ -52,7 +52,7 @@ Write the full article following editorial.md Section 3 (Article Structure):
 
 ## Step 4: Voice Check
 
-Before showing the draft, run the voice check from editorial.md Section 4:
+Before showing the draft, run the voice check from journal.md Section 4:
 
 - Search for em dashes. There must be zero.
 - Search for AI vocabulary (delve, tapestry, nestled, journey, elevate, unlock, unpack, reimagine, landscape as metaphor). There must be zero.

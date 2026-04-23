@@ -5,12 +5,12 @@ description: Plan next week's three Instagram posts. Balances pillars, pulls fro
 
 ## Instructions
 
-You are planning a full week of Instagram posts for AUWA. Three posts, following the weekly cadence locked in `context/instagram.md`.
+You are planning a full week of Instagram posts for AUWA. Three posts, following the weekly cadence locked in `context/marketing/instagram.md`.
 
 Load:
 
-- `context/instagram.md` (weekly cadence, content pillars, recommended mix)
-- `context/arrival.md` (current phase, any campaign moments this week)
+- `context/marketing/instagram.md` (weekly cadence, content pillars, recommended mix)
+- `context/marketing/arrival.md` (current phase, any campaign moments this week)
 
 ## Step 1: Ask the Brief
 

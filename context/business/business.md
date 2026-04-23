@@ -238,7 +238,7 @@ The website establishes the brand. Instagram builds the audience. The app and st
 
 Single-platform focus until 5K followers. Instagram is where the audience lives — design-conscious, Japan-interested, culturally curious. TikTok skews younger and more fleeting. YouTube is for depth content later. One strong Instagram account looks intentional; scattered small accounts look amateur. Expand to TikTok reposts and YouTube after 5K.
 
-See `context/instagram.md` for detailed IG strategy, specs, content pillars, and growth plan.
+See `context/marketing/instagram.md` for detailed IG strategy, specs, content pillars, and growth plan.
 
 ### Phase 1: Brand Foundation (Weeks 1-6)
 
@@ -368,7 +368,7 @@ Year 1 is an investment year funded by More Air client work. Self-sustaining thr
 
 ## 12. Corporate & Legal Structure
 
-> Full details in `context/structure.md` (AUWA-Business-Structure.pdf). Summary below.
+> Full details in `context/business/structure.md` (AUWA-Structure.pdf). Summary below.
 
 **AUWA Limited** (Co. 17033727) owns all IP. Dormant. Rieko + Tom 50/50. Licenses to More Air.
 **More Air Limited** (Co. 7051794) operates AUWA. Active since 2009. Receives revenue, pays expenses.
@@ -379,7 +379,7 @@ Year 1 is an investment year funded by More Air client work. Self-sustaining thr
 - International (Madrid Protocol): Japan, USA, EU planned by August 2026
 
 **Domains:** auwa.life (primary), auwa.app, auwa.world, auwa.store + .com equivalents. 11 domains total.
-**Social:** @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/social.md` for the full account map.
+**Social:** @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/marketing/social.md` for the full account map.
 **Email:** hello@auwa.life
 
 ---
@@ -453,7 +453,7 @@ As AI accelerates and automates more of life's cognitive tasks, the human layer 
 - AUWA: auwa.life (auwalife.com mirror)
 - More Air: moreair.co
 - Contact: hello@auwa.life
-- Social: @auwalife (most platforms) | @auwa.life (TikTok, Bluesky) | @auwa (LinkedIn) — see `context/social.md`
+- Social: @auwalife (most platforms) | @auwa.life (TikTok, Bluesky) | @auwa (LinkedIn) — see `context/marketing/social.md`
 - Companies House: AUWA Ltd 17033727 | More Air Ltd 7051794
 - Trademarks: UK00004341028 (word mark, advertisement phase) | UK00004373944 (word mark, filed) | UK00004373930 (design mark, filed)
 

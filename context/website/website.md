@@ -2,7 +2,7 @@
 
 *Created: April 2026. The specification for the auwa.life website — the brand's home and editorial hub.*
 *Load when building the website, planning content, or working on site structure.*
-*For implementation work (component tweaks, bug fixes, deploys), also load `context/website-patterns.md` — they're a paired set.*
+*For implementation work (component tweaks, bug fixes, deploys), also load `context/website/patterns.md` — they're a paired set.*
 
 ---
 
@@ -374,7 +374,7 @@ All photography follows brand.md Section 6. Portrait-first (4:5) for all editori
 }
 
 // Newsletter subscribers are handled directly via Resend Contacts API.
-// No Sanity schema needed. See context/newsletter.md for details.
+// No Sanity schema needed. See context/marketing/newsletter.md for details.
 ```
 
 ### Image Pipeline
@@ -524,7 +524,7 @@ After the initial 10 articles, publish 1-2 articles per week aligned with the 72
 
 ## 8. Newsletter & Email
 
-Fully documented in `context/newsletter.md`. Summary:
+Fully documented in `context/marketing/newsletter.md`. Summary:
 
 - **Welcome emails** auto-send on signup (4 variants per source: newsletter, app-waitlist, store-waitlist, book-waitlist). Sent as transactional via `resend.emails.send()`. Unsubscribe is a plain `mailto:hello@auwa.life?subject=Unsubscribe` because the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge var does not substitute in transactional sends.
 - **Welcome email subjects**: "Welcome to AUWA" (newsletter) · "You're on the AUWA App waitlist" (app) · "A note from AUWA." (store and book — softer subject keeps them out of Gmail Promotions).

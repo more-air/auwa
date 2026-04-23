@@ -1,6 +1,6 @@
 # AUWA — PROJECT CONTEXT
 
-*Last Updated: 6 April 2026*
+*Last Updated: 23 April 2026*
 
 ---
 
@@ -178,30 +178,46 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 
 **Shortcut phrases.** When the user's first message contains any of these phrases, load the listed files together without asking:
 
-- *"website session"*, *"website updates"*, *"website work"*, *"website tweak"*, *"website fix"*, *"website bug"* → load `context/website.md` + `context/website-patterns.md` + `context/brand.md`.
-- *"newsletter send"*, *"send newsletter"* → load `context/newsletter.md` + `context/editorial.md` + `context/brand.md`.
-- *"social session"*, *"instagram"*, *"social post"* → load `context/instagram.md` + `context/brand.md` + `context/arrival.md`.
-- *"article"*, *"journal article"*, *"write article"* → load `context/editorial.md` + `context/website-patterns.md` + `context/brand.md`.
+- *"website session"*, *"website updates"*, *"website work"*, *"website tweak"*, *"website fix"*, *"website bug"* → load `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`.
+- *"newsletter send"*, *"send newsletter"* → load `context/marketing/newsletter.md` + `context/pillar/journal.md` + `context/brand/brand.md`.
+- *"social session"*, *"instagram"*, *"social post"* → load `context/marketing/instagram.md` + `context/brand/brand.md` + `context/marketing/arrival.md`.
+- *"article"*, *"journal article"*, *"write article"* → load `context/pillar/journal.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 
-Whenever `context/website.md` is loaded for implementation work (component changes, bug fixes, deploys), ALSO load `context/website-patterns.md`. The two are paired.
+Whenever `context/website/website.md` is loaded for implementation work (component changes, bug fixes, deploys), ALSO load `context/website/patterns.md`. The two are paired.
 
-- `context/app.md` — Kokoro Mirror app specification: core UX flow (input → light shower → revelation → journal → share → archive), AI reflection principles and voice, sub-expression definitions, vague input handling, screen-by-screen detail, technical architecture (Next.js, Claude API, Vercel Postgres, Sanity, Stripe), data model, API routes, build phases, design principles, colour system, FigJam flow reference.
-- `context/brand.md` — Brand guidelines: logo/wordmark specs, typography system (EB Garamond + Instrument Sans + Noto Sans/Serif JP), colour system (OKLCH cosmic palette + emotional state colours), light/dark theme specs, photography direction, illustration integration, social content templates, motion principles, cross-site consistency (auwa.life subpaths).
-- `context/business.md` — Master business plan: executive summary, brand philosophy (Yaoyorozu no Kami), vision/values, AUWA name/origin, products (Kokoro Mirror app, AUWA Store, AUWA Journal, AUWA Book, figures, Year 2+), market analysis, go-to-market phases, content engine, customer acquisition, financial projections, corporate/legal, team, risk analysis, strategic priorities.
-- `context/competitors.md` — Competitor analysis: AI journaling (Reflection, Rosebud, Mindsera, Stoic), mood tracking (Daylio, Reflectly, Moodnotes), wellness (Headspace, Calm, Wysa), Japanese cultural products (72 Seasons, Pentad), collectibles (Labubu, KAWS, Sonny Angel), multi-category lifestyle brands (Goop, Snow Peak, Rapha, Monocle, School of Life), Japanese craft exporters (Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto). Competitive matrix, features to adopt/avoid, signals to monitor.
-- `context/japan.md` — Japan market analysis: tourism stats (42.7M visitors, ¥9.5T spending), cultural export growth (anime $37.7B), yen dynamics, Japandi trend (405% Pinterest growth), ikigai/wellness crossover (5-7M books sold), the structurally unoccupied EQ/wellness gap, multi-category lifestyle brand precedents with revenue data.
-- `context/instagram.md` — Instagram strategy: specs/dimensions (Reels 1080x1920, Feed 1080x1350), algorithm priorities (sends/shares #1), 5 content pillars, weekly posting cadence, growth plan (700→5K), £2K paid budget split, collaboration tactics (Fin DAC), email capture, profile setup, best UK posting times, photo editing workflow.
-- `context/manifesto.md` — The seven reasons for building AUWA, what Tom and Rieko each bring, success/failure/slow-burner scenarios, motivation for when you hit a wall.
-- `context/reference.md` — Illustration workflow (MidJourney + Rieko), archival/authentication strategy, collectible figure rules, store precedents (Monolise + Japanese merchant platform history), Fin DAC relationship, Nokia Animaru precedent, strategic lessons (KAWS, Labubu, Goop, Snow Peak, Hodinkee).
-- `context/website.md` — Website SPECIFICATION for auwa.life: Kinfolk-inspired editorial site structure, page layouts, Sanity CMS content model, responsive design, serif typography, motion principles, v0/Stitch prompt ideas, reference websites, article preparation plan, design system tokens (type scale, colour opacities, spacing, grid gaps, content widths, motion specs), component library, API routes, email templates, SEO infrastructure. **Load for website design/planning sessions.**
-- `context/website-patterns.md` — Website BUILD PATTERNS, Tailwind 4 gotchas, iOS fixes, Vercel deployment command, page-level architecture lessons, mobile menu patterns, article share icons, and the full Awwwards-readiness checklist. **Load only for website implementation sessions** (component tweaks, bug fixes, deployment). Not needed for social/strategy/copy/brand work.
-- `context/tooling.md` — Shared tooling pipelines. Currently: the PDF generation recipe (md-to-pdf + the `context/*.md` → `documents/AUWA-*.pdf` filename mapping). **Load whenever the user asks for a PDF to be generated from any context file**, regardless of session topic.
-- `context/editorial.md` — Editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan.
-- `context/newsletter.md` — Newsletter system: welcome email templates (auto-sent per source), newsletter template (manual send via API), sending workflow, email design principles, subject line format, Resend configuration, cadence guidance.
-- `context/structure.md` — Business structure, IP & legal: corporate entities (AUWA Limited + More Air Limited), directors, shareholders, ownership chain, all trademark filings (word mark UK00004341028 + UK00004373944, design mark UK00004373930), 7 Nice classes, Madrid Protocol deadline (15 Aug 2026), copyright, licensing agreements, domains, costs, key dates, open actions. (Social handles live in `context/social.md`.)
-- `context/social.md` — Social account map: all live handles and logins across Instagram, Facebook, Threads, YouTube, LinkedIn, Bluesky, Pinterest, Discord, Twitch, Reddit, Medium, Spotify; pending email verifications; deliberately skipped platforms; outstanding next steps. Single source of truth for the social footprint.
-- `context/arrival.md` — Arrival strategy (the 12-month brand launch): why "arrival" not "launch," the four phases (Quiet Debut / Selective Amplification / App Soft Launch / Store Prep), the next 30 days priority list, full channel strategy (IG primary, LinkedIn secondary, Awwwards, guest articles, link-building, press, newsletter), £2-3K marketing budget allocation, first Instagram post spec, the three forks (app vs store, book timing, character exclusivity), Year 1 and Year 2 success pictures.
+**Pillars (`context/pillar/`):**
 
-Previous context summaries archived in `context/archive/`.
+- `context/pillar/app.md` — Kokoro Mirror app specification: core UX flow (input → light shower → revelation → journal → share → archive), AI reflection principles and voice, sub-expression definitions, vague input handling, screen-by-screen detail, technical architecture (Next.js, Claude API, Vercel Postgres, Sanity, Stripe), data model, API routes, build phases, design principles, colour system, FigJam flow reference.
+- `context/pillar/book.md` — The four-book illustrated universe: status of each book (Book 1 complete at 18 pages, Book 2 in revision, Books 3 and 4 TBC), what the Book 1 revision achieved (two-thirds word reduction, atmospheric over narrated), revision principles as a template, canonical source of the AUWA character and story mythology.
+- `context/pillar/journal.md` — Journal pillar and editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan. (Was `editorial.md` pre-restructure.)
+
+**Brand (`context/brand/`):**
+
+- `context/brand/brand.md` — Brand guidelines: logo/wordmark specs, typography system (EB Garamond + Instrument Sans + Noto Sans/Serif JP), colour system (OKLCH cosmic palette + emotional state colours), light/dark theme specs, photography direction, illustration integration, social content templates, motion principles, cross-site consistency (auwa.life subpaths).
+- `context/brand/manifesto.md` — The seven reasons for building AUWA, what Tom and Rieko each bring, success/failure/slow-burner scenarios, motivation for when you hit a wall.
+- `context/brand/reference.md` — Illustration workflow (MidJourney + Rieko), archival/authentication strategy, collectible figure rules, store precedents (Monolise + Japanese merchant platform history), Fin DAC relationship, Nokia Animaru precedent, strategic lessons (KAWS, Labubu, Goop, Snow Peak, Hodinkee).
+
+**Business (`context/business/`):**
+
+- `context/business/business.md` — Master business plan: executive summary, brand philosophy (Yaoyorozu no Kami), vision/values, AUWA name/origin, products (Kokoro Mirror app, AUWA Store, AUWA Journal, AUWA Book, figures, Year 2+), market analysis, go-to-market phases, content engine, customer acquisition, financial projections, corporate/legal, team, risk analysis, strategic priorities.
+- `context/business/competitors.md` — Competitor analysis: AI journaling (Reflection, Rosebud, Mindsera, Stoic), mood tracking (Daylio, Reflectly, Moodnotes), wellness (Headspace, Calm, Wysa), Japanese cultural products (72 Seasons, Pentad), collectibles (Labubu, KAWS, Sonny Angel), multi-category lifestyle brands (Goop, Snow Peak, Rapha, Monocle, School of Life), Japanese craft exporters (Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto). Competitive matrix, features to adopt/avoid, signals to monitor.
+- `context/business/japan.md` — Japan market analysis: tourism stats (42.7M visitors, ¥9.5T spending), cultural export growth (anime $37.7B), yen dynamics, Japandi trend (405% Pinterest growth), ikigai/wellness crossover (5-7M books sold), the structurally unoccupied EQ/wellness gap, multi-category lifestyle brand precedents with revenue data.
+- `context/business/structure.md` — Business structure, IP & legal: corporate entities (AUWA Limited + More Air Limited), directors, shareholders, ownership chain, all trademark filings (word mark UK00004341028 + UK00004373944, design mark UK00004373930), 7 Nice classes, Madrid Protocol deadline (15 Aug 2026), copyright, licensing agreements, domains, costs, key dates, open actions. (Social handles live in `context/marketing/social.md`.)
+
+**Website (`context/website/`):**
+
+- `context/website/website.md` — Website SPECIFICATION for auwa.life: Kinfolk-inspired editorial site structure, page layouts, Sanity CMS content model, responsive design, serif typography, motion principles, v0/Stitch prompt ideas, reference websites, article preparation plan, design system tokens (type scale, colour opacities, spacing, grid gaps, content widths, motion specs), component library, API routes, email templates, SEO infrastructure. **Load for website design/planning sessions.**
+- `context/website/patterns.md` — Website BUILD PATTERNS, Tailwind 4 gotchas, iOS fixes, Vercel deployment command, page-level architecture lessons, mobile menu patterns, article share icons, and the full Awwwards-readiness checklist. **Load only for website implementation sessions** (component tweaks, bug fixes, deployment). Not needed for social/strategy/copy/brand work.
+
+**Marketing (`context/marketing/`):**
+
+- `context/marketing/arrival.md` — Arrival strategy (the 12-month brand launch): why "arrival" not "launch," the four phases (Quiet Debut / Selective Amplification / App Soft Launch / Store Prep), the next 30 days priority list, full channel strategy (IG primary, LinkedIn secondary, Awwwards, guest articles, link-building, press, newsletter), £2-3K marketing budget allocation, first Instagram post spec, the three forks (app vs store, book timing, character exclusivity), Year 1 and Year 2 success pictures.
+- `context/marketing/instagram.md` — Instagram strategy: specs/dimensions (Reels 1080x1920, Feed 1080x1350), algorithm priorities (sends/shares #1), 5 content pillars, weekly posting cadence, growth plan (700→5K), £2K paid budget split, collaboration tactics (Fin DAC), email capture, profile setup, best UK posting times, photo editing workflow.
+- `context/marketing/newsletter.md` — Newsletter system: welcome email templates (auto-sent per source), newsletter template (manual send via API), sending workflow, email design principles, subject line format, Resend configuration, cadence guidance.
+- `context/marketing/social.md` — Social account map: all live handles and logins across Instagram, Facebook, Threads, YouTube, LinkedIn, Bluesky, Pinterest, Discord, Twitch, Reddit, Medium, Spotify; pending email verifications; deliberately skipped platforms; outstanding next steps. Single source of truth for the social footprint.
+
+**Tooling (`context/`):**
+
+- `context/tooling.md` — Shared tooling pipelines. Currently: the PDF generation recipe (md-to-pdf + the `context/<folder>/<file>.md` → `documents/AUWA-*.pdf` filename mapping). **Load whenever the user asks for a PDF to be generated from any context file**, regardless of session topic.
 
 ---

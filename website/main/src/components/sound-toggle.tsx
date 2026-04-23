@@ -12,7 +12,7 @@
   console stays clean, and the user's preference is not persisted.
 
   To provide the audio: drop an `ambient.mp3` into `public/audio/`. Brand
-  guidance in context/brand.md recommends a slow, warm, temple-tone
+  guidance in context/brand/brand.md recommends a slow, warm, temple-tone
   atmosphere (Suno-generated or similar), no beats, no vocals.
 */
 

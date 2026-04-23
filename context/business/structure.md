@@ -264,7 +264,7 @@ The first license (14 February 2026, personal to More Air) is superseded by the 
 
 ## SOCIAL HANDLES
 
-See `context/social.md` for the full, current social account map (handles, logins, status, pending verifications, and outstanding steps). `social.md` is the single source of truth and is updated whenever the social landscape changes.
+See `context/marketing/social.md` for the full, current social account map (handles, logins, status, pending verifications, and outstanding steps). `social.md` is the single source of truth and is updated whenever the social landscape changes.
 
 Summary: one brand, three handle variants by necessity. `@auwalife` is the default, `@auwa.life` is used on TikTok and Bluesky (where dots are permitted and match the domain), `@auwa` on LinkedIn (pure brand name, pre-owned). All accounts route to `social@auwa.life`.
 

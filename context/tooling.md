@@ -30,21 +30,35 @@ pkill -9 -f "chromium" 2>/dev/null; pkill -9 -f "chrome" 2>/dev/null; sleep 1
 
 **Step 3 — Generate ONE PDF at a time, in the FOREGROUND (not background), with PATH set:**
 ```
-export PATH="/usr/local/bin:$PATH" && npx md-to-pdf context/[file].md --stylesheet /tmp/auwa-pdf.css 2>&1
+export PATH="/usr/local/bin:$PATH" && npx md-to-pdf context/[folder]/[file].md --stylesheet /tmp/auwa-pdf.css 2>&1
 ```
-Then move the output: `mv context/[file].pdf documents/AUWA-[Name].pdf`
+Then move the output: `mv context/[folder]/[file].pdf documents/AUWA-[Name].pdf`
 
 **File → PDF name mapping:**
-- `context/app.md` → `documents/AUWA-App-Specification.pdf`
-- `context/brand.md` → `documents/AUWA-Brand-Guidelines.pdf`
-- `context/business.md` → `documents/AUWA-Business-Plan.pdf`
-- `context/competitors.md` → `documents/AUWA-Competitors.pdf`
-- `context/instagram.md` → `documents/AUWA-Instagram-Strategy.pdf`
-- `context/arrival.md` → `documents/AUWA-Arrival.pdf`
-- `context/japan.md` → `documents/AUWA-Japan-Market.pdf`
-- `context/manifesto.md` → `documents/AUWA-Manifesto.pdf`
-- `context/reference.md` → `documents/AUWA-Reference.pdf`
-- `context/website.md` → `documents/AUWA-Website-Specification.pdf`
-- `context/structure.md` → `documents/AUWA-Business-Structure.pdf`
+
+*Pillars:*
+- `context/pillar/app.md` → `documents/AUWA-App.pdf`
+- `context/pillar/book.md` → `documents/AUWA-Book.pdf`
+
+*Brand:*
+- `context/brand/brand.md` → `documents/AUWA-Brand.pdf`
+- `context/brand/manifesto.md` → `documents/AUWA-Manifesto.pdf`
+- `context/brand/reference.md` → `documents/AUWA-Reference.pdf`
+
+*Business:*
+- `context/business/business.md` → `documents/AUWA-Business.pdf`
+- `context/business/competitors.md` → `documents/AUWA-Competitors.pdf`
+- `context/business/japan.md` → `documents/AUWA-Japan.pdf`
+- `context/business/structure.md` → `documents/AUWA-Structure.pdf`
+
+*Website:*
+- `context/website/website.md` → `documents/AUWA-Website.pdf`
+
+*Marketing:*
+- `context/marketing/arrival.md` → `documents/AUWA-Arrival.pdf`
+- `context/marketing/instagram.md` → `documents/AUWA-Instagram.pdf`
+- `context/marketing/social.md` → `documents/AUWA-Social.pdf`
+
+*Claude-only (no PDF):* `context/pillar/journal.md`, `context/marketing/newsletter.md`, `context/website/patterns.md`, `context/tooling.md`.
 
 **If it hangs:** Kill Chrome (`pkill -9 -f "chromium"`), wait 2 seconds, retry. Never run two md-to-pdf commands in parallel.
