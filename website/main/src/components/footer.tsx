@@ -11,7 +11,7 @@ const pillarLinks = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com/auwa.life",
+    href: "https://instagram.com/auwalife",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" />
