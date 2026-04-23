@@ -1,4 +1,4 @@
-# AUWA Books — Context & Editorial Guide
+# AUWA Book
 
 *Last Updated: 13 April 2026*
 

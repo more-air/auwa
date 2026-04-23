@@ -1,4 +1,4 @@
-# AUWA Website Specification — auwa.life
+# AUWA Website
 
 *Created: April 2026. The specification for the auwa.life website — the brand's home and editorial hub.*
 *Load when building the website, planning content, or working on site structure.*

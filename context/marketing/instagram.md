@@ -1,4 +1,4 @@
-# AUWA Instagram Strategy
+# AUWA Instagram
 
 *Created: April 2026. Maintained as living document.*
 *Load when working on social media content, Instagram ads, or audience growth.*

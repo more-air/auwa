@@ -1,4 +1,4 @@
-# Kokoro Mirror — App Specification
+# AUWA App
 
 *Created: April 2026. The build reference for the Kokoro Mirror app at auwa.life.*
 *Load when working on app design, development, or UX decisions.*

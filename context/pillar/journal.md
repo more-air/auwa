@@ -1,4 +1,4 @@
-# AUWA Editorial Guide
+# AUWA Journal
 
 *Created: April 2026. The reference for writing and producing journal articles for auwa.life.*
 *Load when writing articles, planning content, or working on editorial voice.*

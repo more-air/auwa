@@ -1,4 +1,4 @@
-# AUWA Competitor Analysis
+# AUWA Competitors
 
 *Source: Competitor Analysis, March 2026. Maintained as living document.*
 

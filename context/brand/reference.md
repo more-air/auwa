@@ -1,4 +1,4 @@
-# AUWA — Operational Reference
+# AUWA Reference
 
 *Last Updated: 1 April 2026*
 *Load when working on illustration workflow, archival strategy, store operations, or operational detail not covered in the business plan.*

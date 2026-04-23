@@ -1,4 +1,4 @@
-# AUWA — Japan Market Analysis
+# AUWA Japan
 
 *Created: April 2026. Maintained as living document.*
 *Load when assessing market opportunity, positioning the store, or making the case for AUWA's timing.*

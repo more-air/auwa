@@ -1,4 +1,4 @@
-# AUWA Newsletter System
+# AUWA Newsletter
 
 *Created: April 2026. Reference for sending newsletters and managing email.*
 

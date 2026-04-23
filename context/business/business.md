@@ -1,4 +1,4 @@
-# AUWA Business Plan
+# AUWA Business
 
 *Source: Master Business Plan, March 2026. Updated April 2026 following strategic review. Maintained as living document.*
 

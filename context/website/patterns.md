@@ -1,4 +1,4 @@
-# AUWA Website — Build Patterns & Gotchas
+# AUWA Website Patterns
 
 *Load this file only for sessions that touch the website at `website/main/` — design tweaks, component fixes, deployment, Awwwards submission. Non-website AUWA sessions (social, strategy, copy, newsletter writing, business work) do not need this file and should not load it.*
 

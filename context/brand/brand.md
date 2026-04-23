@@ -1,4 +1,4 @@
-# AUWA Brand Guidelines
+# AUWA Brand
 
 *Created: April 2026. The working brand reference for all AUWA touchpoints.*
 *Load when working on visual design, social content, brand decisions, or any new touchpoint.*

@@ -1,4 +1,4 @@
-# AUWA — Business Structure, IP & Legal
+# AUWA Structure
 
 *Last Updated: 16 April 2026*
 
