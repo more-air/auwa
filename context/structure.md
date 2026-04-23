@@ -264,36 +264,9 @@ The first license (14 February 2026, personal to More Air) is superseded by the 
 
 ## SOCIAL HANDLES
 
-Dots are allowed on some platforms but not others. Where dots aren't supported, use `auwalife` consistently.
+See `context/social.md` for the full, current social account map (handles, logins, status, pending verifications, and outstanding steps). `social.md` is the single source of truth and is updated whenever the social landscape changes.
 
-### Active Accounts
-
-| Platform | Handle | Email | Status |
-|----------|--------|-------|--------|
-| Instagram | @auwa.life | instagram@auwa.life | Active |
-| TikTok | @auwa.life | tiktok@auwa.life | Active |
-| YouTube | @auwalife | youtube@auwa.life | Active (no dots allowed) |
-| X (Twitter) | @auwalife | x@auwa.life | Active (no dots allowed) |
-
-### To Be Created
-
-| Platform | Handle | Email | Notes |
-|----------|--------|-------|-------|
-| Discord | @auwa.life | discord@auwa.life | Dots allowed |
-| Pinterest | @auwa.life | pinterest@auwa.life | Dots allowed |
-| Twitch | @auwalife | twitch@auwa.life | No dots |
-| Threads | @auwa.life | threads@auwa.life | May auto-exist from Instagram, check first |
-| Bluesky | @auwa.life | bluesky@auwa.life | Verify domain via DNS TXT record (`_atproto`) |
-| Substack | @auwalife | substack@auwa.life | No dots |
-| Medium | @auwalife | medium@auwa.life | No dots |
-| Reddit | u/auwalife | reddit@auwa.life | No dots |
-| GitHub | auwa-life (org) | github@auwa.life | No dots, dash convention for orgs |
-
-### Platform Handle Rules
-
-- **Dots allowed:** Instagram, TikTok, Bluesky, Pinterest, Discord
-- **No dots:** YouTube, X, GitHub, Reddit, Substack, Medium, Twitch
-- **Convention:** `auwa.life` where dots work, `auwalife` where they don't
+Summary: one brand, three handle variants by necessity. `@auwalife` is the default, `@auwa.life` is used on TikTok and Bluesky (where dots are permitted and match the domain), `@auwa` on LinkedIn (pure brand name, pre-owned). All accounts route to `social@auwa.life`.
 
 ---
 

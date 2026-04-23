@@ -379,7 +379,7 @@ Year 1 is an investment year funded by More Air client work. Self-sustaining thr
 - International (Madrid Protocol): Japan, USA, EU planned by August 2026
 
 **Domains:** auwa.life (primary), auwa.app, auwa.world, auwa.store + .com equivalents. 11 domains total.
-**Social:** @auwa.life (Instagram, TikTok) | @auwalife (YouTube, X) | See structure.md for full account map.
+**Social:** @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/social.md` for the full account map.
 **Email:** hello@auwa.life
 
 ---
@@ -453,7 +453,7 @@ As AI accelerates and automates more of life's cognitive tasks, the human layer 
 - AUWA: auwa.life (auwalife.com mirror)
 - More Air: moreair.co
 - Contact: hello@auwa.life
-- Social: @auwa.life (Instagram, TikTok, YouTube) | @auwalife (X) | @Auwa (LinkedIn)
+- Social: @auwalife (most platforms) | @auwa.life (TikTok, Bluesky) | @auwa (LinkedIn) — see `context/social.md`
 - Companies House: AUWA Ltd 17033727 | More Air Ltd 7051794
 - Trademarks: UK00004341028 (word mark, advertisement phase) | UK00004373944 (word mark, filed) | UK00004373930 (design mark, filed)
 

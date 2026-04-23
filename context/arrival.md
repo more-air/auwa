@@ -1,333 +1,258 @@
 # AUWA Arrival
 
-*Created: April 2026. Revised after April 20 strategic session with Tom and Rieko.*
-*The strategy for how AUWA enters the world. Maintained as living document.*
-*Load when discussing launch, promotion, channel strategy, budget allocation, or the next 12 months.*
+*Last revised: 23 April 2026. Living document. Load for any launch, promotion, channel, or campaign discussion.*
 
 ---
 
 ## Why "Arrival" and Not "Launch"
 
-AUWA doesn't launch. The four pillars ship over 18-24 months. The Journal is already live. The App arrives in Q4 2026. The Store in Year 2. The Book when the pre-orders justify a print run. There is no single day when something clicks live and metrics spike. What we're doing is establishing a cadence, not triggering an event. Call it arrival. The brand simply shows up, reliably, and compounds.
-
-"Launch" also carries the wrong emotional register for the Gift Ethos. Launches announce. Arrivals are welcomed. The difference is the posture.
+The four pillars ship over 18 months: Journal live, App mid-May (friends first), Store in Year 2, Book when pre-orders justify a print run. No spike day. A cadence the brand sustains. Launches announce; arrivals are welcomed.
 
 ---
 
 ## The Frame
 
-Three things make AUWA different from a standard product launch.
-
-**This is a brand launch, not a product launch.** Only the Journal is commercially live. "Launch" really means the 12-18 months during which we establish a cultural position, build an audience, and prepare to sell. Expecting a spike is the wrong expectation. Compounding is the right one.
-
-**We're building a long-duration thing from a low-intensity life.** A three-to-four-day week doesn't support a sustained six-month sprint. The cadence must be sustainable indefinitely, not a campaign that ends. Short bursts of intensity are fine at restart moments and launch moments; the baseline between them has to be calm. What does not work for AUWA is a twelve-month posting sprint at daily frequency; what does work is two to four week bursts followed by a sustainable three-a-week rhythm.
-
-**Aim wide, filter ruthlessly.** The Japan moment is structurally favourable. 42.7M visitors, weak yen, ikigai sold 5-7M copies, Japanese aesthetic searches up 405% on Pinterest, Kinfolk has over a million IG followers. A lifestyle brand of this quality can realistically reach 50K to 150K engaged followers inside three years without compromising. The point is not to cap ambition. The point is to filter. Every growth decision asks: *"does this attract the right person, or does this attract noise?"* The ceiling on *right people* is in the hundreds of thousands. The filter stays tight. Ambition about scale and restraint about speed are not in tension, they are the combination.
+1. **Brand arrival, not product launch.** Compounding, not a spike.
+2. **Low-intensity cadence.** A three-to-four-day week rules out sprints. Short bursts at restart and launch moments; a calm three-a-week baseline between them.
+3. **Aim wide, filter ruthlessly.** Japan interest is peak. A brand of this quality can reach 50-150K engaged followers inside three years. Every growth decision asks: *does this attract the right person, or noise?*
 
 ---
 
-## The Four Phases
+## The Plan
 
-Four phases, roughly three months each. Soft boundaries, not hard ones.
+Sequenced chronologically. Use as a living todo list. Complete one block before moving to the next; skip ahead when priority demands. Launch is now a few hours a day with tomorrow (Fri 24 April) full-time, then time pivots to app build and More Air productised services.
 
-### Phase 1: Quiet Debut with Restart Burst (April-June 2026)
+### 1. Get to 9 IG posts (this week and next)
 
-Website is live. Instagram restarts. A small paid spend behind the AUWA face video signals "we are back." Warm network activation begins earlier than originally planned, because the people closest to you deserve to hear from you, and the brand can afford a small amplification at the restart moment. Articles ship at two per month, reliably. Journal is the hero pillar in public, the app is in build, the store is in quiet outreach, the book is in production consideration.
+The highest-leverage work. Every warm share (LinkedIn, family, peers, Darius, Ivo, Fin, Colin) compounds when the grid is full. A sparse grid undermines all of them. Aim for 9 strong posts by end of week 2 of the restart.
 
-**Restart burst: the first two to three weeks.** Front-load the first two to three weeks of Instagram with daily posts. Character animation Reels that Rieko is remaking with better tech, editorial slideshows from existing journal articles, seasonal atmospheric posts, behind-the-scenes studio moments. After the burst, settle into the three-a-week cadence from `instagram.md` and hold that indefinitely. The burst signals "we are back and active." The cadence signals "we can sustain this."
+**Friday 24 April, full-time priorities:**
 
-**Warm network, sequenced.** Share the site with family first (Tom's Cary-Elwes side has strong media and finance connections who may introduce AUWA to their own networks, and this is a quiet personal moment as well as a practical one). Then close industry peers (Brad Porter, Axel Meyer). Then the LinkedIn share-as-craft post (warm, proud, no ask). Then the Fin DAC article about his artwork of Rieko and Rieko's mum (see Fin DAC section). Then Colin the book promoter, shown the book draft early for his honest read and his publisher-route view. Each done personally, each done without asking.
+- **Imagen tone-adjustment pass** on the top 10-15 article hero images. Subtle tone only, no upscaling, no restyling. Side-by-side compare against originals; reject any visible AI touch. These images serve website and IG simultaneously.
+- **Build out the IG content queue.** Use `/ig-post` and `/ig-slideshow` to prepare 6-8 posts in `social/ig/`. Mix: Rieko character Reels from her queue, editorial slideshows from existing journal articles, atmospheric photographs, one Japanese-wisdom carousel. Queue sits ready; daily posting then becomes a copy-paste job rather than a daily-write job.
+- **Book teaser upgrade.** Pick one of two options and ship Friday if time allows:
+  - *(a)* Auto-play slideshow of a few inside-the-book images in the teaser image area.
+  - *(b)* Button that opens a sample preview (modal or page) with a handful of book spreads to flick through.
+  - Option (b) invites more engagement and reads better for Awwwards; (a) needs no new page. My lean: (b). If Friday runs short, ship (a) now and iterate to (b) next week.
 
-**Target by end of June:**
-- 2,000-3,000 IG followers
-- 400-600 email subscribers
-- 12-15 published journal articles
-- First Fin DAC article shipped
-- Website submitted to Awwwards, SiteInspire, CSS Design Awards, Typewolf, Godly, Minimal.gallery, httpster
-- Craftsman shortlist drafted by Rieko, first Japanese outreach started
+**Internal work that proceeds in parallel (no external touchpoints):**
 
-### Phase 2: Selective Amplification (July-September 2026)
+- **Fin DAC article draft.** His artwork of Rieko and her mum. *Draft* this week, *publish* once the grid has reached 9 posts. No external share yet.
+- **Continue daily IG posts** from the queue. Figma slideshow template to be built when there's a natural slot; for now the brief from `/ig-slideshow` is enough for Rieko to lay up slides manually.
 
-With three months of consistent output behind us, activate the broader warm network.
+**Principle.** Every external touchpoint (email to Kyoto shop, brief to Colin, LinkedIn post, family share, peer shares, Darius, Ivo, Fin reconnect) waits for the grid. Japan especially weights visible social presence as a credibility signal, and Shigefusa's sons will judge IG before anything else. A first impression you can't redo. Hold the line on all external activation until the grid is ready.
 
-1. CMO friend's strategic review (has his say before we amplify further)
-2. Ivo Weevers (launch sequencing input, he has sold an app, he sees differently)
-3. Fin DAC collaboration (already warmed by the article in Phase 1)
-4. Colin's publisher intros if the book draft has earned it
-5. Guest articles pitched to two aligned publications (see channel strategy)
-6. Seasonal Journeys waitlist opened quietly via CTAs at the foot of relevant journal articles
+### 2. Warm network activation (once the grid has ~9 posts)
 
-Still no traditional press.
+Gated on the grid. First impression matters more than speed of invitation. Japan especially reads social presence as a credibility signal; Shigefusa's sons, Fin's audience, and Tom's LinkedIn peers all will check the IG before engaging.
 
-**Target by end of September:**
-- 5,000-6,000 followers
-- 1,200-1,500 subscribers
-- One or two guest pieces live
-- First collaboration landed
-- Seasonal Journeys waitlist at 100-300 names
-- Shigefusa conversation explored (see Shigefusa section)
+- **Kyoto knife shop email** (Rieko, in Japanese) for Shigefusa. Full approach drafted in the Shigefusa section below.
+- **Tom's LinkedIn post.** Warm, proud, no ask. Template in Channel Strategy below.
+- **Quiet family share.** Cary-Elwes side; brothers. Single warm note each.
+- **Peer share: Brad Porter and Axel Meyer.** No ask. Honest read welcomed.
+- **Darius (CMO friend).** Strategic review of the launch approach.
+- **Ivo Weevers.** Launch sequencing input; he has sold an app.
+- **Fin DAC.** Send him the now-published Fin article link. Warm reconnection. Collab conversation becomes natural later.
+- **Colin (book promoter).** Share the book draft with the framed question: "Tell me honestly what you think, and what you'd do if this were yours." His publisher-route view is decisive.
 
-### Phase 3: App Soft Launch (October-December 2026)
+### 3. Small paid spend (after 9 IG posts are live)
 
-Kokoro Mirror arrives. The first commercial moment. Announce in character: *"Something small we've made."* Free tier leads, paid tier present but not loud. The main paid ad spend begins, metered across 90 days. First press outreach begins, targeting publications that covered Kinfolk, Hodinkee, Stoic, Calm. Book fragments start appearing on IG as editorial. Store craftsman outreach continues. Seasonal Journeys pilot trip runs if timing allows, or is booked for spring 2027.
+£200-400 test behind the AUWA face video Reel. Targeting design-conscious, Japan-interested users in UK/US/AU. Goal: lift 700 to 1,500-2,000 quality followers at restart. Gate: only begin once the grid holds nine posts so visitors arriving via ad see a complete brand, not a lonely first post.
 
-**Target by end of December:**
-- 10,000-15,000 followers
-- 3,000-4,000 subscribers
-- 500-1,500 app users
-- Two or three press pieces landed
-- First figure edition released via subscriber lottery
+### 4. Awwwards SOTD submission (target Tue 12 or Wed 13 May)
 
-### Phase 4: Store Prep, Book Decision, Seasonal Journey One (January-March 2027)
+Full checklist in CLAUDE.md under AWWWARDS READINESS. Submission gates, all must be true:
 
-Craftsman partnerships firm up. Book pre-order campaign opens (see Fork 2 below). App V2 planned. First Seasonal Journey ships. First exhibition or gallery approach if wanted. Year 1 strategic review.
+1. At least one SOTD teaser upgrade shipped (Book minimum).
+2. Nine strong IG posts live. Quality gate, not count gate.
+3. Noindex audit passed (`/home-1`, `/brand`, `/instagram`, `/book/1`, `/book/2` all carry `robots: { index: false, follow: false }` and live in `robots.ts` disallow).
+4. Photography credit pass done (every editorial image credits Tom).
 
----
+Miss any gate, push submission one week. Never submit to beat a date.
 
-## The Next 30 Days (April 2026)
+Submission inputs pre-drafted. See Awwwards Prep section below.
 
-Practical priorities. Items 1-3 are done.
+### 5. App built, friends-released (mid-May)
 
-1. ~~Finalise homepage intro copy~~ ✓
-2. ~~Ship teaser page super-headers~~ ✓
-3. ~~Lock Instagram profile setup, bio, first post planned~~ ✓
-4. **Post the first IG Reel this week.** AUWA face video. Locked caption and hashtags (see First Instagram Post below). Pin to grid. Share to Story with link sticker.
-5. **Launch the restart burst.** Daily posts for two to three weeks from existing assets. Mix: character Reels, editorial slideshows, seasonal moments, studio glimpses.
-6. **Begin small paid spend.** £200-400 test behind the AUWA face video, targeting design-conscious, Japan-interested users in the UK, US, and AU. Goal is to lift 700 to 1,500-2,000 quality followers at the restart moment.
-7. **Ship one more journal article** from the backlog. Publish.
-8. **Draft and publish the Fin DAC artwork article.** The piece about his artwork of Rieko and her mum. An "artist putting his soul into his work" piece. Send him the link warmly when live. No collab ask yet.
-9. **Submit the website to Awwwards, SiteInspire, CSS Design Awards, Typewolf, Godly, Minimal.gallery, httpster.**
-10. **Share the site on Tom's LinkedIn.** Warm, proud, no CTA, no ask. One post. (Template in LinkedIn section.)
-11. **Quiet family share.** Tom's Cary-Elwes side, and brothers, with a single warm note. They can introduce as they wish.
-12. **Brief Colin the book promoter.** Send the book draft with a note that says "tell me honestly what you think, and what you'd do if this were yours." He has publisher connections and tried the publisher route for Tom's mum's book; his view will clarify self-publish vs traditional publisher decisively.
-13. **Quiet peer share with Brad Porter and Axel Meyer.** No ask. Honest read welcomed.
-14. **Rieko: draft the Japanese craftsman one-pager and shortlist.** 30-50 craftsmen, tiered. One-pager is the cold-outreach document.
-15. **Open the Shigefusa conversation** with the Kyoto knife shop owner (through Rieko, in Japanese). See Shigefusa section.
-16. **Begin the Seasonal Journeys plan internally.** Not public yet. Design the format, pick the first date, identify three to five craftsmen to anchor the visit. Prototype Autumn 2026 or Spring 2027. One journey per year (dog in UK limits cadence).
+Share with Tom's warm network and early IG followers who've expressed interest. Free tier only. Direct via DM or email. Not a public moment. Use friend feedback to refine before public release.
 
-The hardest part of a slow brand launch is patience. Rieko is right about that. The urge to tell everyone in week two will come. The audience built in Phase 2 is more valuable than the audience built in Phase 1 specifically because we took each step deliberately. Restraint is still the strategy. The reframe is about the shape of the audience, not the shape of the cadence.
+Public app release happens when IG has a solid following. Realistically late summer or early autumn depending on growth. No strict Q4 gate.
+
+### 6. Second and third teaser upgrades (week of 28 April and week of 5 May)
+
+*App (`/app`).* Mocked Kokoro card below the hero: gradient background in a Yamato state colour, AUWA character centred, three lines of poetic reflection, calligraphic kō stamp. Shows the app's output without the app existing yet.
+
+*Store (`/store`).* "First arrivals" strip of 6-8 craftsman objects with Monolise research trip photography. Each card: 4:5 portrait object photo, craftsman name (12px uppercase), object name (18-20px EB Garamond), one-sentence description. Uses `StripReveal` for the reveal pattern.
+
+### 7. Meet AUWA cursor-follow (week of 5 May, best-effort)
+
+SOTD signature interaction. AUWA's gaze tracks the cursor on desktop. Rieko produces 3-5 illustrated frames over the coming week. Tom implements in 1-2 hour daily slots during app-build week. If not ready by submission, ship post-submission as an Awwwards entry update; judges accept these.
+
+### 8. Ongoing through June
+
+- Rieko: craftsman shortlist + Japanese one-pager. 30-50 craftsmen, tiered.
+- Newsletter "arrival" letter to existing subscribers in early May. One paragraph, one link. Warm, not promotional.
+- Continue journal publishing at roughly two articles per month.
+- Begin Seasonal Journey internal planning; see Seasonal Journeys section.
+
+**Phase 1 target by end of June:** 2-3K IG followers, 400-600 subscribers, 12-15 published articles, Fin DAC article shipped, Awwwards submitted, all warm-network shares done, craftsman shortlist drafted, app in friends' hands.
+
+### 9. Phase 2 onward (summer 2026 into 2027)
+
+With Phase 1 targets met:
+
+- App public release when IG has solid following.
+- Guest articles pitched to two aligned publications (It's Nice That and Cereal are my picks).
+- First figure edition drop via subscriber lottery (the site's bottom-strip entry teaser already seeds this).
+- First Seasonal Journey trialled by Tom and Rieko alone in 2027.
+- Book pre-order campaign opens once the draft is polished.
+- Store soft launch with first handful of craftsmen.
 
 ---
 
 ## Channel Strategy
 
-We don't do "everything everywhere." We do a few things deeply and let them compound.
+**Instagram: primary.** Full detail in `instagram.md`. Three posts per week sustainably, with the daily restart burst for the first two to three weeks. Character Reels at around 35% weight. Editorial slideshows from journal articles. Seasonal atmospheric posts. This is where the audience is built.
 
-**Instagram: primary.** Full detail in `instagram.md`. Three posts per week sustainably, with a daily restart burst for the first two to three weeks. Gift Ethos. Character Reels at around 35% weight. Editorial slideshows from articles. Seasonal atmospheric posts. Occasional craftsman glimpses. This is where the audience is built.
+**LinkedIn: peer amplification.** Four personal Tom posts across 18 months: restart share (now), app arrival, store opening, book release. Not a daily channel. The AUWA company page uses the locked tagline, description, and imagery.
 
-**LinkedIn: peer amplification.** The AUWA LinkedIn company page exists and uses the locked tagline, description, and imagery. Its role is to make the brand legible to industry peers when Tom posts personally. Four personal posts across 18 months is the target: the restart share (April), the app arrival (Q4), the store opening, the book release. Not a daily posting platform. Tom's post template for the restart:
+Tom's restart post template:
 
 *"A project Rieko and I have been quietly building for ten years: AUWA, a quiet return to the Japanese belief that a life force, a kokoro, resides in all things. Illustration, writing, photography, a daily practice to come. Made with care, not a client project for once. auwa.life"*
 
-**Awwwards and design recognition sites.** Submit the website once it has been live and stable for four to six weeks with 12-15 articles up. Most are free. Even a "Nominee" mention drives backlinks and taste-audience visibility. Targets: Awwwards (free submission, paid £150ish for Pro), SiteInspire, CSS Design Awards, Designspiration, Typewolf, httpster, Minimal.gallery, Godly.website.
+**Awwwards and design recognition.** Submit once the site has been live and stable with 12-15 articles up and the submission gates are green. Submit to Awwwards (£150 Pro), SiteInspire, CSS Design Awards, Typewolf, Godly, Minimal.gallery, httpster.
 
-**Guest articles (Phase 2).** Pick two that feel most natural and commit. One landed piece outperforms five pitched and ignored. Pitch each with a specific article idea, not a brand overview. Candidates in rough order of fit and likelihood:
+**Guest articles (Phase 2).** Pick two of: It's Nice That (most likely to land), Cereal (brand match), Apartamento, Openhouse, Kinfolk (dream, pitch after app lands), Aeon, Tokyo Weekender. One landed piece outperforms five pitched and ignored.
 
-- **It's Nice That.** Accessible, well-read, loves new brands with a story. Most likely to land.
-- **Cereal Magazine.** Direct brand match, slow travel and aesthetic. High prestige in our audience.
-- **Apartamento.** Craft, home, interviews. Sensibility aligns.
-- **Openhouse.** Places and culture. Good fit for a home or studio piece.
-- **Kinfolk.** The dream. Harder. Pitch after Phase 3 with app momentum.
-- **Aeon and Psyche.** Deep essay form. Rieko could write on kokoro.
-- **MONOCLE digital editions.** More accessible than the print magazine.
-- **Tokyo Weekender.** English-language Japan editorial. Easier, good anchor.
-- **Something Curated.** Craft and material stories, aligned voice.
-- **Hole and Corner.** London-based, craft-focused.
+**Organic link-building.** Three to five personal emails a month in Phase 2. Subject line human, body two to three sentences, link to one specific AUWA piece, no ask. Aligned sites: Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto, Ignant, Remodelista, Freunde von Freunden, Hole and Corner, Kyoto Journal, Tofugu.
 
-Hodinkee only if a specific piece (Shigefusa, a Japanese lacquer master) fits their exact editorial lane. Do not pitch a general AUWA essay there.
+**Email outreach to niche communities (Phase 2).** Japan Society UK, Daiwa Anglo-Japanese Foundation, Japan Foundation London, British Museum Japan curators, V&A Japan team, SOAS Japan Research Centre, Japan Society NYC, Japan House LA, Portland Japanese Garden, r/japantravel, r/chefknives. Each a single personalised email offering something (a piece, an event, a partnership), never a pitch.
 
-**Organic link-building.** This is not "ask for a link." It is "start a genuine relationship with someone you admire, and links follow later." The mechanic: three to five times a month in Phase 2, Tom or Rieko personally emails an editor or founder at an aligned site. Subject line is human ("Loved your piece on X" / "Thought you might like this"). Body is two or three sentences: the specific thing you admired, a link to one AUWA piece that connects to their interests (never the homepage), signed off with first name. No ask. No pitch. Expect a 15-25% response rate. Of those, maybe 5-10% mention you somewhere over the following year. The link is the side-effect of a relationship.
+**Press: Phase 3 onward.** Freelancers who have written for Wallpaper*, Monocle, Wired, Vogue Business, Dezeen.
 
-Aligned sites worth building relationships with:
+**What we don't do:** TikTok, YouTube depth (apart from Shigefusa), Twitter/X, Pinterest, Threads, Facebook page as a content channel.
 
-- *Japanese craft:* Nalata Nalata, Analogue Life, Rikumo Journal, Tortoise General Store (LA), Native and Co (London), Kiriko Made, Postalco, Kinto Journal, The Journal at OEN.
-- *Design and slow living:* Ignant, Freunde von Freunden, Remodelista, Hole and Corner, Openhouse, The Gentlewoman digital, It's Nice That, Sight Unseen, Cereal's blog alongside the magazine.
-- *Japan-specialist editorial:* Tofugu, Tokyo Weekender, Savvy Tokyo, Time Out Tokyo, Metropolis Japan, Tokyo Art Beat, Kyoto Journal, Japan Travel.
-- *Substacks and newsletters:* Blackbird Spyplane, Letters of Note, The Convivial Society, Stack World, Oliver Burkeman, Matt Webb at Interconnected, aligned Japan-living Substacks.
-
-Aim to make warm contact with twelve of these in Phase 2.
-
-**Email outreach to niche communities.** Very targeted, very small. Not mass outreach. Each approach is a single personalised email offering something (a piece for their newsletter, an evening event, a quiet partnership), never a pitch. Expect one in four to say yes over six months, and each yes is worth 50-200 quality email signups plus long-term association.
-
-- *UK:* Japan Society (japansociety.org.uk), Daiwa Anglo-Japanese Foundation, The Japan Foundation London, British Museum Japanese galleries team, V&A Japan collection curators, SOAS Japan Research Centre, London Urasenke (tea ceremony).
-- *US:* Japan Society NYC, Japan House LA, Japanese American National Museum (LA), Portland Japanese Garden, Asia Society NYC, Kinokuniya event partnerships.
-- *Japan:* Kyoto Journal, Tokyo Art Beat, Nihon no Aka and craft ambassador networks.
-- *Interest communities:* r/japantravel, r/chefknives, r/japaneseceramics, r/tea, aligned Discord servers for Japanese culture, Bonsai Empire newsletter, Japan Up Close.
-
-**Press: Phase 3 onward.** Target freelancers who have written for Wallpaper*, Monocle, Wired, Vogue Business, Dezeen, and the design and wellness beats of broader publications. Research each writer's recent pieces before pitching. A single well-placed piece at the right moment outperforms ten generic press releases.
-
-**Newsletter.** Grows organically from the website footer and IG bio throughout Phase 1-2. In Phase 3, add small paid IG ads targeting direct newsletter signups (lead form ads perform well, no landing page friction).
-
-**Podcast appearances: post-5K only.** Pitch after Phase 3 when we have social proof. Start the list of aligned shows now. Reach out later.
-
-**What we don't do:**
-- TikTok (post-5K, when we have Reel winners to repurpose)
-- YouTube depth content (apart from the Shigefusa piece if it lands)
-- Twitter/X (wrong audience, wrong atmosphere)
-- Pinterest (maybe later, not a priority)
-- Threads (wait and see)
-- Facebook page (required for Meta ad buying only, not a content channel)
+**Footer social links policy.** Only show icons for platforms that carry real content. Dead links on a premium brand site read as unfinished craft, and Awwwards judges click footer icons. Secure all handles (done), but hide each platform's footer icon until it has at least three to four pieces of content. Implement as a simple boolean per platform in a config file so icons can be turned on progressively. Current state: Instagram on, everything else off until seeded.
 
 ---
 
-## Budget: £2-3K Across 12 Months
+## Budget: £2-3K across 12 months
 
-Suggested allocation of a £2,500 budget.
+- **Small restart boost (after 9 posts are live):** £200-400.
+- **App arrival spend (autumn 2026):** £1,400-1,800.
+- **Design award fees:** £150-300.
+- **Newsletter growth ads:** £200-300.
+- **Contingency:** £200-400.
 
-**Phase 1 restart burst: £200-400.** Small, targeted IG spend behind the AUWA face video at restart. Lifts 700 to ~1,500-2,000 quality followers at low cost. This is not noise acquisition. The face video self-selects its own audience.
-
-**Phase 3 app arrival spend: £1,400-1,800.** The main paid lever. Metered £15-25/day across October-December. Split within that: 60% engagement/awareness (follower and brand reach), 30% traffic to newsletter and app signup, 10% retargeting.
-
-**Design award submissions: £150-300.** Awwwards Pro submission, CSS Design Awards fee, Godly.website if relevant. Apply only where the recognition compounds SEO and peer respect.
-
-**Newsletter growth ads: £200-300.** Small, focused IG campaigns in Phase 2-3 pointing to newsletter signup. Goal is subscriber quality, not quantity.
-
-**Contingency: £200-400.** Press outreach tools (Hunter.io for email finding at £30/mo for two months), unexpected opportunities, a small push around a specific moment.
-
-**What we don't spend on:**
-- Google Ads (wrong audience and intent, wasted spend)
-- Facebook ads separately from Instagram (same Meta network)
-- Paid influencer marketing (Fin DAC is warm, never pay influencers)
-- PR agency (our voice is the asset)
-- Retargeting before traffic exists
-- Boosted posts (always-on boosts perform worse than structured campaigns)
-
-**Principle:** most of the marketing value comes from consistent content and thoughtful outreach, both free. Paid spend amplifies what's already working. Don't over-spend in Phase 1. Save the bulk for Phase 3, when there is something to amplify.
+Most of the marketing value comes from consistent content and thoughtful outreach, both free. Paid spend amplifies what's working, it doesn't create traction where there is none.
 
 ---
 
-## The First Instagram Post
+## Seasonal Journeys (programme, not a pillar)
 
-Full detail in `instagram.md`. Summary here for convenience.
+A small annual guided Japan experience for foreigners. Five people maximum, four to six days, once a year (constrained by the dog in UK and by quality).
 
-- **Format: Reel.** Not Story, not feed post.
-- **Asset:** The AUWA face video from the website hero.
-- **Caption:** *"Hello. Kokoro (心) is the Japanese word for heart, mind and spirit held as one. The quality you sense in a handmade knife, in a season you almost missed, in your own feelings when you stop long enough to notice. auwa.life."*
-- **Hashtags:** `#AUWA #Kokoro #japanesephilosophy #slowliving #japaneseaesthetic`
-- **Share to Story** immediately after posting, with a link sticker pointing to auwa.life.
-- **Pin to top of grid** for the first two weeks.
-- **Don't post anything else Day 1.** Let the Reel breathe.
+**This is not a fifth pillar.** The homepage architecture stays at four (Journal, Store, App, Book). Journeys exist inside the brand as a programme that emerges naturally from Journal content and Store craftsman relationships. Public presence:
 
----
+- Soft CTA at the foot of relevant journal articles (craftsman profiles, travel pieces, onsen essays).
+- A `/journeys` page when the first trip is imminent. Not before.
+- A Resend segment of interested names, grown quietly.
 
-## Seasonal Journeys (The Fifth Strand)
+**Pilot plan.** Tom and Rieko do the first trip alone in 2027. Purpose: format discovery, content generation, logistics shakedown. No paying customers on the first trip. Real bookings open only after the pilot.
 
-The single most significant strategic addition from the April 20 session. Seasonal Journeys are small, once-a-year guided Japan experiences for foreigners to meet craftsmen and visit places not otherwise accessible. Five people maximum. Four to six days. One trip per year (constrained by the dog in UK; one trip is also right for quality).
+**Why it matters commercially.** At £3-4K per person, five people per trip is £15-20K at healthy margin. One trip a year funds significant chunks of annual brand costs, and the content produced (writing, photography, possibly film) seeds the following year's editorial output.
 
-**Why it matters.** Four pillars become five, and the fifth is what completes the system. The journal is *about* hidden experiences. The journey *is* that experience. The store sells the craftsmen's objects. The app builds daily awareness. The book holds the philosophy. The journey is what binds them into something lived.
-
-It is also, commercially, the highest-margin product AUWA can build in Year 1. Five people at £3-4K per person is £15-20K per trip at healthy margin after accommodation, transport, craftsman gifts, food, and time. It funds most of Year 1 costs by itself. And the content generated (writing, photography, possibly film) becomes the following year's editorial output.
-
-**Precedent.** Kinfolk's journeys and workshops turned a magazine into a brand. Snow Peak Way and Goop in-person summits did the same. In-person experiences multiply the trust of everything else.
-
-**Prototype plan.**
-- Autumn 2026 or Spring 2027 for the first journey. Decide by end of June 2026.
-- First cohort is friends and warm supporters at a pilot rate, not paying customers. Purpose is format discovery and content generation.
-- Three to five craftsmen anchor the trip. Some will overlap with store outreach candidates: the same conversations serve both purposes.
-- Rieko leads craftsman coordination in Japanese. Tom handles logistics, photography, trip writing.
-- One quiet "philosophy moment": an onsen stay, a tea ceremony, a calligraphy evening. The point is pause, not pack-everything-in.
-
-**Interest gathering on the website.** Start now. Add a soft CTA at the foot of relevant journal articles (craftsman profiles, seasonal travel pieces, onsen essays):
-
-*"We visit Japan once a year on a small, quiet journey. If you would like to be the first to hear when the next one opens, add your name below."*
-
-New Resend segment: "Seasonal Journeys." No hard push. The CTA is a discovery tool: who signs up tells you who the real customer is. Add the CTA now and let it gather quietly through Phase 1-2. Make the formal announcement in late Phase 2 when there is a date and a format.
-
-**How it connects to outreach.** Where possible, merge Seasonal Journey conversations with store craftsman conversations. If Rieko is asking Shigefusa-san or another master about carrying their work in the store, asking also whether they would welcome a small guided visit once a year is natural. Both asks can live in the same first email if the fit is right.
+**Where it connects.** Craftsman outreach for the Store often overlaps with craftsmen who might welcome a small respectful annual visit. Rieko's Japanese-language outreach can open both conversations in one email where the fit is right.
 
 ---
 
 ## Sign-up Hooks
 
-The 3D-printed AUWA figures are a strong sign-up hook. They should not stand alone. The Gift Ethos welcomes multiple forms of giving.
+The figure lottery is already live via the site's bottom strip ("WIN FIRST EDITION AUWA FIGURE" with Enter button linking to `/store`). Store teaser copy updated to:
 
-**The figure lottery.** Small, hand-finished, numbered, signed editions (20 pieces per drop). Sign up for a genuine chance. Winners announced publicly on Instagram. Each drop ties to a micro-season. Collectors complete a set across a year. First drop targeted for late Phase 2 or Phase 3.
+*"Japanese craftsman objects, and our own figure editions. Small, signed, hand-finished. Sign up for the opening, and a chance to win our first edition."*
 
-**The welcome PDF.** A permanent welcome gift. "The Five Moods of Kokoro" or "A Small Guide to Noticing": a 10-page illustrated PDF, Rieko-designed, beautifully typeset. Produced once, compounds forever. Sent on signup to newsletter.
+This is the primary scarcity hook. Additional hooks earn their place over time:
 
-**Subscriber early access to journal articles.** 48 hours before public release. Frames the newsletter as membership, not broadcast.
+- **Welcome PDF on signup.** A 10-page illustrated guide, Rieko-designed. Produced once, compounds forever. Build when time allows.
+- **Subscriber early access to journal articles** (48 hours ahead). Frames the newsletter as membership.
+- **Hand-signed Rieko postcard** at signup to real postal addresses. One-time, gated.
+- **First chapter of the book** digitally for subscribers once the book is ready.
 
-**A single hand-signed Rieko postcard on signup.** One-time gift at a real postal address. £2 cost per postcard, significant emotional return. Gate to verified addresses to prevent abuse. Optional cap per week.
-
-**The first chapter of the book, digitally, for subscribers.** Once the book is ready, release chapter one as a digital-only reader for subscribers before the book ships. Not the full book, a real excerpt.
-
-**Kokoro cards.** A printed 12-card deck, one per month, illustrated by Rieko. Could be a paid product and a subscriber gift for subscribers of 12 months or more.
-
-**Seasonal Journey early access.** As above. The waitlist is itself the gift.
-
-The figure lottery is the strongest Phase 2-3 hook because it is scarce, visible, and naturally newsworthy. The welcome PDF and postcard are the always-on hooks. Combine both: PDF on join, figure lottery seasonally.
+Figure lottery + welcome PDF is the strongest combination.
 
 ---
 
-## Shigefusa, and the First YouTube Moment
+## Shigefusa and the first YouTube moment
 
-AUWA has a warm connection through the Kyoto knife shop owner from whom Tom bought his Shigefusa knife (the subject of an existing journal article). The shop's existing relationship with Shigefusa, plus the fact that Rieko can conduct the outreach in Japanese with cultural fluency, plus a quiet respectful brand frame, makes this a genuine shot at a studio visit that very few foreigners have had.
+Warm connection through the Kyoto knife shop owner from whom Tom bought his Shigefusa knife. Rieko drafts the ask in Japanese this week (template prepared in prior session). Posture: producer-in-service-of-artist, not journalist-taking. The film would be the gift; AUWA gets distribution permission, the shop and Shigefusa-san get full use.
 
-A previous foreign shop's video of Shigefusa has nearly 1M views. That proves demand. Our version could be materially better: Rieko's Japanese fluency, our production aesthetic (quiet, serious, not vloggy), and a brand frame around the piece rather than a knife-enthusiast frame.
+If it lands: first YouTube piece, signature documentary anchor, opens craftsman doors everywhere else.
 
-**Approach email (through Rieko, in Japanese) to the Kyoto shop owner:**
+If not: playbook learned for the next master. Either outcome is useful.
 
-*"We are building a small brand celebrating Japanese craftsmanship. We wrote this article about the knife we bought from you [link]. We would love to film a quiet, respectful studio visit with Shigefusa-san. We would be happy to share the finished film with your shop and with Shigefusa-san for any use you wish. Would you be open to asking him whether this might be possible?"*
-
-The important words are "quiet," "respectful," and "whatever use you wish." AUWA's posture here is hanmoto-serving-eshi (producer serving artist), not journalist-taking. That is the specific reason this approach can work where other approaches have not.
-
-**If it lands.** This is the first YouTube piece. It opens every craftsman door in Japan thereafter. A documentary-quality film we release with subtitles, the journal article as its companion piece, and excerpts on Instagram for months afterwards.
-
-**If it doesn't land.** We have learned the playbook and we approach the next master with it. Either outcome is useful. Make the call this week.
-
-Note: we have no intention of carrying Shigefusa knives in the AUWA store. He is too exclusive, and forcing that ask would break the relationship. This is about opening a door for the craftsman relationships we *do* want to carry, and for the Seasonal Journey conversations. The film is the gift.
+No intention to carry Shigefusa in the AUWA store. He is too exclusive; forcing that ask would break the relationship.
 
 ---
 
-## The Three Forks
+## Awwwards SOTD Submission Prep
 
-Decisions to make deliberately, not slide into.
+### The two SOTD additions
 
-**Fork 1: App or Store first.** Confirmed: **app**. App is closer to ready, cleaner "quiet debut" product, easier to iterate based on real usage. Store craftsman outreach still starts now in parallel so Rieko has a pipeline by the time the store is ready to ship.
+**Meet AUWA cursor-follow** (signature interaction). Full spec in the Plan section 7.
 
-**Fork 2: Book release format and timing.** The original £3-8K short-run assumption was wrong for AUWA's situation. Better model: hybrid print-on-demand plus pre-order offset run.
+**Teaser page upgrades** (Book, App, Store). Full spec in the Plan sections 1 and 6.
 
-- **IngramSpark POD as the default edition.** Print-on-demand via the professional-grade platform used by indie publishers. Unit cost £8-15 for a 72-page hardcover, retail £28-35, margin £13-20 per copy after distribution. Zero upfront cost beyond setup. Quality is materially better than Lulu or Blurb, not quite offset, good enough for the standard edition.
-- **Signed first edition via pre-order.** Open a pre-order (direct on auwa.life or via Kickstarter) with a minimum threshold (say 200 copies). Once funded, order a 200-500 copy offset short-run at £5-10 per unit. First edition is signed by Rieko, numbered, with illustrated details on the endpapers. Retail at £45-60. The pre-order *funds* the print run; we never commit capital upfront.
-- **Launch sequence.** Pre-order campaign opens in Phase 4 (January-March 2027). If it funds, the offset edition ships by mid-2027. The IngramSpark edition goes live as a permanent product thereafter. Two editions, two margins, one book.
+### Submission inputs (pre-drafted)
 
-Colin's read will also clarify the traditional-publisher question. He has tried the publisher route for Tom's mum's book before; his view is decisive. Share the book draft with him in Phase 1.
+- **Title:** AUWA
+- **URL:** https://auwa.life
+- **Tagline (under 70 chars):** A quiet return to Japanese awareness. Kokoro in all things.
+- **Short description (under 400 chars):** AUWA is a Japanese awareness brand built on the ancient belief that a life force, a kokoro, resides in all things. A character, a philosophy, a world, expressed through a journal from Japan, a daily awareness practice, a store of craftsman objects, and an illustrated world. Editorial, meditative, and photographed entirely by the founders.
+- **Primary category:** Wellbeing
+- **Tags:** Editorial, Typography, Animation, Transitions, Interaction Design, Cultural, Storytelling
+- **Preview image (1400×787 JPG, under 1MB):** close crop of AUWA's face from the hero video.
 
-**Fork 3: Character exclusivity.** Currently AUWA the character lives in the book and app only. Hold the line. Scarcity across pillars is the character's value. IG character posts are fine because they are promotional. Don't put AUWA on journal articles, store product pages, or the homepage beyond the hero video. This is a taste call. Rieko has final say.
+### Pre-submission polish pass
+
+Two to three hours the day before submission. Walk through the site desktop and mobile simultaneously with fresh eyes. Look for: broken links, lazy-loaded images that blink in late, console errors, mobile menu edge cases, footer behaviour on short pages, contact email obfuscation rendering correctly, all article OG images present, audio toggle working across pages, Lenis smooth scroll not conflicting with horizontal scrollers. Full checklist in CLAUDE.md "AWWWARDS READINESS."
 
 ---
 
-## What Success Looks Like at End of Year 1
+## Decisions
 
-- 12,000-18,000 genuine Instagram followers (real, not paid noise)
-- 3,000-5,000 email subscribers
-- Kokoro Mirror app at 500-2,000 users
-- Two or three press pieces in design, wellness, or craft publications
-- 30-50 published journal articles, compounding SEO
-- 5-10 craftsmen onboarded, store preparing soft launch
+**App before Store.** Decided. App is closer to ready, the cleaner debut product, and easier to iterate on real usage. Store craftsman outreach runs in parallel.
+
+**Book release: hybrid POD + pre-order offset.** IngramSpark print-on-demand as the always-available edition (unit cost £8-15, retail £28-35, zero upfront). Pre-order campaign funds a short offset run (200-500 copies) for a signed first edition at £45-60. Pre-orders pay for the print; no capital committed upfront. Campaign opens in Phase 2 once the draft is polished and Colin's view is in.
+
+---
+
+## Year 1 Success (by April 2027)
+
+- 12-18K genuine IG followers
+- 3-5K email subscribers
+- App public at 500-2,000 users
+- Two or three press pieces landed
+- 30-50 journal articles compounding SEO
+- 5-10 craftsmen onboarded
 - Book pre-order campaign live or imminent
-- First Seasonal Journey run or booked
-- Shigefusa film shipped or in the can, first YouTube anchor
-- First figure edition drop, 20 pieces, sold out
+- Shigefusa film shipped or in the can
+- First figure edition sold out
 - Fin DAC collab landed
-- One or two guest articles in aligned publications
-- Newsletter at a sustainable 2x/month cadence
-- Quiet personal credibility established among industry peers
+- Newsletter at sustainable 2x/month cadence
 
-This is a slow, dignified path. It is also the path most aligned with the brand, the founders, and the audience. Faster is available. It just isn't worth it.
+Slow, dignified, correct for the brand.
 
----
+## Year 2 Success
 
-## What Success Looks Like at End of Year 2
-
-- 40,000-75,000 IG followers
-- Store launched with 20-30 craftsmen, first revenue
-- Book shipped in two editions (IngramSpark + signed first edition), reviewed in at least one major design or lifestyle publication
-- App at 5,000-10,000 users, paid tier converting
+- 40-75K IG followers
+- Store live with 20-30 craftsmen, revenue flowing
+- Book shipped in two editions, reviewed somewhere aligned
+- App at 5-10K users, paid tier converting
+- First Seasonal Journey run (Tom and Rieko pilot)
 - Second and third figure editions dropped
-- Two Seasonal Journeys run, annual rhythm established
 - YouTube channel with three to five craftsman films
-- First exhibition, pop-up, or gallery moment that becomes the cultural reference point
+- First exhibition, pop-up, or gallery moment
 - Recognisable position: "the Japanese awareness brand"
 
 Year 2 is where the brand stops being a project and becomes an institution. Year 1 earns the right to Year 2.

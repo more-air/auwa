@@ -271,7 +271,7 @@ The constant across all four pillars: **dark frame, warm content, Cormorant voic
 
 ### The Grid Principle
 
-The Instagram grid should feel like opening a book of quiet, beautiful pages — not a mosaic of competing styles. When someone visits @auwa.life and sees the 3x3 grid, every thumbnail should feel like it belongs in the same room.
+The Instagram grid should feel like opening a book of quiet, beautiful pages — not a mosaic of competing styles. When someone visits @auwalife and sees the 3x3 grid, every thumbnail should feel like it belongs in the same room.
 
 This means:
 - **Consistent aspect ratio:** 4:5 (1080x1350) for all feed posts (maximum screen real estate, consistent grid)
@@ -352,7 +352,7 @@ Hardcoded ms values in components are treated as drift. Any new animation requir
 
 ## 10. Across the Four Sections
 
-All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwa.life (Instagram, TikTok, YouTube), @auwalife (X), @Auwa (LinkedIn).
+All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/social.md` for the full map.
 
 ### /app (Kokoro Mirror)
 Dark-first. Minimal chrome during the experience. Cormorant for AUWA's voice, Instrument Sans for UI. The revelation screen is the hero — everything else supports getting there and reflecting afterward.
