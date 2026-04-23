@@ -6,7 +6,6 @@ import { TextReveal } from "@/components/text-reveal";
 import { CtaLink } from "@/components/cta-link";
 import { ImageFade } from "@/components/image-fade";
 import { STAGGER } from "@/lib/motion";
-import Image from "next/image";
 import Link from "next/link";
 
 /* ─── Article data (will come from Sanity CMS) ─── */
@@ -1151,7 +1150,7 @@ export default async function ArticlePage({
                       {section.images.map((img, j) => (
                         <figure key={j}>
                           <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                            <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+                            <ImageFade src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                           </div>
                           {img.caption && (
                             <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
@@ -1174,7 +1173,7 @@ export default async function ArticlePage({
                     <FadeIn delay={100} translateY={32}>
                       <figure>
                         <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                          <Image
+                          <ImageFade
                             src={section.image.src}
                             alt={section.image.alt}
                             fill
@@ -1261,7 +1260,7 @@ export default async function ArticlePage({
           <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void mb-8 md:mb-12">
             Continue reading
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-8 gap-x-6 md:gap-x-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
             {(() => {
               const allSlugs = Object.keys(articles);
               const currentSlug = slug;
@@ -1280,7 +1279,7 @@ export default async function ArticlePage({
               >
                 <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
                   {related.image ? (
-                    <Image
+                    <ImageFade
                       src={related.image}
                       alt={related.title}
                       fill

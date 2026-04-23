@@ -1,8 +1,8 @@
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import { ImageFade } from "@/components/image-fade";
 import { TextReveal } from "@/components/text-reveal";
 import { STAGGER } from "@/lib/motion";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -94,7 +94,7 @@ export default async function JournalPage({
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                   <div className="rounded-xl overflow-hidden relative aspect-[4/5]">
                     {article.image ? (
-                      <Image
+                      <ImageFade
                         src={article.image}
                         alt={article.title}
                         fill
