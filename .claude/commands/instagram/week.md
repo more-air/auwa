@@ -24,7 +24,7 @@ Ask the user:
 
 ## Step 2: Check the Mix
 
-Look at the last four weeks of posts in `social/ig/` and tally pillar frequency:
+Look at the last four weeks of posts in `social/instagram/` and tally pillar frequency:
 
 - 35% Kokoro Reveal (character content)
 - 25% Editorial Slideshows
@@ -68,4 +68,4 @@ Once confirmed, offer to generate the individual briefs using `/instagram:post` 
 
 ## Step 6: Save the Week
 
-Save the plan to `social/ig/weeks/YYYY-WW.md` (ISO week) with the table and a short note on the campaign moment if any. The weekly file is the user's at-a-glance view of where content stands.
+Save the plan to `social/instagram/weeks/YYYY-WW.md` (ISO week) with the table and a short note on the campaign moment if any. The weekly file is the user's at-a-glance view of where content stands.

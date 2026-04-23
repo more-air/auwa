@@ -86,7 +86,7 @@ Single line. No more.
 
 ## Step 8: Assemble and Save
 
-Save to `social/ig/YYYY-MM-DD-slideshow-[slug].md` using this template:
+Save to `social/instagram/YYYY-MM-DD-slideshow-[slug].md` using this template:
 
 ```markdown
 # Slideshow: [Article title]

@@ -29,7 +29,7 @@ The highest-leverage work. Every warm share (LinkedIn, family, peers, Darius, Iv
 **Friday 24 April, full-time priorities:**
 
 - **Imagen tone-adjustment pass** on the top 10-15 article hero images. Subtle tone only, no upscaling, no restyling. Side-by-side compare against originals; reject any visible AI touch. These images serve website and IG simultaneously.
-- **Build out the IG content queue.** Use `/instagram:post` and `/instagram:slideshow` to prepare 6-8 posts in `social/ig/`. Mix: Rieko character Reels from her queue, editorial slideshows from existing journal articles, atmospheric photographs, one Japanese-wisdom carousel. Queue sits ready; daily posting then becomes a copy-paste job rather than a daily-write job.
+- **Build out the IG content queue.** Use `/instagram:post` and `/instagram:slideshow` to prepare 6-8 posts in `social/instagram/`. Mix: Rieko character Reels from her queue, editorial slideshows from existing journal articles, atmospheric photographs, one Japanese-wisdom carousel. Queue sits ready; daily posting then becomes a copy-paste job rather than a daily-write job.
 - **Book teaser upgrade.** Pick one of two options and ship Friday if time allows:
   - *(a)* Auto-play slideshow of a few inside-the-book images in the teaser image area.
   - *(b)* Button that opens a sample preview (modal or page) with a handful of book spreads to flick through.

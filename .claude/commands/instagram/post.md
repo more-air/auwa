@@ -72,7 +72,7 @@ If the post links to a journal article, the first comment is the right place to 
 
 ## Step 7: Assemble and Save
 
-Write the brief to `social/ig/YYYY-MM-DD-slug.md` using this template:
+Write the brief to `social/instagram/YYYY-MM-DD-slug.md` using this template:
 
 ```markdown
 # [Post title, short]
@@ -115,7 +115,7 @@ Show the user the full brief before saving. Ask:
 
 1. "Voice check: does the caption sound like us?"
 2. "Hashtags: any you'd swap?"
-3. "Anything to adjust before I save this to `social/ig/`?"
+3. "Anything to adjust before I save this to `social/instagram/`?"
 
 Once confirmed, save the file and report the path.
 
