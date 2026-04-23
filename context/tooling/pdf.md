@@ -16,9 +16,12 @@ Used when the user says something like "generate a PDF from [file].md and put it
 body { font-family: Georgia, 'Times New Roman', serif; font-size: 11pt; line-height: 1.65; color: #1a1a1a; max-width: 100%; }
 h1, h2, h3, h4, h5, h6 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; margin-top: 1.5em; margin-bottom: 0.5em; }
 h1 { font-size: 22pt; } h2 { font-size: 16pt; } h3 { font-size: 13pt; } h4 { font-size: 11pt; font-style: italic; }
-table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 11pt; } th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; } th { background-color: #f5f5f5; font-weight: bold; }
+p, li { font-size: 11pt; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 10pt; table-layout: fixed; } th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; word-break: break-word; overflow-wrap: break-word; } th { background-color: #f5f5f5; font-weight: bold; }
 blockquote { border-left: 3px solid #ccc; margin-left: 0; padding-left: 1em; color: #555; }
 code { font-size: 11pt; background: #f5f5f5; padding: 2px 4px; border-radius: 3px; }
+pre { overflow-x: hidden; white-space: pre-wrap; word-break: break-word; }
+pre code { font-size: 10pt; background: none; padding: 0; }
 hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
 @page { size: A4; margin: 25mm 20mm; }
 ```
