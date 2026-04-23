@@ -36,7 +36,7 @@ const sourceContent = {
   "store-waitlist": {
     preview: "You're on the AUWA Store waitlist.",
     heading: "Made by hand, chosen with care.",
-    body: "The AUWA Store will bring together lifetime objects from Japanese craftsmen. Every piece chosen because a master poured their soul into making it. We'll let you know when the doors open.",
+    body: "The AUWA Store will bring together Japanese craftsman objects and our own signed figure editions — small, hand-finished batches made in house. We'll write when the doors open, and you're in the draw to win our first edition.",
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics and wooden bowl in afternoon light",
     cta: "Read the journal",
@@ -199,6 +199,7 @@ const paragraph: React.CSSProperties = {
   letterSpacing: "0.005em",
   margin: "0 0 24px",
   opacity: 0.8,
+  textAlign: "center" as const,
 };
 
 const ctaSection: React.CSSProperties = {
