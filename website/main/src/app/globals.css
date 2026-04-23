@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Instagram / Facebook in-app WebViews auto-inflate text to compensate
+   for what they judge as poor mobile readability — the effect is that
+   body copy renders 10-20% larger than intended when the site opens
+   from an IG link. Locking text-size-adjust to 100% forces the WebView
+   to honour our CSS sizing. Safari/Chrome ignore this (they already
+   honour CSS), so it's safe everywhere. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 /* Footer parallax reveal: page content sits above sticky footer */
 main {
   position: relative;
@@ -40,11 +51,18 @@ main {
   --color-yuragi: oklch(0.65 0.12 55);
   --color-nagomi: oklch(0.75 0.10 160);
 
-  /* Fonts */
+  /* Fonts.
+     Japanese stacks include OS-native fallbacks (Hiragino Mincho / Yu
+     Mincho for serif; Hiragino Kaku Gothic / Yu Gothic for sans) so
+     that Japanese glyphs render in a sensible native face during the
+     font-display block period — without this, iOS falls through to
+     Hiragino Kaku Gothic (sans) for any glyph missing from next/font's
+     Latin-based auto-fallback, which is what caused the sans→serif
+     flash on the loader. */
   --font-display: var(--font-eb-garamond);
   --font-sans: var(--font-instrument-sans);
-  --font-jp: var(--font-noto-sans-jp);
-  --font-jp-serif: var(--font-noto-serif-jp);
+  --font-jp: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --font-jp-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", "Noto Serif CJK JP", serif;
 
   /* Motion — easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

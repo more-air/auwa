@@ -27,18 +27,25 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
 });
 
+// Japanese fonts use display: "block" (not swap) so iOS doesn't flash
+// the sans-serif Latin fallback before swapping to the serif mid-
+// animation — especially visible on the entrance loader (あうわ) on
+// first-time visits from Instagram's in-app WebView. The CSS variables
+// in globals.css include OS-native Japanese serif/sans fallbacks so
+// that if the block period ever runs long, the chars still render in
+// a Japanese face rather than disappearing.
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
   weight: ["300", "400"],
-  display: "swap",
+  display: "block",
 });
 
 const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
   subsets: ["latin"],
   weight: ["400", "600"],
-  display: "swap",
+  display: "block",
 });
 
 export const metadata: Metadata = {
