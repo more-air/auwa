@@ -1,5 +1,5 @@
 ---
-name: IG Post
+name: Instagram Post
 description: Prepare a full Instagram post brief (caption, hashtags, alt text, Story plan) from an asset and short context. Output ready to paste into Buffer or Later.
 ---
 

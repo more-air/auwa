@@ -1,5 +1,5 @@
 ---
-name: IG Slideshow
+name: Instagram Slideshow
 description: Turn a journal article into a 5-slide Instagram editorial carousel. Pulls the article, picks three pull quotes, drafts all copy, and saves the brief.
 ---
 

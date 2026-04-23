@@ -1,5 +1,5 @@
 ---
-name: IG Week
+name: Instagram Week
 description: Plan next week's three Instagram posts. Balances pillars, pulls from the article backlog and character animation queue, and outputs the week's schedule.
 ---
 
@@ -64,7 +64,7 @@ Present the week as a three-row table:
 
 Ask the user: "Does this week look right? Any swaps?"
 
-Once confirmed, offer to generate the individual briefs using `/ig-post` for slots 1 and 3, and `/ig-slideshow` for slot 2. Do not auto-generate them; the user should step through each one so voice and image selection get real attention.
+Once confirmed, offer to generate the individual briefs using `/instagram:post` for slots 1 and 3, and `/instagram:slideshow` for slot 2. Do not auto-generate them; the user should step through each one so voice and image selection get real attention.
 
 ## Step 6: Save the Week
 

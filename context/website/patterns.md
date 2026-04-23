@@ -34,7 +34,7 @@ This uses the `.vercel/project.json` at `website/main/.vercel/project.json` (pro
 
 ---
 
-*(For PDF generation from any `context/**/*.md` file, see `context/tooling.md`.)*
+*(For PDF generation from any `context/**/*.md` file, see `context/tooling/pdf.md`.)*
 
 ---
 

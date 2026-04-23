@@ -1,5 +1,5 @@
 ---
-name: Write Article
+name: Article
 description: Write a new journal article for auwa.life. Handles image optimisation, writing, and assembly.
 ---
 

@@ -117,7 +117,7 @@ The app uses two additional Japanese philosophical frameworks internally:
 - Resend fully integrated: contacts API + email sending
 - Welcome emails auto-fire on signup (4 variants per source)
 - No double opt-in (friction not worth it at this scale)
-- Newsletter sends via `/send-newsletter` command or API endpoint
+- Newsletter sends via `/marketing:newsletter` command or API endpoint
 - Sending domain `auwa.life` must be verified in Resend before emails deliver
 - React Email (`@react-email/components`) for all templates
 - 3 Resend segments (free plan limit): App Waitlist, Store Waitlist, Book Waitlist
@@ -216,8 +216,8 @@ Whenever `context/website/website.md` is loaded for implementation work (compone
 - `context/marketing/newsletter.md` — Newsletter system: welcome email templates (auto-sent per source), newsletter template (manual send via API), sending workflow, email design principles, subject line format, Resend configuration, cadence guidance.
 - `context/marketing/social.md` — Social account map: all live handles and logins across Instagram, Facebook, Threads, YouTube, LinkedIn, Bluesky, Pinterest, Discord, Twitch, Reddit, Medium, Spotify; pending email verifications; deliberately skipped platforms; outstanding next steps. Single source of truth for the social footprint.
 
-**Tooling (`context/`):**
+**Tooling (`context/tooling/`):**
 
-- `context/tooling.md` — Shared tooling pipelines. Currently: the PDF generation recipe (md-to-pdf + the `context/<folder>/<file>.md` → `documents/AUWA-*.pdf` filename mapping). **Load whenever the user asks for a PDF to be generated from any context file**, regardless of session topic.
+- `context/tooling/pdf.md` — PDF generation pipeline: the md-to-pdf recipe plus the `context/<folder>/<file>.md` → `documents/AUWA-*.pdf` filename mapping. **Load whenever the user asks for a PDF to be generated from any context file**, regardless of session topic. Future tooling files (image pipeline, audio prep) sit alongside in this folder.
 
 ---

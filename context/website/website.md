@@ -528,7 +528,7 @@ Fully documented in `context/marketing/newsletter.md`. Summary:
 
 - **Welcome emails** auto-send on signup (4 variants per source: newsletter, app-waitlist, store-waitlist, book-waitlist). Sent as transactional via `resend.emails.send()`. Unsubscribe is a plain `mailto:hello@auwa.life?subject=Unsubscribe` because the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge var does not substitute in transactional sends.
 - **Welcome email subjects**: "Welcome to AUWA" (newsletter) · "You're on the AUWA App waitlist" (app) · "A note from AUWA." (store and book — softer subject keeps them out of Gmail Promotions).
-- **Newsletter sends** go through Resend's **Broadcasts API** (`resend.broadcasts.create()` + `.send()`), not the transactional Emails API. This is what enables the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge variable and the `List-Unsubscribe` header. Triggered manually via the `/send-newsletter` slash command or the `/api/newsletter/send` endpoint.
+- **Newsletter sends** go through Resend's **Broadcasts API** (`resend.broadcasts.create()` + `.send()`), not the transactional Emails API. This is what enables the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge variable and the `List-Unsubscribe` header. Triggered manually via the `/marketing:newsletter` slash command or the `/api/newsletter/send` endpoint.
 - **Signup points**: shared footer on every page ("Quiet letters."), plus dedicated forms on app/store/book teaser pages
 - **Templates**: React Email components in `src/emails/` (welcome.tsx, newsletter.tsx)
 - **Resend segments**: App Waitlist, Store Waitlist, Book Waitlist (3 segments, free plan limit). Newsletter subscribers go to audience without a segment.

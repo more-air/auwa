@@ -9,8 +9,8 @@ This folder holds the prepared briefs for every AUWA Instagram post. One file pe
 
 ## Workflow
 
-1. **Plan the week.** Run `/ig-week` on Monday. Outputs three slots (Tue/Wed Reel, Fri/Sat Slideshow, Sun atmospheric) and saves to `weeks/YYYY-WW.md`.
-2. **Prepare each post.** Run `/ig-post` for Reels and single/atmospheric posts. Run `/ig-slideshow` for article digests. Each command asks for the asset and context, drafts caption, hashtags, alt text, first comment, and Story plan, and saves the brief here.
+1. **Plan the week.** Run `/instagram:week` on Monday. Outputs three slots (Tue/Wed Reel, Fri/Sat Slideshow, Sun atmospheric) and saves to `weeks/YYYY-WW.md`.
+2. **Prepare each post.** Run `/instagram:post` for Reels and single/atmospheric posts. Run `/instagram:slideshow` for article digests. Each command asks for the asset and context, drafts caption, hashtags, alt text, first comment, and Story plan, and saves the brief here.
 3. **Produce the visual.** For slideshows, design the 5 slides in Figma or Canva using the design brief in the saved file. For Reels, export the 9:16 cut from Runway or Premiere.
 4. **Schedule in Buffer or Later.** Paste the caption, attach the asset, add alt text, set the first-comment to auto-post, schedule for the time in the brief.
 5. **Publish day.** After the post goes live, share to Story with the link sticker from the brief. Pin to grid if the brief says to.

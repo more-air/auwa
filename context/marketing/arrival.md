@@ -29,7 +29,7 @@ The highest-leverage work. Every warm share (LinkedIn, family, peers, Darius, Iv
 **Friday 24 April, full-time priorities:**
 
 - **Imagen tone-adjustment pass** on the top 10-15 article hero images. Subtle tone only, no upscaling, no restyling. Side-by-side compare against originals; reject any visible AI touch. These images serve website and IG simultaneously.
-- **Build out the IG content queue.** Use `/ig-post` and `/ig-slideshow` to prepare 6-8 posts in `social/ig/`. Mix: Rieko character Reels from her queue, editorial slideshows from existing journal articles, atmospheric photographs, one Japanese-wisdom carousel. Queue sits ready; daily posting then becomes a copy-paste job rather than a daily-write job.
+- **Build out the IG content queue.** Use `/instagram:post` and `/instagram:slideshow` to prepare 6-8 posts in `social/ig/`. Mix: Rieko character Reels from her queue, editorial slideshows from existing journal articles, atmospheric photographs, one Japanese-wisdom carousel. Queue sits ready; daily posting then becomes a copy-paste job rather than a daily-write job.
 - **Book teaser upgrade.** Pick one of two options and ship Friday if time allows:
   - *(a)* Auto-play slideshow of a few inside-the-book images in the teaser image area.
   - *(b)* Button that opens a sample preview (modal or page) with a handful of book spreads to flick through.
@@ -38,7 +38,7 @@ The highest-leverage work. Every warm share (LinkedIn, family, peers, Darius, Iv
 **Internal work that proceeds in parallel (no external touchpoints):**
 
 - **Fin DAC article draft.** His artwork of Rieko and her mum. *Draft* this week, *publish* once the grid has reached 9 posts. No external share yet.
-- **Continue daily IG posts** from the queue. Figma slideshow template to be built when there's a natural slot; for now the brief from `/ig-slideshow` is enough for Rieko to lay up slides manually.
+- **Continue daily IG posts** from the queue. Figma slideshow template to be built when there's a natural slot; for now the brief from `/instagram:slideshow` is enough for Rieko to lay up slides manually.
 
 **Principle.** Every external touchpoint (email to Kyoto shop, brief to Colin, LinkedIn post, family share, peer shares, Darius, Ivo, Fin reconnect) waits for the grid. Japan especially weights visible social presence as a credibility signal, and Shigefusa's sons will judge IG before anything else. A first impression you can't redo. Hold the line on all external activation until the grid is ready.
 

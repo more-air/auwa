@@ -1,5 +1,5 @@
 ---
-name: Send Newsletter
+name: Newsletter
 description: Compose and send a newsletter to the AUWA mailing list. Handles content selection, preview, and sending.
 ---
 

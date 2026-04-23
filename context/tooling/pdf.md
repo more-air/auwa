@@ -1,12 +1,12 @@
-# AUWA Tooling
+# AUWA PDF Generation
 
-Utility pipelines used across any AUWA session — brand, business, newsletter, strategy, website. Load this file when the user asks for something that uses one of these tools (most commonly: PDF generation from a context file).
+The recipe for generating `documents/AUWA-*.pdf` from any context file. Load this when the user asks to produce or refresh a PDF. Other tooling files (image pipeline, audio prep) can sit alongside in `context/tooling/` as they're needed.
 
 ---
 
-## PDF GENERATION
+## WHEN TO USE
 
-Used when the user says something like "generate a PDF from [file].md and put it in documents/" — works for any `context/*.md` file (brand, business, manifesto, arrival, instagram, etc.), not just website work.
+Used when the user says something like "generate a PDF from [file].md and put it in documents/" — works for any `context/**/*.md` file (brand, business, manifesto, arrival, instagram, etc.), not just website work.
 
 **IMPORTANT: Puppeteer (used by md-to-pdf) hangs when multiple instances run concurrently. Always generate PDFs one at a time, in the foreground, never in background mode.**
 
@@ -59,6 +59,6 @@ Then move the output: `mv context/[folder]/[file].pdf documents/AUWA-[Name].pdf`
 - `context/marketing/instagram.md` → `documents/AUWA-Instagram.pdf`
 - `context/marketing/social.md` → `documents/AUWA-Social.pdf`
 
-*Claude-only (no PDF):* `context/pillar/journal.md`, `context/marketing/newsletter.md`, `context/website/patterns.md`, `context/tooling.md`.
+*Claude-only (no PDF):* `context/pillar/journal.md`, `context/marketing/newsletter.md`, `context/website/patterns.md`, `context/tooling/pdf.md`.
 
 **If it hangs:** Kill Chrome (`pkill -9 -f "chromium"`), wait 2 seconds, retry. Never run two md-to-pdf commands in parallel.
