@@ -406,6 +406,8 @@ Reusable components live in `src/components/`. All are server components unless 
 | AuwaVideoBlock | `auwa-video-block.tsx` | Yes | Full-width AUWA face video. Landscape desktop, square mobile. Auto-plays on visibility. |
 | MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |
 | ObfuscatedEmail | `obfuscated-email.tsx` | Yes | Bot-proof email display. Shows `user[at]domain` initially, reveals real `mailto:` link on click. Props: `user`, `domain`. |
+| ImageFade | `image-fade.tsx` | Yes | Next.js `<Image>` wrapper that fades from opacity 0 → 1 over `DURATION.reveal` once pixels are painted. Used on the article hero AND all editorial card images (journal index, in-article image-pair / image-beside, continue-reading). Cache-guard on mount: `img.complete && naturalWidth > 0` flips `loaded` directly so cached images on revisits don't stay at opacity 0 (onLoad never fires for them). Inline `transition` re-specifies `transform` + `filter` alongside opacity so the global `a img { transition: transform 0.8s ... }` hover-zoom rule isn't wiped by the inline opacity transition. |
+| FigureHook | `figure-hook.tsx` | Yes | Sitewide bottom peek strip inviting visitors to the figure edition waitlist. Mounted in `layout.tsx`. Hidden on teaser pages (`/store`, `/app`, `/book`) where a local signup is already primary. Appears after 600px scroll, fades out as a zero-height sentinel at the end of `<main>` enters the viewport (240px pre-footer margin so the handoff to the footer's "Quiet letters" block is gentle). Sentinel watches main-content-end, not the sticky footer directly — the footer is `sticky bottom-0` from page load and would register as intersecting at every scroll position. |
 
 **API routes:**
 
