@@ -83,12 +83,12 @@ export function FigureHook() {
         href="/store"
         className="group pointer-events-auto block bg-void"
       >
-        <div className="flex items-center justify-between gap-6 px-6 md:px-12 lg:px-20 xl:px-28 h-12 md:h-14">
-          <p className="font-display text-[14px] md:text-[16px] leading-none tracking-[0.005em] text-white">
-            Signed editions. Your chance to win one.
+        <div className="flex items-center justify-between gap-6 px-6 md:px-12 lg:px-20 xl:px-28 h-14 md:h-16">
+          <p className="font-sans text-[11px] md:text-[13px] leading-none tracking-[0.1em] md:tracking-[0.14em] uppercase text-white whitespace-nowrap">
+            Win first edition AUWA figure
           </p>
           <span className="font-sans text-[11px] md:text-[12px] tracking-[0.14em] uppercase text-white whitespace-nowrap">
-            Join
+            Enter
             <span aria-hidden="true" className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>
         </div>
