@@ -83,14 +83,46 @@ Assemble the article as a content block array matching the format in the existin
 
 Ask: "Happy with this, or want to adjust anything before I add it to the site?"
 
-## Step 6: Add to Site
+## Step 6: Add to Site (with SEO checks baked in)
 
 Once approved:
 
-1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`
-2. Add it to the article list in `website/main/src/app/journal/page.tsx` (include the `image` field pointing to the hero image so it shows on the listing page)
-3. Add it to the `latestArticles` array in `website/main/src/app/page.tsx` at the top (most recent first), with the `image` field pointing to the hero image. Increment the issue number to be one higher than the current highest.
-4. Add the article slug to the `articleSlugs` array in `website/main/src/app/sitemap.ts`
-5. Test the build compiles cleanly
+1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`.
+   - **Title**: once " | AUWA" is appended for the page title it must stay under 60 chars total (Google truncates longer ones in results). The article data's `title` field is that topic phrase — keep it concise.
+   - **Subtitle**: appears on-page as an editorial line AND as the meta description in search results. Aim 100-155 chars. Long enough to carry the primary topic keyword plus context, short enough Google won't truncate. The 53-char ceiling elsewhere is card-display only; the subtitle itself can run longer. Ensure the primary topic word (e.g. "Yakushima", "washi", "onsen") appears in it.
+   - **Keyword placement check**: the primary topic word should appear in the title, the subtitle, AND somewhere in the first paragraph of the article body. This isn't stuffing, it's natural editorial — just verify you haven't buried the term in an opening scene that names no places.
 
-**SEO note:** Dynamic metadata (og:title, og:description, og:image, twitter card, Article JSON-LD) is generated automatically from the article data in the articles object. No extra metadata work needed per article — BUT the social-share image only works if the `-og.jpg` file exists alongside the `-hero.jpg` in `public/journal/[slug]/`. Step 2 covers this; double-check both files are present before shipping.
+2. Add it to the article list in `website/main/src/app/journal/page.tsx` (include the `image` field pointing to the hero image so it shows on the listing page).
+
+3. Add it to the `latestArticles` array in `website/main/src/app/page.tsx` at the top (most recent first), with the `image` field pointing to the hero image. Increment the issue number to be one higher than the current highest.
+
+4. **Add the article slug to the `articleSlugs` array in `website/main/src/app/sitemap.ts`**. Verify the slug is *byte-identical* to the key in the articles object in `journal/[slug]/page.tsx`. A mismatch (e.g. `oroko-combs` in sitemap vs `oroku-gushi` in articles object) causes Google to crawl a 404 and never discover the real URL. This cost AUWA ~10 days of missed indexing once — don't let it repeat.
+
+5. **Alt text pass**: every image block in the article content (`image`, `image-pair`, `image-beside`) must have a descriptive `alt` field. Used by image search, social previews, and screen readers. Don't write "image of a tree" — describe the subject specifically ("morning mist over Yakushima's cedar forest"). Missing alts cost ranking and accessibility points.
+
+6. **Indexability sanity check**: `src/app/robots.ts` disallows `/api/, /brand, /book/1, /book/2, /home-1, /instagram`. The article route must NOT match any of those. It won't, if it lives under `/journal/[slug]` — but confirm before shipping.
+
+7. Test the build compiles cleanly (`npm run build` inside `website/main/`).
+
+**What the site does automatically, no manual work required:**
+- `generateMetadata()` in `journal/[slug]/page.tsx` derives `title`, `description`, `openGraph.title/description/url/images`, `twitter.card/title/description/images`, and the Article JSON-LD structured data from the article data. Nothing extra to wire up.
+- OG image path is derived by replacing `-hero.jpg` with `-og.jpg` on the hero path — so the only requirement is that BOTH files exist in `public/journal/[slug]/`. Step 2 covers this; verify before shipping.
+- No `<link rel="canonical">` is emitted (intentional — each article URL is its own canonical). Don't add one.
+
+## Step 7: Request indexing (after the deploy lands)
+
+Don't wait for Google to organically find the new article — that can take 4-6 weeks for a site AUWA's age. Two things after deploy:
+
+1. **Request indexing on the article URL**:
+   - Go to https://search.google.com/search-console → select `auwa.life`
+   - Paste `https://auwa.life/journal/[slug]` into the top search bar → press Enter
+   - Wait 10-30 seconds for URL Inspection to load
+   - Click **Request Indexing** (top right of the panel)
+   - Success: "URL added to priority crawl queue" (actual indexing typically 1-3 days)
+
+2. **Resubmit the sitemap** (so Google re-fetches the full list):
+   - GSC left sidebar → **Sitemaps**
+   - Click the existing `sitemap.xml` entry → three-dot menu → **Remove sitemap**
+   - Then re-add under "Add a new sitemap" → enter `sitemap.xml` → **Submit**
+
+Request Indexing is the fast path for the specific article; sitemap resubmit ensures Google sees the updated list and picks up the new URL on its next natural crawl.
