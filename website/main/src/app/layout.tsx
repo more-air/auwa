@@ -60,9 +60,14 @@ export const metadata: Metadata = {
   description:
     "Japanese philosophical awareness applied to modern life. A daily awareness practice, craftsman objects, illustrated stories, and an editorial journal. Rooted in the ancient belief that a life force resides in all things.",
   metadataBase: new URL("https://auwa.life"),
-  alternates: {
-    canonical: "https://auwa.life",
-  },
+  // No global canonical. A parent canonical is inherited by every child
+  // route in Next.js metadata merging, so an "https://auwa.life" here
+  // told Google that every article page's authoritative URL was the
+  // homepage — which dropped the per-article rankings into homepage
+  // consolidation. Pages without their own canonical now render none,
+  // and Google treats the URL itself as the canonical (correct). If a
+  // page ever needs an explicit canonical (e.g. to handle query params),
+  // add `alternates: { canonical: url }` to THAT page's generateMetadata.
   openGraph: {
     title: "AUWA | Everything has Kokoro",
     description:

@@ -10,7 +10,7 @@ const articleSlugs = [
   "making-washi",
   "narai-juku",
   "shigefusa-knife",
-  "oroko-combs",
+  "oroku-gushi",
   "nozawa-fire-festival",
   "yaoyorozu-no-kami",
   "the-beginning",
