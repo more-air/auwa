@@ -24,6 +24,23 @@ The brand feels like: a quiet room in a Japanese temple at dusk. Dark, warm, sti
 
 **What AUWA is not:** Headspace-style illustration pop. Wellness-brand pastels. Busy Japanese maximalism. Tech-startup energy. Anything with a gradient that screams "app."
 
+### How to describe AUWA (the three-layer messaging strategy)
+
+Three descriptors, each with a different job. They don't compete — they live at different depths and are used in different contexts. Established April 2026 after testing phrases on new audiences.
+
+| Layer | Phrase | Where it's used | Why |
+|-------|--------|-----------------|-----|
+| **Discovery** | **Japanese lifestyle brand** | Meta descriptions, About page prose, Instagram bio, press briefings, pitch decks, the dinner-party answer | Instantly legible to a new visitor. Places AUWA next to Kinfolk, Monocle, Goop in their mental shelf. Maps directly to high-volume search terms. |
+| **Claim** | **Japanese Philosophy of Kokoro** | Homepage title tag, homepage H1, top-level brand claim, taglines | AUWA's unique ground. "Kokoro" is a low-competition word the brand essentially owns; "Japanese Philosophy" is the bigger bucket we compete in. This is the phrase that differentiates us from every other lifestyle brand. |
+| **Voice** | **Japanese living** | Editorial prose in the journal, About page narrative, newsletter subject lines and body copy, Instagram captions, anything written in the brand's own voice | Aspirational, not category-descriptive. How AUWA talks to its own audience — not what it IS, but how you might live. |
+
+Rules:
+- **Never lead with "lifestyle brand" inside AUWA's own editorial voice** — that's marketing-speak. Use it when speaking *about* AUWA to outsiders.
+- **Never lead with "Kokoro" in first-impression discovery copy** — it raises a question ("what's Kokoro?") before it answers one. Use it after you've earned the reader's attention.
+- **"Japanese living" is a tone, not a category** — it's how the prose feels, not how the brand sells itself.
+
+Writers moving between contexts (press → web → newsletter → journal → Instagram) should pick the layer matching the reader: outsider = Discovery, searcher = Claim, existing audience = Voice.
+
 ---
 
 ## 2. Logo

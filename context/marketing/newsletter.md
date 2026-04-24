@@ -50,7 +50,7 @@ curl -X POST https://auwa.life/api/newsletter/send \
   -H "Content-Type: application/json" \
   -d '{
     "secret": "auwa-send-2026",
-    "subject": "Light rain. | AUWA",
+    "subject": "Light rain. - AUWA",
     "previewText": "Three pieces on seasonal living, Japanese craft, and finding stillness.",
     "heading": "Seasonal letter.",
     "intro": "Spring has settled in. The plum blossoms are gone, replaced by something quieter. Here are three pieces from the journal.",
@@ -78,7 +78,7 @@ curl -X POST http://localhost:3000/api/newsletter/send \
   -H "Content-Type: application/json" \
   -d '{
     "secret": "auwa-send-2026",
-    "subject": "Test newsletter | AUWA",
+    "subject": "Test newsletter - AUWA",
     "previewText": "Testing the newsletter system.",
     "heading": "Test.",
     "intro": "This is a test send.",
@@ -127,15 +127,15 @@ Each send should feature 1-3 journal articles, optionally tied to the current se
 
 ## Subject Line Format
 
-`[Topic or season name] | AUWA`
+`[Topic or season name] - AUWA`
 
 Examples:
-- `Light rain. | AUWA`
-- `Three objects with Kokoro. | AUWA`
-- `A letter from Kyoto. | AUWA`
-- `The spring journal. | AUWA`
+- `Light rain. - AUWA`
+- `Three objects with Kokoro. - AUWA`
+- `A letter from Kyoto. - AUWA`
+- `The spring journal. - AUWA`
 
-Keep it short, specific, lowercase after the first word. The pipe separator matches the website's page title format. No emojis. No ALL CAPS. No questions designed to create false curiosity.
+Keep it short, specific, lowercase after the first word. Hyphen separator matches the website's page title format (updated April 2026 — all pages switched from pipe to hyphen for SEO + cross-touchpoint consistency). No emojis. No ALL CAPS. No questions designed to create false curiosity.
 
 ---
 

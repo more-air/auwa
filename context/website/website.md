@@ -73,7 +73,7 @@ The homepage leads with a full-bleed AUWA face video, then moves through editori
 
 2. **HeroVideo** — Full-bleed AUWA face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line replaces the bouncing chevron; the button calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro section.
 
-3. **Intro block** — "Our philosophy" eyebrow, `ScrollFadeText` paragraph introducing AUWA and its four expressions, "The Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha behind the paragraph.
+3. **Intro block** — "Japanese Philosophy" `<h1>` rendered in the small-caps eyebrow style (so the composition is visually unchanged while the page now has a keyword-rich H1 signal Google can read). `ScrollFadeText` paragraph introducing AUWA and its four expressions, "The Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha behind the paragraph.
 
 4. **Pullquote 1** — Hero-scale `ScrollFadeText` ("What you pay attention to…") at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05.
 
@@ -425,11 +425,53 @@ Reusable components live in `src/components/`. All are server components unless 
 
 ### SEO
 
-- Dynamic meta tags per page (title, description, OG image)
-- Structured data (JSON-LD) for articles (Article schema)
-- Sitemap auto-generated
-- Canonical URLs
-- Journal articles are the primary SEO asset — target long-tail keywords around Japanese philosophy, craft, seasonal living, awareness
+**Messaging strategy — three layers, applied consistently across every page.** Each layer has a distinct job; they don't compete:
+
+- **Discovery** (what a new visitor types into Google): *"Japanese lifestyle brand"*. Used in meta descriptions, About page prose, Instagram bio, press briefings, the dinner-party answer. Instantly legible, places AUWA next to Kinfolk / Monocle / Goop in a new visitor's mental shelf.
+- **Claim** (the unique ground AUWA owns in search): *"Japanese Philosophy of Kokoro"*. Used in the homepage title tag and homepage H1. "Kokoro" is a low-competition word AUWA essentially claims outright; "Japanese Philosophy" is the higher-volume bucket the brand competes for. Titles and H1s enforce this claim.
+- **Voice** (editorial prose tone): *"Japanese living"*. Thread through article intros, About narrative, newsletter prose, Instagram captions. Aspirational, not category-descriptive.
+
+**Title pattern — `" - "` (space-hyphen-space) separator. Every page matches this structure:**
+
+| Page | Title |
+|------|-------|
+| `/` | AUWA - Japanese Philosophy of Kokoro |
+| `/journal` | AUWA Journal - Japanese Philosophy, Craft & Seasons |
+| `/about` | About AUWA - A Japanese Lifestyle Brand |
+| `/store` | AUWA Store - Japanese Craftsman Objects & Figure Editions |
+| `/app` | AUWA App - Japanese Awareness Practice |
+| `/book` | AUWA Book - Illustrated Japanese Stories |
+| `/journal/[slug]` | `{article.title} - AUWA Journal` |
+
+Every title stays ≤60 chars (Google truncates after that). Every title contains "Japanese" somewhere — either as the category qualifier ("Japanese Awareness Practice") or in the unique-claim phrase ("Japanese Philosophy of Kokoro").
+
+**Meta description pattern — 100-155 chars, keyword-rich, distinct from on-page poetry.** Articles carry TWO fields:
+- `subtitle` — the on-page editorial line (poetic, short, reader-facing).
+- `description` — the meta description (keyword-rich, 100-155 chars, contains "Japanese" and the primary topic word). `generateMetadata()` prefers `description`, falls back to `subtitle` if absent.
+
+This separation is important: the reader sees quiet poetry on the page; Google sees a concrete topic statement in search results.
+
+**H1 rules — one per page, keyword-led when possible:**
+- Homepage: `Japanese Philosophy` (rendered as the small-caps eyebrow above the intro paragraph — visually unchanged, semantically elevated).
+- `/journal`: `Journal` (short category label is fine; the title tag carries the keyword weight).
+- `/about`: `The architecture of Kokoro` (poetic; the title tag does the SEO work).
+- Teaser pages (`/app`, `/store`, `/book`): topic H1s (`Awareness, daily.`, `Lifetime objects.`, `Open the eyes.`).
+- Articles: `article.title`. Japanese topic words (Yakushima, Shigefusa, Yaoyorozu no Kami) ARE the H1.
+
+**Structured data (JSON-LD) — one per page type, injected via `<script type="application/ld+json">`:**
+- `/` — `Organization` + `WebSite` (in `layout.tsx`).
+- `/journal` — `Blog` with `BlogPosting` entries for every article.
+- `/about` — `AboutPage` with `Organization` mainEntity containing `Person` entries for Rieko Maeda (Creator, Japanese) and Tom Vining (Producer, British).
+- `/journal/[slug]` — `Article` with headline, description, author, datePublished, publisher, image, url.
+- Teaser pages (`/store`, `/app`, `/book`) — no structured data yet; add `Store` / `SoftwareApplication` / `Book` schemas when they launch.
+
+**Canonical URLs — intentionally NOT emitted.** The root layout used to set `alternates.canonical = "https://auwa.life"`; Next.js metadata inheritance then applied that canonical to every child page, which told Google every article was a duplicate of the homepage — and collapsed them under homepage consolidation. Fix (April 2026): remove the global canonical entirely. Each URL is now its own canonical by default. Only add `alternates: { canonical: url }` on a specific page if that page genuinely needs one (e.g. to strip query params).
+
+**Image alt text — always include the geographic, cultural, or craft qualifier where it reads natural.** Prefer Japanese terms (washi, onsen, shimenawa, noren, engawa) over English translations — they rank on image search AND feel editorial. Prefer place names (Yakushima, Koya-san, Nagano) over "mountain" / "forest". Hero image alt should identify Japan or the specific Japanese subject within the first ten words.
+
+**Sitemap slug hygiene.** The sitemap's `articleSlugs` array MUST match the keys in the articles object in `src/app/journal/[slug]/page.tsx` byte-for-byte. A single-character drift ( `oroko-combs` vs `oroku-gushi`) means Google crawls a 404 and never discovers the real URL. Fixed once; the article command now guards against it.
+
+**Journal articles are the primary SEO asset** — target long-tail keywords around Japanese philosophy, craft, seasonal living, awareness. Each article's `description` should combine "Japanese" + the specific topic term + a brief what-it's-about sentence.
 
 ---
 

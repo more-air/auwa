@@ -213,13 +213,16 @@ For each article:
 
 ```
 title:        Short, evocative. One to four words.
-subtitle:     Max 53 characters. Punchy, with a turn or surprise. Two short sentences work well. Reference: "Made from wood that breaks axes. Named after a girl."
+subtitle:     Max 53 characters. Punchy, with a turn or surprise. Two short sentences work well. Reference: "Made from wood that breaks axes. Named after a girl." Reader-facing editorial line — stays poetic.
+description:  100-155 characters. Keyword-rich meta description for Google. MUST contain "Japanese" where natural plus the primary topic word. Distinct from subtitle — subtitle is poetry, description is search. Structure: "{what it's about}, {place/context}. {why it matters}." Reference: "On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness."
 category:     Seasons | Craft | Philosophy | Travel
 author:       AUWA
 photographer: AUWA
 publishedAt:  ISO date
 heroImage:    Path to the hero photograph
 ```
+
+The page title automatically becomes `"{title} - AUWA Journal"` with the hyphen separator. `generateMetadata()` prefers `description` for the meta tag and falls back to `subtitle` if `description` is omitted. Always write both.
 
 ---
 
