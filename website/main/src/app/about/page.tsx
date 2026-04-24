@@ -7,28 +7,60 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About | AUWA",
-  description: "The story of AUWA and the ancient Japanese belief that a life force resides in all things.",
+  title: "About AUWA - A Japanese Lifestyle Brand",
+  description: "Rieko Maeda and Tom Vining on founding AUWA, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
   openGraph: {
-    title: "About | AUWA",
-    description: "The story of AUWA and the ancient Japanese belief that a life force resides in all things.",
+    title: "About AUWA - A Japanese Lifestyle Brand",
+    description: "Rieko Maeda and Tom Vining on founding AUWA, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
     url: "https://auwa.life/about",
     siteName: "AUWA",
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/og/about.jpg", width: 1200, height: 630, alt: "About AUWA" }],
+    images: [{ url: "/og/about.jpg", width: 1200, height: 630, alt: "About AUWA - a Japanese lifestyle brand founded by Rieko Maeda and Tom Vining" }],
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "About | AUWA",
-    description: "The story of AUWA.",
+    title: "About AUWA - A Japanese Lifestyle Brand",
+    description: "Rieko Maeda and Tom Vining on founding AUWA.",
     images: ["/og/about.jpg"],
   },
 };
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About AUWA - A Japanese Lifestyle Brand",
+    description: "Rieko Maeda and Tom Vining on founding AUWA, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
+    url: "https://auwa.life/about",
+    mainEntity: {
+      "@type": "Organization",
+      name: "AUWA",
+      url: "https://auwa.life",
+      logo: "https://auwa.life/auwa-logo.svg",
+      description: "A Japanese lifestyle brand rooted in the philosophy that everything has Kokoro.",
+      founder: [
+        {
+          "@type": "Person",
+          name: "Rieko Maeda",
+          jobTitle: "Creator",
+          nationality: "Japanese",
+          url: "https://auwa.life/about#rieko",
+        },
+        {
+          "@type": "Person",
+          name: "Tom Vining",
+          jobTitle: "Producer",
+          nationality: "British",
+          url: "https://auwa.life/about#tom",
+        },
+      ],
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
 
         {/* Hero — explicit pt-12 md:pt-16 (hero exception, see website.md)

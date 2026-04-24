@@ -4,21 +4,21 @@ import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
-  title: "Lifetime objects | AUWA",
-  description: "A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime, the antithesis of throwaway.",
+  title: "AUWA Store - Japanese Craftsman Objects & Figure Editions",
+  description: "Japanese craftsman objects, and our own signed figure editions. Made slowly, chosen for a lifetime. Sign up for the opening, and a chance to win our first edition.",
   openGraph: {
-    title: "Lifetime objects | AUWA",
-    description: "A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime.",
+    title: "AUWA Store - Japanese Craftsman Objects & Figure Editions",
+    description: "Japanese craftsman objects, and our own signed figure editions. Made slowly, chosen for a lifetime. Sign up for the opening, and a chance to win our first edition.",
     url: "https://auwa.life/store",
     siteName: "AUWA",
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/og/store.jpg", width: 1200, height: 630, alt: "AUWA Store" }],
+    images: [{ url: "/og/store.jpg", width: 1200, height: 630, alt: "AUWA Store - Japanese craftsman objects and figure editions" }],
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "Lifetime objects | AUWA",
-    description: "A curated home for Japanese craftsman objects.",
+    title: "AUWA Store - Japanese Craftsman Objects & Figure Editions",
+    description: "Japanese craftsman objects, and our own signed figure editions.",
     images: ["/og/store.jpg"],
   },
 };

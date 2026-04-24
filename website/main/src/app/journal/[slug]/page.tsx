@@ -22,6 +22,16 @@ const articles: Record<
   {
     title: string;
     subtitle: string;
+    /**
+     * Longer, keyword-rich meta description used by `generateMetadata`
+     * for the <meta name="description">, Open Graph, and Twitter cards.
+     * 100-155 chars. Contains "Japanese" where natural plus the primary
+     * topic keyword, so Google knows what each article is about without
+     * having to parse prose. Distinct from `subtitle`, which stays
+     * editorial-poetic for on-page reading. Optional — if omitted,
+     * `subtitle` is used as fallback.
+     */
+    description?: string;
     category: string;
     issue: string;
     author: string;
@@ -34,6 +44,7 @@ const articles: Record<
   "yakushima-island": {
     title: "Yakushima",
     subtitle: "On the island where the trees outlived history.",
+    description: "A journey to Yakushima, the Japanese island of thousand-year cedars that inspired Princess Mononoke. On forests, moss, and slow attention.",
     category: "Travel",
     issue: "Issue 08",
     author: "Tom Vining",
@@ -119,6 +130,7 @@ const articles: Record<
   "koya-san": {
     title: "Koya-san",
     subtitle: "Prayers chanted on this mountain for 1,200 years.",
+    description: "A pilgrimage to Koya-san, the Japanese Buddhist mountain sanctuary. On temple stays, morning rituals, and 1,200 years of Shingon chanting.",
     category: "Travel",
     issue: "Issue 06",
     author: "Tom Vining",
@@ -214,6 +226,7 @@ const articles: Record<
   "nozawa-fire-festival": {
     title: "Nozawa Fire Festival",
     subtitle: "A village renews its bond with its guardian spirits.",
+    description: "Inside the Nozawa Fire Festival, one of Japan's three great fire festivals. On snow, flame, and a Japanese village ritual older than memory.",
     category: "Seasons",
     issue: "Issue 09",
     author: "Tom Vining",
@@ -293,6 +306,7 @@ const articles: Record<
   "making-washi": {
     title: "Making Washi",
     subtitle: "Cold water, mulberry bark, a thousand-year gesture.",
+    description: "Inside a Japanese washi paper workshop. On craft, patience, and the mulberry bark that becomes paper used in Japan for over a thousand years.",
     category: "Craft",
     issue: "Issue 03",
     author: "Tom Vining",
@@ -315,7 +329,7 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/washi/washi-rieko.jpg",
-        alt: "Dipping a wooden sugeta frame into the vat of mulberry pulp at Shinshu Matsuzaki workshop",
+        alt: "Dipping a wooden sugeta frame into the vat of mulberry pulp at the Shinshu Matsuzaki workshop, a traditional Japanese washi paper atelier in Nagano",
         caption: "Rieko at the vat. The A4 sized frame for the full course, the same motion the workshop has practised since 1042.",
       },
       {
@@ -376,6 +390,7 @@ const articles: Record<
   "oroku-gushi": {
     title: "Oroku-gushi",
     subtitle: "Made from wood that breaks axes. Named after a girl.",
+    description: "The Japanese art of Oroku-gushi — handmade wooden combs carved from mountain boxwood, crafted one at a time by master artisans in Nagano.",
     category: "Craft",
     issue: "Issue 07",
     author: "Tom Vining",
@@ -445,6 +460,7 @@ const articles: Record<
   "72-seasons": {
     title: "72 Seasons",
     subtitle: "Five-day seasons, each one worth noticing.",
+    description: "The Japanese 72 micro-seasons (Shichijūni-kō) — how the year divides into five-day moments, and why the Japanese habit of noticing still matters.",
     category: "Seasons",
     issue: "Issue 05",
     author: "Rieko Maeda",
@@ -467,7 +483,7 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/72-seasons/72-seasons-tsukubai.jpg",
-        alt: "A stone tsukubai water basin with fallen red maple leaves floating on the surface, moss covering the bamboo ladle rest",
+        alt: "A stone tsukubai water basin in a Japanese temple garden, fallen red maple leaves floating on the surface, moss covering the bamboo ladle rest",
         caption: "Fallen maple leaves in a temple tsukubai. The basin collects whatever the season is doing.",
       },
       {
@@ -514,6 +530,7 @@ const articles: Record<
   "the-onsen-lesson": {
     title: "The Onsen Lesson",
     subtitle: "What hot water and strangers teach about being alive.",
+    description: "On the Japanese onsen bathing tradition. What a shared hot-spring ritual teaches about silence, vulnerability, and attention.",
     category: "Philosophy",
     issue: "Issue 04",
     author: "Tom Vining",
@@ -603,6 +620,7 @@ const articles: Record<
   "shigefusa-knife": {
     title: "Shigefusa",
     subtitle: "On waiting over a year for a knife, and what arrived.",
+    description: "A visit to Shigefusa, one of Japan's most revered Japanese knife-making families. On steel, a lifetime's craft, and the Kasumi blade.",
     category: "Craft",
     issue: "Issue 01",
     author: "Tom Vining",
@@ -672,6 +690,7 @@ const articles: Record<
   "narai-juku": {
     title: "Narai in Snow",
     subtitle: "Four hundred years of the same street, unchanged.",
+    description: "Narai-juku, a preserved Japanese post town on the Nakasendo highway, photographed in deep winter. On wooden architecture and mountain air.",
     category: "Travel",
     issue: "Issue 02",
     author: "Tom Vining",
@@ -759,6 +778,7 @@ const articles: Record<
   "the-beginning": {
     title: "The Beginning",
     subtitle: "Light in a dark forest. A dream that wouldn't let go.",
+    description: "The first illustrated story in the AUWA universe. A Japanese philosophy of Kokoro, told through the character who reveals the life in all things.",
     category: "Philosophy",
     issue: "Issue 11",
     author: "Rieko Maeda",
@@ -777,7 +797,7 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/auwa-book/auwa-book-sketches.jpg",
-        alt: "Pencil sketches of AUWA character scenes laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case",
+        alt: "Pencil sketches of AUWA character scenes by Japanese illustrator Rieko Maeda, laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case",
         caption: "Early sketches. Pencil on paper, working out how AUWA moves through the forest.",
       },
       {
@@ -840,6 +860,7 @@ const articles: Record<
   "yaoyorozu-no-kami": {
     title: "Yaoyorozu no Kami",
     subtitle: "Eight million gods live in the world around you.",
+    description: "On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness.",
     category: "Philosophy",
     issue: "Issue 10",
     author: "Tom Vining",
@@ -1005,13 +1026,13 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article | AUWA",
+      title: "Article - AUWA Journal",
       robots: { index: false, follow: false },
     };
   }
 
-  const title = `${article.title} | AUWA`;
-  const description = article.subtitle;
+  const title = `${article.title} - AUWA Journal`;
+  const description = article.description ?? article.subtitle;
   const url = `https://auwa.life/journal/${slug}`;
   const ogImage = article.heroImage?.replace(/-hero\.jpg$/, "-og.jpg") ?? null;
 
@@ -1026,7 +1047,7 @@ export async function generateMetadata({
       publishedTime: article.publishedAt,
       authors: [article.author],
       ...(ogImage && {
-        images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
+        images: [{ url: ogImage, width: 1200, height: 630, alt: `${article.title} - AUWA Journal` }],
       }),
     },
     twitter: {
@@ -1054,7 +1075,7 @@ export default async function ArticlePage({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
-    description: article.subtitle,
+    description: article.description ?? article.subtitle,
     author: { "@type": "Person", name: article.author },
     datePublished: article.publishedAt,
     publisher: { "@type": "Organization", name: "AUWA", url: "https://auwa.life" },

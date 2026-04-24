@@ -87,10 +87,11 @@ Ask: "Happy with this, or want to adjust anything before I add it to the site?"
 
 Once approved:
 
-1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`.
-   - **Title**: once " | AUWA" is appended for the page title it must stay under 60 chars total (Google truncates longer ones in results). The article data's `title` field is that topic phrase — keep it concise.
-   - **Subtitle**: appears on-page as an editorial line AND as the meta description in search results. Aim 100-155 chars. Long enough to carry the primary topic keyword plus context, short enough Google won't truncate. The 53-char ceiling elsewhere is card-display only; the subtitle itself can run longer. Ensure the primary topic word (e.g. "Yakushima", "washi", "onsen") appears in it.
-   - **Keyword placement check**: the primary topic word should appear in the title, the subtitle, AND somewhere in the first paragraph of the article body. This isn't stuffing, it's natural editorial — just verify you haven't buried the term in an opening scene that names no places.
+1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`. Four fields do the SEO work — get them all right:
+   - **`title`**: the topic phrase, concise. The page title becomes `"{title} - AUWA Journal"` (hyphen separator, brand + category suffix), so the whole string must stay under 60 chars total or Google truncates it.
+   - **`subtitle`**: the editorial line that appears on-page under the H1. Stays poetic, not keyword-stuffed. This is the reader-facing voice.
+   - **`description`**: keyword-rich meta description (100-155 chars) — separate from `subtitle`. Google uses this in search results. MUST include "Japanese" where natural plus the primary topic word. Structure: `"{what it is about}, {place/context}. {why it matters}."` Example: *"On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness."*
+   - **Keyword placement check**: the primary topic word must appear in `title`, `description`, AND somewhere in the first paragraph of the article body.
 
 2. Add it to the article list in `website/main/src/app/journal/page.tsx` (include the `image` field pointing to the hero image so it shows on the listing page).
 
@@ -98,14 +99,17 @@ Once approved:
 
 4. **Add the article slug to the `articleSlugs` array in `website/main/src/app/sitemap.ts`**. Verify the slug is *byte-identical* to the key in the articles object in `journal/[slug]/page.tsx`. A mismatch (e.g. `oroko-combs` in sitemap vs `oroku-gushi` in articles object) causes Google to crawl a 404 and never discover the real URL. This cost AUWA ~10 days of missed indexing once — don't let it repeat.
 
-5. **Alt text pass**: every image block in the article content (`image`, `image-pair`, `image-beside`) must have a descriptive `alt` field. Used by image search, social previews, and screen readers. Don't write "image of a tree" — describe the subject specifically ("morning mist over Yakushima's cedar forest"). Missing alts cost ranking and accessibility points.
+5. **Alt text pass** on every image block (`image`, `image-pair`, `image-beside`). Used by image search, social previews, and screen readers. Rule: include the geographic / cultural / craft qualifier wherever it reads natural. Prefer specific Japanese terms (washi, onsen, shimenawa, noren, engawa) over English translations — they rank on image search AND feel editorial. Prefer place names (Yakushima, Koya-san, Nagano) over "mountain" / "forest." A hero image alt should identify Japan or the specific Japanese subject within the first ten words.
+   - Bad: *"image of a tree"*
+   - Better: *"Cedar tree on Yakushima"*
+   - Best: *"A thousand-year-old Japanese cedar on Yakushima, moss at the base, ferns growing between the roots"*
 
 6. **Indexability sanity check**: `src/app/robots.ts` disallows `/api/, /brand, /book/1, /book/2, /home-1, /instagram`. The article route must NOT match any of those. It won't, if it lives under `/journal/[slug]` — but confirm before shipping.
 
 7. Test the build compiles cleanly (`npm run build` inside `website/main/`).
 
 **What the site does automatically, no manual work required:**
-- `generateMetadata()` in `journal/[slug]/page.tsx` derives `title`, `description`, `openGraph.title/description/url/images`, `twitter.card/title/description/images`, and the Article JSON-LD structured data from the article data. Nothing extra to wire up.
+- `generateMetadata()` in `journal/[slug]/page.tsx` derives the page title (`"{title} - AUWA Journal"`), meta description (prefers `description`, falls back to `subtitle`), Open Graph, Twitter card, and Article JSON-LD from the article data. Nothing extra to wire up.
 - OG image path is derived by replacing `-hero.jpg` with `-og.jpg` on the hero path — so the only requirement is that BOTH files exist in `public/journal/[slug]/`. Step 2 covers this; verify before shipping.
 - No `<link rel="canonical">` is emitted (intentional — each article URL is its own canonical). Don't add one.
 

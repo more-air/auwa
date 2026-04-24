@@ -4,21 +4,21 @@ import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
-  title: "Awareness, daily | AUWA",
-  description: "A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention.",
+  title: "AUWA App - Japanese Awareness Practice",
+  description: "A daily Japanese awareness practice, guided by ancient philosophy. No advice, just attention. Add your email and we'll write when the app arrives.",
   openGraph: {
-    title: "Awareness, daily | AUWA",
-    description: "A daily practice for awareness, guided by ancient Japanese philosophy.",
+    title: "AUWA App - Japanese Awareness Practice",
+    description: "A daily Japanese awareness practice, guided by ancient philosophy. No advice, just attention.",
     url: "https://auwa.life/app",
     siteName: "AUWA",
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/og/app.jpg", width: 1200, height: 630, alt: "AUWA App" }],
+    images: [{ url: "/og/app.jpg", width: 1200, height: 630, alt: "AUWA App - Japanese awareness practice" }],
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "Awareness, daily | AUWA",
-    description: "A daily practice for awareness, guided by ancient Japanese philosophy.",
+    title: "AUWA App - Japanese Awareness Practice",
+    description: "A daily Japanese awareness practice, guided by ancient philosophy.",
     images: ["/og/app.jpg"],
   },
 };

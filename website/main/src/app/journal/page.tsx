@@ -6,20 +6,20 @@ import { STAGGER } from "@/lib/motion";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Journal | AUWA",
-  description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
+  title: "Journal - Japanese Philosophy, Craft & Seasons - AUWA",
+  description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The AUWA journal, rooted in the belief that everything has Kokoro.",
   openGraph: {
-    title: "Journal | AUWA",
-    description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
+    title: "Journal - Japanese Philosophy, Craft & Seasons - AUWA",
+    description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The AUWA journal, rooted in the belief that everything has Kokoro.",
     url: "https://auwa.life/journal",
     siteName: "AUWA",
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/og/journal.jpg", width: 1200, height: 630, alt: "AUWA Journal" }],
+    images: [{ url: "/og/journal.jpg", width: 1200, height: 630, alt: "AUWA Journal - Japanese philosophy and craft" }],
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "Journal | AUWA",
+    title: "Journal - Japanese Philosophy, Craft & Seasons - AUWA",
     description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
     images: ["/og/journal.jpg"],
   },
@@ -55,8 +55,31 @@ export default async function JournalPage({
     ? articles
     : articles.filter((a) => a.category === activeCategory);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "AUWA Journal",
+    description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
+    url: "https://auwa.life/journal",
+    inLanguage: "en-GB",
+    publisher: {
+      "@type": "Organization",
+      name: "AUWA",
+      url: "https://auwa.life",
+      logo: "https://auwa.life/auwa-logo.svg",
+    },
+    blogPost: articles.map((a) => ({
+      "@type": "BlogPosting",
+      headline: a.title,
+      description: a.excerpt,
+      url: `https://auwa.life/journal/${a.slug}`,
+      ...(a.image && { image: `https://auwa.life${a.image}` }),
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
 
         {/* Title, filters, and article grid — one section, one rhythm */}

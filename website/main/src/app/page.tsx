@@ -72,9 +72,14 @@ export default function Home() {
           </span>
           <div className="relative max-w-[880px]">
             <FadeIn>
-              <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
-                Our philosophy
-              </span>
+              {/* Homepage H1 — single on-page heading, keyword-rich for
+                  SEO ("Japanese Philosophy"). Rendered in the eyebrow
+                  small-caps style so the editorial composition stays
+                  unchanged visually while giving Google the H1 signal
+                  the page previously lacked. */}
+              <h1 className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40 m-0 font-normal">
+                Japanese Philosophy
+              </h1>
             </FadeIn>
             <ScrollFadeText
               as="p"

@@ -4,21 +4,21 @@ import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
-  title: "Open the eyes | AUWA",
-  description: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.",
+  title: "AUWA Book - Illustrated Japanese Stories",
+  description: "Illustrated Japanese stories following AUWA the character as it reveals the Kokoro in everything. Add your email and we'll write when the first book arrives.",
   openGraph: {
-    title: "Open the eyes | AUWA",
-    description: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice.",
+    title: "AUWA Book - Illustrated Japanese Stories",
+    description: "Illustrated Japanese stories following AUWA the character as it reveals the Kokoro in everything.",
     url: "https://auwa.life/book",
     siteName: "AUWA",
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/og/book.jpg", width: 1200, height: 630, alt: "AUWA Book" }],
+    images: [{ url: "/og/book.jpg", width: 1200, height: 630, alt: "AUWA Book - illustrated Japanese stories" }],
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "Open the eyes | AUWA",
-    description: "Illustrated stories following AUWA the character.",
+    title: "AUWA Book - Illustrated Japanese Stories",
+    description: "Illustrated Japanese stories following AUWA the character.",
     images: ["/og/book.jpg"],
   },
 };
