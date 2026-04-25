@@ -243,13 +243,129 @@ Tom's Japan photography catalogue (17M+ Unsplash views) is the primary photograp
 - Food photography unless atmospheric (a bowl of matcha in morning light, yes; a plate of sushi with garnish detail, no)
 - Anything that feels like a stock photo or travel blog
 
-### Treatment
-- **Muted, slightly desaturated.** Bring warmth but pull back saturation. The palette should feel like it lives in the same world as the OKLCH cosmic colours.
-- **Subtle grain/noise.** A light film grain texture (2-4% noise) prevents images feeling too digital and adds warmth. This is the bridge between Rieko's illustration dreaminess and the photographic content.
-- **Gentle vignette.** Dark edges draw the eye inward and maintain the "light emerging from darkness" principle.
-- **Consistent warmth.** All photography should lean warm — not orange, but the warmth of late afternoon light rather than clinical daylight.
+### Style references
 
-Create a Lightroom preset that standardises this treatment so all photography content shares the same feel regardless of when or where it was shot.
+The AUWA photographic register lives in the **Kinto + Analogue Life** family, with the warmth of Hoshinoya and the cinematic restraint of Mubi as supporting reference points. Established April 2026 after testing Kinfolk (cleanest editorial), Hoshinoya/Aman (warm premium), and Casa Brutus / Rinko Kawauchi (luminous poetic Japanese contemporary) directions side by side.
+
+The landing point: warm but not orange, restrained but not muted, materially tactile but not over-clarified. Magazine spread for daylight, craftsman's table for interiors, considered cinema for night. The treatment philosophy is "pull back until you almost want to add it back, then stop."
+
+**Primary references:**
+- **@kintojapan** (and kinto.co.jp) — bright window light, soft natural daylight, clean surfaces. The daylight register.
+- **@analogue.life** — slightly deeper shadows, wood-grain warmth, considered hand on dark wood. The interior / craft register.
+
+**Supporting references:**
+- **Hoshinoya** (hoshinoya.com) — warm Japanese hospitality, atmospheric, slow. Useful for understanding "premium Japanese" tonality on indoor scenes.
+- **Mubi** (mubi.com) and **Cereal** (readcereal.com) — cinematic restraint as editorial discipline. Useful for night work and strong narrative shots.
+- **Rinko Kawauchi** (@rinkokawauchi) — luminous, poetic everyday. Useful as an aspirational ceiling for natural-light captures.
+- **Hoshinoya site imagery** + **Naoya Hatakeyama** unpeopled landscapes — the unpeopled atmospheric register.
+
+**Anti-references (do not emulate):**
+- **Yassan.1985** and similar Kyoto street photographers leaning on maiko/geiko subjects — risks Orientalism, conflicts with AUWA's "philosophy-forward, not exoticising Japan" line, and parts of Gion have publicly asked tourists to stop photographing maiko.
+- Tom's previous Unsplash-style processing (high clarity, pushed saturation, teal/orange split, dramatic skies) — the punch reads as travel photography, not editorial restraint. Strong composition and moment work transfers; the processing layer needs replacing.
+
+**The benchmark.** The three teaser images at `website/main/public/pillars/` (`app.jpg`, `store.jpg`, `book.jpg`) are the brand's photography north stars. They sit in the Kinto + Analogue Life family. Every processed image should feel like a fourth pillar shot.
+
+### Treatment
+
+All AUWA photography is processed through one of three Lightroom presets stored in the `AUWA` group: **AUWA Landscape**, **AUWA Interior**, **AUWA Night**. Every processed image should feel like it could sit alongside one of those three in the same campaign.
+
+**Tonal philosophy (shared across all three presets):**
+
+- Warm white balance, never orange. Wood as the dominant temperature anchor.
+- Lifted shadows, protected highlights, slight matte lift on the deepest blacks (gives the editorial film signature).
+- Saturation pulled back globally. Oranges and warm woods protected. Greens and aquas muted.
+- Visible material texture preserved (wood grain, fabric weave, ceramic, plaster, snow, peeling paint).
+- No clarity push on interior or night work (kills skin tone and softens fabric).
+- No grain except Night (where subtle grain blends high-ISO sensor noise into the aesthetic).
+- Subtle vignette, never dramatic.
+
+**AUWA Landscape** for exterior architecture, shrines, cedar forests, snow scenes, Japan landscapes. Reference plate: `store.jpg`.
+
+| Panel | Setting | Value |
+|-------|---------|-------|
+| WB | Temp shift | +400 to +800 (RAW) or +8 to +15 (JPG units) |
+| WB | Tint | +5 to +8 |
+| Tone | Contrast | -10 |
+| Tone | Highlights | -30 |
+| Tone | Shadows | +20 |
+| Tone | Whites | +15 |
+| Tone | Blacks | -5 |
+| Presence | Texture | +8 |
+| Presence | Clarity | +5 |
+| Presence | Dehaze | +5 |
+| Presence | Vibrance | -5 |
+| Presence | Saturation | -10 |
+| HSL Hue | Red | +5 |
+| HSL Sat | Red, Green, Aqua | -10, -15, -10 |
+| HSL Lum | Red, Green | -5, -10 |
+| Tone Curve | Bottom-left point | Output 5-8 (matte lift) |
+| Vignette | Amount, Feather, Style | -8, 80, Highlight Priority |
+| Grain | — | none |
+
+**AUWA Interior** for interiors, craftsmen at work, ceramic and washi close-ups, portraits in Japanese spaces. Reference plate: `app.jpg`.
+
+| Panel | Setting | Value |
+|-------|---------|-------|
+| WB | Temp shift | +400 to +800 (warmer than Landscape) |
+| WB | Tint | +8 to +10 |
+| Tone | Contrast | -5 |
+| Tone | Highlights | -25 |
+| Tone | Shadows | +15 |
+| Tone | Whites | +10 |
+| Tone | Blacks | -8 |
+| Presence | Texture | +3 |
+| Presence | Clarity | 0 (critical: no clarity push) |
+| Presence | Dehaze | 0 |
+| Presence | Vibrance | -3 |
+| Presence | Saturation | -8 |
+| HSL Hue | Red | +3 |
+| HSL Sat | Red, Green, Aqua | -5, -10, -8 |
+| HSL Lum | Red, Green | 0, -8 (skin and lacquer stay luminous) |
+| Tone Curve | Bottom-left point | Output 5-8 |
+| Vignette | Amount, Feather, Style | -5, 80, Highlight Priority |
+| Grain | — | none |
+
+**AUWA Night** for fire festivals, lantern processions, low-light interiors, night cityscapes. Reference plate: `store.jpg` (philosophical anchor, not literal tonal match).
+
+| Panel | Setting | Value |
+|-------|---------|-------|
+| WB | Temp shift | +200 to +400 (gentle; sometimes 100 cooler if fire is already pushing orange) |
+| WB | Tint | +3 to +5 |
+| Tone | Contrast | -5 |
+| Tone | Highlights | -30 (protect the brightest fire core) |
+| Tone | Shadows | +15 (lift firelit faces and structure, leave the night sky alone) |
+| Tone | Whites | -10 |
+| Tone | Blacks | -30 (anchor true black; the night needs to read as night) |
+| Presence | Texture | 0 |
+| Presence | Clarity | 0 |
+| Presence | Dehaze | 0 |
+| Presence | Vibrance | -5 |
+| Presence | Saturation | -5 (gentler than Landscape; the orange flame still gets calmed via HSL below) |
+| HSL Hue | Orange, Red | -5, +3 |
+| HSL Sat | Orange, Red, Yellow | -15, -10, -10 |
+| HSL Lum | Orange, Red, Yellow | -8, -5, -5 |
+| Tone Curve | Bottom-left point | **No matte lift on Night.** Pure black stays at output 0. (Matte lift is right for daytime where there's no actual pure black; night skies ARE pure black, and lifting them creates grey wash plus amplifies JPEG noise as visible artefacts.) |
+| Vignette | Amount, Feather, Style | -10, 80, Highlight Priority |
+| Grain | Amount, Size, Roughness | 8, 25, 50 (the only preset that uses grain) |
+
+Exposure is deliberately excluded from every preset, since starting exposure varies per image. Always nudge it after the preset is applied.
+
+### Per-article workflow
+
+1. Drop raw images into `auwa/photography/{slug}/1-original/`.
+2. Open Lightroom Classic (catalog at `auwa/photography/_lightroom/1-catalog/auwa.lrcat`). Import that folder via `File > Import > Add` (no copy or move).
+3. For each image: select it, click the matching preset (Landscape / Interior / Night) under `Presets > AUWA` in the left panel.
+4. Per-image nudges only if needed: Exposure (always image-specific), small WB shift, occasional Highlights or Shadows tweak. Don't redo the look.
+5. Optional crop or straighten per image.
+6. Export from Lightroom (`File > Export`) using the saved export preset:
+   - **AUWA Article Export**: full-quality JPG (no resize), sRGB, quality 90, target `auwa/photography/{slug}/2-edited/`. The article command picks up from here.
+7. Run `/journal:article`. It reads from `2-edited/`, generates the 1800px web versions to `website/main/public/journal/{slug}/`, the 1080×1350 IG versions to `social/instagram/{slug}/`, and the 1200×630 OG image alongside the web hero.
+
+Set the export target up once as a Lightroom Export Preset (`Export > Add` in the export dialog). After that, exporting a whole article's set is one click.
+
+The Lightroom presets are stored in the `AUWA` group. The `.xmp` files live at `~/Library/Application Support/Adobe/CameraRaw/Settings/AUWA Landscape.xmp` (and Interior, Night). They are also version-controlled at `context/brand/photography/` so they can be re-imported on any new machine via `File > Import Develop Profiles and Presets`.
+
+The Lightroom catalog itself, plus the development reference photos and pillar plates, lives outside git at `auwa/photography/_lightroom/`. That folder is gitignored. The presets travel via the `.xmp` files in `context/brand/photography/`, which are tracked.
 
 ---
 

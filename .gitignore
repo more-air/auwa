@@ -5,3 +5,15 @@ node_modules
 .vercel.disabled
 .env
 .env.local
+
+# Lightroom workspace (catalog files + local reference photos, not for git)
+photography/_lightroom/
+
+# Raw photo drops (kept local + on Dropbox; 2-edited/ exports are tracked for re-processing)
+photography/*/1-original/
+
+# Video source frames (large, regenerable from MP4)
+video/
+
+# Local working / scratch
+bug/

@@ -47,8 +47,8 @@ const FRAMES: Frame[] = [
     cta: "Visit store",
     href: "/store",
     type: "video",
-    src: "/hero/portrait.mp4",
-    poster: "/hero/poster-portrait.jpg",
+    src: "/intro/store.mp4",
+    poster: "/intro/store-poster.jpg",
   },
   {
     eyebrow: "Book",
@@ -57,7 +57,7 @@ const FRAMES: Frame[] = [
     cta: "Join waitlist",
     href: "/book",
     type: "image",
-    src: "/hero/frames/v2/02.jpg",
+    src: "/intro/book.jpg",
   },
   {
     eyebrow: "Journal",
@@ -66,7 +66,7 @@ const FRAMES: Frame[] = [
     cta: "Explore journal",
     href: "/journal",
     type: "image",
-    src: "/hero/frames/v2/washi.jpg",
+    src: "/intro/journal.jpg",
   },
   {
     eyebrow: "App",
@@ -75,7 +75,7 @@ const FRAMES: Frame[] = [
     cta: "Join waitlist",
     href: "/app",
     type: "image",
-    src: "/hero/frames/v2/03.jpg",
+    src: "/intro/app.jpg",
   },
 ];
 

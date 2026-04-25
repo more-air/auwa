@@ -11,7 +11,7 @@ export const metadata = {
 const posts = [
   // Row 1
   { src: "/journal/auwa-book/auwa-book-cosmic.jpg", alt: "AUWA character against cosmic background" },
-  { src: "/journal/washi/washi-rieko.jpg", alt: "Rieko dipping sugeta frame into mulberry pulp" },
+  { src: "/journal/washi-paper/washi-paper-rieko.jpg", alt: "Rieko dipping sugeta frame into mulberry pulp" },
   { src: "/pillars/book.jpg", alt: "AUWA illustrated story universe" },
 
   // Row 2
@@ -27,12 +27,12 @@ const posts = [
   // Row 4
   { src: "/journal/koya-san/koya-san-monk.jpg", alt: "Monk walking through Okunoin cemetery with umbrella" },
   { src: "/journal/72-seasons/72-seasons-tsukubai.jpg", alt: "Stone water basin with fallen maple leaves" },
-  { src: "/journal/shigefusa/shigefusa-blade.jpg", alt: "Kitaeji damascus pattern on Shigefusa blade" },
+  { src: "/journal/shigefusa-knife/shigefusa-knife-blade.jpg", alt: "Kitaeji damascus pattern on Shigefusa blade" },
 
   // Row 5
   { src: "/journal/narai-juku/narai-juku-facade.jpg", alt: "Latticed wooden facade with indigo noren in snow" },
   { src: "/journal/auwa-book/auwa-book-sketches.jpg", alt: "AUWA character pencil sketches on desk" },
-  { src: "/journal/the-onsen-lesson/the-onsen-lesson-ladles.jpg", alt: "Wooden ladles and metal basin at onsen drinking station" },
+  { src: "/journal/onsen-lesson/onsen-lesson-ladles.jpg", alt: "Wooden ladles and metal basin at onsen drinking station" },
 ];
 
 /* ─── Avatar SVG (the "A" glyph) ─── */
@@ -116,7 +116,7 @@ function ProfileHeader() {
 
 const highlights = [
   { label: "Kokoro", src: "/journal/auwa-book/auwa-book-cosmic.jpg", alt: "Kokoro Mirror" },
-  { label: "Craft", src: "/journal/shigefusa/shigefusa-blade.jpg", alt: "Japanese craft" },
+  { label: "Craft", src: "/journal/shigefusa-knife/shigefusa-knife-blade.jpg", alt: "Japanese craft" },
   { label: "Seasons", src: "/journal/72-seasons/72-seasons-tsukubai.jpg", alt: "72 micro-seasons" },
   { label: "Stories", src: "/pillars/book.jpg", alt: "AUWA stories" },
   { label: "Japan", src: "/journal/koya-san/koya-san-monk.jpg", alt: "Japan travel" },

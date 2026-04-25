@@ -101,7 +101,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {[
               { label: "Book", href: "/book", image: "/pillars/book.jpg" },
-              { label: "Journal", href: "/journal", image: "/journal/washi/washi-hero.jpg" },
+              { label: "Journal", href: "/journal", image: "/journal/washi-paper/washi-paper-hero.jpg" },
               { label: "App", href: "/app", image: "/pillars/app.jpg" },
               { label: "Store", href: "/store", image: "/pillars/store.jpg" },
             ].map((pillar, i) => (
@@ -117,7 +117,7 @@ export default function AboutPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 p-4 md:p-6">
-                      <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.01em] text-white">
+                      <h3 className="font-display text-[20px] md:text-[28px] tracking-[0.01em] text-white">
                         {pillar.label}
                       </h3>
                     </div>

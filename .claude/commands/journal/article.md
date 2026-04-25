@@ -18,28 +18,77 @@ Ask the user these questions one at a time (not all at once):
 
 1. "What's the article about? A few sentences on the subject, angle, and any specific memories or details to include."
 2. "Which category: Seasons, Craft, Philosophy, or Travel?"
-3. "Have you dropped photos into `auwa/photos/`? If so, what's the folder name?"
+3. "Have you exported Lightroom-edited photos into `auwa/photography/[slug]/2-edited/`? If so, what's the slug folder name? (Raw drops live in `1-original/` for Lightroom import; the article command reads from `2-edited/`.)"
 
 If the user provides all this information upfront, skip the questions and proceed.
 
 ## Step 2: Process Images
 
-If photos have been provided in `auwa/photos/[slug]/`:
+The source folder is `auwa/photography/[slug]/2-edited/`. These are full-quality images already exported from Lightroom with the matching AUWA preset applied (Landscape, Interior, or Night). The raw drops live in `1-original/` and are not touched by this command.
 
-1. Create the output directory: `website/main/public/journal/[slug]/`
+If photos have been provided in `auwa/photography/[slug]/2-edited/`:
+
+1. Create the output directories:
+   - `website/main/public/journal/[slug]/` (web hero, supporting images, OG)
+   - `social/instagram/[slug]/` (IG carousel-ready 1080×1350 versions)
 2. List all images in the source folder and show them to the user
 3. Ask: "Which image should be the hero? And are any of these a pair (two detail shots to sit side by side)?"
-4. Optimise each image following the pipeline in journal.md (resize to 2400px max, JPEG quality 85, rename to convention)
-5. **Generate the social-share OG image from the hero.** Every article needs a landscape 1200×630 crop for LinkedIn, Facebook, WhatsApp, Pinterest, and X previews. The portrait 4:5 hero crops badly on every platform. From the article's public folder:
-   ```bash
-   cp [slug]-hero.jpg [slug]-og.jpg && \
-   sips --resampleWidth 1200 [slug]-og.jpg && \
-   sips -c 630 1200 [slug]-og.jpg
-   ```
-   Verify both files exist: `[slug]-hero.jpg` (portrait) and `[slug]-og.jpg` (1200×630 landscape). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
-6. Report the final file sizes
+**All resizing uses `sharp` (Node.js)**, not `sips`. The script lives at `website/main/scripts/process-image.js`. Sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. Sips was producing soft output because it doesn't apply post-resize sharpening, which became visible after the AUWA preset's tonal flattening was layered on top. Always run from `website/main/`:
 
-If no photos yet, proceed with writing and note where images will go — but remember to generate both `-hero.jpg` AND `-og.jpg` before publishing.
+```bash
+cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
+```
+
+4. **Web optimisation.** For each image in `2-edited/`, output a web version to `website/main/public/journal/[slug]/` at **1800px max long edge**:
+   ```bash
+   cd website/main && node scripts/process-image.js \
+     ../../photography/[slug]/2-edited/[source].jpg \
+     public/journal/[slug]/[slug]-[name].jpg web
+   ```
+   Rename each to convention: `[slug]-hero.jpg`, `[slug]-facade.jpg`, etc. Typical sizes after the AUWA preset + sharp sharpening: 500KB-1MB depending on detail.
+
+5. **IG optimisation.** For each image in `2-edited/`, also output a 1080×1350 (4:5 portrait, centre-cropped) version to `social/instagram/[slug]/` with `-ig` suffix:
+   ```bash
+   cd website/main && node scripts/process-image.js \
+     ../../photography/[slug]/2-edited/[source].jpg \
+     ../../social/instagram/[slug]/[slug]-[name]-ig.jpg ig
+   ```
+
+6. **OG image (hero only).** Generate the 1200×630 landscape crop for link previews on LinkedIn, Facebook, WhatsApp, Pinterest, X. Source from the original `2-edited/` hero (NOT the already-resized web hero, to preserve resolution):
+   ```bash
+   cd website/main && node scripts/process-image.js \
+     ../../photography/[slug]/2-edited/[hero-source].jpg \
+     public/journal/[slug]/[slug]-og.jpg og
+   ```
+   Verify these files exist: `[slug]-hero.jpg` (portrait, web), `[slug]-og.jpg` (1200×630 landscape, social previews), and `[slug]-hero-ig.jpg` in `social/instagram/[slug]/` (1080×1350 IG). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
+7. Report the final file sizes and counts (X web, X IG, 1 OG).
+
+8. **Update the photography manifest.** Add an entry for the new article in `auwa/photography/_manifest.json`:
+   ```json
+   "[photo-slug]": {
+     "url_slug": "[url-slug-if-different-else-same]",
+     "hero": "[source-filename-of-hero].jpg",
+     "images": {
+       "hero": "[source-filename].jpg",
+       "[name-2]": "[source-filename].jpg",
+       ...
+     }
+   }
+   ```
+   The manifest is the source-of-truth for source-to-name mappings. It enables `node website/main/scripts/process-all.js` to re-process every article in one command when presets or sharpening settings change. Without a manifest entry, the new article won't be re-processable in future bulk runs and a future session would have to re-derive the mapping by reading every source image.
+
+If no photos yet, proceed with writing and note where images will go. Web hero, OG, and IG versions must all be generated before publishing.
+
+### Bulk re-processing (when presets or pipeline change)
+
+If the AUWA Lightroom presets change and you've re-exported the affected `2-edited/` folders, OR if the sharp settings in `process-image.js` change, run from `website/main/`:
+
+```bash
+node scripts/process-all.js              # all 11 articles
+node scripts/process-all.js [photo-slug] # single article (e.g. narai-juku)
+```
+
+This reads `auwa/photography/_manifest.json` and processes every article in one pass: web (1800px) + IG (1080×1350) + OG (1200×630), with proper Lanczos3 + unsharp mask + MozJPEG via the `sharp` library.
 
 ## Step 3: Write the Article
 

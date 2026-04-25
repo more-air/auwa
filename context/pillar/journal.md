@@ -143,59 +143,64 @@ Tom selects photographs from his Japan catalogue. For each article:
 - **Beside image (1):** A single photograph for the image-beside section. This sits at roughly 40% width on desktop, so it needs to hold up at that size.
 - **Image pair (optional):** Two detail photographs. These work best at closer range: textures, inscriptions, tools, hands at work.
 
-**Image processing (when Tom drops raw photos into `auwa/photos/[slug]/`):**
+**Image processing pipeline (Lightroom + sharp):**
+
+Per-article workflow:
+
+1. Tom drops raw photos into `auwa/photography/[slug]/1-original/`.
+2. Tom opens Lightroom Classic, imports that folder, applies the matching AUWA preset (Landscape / Interior / Night) to each, exports at full quality (no resize) to `auwa/photography/[slug]/2-edited/`. See `context/brand/brand.md` Section 6 for the preset spec.
+3. The article command reads from `2-edited/` and runs the sharp pipeline below.
 
 Claude Code should run this optimisation pipeline automatically:
 
-1. **Create the article image directory:**
+1. **Create the article output directories:**
    ```
    mkdir -p website/main/public/journal/[slug]/
+   mkdir -p social/instagram/[slug]/
    ```
 
-2. **Optimise each image using sips (macOS built-in):**
-   - Resize so the longest edge is 2400px (preserving aspect ratio):
-     ```
-     sips --resampleHeightWidthMax 2400 [source].jpg --out [destination].jpg
-     ```
-   - If the source is not JPEG, convert:
-     ```
-     sips -s format jpeg [source].png --out [destination].jpg
-     ```
+2. **Optimise each image using sharp** (Node.js, installed in `website/main/node_modules`). Sips was used previously but produces visibly soft output because it doesn't apply post-resize sharpening; sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. The wrapper script lives at `website/main/scripts/process-image.js`. Always run from `website/main/`:
+   ```
+   cd website/main && node scripts/process-image.js [source] [output] [mode]
+   ```
+   Modes: `web` (1800px max long edge, articles), `pillar` (2400px max long edge, hero pillars), `ig` (1080×1350 centre-cropped, Instagram), `og` (1200×630 centre-cropped, social previews).
 
-3. **Further compress with ImageOptim CLI (if available) or cjpeg:**
-   ```
-   # Check if ImageOptim CLI exists, otherwise use sips quality setting
-   sips -s formatOptions 85 [file].jpg
-   ```
+3. JPEG quality (85) and MozJPEG encoding are baked into the script. No additional compression step needed.
 
 4. **Naming convention:**
-   - Hero: `[slug]-hero.jpg`
-   - Beside image: `[slug]-[descriptive-name].jpg` (e.g. `shigefusa-box.jpg`)
+   - Web hero: `[slug]-hero.jpg`
+   - Web supporting: `[slug]-[descriptive-name].jpg` (e.g. `shigefusa-box.jpg`)
    - Image pair: `[slug]-[name-1].jpg` and `[slug]-[name-2].jpg`
+   - IG counterparts: same name plus `-ig` suffix in `social/instagram/[slug]/`
+   - OG (hero only): `[slug]-og.jpg` (the article page derives this path from the hero)
    - All lowercase, hyphens not underscores, no spaces
 
-5. **Write alt text** that describes the image for accessibility. Be specific: "Close-up of the Shigefusa blade showing kitaeji damascus pattern and hand-chiseled kanji" not "A knife."
+5. **Update the photography manifest** at `auwa/photography/_manifest.json`. Add an entry mapping each source filename to its named role for the new article. The manifest enables `node website/main/scripts/process-all.js` to re-process every article in one command if the AUWA presets or sharp settings change. Skipping this step makes the new article un-replayable.
 
-6. **Write captions** (optional, 1-2 sentences). Captions should add information the reader can't see in the image.
+6. **Write alt text** that describes the image for accessibility. Be specific: "Close-up of the Shigefusa blade showing kitaeji damascus pattern and hand-chiseled kanji" not "A knife."
 
-7. **Verify file sizes.** Each optimised JPEG should be under 400KB for standard images, under 600KB for hero images. If larger, reduce quality or dimensions.
+7. **Write captions** (optional, 1-2 sentences). Captions should add information the reader can't see in the image.
+
+8. **Verify file sizes.** With the AUWA preset applied (which preserves texture), expect web hero images at 500KB-800KB and supporting images at 600KB-1.1MB at 1800px / q85. IG images at 1080×1350 typically 300-700KB. These are larger than the pre-preset baseline because the preset preserves more high-frequency detail; this is intentional. Next.js Image optimises further on serve. Only flag a file if it exceeds 1.5MB.
 
 **Source photo folder structure:**
 ```
-auwa/photos/[slug]/          ← Tom drops raw photos here
-  hero.jpg (or .png, .heic)
-  detail-1.jpg
-  detail-2.jpg
-  ...
+auwa/photography/[slug]/
+  1-original/         ← Tom drops raw photos here
+  2-edited/           ← Lightroom exports here, full quality (article command reads from here)
 ```
 
 **Output folder structure:**
 ```
-auwa/website/main/public/journal/[slug]/
+website/main/public/journal/[slug]/   (web at 1800px + 1200×630 OG)
   [slug]-hero.jpg
   [slug]-[name].jpg
-  [slug]-[name-1].jpg
-  [slug]-[name-2].jpg
+  ...
+  [slug]-og.jpg
+
+social/instagram/[slug]/              (IG at 1080×1350)
+  [slug]-hero-ig.jpg
+  [slug]-[name]-ig.jpg
 ```
 
 ### Step 6: Content Assembly

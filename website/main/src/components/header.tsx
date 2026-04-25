@@ -30,6 +30,8 @@ export function Header() {
   // video hero, so they share the transparent header treatment. Every
   // other page has a solid-white header.
   const transparent = pathname === "/" || pathname === "/home-1";
+  // /instagram is a planning grid preview, no header needed.
+  const hideHeader = pathname === "/instagram";
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
@@ -256,6 +258,8 @@ export function Header() {
       </div>
     </div>
   );
+
+  if (hideHeader) return null;
 
   return (
     <>

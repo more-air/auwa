@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "description": "Source-to-name mappings for every published journal article. Used by website/main/scripts/process-all.js to re-process all articles when presets change. Each key is the photo folder name in auwa/photography/, which equals the image folder name in website/main/public/journal/. The 'url_slug' is the article URL (sometimes differs from image folder, e.g. auwa-book images live at /journal/auwa-book/ but the URL is /journal/the-beginning).",
+  "articles": {
+    "72-seasons": {
+      "url_slug": "72-seasons",
+      "hero": "PXL_20221104_034004859_Topaz.jpg",
+      "images": {
+        "hero": "PXL_20221104_034004859_Topaz.jpg",
+        "engawa": "PXL_20221106_054040152.PORTRAIT.jpg",
+        "tsukubai": "PXL_20221106_061859989.jpg",
+        "veranda": "original_9d4a9cf6-1497-463a-82ba-a23b8faa9567_PXL_20221106_054016750~2.jpg"
+      }
+    },
+    "auwa-book": {
+      "url_slug": "the-beginning",
+      "hero": "Auwa_01_18_Topaz.png",
+      "images": {
+        "hero": "Auwa_01_18_Topaz.png",
+        "canvas": "PXL_20260410_154503354.PORTRAIT.ORIGINAL.jpg",
+        "cosmic": "Auwa_01_12.png",
+        "procreate": "PXL_20260410_153921661.PORTRAIT.jpg",
+        "sketches": "PXL_20260410_153347181.PORTRAIT.ORIGINAL.jpg"
+      }
+    },
+    "koya-san": {
+      "url_slug": "koya-san",
+      "hero": "IMG_1833.jpg",
+      "images": {
+        "hero": "IMG_1833.jpg",
+        "cemetery-steps": "IMG_1826.jpg",
+        "monk": "IMG_1837.jpg",
+        "robed-statue": "IMG_1830.jpg",
+        "temple": "IMG_1859.jpg"
+      }
+    },
+    "narai-juku": {
+      "url_slug": "narai-juku",
+      "hero": "PXL_20260122_025615590~2.jpg",
+      "images": {
+        "hero": "PXL_20260122_025615590~2.jpg",
+        "facade": "PXL_20260122_032609188~3.jpg",
+        "snowfall": "PXL_20260122_033001817~2.jpg",
+        "ukiyoe": "PXL_20260122_033019322~2.jpg",
+        "shopfront": "PXL_20260122_061519538.jpg"
+      }
+    },
+    "nozawa-festival": {
+      "url_slug": "nozawa-fire-festival",
+      "hero": "PXL_20260115_122501147.NIGHT~2.jpg",
+      "images": {
+        "hero": "PXL_20260115_122501147.NIGHT~2.jpg",
+        "assault": "PXL_20260115_120640332.NIGHT.jpg",
+        "blaze": "PXL_20260115_131813191.NIGHT~3.jpg",
+        "priest": "PXL_20260115_051732220.PORTRAIT~2.jpg",
+        "sparks": "PXL_20260115_113832502.NIGHT~2.jpg"
+      }
+    },
+    "onsen-lesson": {
+      "url_slug": "the-onsen-lesson",
+      "hero": "PXL_20260112_055901092.jpg",
+      "images": {
+        "hero": "PXL_20260112_055901092.jpg",
+        "bath": "IMG_0201.jpg",
+        "ladles": "P1030350.jpg",
+        "town": "PXL_20260110_031043405~2.jpg"
+      }
+    },
+    "oroku-gushi": {
+      "url_slug": "oroku-gushi",
+      "hero": "PXL_20260122_052356442.PORTRAIT.jpg",
+      "images": {
+        "hero": "PXL_20260122_052356442.PORTRAIT.jpg",
+        "stamp": "PXL_20260122_052436799.PORTRAIT.ORIGINAL.jpg",
+        "teeth": "PXL_20260122_052331836.PORTRAIT.ORIGINAL.jpg"
+      }
+    },
+    "shigefusa-knife": {
+      "url_slug": "shigefusa-knife",
+      "hero": "PXL_20250606_061727467.PORTRAIT.jpg",
+      "images": {
+        "hero": "PXL_20250606_061727467.PORTRAIT.jpg",
+        "blade": "PXL_20250606_061525978.PORTRAIT.jpg",
+        "box": "PXL_20250606_061448694.PORTRAIT.ORIGINAL~2.jpg",
+        "tip": "PXL_20250606_061559787.PORTRAIT.jpg"
+      }
+    },
+    "washi-paper": {
+      "url_slug": "making-washi",
+      "hero": "PXL_20260119_040240170.PORTRAIT.jpg",
+      "images": {
+        "hero": "PXL_20260119_040240170.PORTRAIT.jpg",
+        "mulberry": "PXL_20260119_053014005.PORTRAIT.jpg",
+        "press": "PXL_20260119_051505482.PORTRAIT~2.jpg",
+        "rieko": "PXL_20260119_041535635.PORTRAIT.jpg",
+        "workshop": "PXL_20260119_052712147.PORTRAIT.jpg"
+      }
+    },
+    "yakushima-island": {
+      "url_slug": "yakushima-island",
+      "hero": "IMG_3523.jpg",
+      "images": {
+        "hero": "IMG_3523.jpg",
+        "banyan": "IMG_3419.jpg",
+        "cedar-grain": "IMG_3654.jpg",
+        "spider-web": "IMG_3640.jpg"
+      }
+    },
+    "yaoyorozu-no-kami": {
+      "url_slug": "yaoyorozu-no-kami",
+      "hero": "PXL_20260123_012048675~3.jpg",
+      "images": {
+        "hero": "PXL_20260123_012048675~3.jpg",
+        "shimenawa": "PXL_20260118_024406069.PORTRAIT.ORIGINAL.jpg",
+        "gate": "PXL_20260123_011719554~3.jpg",
+        "prayer": "PXL_20260118_022956588.jpg"
+      }
+    }
+  }
+}

@@ -232,7 +232,7 @@ const articles: Record<
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-01-15",
-    heroImage: "/journal/nozawa-fire-festival/nozawa-fire-festival-hero.jpg",
+    heroImage: "/journal/nozawa-festival/nozawa-festival-hero.jpg",
     content: [
       {
         type: "text",
@@ -244,7 +244,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/nozawa-fire-festival/nozawa-fire-festival-priest.jpg",
+        src: "/journal/nozawa-festival/nozawa-festival-priest.jpg",
         alt: "A Shinto priest in ceremonial robes walking across the snow at Nozawa Onsen, the wooden shaden shrine rising behind him",
         caption: "The priest crosses the snow after blessing the shaden. Within hours, the structure behind him will be on fire.",
       },
@@ -267,8 +267,8 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/nozawa-fire-festival/nozawa-fire-festival-sparks.jpg", alt: "A tower of flame and sparks rising into the night sky above the crowd at Nozawa Onsen's Dosojin Matsuri, the dosojin pillar silhouetted to the left", caption: "Sparks rise hundreds of feet as the fire takes hold. The crowd below roars." },
-          { src: "/journal/nozawa-fire-festival/nozawa-fire-festival-assault.jpg", alt: "Close-up of villagers wielding torches beneath kanji-painted banners at the Dosojin Matsuri fire festival", caption: "Banners and torches. The kanji reads prayers for the year ahead." },
+          { src: "/journal/nozawa-festival/nozawa-festival-sparks.jpg", alt: "A tower of flame and sparks rising into the night sky above the crowd at Nozawa Onsen's Dosojin Matsuri, the dosojin pillar silhouetted to the left", caption: "Sparks rise hundreds of feet as the fire takes hold. The crowd below roars." },
+          { src: "/journal/nozawa-festival/nozawa-festival-assault.jpg", alt: "Close-up of villagers wielding torches beneath kanji-painted banners at the Dosojin Matsuri fire festival", caption: "Banners and torches. The kanji reads prayers for the year ahead." },
         ],
       },
       {
@@ -281,7 +281,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/nozawa-fire-festival/nozawa-fire-festival-blaze.jpg",
+        src: "/journal/nozawa-festival/nozawa-festival-blaze.jpg",
         alt: "The shaden fully engulfed in flames at the Nozawa Onsen Dosojin Matsuri, timbers glowing white-hot as the structure begins to collapse",
         caption: "The shaden at full intensity. Forty feet of roaring flame before the collapse.",
       },
@@ -312,7 +312,7 @@ const articles: Record<
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
-    heroImage: "/journal/washi/washi-hero.jpg",
+    heroImage: "/journal/washi-paper/washi-paper-hero.jpg",
     content: [
       {
         type: "text",
@@ -328,7 +328,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/washi/washi-rieko.jpg",
+        src: "/journal/washi-paper/washi-paper-rieko.jpg",
         alt: "Dipping a wooden sugeta frame into the vat of mulberry pulp at the Shinshu Matsuzaki workshop, a traditional Japanese washi paper atelier in Nagano",
         caption: "Rieko at the vat. The A4 sized frame for the full course, the same motion the workshop has practised since 1042.",
       },
@@ -355,8 +355,8 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/washi/washi-press.jpg", alt: "Matsuzaki-san operating the heavy wooden screw press to squeeze water from freshly formed washi sheets", caption: "The wooden screw press. Sheets are stacked and pressed to remove water before drying." },
-          { src: "/journal/washi/washi-workshop.jpg", alt: "Wooden buckets and iron cauldron used for boiling mulberry bark in the Matsuzaki workshop", caption: "Wooden buckets and the iron cauldron for boiling bark. Everything worn smooth by use." },
+          { src: "/journal/washi-paper/washi-paper-press.jpg", alt: "Matsuzaki-san operating the heavy wooden screw press to squeeze water from freshly formed washi sheets", caption: "The wooden screw press. Sheets are stacked and pressed to remove water before drying." },
+          { src: "/journal/washi-paper/washi-paper-workshop.jpg", alt: "Wooden buckets and iron cauldron used for boiling mulberry bark in the Matsuzaki workshop", caption: "Wooden buckets and the iron cauldron for boiling bark. Everything worn smooth by use." },
         ],
       },
       {
@@ -373,7 +373,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/washi/washi-mulberry.jpg",
+        src: "/journal/washi-paper/washi-paper-mulberry.jpg",
         alt: "Strips of dried kozo mulberry bark fibre on a worn wooden surface in the workshop",
         caption: "Kozo, the inner bark of the mulberry tree. Stripped, soaked, boiled, beaten, and suspended in water to become washi.",
       },
@@ -396,7 +396,7 @@ const articles: Record<
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
-    heroImage: "/journal/oroko/oroko-hero.jpg",
+    heroImage: "/journal/oroku-gushi/oroku-gushi-hero.jpg",
     content: [
       {
         type: "text",
@@ -412,7 +412,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/oroko/oroko-teeth.jpg",
+        src: "/journal/oroku-gushi/oroku-gushi-teeth.jpg",
         alt: "Close-up of an oroku-gushi comb showing finely cut minebari wood teeth emerging from its asanoha-patterned cotton pouch",
         caption: "Minebari teeth, cut by hand and polished until there are no edges left to catch. The asanoha pouch is cotton, printed with one of Japan\u2019s oldest geometric patterns.",
       },
@@ -439,8 +439,8 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/oroko/oroko-teeth.jpg", alt: "Detail of the oroku-gushi comb\u2019s fine minebari wood teeth against the red and white asanoha fabric", caption: "The teeth are so closely spaced they catch light like the lines on a ruled page." },
-          { src: "/journal/oroko/oroko-stamp.jpg", alt: "Close-up of the craftsman\u2019s stamp pressed into the minebari wood, with the asanoha pouch behind", caption: "The craftsman\u2019s mark, pressed into the minebari. Small, deliberate, permanent." },
+          { src: "/journal/oroku-gushi/oroku-gushi-teeth.jpg", alt: "Detail of the oroku-gushi comb\u2019s fine minebari wood teeth against the red and white asanoha fabric", caption: "The teeth are so closely spaced they catch light like the lines on a ruled page." },
+          { src: "/journal/oroku-gushi/oroku-gushi-stamp.jpg", alt: "Close-up of the craftsman\u2019s stamp pressed into the minebari wood, with the asanoha pouch behind", caption: "The craftsman\u2019s mark, pressed into the minebari. Small, deliberate, permanent." },
         ],
       },
       {
@@ -536,7 +536,7 @@ const articles: Record<
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
-    heroImage: "/journal/the-onsen-lesson/the-onsen-lesson-hero.jpg",
+    heroImage: "/journal/onsen-lesson/onsen-lesson-hero.jpg",
     content: [
       {
         type: "text",
@@ -552,7 +552,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/the-onsen-lesson/the-onsen-lesson-bath.jpg",
+        src: "/journal/onsen-lesson/onsen-lesson-bath.jpg",
         alt: "Yunomine Onsen, a historic hot spring town in Wakayama Prefecture",
         caption: "Yunomine Onsen, located in Hongucho, Tanabe, Wakayama Prefecture, is a historic, UNESCO-listed hot spring town.",
       },
@@ -583,8 +583,8 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/the-onsen-lesson/the-onsen-lesson-ladles.jpg", alt: "Wooden ladles and a metal basin at an onsen drinking water station, steam rising, bamboo wall behind", caption: "A drinking water station at a public soto-yu. The sign reads: half a ladle is the right amount." },
-          { src: "/journal/the-onsen-lesson/the-onsen-lesson-town.jpg", alt: "The narrow streets of an onsen town in winter, traditional wooden buildings and the entrance to a public bathhouse", caption: "The entrance to a public bathhouse. The noren hangs year-round. Entry is free." },
+          { src: "/journal/onsen-lesson/onsen-lesson-ladles.jpg", alt: "Wooden ladles and a metal basin at an onsen drinking water station, steam rising, bamboo wall behind", caption: "A drinking water station at a public soto-yu. The sign reads: half a ladle is the right amount." },
+          { src: "/journal/onsen-lesson/onsen-lesson-town.jpg", alt: "The narrow streets of an onsen town in winter, traditional wooden buildings and the entrance to a public bathhouse", caption: "The entrance to a public bathhouse. The noren hangs year-round. Entry is free." },
         ],
       },
       {
@@ -626,7 +626,7 @@ const articles: Record<
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
-    heroImage: "/journal/shigefusa/shigefusa-hero.jpg",
+    heroImage: "/journal/shigefusa-knife/shigefusa-knife-hero.jpg",
     content: [
       {
         type: "text",
@@ -638,7 +638,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/shigefusa/shigefusa-box.jpg",
+        src: "/journal/shigefusa-knife/shigefusa-knife-box.jpg",
         alt: "Shigefusa kitaeji wa-gyuto in its kiri wood presentation box, viewed from above",
         caption: "Kiri wood box with hand-brushed calligraphy. The paulownia timber breathes with the seasons.",
       },
@@ -673,8 +673,8 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/shigefusa/shigefusa-blade.jpg", alt: "Close-up of the Shigefusa blade showing kitaeji damascus pattern and hand-chiseled kanji", caption: "Kitaeji patterning: layers of forge-welded steel, each blade unique. The kanji reads 重房作, made by Shigefusa." },
-          { src: "/journal/shigefusa/shigefusa-tip.jpg", alt: "Close-up of the Shigefusa blade tip showing flowing kitaeji steel pattern", caption: "The blade tip. The flowing pattern in the steel is a record of the forging. No two are alike." },
+          { src: "/journal/shigefusa-knife/shigefusa-knife-blade.jpg", alt: "Close-up of the Shigefusa blade showing kitaeji damascus pattern and hand-chiseled kanji", caption: "Kitaeji patterning: layers of forge-welded steel, each blade unique. The kanji reads 重房作, made by Shigefusa." },
+          { src: "/journal/shigefusa-knife/shigefusa-knife-tip.jpg", alt: "Close-up of the Shigefusa blade tip showing flowing kitaeji steel pattern", caption: "The blade tip. The flowing pattern in the steel is a record of the forging. No two are alike." },
         ],
       },
       {
@@ -1289,7 +1289,7 @@ export default async function ArticlePage({
               const selected = otherSlugs.slice(0, 3);
               return selected.map((s) => {
                 const a = articles[s];
-                return { title: a.title, category: a.category, slug: s, image: a.heroImage };
+                return { title: a.title, subtitle: a.subtitle, category: a.category, slug: s, image: a.heroImage };
               });
             })().map((related, i) => (
               <FadeIn key={related.title} delay={i * STAGGER.grid} translateY={32}>
@@ -1318,6 +1318,11 @@ export default async function ArticlePage({
                   <h3 className="mt-1.5 font-display text-[18px] md:text-[20px] leading-[1.25] text-void group-hover:text-void/70 transition-colors duration-300">
                     {related.title}
                   </h3>
+                  {related.subtitle && (
+                    <p className="mt-1 md:mt-1.5 font-sans text-[13px] md:text-[14px] leading-[1.4] md:leading-[1.5] text-void/50 line-clamp-2">
+                      {related.subtitle}
+                    </p>
+                  )}
                 </div>
               </Link>
               </FadeIn>
