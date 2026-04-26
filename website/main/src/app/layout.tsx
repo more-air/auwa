@@ -50,7 +50,7 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "AUWA - Japanese Philosophy of Kokoro",
+  title: "AUWA | Japanese Lifestyle Brand",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   // page ever needs an explicit canonical (e.g. to handle query params),
   // add `alternates: { canonical: url }` to THAT page's generateMetadata.
   openGraph: {
-    title: "AUWA - Japanese Philosophy of Kokoro",
+    title: "AUWA | Japanese Lifestyle Brand",
     description:
       "AUWA is a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A daily awareness practice, Japanese craftsman objects, editorial journal, and illustrated stories.",
     url: "https://auwa.life",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AUWA - Japanese Philosophy of Kokoro",
+    title: "AUWA | Japanese Lifestyle Brand",
     description: "Japanese lifestyle brand rooted in the belief that a life force, a Kokoro, resides in all things.",
     images: ["/og-image.jpg"],
   },

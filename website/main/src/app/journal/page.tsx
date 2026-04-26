@@ -6,10 +6,10 @@ import { STAGGER } from "@/lib/motion";
 import Link from "next/link";
 
 export const metadata = {
-  title: "AUWA Journal - Japanese Philosophy, Craft & Seasons",
+  title: "AUWA Journal | Japanese Philosophy, Craft & Seasons",
   description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The AUWA journal, rooted in the belief that everything has Kokoro.",
   openGraph: {
-    title: "AUWA Journal - Japanese Philosophy, Craft & Seasons",
+    title: "AUWA Journal | Japanese Philosophy, Craft & Seasons",
     description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The AUWA journal, rooted in the belief that everything has Kokoro.",
     url: "https://auwa.life/journal",
     siteName: "AUWA",
@@ -19,7 +19,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "AUWA Journal - Japanese Philosophy, Craft & Seasons",
+    title: "AUWA Journal | Japanese Philosophy, Craft & Seasons",
     description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
     images: ["/og/journal.jpg"],
   },

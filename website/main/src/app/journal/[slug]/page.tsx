@@ -1014,12 +1014,12 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article - AUWA Journal",
+      title: "Article | AUWA Journal",
       robots: { index: false, follow: false },
     };
   }
 
-  const title = `${article.title} - AUWA Journal`;
+  const title = `${article.title} | AUWA Journal`;
   const description = article.description ?? article.subtitle;
   const url = `https://auwa.life/journal/${slug}`;
   const ogImage = article.heroImage?.replace(/-hero\.jpg$/, "-og.jpg") ?? null;
@@ -1035,7 +1035,7 @@ export async function generateMetadata({
       publishedTime: article.publishedAt,
       authors: [article.author],
       ...(ogImage && {
-        images: [{ url: ogImage, width: 1200, height: 630, alt: `${article.title} - AUWA Journal` }],
+        images: [{ url: ogImage, width: 1200, height: 630, alt: `${article.title} | AUWA Journal` }],
       }),
     },
     twitter: {

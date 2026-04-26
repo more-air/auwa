@@ -7,10 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About AUWA - A Japanese Lifestyle Brand",
+  title: "About AUWA | A Japanese Lifestyle Brand",
   description: "Rieko Maeda and Tom Vining on founding AUWA, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
   openGraph: {
-    title: "About AUWA - A Japanese Lifestyle Brand",
+    title: "About AUWA | A Japanese Lifestyle Brand",
     description: "Rieko Maeda and Tom Vining on founding AUWA, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
     url: "https://auwa.life/about",
     siteName: "AUWA",
@@ -20,7 +20,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "About AUWA - A Japanese Lifestyle Brand",
+    title: "About AUWA | A Japanese Lifestyle Brand",
     description: "Rieko Maeda and Tom Vining on founding AUWA.",
     images: ["/og/about.jpg"],
   },
@@ -30,7 +30,7 @@ export default function AboutPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About AUWA - A Japanese Lifestyle Brand",
+    name: "About AUWA | A Japanese Lifestyle Brand",
     description: "Rieko Maeda and Tom Vining on founding AUWA, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
     url: "https://auwa.life/about",
     mainEntity: {

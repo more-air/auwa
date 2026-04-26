@@ -4,10 +4,10 @@ import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
-  title: "AUWA Book - Illustrated Japanese Stories",
+  title: "AUWA Book | Illustrated Japanese Stories",
   description: "Illustrated Japanese stories following AUWA the character as it reveals the Kokoro in everything. Add your email and we'll write when the first book arrives.",
   openGraph: {
-    title: "AUWA Book - Illustrated Japanese Stories",
+    title: "AUWA Book | Illustrated Japanese Stories",
     description: "Illustrated Japanese stories following AUWA the character as it reveals the Kokoro in everything.",
     url: "https://auwa.life/book",
     siteName: "AUWA",
@@ -17,7 +17,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "AUWA Book - Illustrated Japanese Stories",
+    title: "AUWA Book | Illustrated Japanese Stories",
     description: "Illustrated Japanese stories following AUWA the character.",
     images: ["/og/book.jpg"],
   },

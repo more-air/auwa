@@ -4,10 +4,10 @@ import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
-  title: "AUWA Store - Japanese Craftsman Objects & Figure Editions",
+  title: "AUWA Store | Japanese Craftsman Objects & Figure Editions",
   description: "Japanese craftsman objects, and our own signed figure editions. Made slowly, chosen for a lifetime. Sign up for the opening, and a chance to win our first edition.",
   openGraph: {
-    title: "AUWA Store - Japanese Craftsman Objects & Figure Editions",
+    title: "AUWA Store | Japanese Craftsman Objects & Figure Editions",
     description: "Japanese craftsman objects, and our own signed figure editions. Made slowly, chosen for a lifetime. Sign up for the opening, and a chance to win our first edition.",
     url: "https://auwa.life/store",
     siteName: "AUWA",
@@ -17,7 +17,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "AUWA Store - Japanese Craftsman Objects & Figure Editions",
+    title: "AUWA Store | Japanese Craftsman Objects & Figure Editions",
     description: "Japanese craftsman objects, and our own signed figure editions.",
     images: ["/og/store.jpg"],
   },

@@ -72,20 +72,15 @@ export default function Home() {
           </span>
           <div className="relative max-w-[880px]">
             <FadeIn>
-              {/* Homepage H1 — single on-page heading, keyword-rich for
-                  SEO ("Japanese Philosophy"). Rendered in the eyebrow
-                  small-caps style so the editorial composition stays
-                  unchanged visually while giving Google the H1 signal
-                  the page previously lacked. */}
               <h1 className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40 m-0 font-normal">
-                Japanese Philosophy
+                Japanese Lifestyle Brand
               </h1>
             </FadeIn>
             <ScrollFadeText
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-void"
             >
-              AUWA. A character, a philosophy, a world. A quiet return to the Japanese belief that a life force, a Kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four expressions: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
+              AUWA. A Japanese lifestyle brand built on a single, ancient idea: that a life force, a Kokoro, resides in all things. In a river, a handmade bowl, the wind through bamboo at dusk. A way of noticing again, in a world that rarely pauses. AUWA brings this to life through four ways in: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">

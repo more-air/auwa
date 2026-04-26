@@ -4,10 +4,10 @@ import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
-  title: "AUWA App - Japanese Awareness Practice",
+  title: "AUWA App | Japanese Awareness Practice",
   description: "A daily Japanese awareness practice, guided by ancient philosophy. No advice, just attention. Add your email and we'll write when the app arrives.",
   openGraph: {
-    title: "AUWA App - Japanese Awareness Practice",
+    title: "AUWA App | Japanese Awareness Practice",
     description: "A daily Japanese awareness practice, guided by ancient philosophy. No advice, just attention.",
     url: "https://auwa.life/app",
     siteName: "AUWA",
@@ -17,7 +17,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "AUWA App - Japanese Awareness Practice",
+    title: "AUWA App | Japanese Awareness Practice",
     description: "A daily Japanese awareness practice, guided by ancient philosophy.",
     images: ["/og/app.jpg"],
   },
