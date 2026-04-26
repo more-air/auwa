@@ -28,7 +28,6 @@ export const metadata = {
 const categories = ["All", "Seasons", "Craft", "Philosophy", "Travel"];
 
 const articles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
-  { title: "The Beginning", excerpt: "Light in a dark forest. A dream that wouldn't let go.", category: "Philosophy", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
   { title: "Yaoyorozu no Kami", excerpt: "Eight million gods live in the world around you.", category: "Philosophy", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
   { title: "Shigefusa", excerpt: "On waiting over a year for a knife, and what arrived.", category: "Craft", slug: "shigefusa-knife", image: "/journal/shigefusa-knife/shigefusa-knife-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "A village renews its bond with its guardian spirits.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-festival/nozawa-festival-hero.jpg" },
@@ -39,6 +38,7 @@ const articles: { title: string; excerpt: string; category: string; slug: string
   { title: "Making Washi", excerpt: "Cold water, mulberry bark, a thousand-year gesture.", category: "Craft", slug: "making-washi", image: "/journal/washi-paper/washi-paper-hero.jpg" },
   { title: "Narai in Snow", excerpt: "Four hundred years of the same street, unchanged.", category: "Travel", slug: "narai-juku", image: "/journal/narai-juku/narai-juku-hero.jpg" },
   { title: "Yakushima", excerpt: "On the island where the trees outlived history.", category: "Travel", slug: "yakushima-island", image: "/journal/yakushima-island/yakushima-island-hero.jpg" },
+  { title: "The Beginning", excerpt: "Light in a dark forest. A dream that wouldn't let go.", category: "Philosophy", slug: "the-beginning", image: "/journal/auwa-book/auwa-book-hero.jpg" },
 ];
 
 export default async function JournalPage({

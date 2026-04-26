@@ -33,7 +33,6 @@ const articles: Record<
      */
     description?: string;
     category: string;
-    issue: string;
     author: string;
     photographer: string;
     publishedAt: string;
@@ -46,7 +45,6 @@ const articles: Record<
     subtitle: "On the island where the trees outlived history.",
     description: "A journey to Yakushima, the Japanese island of thousand-year cedars that inspired Princess Mononoke. On forests, moss, and slow attention.",
     category: "Travel",
-    issue: "Issue 08",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -132,7 +130,6 @@ const articles: Record<
     subtitle: "Prayers chanted on this mountain for 1,200 years.",
     description: "A pilgrimage to Koya-san, the Japanese Buddhist mountain sanctuary. On temple stays, morning rituals, and 1,200 years of Shingon chanting.",
     category: "Travel",
-    issue: "Issue 06",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -228,7 +225,6 @@ const articles: Record<
     subtitle: "A village renews its bond with its guardian spirits.",
     description: "Inside the Nozawa Fire Festival, one of Japan's three great fire festivals. On snow, flame, and a Japanese village ritual older than memory.",
     category: "Seasons",
-    issue: "Issue 09",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-01-15",
@@ -308,7 +304,6 @@ const articles: Record<
     subtitle: "Cold water, mulberry bark, a thousand-year gesture.",
     description: "Inside a Japanese washi paper workshop. On craft, patience, and the mulberry bark that becomes paper used in Japan for over a thousand years.",
     category: "Craft",
-    issue: "Issue 03",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -392,7 +387,6 @@ const articles: Record<
     subtitle: "Made from wood that breaks axes. Named after a girl.",
     description: "The Japanese art of Oroku-gushi — handmade wooden combs carved from mountain boxwood, crafted one at a time by master artisans in Nagano.",
     category: "Craft",
-    issue: "Issue 07",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -462,7 +456,6 @@ const articles: Record<
     subtitle: "Five-day seasons, each one worth noticing.",
     description: "The Japanese 72 micro-seasons (Shichijūni-kō) — how the year divides into five-day moments, and why the Japanese habit of noticing still matters.",
     category: "Seasons",
-    issue: "Issue 05",
     author: "Rieko Maeda",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -532,7 +525,6 @@ const articles: Record<
     subtitle: "What hot water and strangers teach about being alive.",
     description: "On the Japanese onsen bathing tradition. What a shared hot-spring ritual teaches about silence, vulnerability, and attention.",
     category: "Philosophy",
-    issue: "Issue 04",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -622,7 +614,6 @@ const articles: Record<
     subtitle: "On waiting over a year for a knife, and what arrived.",
     description: "A visit to Shigefusa, one of Japan's most revered Japanese knife-making families. On steel, a lifetime's craft, and the Kasumi blade.",
     category: "Craft",
-    issue: "Issue 01",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -692,7 +683,6 @@ const articles: Record<
     subtitle: "Four hundred years of the same street, unchanged.",
     description: "Narai-juku, a preserved Japanese post town on the Nakasendo highway, photographed in deep winter. On wooden architecture and mountain air.",
     category: "Travel",
-    issue: "Issue 02",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
@@ -775,12 +765,72 @@ const articles: Record<
       },
     ],
   },
+  "yaoyorozu-no-kami": {
+    title: "Yaoyorozu no Kami",
+    subtitle: "Eight million gods live in the world around you.",
+    description: "On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness.",
+    category: "Philosophy",
+    author: "Tom Vining",
+    photographer: "Tom Vining",
+    publishedAt: "2026-04-09",
+    heroImage: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg",
+    content: [
+      {
+        type: "text",
+        text: "Yaoyorozu no Kami. Literally, \u201Ceight million gods,\u201D though the number is not a count. It means something closer to \u201Can uncountable multitude.\u201D Gods in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
+      },
+      {
+        type: "text",
+        text: "What lives within these things is kami: god, spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that AUWA draws from.",
+      },
+      {
+        type: "image",
+        src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-shimenawa.jpg",
+        alt: "Close-up of a shimenawa sacred rope of twisted rice straw with shide paper streamers tied around the ancient bark of a cedar tree at Togakushi Shrine",
+        caption: "A shimenawa marks the cedar as inhabited. The rope does not create the spirit. It acknowledges what is already there.",
+      },
+      {
+        type: "text",
+        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there. This is the critical distinction. Yaoyorozu no Kami is not an act of consecration. It is an act of recognition. The tree was alive with kami before anyone tied a rope around it. The rope is simply a way of saying: we noticed. It also marks a sacred place, where gods reside, and serves as a barrier to prevent impure things from entering.",
+      },
+      {
+        type: "text",
+        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some of these trees have been standing for four hundred years. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
+      },
+      {
+        type: "pullquote",
+        text: "The rope does not create the spirit. It only acknowledges what is already there.",
+      },
+      {
+        type: "text",
+        text: "We tend to frame this as a Japanese concept, something culturally specific. But I think that is only half true. The cultural specificity is in the naming, the acknowledgement, the practice of tying ropes and placing offerings and bowing to a waterfall. The feeling itself is universal. Every child has talked to a stuffed animal and meant it. Every cook has a favourite knife that is, rationally, identical to three others in the drawer but is not. Every person who has lived in a house long enough has felt the moment when it stopped being a building and became something with character, with moods, with a way of holding light in the afternoon that felt like an expression of something.",
+      },
+      {
+        type: "image-pair",
+        images: [
+          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-gate.jpg", alt: "The red zuijinmon gate of Togakushi Shrine with shimenawa rope, framing a snow-covered path lined with ancient cedar trees receding into the distance", caption: "The gate at Togakushi. Beyond it, the cedar avenue where four centuries of trees stand in deep snow." },
+          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-prayer.jpg", alt: "Rieko in a dark coat and white hat standing in prayer at a wooden shrine building with shimenawa rope and shide streamers, snow on the ground and ancient cedars behind", caption: "Rieko at the shrine. Not performing. Participating in something passed down through generations." },
+        ],
+      },
+      {
+        type: "text",
+        text: "What modern Western culture lost is not the feeling. It is the permission to take the feeling seriously. Somewhere between the Enlightenment and the Industrial Revolution, the idea that a river or a mountain or a well-made tool might possess something like spirit became childish, primitive, embarrassing. We replaced it with nothing. We just stopped talking about it.",
+      },
+      {
+        type: "text",
+        text: "Japan never stopped. This awareness runs through daily life in ways that have nothing to do with shrines or ceremonies. The way you treat your tools. The way you handle food. The custom of kuy\u014D, memorial services held for objects that have completed their service: needles, dolls, brushes, even spectacles. You do not throw away a thing that served you faithfully. You thank it. This is not sentimentality. It is a coherent relationship with the material world, one that produces less waste, more care, and a fundamentally different experience of being surrounded by objects.",
+      },
+      {
+        type: "text",
+        text: "You do not arrive at Yaoyorozu no Kami through study. You arrive by paying attention long enough that the boundary between alive and not alive stops feeling useful. The tree, the stone, the bowl, the river.",
+      },
+    ],
+  },
   "the-beginning": {
     title: "The Beginning",
     subtitle: "Light in a dark forest. A dream that wouldn't let go.",
     description: "The first illustrated story in the AUWA universe. A Japanese philosophy of Kokoro, told through the character who reveals the life in all things.",
     category: "Philosophy",
-    issue: "Issue 11",
     author: "Rieko Maeda",
     photographer: "Rieko Maeda",
     publishedAt: "2026-04-10",
@@ -854,68 +904,6 @@ const articles: Record<
         text: "AUWA: The Beginning will be published later this year. If you\u2019d like to know when it arrives, sign up below and we\u2019ll write to you once it\u2019s released.",
         href: "/book",
         label: "Sign up",
-      },
-    ],
-  },
-  "yaoyorozu-no-kami": {
-    title: "Yaoyorozu no Kami",
-    subtitle: "Eight million gods live in the world around you.",
-    description: "On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness.",
-    category: "Philosophy",
-    issue: "Issue 10",
-    author: "Tom Vining",
-    photographer: "Tom Vining",
-    publishedAt: "2026-04-09",
-    heroImage: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg",
-    content: [
-      {
-        type: "text",
-        text: "Yaoyorozu no Kami. Literally, \u201Ceight million gods,\u201D though the number is not a count. It means something closer to \u201Can uncountable multitude.\u201D Gods in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
-      },
-      {
-        type: "text",
-        text: "What lives within these things is kami: god, spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that AUWA draws from.",
-      },
-      {
-        type: "image",
-        src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-shimenawa.jpg",
-        alt: "Close-up of a shimenawa sacred rope of twisted rice straw with shide paper streamers tied around the ancient bark of a cedar tree at Togakushi Shrine",
-        caption: "A shimenawa marks the cedar as inhabited. The rope does not create the spirit. It acknowledges what is already there.",
-      },
-      {
-        type: "text",
-        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there. This is the critical distinction. Yaoyorozu no Kami is not an act of consecration. It is an act of recognition. The tree was alive with kami before anyone tied a rope around it. The rope is simply a way of saying: we noticed. It also marks a sacred place, where gods reside, and serves as a barrier to prevent impure things from entering.",
-      },
-      {
-        type: "text",
-        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some of these trees have been standing for four hundred years. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
-      },
-      {
-        type: "pullquote",
-        text: "The rope does not create the spirit. It only acknowledges what is already there.",
-      },
-      {
-        type: "text",
-        text: "We tend to frame this as a Japanese concept, something culturally specific. But I think that is only half true. The cultural specificity is in the naming, the acknowledgement, the practice of tying ropes and placing offerings and bowing to a waterfall. The feeling itself is universal. Every child has talked to a stuffed animal and meant it. Every cook has a favourite knife that is, rationally, identical to three others in the drawer but is not. Every person who has lived in a house long enough has felt the moment when it stopped being a building and became something with character, with moods, with a way of holding light in the afternoon that felt like an expression of something.",
-      },
-      {
-        type: "image-pair",
-        images: [
-          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-gate.jpg", alt: "The red zuijinmon gate of Togakushi Shrine with shimenawa rope, framing a snow-covered path lined with ancient cedar trees receding into the distance", caption: "The gate at Togakushi. Beyond it, the cedar avenue where four centuries of trees stand in deep snow." },
-          { src: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-prayer.jpg", alt: "Rieko in a dark coat and white hat standing in prayer at a wooden shrine building with shimenawa rope and shide streamers, snow on the ground and ancient cedars behind", caption: "Rieko at the shrine. Not performing. Participating in something passed down through generations." },
-        ],
-      },
-      {
-        type: "text",
-        text: "What modern Western culture lost is not the feeling. It is the permission to take the feeling seriously. Somewhere between the Enlightenment and the Industrial Revolution, the idea that a river or a mountain or a well-made tool might possess something like spirit became childish, primitive, embarrassing. We replaced it with nothing. We just stopped talking about it.",
-      },
-      {
-        type: "text",
-        text: "Japan never stopped. This awareness runs through daily life in ways that have nothing to do with shrines or ceremonies. The way you treat your tools. The way you handle food. The custom of kuy\u014D, memorial services held for objects that have completed their service: needles, dolls, brushes, even spectacles. You do not throw away a thing that served you faithfully. You thank it. This is not sentimentality. It is a coherent relationship with the material world, one that produces less waste, more care, and a fundamentally different experience of being surrounded by objects.",
-      },
-      {
-        type: "text",
-        text: "You do not arrive at Yaoyorozu no Kami through study. You arrive by paying attention long enough that the boundary between alive and not alive stops feeling useful. The tree, the stone, the bowl, the river.",
       },
     ],
   },
@@ -1283,11 +1271,12 @@ export default async function ArticlePage({
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
             {(() => {
-              const allSlugs = Object.keys(articles);
-              const currentSlug = slug;
-              const otherSlugs = allSlugs.filter((s) => s !== currentSlug);
-              const selected = otherSlugs.slice(0, 3);
-              return selected.map((s) => {
+              const otherSlugs = Object.keys(articles).filter((s) => s !== slug);
+              let hash = 0;
+              for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) | 0;
+              const offset = Math.abs(hash) % otherSlugs.length;
+              const rotated = [...otherSlugs.slice(offset), ...otherSlugs.slice(0, offset)];
+              return rotated.slice(0, 6).map((s) => {
                 const a = articles[s];
                 return { title: a.title, subtitle: a.subtitle, category: a.category, slug: s, image: a.heroImage };
               });
