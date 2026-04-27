@@ -69,7 +69,7 @@ function detectType(files: string[]): PostType {
 }
 
 function buildCandidates(folder: string, files: string[], type: PostType): { candidates: Candidate[]; coverIndex: number } {
-  const enc = (f: string) => `/api/social-media/${encodeURIComponent(folder)}/${encodeURIComponent(f)}`;
+  const enc = (f: string) => `/api/social-media/instagram/${encodeURIComponent(folder)}/${encodeURIComponent(f)}`;
 
   // Hero candidates: every image (excluding text-* slide frames) plus any
   // video files. Sorted so order is stable across renders.

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 // Repo root is three levels up from website/main/src/app/api/social-media/[...path]/route.ts
 const REPO_ROOT = path.resolve(process.cwd(), "..", "..");
-const SOCIAL_ROOT = path.join(REPO_ROOT, "social", "instagram");
+const SOCIAL_ROOT = path.join(REPO_ROOT, "social");
 
 const MIME: Record<string, string> = {
   ".jpg": "image/jpeg",

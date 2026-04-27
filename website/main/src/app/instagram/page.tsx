@@ -35,18 +35,22 @@ const posts = [
   { src: "/journal/onsen-lesson/onsen-lesson-ladles.jpg", alt: "Wooden ladles and metal basin at onsen drinking station" },
 ];
 
-/* ─── Avatar SVG (the "A" glyph) ─── */
+/* ─── Avatar (live profile image from social/profiles/) ─── */
 
 function AuwaAvatar({ size }: { size: number }) {
-  const svgSize = size * 0.38;
   return (
     <div
-      className="rounded-full bg-void flex items-center justify-center"
+      className="rounded-full overflow-hidden bg-void"
       style={{ width: size, height: size }}
     >
-      <svg width={svgSize} height={svgSize} viewBox="-4 -5 117 114" className="-translate-y-[2px]" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M80.1079 89.5323L50.1624 18.5449L21.433 89.3803C21.0277 90.4951 20.6223 91.6098 20.217 92.7245C19.913 93.7379 19.761 94.6499 19.761 95.4606C19.761 97.7914 20.825 99.4635 22.9531 100.477C25.0812 101.389 28.7801 101.946 34.0497 102.149V108.077H0V102.149C2.02676 101.845 3.85085 101.338 5.47227 100.629C7.19502 99.9195 8.46174 98.5514 9.27245 96.5247L45.2982 10.0325L40.586 0H57.4588L99.2608 96.5247C100.072 98.5514 101.237 99.9195 102.757 100.629C104.277 101.338 106.152 101.845 108.381 102.149V108.077H67.6433V102.149C72.9129 101.946 76.5611 101.389 78.5878 100.477C80.7159 99.5648 81.78 97.9434 81.78 95.6126C81.78 94.7006 81.628 93.7379 81.3239 92.7245C81.0199 91.7111 80.6146 90.6471 80.1079 89.5323ZM24.3212 72.8115V66.1232H80.7159V72.8115H24.3212Z" fill="white"/>
-      </svg>
+      <Image
+        src="/api/social-media/profiles/instagram-avatar.png"
+        alt="AUWA"
+        width={size}
+        height={size}
+        unoptimized
+        className="w-full h-full object-cover"
+      />
     </div>
   );
 }
@@ -73,8 +77,8 @@ function ProfileHeader() {
           </div>
           <div className="font-sans text-[14px] text-void leading-[1.5]">
             <p className="font-medium">AUWA</p>
-            <p className="text-void/70 mt-1">Japanese philosophical awareness for modern life.</p>
-            <p className="text-void/70">Craft · Seasons · Stories · Kokoro</p>
+            <p className="font-jp-serif text-void/70 mt-1">こころのある暮らし。心 (kokoro) をすべてに。</p>
+            <p className="text-void/70">A Japanese lifestyle brand. Awareness, craft, and kokoro in all things.</p>
             <p className="text-[#00376b] mt-1">auwa.life</p>
           </div>
         </div>
@@ -103,8 +107,8 @@ function ProfileHeader() {
         {/* Bio */}
         <div className="font-sans text-[14px] text-void leading-[1.4] mb-1">
           <p className="font-medium">AUWA</p>
-          <p className="text-void/70 mt-0.5">Japanese philosophical awareness for modern life.</p>
-          <p className="text-void/70">Craft · Seasons · Stories · Kokoro</p>
+          <p className="font-jp-serif text-void/70 mt-0.5">こころのある暮らし。心 (kokoro) をすべてに。</p>
+          <p className="text-void/70">A Japanese lifestyle brand. Awareness, craft, and kokoro in all things.</p>
           <p className="text-[#00376b] mt-0.5">auwa.life</p>
         </div>
       </div>
