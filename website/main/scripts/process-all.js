@@ -57,7 +57,7 @@ for (const [photoSlug, article] of Object.entries(articles)) {
       continue;
     }
     run(source, path.join(webDir, `${photoSlug}-${name}.jpg`), "web");
-    run(source, path.join(igDir, `${photoSlug}-${name}-ig.jpg`), "ig");
+    run(source, path.join(igDir, `image-${name}.jpg`), "ig");
   }
 
   const heroSource = path.join(sourceDir, article.hero);

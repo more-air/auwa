@@ -39,6 +39,7 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 - **Meta-wisdom about the subject.** Any sentence that tells the reader what they were supposed to learn. *"Which might be the most valuable thing a knife can teach you."* *"Like the mountain itself, it removed options..."* Cut them. The concrete detail already did the work.
 - **Stacked aphoristic closers.** *"The steel remembers every strike of the hammer."* *"The wood remembers."* One per article, usually the pullquote. If they pile up, the piece reads like fortune cookies.
 - **Overly symmetrical constructions.** *"Simply, because it is simple, and because he has done it every day for decades."* Break the symmetry.
+- **Fragment-stacking as default rhythm.** Three short declaratives in a row ("Sentence. Sentence. Sentence."), each making one isolated point. The single most common current AI tell. Examples to hunt: *"Eight million spirits. Not a count. A way of saying the world is alive."* / *"Plum blossoms. Open for five days. Look away and you miss it."* / *"No plastic. No foam. Just wood cradling steel."* Rewrite as flowing sentences joined by comma, semicolon, or colon. A single fragment for emphasis is fine; two or more stacked is not.
 
 **Cross-article check.** Before publishing, re-read the other articles in the journal and confirm this one isn't reusing the same signature phrase or construction. Repetition across the set is what lets a reader spot the pattern. Any phrase already used in two or more published articles is off-limits.
 

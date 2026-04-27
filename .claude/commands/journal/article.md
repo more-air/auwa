@@ -47,12 +47,13 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
    ```
    Rename each to convention: `[slug]-hero.jpg`, `[slug]-facade.jpg`, etc. Typical sizes after the AUWA preset + sharp sharpening: 500KB-1MB depending on detail.
 
-5. **IG optimisation.** For each image in `2-edited/`, also output a 1080×1350 (4:5 portrait, centre-cropped) version to `social/instagram/[slug]/` with `-ig` suffix:
+5. **IG optimisation.** For each image in `2-edited/`, also output a 1080×1350 (4:5 portrait, centre-cropped) version to `social/instagram/[slug]/` with the `image-` prefix convention:
    ```bash
    cd website/main && node scripts/process-image.js \
      ../../photography/[slug]/2-edited/[source].jpg \
-     ../../social/instagram/[slug]/[slug]-[name]-ig.jpg ig
+     ../../social/instagram/[slug]/image-[name].jpg ig
    ```
+   The `image-` prefix groups article photos together in the IG folder and keeps them visually distinct from the text frames (`text-quote-*.jpg`, `text-close-*.jpg`) added in Step 7.
 
 6. **OG image (hero only).** Generate the 1200×630 landscape crop for link previews on LinkedIn, Facebook, WhatsApp, Pinterest, X. Source from the original `2-edited/` hero (NOT the already-resized web hero, to preserve resolution):
    ```bash
@@ -60,7 +61,7 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
      ../../photography/[slug]/2-edited/[hero-source].jpg \
      public/journal/[slug]/[slug]-og.jpg og
    ```
-   Verify these files exist: `[slug]-hero.jpg` (portrait, web), `[slug]-og.jpg` (1200×630 landscape, social previews), and `[slug]-hero-ig.jpg` in `social/instagram/[slug]/` (1080×1350 IG). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
+   Verify these files exist: `[slug]-hero.jpg` (portrait, web), `[slug]-og.jpg` (1200×630 landscape, social previews), and `image-hero.jpg` in `social/instagram/[slug]/` (1080×1350 IG). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
 7. Report the final file sizes and counts (X web, X IG, 1 OG).
 
 8. **Update the photography manifest.** Add an entry for the new article in `auwa/photography/_manifest.json`:
@@ -137,14 +138,14 @@ Ask: "Happy with this, or want to adjust anything before I add it to the site?"
 Once approved:
 
 1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`. Four fields do the SEO work — get them all right:
-   - **`title`**: the topic phrase, concise. The page title becomes `"{title} - AUWA Journal"` (hyphen separator, brand + category suffix), so the whole string must stay under 60 chars total or Google truncates it.
+   - **`title`**: the topic phrase, concise. The page title becomes `"{title} | AUWA Journal"` (pipe separator, brand + category suffix), so the whole string must stay under 60 chars total or Google truncates it.
    - **`subtitle`**: the editorial line that appears on-page under the H1. Stays poetic, not keyword-stuffed. This is the reader-facing voice.
-   - **`description`**: keyword-rich meta description (100-155 chars) — separate from `subtitle`. Google uses this in search results. MUST include "Japanese" where natural plus the primary topic word. Structure: `"{what it is about}, {place/context}. {why it matters}."` Example: *"On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness."*
+   - **`description`**: keyword-rich meta description (100-155 chars) — separate from `subtitle`. Google uses this in search results. MUST include "Japanese" where natural plus the primary topic word. Structure: `"{what it is about}, {place/context}. {why it matters}."` Example: *"On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things, and what it means for modern awareness."*
    - **Keyword placement check**: the primary topic word must appear in `title`, `description`, AND somewhere in the first paragraph of the article body.
 
 2. Add it to the article list in `website/main/src/app/journal/page.tsx` (include the `image` field pointing to the hero image so it shows on the listing page).
 
-3. Add it to the `latestArticles` array in `website/main/src/app/page.tsx` at the top (most recent first), with the `image` field pointing to the hero image. Increment the issue number to be one higher than the current highest.
+3. Add it to the `latestArticles` array in `website/main/src/app/page.tsx` at the top (most recent first), with the `image` field pointing to the hero image.
 
 4. **Add the article slug to the `articleSlugs` array in `website/main/src/app/sitemap.ts`**. Verify the slug is *byte-identical* to the key in the articles object in `journal/[slug]/page.tsx`. A mismatch (e.g. `oroko-combs` in sitemap vs `oroku-gushi` in articles object) causes Google to crawl a 404 and never discover the real URL. This cost AUWA ~10 days of missed indexing once — don't let it repeat.
 
@@ -158,11 +159,35 @@ Once approved:
 7. Test the build compiles cleanly (`npm run build` inside `website/main/`).
 
 **What the site does automatically, no manual work required:**
-- `generateMetadata()` in `journal/[slug]/page.tsx` derives the page title (`"{title} - AUWA Journal"`), meta description (prefers `description`, falls back to `subtitle`), Open Graph, Twitter card, and Article JSON-LD from the article data. Nothing extra to wire up.
+- `generateMetadata()` in `journal/[slug]/page.tsx` derives the page title (`"{title} | AUWA Journal"`), meta description (prefers `description`, falls back to `subtitle`), Open Graph, Twitter card, and Article JSON-LD from the article data. Nothing extra to wire up.
 - OG image path is derived by replacing `-hero.jpg` with `-og.jpg` on the hero path — so the only requirement is that BOTH files exist in `public/journal/[slug]/`. Step 2 covers this; verify before shipping.
 - No `<link rel="canonical">` is emitted (intentional — each article URL is its own canonical). Don't add one.
 
-## Step 7: Request indexing (after the deploy lands)
+## Step 7: Create the Instagram post
+
+Once the article is live (or just before — the post brief doesn't need the URL to be reachable), create the editorial IG carousel for it. The output ends up as a single per-article folder at `social/instagram/[photo-slug]/` containing every article photo at IG size + four text frames + one `_post.txt` brief, ready to copy into Instagram from a phone.
+
+Run the slideshow branch of `.claude/commands/instagram/post.md` from Step 2A onwards. The article and source images already exist, so:
+
+- Skip "which slug" (use this article's photo-slug)
+- Skip the manifest check (article.md just populated it)
+- Skip the photo processing step inside the slideshow flow (Step 2 of this command already generated `image-[name].jpg` for every article photo). The slideshow flow then only needs to generate the four text frames and write `_post.txt`.
+
+The IG post step asks YOU which quote (three IG-optimised candidates), so it stays interactive. After the slideshow flow runs, the article folder under `social/instagram/[photo-slug]/` contains:
+
+```
+_post.txt                 ← caption, hashtags, alt text per image
+image-hero.jpg            ← every article photo at 1080×1350
+image-[name].jpg
+text-quote-dark.jpg       ← carousel slot 2 (dark theme)
+text-quote-light.jpg      ← carousel slot 2 (light theme)
+text-close-dark.jpg       ← carousel slot 4 (dark theme)
+text-close-light.jpg      ← carousel slot 4 (light theme)
+```
+
+Whoever posts picks two of the `image-*.jpg` files for slides 1 and 3 at upload time, and one of the dark/light theme pairs for slides 2 and 4.
+
+## Step 8: Request indexing (after the deploy lands)
 
 Don't wait for Google to organically find the new article — that can take 4-6 weeks for a site AUWA's age. Two things after deploy:
 
