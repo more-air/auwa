@@ -38,16 +38,16 @@ type Spread = { src: string; alt: string; type?: "spread" | "cover" };
    filenames so a future swap (e.g. Rieko delivers updated artwork) is
    a one-line edit. */
 const auwaVariants = {
-  up: "/demo-book/auwa-up.png",
-  down: "/demo-book/auwa-down.png",
-  left: "/demo-book/auwa-left.png",
-  right: "/demo-book/auwa-right.png",
+  up: "/book/character/auwa-up.png",
+  down: "/book/character/auwa-down.png",
+  left: "/book/character/auwa-left.png",
+  right: "/book/character/auwa-right.png",
   glow: {
-    front: "/demo-book/auwa-front-glow.png",
-    up: "/demo-book/auwa-up-glow.png",
-    down: "/demo-book/auwa-down-glow.png",
-    left: "/demo-book/auwa-left-glow.png",
-    right: "/demo-book/auwa-right-glow.png",
+    front: "/book/character/auwa-front-glow.png",
+    up: "/book/character/auwa-up-glow.png",
+    down: "/book/character/auwa-down-glow.png",
+    left: "/book/character/auwa-left-glow.png",
+    right: "/book/character/auwa-right-glow.png",
   },
 };
 
@@ -540,7 +540,7 @@ function MeetAuwa() {
           <div className="mt-2 md:mt-4 mx-auto w-full max-w-[440px] md:max-w-[480px] lg:max-w-[540px] xl:max-w-[620px]">
             <div ref={moverRef} style={{ willChange: "transform" }}>
               <AuwaCharacter
-                src="/demo-book/auwa-front.png"
+                src="/book/character/auwa-front.png"
                 alt="Auwa, the small luminous being"
                 variants={auwaVariants}
               />
@@ -591,10 +591,10 @@ function KokoroReveal() {
       aspectClassName="aspect-[9/16] md:aspect-[2/3]"
       mediaMaxWidth="lg:max-w-[400px]"
       image={{
-        src: "/demo-book/auwa-kokoro.mp4",
+        src: "/book/character/auwa-kokoro.mp4",
         alt: "Auwa revealing the Kokoro in living things",
         video: {
-          poster: "/demo-book/auwa-kokoro-poster.jpg",
+          poster: "/book/character/auwa-kokoro-poster.jpg",
           objectPosition: "bottom",
         },
       }}
