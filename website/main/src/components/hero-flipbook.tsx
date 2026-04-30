@@ -11,7 +11,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 */
 
 const PILLAR_LINKS: Record<string, string> = {
-  AUWA: "/about",
+  Auwa: "/about",
   Character: "/about",
   Book: "/book",
   App: "/app",
@@ -199,7 +199,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
         chrome is retracted) for a rock-solid anchored position.
       */}
       <div
-        className={`sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-white flex items-center justify-center transition-opacity duration-300 h-[calc(100svh-4rem)] lg:h-[calc(100svh-5rem)] ${
+        className={`sticky top-16 lg:top-20 z-10 w-full overflow-hidden bg-surface flex items-center justify-center transition-opacity duration-300 h-[calc(100svh-4rem)] lg:h-[calc(100svh-5rem)] ${
           mounted ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -218,22 +218,22 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/30">
+                <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-sumi/30">
                   {card.pillar}
                 </span>
-                <div className="mt-3 w-8 h-[1px] bg-void/10" />
-                <p className="font-sans text-[11px] tracking-[0.08em] uppercase text-void/80 mt-4">
+                <div className="mt-3 w-8 h-[1px] bg-sumi/10" />
+                <p className="font-sans text-[11px] tracking-[0.08em] uppercase text-sumi/80 mt-4">
                   {card.label}
                 </p>
               </div>
             ))}
             <div className="absolute top-[72px] left-0">
               <div className="flex items-baseline gap-1">
-                <span className="font-display text-[38px] tracking-[0.01em] text-void/20 tabular-nums">
+                <span className="font-display text-[38px] tracking-[0.01em] text-sumi/20 tabular-nums">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
-                <span className="font-sans text-[13px] text-void/20 ml-0.5">/</span>
-                <span className="font-sans text-[13px] text-void/20 ml-0.5">{CARD_COUNT}</span>
+                <span className="font-sans text-[13px] text-sumi/20 ml-0.5">/</span>
+                <span className="font-sans text-[13px] text-sumi/20 ml-0.5">{CARD_COUNT}</span>
               </div>
             </div>
           </div>
@@ -272,7 +272,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                   key={`card-${i}`}
                   href={href}
                   data-cursor="Open"
-                  className={`absolute inset-0 rounded-xl overflow-hidden group ${
+                  className={`absolute inset-0 overflow-hidden group ${
                     isActive ? "cursor-pointer" : "pointer-events-none"
                   }`}
                   style={{
@@ -286,7 +286,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                   }}
                   tabIndex={isActive ? 0 : -1}
                 >
-                  <div className="absolute inset-0 rounded-xl shadow-[0_8px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_48px_rgba(0,0,0,0.14)] transition-shadow duration-400" />
+                  <div className="absolute inset-0 shadow-[0_8px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_48px_rgba(0,0,0,0.14)] transition-shadow duration-400" />
                   {card.type === "video" ? (
                     <VideoCard src={card.src} poster={card.poster} isActive={isActive} />
                   ) : (
@@ -296,7 +296,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   )}
-                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.04] transition-colors duration-400 rounded-xl" />
+                  <div className="absolute inset-0 bg-surface/0 group-hover:bg-surface/[0.04] transition-colors duration-400" />
                 </a>
               );
             })}
@@ -348,7 +348,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                     key={`mcard-${i}`}
                     href={href}
                     data-cursor="Open"
-                    className={`absolute inset-0 rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)] active:scale-[0.98] ${
+                    className={`absolute inset-0 overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)] active:scale-[0.98] ${
                       isActive ? "" : "pointer-events-none"
                     }`}
                     style={{
@@ -392,10 +392,10 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                   >
                     {i === activeIndex && (
                       <>
-                        <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-void/30">
+                        <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-sumi/30">
                           {card.pillar}
                         </span>
-                        <h2 className="mt-1 font-display text-[clamp(1.2rem,4.5vw,1.6rem)] leading-[1.15] tracking-[0.01em] text-void">
+                        <h2 className="mt-1 font-display text-[clamp(1.2rem,4.5vw,1.6rem)] leading-[1.15] tracking-[0.01em] text-sumi">
                           {card.heading}
                         </h2>
                       </>
@@ -410,9 +410,9 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                   </svg>
                 </div>
                 <div className={`absolute inset-0 flex justify-center items-center transition-opacity duration-500 ${activeIndex === 0 || !progressVisible ? "opacity-0" : "opacity-100"}`}>
-                  <div className="w-20 h-[2px] bg-void/10 overflow-hidden rounded-full">
+                  <div className="w-20 h-[2px] bg-sumi/10 overflow-hidden rounded-full">
                     <div
-                      className="h-full bg-void transition-all duration-500 ease-out rounded-full"
+                      className="h-full bg-sumi transition-all duration-500 ease-out rounded-full"
                       style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
                     />
                   </div>
@@ -441,12 +441,12 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                     className="group/text"
                     tabIndex={i === activeIndex ? 0 : -1}
                   >
-                    <h2 className="font-display text-[clamp(1.5rem,2.5vw,2.2rem)] leading-[1.15] tracking-[0.01em] text-void group-hover/text:text-void/70 transition-colors duration-300">
+                    <h2 className="font-display text-[clamp(1.5rem,2.5vw,2.2rem)] leading-[1.15] tracking-[0.01em] text-sumi group-hover/text:text-sumi/70 transition-colors duration-300">
                       {card.heading}
                     </h2>
                   </a>
                   {card.sub && (
-                    <p className="mt-2 font-display text-[clamp(1rem,1.5vw,1.3rem)] leading-[1.3] text-void/50">
+                    <p className="mt-2 font-display text-[clamp(1rem,1.5vw,1.3rem)] leading-[1.3] text-sumi/50">
                       {card.sub}
                     </p>
                   )}
@@ -458,11 +458,11 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
           {/* ── Decorative lines (desktop) — closer to card ── */}
           <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
             <div
-              className="absolute top-[15%] bottom-[15%] w-[1px] bg-void/5"
+              className="absolute top-[15%] bottom-[15%] w-[1px] bg-sumi/5"
               style={{ left: "calc(50% - min(27.5vh, 22vw) - 24px)" }}
             />
             <div
-              className="absolute top-[15%] bottom-[15%] w-[1px] bg-void/5"
+              className="absolute top-[15%] bottom-[15%] w-[1px] bg-sumi/5"
               style={{ right: "calc(50% - min(27.5vh, 22vw) - 24px)" }}
             />
           </div>
@@ -470,9 +470,9 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
           {/* ── Progress bar + scroll hint (desktop) ── */}
           <div className={`hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-5 z-20 transition-opacity duration-500 ${progressVisible ? "opacity-100" : "opacity-0"}`}>
             <div className="flex items-center gap-3">
-              <div className="w-28 h-[2px] bg-void/10 overflow-hidden rounded-full">
+              <div className="w-28 h-[2px] bg-sumi/10 overflow-hidden rounded-full">
                 <div
-                  className="h-full bg-void transition-all duration-500 ease-out rounded-full"
+                  className="h-full bg-sumi transition-all duration-500 ease-out rounded-full"
                   style={{ width: `${((activeIndex + 1) / CARD_COUNT) * 100}%` }}
                 />
               </div>
@@ -482,7 +482,7 @@ export function HeroFlipbook({ fullHeight = false }: { fullHeight?: boolean } = 
                 activeIndex === 0 ? "opacity-100" : "opacity-0"
               }`}
             >
-              <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-void/25">
+              <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-sumi/25">
                 Scroll
               </span>
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="animate-bounce opacity-25">

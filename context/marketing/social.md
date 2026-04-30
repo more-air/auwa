@@ -1,8 +1,8 @@
-# AUWA Social
+# Auwa Social
 
 *Last updated: 23 April 2026*
 
-The full status of AUWA's social media footprint after consolidation from the early account grab phase. All handles, logins, and current state in one place.
+The full status of Auwa's social media footprint after consolidation from the early account grab phase. All handles, logins, and current state in one place.
 
 ---
 
@@ -14,7 +14,7 @@ One brand name, three handle variants by necessity:
 - `@auwa.life` — used on platforms where dots are permitted and match the domain (TikTok, Bluesky)
 - `@auwa` — pure brand name, used only where already owned (LinkedIn)
 
-The variants exist because no single handle is available everywhere. All read as "AUWA" at a glance, so brand consistency holds.
+The variants exist because no single handle is available everywhere. All read as "Auwa" at a glance, so brand consistency holds.
 
 ---
 
@@ -22,9 +22,9 @@ The variants exist because no single handle is available everywhere. All read as
 
 | Platform | Handle | Login / Email | Notes |
 |---|---|---|---|
-| Instagram | @auwalife | social@auwa.life | Inside AUWA Limited Meta portfolio. |
-| Facebook | @auwalife | social@auwa.life | Inside AUWA Limited Meta portfolio. |
-| Threads | @auwalife | social@auwa.life | Inside AUWA Limited Meta portfolio. |
+| Instagram | @auwalife | social@auwa.life | Inside Auwa Limited Meta portfolio. |
+| Facebook | @auwalife | social@auwa.life | Inside Auwa Limited Meta portfolio. |
+| Threads | @auwalife | social@auwa.life | Inside Auwa Limited Meta portfolio. |
 | YouTube | @auwalife | auwa.world@gmail.com → forwards to social@auwa.life | Brand Account. Tom + Rieko managers. |
 | LinkedIn | @auwa | Via Tom's LinkedIn | Pre-existing, left as pure brand name. |
 | Bluesky | @auwa.life | social@auwa.life | Domain-verified via DNS. |
@@ -34,7 +34,7 @@ The variants exist because no single handle is available everywhere. All read as
 | Reddit (user) | u/auwalife | social@auwa.life | |
 | Reddit (subreddit) | r/auwalife | — | Restricted. Parked for future community. |
 | Medium | @auwa | social@auwa.life | First article published: Yaoyorozu no Kami. |
-| Spotify (Creators) | AUWA | social@auwa.life | Verified. Awaiting first episode upload. |
+| Spotify (Creators) | Auwa | social@auwa.life | Verified. Awaiting first episode upload. |
 
 ---
 
@@ -73,7 +73,7 @@ If any haven't arrived by tomorrow morning, check: Resend dashboard for bounce/d
 2. **Medium article two.** Import a second strong journal article via medium.com/p/import. Confirm canonical URL auto-set to auwa.life. Add 5 tags, publish.
 3. **Pinterest Rich Pins.** Enable domain verification and Rich Pins in Pinterest settings. Takes one DNS TXT record plus meta tags on auwa.life article pages.
 4. **DMARC monitoring.** Currently `p=none`. Add `rua=mailto:dmarc@auwa.life` to the DMARC record and monitor via a free tool (Postmark, dmarcian) for 4–6 weeks, then tighten to `p=quarantine` and eventually `p=reject`.
-5. **Reddit subreddit content.** Once AUWA has an active audience, open r/auwalife from Restricted to Public and seed the sidebar with links to auwa.life and the app.
+5. **Reddit subreddit content.** Once Auwa has an active audience, open r/auwalife from Restricted to Public and seed the sidebar with links to auwa.life and the app.
 
 ---
 
@@ -81,7 +81,7 @@ If any haven't arrived by tomorrow morning, check: Resend dashboard for bounce/d
 
 **YouTube.** The Gmail (auwa.world@gmail.com) is credential-only. All notifications forward to social@auwa.life via a Gmail filter on `noreply@youtube.com OR notify@youtube.com OR no-reply@youtube.com`. Both Tom and Rieko are managers on the Brand Account.
 
-**Facebook / Meta.** The AUWA Page and Instagram account both sit inside the AUWA Limited business portfolio in Meta Business Suite. This is the correct structure for running ads, adding the pixel, and (eventually) connecting a product catalog for the store.
+**Facebook / Meta.** The Auwa Page and Instagram account both sit inside the Auwa Limited business portfolio in Meta Business Suite. This is the correct structure for running ads, adding the pixel, and (eventually) connecting a product catalog for the store.
 
 **Bluesky.** The `@auwa.life` handle is domain-verified via DNS, which means it displays in the app as the verified domain rather than a bsky.social subdomain. Nicest-looking handle anywhere.
 

@@ -1,4 +1,4 @@
-# AUWA Newsletter
+# Auwa Newsletter
 
 *Created: April 2026. Reference for sending newsletters and managing email.*
 
@@ -20,10 +20,10 @@ Both templates live in `website/main/src/emails/` as React Email components.
 
 ### welcome.tsx
 Sent automatically on signup. Four variants based on source, with subjects tuned so Store and Book don't fall into Gmail Promotions:
-- **newsletter**: subject "Welcome to AUWA" · "Stay close." body
-- **app-waitlist**: subject "You're on the AUWA App waitlist" · "A practice is taking shape." body
-- **store-waitlist**: subject "A note from AUWA." · "Made by hand, chosen with care." body
-- **book-waitlist**: subject "A note from AUWA." · "Many stories, one light." body
+- **newsletter**: subject "Welcome to Auwa" · "Stay close." body
+- **app-waitlist**: subject "You're on the Auwa App waitlist" · "A practice is taking shape." body
+- **store-waitlist**: subject "A note from Auwa." · "Made by hand, chosen with care." body
+- **book-waitlist**: subject "A note from Auwa." · "Many stories, one light." body
 
 ### newsletter.tsx
 The template for manual newsletter sends. Accepts:
@@ -50,7 +50,7 @@ curl -X POST https://auwa.life/api/newsletter/send \
   -H "Content-Type: application/json" \
   -d '{
     "secret": "auwa-send-2026",
-    "subject": "Light rain. - AUWA",
+    "subject": "Light rain. - Auwa",
     "previewText": "Three pieces on seasonal living, Japanese craft, and finding stillness.",
     "heading": "Seasonal letter.",
     "intro": "Spring has settled in. The plum blossoms are gone, replaced by something quieter. Here are three pieces from the journal.",
@@ -78,7 +78,7 @@ curl -X POST http://localhost:3000/api/newsletter/send \
   -H "Content-Type: application/json" \
   -d '{
     "secret": "auwa-send-2026",
-    "subject": "Test newsletter - AUWA",
+    "subject": "Test newsletter - Auwa",
     "previewText": "Testing the newsletter system.",
     "heading": "Test.",
     "intro": "This is a test send.",
@@ -97,7 +97,7 @@ Check Resend dashboard for delivery status. The API returns `{ success: true, id
 
 The emails follow the same principles as the website.
 
-**Typography**: EB Garamond for all editorial text (headings, body, links). Inter for functional elements (CTAs, metadata, unsubscribe). The AUWA wordmark is rendered as styled text (EB Garamond, 24px, 0.25em tracking) rather than an image, for reliability across email clients.
+**Typography**: EB Garamond for all editorial text (headings, body, links). Inter for functional elements (CTAs, metadata, unsubscribe). The Auwa wordmark is rendered as styled text (EB Garamond, 24px, 0.25em tracking) rather than an image, for reliability across email clients.
 
 **Colour**: Warm off-white background (#f8f7f4). Void text (#141318) at varying opacities. No brand colours in emails beyond this. The restraint is the point.
 
@@ -111,7 +111,7 @@ The emails follow the same principles as the website.
 
 ## Sending From Address
 
-All emails send from `AUWA <hello@auwa.life>`. This requires a verified domain in Resend. The domain `auwa.life` should already be verified (check Resend dashboard > Domains if emails bounce).
+All emails send from `Auwa <hello@auwa.life>`. This requires a verified domain in Resend. The domain `auwa.life` should already be verified (check Resend dashboard > Domains if emails bounce).
 
 If the domain isn't verified yet: Resend dashboard > Domains > Add domain > add the DNS records (MX, SPF, DKIM) to your DNS provider > verify.
 
@@ -127,13 +127,13 @@ Each send should feature 1-3 journal articles, optionally tied to the current se
 
 ## Subject Line Format
 
-`[Topic or season name] - AUWA`
+`[Topic or season name] - Auwa`
 
 Examples:
-- `Light rain. - AUWA`
-- `Three objects with Kokoro. - AUWA`
-- `A letter from Kyoto. - AUWA`
-- `The spring journal. - AUWA`
+- `Light rain. - Auwa`
+- `Three objects with Kokoro. - Auwa`
+- `A letter from Kyoto. - Auwa`
+- `The spring journal. - Auwa`
 
 Keep it short, specific, lowercase after the first word. Hyphen separator matches the website's page title format (updated April 2026 — all pages switched from pipe to hyphen for SEO + cross-touchpoint consistency). No emojis. No ALL CAPS. No questions designed to create false curiosity.
 

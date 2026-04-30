@@ -5,13 +5,13 @@ description: Commit all website changes and push to Vercel via git push to main.
 
 ## Instructions
 
-Deploy the current state of the AUWA website to Vercel.
+Deploy the current state of the Auwa website to Vercel.
 
 1. Run `git status` to see what's changed
 2. Show the user a summary of the changes
 3. Stage all relevant files (website code, context files, commands, brand assets). Do NOT stage `photography/_lightroom/` or `documents/` (these are gitignored).
 4. Commit with a clear, concise message describing what changed
-5. Push to `origin main` in the AUWA repo (github: `more-air/auwa`)
+5. Push to `origin main` in the Auwa repo (github: `more-air/auwa`)
 6. **If any `/Users/admin/Github/moreair/.claude/skills/**` files or other shared More Air assets were touched in this session, also commit and push those from inside `/Users/admin/Github/moreair/`** — separate repo, separate push. Do this BEFORE the Vercel deploy so the repos stay in sync.
 7. Deploy to Vercel using the CLI (git push does NOT auto-deploy). The
    command MUST be a single bash call that starts with the `cd` and ends

@@ -30,6 +30,36 @@ export function Header() {
   // video hero, so they share the transparent header treatment. Every
   // other page has a solid-white header.
   const transparent = pathname === "/" || pathname === "/home-1";
+  // Dark-themed pages opt in via DarkPageTheme (which sets
+  // `data-page-theme="dark"` on <html>) AND are listed here. Both
+  // sources are needed:
+  //
+  //   • The pathname list is read SYNCHRONOUSLY during render, so on
+  //     navigation the darkPage state flips in the same render that
+  //     pathname changes — no observer-async race, no flash of "solid
+  //     bg before going transparent" when navigating into /book from
+  //     a light page (or "washi-on-white" on the way back to /).
+  //
+  //   • The MutationObserver remains as a safety net so any future
+  //     dynamic dark surface (e.g. a marketing landing page that
+  //     mounts DarkPageTheme behind a flag) still toggles the header
+  //     correctly without needing a code change here. If the list
+  //     and the attribute disagree, the attribute wins (it's the
+  //     downstream source of truth).
+  const KNOWN_DARK_ROUTES = ["/book"];
+  const isKnownDarkRoute = KNOWN_DARK_ROUTES.includes(pathname);
+  const [darkPage, setDarkPage] = useState(isKnownDarkRoute);
+  useEffect(() => {
+    const html = document.documentElement;
+    const sync = () => setDarkPage(html.dataset.pageTheme === "dark");
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(html, {
+      attributes: true,
+      attributeFilter: ["data-page-theme"],
+    });
+    return () => observer.disconnect();
+  }, []);
   // /instagram and /instagram-plan are planning grid previews, no header needed.
   const hideHeader = pathname === "/instagram" || pathname === "/instagram-plan";
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,14 +86,40 @@ export function Header() {
   // `-translate-y-full`) before the effect could run. The new page's
   // subsequent class change to `translate-y-0` fired the 500ms transition
   // regardless of any inline style manipulation.
+  // Skip CSS transitions for one frame after a pathname change. Without
+  // this, the bg-layer opacity transitions from 1 (the previous page's
+  // solid header) to 0 (transparent on the new page) over 260ms — and
+  // because the bg COLOUR also flips in the same render (e.g. white →
+  // Yoru), the user sees "dark bg loads briefly before going transparent".
+  // Snapping the opacity instead of transitioning eliminates that flash;
+  // scroll-driven changes after the first frame still animate normally.
+  const [skipTransition, setSkipTransition] = useState(false);
+
   if (renderedPathname !== pathname) {
     setRenderedPathname(pathname);
     setMenuOpen(false);
     setHidden(false);
     setAtTop(true);
+    // Sync darkPage with the destination pathname's known theme. React
+    // discards the in-progress render and re-renders with this new
+    // value, so the header's first paint of the new route already
+    // shows the correct dark/light state — no flash window for the
+    // observer to lag behind. Observer keeps state aligned for any
+    // future runtime attribute changes.
+    setDarkPage(isKnownDarkRoute);
+    setSkipTransition(true);
     atTopRef.current = true;
     lastScrollY.current = 0;
   }
+
+  // Re-enable transitions on the frame AFTER the snapped commit, so any
+  // subsequent state change (scroll, menu open) animates as normal.
+  useEffect(() => {
+    if (!skipTransition) return;
+    const id = requestAnimationFrame(() => setSkipTransition(false));
+    return () => cancelAnimationFrame(id);
+  }, [skipTransition]);
+
 
   useEffect(() => {
     setMounted(true);
@@ -127,8 +183,14 @@ export function Header() {
   // overlay (portalled to body) provides the white covering when the
   // menu is open — the header itself stays transparent to avoid a flash
   // of solid-white background before the overlay has faded in.
-  const isTransparent = transparent && atTop;
-  const buttonIsLight = transparent && atTop && !menuOpen;
+  // Dark pages also start transparent at top, then fade to dark on scroll.
+  const isTransparent = (transparent || darkPage) && atTop;
+  // On dark-themed pages the wordmark + menu icon stay white at every
+  // scroll position; the bg layer fades to dark void instead of white.
+  // When the menu is open, controls flip to dark (the overlay is light).
+  const buttonIsLight = darkPage
+    ? !menuOpen
+    : transparent && atTop && !menuOpen;
 
   // No body scroll-lock. Both `body.style.overflow = "hidden"` and
   // `body.style.position = "fixed"` triggered a visible vertical jump
@@ -200,7 +262,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.08] tracking-[0.005em] transition-colors duration-300 ${
-                    pathname === item.href ? "text-void" : "text-void/40 hover:text-void"
+                    pathname === item.href ? "text-sumi" : "text-sumi/45 hover:text-sumi"
                   }`}
                 >
                   <span className="relative inline-block overflow-hidden pb-[0.12em]">
@@ -233,7 +295,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-void/70 hover:text-void transition-colors duration-300"
+              className="text-sumi/70 hover:text-sumi transition-colors duration-300"
             >
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -247,7 +309,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X"
-              className="text-void/70 hover:text-void transition-colors duration-300"
+              className="text-sumi/70 hover:text-sumi transition-colors duration-300"
             >
               <svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -280,10 +342,15 @@ export function Header() {
         */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-surface pointer-events-none"
+          className={`absolute inset-0 pointer-events-none ${
+            darkPage ? "" : "bg-surface"
+          }`}
           style={{
             opacity: isTransparent ? 0 : 1,
-            transition: "opacity 260ms cubic-bezier(0.16, 1, 0.3, 1)",
+            transition: skipTransition
+              ? "none"
+              : "opacity 260ms cubic-bezier(0.16, 1, 0.3, 1)",
+            backgroundColor: darkPage ? "var(--color-yoru)" : undefined,
           }}
         />
         <div className="relative px-6 md:px-12 lg:px-20 xl:px-28">
@@ -303,14 +370,24 @@ export function Header() {
                 transition: "opacity 300ms ease-out",
               }}
             >
-              <span className="sr-only">AUWA</span>
+              <span className="sr-only">Auwa</span>
               <AuwaLogo
                 className="block h-[20px] md:h-[22px] w-auto"
                 style={{
-                  color: isTransparent
-                    ? "#ffffff"
-                    : "oklch(0.08 0.025 250)",
-                  transition: "color 300ms ease-out",
+                  // The light-foreground rule (locked April 2026):
+                  //   Washi   = light foreground on Yoru (uniform dark surface)
+                  //   Surface = light foreground over imagery (variable mid-tones)
+                  //   Sumi    = dark foreground on Surface
+                  // Logo state map:
+                  //   darkPage (over Yoru, e.g. /book)        → Washi
+                  //   isTransparent (over hero video imagery) → Surface
+                  //   otherwise (over Surface page bg)        → Sumi
+                  color: darkPage
+                    ? "var(--color-washi)"
+                    : isTransparent
+                      ? "var(--color-surface)"
+                      : "var(--color-sumi)",
+                  transition: skipTransition ? "none" : "color 300ms ease-out",
                 }}
               />
             </Link>
@@ -326,13 +403,21 @@ export function Header() {
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
               style={{
-                color: buttonIsLight ? "#ffffff" : "oklch(0.08 0.025 250)",
-                transition: "color 300ms ease-out",
+                // Same rule as the logo (see colour comment above).
+                //   darkPage + closed menu (over Yoru)             → Washi
+                //   buttonIsLight (over hero imagery, light pages) → Surface
+                //   otherwise (open menu / past hero / solid bg)   → Sumi
+                color: darkPage && !menuOpen
+                  ? "var(--color-washi)"
+                  : buttonIsLight
+                    ? "var(--color-surface)"
+                    : "var(--color-sumi)",
+                transition: skipTransition ? "none" : "color 300ms ease-out",
               }}
             >
               {/*
                 Container h-[22px] with lines at y=2, 10, 18. Visible
-                span is ~18px, sized to feel like the AUWA logo (20px
+                span is ~18px, sized to feel like the Auwa logo (20px
                 mobile / 22px desktop) beside it. All three spans carry
                 identical transform + rendering hints so iOS anti-aliases
                 them the same way.

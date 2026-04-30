@@ -24,7 +24,7 @@ If the user provides all this information upfront, skip the questions and procee
 
 ## Step 2: Process Images
 
-The source folder is `auwa/photography/[slug]/2-edited/`. These are full-quality images already exported from Lightroom with the matching AUWA preset applied (Landscape, Interior, or Night). The raw drops live in `1-original/` and are not touched by this command.
+The source folder is `auwa/photography/[slug]/2-edited/`. These are full-quality images already exported from Lightroom with the matching Auwa preset applied (Landscape, Interior, or Night). The raw drops live in `1-original/` and are not touched by this command.
 
 If photos have been provided in `auwa/photography/[slug]/2-edited/`:
 
@@ -33,7 +33,7 @@ If photos have been provided in `auwa/photography/[slug]/2-edited/`:
    - `social/instagram/[slug]/` (IG carousel-ready 1080×1350 versions)
 2. List all images in the source folder and show them to the user
 3. Ask: "Which image should be the hero? And are any of these a pair (two detail shots to sit side by side)?"
-**All resizing uses `sharp` (Node.js)**, not `sips`. The script lives at `website/main/scripts/process-image.js`. Sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. Sips was producing soft output because it doesn't apply post-resize sharpening, which became visible after the AUWA preset's tonal flattening was layered on top. Always run from `website/main/`:
+**All resizing uses `sharp` (Node.js)**, not `sips`. The script lives at `website/main/scripts/process-image.js`. Sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. Sips was producing soft output because it doesn't apply post-resize sharpening, which became visible after the Auwa preset's tonal flattening was layered on top. Always run from `website/main/`:
 
 ```bash
 cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
@@ -45,7 +45,7 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
      ../../photography/[slug]/2-edited/[source].jpg \
      public/journal/[slug]/[slug]-[name].jpg web
    ```
-   Rename each to convention: `[slug]-hero.jpg`, `[slug]-facade.jpg`, etc. Typical sizes after the AUWA preset + sharp sharpening: 500KB-1MB depending on detail.
+   Rename each to convention: `[slug]-hero.jpg`, `[slug]-facade.jpg`, etc. Typical sizes after the Auwa preset + sharp sharpening: 500KB-1MB depending on detail.
 
 5. **IG optimisation.** For each image in `2-edited/`, also output a 1080×1350 (4:5 portrait, centre-cropped) version to `social/instagram/[slug]/` with the `image-` prefix convention:
    ```bash
@@ -82,7 +82,7 @@ If no photos yet, proceed with writing and note where images will go. Web hero, 
 
 ### Bulk re-processing (when presets or pipeline change)
 
-If the AUWA Lightroom presets change and you've re-exported the affected `2-edited/` folders, OR if the sharp settings in `process-image.js` change, run from `website/main/`:
+If the Auwa Lightroom presets change and you've re-exported the affected `2-edited/` folders, OR if the sharp settings in `process-image.js` change, run from `website/main/`:
 
 ```bash
 node scripts/process-all.js              # all 11 articles
@@ -138,7 +138,7 @@ Ask: "Happy with this, or want to adjust anything before I add it to the site?"
 Once approved:
 
 1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`. Four fields do the SEO work — get them all right:
-   - **`title`**: the topic phrase, concise. The page title becomes `"{title} | AUWA Journal"` (pipe separator, brand + category suffix), so the whole string must stay under 60 chars total or Google truncates it.
+   - **`title`**: the topic phrase, concise. The page title becomes `"{title} | Auwa Journal"` (pipe separator, brand + category suffix), so the whole string must stay under 60 chars total or Google truncates it.
    - **`subtitle`**: the editorial line that appears on-page under the H1. Stays poetic, not keyword-stuffed. This is the reader-facing voice.
    - **`description`**: keyword-rich meta description (100-155 chars) — separate from `subtitle`. Google uses this in search results. MUST include "Japanese" where natural plus the primary topic word. Structure: `"{what it is about}, {place/context}. {why it matters}."` Example: *"On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things, and what it means for modern awareness."*
    - **Keyword placement check**: the primary topic word must appear in `title`, `description`, AND somewhere in the first paragraph of the article body.
@@ -147,7 +147,7 @@ Once approved:
 
 3. Add it to the `latestArticles` array in `website/main/src/app/page.tsx` at the top (most recent first), with the `image` field pointing to the hero image.
 
-4. **Add the article slug to the `articleSlugs` array in `website/main/src/app/sitemap.ts`**. Verify the slug is *byte-identical* to the key in the articles object in `journal/[slug]/page.tsx`. A mismatch (e.g. `oroko-combs` in sitemap vs `oroku-gushi` in articles object) causes Google to crawl a 404 and never discover the real URL. This cost AUWA ~10 days of missed indexing once — don't let it repeat.
+4. **Add the article slug to the `articleSlugs` array in `website/main/src/app/sitemap.ts`**. Verify the slug is *byte-identical* to the key in the articles object in `journal/[slug]/page.tsx`. A mismatch (e.g. `oroko-combs` in sitemap vs `oroku-gushi` in articles object) causes Google to crawl a 404 and never discover the real URL. This cost Auwa ~10 days of missed indexing once — don't let it repeat.
 
 5. **Alt text pass** on every image block (`image`, `image-pair`, `image-beside`). Used by image search, social previews, and screen readers. Rule: include the geographic / cultural / craft qualifier wherever it reads natural. Prefer specific Japanese terms (washi, onsen, shimenawa, noren, engawa) over English translations — they rank on image search AND feel editorial. Prefer place names (Yakushima, Koya-san, Nagano) over "mountain" / "forest." A hero image alt should identify Japan or the specific Japanese subject within the first ten words.
    - Bad: *"image of a tree"*
@@ -159,7 +159,7 @@ Once approved:
 7. Test the build compiles cleanly (`npm run build` inside `website/main/`).
 
 **What the site does automatically, no manual work required:**
-- `generateMetadata()` in `journal/[slug]/page.tsx` derives the page title (`"{title} | AUWA Journal"`), meta description (prefers `description`, falls back to `subtitle`), Open Graph, Twitter card, and Article JSON-LD from the article data. Nothing extra to wire up.
+- `generateMetadata()` in `journal/[slug]/page.tsx` derives the page title (`"{title} | Auwa Journal"`), meta description (prefers `description`, falls back to `subtitle`), Open Graph, Twitter card, and Article JSON-LD from the article data. Nothing extra to wire up.
 - OG image path is derived by replacing `-hero.jpg` with `-og.jpg` on the hero path — so the only requirement is that BOTH files exist in `public/journal/[slug]/`. Step 2 covers this; verify before shipping.
 - No `<link rel="canonical">` is emitted (intentional — each article URL is its own canonical). Don't add one.
 
@@ -189,7 +189,7 @@ Whoever posts picks two of the `image-*.jpg` files for slides 1 and 3 at upload 
 
 ## Step 8: Request indexing (after the deploy lands)
 
-Don't wait for Google to organically find the new article — that can take 4-6 weeks for a site AUWA's age. Two things after deploy:
+Don't wait for Google to organically find the new article — that can take 4-6 weeks for a site Auwa's age. Two things after deploy:
 
 1. **Request indexing on the article URL**:
    - Go to https://search.google.com/search-console → select `auwa.life`

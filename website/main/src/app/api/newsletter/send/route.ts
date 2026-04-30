@@ -43,9 +43,9 @@ export async function POST(request: Request) {
 
     const { data: created, error: createError } = await resend.broadcasts.create({
       audienceId,
-      from: "AUWA <hello@auwa.life>",
-      subject: subject || "A letter from AUWA",
-      name: subject || `AUWA newsletter ${new Date().toISOString()}`,
+      from: "Auwa <hello@auwa.life>",
+      subject: subject || "A letter from Auwa",
+      name: subject || `Auwa newsletter ${new Date().toISOString()}`,
       react: Newsletter({
         previewText,
         heroImage,

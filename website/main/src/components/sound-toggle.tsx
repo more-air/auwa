@@ -182,7 +182,7 @@ export function SoundToggle() {
       onClick={toggle}
       aria-label={playing ? "Turn ambient sound off" : "Turn ambient sound on"}
       aria-pressed={playing}
-      className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md cursor-pointer bg-void/85 text-white hover:bg-void transition-colors duration-300"
+      className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md cursor-pointer bg-sumi/85 text-washi hover:bg-sumi transition-colors duration-300"
       style={{
         WebkitBackdropFilter: "blur(8px)",
         // Lift the button so it never drifts into the dark footer.

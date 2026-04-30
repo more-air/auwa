@@ -1,4 +1,4 @@
-# AUWA App
+# Auwa App
 
 *Created: April 2026. The build reference for the Kokoro Mirror app at auwa.life.*
 *Load when working on app design, development, or UX decisions.*
@@ -7,11 +7,11 @@
 
 ## 1. What the App Is
 
-A daily awareness practice disguised as a beautiful emotional experience. User shares how they feel in natural language, AUWA's AI identifies their Kokoro and reflects it back poetically alongside the AUWA character, a light shower animation, and a calligraphic micro-season stamp. Kokoro (心) is holistic: it holds emotion, thought, and spirit as a single undivided whole, located in the chest and gut rather than the head. The app honours this by asking how you *feel*, not what you *think*. The result is saved to a visual archive and optionally journaled and shared.
+A daily awareness practice disguised as a beautiful emotional experience. User shares how they feel in natural language, Auwa's AI identifies their Kokoro and reflects it back poetically alongside the Auwa character, a light shower animation, and a calligraphic micro-season stamp. Kokoro (心) is holistic: it holds emotion, thought, and spirit as a single undivided whole, located in the chest and gut rather than the head. The app honours this by asking how you *feel*, not what you *think*. The result is saved to a visual archive and optionally journaled and shared.
 
-Five minutes. Once a day (or whenever you need it). No streaks, no badges, no push notifications. AUWA is pull, not push.
+Five minutes. Once a day (or whenever you need it). No streaks, no badges, no push notifications. Auwa is pull, not push.
 
-**The AI reflection quality is the product.** Everything else — design, animation, archive, shareable cards — supports that single moment when AUWA says something that makes you pause.
+**The AI reflection quality is the product.** Everything else — design, animation, archive, shareable cards — supports that single moment when Auwa says something that makes you pause.
 
 ---
 
@@ -19,32 +19,32 @@ Five minutes. Once a day (or whenever you need it). No streaks, no badges, no pu
 
 ### 2.1 First Visit (No Account)
 
-1. **Arrival** — Dark, calm screen. Soft ambient glow. The AUWA orb pulses gently at centre. A single prompt: "How are you feeling right now?" No signup wall. No onboarding carousel. No explanations. Just the question.
+1. **Arrival** — Dark, calm screen. Soft ambient glow. The Auwa orb pulses gently at centre. A single prompt: "How are you feeling right now?" No signup wall. No onboarding carousel. No explanations. Just the question.
 
 2. **Input** — User types freely (up to 200 words). Minimal UI: just the text area and the pulsing orb above. No character selector, no mood wheel, no category picker. Natural language is the interface.
 
-3. **Light Shower** — User submits. The orb brightens. Aurora-coloured light cascades across the screen (3-5 seconds). Subtle atmospheric audio. This is the transition from the user's world into AUWA's world — a deliberate pause before the revelation.
+3. **Light Shower** — User submits. The orb brightens. Aurora-coloured light cascades across the screen (3-5 seconds). Subtle atmospheric audio. This is the transition from the user's world into Auwa's world — a deliberate pause before the revelation.
 
 4. **Kokoro Revelation** — The hero screen. Four visual elements compose together:
    - **Gradient background** — one of 5 colour families mapped to the Yamato emotional states (Radiant: warm gold/amber, Intense: deep red/crimson, Reflective: cool blue/indigo, Unsettled: shifting violet/grey, Serene: soft green/sage)
-   - **AUWA character variant** — hand-illustrated versions by Rieko, each expressing the detected emotional state
+   - **Auwa character variant** — hand-illustrated versions by Rieko, each expressing the detected emotional state
    - **Calligraphic kō stamp** — the current micro-season, rendered as a subtle atmospheric element (tappable for the curious — reveals the season name and its meaning)
    - **AI-generated poetic reflection** — 2-4 sentences. The core product. See Section 4 for reflection principles.
 
 5. **Post-Revelation Options** (all optional, none forced):
-   - **Journal** — If user's input was rich, AUWA pre-populates a suggested journal entry. One tap to save. If sparse, open prompt: "Would you like to add a few words about today?"
-   - **Share** — Generate a shareable Kokoro card (9:16 for Stories, 1:1 for feed). The card contains: gradient background, AUWA character, the reflection text, the kō stamp, and subtle AUWA branding. Journal content is never included on shareable cards.
+   - **Journal** — If user's input was rich, Auwa pre-populates a suggested journal entry. One tap to save. If sparse, open prompt: "Would you like to add a few words about today?"
+   - **Share** — Generate a shareable Kokoro card (9:16 for Stories, 1:1 for feed). The card contains: gradient background, Auwa character, the reflection text, the kō stamp, and subtle Auwa branding. Journal content is never included on shareable cards.
    - **Save** — Auto-saved to Kokoro Archive regardless of other choices.
 
 6. **Signup Prompt** — After experiencing the full flow once, gentle prompt: "Create an account to keep your Kokoro safe." Email + password or social auth. Never before the first experience.
 
 ### 2.2 Returning User (Logged In)
 
-1. **Arrival** — Same calm screen, but AUWA remembers: "Your last visit, you carried [Aware — Mono no Aware]." Displayed softly, not as a clinical reminder.
+1. **Arrival** — Same calm screen, but Auwa remembers: "Your last visit, you carried [Aware — Mono no Aware]." Displayed softly, not as a clinical reminder.
 
 2. **Flow** — Same as above: input → light shower → revelation → journal → share → save.
 
-3. **Kokoro Archive** — Accessible from main navigation. Visual timeline of all past revelations as coloured cards (5 emotional state colours). Tap any card to expand: full revelation, journal entry, date. After 10+ revelations, simple observations surface: "You've visited AUWA 12 times. Reflective states have been most present. The last 3 visits shifted toward Serene." Observations, not advice. Noticing, not prescribing.
+3. **Kokoro Archive** — Accessible from main navigation. Visual timeline of all past revelations as coloured cards (5 emotional state colours). Tap any card to expand: full revelation, journal entry, date. After 10+ revelations, simple observations surface: "You've visited Auwa 12 times. Reflective states have been most present. The last 3 visits shifted toward Serene." Observations, not advice. Noticing, not prescribing.
 
 ### 2.3 Free vs Paid
 
@@ -57,7 +57,7 @@ Five minutes. Once a day (or whenever you need it). No streaks, no badges, no pu
 - Unlimited revelations
 - Full Kokoro Archive with pattern insights
 - Shareable Kokoro cards (premium designs)
-- Story unlocks (narrative segments from AUWA's series of illustrated stories)
+- Story unlocks (narrative segments from Auwa's series of illustrated stories)
 - Early access to figure drops
 - Year in Kokoro review (annual)
 
@@ -69,13 +69,13 @@ Five minutes. Once a day (or whenever you need it). No streaks, no badges, no pu
 
 Most emotional input will be vague ("I feel crap," "not great," "meh," "tired"). This is the hardest UX challenge and the most important one to get right.
 
-**Approach:** AUWA doesn't ask the user to pick from a menu. Instead, AUWA acknowledges the vagueness and offers a gentle refinement — poetic, not clinical:
+**Approach:** Auwa doesn't ask the user to pick from a menu. Instead, Auwa acknowledges the vagueness and offers a gentle refinement — poetic, not clinical:
 
 > "I hear you. Is this the weight of something lost, something blocked, or something you've been carrying too long?"
 
-The user taps one of 2-3 poetic options. AUWA uses their choice to refine the emotional classification and generate a more precise reflection. The act of choosing IS emotional self-perception — the foundation of awareness.
+The user taps one of 2-3 poetic options. Auwa uses their choice to refine the emotional classification and generate a more precise reflection. The act of choosing IS emotional self-perception — the foundation of awareness.
 
-If the user doesn't want to refine (dismisses or says "I don't know"), AUWA proceeds with a gentler, more open reflection. Never forces precision. Never makes the user feel they've done it wrong.
+If the user doesn't want to refine (dismisses or says "I don't know"), Auwa proceeds with a gentler, more open reflection. Never forces precision. Never makes the user feel they've done it wrong.
 
 ---
 
@@ -84,12 +84,12 @@ If the user doesn't want to refine (dismisses or says "I don't know"), AUWA proc
 The reflection is the product. Everything else serves it.
 
 ### Voice
-- AUWA speaks as a being, not a bot. Gentle, observant, slightly cosmic. Never clinical, never cheerful, never prescriptive.
+- Auwa speaks as a being, not a bot. Gentle, observant, slightly cosmic. Never clinical, never cheerful, never prescriptive.
 - Short: 2-4 sentences maximum. Poetic but not purple. Every word earns its place.
 - Reflects what the user shared — never adds assumptions, advice, or "have you tried..."
 - Uses natural metaphors drawn from seasons, nature, light, water, sky. Never forced.
 
-### What AUWA never does
+### What Auwa never does
 - Gives advice ("Try taking a walk")
 - Diagnoses ("This sounds like anxiety")
 - Reframes ("Look on the bright side")
@@ -97,7 +97,7 @@ The reflection is the product. Everything else serves it.
 - Forces micro-season references into the text
 - Uses emoji, exclamation marks, or false warmth
 
-### What AUWA always does
+### What Auwa always does
 - Names the feeling precisely (using the Yamato emotional framework internally)
 - Reflects it back in a way that makes the user feel seen
 - Connects the emotion to something natural (not forced, but present)
@@ -105,7 +105,7 @@ The reflection is the product. Everything else serves it.
 
 ### The Yamato Emotional Framework (Ha-Ta-A-Yu-Wa)
 
-Rieko's proprietary framework based on ancient Yamato language (大和言葉). Five core emotional states, each containing nuanced sub-expressions described through poetic Japanese words. Replaces the earlier Kido Airaku (4-emotion) framework with something richer, more nuanced, and uniquely AUWA's own. Users never see the taxonomy — they feel the precision.
+Rieko's proprietary framework based on ancient Yamato language (大和言葉). Five core emotional states, each containing nuanced sub-expressions described through poetic Japanese words. Replaces the earlier Kido Airaku (4-emotion) framework with something richer, more nuanced, and uniquely Auwa's own. Users never see the taxonomy — they feel the precision.
 
 **晴 Hare (Radiant)** — Positive, high energy. Affirmation of self and situation, with outward-facing energy.
 - 晴れやか Hareyaka (Clear) — A clear and unclouded mind, free from any psychological obstruction
@@ -150,7 +150,7 @@ Rieko's proprietary framework based on ancient Yamato language (大和言葉). F
 
 ### AI Memory
 
-The system prompt includes the user's last 2-3 revelations (emotion, sub-expression, date). This allows AUWA to notice patterns without the user having to state them:
+The system prompt includes the user's last 2-3 revelations (emotion, sub-expression, date). This allows Auwa to notice patterns without the user having to state them:
 
 > "You've visited three times this week. Each time, Sorrow was present — but today it's shifted. There's something lighter here. Like ice beginning to thin at the edges."
 
@@ -159,7 +159,7 @@ Memory is observation, not therapy. Never: "Last time you were sad — are you f
 ### Technical Implementation
 
 - **Model:** Claude Haiku 4.5 as default (~£0.002/revelation). Sonnet 4.5 as quality ceiling for paid users or when input complexity warrants it (~£0.008-0.015/revelation).
-- **System prompt:** Encodes AUWA's voice, Yamato emotional framework, sub-expression definitions, current micro-season (for ambient kō stamp, NOT for forcing into text), user's recent history, and strict guardrails (no advice, no diagnosis, no reframing).
+- **System prompt:** Encodes Auwa's voice, Yamato emotional framework, sub-expression definitions, current micro-season (for ambient kō stamp, NOT for forcing into text), user's recent history, and strict guardrails (no advice, no diagnosis, no reframing).
 - **Structured output:** AI returns JSON with: emotional_state, sub_expression, reflection_text, gradient_key, character_variant_key. The app assembles the visual revelation from these structured outputs.
 - **Fallback:** If AI returns unexpected output, show a safe default reflection and log the error.
 
@@ -178,11 +178,11 @@ Memory is observation, not therapy. Never: "Last time you were sad — are you f
 - Full-screen animation (3-5 seconds)
 - Orb expands, aurora light cascades
 - Subtle audio (ambient tone, optional)
-- No interaction possible — this is AUWA's moment
+- No interaction possible — this is Auwa's moment
 
 ### 5.3 Kokoro Revelation
 - Gradient background fills screen
-- AUWA character variant (centred or offset depending on text length)
+- Auwa character variant (centred or offset depending on text length)
 - Calligraphic kō stamp (corner, atmospheric)
 - Reflection text (below character, serif typeface)
 - Action buttons at bottom: Journal / Share / Continue
@@ -211,7 +211,7 @@ Memory is observation, not therapy. Never: "Last time you were sad — are you f
 - "Year in Kokoro" annual review (paid tier, Month 6+ feature)
 
 ### 5.7 Story Unlocks
-- Narrative segments from AUWA's series of illustrated stories
+- Narrative segments from Auwa's series of illustrated stories
 - Unlocked through continued engagement (5th revelation: Story 1, Chapter 1; etc.)
 - Full-screen illustrated reading experience
 - Paid tier only
@@ -219,7 +219,7 @@ Memory is observation, not therapy. Never: "Last time you were sad — are you f
 ### 5.8 Settings / Account
 - Profile (name, email, password)
 - Subscription management (Stripe Customer Portal)
-- Notification preferences (default: off — AUWA is pull, not push)
+- Notification preferences (default: off — Auwa is pull, not push)
 - Data export
 - Delete account
 
@@ -301,7 +301,7 @@ Build the complete input → light shower → revelation flow. Hardcoded charact
 ### Phase 2: Accounts + Archive + Journal (Weeks 4-5)
 Add authentication (email/password). Vercel Postgres for storing revelations. Kokoro Archive (basic grid view). Journal with pre-population. Returning user memory (last 2-3 revelations in system prompt).
 
-**Success criteria:** Users can create accounts, see their history, and AUWA remembers them.
+**Success criteria:** Users can create accounts, see their history, and Auwa remembers them.
 
 ### Phase 3: Shareable Cards + Polish (Weeks 6-7)
 Card generation (9:16 + 1:1). Sharing to Instagram. Micro-season stamp integration (Sanity CMS). Vague input refinement flow. Responsive polish across devices.
@@ -320,10 +320,10 @@ Story unlocks. Year in Kokoro. Pattern insights. Activity correlation. Morning/e
 
 ## 8. Design Principles
 
-- **Dark by default.** The app lives in darkness. Light comes from AUWA. This isn't aesthetic preference — it's philosophy: the Kokoro is revealed from darkness into light.
-- **Serif for AUWA's voice, sans-serif for UI.** The reflection text uses the brand serif (Cormorant or similar). Navigation, buttons, input fields use the functional sans-serif (Instrument Sans).
+- **Dark by default.** The app lives in darkness. Light comes from Auwa. This isn't aesthetic preference — it's philosophy: the Kokoro is revealed from darkness into light.
+- **Serif for Auwa's voice, sans-serif for UI.** The reflection text uses the brand serif (Cormorant or similar). Navigation, buttons, input fields use the functional sans-serif (Instrument Sans).
 - **Minimal UI during the experience.** When the user is typing, when the light shower plays, when the revelation appears — no visible navigation, no hamburger menus, no footer. Just the moment. UI chrome appears after the moment passes.
-- **The orb is the anchor.** The pulsing orb is the only constant through the flow. It's the first thing you see, it transforms during the light shower, and it reappears subtly in the archive. It's AUWA's presence before the character appears.
+- **The orb is the anchor.** The pulsing orb is the only constant through the flow. It's the first thing you see, it transforms during the light shower, and it reappears subtly in the archive. It's Auwa's presence before the character appears.
 - **Space over density.** Every screen should feel like it has room to breathe. Large margins. Generous line-height on reflection text. White space (or rather, dark space) is not waste — it's the ma (間) that gives the content meaning.
 - **No skeleton screens or loading spinners.** The light shower IS the loading state. Design the animation to cover the API call time gracefully. If the API is slow, the light shower extends elegantly.
 
@@ -332,7 +332,7 @@ Story unlocks. Year in Kokoro. Pattern insights. Activity correlation. Morning/e
 ## 9. Fonts (Already Established)
 
 From the existing teaser page:
-- **Cormorant** — Serif display. Used for AUWA wordmark, headline text, reflection text. Elegant, ancient-feeling, readable at small sizes.
+- **Cormorant** — Serif display. Used for Auwa wordmark, headline text, reflection text. Elegant, ancient-feeling, readable at small sizes.
 - **Instrument Sans** — Functional sans-serif. Used for UI elements, buttons, body text, navigation.
 - **Noto Sans JP** — Japanese text support.
 
@@ -397,4 +397,4 @@ Each step is a deployable, testable increment on Vercel.
 
 ---
 
-*Confidential. AUWA Limited. All rights reserved.*
+*Confidential. Auwa Limited. All rights reserved.*

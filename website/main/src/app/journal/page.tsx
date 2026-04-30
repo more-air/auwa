@@ -6,20 +6,20 @@ import { STAGGER } from "@/lib/motion";
 import Link from "next/link";
 
 export const metadata = {
-  title: "AUWA Journal | Japanese Philosophy, Craft & Seasons",
-  description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The AUWA journal, rooted in the belief that everything has Kokoro.",
+  title: "Auwa Journal | Japanese Philosophy, Craft & Seasons",
+  description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The Auwa journal, rooted in the belief that everything has Kokoro.",
   openGraph: {
-    title: "AUWA Journal | Japanese Philosophy, Craft & Seasons",
-    description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The AUWA journal, rooted in the belief that everything has Kokoro.",
+    title: "Auwa Journal | Japanese Philosophy, Craft & Seasons",
+    description: "Essays on Japanese philosophy, craft, seasonal living, and awareness. The Auwa journal, rooted in the belief that everything has Kokoro.",
     url: "https://auwa.life/journal",
-    siteName: "AUWA",
+    siteName: "Auwa",
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/og/journal.jpg", width: 1200, height: 630, alt: "AUWA Journal - Japanese philosophy and craft" }],
+    images: [{ url: "/og/journal.jpg", width: 1200, height: 630, alt: "Auwa Journal - Japanese philosophy and craft" }],
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "AUWA Journal | Japanese Philosophy, Craft & Seasons",
+    title: "Auwa Journal | Japanese Philosophy, Craft & Seasons",
     description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
     images: ["/og/journal.jpg"],
   },
@@ -58,13 +58,13 @@ export default async function JournalPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "AUWA Journal",
+    name: "Auwa Journal",
     description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
     url: "https://auwa.life/journal",
     inLanguage: "en-GB",
     publisher: {
       "@type": "Organization",
-      name: "AUWA",
+      name: "Auwa",
       url: "https://auwa.life",
       logo: "https://auwa.life/auwa-logo.svg",
     },
@@ -86,22 +86,37 @@ export default async function JournalPage({
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           <TextReveal
             as="h1"
-            className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.05] tracking-[0.01em] text-void"
+            className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.05] tracking-[0.01em] text-sumi"
             stagger={90}
           >
-            Journal
+            Our Journal.
           </TextReveal>
           <FadeIn delay={100}>
-            <div className="mt-8 flex flex-wrap gap-4 md:gap-6">
+            <p className="mt-8 md:mt-10 max-w-[640px] font-display text-[18px] md:text-[19px] leading-[1.65] text-sumi/80">
+              Writing from Japan on philosophy, craft, the seasons, and the long way around. The journal is where Auwa&rsquo;s philosophy of awareness becomes practice: slower attention to the lives behind the things we use, to the people we share our days with, to the places we pass through too quickly.
+            </p>
+          </FadeIn>
+          <FadeIn delay={200}>
+            <div className="mt-10 md:mt-14 pt-8 md:pt-10 border-t border-sumi/10 flex flex-wrap gap-4 md:gap-6">
               {categories.map((cat) => (
                 <Link
                   key={cat}
                   href={cat === "All" ? "/journal" : `/journal?category=${cat.toLowerCase()}`}
-                  className={`font-sans text-[13px] tracking-[0.06em] uppercase transition-colors duration-300 ${
-                    cat === activeCategory ? "text-void" : "text-void/40 hover:text-void"
+                  className={`group relative inline-block font-sans text-[13px] tracking-[0.06em] uppercase transition-colors duration-300 ${
+                    cat === activeCategory ? "text-sumi" : "text-sumi/45 hover:text-sumi"
                   }`}
                 >
-                  {cat}
+                  <span className="relative inline-block overflow-hidden pb-[0.12em]">
+                    <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-[110%]">
+                      {cat}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 translate-y-[110%] transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
+                    >
+                      {cat}
+                    </span>
+                  </span>
                 </Link>
               ))}
             </div>
@@ -115,7 +130,7 @@ export default async function JournalPage({
                 translateY={32}
               >
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
-                  <div className="rounded-xl overflow-hidden relative aspect-[4/5]">
+                  <div className="overflow-hidden rounded-md relative aspect-[4/5]">
                     {article.image ? (
                       <ImageFade
                         src={article.image}
@@ -129,13 +144,13 @@ export default async function JournalPage({
                     )}
                   </div>
                   <div className="mt-3 md:mt-4 max-w-[90%]">
-                    <span className="font-sans text-[11px] md:text-[12px] tracking-[0.08em] uppercase text-void/40">
+                    <span className="font-sans text-[11px] md:text-[12px] tracking-[0.08em] uppercase text-sumi/45">
                       {article.category}
                     </span>
-                    <h2 className="mt-1 md:mt-1.5 font-display text-[18px] md:text-[22px] leading-[1.2] tracking-[0.01em] text-void group-hover:text-void/70 transition-colors duration-300">
+                    <h2 className="mt-1 md:mt-1.5 font-display text-[18px] md:text-[22px] leading-[1.2] tracking-[0.01em] text-sumi group-hover:text-sumi/70 transition-colors duration-300">
                       {article.title}
                     </h2>
-                    <p className="mt-1 md:mt-1.5 font-sans text-[13px] md:text-[14px] leading-[1.4] md:leading-[1.5] text-void/50 line-clamp-2">
+                    <p className="mt-1 md:mt-1.5 font-sans text-[13px] md:text-[14px] leading-[1.4] md:leading-[1.5] text-sumi/50 line-clamp-2">
                       {article.excerpt}
                     </p>
                   </div>

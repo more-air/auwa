@@ -15,14 +15,14 @@ export function MicroSeasonFeature() {
     <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-breathing">
       <div className="flex flex-col items-center text-center">
         <FadeIn>
-          <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-void/30">
+          <span className="font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45">
             72 Seasons
           </span>
         </FadeIn>
 
         <ScrollFadeText
           as="p"
-          className="font-jp-serif mt-5 text-[clamp(3rem,8vw,6.5rem)] leading-[1] tracking-[0.06em] text-void"
+          className="font-jp-serif mt-5 text-[clamp(3rem,8vw,6.5rem)] leading-[1] tracking-[0.06em] text-sumi"
           finishAt={0.5}
         >
           {season.kanji}
@@ -30,7 +30,7 @@ export function MicroSeasonFeature() {
 
         <ScrollFadeText
           as="p"
-          className="mt-4 md:mt-6 font-display text-[20px] md:text-[24px] tracking-[0.01em] text-void"
+          className="mt-4 md:mt-6 font-display text-[20px] md:text-[24px] tracking-[0.01em] text-sumi"
           finishAt={0.45}
         >
           {season.translation}

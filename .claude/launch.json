@@ -5,7 +5,8 @@
       "name": "auwa-main",
       "runtimeExecutable": "/bin/bash",
       "runtimeArgs": ["website/main/start-dev.sh"],
-      "port": 3002
+      "port": 3002,
+      "autoPort": false
     }
   ]
 }

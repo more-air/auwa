@@ -1,4 +1,4 @@
-# AUWA Journal
+# Auwa Journal
 
 *Created: April 2026. The reference for writing and producing journal articles for auwa.life.*
 *Load when writing articles, planning content, or working on editorial voice.*
@@ -7,7 +7,7 @@
 
 ## 1. The Voice
 
-AUWA's editorial voice draws from the same well as Kinfolk, Cereal, and Monocle. Quiet authority. Precise observation. A rhythm that alternates between short, declarative sentences and longer ones that give the reader room to breathe. The writing never announces itself. It arrives, says what it came to say, and trusts the reader to feel the rest.
+Auwa's editorial voice draws from the same well as Kinfolk, Cereal, and Monocle. Quiet authority. Precise observation. A rhythm that alternates between short, declarative sentences and longer ones that give the reader room to breathe. The writing never announces itself. It arrives, says what it came to say, and trusts the reader to feel the rest.
 
 The journal is written from direct experience. The founders have lived in and travelled through Japan for years. It is not research writing or reportage. It is personal essay grounded in real places, real objects, real moments. When we write about a knife, we held that knife. When we write about a temple at dawn, we stood in that silence.
 
@@ -43,7 +43,7 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 
 **Cross-article check.** Before publishing, re-read the other articles in the journal and confirm this one isn't reusing the same signature phrase or construction. Repetition across the set is what lets a reader spot the pattern. Any phrase already used in two or more published articles is off-limits.
 
-**What good AUWA writing does:**
+**What good Auwa writing does:**
 - Leads with concrete, sensory detail. Specificity is authority.
 - Uses fragments for rhythm. "No plastic. No foam. Just wood cradling steel."
 - Earns its philosophical moments by grounding them first. The idea arrives after the object, the place, the sensation. Never before.
@@ -53,11 +53,11 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 **Attribution (updated April 2026):** Articles are credited to Rieko Maeda and Tom Vining, as both writers and photographers. The earlier anonymity preference has been retired. Use real names freely within article text where the writer refers to themselves or their partner ("my wife," "we," "Rieko," "Tom" are all fine). Image captions and alt text can name people naturally. Author field on the site is "Tom and Rieko" or split where one led a piece. Photography credit defaults to Tom unless otherwise stated.
 
 **Philosophy and accuracy:**
-- AUWA is "influenced by" the ancient Japanese belief that a life force resides in all things. Never "rooted in Shinto" or presented as a Shinto brand.
-- The correct term for spirits inhabiting things is kami (or tama/tamashii). Kokoro (心) means heart, mind, spirit. It is AUWA's chosen brand word, not the Japanese theological term for spirit-in-objects. Write "AUWA uses the word Kokoro" not "the Japanese call this quality Kokoro."
-- "Shinto" is fine when describing actual Shinto practices (shrines, priests, ceremonies). It should not be used to frame the broader philosophical worldview that AUWA draws from. Use "ancient Japanese belief" or "ancient Japanese understanding" instead.
-- Yaoyorozu no Kami can appear in articles as a named concept, just not positioned as AUWA's doctrinal foundation.
-- Drop "Japanese lifestyle brand" as a label. AUWA is described through what it does, not through a category.
+- Auwa is "influenced by" the ancient Japanese belief that a life force resides in all things. Never "rooted in Shinto" or presented as a Shinto brand.
+- The correct term for spirits inhabiting things is kami (or tama/tamashii). Kokoro (心) means heart, mind, spirit. It is Auwa's chosen brand word, not the Japanese theological term for spirit-in-objects. Write "Auwa uses the word Kokoro" not "the Japanese call this quality Kokoro."
+- "Shinto" is fine when describing actual Shinto practices (shrines, priests, ceremonies). It should not be used to frame the broader philosophical worldview that Auwa draws from. Use "ancient Japanese belief" or "ancient Japanese understanding" instead.
+- Yaoyorozu no Kami can appear in articles as a named concept, just not positioned as Auwa's doctrinal foundation.
+- Drop "Japanese lifestyle brand" as a label. Auwa is described through what it does, not through a category.
 
 ---
 
@@ -114,7 +114,7 @@ Tom provides a few sentences describing the article's subject, angle, and any sp
 
 ### Step 2: Research and Context
 
-If the article references specific craftsmen, techniques, places, or cultural concepts, gather accurate details. For AUWA articles, Tom and Rieko are the primary sources. Japanese terminology should be verified. Historical or technical claims should be factual.
+If the article references specific craftsmen, techniques, places, or cultural concepts, gather accurate details. For Auwa articles, Tom and Rieko are the primary sources. Japanese terminology should be verified. Historical or technical claims should be factual.
 
 ### Step 3: First Draft
 
@@ -149,7 +149,7 @@ Tom selects photographs from his Japan catalogue. For each article:
 Per-article workflow:
 
 1. Tom drops raw photos into `auwa/photography/[slug]/1-original/`.
-2. Tom opens Lightroom Classic, imports that folder, applies the matching AUWA preset (Landscape / Interior / Night) to each, exports at full quality (no resize) to `auwa/photography/[slug]/2-edited/`. See `context/brand/brand.md` Section 6 for the preset spec.
+2. Tom opens Lightroom Classic, imports that folder, applies the matching Auwa preset (Landscape / Interior / Night) to each, exports at full quality (no resize) to `auwa/photography/[slug]/2-edited/`. See `context/brand/brand.md` Section 6 for the preset spec.
 3. The article command reads from `2-edited/` and runs the sharp pipeline below.
 
 Claude Code should run this optimisation pipeline automatically:
@@ -176,13 +176,13 @@ Claude Code should run this optimisation pipeline automatically:
    - OG (hero only): `[slug]-og.jpg` (the article page derives this path from the hero)
    - All lowercase, hyphens not underscores, no spaces
 
-5. **Update the photography manifest** at `auwa/photography/_manifest.json`. Add an entry mapping each source filename to its named role for the new article. The manifest enables `node website/main/scripts/process-all.js` to re-process every article in one command if the AUWA presets or sharp settings change. Skipping this step makes the new article un-replayable.
+5. **Update the photography manifest** at `auwa/photography/_manifest.json`. Add an entry mapping each source filename to its named role for the new article. The manifest enables `node website/main/scripts/process-all.js` to re-process every article in one command if the Auwa presets or sharp settings change. Skipping this step makes the new article un-replayable.
 
 6. **Write alt text** that describes the image for accessibility. Be specific: "Close-up of the Shigefusa blade showing kitaeji damascus pattern and hand-chiseled kanji" not "A knife."
 
 7. **Write captions** (optional, 1-2 sentences). Captions should add information the reader can't see in the image.
 
-8. **Verify file sizes.** With the AUWA preset applied (which preserves texture), expect web hero images at 500KB-800KB and supporting images at 600KB-1.1MB at 1800px / q85. IG images at 1080×1350 typically 300-700KB. These are larger than the pre-preset baseline because the preset preserves more high-frequency detail; this is intentional. Next.js Image optimises further on serve. Only flag a file if it exceeds 1.5MB.
+8. **Verify file sizes.** With the Auwa preset applied (which preserves texture), expect web hero images at 500KB-800KB and supporting images at 600KB-1.1MB at 1800px / q85. IG images at 1080×1350 typically 300-700KB. These are larger than the pre-preset baseline because the preset preserves more high-frequency detail; this is intentional. Next.js Image optimises further on serve. Only flag a file if it exceeds 1.5MB.
 
 **Source photo folder structure:**
 ```
@@ -222,13 +222,13 @@ title:        Short, evocative. One to four words.
 subtitle:     Max 53 characters. Punchy, with a turn or surprise. Two short sentences work well. Reference: "Made from wood that breaks axes. Named after a girl." Reader-facing editorial line — stays poetic.
 description:  100-155 characters. Keyword-rich meta description for Google. MUST contain "Japanese" where natural plus the primary topic word. Distinct from subtitle — subtitle is poetry, description is search. Structure: "{what it's about}, {place/context}. {why it matters}." Reference: "On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness."
 category:     Seasons | Craft | Philosophy | Travel
-author:       AUWA
-photographer: AUWA
+author:       Auwa
+photographer: Auwa
 publishedAt:  ISO date
 heroImage:    Path to the hero photograph
 ```
 
-The page title automatically becomes `"{title} - AUWA Journal"` with the hyphen separator. `generateMetadata()` prefers `description` for the meta tag and falls back to `subtitle` if `description` is omitted. Always write both.
+The page title automatically becomes `"{title} - Auwa Journal"` with the hyphen separator. `generateMetadata()` prefers `description` for the meta tag and falls back to `subtitle` if `description` is omitted. Always write both.
 
 ---
 
@@ -240,7 +240,7 @@ Each article belongs to one of four categories. These map to the brand's four pi
 
 **Craft:** Profiles of craftsmen and the objects they make. Also essays on the philosophy of living with handmade things. The relationship between maker and user. Why a knife that took two years to arrive changes how you cook. These articles often overlap with the store's curatorial voice.
 
-**Philosophy:** The Japanese philosophical concepts that underpin AUWA. Yaoyorozu no Kami, Kokoro, wabi-sabi, mono no aware. Written accessibly, grounded in daily life, never academic. The goal is to make these ideas feel practical and present, not abstract and historical.
+**Philosophy:** The Japanese philosophical concepts that underpin Auwa. Yaoyorozu no Kami, Kokoro, wabi-sabi, mono no aware. Written accessibly, grounded in daily life, never academic. The goal is to make these ideas feel practical and present, not abstract and historical.
 
 **Travel:** Japan through the lens of awareness. Not travel guides. Not "top 10 temples in Kyoto." Personal essays about specific places and what they taught. The onsen lesson. The temple at dawn. The train station where nobody was in a hurry.
 
@@ -260,7 +260,7 @@ The website needs 8-10 articles at launch. A mix across all four categories give
 - "Temple mornings" (Travel) - the ritual of arriving before dawn
 - "The onsen lesson" (Travel) - shared space, vulnerability, hot water
 - "Everything has Kokoro" (Philosophy) - foundational essay on Yaoyorozu no Kami
-- "Awareness, not mindfulness" (Philosophy) - why AUWA uses "awareness"
+- "Awareness, not mindfulness" (Philosophy) - why Auwa uses "awareness"
 - "What wabi-sabi means" (Philosophy) - reclaiming the concept
 
 Each article follows the production workflow in Section 4. The brief and photographs are provided, the draft is written, checked against the voice rules, and assembled with images.
@@ -277,4 +277,4 @@ After the initial batch, publish 1-2 articles per week aligned with Japan's 72 m
 
 ---
 
-*Confidential. AUWA Limited. All rights reserved.*
+*Confidential. Auwa Limited. All rights reserved.*

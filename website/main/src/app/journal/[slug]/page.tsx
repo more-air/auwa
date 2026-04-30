@@ -516,7 +516,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "AUWA\u2019s journal follows this rhythm. Not as a rigid system, and not as a history lesson, but as a prompt. Every five days, the season offers something worth noticing. A shift in light. A sound at dusk. A particular quality in the morning air that wasn\u2019t there last week and won\u2019t be there next week. The seventy-two k\u014d aren\u2019t a schedule. They are a way of treating the year as something happening around you, now.",
+        text: "Auwa\u2019s journal follows this rhythm. Not as a rigid system, and not as a history lesson, but as a prompt. Every five days, the season offers something worth noticing. A shift in light. A sound at dusk. A particular quality in the morning air that wasn\u2019t there last week and won\u2019t be there next week. The seventy-two k\u014d aren\u2019t a schedule. They are a way of treating the year as something happening around you, now.",
       },
     ],
   },
@@ -781,7 +781,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "What lives within these things is kami: god, spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that AUWA draws from.",
+        text: "What lives within these things is kami: god, spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that Auwa draws from.",
       },
       {
         type: "image",
@@ -829,7 +829,7 @@ const articles: Record<
   "the-beginning": {
     title: "The Beginning",
     subtitle: "Light in a dark forest. A dream that wouldn't let go.",
-    description: "The first illustrated story in the AUWA universe. A Japanese philosophy of Kokoro, told through the character who reveals the life in all things.",
+    description: "The first illustrated story in the Auwa universe. A Japanese philosophy of Kokoro, told through the character who reveals the life in all things.",
     category: "Philosophy",
     author: "Rieko Maeda",
     photographer: "Rieko Maeda",
@@ -847,8 +847,8 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/auwa-book/auwa-book-sketches.jpg",
-        alt: "Pencil sketches of AUWA character scenes by Japanese illustrator Rieko Maeda, laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case",
-        caption: "Early sketches. Pencil on paper, working out how AUWA moves through the forest.",
+        alt: "Pencil sketches of Auwa character scenes by Japanese illustrator Rieko Maeda, laid out on a wooden desk with a MONO eraser, mechanical pencil, and brass pencil case",
+        caption: "Early sketches. Pencil on paper, working out how Auwa moves through the forest.",
       },
       {
         type: "text",
@@ -864,7 +864,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "That is what AUWA does. It arrives from the stars carrying a gentle light, and when that light reaches something, the Kokoro within it becomes visible. A flower. A forest. A handful of soil. Things we walk past every day without noticing. AUWA notices. And in noticing, changes how you see them too.",
+        text: "That is what Auwa does. It arrives from the stars carrying a gentle light, and when that light reaches something, the Kokoro within it becomes visible. A flower. A forest. A handful of soil. Things we walk past every day without noticing. Auwa notices. And in noticing, changes how you see them too.",
       },
       {
         type: "pullquote",
@@ -877,8 +877,8 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/auwa-book/auwa-book-cosmic.jpg", alt: "AUWA, a small luminous being with two dark eyes, glowing with soft rainbow light against a deep cosmic background of teal, purple, and gold", caption: "One of AUWA's many magical moments." },
-          { src: "/journal/auwa-book/auwa-book-procreate.jpg", alt: "Drawing AUWA in Procreate on an iPad Pro with Apple Pencil, the original gold canvas painting of the character visible on the desk behind", caption: "From paper to Procreate. An early canvas painting watches over its digital self." },
+          { src: "/journal/auwa-book/auwa-book-cosmic.jpg", alt: "Auwa, a small luminous being with two dark eyes, glowing with soft rainbow light against a deep cosmic background of teal, purple, and gold", caption: "One of Auwa's many magical moments." },
+          { src: "/journal/auwa-book/auwa-book-procreate.jpg", alt: "Drawing Auwa in Procreate on an iPad Pro with Apple Pencil, the original gold canvas painting of the character visible on the desk behind", caption: "From paper to Procreate. An early canvas painting watches over its digital self." },
         ],
       },
       {
@@ -886,24 +886,36 @@ const articles: Record<
         text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. I drew the first sketch nearly ten years ago, and the simplicity has never changed because it was never a constraint, it is the method. It looks like a children\u2019s book, which is the point. Adults build defences around ideas about what cannot be seen. They want evidence, argument, logic. A picture book walks straight past all of that. Charlie Mackesy understood this. Miyazaki has understood it for decades.",
       },
       {
+        type: "text",
+        text: "The sketches came first, always in pencil. Then I moved to Illustrator, and then to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. Some of my original iterations of Auwa were on canvas. I wanted to paint so that, while working on client projects, I would not forget to properly start this. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed.",
+      },
+      {
         type: "image",
-        src: "/journal/auwa-book/auwa-book-canvas.jpg",
-        alt: "Original acrylic painting of AUWA on gold canvas, propped on a wooden desk beside a plant in a blue and white ceramic pot",
-        caption: "An early quick acrylic on gold canvas, painted years before the book took shape.",
+        src: "/journal/washi-paper/washi-paper-rieko.jpg",
+        alt: "Rieko Maeda lifting a wooden mould of mulberry pulp from cold water at a traditional washi paper workshop in Japan, learning a craft passed down through generations",
+        caption: "At a washi workshop in Japan. Hands learning a craft a thousand years old. (Read more in <a href=\"/journal/making-washi\">Making Washi</a>.)",
       },
       {
         type: "text",
-        text: "The sketches came first, always in pencil. Then I moved to Illustrator, and then to Procreate on the iPad, drawing every scene with the Apple Pencil, building up the colour and light layer by layer the way I would with paint. Some of my original iterations of AUWA were on canvas. I wanted to paint so that, while working on client projects, I would not forget to properly start this. Procreate let me carry that warmth into the digital illustrations while working at the scale and detail the book needed.",
+        text: "The first book is complete and will be released later this year. I am currently working on the remaining stories. There are several to come, each taking Auwa somewhere new: the ocean, the city, the stars where Auwa is from. How many there will be in the end, I do not know yet. The character has a way of deciding that for me.",
       },
       {
         type: "text",
-        text: "The first book is complete and will be released later this year. I am currently working on the remaining stories. There are several to come, each taking AUWA somewhere new: the ocean, the city, the stars where AUWA is from. How many there will be in the end, I do not know yet. The character has a way of deciding that for me.",
+        text: "Somewhere along the way, while I was working on the books, something shifted. The philosophy behind Auwa, the idea that everything around us has kokoro and is worth paying attention to, did not want to live only inside an illustrated book. It wanted to live in how you start your morning, in the objects on your shelf, in the stories you read on a quiet afternoon. The book had opened a door, and there was more on the other side of it.",
+      },
+      {
+        type: "text",
+        text: "So Tom and I began building the rest. Auwa is becoming four things, each one a different way into the same idea. The illustrated stories, where the character lives most fully. A daily practice app called Kokoro Mirror, where Auwa meets you in the morning and reveals the kokoro in whatever you are feeling that day. A store, where we curate objects from Japanese craftsmen whose work carries its own kokoro. And this journal, where Tom and I write in long form about Japan, about craft, about awareness, about the way the seasons turn.",
+      },
+      {
+        type: "text",
+        text: "The character is where it began, and the character will always be the heart of it. But Auwa is bigger than the book now. It is becoming a way of looking at the world, expressed in four interconnected forms. We hope, in time, it becomes a small part of how some people choose to live.",
       },
       {
         type: "cta" as const,
-        text: "AUWA: The Beginning will be published later this year. If you\u2019d like to know when it arrives, sign up below and we\u2019ll write to you once it\u2019s released.",
+        text: "Auwa: The Beginning is the first illustrated story in a wider world we are building. Step inside to meet the character, read the philosophy behind it, and follow along as the rest unfolds.",
         href: "/book",
-        label: "Sign up",
+        label: "Discover Auwa",
       },
     ],
   },
@@ -963,9 +975,9 @@ function renderTextBlock(block: ContentBlock, i: number) {
     return (
       <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
         {hasHtml ? (
-          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void mb-8 md:mb-10 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-void/30 hover:[&_a]:decoration-void/60 [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: block.text }} />
+          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-sumi mb-8 md:mb-10 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-sumi/30 hover:[&_a]:decoration-sumi/60 [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: block.text }} />
         ) : (
-          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void mb-8 md:mb-10">
+          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-sumi mb-8 md:mb-10">
             {block.text}
           </p>
         )}
@@ -976,7 +988,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
     return (
       <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
         <blockquote className="my-12 md:my-16">
-          <p className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-void">
+          <p className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-sumi">
             &ldquo;{block.text}&rdquo;
           </p>
         </blockquote>
@@ -986,8 +998,8 @@ function renderTextBlock(block: ContentBlock, i: number) {
   if (block.type === "cta") {
     return (
       <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
-        <div className="mt-12 md:mt-16 pt-10 md:pt-12 border-t border-void/10">
-          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-void/55 mb-8">
+        <div className="mt-12 md:mt-16 pt-10 md:pt-12 border-t border-sumi/10">
+          <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-sumi/55 mb-8">
             {block.text}
           </p>
           <CtaLink href={block.href} variant="primary">{block.label}</CtaLink>
@@ -1014,12 +1026,12 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article | AUWA Journal",
+      title: "Article | Auwa Journal",
       robots: { index: false, follow: false },
     };
   }
 
-  const title = `${article.title} | AUWA Journal`;
+  const title = `${article.title} | Auwa Journal`;
   const description = article.description ?? article.subtitle;
   const url = `https://auwa.life/journal/${slug}`;
   const ogImage = article.heroImage?.replace(/-hero\.jpg$/, "-og.jpg") ?? null;
@@ -1035,7 +1047,7 @@ export async function generateMetadata({
       publishedTime: article.publishedAt,
       authors: [article.author],
       ...(ogImage && {
-        images: [{ url: ogImage, width: 1200, height: 630, alt: `${article.title} | AUWA Journal` }],
+        images: [{ url: ogImage, width: 1200, height: 630, alt: `${article.title} | Auwa Journal` }],
       }),
     },
     twitter: {
@@ -1066,7 +1078,7 @@ export default async function ArticlePage({
     description: article.description ?? article.subtitle,
     author: { "@type": "Person", name: article.author },
     datePublished: article.publishedAt,
-    publisher: { "@type": "Organization", name: "AUWA", url: "https://auwa.life" },
+    publisher: { "@type": "Organization", name: "Auwa", url: "https://auwa.life" },
     url: `https://auwa.life/journal/${slug}`,
     ...(article.heroImage && { image: `https://auwa.life${article.heroImage}` }),
   };
@@ -1078,7 +1090,7 @@ export default async function ArticlePage({
 
         {/* ── Hero: split layout, viewport height ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
-          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
+          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden md:rounded-md">
             {article.heroImage ? (
               <ImageFade
                 src={article.heroImage}
@@ -1096,13 +1108,13 @@ export default async function ArticlePage({
           <div className="flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:pb-16 lg:pb-20">
             <TextReveal
               as="h1"
-              className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void"
+              className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-sumi"
               stagger={70}
             >
               {article.title}
             </TextReveal>
             <FadeIn delay={400} translateY={32}>
-              <p className="mt-4 md:mt-6 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-void/60">
+              <p className="mt-4 md:mt-6 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-sumi/60">
                 {article.subtitle}
               </p>
             </FadeIn>
@@ -1111,25 +1123,25 @@ export default async function ArticlePage({
 
         {/* ── Meta row ── */}
         <FadeIn delay={200}>
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-6 md:py-8 border-b border-void/8">
-            <div className="flex flex-wrap items-center justify-between gap-4 text-void/40">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-6 md:py-8 border-b border-sumi/10">
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sumi/45">
               <div className="flex flex-wrap items-center">
-                <Link href="/journal" className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-void transition-colors duration-300">
+                <Link href="/journal" className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-sumi transition-colors duration-300">
                   Journal
                 </Link>
                 <span className="font-sans text-[12px] tracking-[0.08em] uppercase mx-2">/</span>
-                <Link href={`/journal?category=${article.category.toLowerCase()}`} className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-void transition-colors duration-300">
+                <Link href={`/journal?category=${article.category.toLowerCase()}`} className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-sumi transition-colors duration-300">
                   {article.category}
                 </Link>
               </div>
               <div className="flex items-center gap-5">
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" className="hover:text-void transition-colors duration-300">
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" className="hover:text-sumi transition-colors duration-300">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </a>
-                <a href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}&description=${encodeURIComponent(article.title + ': ' + article.subtitle)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest" className="hover:text-void transition-colors duration-300">
+                <a href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}&description=${encodeURIComponent(article.title + ': ' + article.subtitle)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest" className="hover:text-sumi transition-colors duration-300">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
                 </a>
-                <a href={`https://x.com/intent/tweet?url=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}&text=${encodeURIComponent(article.title + ': ' + article.subtitle)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X" className="hover:text-void transition-colors duration-300">
+                <a href={`https://x.com/intent/tweet?url=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}&text=${encodeURIComponent(article.title + ': ' + article.subtitle)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X" className="hover:text-sumi transition-colors duration-300">
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
               </div>
@@ -1158,13 +1170,17 @@ export default async function ArticlePage({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       {section.images.map((img, j) => (
                         <figure key={j}>
-                          <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+                          <div className="relative aspect-[4/5] overflow-hidden rounded-md">
                             <ImageFade src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                           </div>
                           {img.caption && (
-                            <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
-                              {img.caption}
-                            </figcaption>
+                            /<[a-z][\s\S]*>/i.test(img.caption) ? (
+                              <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-sumi/50 max-w-[90%] [&_a]:underline [&_a]:underline-offset-2 [&_a]:decoration-sumi/30 hover:[&_a]:decoration-sumi/60 [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: img.caption }} />
+                            ) : (
+                              <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-sumi/50 max-w-[90%]">
+                                {img.caption}
+                              </figcaption>
+                            )
                           )}
                         </figure>
                       ))}
@@ -1181,7 +1197,7 @@ export default async function ArticlePage({
                   <div className="px-6 md:pl-12 lg:pl-20 xl:pl-28 md:pr-16 lg:pr-24 xl:pr-32 mb-8 md:mb-0">
                     <FadeIn delay={100} translateY={32}>
                       <figure>
-                        <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+                        <div className="relative aspect-[4/5] overflow-hidden rounded-md">
                           <ImageFade
                             src={section.image.src}
                             alt={section.image.alt}
@@ -1191,9 +1207,13 @@ export default async function ArticlePage({
                           />
                         </div>
                         {section.image.caption && (
-                          <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-void/50 max-w-[90%]">
-                            {section.image.caption}
-                          </figcaption>
+                          /<[a-z][\s\S]*>/i.test(section.image.caption) ? (
+                            <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-sumi/50 max-w-[90%] [&_a]:underline [&_a]:underline-offset-2 [&_a]:decoration-sumi/30 hover:[&_a]:decoration-sumi/60 [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: section.image.caption }} />
+                          ) : (
+                            <figcaption className="mt-4 mb-8 md:mb-12 font-sans text-[13px] leading-[1.6] text-sumi/50 max-w-[90%]">
+                              {section.image.caption}
+                            </figcaption>
+                          )
                         )}
                       </figure>
                     </FadeIn>
@@ -1213,7 +1233,7 @@ export default async function ArticlePage({
         {/* ── Byline ── */}
         <FadeIn translateY={32}>
           <div className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 space-flow">
-            <div className="pt-8 border-t border-void/8 max-w-[90%]">
+            <div className="pt-8 border-t border-sumi/10 max-w-[90%]">
               {(() => {
                 const credit = (name: string) => {
                   const isRieko = name === "Rieko Maeda";
@@ -1227,28 +1247,28 @@ export default async function ArticlePage({
 
                 return samePerson ? (
                   <div>
-                    <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                    <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-sumi/45 mb-2">
                       Words &amp; photos
                     </p>
-                    <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
+                    <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                       {article.author}
                     </Link>
                   </div>
                 ) : (
                   <div className="flex gap-10 md:gap-14">
                     <div>
-                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-sumi/45 mb-2">
                         Words
                       </p>
-                      <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
+                      <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                         {article.author}
                       </Link>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-void/40 mb-2">
+                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-sumi/45 mb-2">
                         Photos
                       </p>
-                      <Link href={photographer.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-void hover:text-void/60 transition-colors duration-300">
+                      <Link href={photographer.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                         {article.photographer}
                       </Link>
                     </div>
@@ -1261,12 +1281,12 @@ export default async function ArticlePage({
 
         {/* ── Divider ── */}
         <div className="px-6 md:px-12 lg:px-20 xl:px-28">
-          <div className="border-t border-void/8" />
+          <div className="border-t border-sumi/10" />
         </div>
 
         {/* ── Related articles ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
-          <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void mb-8 md:mb-12">
+          <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi mb-8 md:mb-12">
             Continue reading
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
@@ -1287,7 +1307,7 @@ export default async function ArticlePage({
                 className="group block"
                 data-cursor="Read"
               >
-                <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
+                <div className="aspect-[4/5] overflow-hidden rounded-md relative">
                   {related.image ? (
                     <ImageFade
                       src={related.image}
@@ -1301,14 +1321,14 @@ export default async function ArticlePage({
                   )}
                 </div>
                 <div className="mt-4 max-w-[90%]">
-                  <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">
+                  <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45">
                     {related.category}
                   </span>
-                  <h3 className="mt-1.5 font-display text-[18px] md:text-[20px] leading-[1.25] text-void group-hover:text-void/70 transition-colors duration-300">
+                  <h3 className="mt-1.5 font-display text-[18px] md:text-[20px] leading-[1.25] text-sumi group-hover:text-sumi/70 transition-colors duration-300">
                     {related.title}
                   </h3>
                   {related.subtitle && (
-                    <p className="mt-1 md:mt-1.5 font-sans text-[13px] md:text-[14px] leading-[1.4] md:leading-[1.5] text-void/50 line-clamp-2">
+                    <p className="mt-1 md:mt-1.5 font-sans text-[13px] md:text-[14px] leading-[1.4] md:leading-[1.5] text-sumi/50 line-clamp-2">
                       {related.subtitle}
                     </p>
                   )}

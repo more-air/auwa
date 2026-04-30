@@ -21,7 +21,7 @@ function PillarBadge({ pillar }: { pillar: Pillar }) {
 }
 
 function TypeIcon({ type, isVideo }: { type: PostType; isVideo: boolean }) {
-  const baseClass = "absolute top-2 right-2 w-6 h-6 rounded-full bg-void/70 flex items-center justify-center text-white pointer-events-none";
+  const baseClass = "absolute top-2 right-2 w-6 h-6 rounded-full bg-sumi/70 flex items-center justify-center text-white pointer-events-none";
 
   if (type === "reel" || isVideo) {
     return (
@@ -128,7 +128,7 @@ export function TileContent({ tile, position, dimmed, dragging }: { tile: PostTi
           />
         )
       ) : (
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-void/40 p-3 text-center pointer-events-none">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-sumi/45 p-3 text-center pointer-events-none">
           <svg className="w-6 h-6 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <circle cx="12" cy="12" r="10"/>
             <path d="M12 8v4M12 16h.01"/>
@@ -179,7 +179,7 @@ export function TileContent({ tile, position, dimmed, dragging }: { tile: PostTi
         </div>
       </div>
 
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-void/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-sumi/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
         <span className="font-sans text-[11px] text-white font-medium">{position}</span>
       </div>
     </div>

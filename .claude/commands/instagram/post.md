@@ -5,7 +5,7 @@ description: Prepare any Instagram post brief (Reel, single image, carousel, or 
 
 ## Instructions
 
-You are preparing an Instagram post brief for AUWA. Load these context files before starting:
+You are preparing an Instagram post brief for Auwa. Load these context files before starting:
 
 - `context/marketing/instagram.md` (platform strategy, content pillars, hashtag rules, weekly cadence, image specs)
 - `context/marketing/arrival.md` (launch phase and tone, especially the Gift Ethos section)
@@ -28,7 +28,7 @@ Branch on the answer. Slideshow uses Steps 2A-7A. Single/Reel/Carousel uses Step
 
 ## Slideshow Branch (Type 1)
 
-A 4-slide editorial carousel built end-to-end by this command: two photos from the article + two text frames generated from the AUWA template. No Figma needed.
+A 4-slide editorial carousel built end-to-end by this command: two photos from the article + two text frames generated from the Auwa template. No Figma needed.
 
 The four slides:
 
@@ -100,7 +100,7 @@ A great IG quote does at least three of these. A merely-okay quote does one. Aim
 1. **Curiosity gap.** Makes the reader want the rest of the carousel. A line that asks an implicit question outperforms one that gives a closed answer. *"The Japanese have a name for what we walk past without noticing"* (gap: what is it?) beats *"Twelve hundred years of chanting have worn the silence smooth"* (closed: pretty but inert).
 2. **Concrete and sensory.** Specific nouns and active verbs beat abstract concepts. *"Sanskrit chanted every morning in the same hall for 1,200 years"* beats *"the silence is worn smooth"*. The first gives the reader something to hold; the second only decodes after the article.
 3. **Article-defining insight.** Pull the deepest thing the article says, not the prettiest. The pretty sentence is often a flourish; the deep one is the reason the article exists.
-4. **Brand-distinctive vocabulary.** Where it lands naturally, weave in *Kokoro*, *Wabi-sabi*, *Onsen*, *Yaoyorozu no Kami*, *Kintsugi*, the place name, or the craft. These are AUWA's owned search surfaces. Never force — a forced cultural term reads worse than a clean English line.
+4. **Brand-distinctive vocabulary.** Where it lands naturally, weave in *Kokoro*, *Wabi-sabi*, *Onsen*, *Yaoyorozu no Kami*, *Kintsugi*, the place name, or the craft. These are Auwa's owned search surfaces. Never force — a forced cultural term reads worse than a clean English line.
 5. **Screenshot-shareable standalone.** Strip the carousel context. Does the line still mean something and still feel quietly arresting? If it needs the photo or the caption to make sense, it is too dependent.
 6. **Avoid linking verbs where you can.** *"becomes," "is," "has"* drain energy. Active verbs and strong nouns carry weight. *"The steel remembers every strike of the hammer"* beats *"The steel is shaped by every strike of the hammer."*
 7. **Avoid words that need decoding out of context.** *"unreliable," "smooth"* (when used metaphorically), *"strange"* — fine in the article where the surrounding paragraph explains them, weak as IG standalones because the reader has nothing to anchor against.
@@ -177,9 +177,9 @@ This is the second high-leverage step. The caption and hashtags are what drive I
 - **Voice rules in `context/pillar/journal.md` and CLAUDE.md.** No em dashes. No "delve / journey / unlock / nestled / tapestry / elevate / curate / unpack / reimagine / landscape." No rhyming triplets. No "not X. it is Y." constructions more than once a month across the whole feed.
 - Close with `auwa.life` on its own line as the signature word.
 
-**Hashtags — 10 total. Standard for AUWA growth phase.**
+**Hashtags — 10 total. Standard for Auwa growth phase.**
 
-Always `#AUWA #Kokoro` plus eight more chosen for the post. Eight (rather than three) is the new standard because each well-chosen tag is a different discovery surface — illustrators on `#picturebooks` won't find AUWA via `#japaneselifestyle`, and vice versa. For an account in restart/growth mode (under 10K), 7-10 hashtags consistently outperforms the older "3-5" advice. More than 10 triggers IG's spam dampener.
+Always `#Auwa #Kokoro` plus eight more chosen for the post. Eight (rather than three) is the new standard because each well-chosen tag is a different discovery surface — illustrators on `#picturebooks` won't find Auwa via `#japaneselifestyle`, and vice versa. For an account in restart/growth mode (under 10K), 7-10 hashtags consistently outperforms the older "3-5" advice. More than 10 triggers IG's spam dampener.
 
 Pools (guidance, not rigid):
 
@@ -191,9 +191,9 @@ Pools (guidance, not rigid):
 
 **Hashtag selection principles:**
 
-- **Mix volume tiers.** Aim for the rough split: 4 broad (>3M posts: `#japaneselifestyle`, `#slowliving`, `#illustration`, `#japaneseaesthetic`) → 2 mid (100k-1M: `#shinrinyoku`, `#onsen`, `#picturebooks`) → 2 niche (under 100k but engaged: place name, craftsman name, `#shichijuniko`, `#japaneseillustration`). The broad ones surface coverage; the mid + niche are where AUWA actually gets discovered.
+- **Mix volume tiers.** Aim for the rough split: 4 broad (>3M posts: `#japaneselifestyle`, `#slowliving`, `#illustration`, `#japaneseaesthetic`) → 2 mid (100k-1M: `#shinrinyoku`, `#onsen`, `#picturebooks`) → 2 niche (under 100k but engaged: place name, craftsman name, `#shichijuniko`, `#japaneseillustration`). The broad ones surface coverage; the mid + niche are where Auwa actually gets discovered.
 - **Use the place name or craftsman name** as a hashtag whenever it makes one. `#yakushima`, `#nozawaonsen`, `#shigefusa`. Low volume, exactly-the-audience.
-- **Cover the wider AUWA brand,** not just this article's narrow topic. AUWA is lifestyle + philosophy + craft + illustrated story + journal. Even a story-pillar post should carry one or two lifestyle / philosophy tags so the broader audience sees it.
+- **Cover the wider Auwa brand,** not just this article's narrow topic. Auwa is lifestyle + philosophy + craft + illustrated story + journal. Even a story-pillar post should carry one or two lifestyle / philosophy tags so the broader audience sees it.
 - **Never `#japanesephilosophy`** — over-promises, dominated by academic / motivational accounts that bring the wrong audience.
 - **Never copy-paste the same 10 across articles.** The first two are constant. The other eight should rotate by topic. Repetition signals automation to IG and to followers.
 
@@ -206,8 +206,8 @@ Because the photos aren't pre-assigned to slides 1 and 3 (whoever posts picks tw
 For each photo: subject + setting + light/material detail. Accessibility-grade, not poetry. Reuse the article's existing image alt where one exists in the content array — those are already factual and well-shaped.
 
 For the two text frames (a single alt covers both dark and light variants since the composition is identical):
-- `text-quote-dark.jpg / text-quote-light.jpg`: `Pull quote on a dark wash: "[first 8-12 words of the quote]…" AUWA Journal.`
-- `text-close-dark.jpg / text-close-light.jpg`: `Closing slide: Continue reading on the AUWA Journal. [Article title]. auwa.life/journal/[url-slug].`
+- `text-quote-dark.jpg / text-quote-light.jpg`: `Pull quote on a dark wash: "[first 8-12 words of the quote]…" Auwa Journal.`
+- `text-close-dark.jpg / text-close-light.jpg`: `Closing slide: Continue reading on the Auwa Journal. [Article title]. auwa.life/journal/[url-slug].`
 
 **First comment — one line, posted within 5 minutes of publish.** Names the section, gives the URL for completeness, points at the bio for the tappable path:
 
@@ -220,7 +220,7 @@ For the two text frames (a single alt covers both dark and light variants since 
 Write a plain-text file at `social/instagram/[photo-slug]/_post.txt`. The underscore prefix sorts the brief to the top of the folder where it's easy to find on a phone. ASCII section headers, no markdown, no em dashes. Tom reads this on Android Dropbox and long-presses to copy each section into IG. The hashtags sit AT THE END OF THE CAPTION (not in a separate paste-step) because that's where they belong on IG, with a few line breaks between the caption signature and the hashtag block to keep the visible caption clean. Each alt-text entry uses a vertical "filename: / description" layout (filename on its own line, description on the next, blank line between entries) so each block is one tap-and-drag selection on a phone.
 
 ```
-[ARTICLE TITLE] | AUWA Journal
+[ARTICLE TITLE] | Auwa Journal
 ==============================
 
 Scheduled: [YYYY-MM-DD HH:MM London or TBD]
@@ -238,7 +238,7 @@ auwa.life (link in the bio)
 
 
 
-#AUWA #Kokoro #x #y #z #a #b #c #d #e
+#Auwa #Kokoro #x #y #z #a #b #c #d #e
 
 
 --- FIRST COMMENT (post within 5 min of publish) ---
@@ -257,10 +257,10 @@ image-[name].jpg:
 (... one block per image-*.jpg in the folder)
 
 text-quote-dark.jpg / text-quote-light.jpg:
-Pull quote on a dark wash: "[first 8-12 words]..." AUWA Journal.
+Pull quote on a dark wash: "[first 8-12 words]..." Auwa Journal.
 
 text-close-dark.jpg / text-close-light.jpg:
-Closing slide: Continue reading on the AUWA Journal. [Article title]. auwa.life/journal/[url-slug].
+Closing slide: Continue reading on the Auwa Journal. [Article title]. auwa.life/journal/[url-slug].
 
 
 --- STORY SHARE (immediately after publish) ---
@@ -316,7 +316,7 @@ Three sentences max. Voice rules:
 
 ### Step 4B: Choose Hashtags
 
-5 per post. Always `#AUWA #Kokoro` plus three from the pillar pool:
+5 per post. Always `#Auwa #Kokoro` plus three from the pillar pool:
 
 - *Kokoro Reveal:* `#japaneselifestyle #slowliving #japaneseaesthetic #mindfulness #emotionalintelligence`
 - *Japanese Wisdom:* `#shichijuniko #72seasons #wabisabi #monoNoaware #ikigai`
@@ -327,7 +327,7 @@ Avoid `#japanesephilosophy`. Rotate so the same five don't appear on every post.
 
 ### Step 5B: Alt Text, Story Share, First Comment
 
-**Alt text.** One factual sentence. No poetry. Example: "The AUWA character, a small luminous figure with dot eyes, stands in soft cream light against a pale background."
+**Alt text.** One factual sentence. No poetry. Example: "The Auwa character, a small luminous figure with dot eyes, stands in soft cream light against a pale background."
 
 **Story share.** Every feed post and Reel gets shared to Story immediately after publish, with a link sticker. Specify the URL and an optional one-line caption.
 
@@ -352,7 +352,7 @@ Save to `social/instagram/YYYY-MM-DD-[slug].md`:
 
 ## Hashtags
 
-`#AUWA #Kokoro #x #y #z`
+`#Auwa #Kokoro #x #y #z`
 
 ## Alt Text
 

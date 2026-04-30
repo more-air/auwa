@@ -1,6 +1,6 @@
-# AUWA Website Patterns
+# Auwa Website Patterns
 
-*Load this file only for sessions that touch the website at `website/main/` — design tweaks, component fixes, deployment, Awwwards submission. Non-website AUWA sessions (social, strategy, copy, newsletter writing, business work) do not need this file and should not load it.*
+*Load this file only for sessions that touch the website at `website/main/` — design tweaks, component fixes, deployment, Awwwards submission. Non-website Auwa sessions (social, strategy, copy, newsletter writing, business work) do not need this file and should not load it.*
 
 *For the high-level site specification (information architecture, page layouts, design system tokens, content model), see `context/website/website.md`. This file is the working lessons-learned log: implementation patterns, Tailwind 4 gotchas, iOS fixes, and the Awwwards-readiness checklist.*
 
@@ -8,7 +8,7 @@
 
 ## DEPLOYMENT
 
-The AUWA website lives at `website/main/` and deploys to the Vercel project "auwa-life" (https://auwa.life).
+The Auwa website lives at `website/main/` and deploys to the Vercel project "auwa-life" (https://auwa.life).
 
 **Git push to `origin main` does NOT auto-deploy to the correct Vercel project.** Multiple Vercel projects are connected to this repo, so use the Vercel CLI instead.
 
@@ -27,7 +27,7 @@ This uses the `.vercel/project.json` at `website/main/.vercel/project.json` (pro
 2. The deploy slash command now includes a `pwd` guard that aborts if cwd isn't `website/main/`. Don't chain a `cd /Users/admin/Github/auwa && ...` before the vercel call — always make the vercel command its own bash invocation starting with `cd website/main`.
 
 **Full deploy workflow:**
-1. Commit and `git push origin main` in the AUWA repo (github: `more-air/auwa`).
+1. Commit and `git push origin main` in the Auwa repo (github: `more-air/auwa`).
 2. **If any files under `/Users/admin/Github/moreair/.claude/skills/**` or other More Air shared assets were touched in this session**, commit and push those from inside `/Users/admin/Github/moreair/` as well — separate repo, separate push. Do this BEFORE the Vercel deploy so the repos stay in sync.
 3. Run the Vercel CLI command above from `website/main/`.
 4. Verify the output lists `Aliased: https://auwa.life` before reporting success.
@@ -48,7 +48,7 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Teaser pages (pre-launch):** The stacked text-above-image layout runs all the way through tablet — the 2-column grid only engages at `lg` (1024px+). Tablet portrait in the split layout felt cramped (text and image both lost breathing room), so the mobile config extends up. Grid container: `flex flex-col h-[calc(100dvh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100dvh-5rem)]`. Image: `w-full h-full object-cover lg:absolute lg:inset-0`. Vertical padding tightens to `py-12` below lg. Page-title h1 scale is `clamp(2.25rem,5vw,3.75rem)` — matches Journal, About, and the homepage module headings.
 
-**Form success states:** Use full contrast for success messages. `text-void` on white backgrounds, `text-white` on dark backgrounds. Never use reduced opacity for confirmation text. Success message element must match the form's height to prevent layout shift: use `min-h-[44px] flex items-center`.
+**Form success states:** Use full contrast for success messages. `text-sumi` on Surface (light) backgrounds, `text-washi` on Yoru (dark) backgrounds. Never use reduced opacity for confirmation text. Success message element must match the form's height to prevent layout shift: use `min-h-[44px] flex items-center`.
 
 **Email inputs: `autoComplete="email" name="email"` and suppress the global focus outline.** Without these attributes iOS Safari offers the Contacts + iCloud Keychain autofill icons inside the field (a blue padlock + "i" chip). They look alarming on a quiet editorial signup. The site-wide `:focus-visible { outline: ... }` in globals.css also draws a rectangle around the input on focus — the signup form already indicates focus via the row's `focus-within:border-void/50` border-bottom, so the outline is redundant. globals.css has `input:focus-visible, textarea:focus-visible { outline: none; }` override for this.
 
@@ -72,7 +72,7 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **SEO and social sharing (OG meta):**
 - Every page needs `title`, `description`, and an `openGraph.images` array in its metadata export.
-- Page titles: "[Page Name] | AUWA" format. Keep under 60 characters so Google doesn't truncate.
+- Page titles: "[Page Name] | Auwa" format. Keep under 60 characters so Google doesn't truncate.
 - Descriptions: 150-160 characters. Lead with what it is, not who you are. No marketing fluff.
 - OG image: 1200x630px JPG. Use a real photograph, not generated text-on-colour. The OG image must exist as a static file in `public/` (e.g. `public/og-image.jpg`) and be referenced in both `openGraph.images` and `twitter.images`.
 - Twitter card: always `summary_large_image` for visual brands.
@@ -83,7 +83,7 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 ## WEBSITE BUILD PATTERNS
 
-Lessons learned from building auwa.life. Apply these to future AUWA website work and to More Air client projects where relevant.
+Lessons learned from building auwa.life. Apply these to future Auwa website work and to More Air client projects where relevant.
 
 **Dev server:**
 - Always set PATH before running Node/npm commands: `export PATH="/usr/local/bin:$PATH"`
@@ -117,20 +117,71 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Pillar links in the footer are Journal, Store, App, Book (the four brand pillars).
 - The left signup column uses `max-w-[440px]` so the newsletter copy wraps at the same width as the SignupForm below it (form is also `max-w-[440px]`). Do not widen back to 520px — the text would overhang the form edge and look unresolved.
 
-**Images:**
-- No image conversion tools (ImageMagick, librsvg) are installed on this machine. Use `sips` (macOS built-in) for basic image operations.
-- For email templates, use text-based logos (styled with CSS) rather than image logos, since SVG support in email clients is unreliable and PNG conversion tools aren't available.
+**Image optimisation — ALWAYS use the sharp pipeline, not sips.** The canonical processor lives at `website/main/scripts/process-image.js`. It does Lanczos3 resize + unsharp mask + MozJPEG with 4:4:4 chroma subsampling — sips downsamples without sharpening, producing visibly soft output that became obvious once the Auwa preset's tonal flattening was layered on top. The article skill documents this; treat it as the rule across every image task.
+
+```bash
+cd website/main && node scripts/process-image.js <input.png> public/<dst.jpg> <mode>
+```
+
+Modes (pick by use):
+- `web` — 1800px max long edge. Article body images, journal cards, anywhere ≤900 CSS px display width.
+- `pillar` — 2400px max long edge. Homepage / teaser pillars at near-full-viewport.
+- `hero` — 3840px max long edge. **Full-bleed heroes used with `<Image fill sizes="100vw">`.** Next.js's default `deviceSizes` go up to 3840, so anything smaller forces a runtime upscale on retina viewports — that's the blur. Use this for any 100svh hero image. (Added April 2026 after sips-processed heroes shipped soft.)
+- `ig` — resize+crop to 1080×1350.
+- `og` — resize+crop to 1200×630.
+
+**next/image silently recompresses at q=75.** Even with a high-quality source, the runtime image processor downsamples to JPEG quality 75 by default. For full-bleed heroes that's visibly soft on illustrated artwork. Pass `quality={95}` on every `<Image>` used in a hero / pillar role. This was the second cause of the demo-world hero looking blurry alongside the under-source-resolution issue — both compound.
+
+**Source images/frames often arrive as 3000-5500px PNGs (5-18MB each).** After processing through `web` mode: landscape JPGs ~200-600KB, portrait ~100-300KB. Through `hero` mode: 70-500KB depending on detail (7-color illustrations compress small, photographic bokeh larger).
 
 **Video and image optimisation (for web):**
 - Hero/background videos must be compressed before placing in `public/`. Source videos are often 20-40MB; web target is 2-6MB.
 - Use `ffmpeg` for compression. Install via npm if not available: `cd /tmp && npm install ffmpeg-static`, then use `/private/tmp/node_modules/ffmpeg-static/ffmpeg`.
 - Video compression command: `ffmpeg -i [input] -vf "scale=[width]:-2" -c:v libx264 -preset slow -crf 26 -an -movflags +faststart -pix_fmt yuv420p [output]`. Use `scale=1920` for landscape, `scale=1080` for portrait.
-- Always extract a poster frame for the `<video poster="">` attribute: `ffmpeg -i [video] -vframes 1 -q:v 2 [poster.jpg]`.
+- Always extract a poster frame for the `<video poster="">` attribute: `ffmpeg -i [video] -vframes 1 -q:v 2 [poster.jpg]`. The poster JPEG itself should still be re-processed through `process-image.js` with `pillar` or `hero` mode for sharpening.
 - Always strip audio from background/hero videos (`-an` flag) since they autoplay muted.
-- For scroll-driven flipbook frames or image sequences: resize to 1920px wide (landscape) or 1080px wide (portrait) and convert to JPG at 85% quality using `sips -s format jpeg -s formatOptions 85 -Z [width] [input.png] --out [output.jpg]`.
-- Source images/frames often arrive as 3000-5500px PNGs (5-18MB each). After optimisation, landscape JPGs should be 200-600KB, portrait JPGs 100-200KB.
+- Sips is fine for poster-frame extraction from videos, but never as the final encoder for any image rendered on a page — always send the result through `process-image.js`.
 
-**Rounded image corners:** All image containers site-wide use `rounded-xl overflow-hidden`. This applies to homepage cards, journal index, article images (inline and image-pair), continue reading, about page pillars, and the flipbook cards. The only exception is the article hero image on mobile, which goes edge-to-edge without rounding.
+**Email templates** use text-based logos (styled with CSS) rather than image logos, since SVG support in email clients is unreliable and PNG conversion tools aren't available.
+
+**Brand colour tokens — `surface` + `sumi` + `yoru` + `washi` are the editorial quartet.** Two families: dark (Sumi/Yoru, hue 235) and warm-paper (Surface/Washi, hue 80-95). Tweak any one in `globals.css` and every page that uses it follows; that's the consistency contract — no per-page colour overrides anywhere.
+
+| Token | OKLCH | Role | Notes |
+|-------|-------|------|-------|
+| `--color-surface` | `oklch(0.97 0.004 95)` (≈ `#f8f7f4`) | Page bg on every light page (`<main>`), entrance loader, hero pre-paint flash, email body bg, PWA `theme_color`. | Promoted from `oklch(1 0 0)` (pure white) in April 2026. The loader's tone became canonical. Pure `#ffffff` is no longer used anywhere; `bg-white` and `themeColor: "#ffffff"` are now drift. |
+| `--color-sumi`  | `oklch(0.10  0.022 235)` | Text, logo, menu icon on light surfaces. ~13:1 on Surface at 100%. | Renamed from `--color-void` (April 2026); softened L=0.10 + hue 235 to match Yoru. |
+| `--color-yoru`  | `#0f1623` (≈ `oklch(0.16 0.022 235)`) | Every dark surface: dark page bg (`data-page-theme="dark"`), Footer, FigureHook strip, SoundToggle button. | Replaces the cosmic `bg-void` previously used on Footer + FigureHook. |
+| `--color-washi` | `oklch(0.928 0.020 80)` (≈ `#EFE9DD`) | Light text/icon/border on **Yoru or Sumi** (uniform dark surfaces). Footer, FigureHook, SoundToggle, dark book page, signup-form dark, cursor disc, dark CTA accents. | The warm-paper "ink" that gives dark contexts their old-book character. |
+
+**Surface vs Washi for light foreground — the locked rule:**
+
+| Background | Light foreground |
+|------------|------------------|
+| On Yoru or Sumi (uniform dark surface) | **Washi** |
+| Over imagery / photography (variable mid-tones) | **Surface** (not Washi) |
+
+Why two tokens: Washi (L 0.928) reads warm against a known dark surface — that's the editorial old-book character. Over a photograph, the same L=0.928 blends into bright/highlight spots in the image and reads soft. Surface (L 0.97, less chroma) cuts confidently across photographic mid-tones. Apply this rule whenever you place a light label on top of an image (pillar overlays, two-up CTA labels, hero text, hero logo + menu icon while transparent).
+
+The other discipline: **never mix Sumi with Washi** (different families), **never use pure `#ffffff`** anywhere on the site (Surface is the white), **never use `text-white`** anywhere (use Surface or Washi by the rule above), and **never hardcode `#f8f7f4` or `#EFE9DD`** — consume the token. Footer is always Yoru+Washi. SignupForm `theme="dark"` is always Washi. Dark pages opt in via `<DarkPageTheme />` and inherit Yoru bg + Washi text.
+
+**Sumi opacity tier ladder (locked April 2026 after Surface moved off pure white):**
+
+| Tier | Use |
+|------|-----|
+| 100% | Headings, titles, active nav, wordmark |
+| 80% | About prose, footer category links |
+| 70% | Nav links, hover states |
+| 60% | Subtitles |
+| 55% | Form button hover |
+| 50% | Excerpts, captions |
+| 45% | Eyebrow / metadata labels, share icons, "Read the latest" — was 40%, bumped because 40% softened too much on the warm Surface |
+| 40% | Input placeholder — was 35% |
+| 20% | Form underlines |
+| 10% | Default divider — was 8%, bumped because 8% reads invisible on Surface |
+
+Washi tiers on Yoru mirror these one-to-one. If you change Sumi or Surface, the contrast ratios at every tier shift slightly; spot-check 45% labels and 10% dividers when tuning.
+
+**Rounded image corners — `rounded-md` (6px) site-wide.** All image containers use `rounded-md overflow-hidden`. The previous standard was `rounded-xl` (12px); after a brief square-cornered iteration we settled on `rounded-md` as the consistent token — restrained enough to feel intentional, visible enough to register. Applies to: homepage Journal strip cards, pillar cards, two-up articles, journal index cards, article inline images / image-pair / image-beside / continue-reading, about page pillars, video-moment, editorial-frames, pillar-parade, book-preview, demo-world series covers, the kokoro video container. **The only exception** is the article hero image on mobile (edge-to-edge no-radius), which uses `md:rounded-md` so radius engages only at md+. **If you add a new image container anywhere, use `rounded-md` — never re-introduce `rounded-xl` or skip the radius.**
 
 **Scroll-driven flipbook hero (Obsidian Assembly pattern):**
 - Stacked portrait cards centred on the page, driven by scroll position.
@@ -207,7 +258,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Archive: `src/components/hero-flipbook.tsx` still exists; used only by `/home-1` page now.
 
 **Homepage structure (live root `/`):**
-- Full-bleed AUWA face video ("Scroll" label + breathing vertical line instead of bouncing chevron, transparent header overlay). The "Scroll" button uses native `window.scrollTo({ top, behavior: "smooth" })` to land on the intro with an offset for the sticky header.
+- Full-bleed Auwa face video ("Scroll" label + breathing vertical line instead of bouncing chevron, transparent header overlay). The "Scroll" button uses native `window.scrollTo({ top, behavior: "smooth" })` to land on the intro with an offset for the sticky header.
 - "Our Philosophy" intro. Desktop-only 心 (Kokoro) kanji watermark at 3% alpha behind the paragraph, right side.
 - Pullquote 1 ("What you pay attention to…") at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05.
 - Four-pillar module (EditorialFrames desktop / PillarParade mobile).
@@ -216,7 +267,7 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Three pillar cards (Book / Store / App).
 - Pullquote 2 ("In every handmade bowl…") at the same size as pullquote 1.
 - Two-up articles (Onsen + Nozawa). "Read the essay" label inside each card has the same text-roll rollover as the nav.
-- VideoMoment (Meet AUWA).
+- VideoMoment (Meet Auwa).
 
 **Global UI layer (mounted in layout.tsx):**
 - `EntranceLoader` — once-per-session あうわ reveal on a warm `#f8f2e5` overlay. Chars rise in with 180ms stagger, reverse-stagger exit (わ→う→あ), overlay fades, unmount. Respects prefers-reduced-motion and sessionStorage flag.
@@ -230,10 +281,10 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 
 **Body copy standard:** All paragraph text across homepage modules, teaser pages, and articles uses `font-display text-[18px] md:text-[19px]` for consistency.
 
-**Two-column modules (Meet AUWA, Email Capture):**
+**Two-column modules (Meet Auwa, Email Capture):**
 - Both use `pt-16 md:pt-24 pb-28 md:pb-48` for equal visual top/bottom spacing (bottom needs more padding because the image extends below the text centre)
 - Image ratio: 9:16 portrait card with `max-w-[380px]` and `max-h-[70vh]`
-- Meet AUWA: video card left, text right. Links to `/journal/the-beginning`. CTA is a bordered button "THE STORY"
+- Meet Auwa: video card left, text right. Links to `/journal/the-beginning`. CTA is a bordered button "THE STORY"
 - Email Capture: text + form left, Narai snow image right. No shadow on image.
 
 **Button style (bordered CTA):**
@@ -249,9 +300,9 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Each teaser page stack: small-caps super-header thesis line / main H1 label / body copy / "Notify me" form. Two-line hierarchy does the work: super-header carries the thesis, H1 is the clean label.
 - **App:** "A DAILY MIRROR" / "The App." / *"A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we'll write when the app arrives."*
 - **Store:** "MADE TO LAST" / "The Store." / *"A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime, the antithesis of throwaway. Add your email and we'll write when our store opens."*
-- **Book:** "OPEN THE EYES" / "The Book." / *"Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice. Add your email and we'll write when the first book arrives."*
+- **Book:** "OPEN THE EYES" / "The Book." / *"Illustrated stories following Auwa the character as it shows the world what it's been too busy to notice. Add your email and we'll write when the first book arrives."*
 - Button text: "Notify me" (not "Join Waitlist")
-- Super-header thesis lines also live in each page's `<title>` metadata ("Daily awareness practice | AUWA" etc.)
+- Super-header thesis lines also live in each page's `<title>` metadata ("Daily awareness practice | Auwa" etc.)
 
 **Email unsubscribe:**
 - The `{{{RESEND_UNSUBSCRIBE_URL}}}` merge variable is ONLY substituted when sending through Resend's Broadcasts API. In transactional sends via `resend.emails.send()` it stays as literal text and the link breaks.
@@ -269,17 +320,17 @@ Lessons learned from building auwa.life. Apply these to future AUWA website work
 - Instagram is not included in the article share icon row: IG has no link-share preview flow. FB, Pinterest, and X are the only three.
 
 **Welcome email subject lines (spam-avoidance tuned):**
-- `newsletter` → "Welcome to AUWA"
-- `app-waitlist` → "You're on the AUWA App waitlist"
-- `store-waitlist` → "A note from AUWA."
-- `book-waitlist` → "A note from AUWA."
+- `newsletter` → "Welcome to Auwa"
+- `app-waitlist` → "You're on the Auwa App waitlist"
+- `store-waitlist` → "A note from Auwa."
+- `book-waitlist` → "A note from Auwa."
 - Store and Book use a softer subject because Gmail's Promotions classifier latches onto "Store" and "Book" as commerce keywords. Changing the subject (while keeping the hero image and body) was enough to shift them toward Primary.
 
 ---
 
 ## TAILWIND 4 GOTCHAS
 
-Lessons from shipping the AUWA site on Tailwind 4. These bite on day one of any new build.
+Lessons from shipping the Auwa site on Tailwind 4. These bite on day one of any new build.
 
 **Translate/rotate use the CSS `translate`/`rotate` properties, not `transform`.**
 `-translate-y-full` generates `translate: var(--tw-translate-x) -100%;` — it does not touch `transform`. Any inline `transition: transform ...` you add will not animate the hide/show slide. Transitions must target `translate` (and `rotate` if you're rotating via class). On the auwa.life header:
@@ -305,7 +356,7 @@ transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300m
 
 **`will-change` toggling on IntersectionObserver trigger causes Safari scroll jitter.** `will-change: "opacity, transform"` while hidden + `"auto"` when visible made Safari tear down the preallocated compositor layer the instant IO flipped `isVisible` — before the transition had painted a single frame. Safari then had to create a new layer on-demand for the active transition, dropping a scroll frame in the process. Fix: **omit `will-change` entirely** on `FadeIn` / `TextReveal`. Safari auto-promotes a layer when the transition starts and demotes cleanly when it ends; that path is smoother than managing it by hand. Chrome is fine either way.
 
-**IntersectionObserver bottom rootMargin of `120px` smooths Safari reveals.** Triggering at the exact viewport edge (`-40px`) meant Safari had to set up the transition's compositor layer on the same scroll frame it was advancing — one-frame stutter per section. Extending the observer root `120px` BELOW the viewport fires the transition before the user reaches the element: paint starts, layer stabilises, and by the time the element is actually in view the transition is already settled. Applied to both `FadeIn` and `TextReveal`. The animation still reads as an entrance because 120px at typical scroll velocity is only ~150-250ms.
+**IntersectionObserver bottom rootMargin of `-80px` keeps reveals visible to the user.** An earlier iteration used `+120px` (extending the observer below the viewport) to give Safari pre-warm time on the compositor layer. The trade-off: animations finished before the user reached the section — by the time they scrolled, the reveal had already played and they only saw the settled state. We now use `-80px` (fires when the element is ~80px INTO the viewport, with threshold 0.1 = 10% of element visible). Animations are visible as the element scrolls into view, while still leaving Safari a small window to settle the compositor before the eye locks on. Applied to `FadeIn`, `StripReveal`, and `BookPreview`. ScrollFadeText is scroll-progress-driven, not IO, and is unaffected.
 
 **IntersectionObserver right rootMargin of `200%` for horizontal scrollers.** Cards sitting off-viewport-right (card 2+ in the Journal strip, two-up articles) never intersect the default root, so they stay at the FadeIn reveal variant's `translate3d(80px, 0, 0) opacity: 0` until the user swipes — producing an apparently missing image on iPhone. Widening the right rootMargin to `200%` catches cards up to 2 viewport widths to the right, so they fire when the SECTION scrolls in vertically. Page-flow layouts never place cards more than one viewport to the right, so the wider margin has no effect on non-scroller layouts.
 
@@ -329,12 +380,12 @@ transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300m
 
 Lessons learned placing global UI around Next.js App Router + page transitions.
 
-**Render shared UI (header, footer) in `layout.tsx`, not in individual pages.** The AUWA site used to render `<Header />` from every page file. That put the header inside the `PageTransition` wrapper, which applies `opacity` and `transform` during leave/enter — both of which create a stacking context. A portalled body-level overlay (mobile menu, modals) at z-[90] then sits above the header (z-[100], but trapped inside the wrapper's context). Consequence: the logo and menu button fade out with the page during link clicks, and the mobile menu's X button disappears behind the white overlay. Rendering `<Header />` once in `layout.tsx`, outside the `PageTransition` wrapper, keeps it above every transition state. Infer page-specific props (e.g. `transparent` for a hero overlay) from `usePathname()` inside the header itself.
+**Render shared UI (header, footer) in `layout.tsx`, not in individual pages.** The Auwa site used to render `<Header />` from every page file. That put the header inside the `PageTransition` wrapper, which applies `opacity` and `transform` during leave/enter — both of which create a stacking context. A portalled body-level overlay (mobile menu, modals) at z-[90] then sits above the header (z-[100], but trapped inside the wrapper's context). Consequence: the logo and menu button fade out with the page during link clicks, and the mobile menu's X button disappears behind the Surface overlay. Rendering `<Header />` once in `layout.tsx`, outside the `PageTransition` wrapper, keeps it above every transition state. Infer page-specific props (e.g. `transparent` for a hero overlay) from `usePathname()` inside the header itself.
 
 **Drop transform at rest in page-transition wrappers.** If the wrapper always sets `transform: translate3d(0, 0, 0)` even when the `visible` state is steady, it creates a permanent stacking context, with the same consequences as above for anything else body-level. Only apply transform during `entering`/`leaving`; at rest, leave the wrapper untransformed.
 
 **Mobile menu overlay is a portal, header lives in sticky position.**
-- Overlay: `createPortal(menuJSX, document.body)` at `z-[90]`. Fixed `inset-0`, white `bg-surface`, fades via inline opacity transition.
+- Overlay: `createPortal(menuJSX, document.body)` at `z-[90]`. Fixed `inset-0`, `bg-surface` (warm off-white), fades via inline opacity transition.
 - Header: `sticky top-0 z-[100]`. Stays above the overlay so the logo + X read on top.
 - Close on `pathname` change (not on link click). PageTransition intercepts internal-link clicks and delays `router.push` by ~440ms — if the menu closes on click, you briefly see the old page behind the fading menu before the page transition kicks in. Keep the menu open through the leave phase by closing it in a `useEffect` that fires when pathname actually updates.
 
@@ -368,7 +419,7 @@ Article pages include Facebook, Pinterest, and X share links. Sizes currently `w
 
 ## AWWWARDS READINESS (KEEP IN FORCE)
 
-Lessons baked in from the April 2026 SOTD-prep pass. Every future site (AUWA, More Air client, or venture) should pass these before submission or launch. Missing any single one costs real jury points.
+Lessons baked in from the April 2026 SOTD-prep pass. Every future site (Auwa, More Air client, or venture) should pass these before submission or launch. Missing any single one costs real jury points.
 
 **404 + dynamic-route hygiene.** `src/app/not-found.tsx` exists and is branded (header/footer/type consistent with the rest of the site). Every `[slug]/page.tsx` calls `notFound()` when the slug isn't found, AND exports both `generateStaticParams` returning all known slugs AND `export const dynamicParams = false`. Never fall through to a fallback article/product — that returns 200 and indexes. `generateMetadata()` for unknown slugs returns `robots: { index: false, follow: false }`.
 
@@ -419,6 +470,6 @@ if (renderedPathname !== pathname) {
 
 React discards the current render and re-renders with the new state before paint. Do NOT use `key={pathname}` on the Header — remounting the sticky header causes a brief layout shift (header disappears, content below moves up, then header remounts and content moves down). Do NOT use `useLayoutEffect` + setState for this — the first paint still uses the old state on Safari.
 
-**Teaser-style single-viewport pages MUST match the article-page hero pattern.** Earlier AUWA teaser pages (app, store, book) used a bespoke `flex flex-col h-[calc(100dvh-4rem)]` layout with a `flex-1 min-h-0` image column. Custom font swap (next/font `display: swap`) recalculated text heights after initial paint, which resized the flex-1 image, which visibly dropped the whole composition ~1s after load. Use the article hero pattern instead — `grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]` with an `aspect-[4/5]` image on mobile and natural text flow. This absorbs font-swap without layout shift.
+**Teaser-style single-viewport pages MUST match the article-page hero pattern.** Earlier Auwa teaser pages (app, store, book) used a bespoke `flex flex-col h-[calc(100dvh-4rem)]` layout with a `flex-1 min-h-0` image column. Custom font swap (next/font `display: swap`) recalculated text heights after initial paint, which resized the flex-1 image, which visibly dropped the whole composition ~1s after load. Use the article hero pattern instead — `grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]` with an `aspect-[4/5]` image on mobile and natural text flow. This absorbs font-swap without layout shift.
 
-**Submission cadence.** Tuesday or Wednesday morning UK time is the window — Monday is judges' backlog day, Thursday/Friday/weekend land in the "Nominee" pile after SOTD slots are allocated. Avoid the first week of any month (carryover backlog). Submit only once the hero video and entrance loader are the absolute final cut — those are the first four seconds and carry 80% of the judge's vote. Primary category for AUWA-tier brands: **Wellbeing** (least crowded premium lane). Tags to pick: Editorial, Typography, Animation, Transitions, Interaction Design, Cultural. Main preview image: 1400×787 JPG under 1MB, and for AUWA specifically it's a close crop of the AUWA face from the hero video — nothing else on Awwwards looks like it.
+**Submission cadence.** Tuesday or Wednesday morning UK time is the window — Monday is judges' backlog day, Thursday/Friday/weekend land in the "Nominee" pile after SOTD slots are allocated. Avoid the first week of any month (carryover backlog). Submit only once the hero video and entrance loader are the absolute final cut — those are the first four seconds and carry 80% of the judge's vote. Primary category for Auwa-tier brands: **Wellbeing** (least crowded premium lane). Tags to pick: Editorial, Typography, Animation, Transitions, Interaction Design, Cultural. Main preview image: 1400×787 JPG under 1MB, and for Auwa specifically it's a close crop of the Auwa face from the hero video — nothing else on Awwwards looks like it.

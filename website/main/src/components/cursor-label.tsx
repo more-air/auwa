@@ -107,7 +107,7 @@ export function CursorLabel() {
         scale is applied in the same transform string.
       */}
       <div
-        className="w-[72px] h-[72px] rounded-full bg-void text-white flex items-center justify-center font-sans text-[10px] tracking-[0.14em] uppercase"
+        className="w-[72px] h-[72px] rounded-full bg-sumi text-washi flex items-center justify-center font-sans text-[10px] tracking-[0.14em] uppercase"
         style={{
           transform: `translate(-50%, -50%) scale(${visible ? 1 : 0})`,
           opacity: visible ? 1 : 0,

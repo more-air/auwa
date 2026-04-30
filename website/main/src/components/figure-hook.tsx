@@ -22,7 +22,7 @@ import { DURATION, EASING } from "@/lib/motion";
   because the footer is sticky bottom-0 from page load).
 */
 
-const HIDE_ON = ["/store", "/app", "/book", "/instagram", "/instagram-plan"];
+const HIDE_ON = ["/store", "/app", "/book", "/book-signup", "/instagram", "/instagram-plan"];
 const SCROLL_IN_THRESHOLD = 600; // px — appears after the hero is past
 
 export function FigureHook() {
@@ -82,13 +82,13 @@ export function FigureHook() {
     >
       <Link
         href="/store"
-        className="group pointer-events-auto block bg-void"
+        className="group pointer-events-auto block bg-yoru border-t border-washi/10"
       >
         <div className="flex items-center justify-between gap-6 px-6 md:px-12 lg:px-20 xl:px-28 h-14 md:h-16">
-          <p className="font-sans text-[11px] md:text-[13px] leading-none tracking-[0.1em] md:tracking-[0.14em] uppercase text-white whitespace-nowrap">
-            Win first edition AUWA figure
+          <p className="font-sans text-[11px] md:text-[13px] leading-none tracking-[0.1em] md:tracking-[0.14em] uppercase whitespace-nowrap text-washi">
+            Win first edition Auwa figure
           </p>
-          <span className="font-sans text-[11px] md:text-[12px] tracking-[0.14em] uppercase text-white whitespace-nowrap">
+          <span className="font-sans text-[11px] md:text-[12px] tracking-[0.14em] uppercase whitespace-nowrap text-washi">
             Enter
             <span aria-hidden="true" className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>

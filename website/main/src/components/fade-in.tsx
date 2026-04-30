@@ -42,18 +42,21 @@ export function FadeIn({
   const isReveal = variant === "reveal";
 
   useEffect(() => {
-    // Fire the observer ~120px BEFORE the element crosses the viewport so
-    // the transition can start painting and the compositor layer is ready
-    // before the user reaches it. Starting at the exact viewport edge
-    // dropped one frame on Safari.
+    // Fire the observer when the element is ~80px INTO the viewport
+    // (negative bottom rootMargin). Earlier we used +120px (firing
+    // before the viewport edge) for Safari compositor pre-warm, but
+    // that made animations complete before the user could see them on
+    // desktop — by the time they scrolled to the section, the reveal
+    // had already finished. Firing at -80px keeps the entrance
+    // visible while still leaving the compositor a moment to settle.
     //
-    // Reveal variant also widens the RIGHT margin 200% so off-viewport-right
+    // Reveal variant widens the RIGHT margin 200% so off-viewport-right
     // cards in horizontal scrollers (Journal strip, two-up) still intersect
     // when the section enters vertically. Otherwise card 2+ stays at opacity
     // 0 on iPhone until the user swipes.
     const rootMargin = isReveal
-      ? "0px 200% 120px 0px"
-      : "0px 0px 120px 0px";
+      ? "0px 200% -80px 0px"
+      : "0px 0px -80px 0px";
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

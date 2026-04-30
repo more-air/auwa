@@ -21,9 +21,10 @@ import { EASING } from "@/lib/motion";
 
 const STORAGE_KEY = "auwa.loader-shown";
 
-// Matches the newsletter/welcome-email background — keeps the entrance
-// moment in the same warm off-white family as our written voice.
-const LOADER_BG = "#f8f7f4";
+// Pulls from --color-surface so the loader, the page, the hero pre-
+// paint, and the email body always share one warm off-white. Change
+// the token in globals.css; everything else follows.
+const LOADER_BG = "var(--color-surface)";
 
 // Timeline (all times in ms, relative to mount).
 // Entry and exit share the same duration + easing so the fade-out feels as
@@ -164,11 +165,11 @@ export function EntranceLoader() {
       }}
     >
       <div
-        // Characters sit at 80% of text-void rather than 100%. Full
+        // Characters sit at 80% of text-sumi rather than 100%. Full
         // strength felt stamped onto the warm cream field; at /80 they
         // read as part of the scene and match the Aesop/Aman restraint
         // the rest of the brand is tuned to.
-        className="flex items-baseline text-void/80 font-jp-serif"
+        className="flex items-baseline text-sumi/80 font-jp-serif"
         style={{
           fontSize: "clamp(3.25rem, 10.5vw, 7.5rem)",
           letterSpacing: "0.18em",

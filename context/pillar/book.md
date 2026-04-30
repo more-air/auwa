@@ -1,4 +1,4 @@
-# AUWA Book
+# Auwa Book
 
 *Last Updated: 13 April 2026*
 
@@ -6,11 +6,11 @@
 
 ## THE FOUR BOOKS
 
-The AUWA illustrated story universe comprises four books, each following AUWA — a luminous being sent from the stars — as it encounters different aspects of Earth and reveals the Kokoro (heart/soul) hidden within all things.
+The Auwa illustrated story universe comprises four books, each following Auwa — a luminous being sent from the stars — as it encounters different aspects of Earth and reveals the Kokoro (heart/soul) hidden within all things.
 
-**Book 1: The Beginning** — AUWA arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microorganisms who explain that everything is connected. *Status: Complete. 18 pages, ~380 words. Fully revised. PDF: `book/1/AUWA01_8x10_Compressed.pdf`. Old version: `book/1/AUWA_01_Old.pdf`. Mockup: `/book/1` on the website.*
+**Book 1: The Beginning** — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microorganisms who explain that everything is connected. *Status: Complete. 18 pages, ~380 words. Fully revised. PDF: `book/1/Auwa01_8x10_Compressed.pdf`. Old version: `book/1/Auwa_01_Old.pdf`. Mockup: `/book/1` on the website.*
 
-**Book 2: Umi (The Ocean)** — AUWA explores the ocean, meets Key (coral), Lady (fish), and Rai (turtle), encounters ocean pollution and ghost nets, discovers the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale), and hears stories of humans from the sea creatures' perspective. *Status: Old version, 30 pages, ~1,500 words. Needs comprehensive revision. PDF: `book/2/AUWA_02_Old.pdf`. Mockup: `/book/2` on the website.*
+**Book 2: Umi (The Ocean)** — Auwa explores the ocean, meets Key (coral), Lady (fish), and Rai (turtle), encounters ocean pollution and ghost nets, discovers the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale), and hears stories of humans from the sea creatures' perspective. *Status: Old version, 30 pages, ~1,500 words. Needs comprehensive revision. PDF: `book/2/Auwa_02_Old.pdf`. Mockup: `/book/2` on the website.*
 
 **Book 3: [TBC]** — *Status: Not yet reviewed.*
 
@@ -24,13 +24,13 @@ The AUWA illustrated story universe comprises four books, each following AUWA �
 
 The old Book 1 was 30 pages with ~1,200 words. The revised Book 1 is 18 pages with ~380 words. The word count dropped by two-thirds. The emotional impact increased dramatically.
 
-**Reference files:** Compare `book/1/AUWA_01_Old.pdf` (old, 30 pages) with `book/1/AUWA01_8x10_Compressed.pdf` (revised, 18 pages) to see the transformation in full. The old version has speech bubbles, over-explained narration, and a 7-spread microorganism taxonomy. The new version is tight, atmospheric, and lets the illustrations carry the story.
+**Reference files:** Compare `book/1/Auwa_01_Old.pdf` (old, 30 pages) with `book/1/Auwa01_8x10_Compressed.pdf` (revised, 18 pages) to see the transformation in full. The old version has speech bubbles, over-explained narration, and a 7-spread microorganism taxonomy. The new version is tight, atmospheric, and lets the illustrations carry the story.
 
 **What was cut:**
 - Speech bubbles replaced with narration or sparse italicised dialogue
 - WAWA planet dialogue (3 spreads of "Did you feel that signal?" chatter → 1 spread)
-- AUWA-Earth pleasantries (3 spreads → 1 spread with a single line from Earth)
-- AUWA referring to itself in third person ("AUWA is going to Earth!!" → "I'm going to Earth!")
+- Auwa-Earth pleasantries (3 spreads → 1 spread with a single line from Earth)
+- Auwa referring to itself in third person ("Auwa is going to Earth!!" → "I'm going to Earth!")
 - Microorganism section (7 spreads of exposition → 2 spreads of philosophy)
 - The "five kinds of microorganisms" educational taxonomy (cut entirely)
 - Copy that described what the illustration already showed
@@ -41,7 +41,7 @@ The old Book 1 was 30 pages with ~1,200 words. The revised Book 1 is 18 pages wi
 - The Yaoyorozu no Kami message: "We are all connected, though you cannot see it"
 - Key narrative beats that earn their place
 - The song lyrics (condensed but preserved)
-- AUWA's farewell into the night sky
+- Auwa's farewell into the night sky
 
 ---
 
@@ -56,10 +56,10 @@ Maximum 2-3 sentences per spread. The old books average 4-6. If a spread has mor
 The single biggest quality improvement across all books. Rieko's art is painterly, atmospheric, and luminous — hard-edged speech bubbles with dotted borders sit on top of it like UI elements on a watercolour. Every piece of dialogue that matters should be delivered as direct speech within the narration or as standalone italicised text. Bluu saying "I feel so lonely" hits harder as a line of text beneath the image than trapped inside a grey circle.
 
 ### Show, don't explain
-The old copy describes what the images show. The revised copy tells the reader something the image can't — internal feeling, time passing, what a silence sounds like. "AUWA sensed something alive down there" adds to an image of a dark forest. "AUWA descended into the forest" restates it.
+The old copy describes what the images show. The revised copy tells the reader something the image can't — internal feeling, time passing, what a silence sounds like. "Auwa sensed something alive down there" adds to an image of a dark forest. "Auwa descended into the forest" restates it.
 
 ### Illustrations carry the narrative weight
-In Forsythe, the text tells you one thing and the image tells you more. The strongest moments in AUWA work this way already (the colour explosion, the purple sunset). The weakest moments have text restating what the image shows. Cut those restatements.
+In Forsythe, the text tells you one thing and the image tells you more. The strongest moments in Auwa work this way already (the colour explosion, the purple sunset). The weakest moments have text restating what the image shows. Cut those restatements.
 
 ### Dialogue is sparse and character-revealing
 Dialogue should reveal character, not move plot mechanics. "Go and see everything for yourself" (Earth's single line) carries more weight than three spreads of pleasantries. Every character gets a voice that sounds different from the narrator's voice — shorter sentences, simpler words, their own personality.
@@ -68,7 +68,7 @@ Dialogue should reveal character, not move plot mechanics. "Go and see everythin
 Alternate between full-bleed image spreads (minimal text) and text-forward pages. This creates breathing room. The emotional peak (Book 1: colour explosion) should be a full-bleed spread with almost no text. The quiet emotional moment (Bluu's loneliness) should have a single line carrying an entire spread.
 
 ### Cut third-person self-reference in dialogue
-Characters should say "I" not their own name. "Yes! I'm going to Earth!" not "Yes! AUWA is going to Earth!!"
+Characters should say "I" not their own name. "Yes! I'm going to Earth!" not "Yes! Auwa is going to Earth!!"
 
 ### Consolidate, don't sequence
 If three spreads show the same beat (meeting, greeting, explaining), consolidate to one. The reader doesn't need every step — they need the feeling.
@@ -120,7 +120,7 @@ Book 2 (Umi/Ocean) has the same structural issues as old Book 1, likely amplifie
 - **Exposition-heavy** — characters explain ocean pollution, coral bleaching, plastic nets in dialogue. This is the educational tendency that needs to become philosophical.
 - **Too many characters introduced too fast** — Key, Lady, Rai appear in rapid succession with formal introductions
 - **Environmental messaging is didactic** — "These strange objects began appearing in the sea" / "many problems for us and for the ocean's environment" reads like a report, not a story
-- **The emotional arc is buried** — the real story is: AUWA explores, finds beauty damaged, restores it, encounters deeper wisdom about connection. The pollution lecture obscures this.
+- **The emotional arc is buried** — the real story is: Auwa explores, finds beauty damaged, restores it, encounters deeper wisdom about connection. The pollution lecture obscures this.
 - **The dolphin memory sequence** (pages ~24-26) is actually interesting but buried under too much surrounding exposition
 - **Amo the whale** is the strongest emotional presence but arrives too late and gets too little space
 - **The book is 30 pages** — target is ~18 pages (matching Book 1)
@@ -130,7 +130,7 @@ Book 2 (Umi/Ocean) has the same structural issues as old Book 1, likely amplifie
 ## CROSS-BOOK CONTINUITY
 
 - The microorganisms from Book 1 reappear in Book 2 (Reco says "the soil microorganisms told us about you")
-- Each book ends with AUWA setting off on the next adventure
+- Each book ends with Auwa setting off on the next adventure
 - The Kokoro/light shower mechanic is consistent across all books
 - Eko Maeda is the author credit on all books
 - The "everything is connected" philosophy deepens with each book: land (Book 1) → sea (Book 2) → [TBC] (Book 3) → [TBC] (Book 4)

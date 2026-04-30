@@ -4,20 +4,20 @@ import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
 export const metadata = {
-  title: "AUWA App | Japanese Awareness Practice",
+  title: "Auwa App | Japanese Awareness Practice",
   description: "A daily Japanese awareness practice, guided by ancient philosophy. No advice, just attention. Add your email and we'll write when the app arrives.",
   openGraph: {
-    title: "AUWA App | Japanese Awareness Practice",
+    title: "Auwa App | Japanese Awareness Practice",
     description: "A daily Japanese awareness practice, guided by ancient philosophy. No advice, just attention.",
     url: "https://auwa.life/app",
-    siteName: "AUWA",
+    siteName: "Auwa",
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/og/app.jpg", width: 1200, height: 630, alt: "AUWA App - Japanese awareness practice" }],
+    images: [{ url: "/og/app.jpg", width: 1200, height: 630, alt: "Auwa App - Japanese awareness practice" }],
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "AUWA App | Japanese Awareness Practice",
+    title: "Auwa App | Japanese Awareness Practice",
     description: "A daily Japanese awareness practice, guided by ancient philosophy.",
     images: ["/og/app.jpg"],
   },
@@ -36,13 +36,13 @@ export default function AppPage() {
             <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-section shrink-0">
               <TextReveal
                 as="h1"
-                className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-void"
+                className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi"
                 stagger={90}
               >
                 Awareness, daily.
               </TextReveal>
               <FadeIn delay={400}>
-                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-void/60 max-w-[440px]">
+                <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-sumi/60 max-w-[440px]">
                   A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we&rsquo;ll write when the app arrives.
                 </p>
               </FadeIn>
@@ -56,7 +56,7 @@ export default function AppPage() {
             <div className="relative overflow-hidden flex-1 min-h-0">
               <ImageFade
                 src="/pillars/app.jpg"
-                alt="AUWA Kokoro Mirror app on a phone"
+                alt="Auwa Kokoro Mirror app on a phone"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"

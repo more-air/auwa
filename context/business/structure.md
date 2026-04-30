@@ -1,14 +1,14 @@
-# AUWA Structure
+# Auwa Structure
 
 *Last Updated: 16 April 2026*
 
-This file is the single reference for AUWA's corporate structure, intellectual property, trademarks, licensing, domains, and social accounts. Original documents are stored in `Dropbox/3 venture/auwa/admin/`.
+This file is the single reference for Auwa's corporate structure, intellectual property, trademarks, licensing, domains, and social accounts. Original documents are stored in `Dropbox/3 venture/auwa/admin/`.
 
 ---
 
 ## CORPORATE ENTITIES
 
-### AUWA Limited (IP Holding Company)
+### Auwa Limited (IP Holding Company)
 
 | Field | Detail |
 |-------|--------|
@@ -20,9 +20,9 @@ This file is the single reference for AUWA's corporate structure, intellectual p
 | Registered Address | 167-169 Great Portland Street, Fifth Floor, London, England, W1W 5PF |
 | Companies House | [View](https://find-and-update.company-information.service.gov.uk/company/17033727) |
 
-AUWA Limited owns all AUWA intellectual property and licenses it to More Air Limited for development and operations. Owning IP does not trigger "active" status. File dormant accounts annually (free, 5 minutes).
+Auwa Limited owns all Auwa intellectual property and licenses it to More Air Limited for development and operations. Owning IP does not trigger "active" status. File dormant accounts annually (free, 5 minutes).
 
-**Activation triggers:** Revenue exceeding ~£100k/year, outside investment, major B2B deal, or team expansion. On activation: license novates from More Air to AUWA Limited, domains/handles transfer, More Air becomes development partner.
+**Activation triggers:** Revenue exceeding ~£100k/year, outside investment, major B2B deal, or team expansion. On activation: license novates from More Air to Auwa Limited, domains/handles transfer, More Air becomes development partner.
 
 ### More Air Limited (Operating Company)
 
@@ -35,13 +35,13 @@ AUWA Limited owns all AUWA intellectual property and licenses it to More Air Lim
 | Shareholders | Rieko Vining (50%), Thomas Vining (50%) |
 | Website | moreair.co |
 
-More Air handles all AUWA commercial activity: website, app, store, marketing, revenue, and expenses. AUWA is operated under an exclusive worldwide license from AUWA Limited.
+More Air handles all Auwa commercial activity: website, app, store, marketing, revenue, and expenses. Auwa is operated under an exclusive worldwide license from Auwa Limited.
 
 ### How Money Flows
 
-More Air client work funds the founders separately. All AUWA revenue is received by More Air Limited and reinvested into growth. AUWA Limited receives no revenue while dormant. When AUWA becomes profitable, a royalty structure (5-10% of AUWA revenue from More Air to Tom + Rieko personally) should be added. Flagged for accountant review.
+More Air client work funds the founders separately. All Auwa revenue is received by More Air Limited and reinvested into growth. Auwa Limited receives no revenue while dormant. When Auwa becomes profitable, a royalty structure (5-10% of Auwa revenue from More Air to Tom + Rieko personally) should be added. Flagged for accountant review.
 
-More Air pays AUWA-related expenses (trademark filings, domains, hosting) and records these as operational costs.
+More Air pays Auwa-related expenses (trademark filings, domains, hosting) and records these as operational costs.
 
 ---
 
@@ -49,30 +49,30 @@ More Air pays AUWA-related expenses (trademark filings, domains, hosting) and re
 
 Following the traditional Japanese ukiyo-e model: eshi (artist) + hanmoto (publisher) as equal partnership.
 
-**Rieko Maeda, Creator (Eshi):** Japanese-born illustrator from Kansai, also known by her artist name Eko. Creator of the AUWA universe (2015 onwards). Native Japanese speaker. 20+ years design and illustration. Leads: character art, seasonal content, figure design, creative direction, Japanese craftsman outreach. (Legal name: Rieko Vining.)
+**Rieko Maeda, Creator (Eshi):** Japanese-born illustrator from Kansai, also known by her artist name Eko. Creator of the Auwa universe (2015 onwards). Native Japanese speaker. 20+ years design and illustration. Leads: character art, seasonal content, figure design, creative direction, Japanese craftsman outreach. (Legal name: Rieko Vining.)
 
 **Thomas Vining, Producer (Hanmoto):** Design technologist and brand strategist. 20+ years experience (Nokia, Apple, Sky). Built and operated a Japanese multi-merchant platform (2005-2007). Leads: app design and build, brand, business development, marketing, project oversight, store platform and operations.
 
-**Capacity:** Tuesday to Friday (3-4 day week, 10am-6pm). AUWA gets 60%, More Air 25%, ventures 10%. No work Monday. Health and relationship come before any deadline.
+**Capacity:** Tuesday to Friday (3-4 day week, 10am-6pm). Auwa gets 60%, More Air 25%, ventures 10%. No work Monday. Health and relationship come before any deadline.
 
 ---
 
 ## OWNERSHIP CHAIN (IP)
 
-1. Rieko + Tom created all AUWA IP (artwork, stories, name, character) from ~2015 onwards
-2. IP assigned from personal names to AUWA Limited via Assignment Agreement (23 February 2026)
-3. AUWA Limited licenses IP to More Air Limited for development/operations
+1. Rieko + Tom created all Auwa IP (artwork, stories, name, character) from ~2015 onwards
+2. IP assigned from personal names to Auwa Limited via Assignment Agreement (23 February 2026)
+3. Auwa Limited licenses IP to More Air Limited for development/operations
 4. More Air handles all commercial activity (website, app, store, marketing)
 
 ---
 
 ## TRADEMARKS
 
-### Word Mark: "AUWA" — Batch 1
+### Word Mark: "Auwa" — Batch 1
 
 | Field | Detail |
 |-------|--------|
-| Mark | AUWA (word mark) |
+| Mark | Auwa (word mark) |
 | Application No. | UK00004341028 |
 | Filed | 15 February 2026 |
 | Registry | UK IPO |
@@ -90,11 +90,11 @@ Following the traditional Japanese ukiyo-e model: eshi (artist) + hanmoto (publi
 
 **Expected registration:** ~May 2026 (2 months from advertisement date, if no opposition).
 
-### Word Mark: "AUWA" — Batch 2
+### Word Mark: "Auwa" — Batch 2
 
 | Field | Detail |
 |-------|--------|
-| Mark | AUWA (word mark) |
+| Mark | Auwa (word mark) |
 | Application No. | UK00004373944 |
 | Filed | 16 April 2026 |
 | Registry | UK IPO |
@@ -108,7 +108,7 @@ Following the traditional Japanese ukiyo-e model: eshi (artist) + hanmoto (publi
 - **Class 28:** Toys, games, collectible toys, collectible figures, collectible figurines, vinyl toys, designer toys, art toys, display figurines, decorative toy figures, limited edition collectible figures, blind box toys, character toys, ornamental toy figures, miniature figurines, toy figures featuring illustrated characters
 - **Class 35:** Online retail store services relating to wellness software, mobile applications, downloadable digital content, books, illustrated books, printed publications, art prints, posters, calendars, notebooks, stationery, greeting cards, decorative objects, figurines, works of art, ornaments, collectible toys, collectible figures, vinyl toys, designer toys, art toys, clothing, t-shirts, sweatshirts, hoodies, sweaters, jackets, hats, caps, scarves, socks
 
-**Combined word mark coverage:** Batch 1 + Batch 2 gives AUWA word mark protection across **7 classes** (9, 16, 20, 25, 28, 35, 41) in the UK.
+**Combined word mark coverage:** Batch 1 + Batch 2 gives Auwa word mark protection across **7 classes** (9, 16, 20, 25, 28, 35, 41) in the UK.
 
 ### TM3A Amendment — DECLINED
 
@@ -119,17 +119,17 @@ An attempt to add Classes 25, 28, 35 via TM3A form (~23 February 2026, £150) wa
 | Field | Detail |
 |-------|--------|
 | Form | TM16 |
-| Transfer | From Thomas Vining + Rieko Vining to AUWA Limited |
+| Transfer | From Thomas Vining + Rieko Vining to Auwa Limited |
 | Filed | ~24 February 2026 |
 | Cost | £50 |
 | Status | **Confirmed** (26 February 2026) |
 | Documents | `trademark/2 word mark/ownership/` |
 
-### Design Mark: AUWA Character
+### Design Mark: Auwa Character
 
 | Field | Detail |
 |-------|--------|
-| Mark | AUWA character silhouette (full, with arms) |
+| Mark | Auwa character silhouette (full, with arms) |
 | Application No. | UK00004373930 |
 | Filed | 16 April 2026 |
 | Registry | UK IPO |
@@ -146,18 +146,18 @@ Filed as standard black-on-white (not colour-specific) following the KAWS preced
 
 ### Evidence (Character Creation Dates)
 
-Evidence supporting Rieko's creation of the AUWA character from 2015 onwards, stored in `trademark/3 design mark/evidence/`:
+Evidence supporting Rieko's creation of the Auwa character from 2015 onwards, stored in `trademark/3 design mark/evidence/`:
 
 - **artwork/files/** — Original Illustrator files dated 2016-2020
 - **artwork/screenshots/** — File property screenshots showing creation dates
-- **linkedin/20170710/** — LinkedIn posts from July 2017 showing AUWA character publicly shared
+- **linkedin/20170710/** — LinkedIn posts from July 2017 showing Auwa character publicly shared
 - **gemini/** — Screenshots from AI chat proving character discussion predates filings
 
 ### Trademark Searches
 
-**WIPO Global Brand Database:** Clean. No conflicting marks in AUWA's target classes.
+**WIPO Global Brand Database:** Clean. No conflicting marks in Auwa's target classes.
 **Google Image Search:** No conflicting character designs found.
-**UK IPO:** Keyword search for "AUWA" returned zero results in relevant classes.
+**UK IPO:** Keyword search for "Auwa" returned zero results in relevant classes.
 Screenshots saved in `trademark/3 design mark/search/`.
 
 ---
@@ -178,10 +178,10 @@ Word mark provides ~80% of protection at ~30% of the cost. Design mark internati
 
 | Field | Detail |
 |-------|--------|
-| Existing Mark | "AUWA" registered in Japan by Juno International |
+| Existing Mark | "Auwa" registered in Japan by Juno International |
 | Japan Application No. | 第6712100号 |
 | Juno's Classes | 3 (cosmetics), 10 (medical), 14 (jewellery), 18 (leather goods), 25 (clothing) |
-| Overlap with AUWA | **None in core classes** |
+| Overlap with Auwa | **None in core classes** |
 | Documents | `trademark/2 word mark/exclusions/juno-international.txt` |
 
 **Safe in Japan:** App, books, figurines, wooden objects, digital experiences, entertainment, toys/collectibles.
@@ -190,7 +190,7 @@ Word mark provides ~80% of protection at ~30% of the cost. Design mark internati
 
 ### Other Conflicts
 
-**WashTec** (industrial cleaning) owns "AUWA" in their industry. Zero class overlap. Risk of challenge: 5-10%.
+**WashTec** (industrial cleaning) owns "Auwa" in their industry. Zero class overlap. Risk of challenge: 5-10%.
 **Sony** had an expired Class 9 filing (expired 2017). No longer relevant.
 
 ---
@@ -209,25 +209,25 @@ Copyright protects the specific artwork (stops exact copying). Trademark (design
 
 ## LICENSING AGREEMENTS
 
-### IP Assignment: Personal to AUWA Limited (Active)
+### IP Assignment: Personal to Auwa Limited (Active)
 
 | Field | Detail |
 |-------|--------|
 | Date | 23 February 2026 |
 | Assignors | Rieko Vining + Thomas Vining |
-| Assignee | AUWA Limited (Company No. 17033727) |
+| Assignee | Auwa Limited (Company No. 17033727) |
 | Consideration | £1 nominal |
-| Covers | UK Trademark UK00004341028, all copyright in AUWA character/illustrations/books/stories, all future IP rights |
+| Covers | UK Trademark UK00004341028, all copyright in Auwa character/illustrations/books/stories, all future IP rights |
 | Document | `trademark/1 license/20260223_auwa_assignment.pdf` |
 
-### Operating License: AUWA Limited to More Air (Active)
+### Operating License: Auwa Limited to More Air (Active)
 
 | Field | Detail |
 |-------|--------|
 | Date | 23 February 2026 |
-| Licensor | AUWA Limited (Company No. 17033727) |
+| Licensor | Auwa Limited (Company No. 17033727) |
 | Licensee | More Air Limited (Company No. 7051794) |
-| Grant | Exclusive, worldwide license to use, develop, and commercialise AUWA character, trademarks, and associated IP |
+| Grant | Exclusive, worldwide license to use, develop, and commercialise Auwa character, trademarks, and associated IP |
 | Sublicensing | Permitted (e.g. for hotel B2B) |
 | Consideration | £1 nominal (royalty-free for now) |
 | Termination | 30 days written notice by either party |
@@ -277,7 +277,7 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 | Word mark Batch 1 (Classes 9, 16, 20, 41) | £320 | Paid |
 | TM3A amendment (declined) | £150 | Paid (refunded) |
 | TM16 ownership transfer | £50 | Paid |
-| AUWA Limited incorporation | ~£50 | Done |
+| Auwa Limited incorporation | ~£50 | Done |
 | Domains (~11) | ~£51 | Secured |
 | Word mark Batch 2 (Classes 25, 28, 35) | £325 | Paid |
 | Design mark UK (Classes 20, 28) | £265 | Paid |
@@ -291,7 +291,7 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 
 | Date | Event |
 |------|-------|
-| 15 Feb 2026 | AUWA Limited incorporated. Word mark Batch 1 filed (UK00004341028) |
+| 15 Feb 2026 | Auwa Limited incorporated. Word mark Batch 1 filed (UK00004341028) |
 | 23 Feb 2026 | IP assignment + license agreements signed |
 | 24 Feb 2026 | TM16 ownership transfer filed |
 | 26 Feb 2026 | TM16 confirmed |
@@ -310,7 +310,7 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 2. ~~**Word mark additional classes**~~ — **DONE.** 16 April 2026. UK00004373944. Classes 25, 28, 35. £325.
 3. **Madrid Protocol filing** — Word mark in Japan, USA, EU. Must file by **15 August 2026**. Budget £650-1,050. Skip Class 25 in Japan (Juno conflict).
 4. **Word mark Batch 1 opposition period** — Monitor for any opposition on UK00004341028. Expected to clear ~May 2026.
-5. **Royalty structure** — When AUWA generates revenue, add royalty terms to the More Air license. Accountant review needed.
+5. **Royalty structure** — When Auwa generates revenue, add royalty terms to the More Air license. Accountant review needed.
 6. **Social handle registration** — Secure across remaining platforms (see handles table above).
 
 ---
@@ -318,7 +318,7 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 ## LEGAL PRINCIPLES (Reference)
 
 - **No attorney hired.** All filings done DIY to date.
-- **Personal ownership = personal liability.** Corrected by assigning IP to AUWA Limited.
+- **Personal ownership = personal liability.** Corrected by assigning IP to Auwa Limited.
 - **Use in commerce requirement:** Must actually use trademark in each registered class within 5 years or risk cancellation for non-use.
 - **Paris Convention:** First filing gives 6 months to file in other jurisdictions with the same priority date (15 Feb 2026).
 - **Nominal consideration (£1):** Makes agreements legally binding under English contract law.
@@ -332,9 +332,9 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 |---|---|
 | Tom Vining, Producer | tom@moreair.co |
 | Rieko Maeda, Creator | rieko@moreair.co |
-| AUWA | hello@auwa.life |
+| Auwa | hello@auwa.life |
 | More Air | moreair.co |
-| Companies House | AUWA Ltd 17033727, More Air Ltd 7051794 |
+| Companies House | Auwa Ltd 17033727, More Air Ltd 7051794 |
 
 ---
 
@@ -348,8 +348,8 @@ Dropbox/3 venture/auwa/admin/
 ├── trademark/
 │   ├── 1 license/
 │   │   ├── _archive/                    — Original (superseded) license
-│   │   ├── 20260223_auwa_assignment.*   — IP Assignment: personal → AUWA Ltd
-│   │   └── 20260223_auwa_license.*      — Operating license: AUWA Ltd → More Air Ltd
+│   │   ├── 20260223_auwa_assignment.*   — IP Assignment: personal → Auwa Ltd
+│   │   └── 20260223_auwa_license.*      — Operating license: Auwa Ltd → More Air Ltd
 │   ├── 2 word mark/
 │   │   ├── application/
 │   │   │   ├── batch 1/                 — Original 4-class filing + examination + advertisement
@@ -357,7 +357,7 @@ Dropbox/3 venture/auwa/admin/
 │   │   ├── exclusions/
 │   │   │   ├── juno-international.txt   — Japan conflict analysis
 │   │   │   └── wipo-results.png         — WIPO search results
-│   │   └── ownership/                   — TM16 transfer to AUWA Ltd
+│   │   └── ownership/                   — TM16 transfer to Auwa Ltd
 │   └── 3 design mark/
 │       ├── application/                 — Design mark filing (16 Apr 2026)
 │       ├── artwork/                     — Prepared character silhouettes

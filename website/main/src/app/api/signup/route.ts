@@ -3,10 +3,10 @@ import WelcomeEmail from "@/emails/welcome";
 import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 const SUBJECT_MAP: Record<string, string> = {
-  newsletter: "Welcome to AUWA",
-  "app-waitlist": "You're on the AUWA App waitlist",
-  "store-waitlist": "A note from AUWA.",
-  "book-waitlist": "A note from AUWA.",
+  newsletter: "Welcome to Auwa",
+  "app-waitlist": "You're on the Auwa App waitlist",
+  "store-waitlist": "A note from Auwa.",
+  "book-waitlist": "A note from Auwa.",
 };
 
 export async function POST(request: Request) {
@@ -76,9 +76,9 @@ export async function POST(request: Request) {
         const { render } = await import("@react-email/render");
         const html = await render(WelcomeEmail({ source: validSource }));
         await resend.emails.send({
-          from: "AUWA <hello@auwa.life>",
+          from: "Auwa <hello@auwa.life>",
           to: email,
-          subject: SUBJECT_MAP[source] || "Welcome to AUWA",
+          subject: SUBJECT_MAP[source] || "Welcome to Auwa",
           html,
         });
       } catch (err) {

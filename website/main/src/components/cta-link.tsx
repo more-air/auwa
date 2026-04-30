@@ -14,24 +14,36 @@ type Props = {
    * Legacy `"bordered"` maps to `"secondary"` for backwards compatibility.
    */
   variant?: "primary" | "secondary" | "plain" | "bordered";
+  /** "light" (default) renders void text on light surfaces; "dark"
+   *  renders washi text on Yoru / void surfaces. */
+  theme?: "light" | "dark";
 };
 
 /**
- * AUWA CTA link with a text-roll hover: the label lifts up and is
+ * Auwa CTA link with a text-roll hover: the label lifts up and is
  * replaced by the same label rising from below. Three style variants.
  */
-export function CtaLink({ href, children, className = "", variant = "primary" }: Props) {
+export function CtaLink({
+  href,
+  children,
+  className = "",
+  variant = "primary",
+  theme = "light",
+}: Props) {
   const base =
     "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500 ease-text-roll";
 
   // `bordered` stays as a legacy alias for the now-standard `secondary`.
   const resolved = variant === "bordered" ? "secondary" : variant;
 
-  const primary =
-    "text-void border border-void/15 px-6 py-3 hover:border-void/40";
-  const secondary =
-    "text-void border border-void/15 px-6 py-3 hover:border-void/40";
-  const plain = "text-void/50 hover:text-void";
+  const isDark = theme === "dark";
+  const primary = isDark
+    ? "text-washi border border-washi/20 px-6 py-3 hover:border-washi/45"
+    : "text-sumi border border-sumi/15 px-6 py-3 hover:border-sumi/40";
+  const secondary = primary;
+  const plain = isDark
+    ? "text-washi/55 hover:text-washi"
+    : "text-sumi/50 hover:text-sumi";
 
   const variantClasses =
     resolved === "primary" ? primary : resolved === "plain" ? plain : secondary;

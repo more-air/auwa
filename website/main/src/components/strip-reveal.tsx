@@ -49,7 +49,7 @@ export function StripReveal({
           io.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px 120px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -80px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();

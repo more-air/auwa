@@ -1,4 +1,4 @@
-# AUWA Reference
+# Auwa Reference
 
 *Last Updated: 1 April 2026*
 *Load when working on illustration workflow, archival strategy, store operations, or operational detail not covered in the business plan.*
@@ -40,22 +40,22 @@ Rieko's archive sketches (20-30 total, 1-2 hours each): key book scenes, charact
 Multi-merchant platform selling Japanese vinyl toys, design objects, and limited editions to Western buyers. Pre-Shopify custom CMS: merchants had individual logins, uploaded products in Japanese, system auto-converted to English + GBP. Tom standardised all product photography (extracted to white backgrounds in Photoshop for consistent premium look). PayPal payments routed to individual merchant accounts. Direct shipping from Japan via EMS with tracking emails. Operated successfully for several years, including distributing KAWS's first international releases. Key lesson: curation and visual consistency made products from dozens of different merchants feel like they came from one premium source.
 
 ### Monolise (~2018)
-Japanese craftsman store designed by More Air. Name combines "Mono" (product in Japanese) + "Globalise" — connecting local craftspeople with a global audience. Anti-throwaway culture positioning: lifetime products made by masters of their craft. Minimal design (Butler serif + Basic Commercial typefaces) that lets products speak. Built on Shopify. Tom and Rieko spent a month in Japan meeting master craftsmen (knife makers, ceramic artists, textile artisans etc.). Extensive photography of craftsmen at work. Several merchants were keen to participate. Project shelved because: (a) yen was too strong, making products too expensive for Western buyers, and (b) More Air client work was going well. The photography, merchant relationships, design work, and concept are all dormant assets ready to be revived under AUWA. Now feasible: weak yen makes Japanese products more competitive, and Shopify + Stripe Connect replaces the need for custom CMS.
+Japanese craftsman store designed by More Air. Name combines "Mono" (product in Japanese) + "Globalise" — connecting local craftspeople with a global audience. Anti-throwaway culture positioning: lifetime products made by masters of their craft. Minimal design (Butler serif + Basic Commercial typefaces) that lets products speak. Built on Shopify. Tom and Rieko spent a month in Japan meeting master craftsmen (knife makers, ceramic artists, textile artisans etc.). Extensive photography of craftsmen at work. Several merchants were keen to participate. Project shelved because: (a) yen was too strong, making products too expensive for Western buyers, and (b) More Air client work was going well. The photography, merchant relationships, design work, and concept are all dormant assets ready to be revived under Auwa. Now feasible: weak yen makes Japanese products more competitive, and Shopify + Stripe Connect replaces the need for custom CMS.
 
-### For AUWA Store
-AI tools (Remove.bg, Claude Vision) replace the manual Photoshop work for image standardisation. Shopify Multi-Vendor handles merchant dashboards, orders, shipping, tracking emails. Shopify Duty & Import Taxes auto-calculates customs at checkout (transparent landed-cost pricing). Stripe Connect handles direct payouts to Japanese merchants. No custom build needed. The Monolise design philosophy (minimal, let products speak, anti-throwaway positioning) carries directly into the AUWA Store aesthetic.
+### For Auwa Store
+AI tools (Remove.bg, Claude Vision) replace the manual Photoshop work for image standardisation. Shopify Multi-Vendor handles merchant dashboards, orders, shipping, tracking emails. Shopify Duty & Import Taxes auto-calculates customs at checkout (transparent landed-cost pricing). Stripe Connect handles direct payouts to Japanese merchants. No custom build needed. The Monolise design philosophy (minimal, let products speak, anti-throwaway positioning) carries directly into the Auwa Store aesthetic.
 
 ---
 
 ## Fin DAC Relationship
 
-Irish urban artist, ~96K Instagram followers. Known for bold stencil portraits. Personal friend of Tom and Rieko. Already visited his studio — he created a stencil of AUWA (the character). Loves the AUWA concept, has been encouraging Rieko to release the work. Also developing his own story world (Girls of Dak Town). Warm collaboration lead for Instagram growth: collab post featuring the stencil session could significantly boost reach. Contact after Instagram relaunch with polished content.
+Irish urban artist, ~96K Instagram followers. Known for bold stencil portraits. Personal friend of Tom and Rieko. Already visited his studio — he created a stencil of Auwa (the character). Loves the Auwa concept, has been encouraging Rieko to release the work. Also developing his own story world (Girls of Dak Town). Warm collaboration lead for Instagram growth: collab post featuring the stencil session could significantly boost reach. Contact after Instagram relaunch with polished content.
 
 ---
 
 ## Nokia Animaru Precedent
 
-Tom and Rieko developed Animaru for Nokia San Francisco (~2014): a character-based wellness app where an illustrated digital character reflected the user's health metrics, changing visual form based on data pulled from health apps. Concept was loved internally but never released (common with Nokia conceptual projects). Directly relevant to AUWA's approach — character-based emotional reflection is the same DNA. Useful as private validation in pitch decks and investor/partner conversations. Not for public promotion (focus on AUWA as fresh, not derivative).
+Tom and Rieko developed Animaru for Nokia San Francisco (~2014): a character-based wellness app where an illustrated digital character reflected the user's health metrics, changing visual form based on data pulled from health apps. Concept was loved internally but never released (common with Nokia conceptual projects). Directly relevant to Auwa's approach — character-based emotional reflection is the same DNA. Useful as private validation in pitch decks and investor/partner conversations. Not for public promotion (focus on Auwa as fresh, not derivative).
 
 ---
 
@@ -63,15 +63,15 @@ Tom and Rieko developed Animaru for Nokia San Francisco (~2014): a character-bas
 
 **KAWS:** Start with authentic IP. Create cultural disruption. Limited physical objects. Seek cultural validation (exhibitions, not just sales). Strategic collabs. Instagram moments. Tom's direct experience distributing KAWS's first international releases gives unique insight.
 
-**Hodinkee:** Content-first authority building in a niche (mechanical watches) that shouldn't have thrived in the digital age — but did precisely because the digital age created hunger for craft. Blog → commerce → community → acquisition. Proves that as technology accelerates, audiences develop deeper appreciation for hand-made objects. AUWA Store follows the same logic for Japanese craft.
+**Hodinkee:** Content-first authority building in a niche (mechanical watches) that shouldn't have thrived in the digital age — but did precisely because the digital age created hunger for craft. Blog → commerce → community → acquisition. Proves that as technology accelerates, audiences develop deeper appreciation for hand-made objects. Auwa Store follows the same logic for Japanese craft.
 
 **Labubu:** Build collector psychology (31 sub-expressions to collect). Mystery/reveal (blind Kokoro revelation). Chase variants (special seasonal editions). Distribute strategically (hotel B2B is unique channel).
 
-**Goop:** Multi-category lifestyle brand precedent. Launched as newsletter (2008), added e-commerce (2012), apps (2013), physical stores (2017). Proves wellness + curated retail + storytelling work under one brand. AUWA's advantage: cultural authenticity and depth Goop lacks.
+**Goop:** Multi-category lifestyle brand precedent. Launched as newsletter (2008), added e-commerce (2012), apps (2013), physical stores (2017). Proves wellness + curated retail + storytelling work under one brand. Auwa's advantage: cultural authenticity and depth Goop lacks.
 
 **Snow Peak:** Japanese outdoor brand that became lifestyle brand. Gear + camping experiences + community events + restaurants. Proves Japanese brand can export lifestyle philosophy (not just products) internationally. Revenue ~$200M+.
 
-**Agentic future:** As agents handle cognitive tasks, AUWA handles meaning. Utility apps become obsolete; relationship-based products cannot be automated away.
+**Agentic future:** As agents handle cognitive tasks, Auwa handles meaning. Utility apps become obsolete; relationship-based products cannot be automated away.
 
 ---
 
@@ -97,7 +97,7 @@ Tom and Rieko developed Animaru for Nokia San Francisco (~2014): a character-bas
 ### Matsuba Tomi — Folk House Inn, Japan
 **Source:** [YouTube: Matsuba Tomi interview](https://www.youtube.com/watch?v=rK4-msUbl2c) (April 2026)
 
-Matsuba Tomi runs a folk house inn in Japan. Her words align directly with AUWA's philosophy and were a catalyst for refining the brand's messaging direction. Key extracts:
+Matsuba Tomi runs a folk house inn in Japan. Her words align directly with Auwa's philosophy and were a catalyst for refining the brand's messaging direction. Key extracts:
 
 **On real abundance:** "Real abundance isn't about things. It's the abundance of the heart. Being somewhere you feel calm, when you have peace of mind. A time and place of spiritual abundance. We're in an era where that is what's needed most."
 
@@ -120,7 +120,7 @@ These words informed the April 2026 messaging refinement: shifting from explicit
 ## Document Reference
 
 - **Original Word docs (March 2026):** Archived in Dropbox at `3 venture/auwa/documents/20260313/`
-- **Earlier business plan (Feb 2026):** `3 venture/auwa/documents/20260224/20260224-AUWA-Business-2026.docx` — more ambitious scope (72 characters, hotel B2B Year 1, £191k Year 1 target). Superseded by March plan.
+- **Earlier business plan (Feb 2026):** `3 venture/auwa/documents/20260224/20260224-Auwa-Business-2026.docx` — more ambitious scope (72 characters, hotel B2B Year 1, £191k Year 1 target). Superseded by March plan.
 - **Grok strategy chat (March 2026):** `3 venture/auwa/documents/_chat/20260331-grok.txt` — riffing session that crystallised the multi-pillar brand concept (app + store + journal + book), Instagram-first strategy, and store-as-marketplace model.
-- **Original Stories:** AUWA_01-04_E_Compressed.pdf
+- **Original Stories:** Auwa_01-04_E_Compressed.pdf
 - **Archived context summaries:** `context/archive/` (product.md, strategy.md, reference.md from March 2026)

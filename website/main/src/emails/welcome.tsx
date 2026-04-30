@@ -18,36 +18,36 @@ const sourceContent = {
   newsletter: {
     preview: "Something quiet is on its way.",
     heading: "Stay close.",
-    body: "You've joined a small group of people building a more aware life. We send occasional letters on Japanese craft, seasonal living, and the philosophy behind AUWA. Nothing noisy. Just things worth reading.",
+    body: "You've joined a small group of people building a more aware life. We send occasional letters on Japanese craft, seasonal living, and the philosophy behind Auwa. Nothing noisy. Just things worth reading.",
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics in afternoon light",
     cta: null,
     ctaUrl: null,
   },
   "app-waitlist": {
-    preview: "You're on the AUWA App waitlist.",
+    preview: "You're on the Auwa App waitlist.",
     heading: "A practice is taking shape.",
-    body: "The AUWA app is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
+    body: "The Auwa app is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
     image: `${BASE_URL}/pillars/app.jpg`,
-    imageAlt: "AUWA awareness app",
+    imageAlt: "Auwa awareness app",
     cta: "Read the journal",
     ctaUrl: `${BASE_URL}/journal`,
   },
   "store-waitlist": {
-    preview: "You're on the AUWA Store waitlist.",
+    preview: "You're on the Auwa Store waitlist.",
     heading: "Made by hand, chosen with care.",
-    body: "The AUWA Store will bring together Japanese craftsman objects and our own signed figure editions — small, hand-finished batches made in house. We'll write when the doors open, and you're in the draw to win our first edition.",
+    body: "The Auwa Store will bring together Japanese craftsman objects and our own signed figure editions — small, hand-finished batches made in house. We'll write when the doors open, and you're in the draw to win our first edition.",
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics and wooden bowl in afternoon light",
     cta: "Read the journal",
     ctaUrl: `${BASE_URL}/journal`,
   },
   "book-waitlist": {
-    preview: "You're on the AUWA Book waitlist.",
+    preview: "You're on the Auwa Book waitlist.",
     heading: "Four stories, one light.",
-    body: "Illustrated stories following AUWA the character as it shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
+    body: "Illustrated stories following Auwa the character as it shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
     image: `${BASE_URL}/pillars/book.jpg`,
-    imageAlt: "AUWA: The Beginning illustrated book",
+    imageAlt: "Auwa: The Beginning illustrated book",
     cta: "Read the journal",
     ctaUrl: `${BASE_URL}/journal`,
   },
@@ -74,7 +74,7 @@ export default function WelcomeEmail({
         <Container style={container}>
           {/* Logo */}
           <Section style={logoSection}>
-            <Text style={wordmark}>AUWA</Text>
+            <Text style={wordmark}>Auwa</Text>
           </Section>
 
           {/* Hero image */}

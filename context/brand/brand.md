@@ -1,41 +1,41 @@
-# AUWA Brand
+# Auwa Brand
 
-*Created: April 2026. The working brand reference for all AUWA touchpoints.*
+*Created: April 2026. The working brand reference for all Auwa touchpoints.*
 *Load when working on visual design, social content, brand decisions, or any new touchpoint.*
 
 ---
 
 ## 1. Brand Essence
 
-AUWA (あうわ) — "the harmony between the unseen and the seen." Kokoro (心) is the holistic Japanese concept that holds heart, mind, soul, and spirit as one undivided whole. The brand makes the invisible visible: invisible emotions (app), invisible craftsmanship (store), invisible Kokoro within all living things (stories).
+Auwa (あうわ) — "the harmony between the unseen and the seen." Kokoro (心) is the holistic Japanese concept that holds heart, mind, soul, and spirit as one undivided whole. The brand makes the invisible visible: invisible emotions (app), invisible craftsmanship (store), invisible Kokoro within all living things (stories).
 
 The brand feels like: a quiet room in a Japanese temple at dusk. Dark, warm, still. Then light enters.
 
 **Brand reference points:**
 
-- **Aesop** — Luxury minimalism, craft-forward. Dark interiors, serif type, every store feels like the same calm room. The gold standard for "premium through restraint." AUWA's app and social should feel like walking into an Aesop store: you immediately know someone cared about every detail.
-- **Kinfolk** — Editorial calm, intentional living. Wide-tracked serif wordmark. Generous white space. Photography that breathes. The confidence to leave half the page empty. AUWA's typography and spacing should carry this same unhurried authority.
-- **Cereal** — Refined design magazine. Restrained colour palette, serif headlines, atmospheric travel photography. The exact intersection of design culture and wanderlust that AUWA's audience inhabits.
-- **Hoshinoya** — Japanese luxury hospitality. Dark, warm, nature-integrated. Space as design. Shows how Japanese premium doesn't need to be austere — it can be warm and inviting while remaining minimal. AUWA's dark palette should feel this way: enveloping, not cold.
-- **Studio Ghibli** — Warmth beneath simplicity. Hand-drawn worlds that adults take as seriously as children. The precedent for illustrated content that bypasses cynicism. AUWA's illustration integration follows this path.
-- **Aman Resorts** — "Less is more" luxury. No logos on the building. The brand exists in the experience, not the signage. AUWA should feel like this: the brand recedes, the experience comes forward.
+- **Aesop** — Luxury minimalism, craft-forward. Dark interiors, serif type, every store feels like the same calm room. The gold standard for "premium through restraint." Auwa's app and social should feel like walking into an Aesop store: you immediately know someone cared about every detail.
+- **Kinfolk** — Editorial calm, intentional living. Wide-tracked serif wordmark. Generous white space. Photography that breathes. The confidence to leave half the page empty. Auwa's typography and spacing should carry this same unhurried authority.
+- **Cereal** — Refined design magazine. Restrained colour palette, serif headlines, atmospheric travel photography. The exact intersection of design culture and wanderlust that Auwa's audience inhabits.
+- **Hoshinoya** — Japanese luxury hospitality. Dark, warm, nature-integrated. Space as design. Shows how Japanese premium doesn't need to be austere — it can be warm and inviting while remaining minimal. Auwa's dark palette should feel this way: enveloping, not cold.
+- **Studio Ghibli** — Warmth beneath simplicity. Hand-drawn worlds that adults take as seriously as children. The precedent for illustrated content that bypasses cynicism. Auwa's illustration integration follows this path.
+- **Aman Resorts** — "Less is more" luxury. No logos on the building. The brand exists in the experience, not the signage. Auwa should feel like this: the brand recedes, the experience comes forward.
 - **Monocle** — Tyler Brûlé's editorial worldview extended into products, retail, and radio. One coherent taste level across every touchpoint. Serif masthead, clean layouts. Proves that editorial authority translates into commerce.
 - **Mubi** — Film streaming platform with a dark, cinematic UI. Serif display type over moody imagery. Proves that dark interfaces with serif typography can feel premium and inviting for a digital product.
 
-**What AUWA is not:** Headspace-style illustration pop. Wellness-brand pastels. Busy Japanese maximalism. Tech-startup energy. Anything with a gradient that screams "app."
+**What Auwa is not:** Headspace-style illustration pop. Wellness-brand pastels. Busy Japanese maximalism. Tech-startup energy. Anything with a gradient that screams "app."
 
-### How to describe AUWA (the three-layer messaging strategy)
+### How to describe Auwa (the three-layer messaging strategy)
 
 Three descriptors, each with a different job. They don't compete — they live at different depths and are used in different contexts. Established April 2026 after testing phrases on new audiences.
 
 | Layer | Phrase | Where it's used | Why |
 |-------|--------|-----------------|-----|
-| **Discovery** | **Japanese lifestyle brand** | Meta descriptions, About page prose, Instagram bio, press briefings, pitch decks, the dinner-party answer | Instantly legible to a new visitor. Places AUWA next to Kinfolk, Monocle, Goop in their mental shelf. Maps directly to high-volume search terms. |
-| **Claim** | **Japanese Philosophy of Kokoro** | Homepage title tag, homepage H1, top-level brand claim, taglines | AUWA's unique ground. "Kokoro" is a low-competition word the brand essentially owns; "Japanese Philosophy" is the bigger bucket we compete in. This is the phrase that differentiates us from every other lifestyle brand. |
-| **Voice** | **Japanese living** | Editorial prose in the journal, About page narrative, newsletter subject lines and body copy, Instagram captions, anything written in the brand's own voice | Aspirational, not category-descriptive. How AUWA talks to its own audience — not what it IS, but how you might live. |
+| **Discovery** | **Japanese lifestyle brand** | Meta descriptions, About page prose, Instagram bio, press briefings, pitch decks, the dinner-party answer | Instantly legible to a new visitor. Places Auwa next to Kinfolk, Monocle, Goop in their mental shelf. Maps directly to high-volume search terms. |
+| **Claim** | **Japanese Philosophy of Kokoro** | Homepage title tag, homepage H1, top-level brand claim, taglines | Auwa's unique ground. "Kokoro" is a low-competition word the brand essentially owns; "Japanese Philosophy" is the bigger bucket we compete in. This is the phrase that differentiates us from every other lifestyle brand. |
+| **Voice** | **Japanese living** | Editorial prose in the journal, About page narrative, newsletter subject lines and body copy, Instagram captions, anything written in the brand's own voice | Aspirational, not category-descriptive. How Auwa talks to its own audience — not what it IS, but how you might live. |
 
 Rules:
-- **Never lead with "lifestyle brand" inside AUWA's own editorial voice** — that's marketing-speak. Use it when speaking *about* AUWA to outsiders.
+- **Never lead with "lifestyle brand" inside Auwa's own editorial voice** — that's marketing-speak. Use it when speaking *about* Auwa to outsiders.
 - **Never lead with "Kokoro" in first-impression discovery copy** — it raises a question ("what's Kokoro?") before it answers one. Use it after you've earned the reader's attention.
 - **"Japanese living" is a tone, not a category** — it's how the prose feels, not how the brand sells itself.
 
@@ -47,7 +47,7 @@ Writers moving between contexts (press → web → newsletter → journal → In
 
 ### The Wordmark
 
-The AUWA logo is the wordmark itself — the letters A-U-W-A set in EB Garamond with wide tracking. No separate symbol, no icon, no monogram. The word is the logo.
+The Auwa logo is the wordmark itself — the letters A-U-W-A set in EB Garamond with wide tracking. No separate symbol, no icon, no monogram. The word is the logo.
 
 The wordmark works because:
 - The natural symmetry of A-U-W-A mirrors itself (the two A's as bookends, U-W as the centre)
@@ -59,7 +59,7 @@ The wordmark works because:
 - **Typeface:** EB Garamond (currently rendered as SVG on the website)
 - **Case:** All uppercase
 - **Letter-spacing:** 0.25em
-- **Colour:** void (oklch 0.08 0.025 250) on light backgrounds; white (inverted) on dark backgrounds
+- **Colour:** sumi (`oklch(0.10 0.022 235)`) on light backgrounds; washi (`oklch(0.928 0.020 80)`) on Yoru-dark backgrounds. Sumi was renamed from `void` (April 2026) and softened to share hue 235 with Yoru, so the dark text and the dark surface read as one tonal family.
 - **Size:** 20px height on mobile, 22px on desktop (website header)
 
 **Minimum clear space:** The height of the letter "U" on all sides.
@@ -74,7 +74,7 @@ The wordmark works because:
 
 The wordmark at social icon scale (110x110px display). Two options to test:
 
-**Option A:** The full "AUWA" wordmark centred in a dark circle (void background). Works if the tracking is tight enough to read at small sizes.
+**Option A:** The full "Auwa" wordmark centred in a dark circle (void background). Works if the tracking is tight enough to read at small sizes.
 
 **Option B:** A single "A" in Cormorant Light, centred in a dark circle. Cleaner at icon scale, still recognisably the brand.
 
@@ -90,15 +90,15 @@ If the brand grows to the point where a bespoke mark would add value (physical p
 
 ### The Decision: EB Garamond (Locked)
 
-**EB Garamond** was chosen as AUWA's primary serif after testing against Cormorant, Playfair Display, and DM Serif Display. It carries real historical weight (based on Claude Garamond's original 16th-century designs), reads beautifully at both display and body sizes, and has the scholarly, deep character that suits a philosophy-forward brand. More readable than Cormorant at body sizes, more refined than Playfair at display sizes.
+**EB Garamond** was chosen as Auwa's primary serif after testing against Cormorant, Playfair Display, and DM Serif Display. It carries real historical weight (based on Claude Garamond's original 16th-century designs), reads beautifully at both display and body sizes, and has the scholarly, deep character that suits a philosophy-forward brand. More readable than Cormorant at body sizes, more refined than Playfair at display sizes.
 
 Available via Google Fonts, loaded through `next/font` with `display: swap`. Weights: 400, 500, 600, 700. Styles: normal, italic.
 
-**Future consideration:** If the brand reaches the point where a premium foundry font adds value (physical print, packaging), Canela (Commercial Type) or Tiempos (Klim) would be the natural upgrades — they're the typefaces AUWA's reference brands actually use. Year 2 investment at earliest.
+**Future consideration:** If the brand reaches the point where a premium foundry font adds value (physical print, packaging), Canela (Commercial Type) or Tiempos (Klim) would be the natural upgrades — they're the typefaces Auwa's reference brands actually use. Year 2 investment at earliest.
 
 ### Primary Serif: EB Garamond (Display + Editorial)
 
-The voice of AUWA. Used for all brand-level, emotional, and editorial text. Registered as `--font-display` / `font-display` in Tailwind.
+The voice of Auwa. Used for all brand-level, emotional, and editorial text. Registered as `--font-display` / `font-display` in Tailwind.
 
 - **Regular/400:** Headlines, subheadlines, brand copy, article body, about page prose, pullquotes — the default weight for everything
 - **Medium/500:** Occasional emphasis (sparingly)
@@ -151,7 +151,7 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 
 ### The Principle
 
-AUWA lives in darkness. Light comes from within — from the Kokoro being revealed. The brand's default state is dark and quiet. Colour enters through gradients, glows, and the Yamato emotional states. This mirrors the app experience: you arrive in darkness, and AUWA's light shower reveals your Kokoro in colour.
+Auwa lives in darkness. Light comes from within — from the Kokoro being revealed. The brand's default state is dark and quiet. Colour enters through gradients, glows, and the Yamato emotional states. This mirrors the app experience: you arrive in darkness, and Auwa's light shower reveals your Kokoro in colour.
 
 ### Foundation Palette (Established in Teaser)
 
@@ -175,14 +175,23 @@ These are cool-toned, deep, slightly purple-blue darks. Not pure black — there
 
 ### Named Brand Colours
 
-Two colours carry Japanese names because they appear together as the brand's signature paired wash, most visibly on the editorial Instagram slides but reusable anywhere a dark canvas with warm-paper text is the goal.
+Three colours carry Japanese names because they appear together as the brand's signature warm-paper family, anchoring every light surface across the website, social slides, and the editorial moments where the brand needs to feel like an old book in lamplight rather than a digital UI.
 
-| Name | Hex | Use |
-|------|-----|-----|
-| **Yoru** (夜, "night") | `#1F2A2E` | Background. Slightly warmer and more atmospheric than pure void. The base layer for the editorial IG slides and any quiet, contemplative dark canvas. |
-| **Washi** (和紙, traditional Japanese paper) | `#EFE9DD` | Foreground. Text and the AUWA wordmark on Yoru. A softened off-white with a faint cream warmth, never pure white, which feels clinical against the warm-cool tension AUWA wants. |
+| Name | Hex / OKLCH | Use |
+|------|-------------|-----|
+| **Yoru** (夜, "night") | `#1F2A2E` (rendered as `#0f1623` in `--color-yoru` to match the world hero illustration's dark) | Background. Slightly warmer and more atmospheric than pure void. The base layer for the footer, dark pages (`<DarkPageTheme />`), the FigureHook strip, and the editorial IG slides — any quiet, contemplative dark canvas. |
+| **Washi** (和紙, traditional Japanese paper) | `#EFE9DD` / `oklch(0.928 0.020 80)` | Light text, icon, border, and wordmark on **Yoru / Sumi** — uniform dark surfaces. Footer, FigureHook strip, SoundToggle button, dark book page, signup-form `theme="dark"`, cursor disc, dark CTA accents. The "warm paper ink" that gives dark contexts their old-book character. |
+| **Surface** (warm off-white) | `#f8f7f4` / `oklch(0.97 0.004 95)` | Two roles. (1) The page bg on every light page (`<main>`, journal, about, teasers), the entrance loader, hero pre-paint flash, email body bg, PWA `theme_color`. (2) Light foreground over **imagery / photography** — header logo + menu icon while transparent (over hero video), pillar card overlays, two-up CTAs, hero "Scroll" label + line, four-pillar module index counter, book-hero card text. Surface has more luminance (L 0.97 vs Washi 0.928) and lower chroma, so it cuts confidently against the variable mid-tones of a photograph where Washi blends with bright spots. |
 
-These pair at high contrast (~9:1) but read as warmer and more inviting than the cosmic palette plus pure white. Use them whenever the brand needs to feel like an old book in lamplight rather than a digital UI.
+The discipline — locked rule for foreground colour:
+
+| Context | Light foreground | Dark foreground |
+|---------|------------------|-----------------|
+| On Surface (the light page bg) | — | **Sumi** |
+| On Yoru / on Sumi (uniform dark surface) | **Washi** | — |
+| On imagery / photography (variable mid-tones) | **Surface** | **Sumi** (where the image is high-key) |
+
+And the "never" list: **never mix Sumi with Washi** (different families), **never use pure `#ffffff`** anywhere on the site (Surface is the white), **never hardcode `#f8f7f4` or `#EFE9DD` directly** (consume the token), and **never use Washi over photography** (the cream blends into bright spots — Surface is the foreground over imagery). Tweak any of Surface, Sumi, Yoru, or Washi in `globals.css` and every page, component, and email follows.
 
 ### Yamato Emotional State Colours (5 Gradient Families)
 
@@ -204,29 +213,57 @@ These are the starting points for the 5 gradient families used in the app's Koko
 
 ### Light Theme (Website — auwa.life)
 
-The auwa.life website uses a light-mode, Kinfolk-inspired editorial aesthetic. The dark palette remains the brand's emotional core (used in the app, social content, and the newsletter module on the website), but the editorial site itself is light — maximising readability for long-form articles and letting photography breathe.
+The auwa.life website uses a light-mode, Kinfolk-inspired editorial aesthetic on the warm-paper Surface (`oklch(0.97 0.004 95)`, ≈ `#f8f7f4`). Dark surfaces use the Yoru/Washi pair (footer, dark pages); dark text on light surfaces uses Sumi.
 
-- **Page background:** Pure white — `oklch(1 0 0)` / `--color-surface`
-- **Raised surfaces:** `oklch(0.95 0.005 250)` / `--color-surface-raised` — used for placeholder images, card backgrounds
-- **Primary text:** void (`oklch(0.08 0.025 250)`) at various opacities (100% for headings, 80% for body prose, 60% for subtitles, 50% for excerpts, 40% for metadata labels)
-- **Borders/dividers:** void at 8-20% opacity
-- **Wordmark:** void on light backgrounds
-- **Interactive hover:** void at 70% opacity (text darkens on hover from lighter state, or lightens from full opacity)
+- **Page background:** Surface — `oklch(0.97 0.004 95)` / `--color-surface` (≈ `#f8f7f4`). Pure `#ffffff` is no longer used anywhere on the site.
+- **Raised surfaces:** `oklch(0.95 0.005 250)` / `--color-surface-raised` — placeholder images, card backgrounds.
+- **Primary text:** Sumi (`oklch(0.10 0.022 235)`) at the documented opacity tiers — see table below.
+- **Borders/dividers:** Sumi at 10% (default divider) or 20% (form underlines, focus emphasis). 8% was used pre-Surface change; on the warm Surface, 8% reads invisible — 10% is the floor.
+- **Wordmark + menu icon:** Sumi on Surface, Washi on Yoru. Never `#ffffff`.
+- **Interactive hover:** Sumi at 70% (text darkens or lightens on hover, depending on the rest state).
 
-### Dark Theme (App, Social, Newsletter Module)
+**Sumi opacity tiers (locked — propagate by editing `--color-sumi`):**
 
-The brand's natural state. Used for the Kokoro Mirror app, social content templates, and the "Quiet letters" newsletter section in the website footer.
+| Tier | Use |
+|------|-----|
+| 100% | Headings, titles, active nav, wordmark, menu icon |
+| 80% | Body prose (about page, longform paragraphs), footer category links |
+| 70% | Nav links, hover transitions, founder bios |
+| 60% | Page subtitles, article subtitles |
+| 55% | Form button hover states |
+| 50% | Excerpts, captions, "Read the latest" arrow link is at 45% (one tier softer for the editorial linkstop) |
+| 45% | Eyebrow labels, metadata labels (uppercase 12-13px), filter buttons (inactive), social share icons. Bumped from 40% when Surface moved off pure white — 40% reads softer against the warm field. |
+| 40% | Input placeholder text. Bumped from 35% for the same reason. |
+| 20% | Form underlines |
+| 10% | Default divider line. Bumped from 8% — 8% reads invisible on Surface. |
 
-- **Background:** void (`oklch(0.08 0.025 250)`)
-- **Primary text:** white at various opacities
+Washi tiers on Yoru mirror these one-to-one: Washi at 100/80/70/60/45/40/10 produces the equivalent reading on dark surfaces. SignupForm `theme="dark"` applies Washi at the same tiers automatically.
+
+### Dark Theme — Website (Yoru + Washi)
+
+Used for the Footer, FigureHook strip, and any page that opts in via `<DarkPageTheme />` (e.g. /book). Yoru is the named warm dark surface; Washi is the named warm-paper light text on it.
+
+- **Surface:** `var(--color-yoru)` — `oklch(0.265 0.022 235)`
+- **Text + wordmark + icons:** `var(--color-washi)` at the documented opacity tiers (mirroring sumi's tiers on light)
+- **Form borders:** washi at 20% opacity, 50% on focus
+- **Newsletter "Quiet letters" footer block:** Yoru bg + washi text, including the `Subscribe` button. SignupForm's `theme="dark"` produces this automatically.
+
+### Dark Theme — App / Social (Cosmic palette)
+
+Reserved for the Kokoro Mirror app and the IG editorial slides — the cosmic context where deep-space gradients emerge from black.
+
+- **Background:** void / cosmic-900 (`oklch(0.08 0.025 250)`)
+- **Primary text:** white
 - **Wordmark:** white (inverted)
 - **Form borders:** white at 20% opacity, 50% on focus
+
+The cosmic palette stays separate because its job is different: app gradients need to emerge from a true near-black, and social slides need pure white text to punch on Instagram's preview layer. Don't blend the two systems on the website.
 
 ---
 
 ## 5. The Orb
 
-The glowing orb is AUWA's presence before the character appears. It pulses gently, breathes, and transforms during the light shower. On the teaser page it sits at the centre of the screen as the primary visual element.
+The glowing orb is Auwa's presence before the character appears. It pulses gently, breathes, and transforms during the light shower. On the teaser page it sits at the centre of the screen as the primary visual element.
 
 **Usage:**
 - Teaser pages: hero element
@@ -240,7 +277,7 @@ The glowing orb is AUWA's presence before the character appears. It pulses gentl
 
 ## 6. Photography Direction
 
-Tom's Japan photography catalogue (17M+ Unsplash views) is the primary photography asset. The style that works for AUWA:
+Tom's Japan photography catalogue (17M+ Unsplash views) is the primary photography asset. The style that works for Auwa:
 
 ### What to use
 - **Atmospheric landscapes:** Temples at dawn, misty mountains, bamboo groves, seasonal transitions. The images that got 8M+ views on Unsplash are exactly the right tone.
@@ -256,7 +293,7 @@ Tom's Japan photography catalogue (17M+ Unsplash views) is the primary photograp
 
 ### Style references
 
-The AUWA photographic register lives in the **Kinto + Analogue Life** family, with the warmth of Hoshinoya and the cinematic restraint of Mubi as supporting reference points. Established April 2026 after testing Kinfolk (cleanest editorial), Hoshinoya/Aman (warm premium), and Casa Brutus / Rinko Kawauchi (luminous poetic Japanese contemporary) directions side by side.
+The Auwa photographic register lives in the **Kinto + Analogue Life** family, with the warmth of Hoshinoya and the cinematic restraint of Mubi as supporting reference points. Established April 2026 after testing Kinfolk (cleanest editorial), Hoshinoya/Aman (warm premium), and Casa Brutus / Rinko Kawauchi (luminous poetic Japanese contemporary) directions side by side.
 
 The landing point: warm but not orange, restrained but not muted, materially tactile but not over-clarified. Magazine spread for daylight, craftsman's table for interiors, considered cinema for night. The treatment philosophy is "pull back until you almost want to add it back, then stop."
 
@@ -271,14 +308,14 @@ The landing point: warm but not orange, restrained but not muted, materially tac
 - **Hoshinoya site imagery** + **Naoya Hatakeyama** unpeopled landscapes — the unpeopled atmospheric register.
 
 **Anti-references (do not emulate):**
-- **Yassan.1985** and similar Kyoto street photographers leaning on maiko/geiko subjects — risks Orientalism, conflicts with AUWA's "philosophy-forward, not exoticising Japan" line, and parts of Gion have publicly asked tourists to stop photographing maiko.
+- **Yassan.1985** and similar Kyoto street photographers leaning on maiko/geiko subjects — risks Orientalism, conflicts with Auwa's "philosophy-forward, not exoticising Japan" line, and parts of Gion have publicly asked tourists to stop photographing maiko.
 - Tom's previous Unsplash-style processing (high clarity, pushed saturation, teal/orange split, dramatic skies) — the punch reads as travel photography, not editorial restraint. Strong composition and moment work transfers; the processing layer needs replacing.
 
 **The benchmark.** The three teaser images at `website/main/public/pillars/` (`app.jpg`, `store.jpg`, `book.jpg`) are the brand's photography north stars. They sit in the Kinto + Analogue Life family. Every processed image should feel like a fourth pillar shot.
 
 ### Treatment
 
-All AUWA photography is processed through one of three Lightroom presets stored in the `AUWA` group: **AUWA Landscape**, **AUWA Interior**, **AUWA Night**. Every processed image should feel like it could sit alongside one of those three in the same campaign.
+All Auwa photography is processed through one of three Lightroom presets stored in the `Auwa` group: **Auwa Landscape**, **Auwa Interior**, **Auwa Night**. Every processed image should feel like it could sit alongside one of those three in the same campaign.
 
 **Tonal philosophy (shared across all three presets):**
 
@@ -290,7 +327,7 @@ All AUWA photography is processed through one of three Lightroom presets stored 
 - No grain except Night (where subtle grain blends high-ISO sensor noise into the aesthetic).
 - Subtle vignette, never dramatic.
 
-**AUWA Landscape** for exterior architecture, shrines, cedar forests, snow scenes, Japan landscapes. Reference plate: `store.jpg`.
+**Auwa Landscape** for exterior architecture, shrines, cedar forests, snow scenes, Japan landscapes. Reference plate: `store.jpg`.
 
 | Panel | Setting | Value |
 |-------|---------|-------|
@@ -313,7 +350,7 @@ All AUWA photography is processed through one of three Lightroom presets stored 
 | Vignette | Amount, Feather, Style | -8, 80, Highlight Priority |
 | Grain | — | none |
 
-**AUWA Interior** for interiors, craftsmen at work, ceramic and washi close-ups, portraits in Japanese spaces. Reference plate: `app.jpg`.
+**Auwa Interior** for interiors, craftsmen at work, ceramic and washi close-ups, portraits in Japanese spaces. Reference plate: `app.jpg`.
 
 | Panel | Setting | Value |
 |-------|---------|-------|
@@ -336,7 +373,7 @@ All AUWA photography is processed through one of three Lightroom presets stored 
 | Vignette | Amount, Feather, Style | -5, 80, Highlight Priority |
 | Grain | — | none |
 
-**AUWA Night** for fire festivals, lantern processions, low-light interiors, night cityscapes. Reference plate: `store.jpg` (philosophical anchor, not literal tonal match).
+**Auwa Night** for fire festivals, lantern processions, low-light interiors, night cityscapes. Reference plate: `store.jpg` (philosophical anchor, not literal tonal match).
 
 | Panel | Setting | Value |
 |-------|---------|-------|
@@ -365,16 +402,16 @@ Exposure is deliberately excluded from every preset, since starting exposure var
 
 1. Drop raw images into `auwa/photography/{slug}/1-original/`.
 2. Open Lightroom Classic (catalog at `auwa/photography/_lightroom/1-catalog/auwa.lrcat`). Import that folder via `File > Import > Add` (no copy or move).
-3. For each image: select it, click the matching preset (Landscape / Interior / Night) under `Presets > AUWA` in the left panel.
+3. For each image: select it, click the matching preset (Landscape / Interior / Night) under `Presets > Auwa` in the left panel.
 4. Per-image nudges only if needed: Exposure (always image-specific), small WB shift, occasional Highlights or Shadows tweak. Don't redo the look.
 5. Optional crop or straighten per image.
 6. Export from Lightroom (`File > Export`) using the saved export preset:
-   - **AUWA Article Export**: full-quality JPG (no resize), sRGB, quality 90, target `auwa/photography/{slug}/2-edited/`. The article command picks up from here.
+   - **Auwa Article Export**: full-quality JPG (no resize), sRGB, quality 90, target `auwa/photography/{slug}/2-edited/`. The article command picks up from here.
 7. Run `/journal:article`. It reads from `2-edited/`, generates the 1800px web versions to `website/main/public/journal/{slug}/`, the 1080×1350 IG versions to `social/instagram/{slug}/`, and the 1200×630 OG image alongside the web hero.
 
 Set the export target up once as a Lightroom Export Preset (`Export > Add` in the export dialog). After that, exporting a whole article's set is one click.
 
-The Lightroom presets are stored in the `AUWA` group. The `.xmp` files live at `~/Library/Application Support/Adobe/CameraRaw/Settings/AUWA Landscape.xmp` (and Interior, Night). They are also version-controlled at `context/brand/photography/` so they can be re-imported on any new machine via `File > Import Develop Profiles and Presets`.
+The Lightroom presets are stored in the `Auwa` group. The `.xmp` files live at `~/Library/Application Support/Adobe/CameraRaw/Settings/Auwa Landscape.xmp` (and Interior, Night). They are also version-controlled at `context/brand/photography/` so they can be re-imported on any new machine via `File > Import Develop Profiles and Presets`.
 
 The Lightroom catalog itself, plus the development reference photos and pillar plates, lives outside git at `auwa/photography/_lightroom/`. That folder is gitignored. The presets travel via the `.xmp` files in `context/brand/photography/`, which are tracked.
 
@@ -382,7 +419,7 @@ The Lightroom catalog itself, plus the development reference photos and pillar p
 
 ## 7. Illustration Integration
 
-Rieko's illustrations are AUWA's most valuable asset. They need to coexist with photography and typography without the brand feeling like it has two visual languages fighting each other.
+Rieko's illustrations are Auwa's most valuable asset. They need to coexist with photography and typography without the brand feeling like it has two visual languages fighting each other.
 
 ### The Bridge
 
@@ -427,20 +464,20 @@ This means:
 - 1080 x 1350px, void background
 - Cormorant Light centred text (28-36px for headline, 16-18px for attribution)
 - Optional: subtle gradient wash behind text (one emotion colour at 10-15% opacity)
-- Optional: small AUWA character illustration at bottom (thumbnail scale, atmospheric)
-- Wordmark "AUWA" bottom-centre, small, cosmic-500
+- Optional: small Auwa character illustration at bottom (thumbnail scale, atmospheric)
+- Wordmark "Auwa" bottom-centre, small, cosmic-500
 
 ### Template 2: Photography (Seasonal Living / Behind the Kokoro)
 - 1080 x 1350px, void background with photo inset (leaving ~40-60px dark border on all sides)
 - Photo treated: warm, desaturated, grain
 - Optional: Cormorant text overlay (short, positioned lower third)
-- Wordmark "AUWA" bottom-centre, small
+- Wordmark "Auwa" bottom-centre, small
 
 ### Template 3: Illustration (Kokoro Reveal / Behind the Kokoro)
 - 1080 x 1350px, void background
 - Illustration centred or offset, breathing room around it
 - Cormorant text if paired with a reflection or quote
-- Wordmark "AUWA" bottom-centre, small
+- Wordmark "Auwa" bottom-centre, small
 
 ### Template 4: Carousel Slide (Japanese Wisdom)
 - 1080 x 1350px, void background
@@ -451,13 +488,13 @@ This means:
 
 ### Template 5: Editorial Slideshow (Journal Digest)
 
-The format used to digest a published journal article into a 4-slide carousel. Built in Figma using the AUWA slideshow template, exported as four PNGs at 1080x1350. Post text is generated by `/instagram:post` (slideshow branch).
+The format used to digest a published journal article into a 4-slide carousel. Built in Figma using the Auwa slideshow template, exported as four PNGs at 1080x1350. Post text is generated by `/instagram:post` (slideshow branch).
 
 **Structure:**
 1. **Hero image** — full-bleed, no text overlay
-2. **Anchor quote on coloured wash** — large EB Garamond, centred. Open-quote glyph at 30% opacity sits above the quote (matches the kokoro watermark logic on the home page intro). "AUWA Journal / auwa.life/journal" attribution small below the quote. AUWA wordmark bottom-centre.
+2. **Anchor quote on coloured wash** — large EB Garamond, centred. Open-quote glyph at 30% opacity sits above the quote (matches the kokoro watermark logic on the home page intro). "Auwa Journal / auwa.life/journal" attribution small below the quote. Auwa wordmark bottom-centre.
 3. **Rest-beat image** — full-bleed, no text overlay. The slideshow's visual breath.
-4. **Close** — same wash as slide 2. EB Garamond headline ("Continue reading on the AUWA Journal."), article title in italic EB Garamond beneath, URL in small sans-serif. AUWA wordmark bottom-centre.
+4. **Close** — same wash as slide 2. EB Garamond headline ("Continue reading on the Auwa Journal."), article title in italic EB Garamond beneath, URL in small sans-serif. Auwa wordmark bottom-centre.
 
 **Slideshow washes (locked palette).** Pick one per slideshow. The wash should harmonise with the photography's tonal range, not just the article's topic. A five-second test before export: lay slide 1, slide 2 wash, slide 3, slide 4 wash side by side. The rhythm should feel inevitable, not deliberate.
 
@@ -476,7 +513,7 @@ The format used to digest a published journal article into a 4-slide carousel. B
 - Close headline (slide 4): EB Garamond, regular, large (~38-44px), centred
 - Article title (slide 4): EB Garamond italic, ~14-16px, beneath the headline
 - URL (slide 4): Instrument Sans, ~11px
-- Wordmark (slides 2 and 4): AUWA in EB Garamond, letter-spaced, bottom-centre
+- Wordmark (slides 2 and 4): Auwa in EB Garamond, letter-spaced, bottom-centre
 
 ### Reel Cover Image
 - 1080 x 1920px (9:16), but design the central 1080 x 1350px area for feed grid crop
@@ -488,14 +525,14 @@ The format used to digest a published journal article into a 4-slide carousel. B
 - Void background
 - Cormorant text for quotes/reflections
 - Instrument Sans for interactive elements (polls, questions)
-- AUWA wordmark top-left (small, consistent placement)
+- Auwa wordmark top-left (small, consistent placement)
 
 ---
 
 ## 9. Motion & Animation
 
 ### Principles
-- **Slow and deliberate.** AUWA doesn't rush. Animations use ease-out-expo (cubic-bezier 0.16, 1, 0.3, 1) — fast departure, gentle arrival. Like a breath out.
+- **Slow and deliberate.** Auwa doesn't rush. Animations use ease-out-expo (cubic-bezier 0.16, 1, 0.3, 1) — fast departure, gentle arrival. Like a breath out.
 - **Fade, don't slide.** Elements appear by fading in and gently scaling, not sliding in from edges. The app already uses this approach (Framer Motion fade-in components).
 - **The light shower is the hero animation.** All other motion is supporting — subtle, ambient, never competing.
 - **One tempo, not five.** Every duration, stagger, and easing on the website comes from a locked token set. One source of truth; tweaks propagate everywhere. See `context/website/website.md` Section 4 for the full table.
@@ -528,16 +565,16 @@ Hardcoded ms values in components are treated as drift. Any new animation requir
 All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/marketing/social.md` for the full map.
 
 ### /app (Kokoro Mirror)
-Dark-first. Minimal chrome during the experience. Cormorant for AUWA's voice, Instrument Sans for UI. The revelation screen is the hero — everything else supports getting there and reflecting afterward.
+Dark-first. Minimal chrome during the experience. Cormorant for Auwa's voice, Instrument Sans for UI. The revelation screen is the hero — everything else supports getting there and reflecting afterward.
 
 ### /store (Craftsman Marketplace)
-Slightly lighter touch — product pages may use light backgrounds for product photography clarity, but the overall framing and navigation stays dark. Cormorant for editorial (craftsman stories, product descriptions), Instrument Sans for functional (pricing, specs, cart). Products shot on white backgrounds (AI-standardised) sit within the dark AUWA frame. Note: Shopify integration may require headless Storefront API or subdomain proxy (store.auwa.life) to maintain the /store subpath — technical decision to make during build.
+Slightly lighter touch — product pages may use light backgrounds for product photography clarity, but the overall framing and navigation stays dark. Cormorant for editorial (craftsman stories, product descriptions), Instrument Sans for functional (pricing, specs, cart). Products shot on white backgrounds (AI-standardised) sit within the dark Auwa frame. Note: Shopify integration may require headless Storefront API or subdomain proxy (store.auwa.life) to maintain the /store subpath — technical decision to make during build.
 
 ### /journal (Editorial)
 Dark-first. Editorial feel — more text, more space, more story. Photography-led. Cormorant-heavy for headlines, Instrument Sans for body. Long-form articles, craftsman profiles, travel essays. This is where the brand breathes most fully and where SEO value accumulates.
 
 ### /book (Illustrated Stories)
-Dark-first. The illustrated stories and the AUWA universe origin. Cormorant-heavy. Illustration and animation-forward. The most immersive, atmospheric section.
+Dark-first. The illustrated stories and the Auwa universe origin. Cormorant-heavy. Illustration and animation-forward. The most immersive, atmospheric section.
 
 ### Shared Elements
 - Same header: wordmark left, navigation right (links adapt per section)
@@ -568,17 +605,17 @@ The brand lives in three places, all staying in sync:
 ### Remaining Figma Steps
 
 - **Social content templates** — Build the 4 template types (quote, photography, illustration, carousel) as duplicatable Figma components using the locked colour system and typography
-- **Photography preset** — Lightroom "AUWA — Atmospheric" preset (desaturate, warm, grain, vignette) applied to all photography content
+- **Photography preset** — Lightroom "Auwa — Atmospheric" preset (desaturate, warm, grain, vignette) applied to all photography content
 - **Test grid** — 3x3 Instagram layout check before posting begins
 
 ---
 
 ## 12. What This Document Is
 
-A working reference that evolves as AUWA evolves. Not a monument. The decisions above are enough to build all four sections of auwa.life, create months of coherent Instagram content, and brief any future collaborator.
+A working reference that evolves as Auwa evolves. Not a monument. The decisions above are enough to build all four sections of auwa.life, create months of coherent Instagram content, and brief any future collaborator.
 
 When something isn't covered here, apply two principles: **would this feel at home in the quiet room?** and **does this let the content speak, or does it compete with it?**
 
 ---
 
-*Confidential. AUWA Limited. All rights reserved.*
+*Confidential. Auwa Limited. All rights reserved.*

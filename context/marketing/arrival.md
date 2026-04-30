@@ -1,4 +1,4 @@
-# AUWA Arrival
+# Auwa Arrival
 
 *Last revised: 23 April 2026. Living document. Load for any launch, promotion, channel, or campaign discussion.*
 
@@ -57,7 +57,7 @@ Gated on the grid. First impression matters more than speed of invitation. Japan
 
 ### 3. Small paid spend (after 9 IG posts are live)
 
-£200-400 test behind the AUWA face video Reel. Targeting design-conscious, Japan-interested users in UK/US/AU. Goal: lift 700 to 1,500-2,000 quality followers at restart. Gate: only begin once the grid holds nine posts so visitors arriving via ad see a complete brand, not a lonely first post.
+£200-400 test behind the Auwa face video Reel. Targeting design-conscious, Japan-interested users in UK/US/AU. Goal: lift 700 to 1,500-2,000 quality followers at restart. Gate: only begin once the grid holds nine posts so visitors arriving via ad see a complete brand, not a lonely first post.
 
 ### 4. Awwwards SOTD submission (target Tue 12 or Wed 13 May)
 
@@ -80,13 +80,13 @@ Public app release happens when IG has a solid following. Realistically late sum
 
 ### 6. Second and third teaser upgrades (week of 28 April and week of 5 May)
 
-*App (`/app`).* Mocked Kokoro card below the hero: gradient background in a Yamato state colour, AUWA character centred, three lines of poetic reflection, calligraphic kō stamp. Shows the app's output without the app existing yet.
+*App (`/app`).* Mocked Kokoro card below the hero: gradient background in a Yamato state colour, Auwa character centred, three lines of poetic reflection, calligraphic kō stamp. Shows the app's output without the app existing yet.
 
 *Store (`/store`).* "First arrivals" strip of 6-8 craftsman objects with Monolise research trip photography. Each card: 4:5 portrait object photo, craftsman name (12px uppercase), object name (18-20px EB Garamond), one-sentence description. Uses `StripReveal` for the reveal pattern.
 
-### 7. Meet AUWA cursor-follow (week of 5 May, best-effort)
+### 7. Meet Auwa cursor-follow (week of 5 May, best-effort)
 
-SOTD signature interaction. AUWA's gaze tracks the cursor on desktop. Rieko produces 3-5 illustrated frames over the coming week. Tom implements in 1-2 hour daily slots during app-build week. If not ready by submission, ship post-submission as an Awwwards entry update; judges accept these.
+SOTD signature interaction. Auwa's gaze tracks the cursor on desktop. Rieko produces 3-5 illustrated frames over the coming week. Tom implements in 1-2 hour daily slots during app-build week. If not ready by submission, ship post-submission as an Awwwards entry update; judges accept these.
 
 ### 8. Ongoing through June
 
@@ -114,17 +114,17 @@ With Phase 1 targets met:
 
 **Instagram: primary.** Full detail in `instagram.md`. Three posts per week sustainably, with the daily restart burst for the first two to three weeks. Character Reels at around 35% weight. Editorial slideshows from journal articles. Seasonal atmospheric posts. This is where the audience is built.
 
-**LinkedIn: peer amplification.** Four personal Tom posts across 18 months: restart share (now), app arrival, store opening, book release. Not a daily channel. The AUWA company page uses the locked tagline, description, and imagery.
+**LinkedIn: peer amplification.** Four personal Tom posts across 18 months: restart share (now), app arrival, store opening, book release. Not a daily channel. The Auwa company page uses the locked tagline, description, and imagery.
 
 Tom's restart post template:
 
-*"A project Rieko and I have been quietly building for ten years: AUWA, a quiet return to the Japanese belief that a life force, a kokoro, resides in all things. Illustration, writing, photography, a daily practice to come. Made with care, not a client project for once. auwa.life"*
+*"A project Rieko and I have been quietly building for ten years: Auwa, a quiet return to the Japanese belief that a life force, a kokoro, resides in all things. Illustration, writing, photography, a daily practice to come. Made with care, not a client project for once. auwa.life"*
 
 **Awwwards and design recognition.** Submit once the site has been live and stable with 12-15 articles up and the submission gates are green. Submit to Awwwards (£150 Pro), SiteInspire, CSS Design Awards, Typewolf, Godly, Minimal.gallery, httpster.
 
 **Guest articles (Phase 2).** Pick two of: It's Nice That (most likely to land), Cereal (brand match), Apartamento, Openhouse, Kinfolk (dream, pitch after app lands), Aeon, Tokyo Weekender. One landed piece outperforms five pitched and ignored.
 
-**Organic link-building.** Three to five personal emails a month in Phase 2. Subject line human, body two to three sentences, link to one specific AUWA piece, no ask. Aligned sites: Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto, Ignant, Remodelista, Freunde von Freunden, Hole and Corner, Kyoto Journal, Tofugu.
+**Organic link-building.** Three to five personal emails a month in Phase 2. Subject line human, body two to three sentences, link to one specific Auwa piece, no ask. Aligned sites: Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto, Ignant, Remodelista, Freunde von Freunden, Hole and Corner, Kyoto Journal, Tofugu.
 
 **Email outreach to niche communities (Phase 2).** Japan Society UK, Daiwa Anglo-Japanese Foundation, Japan Foundation London, British Museum Japan curators, V&A Japan team, SOAS Japan Research Centre, Japan Society NYC, Japan House LA, Portland Japanese Garden, r/japantravel, r/chefknives. Each a single personalised email offering something (a piece, an event, a partnership), never a pitch.
 
@@ -168,7 +168,7 @@ A small annual guided Japan experience for foreigners. Five people maximum, four
 
 ## Sign-up Hooks
 
-The figure lottery is already live via the site's bottom strip ("WIN FIRST EDITION AUWA FIGURE" with Enter button linking to `/store`). Store teaser copy updated to:
+The figure lottery is already live via the site's bottom strip ("WIN FIRST EDITION Auwa FIGURE" with Enter button linking to `/store`). Store teaser copy updated to:
 
 *"Japanese craftsman objects, and our own figure editions. Small, signed, hand-finished. Sign up for the opening, and a chance to win our first edition."*
 
@@ -185,13 +185,13 @@ Figure lottery + welcome PDF is the strongest combination.
 
 ## Shigefusa and the first YouTube moment
 
-Warm connection through the Kyoto knife shop owner from whom Tom bought his Shigefusa knife. Rieko drafts the ask in Japanese this week (template prepared in prior session). Posture: producer-in-service-of-artist, not journalist-taking. The film would be the gift; AUWA gets distribution permission, the shop and Shigefusa-san get full use.
+Warm connection through the Kyoto knife shop owner from whom Tom bought his Shigefusa knife. Rieko drafts the ask in Japanese this week (template prepared in prior session). Posture: producer-in-service-of-artist, not journalist-taking. The film would be the gift; Auwa gets distribution permission, the shop and Shigefusa-san get full use.
 
 If it lands: first YouTube piece, signature documentary anchor, opens craftsman doors everywhere else.
 
 If not: playbook learned for the next master. Either outcome is useful.
 
-No intention to carry Shigefusa in the AUWA store. He is too exclusive; forcing that ask would break the relationship.
+No intention to carry Shigefusa in the Auwa store. He is too exclusive; forcing that ask would break the relationship.
 
 ---
 
@@ -199,19 +199,19 @@ No intention to carry Shigefusa in the AUWA store. He is too exclusive; forcing 
 
 ### The two SOTD additions
 
-**Meet AUWA cursor-follow** (signature interaction). Full spec in the Plan section 7.
+**Meet Auwa cursor-follow** (signature interaction). Full spec in the Plan section 7.
 
 **Teaser page upgrades** (Book, App, Store). Full spec in the Plan sections 1 and 6.
 
 ### Submission inputs (pre-drafted)
 
-- **Title:** AUWA
+- **Title:** Auwa
 - **URL:** https://auwa.life
 - **Tagline (under 70 chars):** A quiet return to Japanese awareness. Kokoro in all things.
-- **Short description (under 400 chars):** AUWA is a Japanese awareness brand built on the ancient belief that a life force, a kokoro, resides in all things. A character, a philosophy, a world, expressed through a journal from Japan, a daily awareness practice, a store of craftsman objects, and an illustrated world. Editorial, meditative, and photographed entirely by the founders.
+- **Short description (under 400 chars):** Auwa is a Japanese awareness brand built on the ancient belief that a life force, a kokoro, resides in all things. A character, a philosophy, a world, expressed through a journal from Japan, a daily awareness practice, a store of craftsman objects, and an illustrated world. Editorial, meditative, and photographed entirely by the founders.
 - **Primary category:** Wellbeing
 - **Tags:** Editorial, Typography, Animation, Transitions, Interaction Design, Cultural, Storytelling
-- **Preview image (1400×787 JPG, under 1MB):** close crop of AUWA's face from the hero video.
+- **Preview image (1400×787 JPG, under 1MB):** close crop of Auwa's face from the hero video.
 
 ### Pre-submission polish pass
 

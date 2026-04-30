@@ -1,4 +1,4 @@
-# AUWA Website
+# Auwa Website
 
 *Created: April 2026. The specification for the auwa.life website — the brand's home and editorial hub.*
 *Load when building the website, planning content, or working on site structure.*
@@ -8,9 +8,9 @@
 
 ## 1. Purpose & Positioning
 
-The auwa.life website is the front door to the AUWA brand. It establishes AUWA as a Japanese lifestyle brand rooted in philosophical awareness before the app, store, or book exist as products. The website is the first thing anyone encounters — it needs to communicate the world, not just announce a product.
+The auwa.life website is the front door to the Auwa brand. It establishes Auwa as a Japanese lifestyle brand rooted in philosophical awareness before the app, store, or book exist as products. The website is the first thing anyone encounters — it needs to communicate the world, not just announce a product.
 
-**What it IS:** A Kinfolk-inspired editorial destination. Atmospheric, contemplative, photography-led, with journal articles as the heartbeat. A place you visit to feel something, read something beautiful, and understand what AUWA is about.
+**What it IS:** A Kinfolk-inspired editorial destination. Atmospheric, contemplative, photography-led, with journal articles as the heartbeat. A place you visit to feel something, read something beautiful, and understand what Auwa is about.
 
 **What it is NOT:** A product launch page. A teaser page with an email form. A feature list. A marketing funnel. It's a brand world — the kind of site you'd bookmark and return to.
 
@@ -41,7 +41,7 @@ auwa.life/journal           → Journal index (all articles)
 auwa.life/journal/[slug]    → Individual article (static-only: dynamicParams = false)
 auwa.life/app               → Kokoro Mirror introduction (pre-launch: coming soon with email capture)
 auwa.life/store             → Store introduction (pre-launch: coming soon with craftsman preview)
-auwa.life/book              → The AUWA story universe (pre-launch: introduction + email capture)
+auwa.life/book              → The Auwa story universe (pre-launch: introduction + email capture)
 auwa.life/about             → Tom & Rieko, the philosophy, the origin
 auwa.life/brand             → Living style guide (noindex, disallowed in robots.txt)
 auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves any unmatched URL
@@ -57,7 +57,7 @@ auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves a
 
 **App, Store, Book** pages are initially lightweight — atmospheric introductions that establish what's coming, with email capture. They become full sections as each pillar launches.
 
-**About** tells the story of Tom and Rieko, the philosophy of Yaoyorozu no Kami, and the origin of AUWA. Written in the brand voice: quiet, precise, present.
+**About** tells the story of Tom and Rieko, the philosophy of Yaoyorozu no Kami, and the origin of Auwa. Written in the brand voice: quiet, precise, present.
 
 ---
 
@@ -65,15 +65,15 @@ auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves a
 
 ### Home Page (Implemented)
 
-The homepage leads with a full-bleed AUWA face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet AUWA" video moment. All images use `rounded-xl`. Scroll is native across every browser — no smooth-scroll library. Page transitions crossfade between routes. The scroll-driven flipbook hero lives on at `/home-1` as an archive.
+The homepage leads with a full-bleed Auwa face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet Auwa" video moment. All images use `rounded-xl`. Scroll is native across every browser — no smooth-scroll library. Page transitions crossfade between routes. The scroll-driven flipbook hero lives on at `/home-1` as an archive.
 
 **Structure (top to bottom):**
 
-1. **Header** — AUWA wordmark (inline SVG, `currentColor`) left-aligned. Navigation right: Journal, Store, App, Book, About. Transparent mode inferred from pathname (root `/` and `/home-1` only), otherwise solid white. Sticky, hides on scroll down, reveals on scroll up. Rendered once in `layout.tsx` outside `PageTransition` so the logo and menu button sit above all page-leave animations.
+1. **Header** — Auwa wordmark (inline SVG, `currentColor`) left-aligned. Navigation right: Journal, Store, App, Book, About. Transparent mode inferred from pathname (root `/` and `/home-1` only), otherwise solid white. Sticky, hides on scroll down, reveals on scroll up. Rendered once in `layout.tsx` outside `PageTransition` so the logo and menu button sit above all page-leave animations.
 
-2. **HeroVideo** — Full-bleed AUWA face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line replaces the bouncing chevron; the button calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro section.
+2. **HeroVideo** — Full-bleed Auwa face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line replaces the bouncing chevron; the button calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro section.
 
-3. **Intro block** — "Japanese Philosophy" `<h1>` rendered in the small-caps eyebrow style (so the composition is visually unchanged while the page now has a keyword-rich H1 signal Google can read). `ScrollFadeText` paragraph introducing AUWA and its four expressions, "The Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha behind the paragraph.
+3. **Intro block** — "Japanese Philosophy" `<h1>` rendered in the small-caps eyebrow style (so the composition is visually unchanged while the page now has a keyword-rich H1 signal Google can read). `ScrollFadeText` paragraph introducing Auwa and its four expressions, "The Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha behind the paragraph.
 
 4. **Pullquote 1** — Hero-scale `ScrollFadeText` ("What you pay attention to…") at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05.
 
@@ -89,7 +89,7 @@ The homepage leads with a full-bleed AUWA face video, then moves through editori
 
 10. **Two-up articles** — Onsen Lesson + Nozawa Fire Festival. Two large portrait cards side by side. Staggered cascade animation. "Read the essay" label has a text-roll rollover matching the nav.
 
-11. **Meet AUWA video moment** — `VideoMoment` component. Portrait video of the AUWA character in a rounded card (left on desktop, stacked on mobile) with descriptive text alongside. Video and heading link to `/journal/the-beginning`. "The story behind AUWA" link goes to `/about`.
+11. **Meet Auwa video moment** — `VideoMoment` component. Portrait video of the Auwa character in a rounded card (left on desktop, stacked on mobile) with descriptive text alongside. Video and heading link to `/journal/the-beginning`. "The story behind Auwa" link goes to `/about`.
 
 12. **Footer** — Dark (`bg-void`), sticky at bottom with parallax reveal effect (content slides over it as you scroll). "Quiet letters." newsletter signup, pillar links, copyright + social icons.
 
@@ -166,7 +166,7 @@ All three teaser pages use the **same hero layout as the article page** — this
 
 - Tom & Rieko's story (short, in brand voice, with photography)
 - The philosophy of Yaoyorozu no Kami (accessible, not academic)
-- The origin of AUWA (the name, the decade of development)
+- The origin of Auwa (the name, the decade of development)
 - The Eshi + Hanmoto model (brief, charming)
 - Photography of Tom and Rieko (atmospheric, not corporate headshots)
 - Title "The architecture / of Kokoro" uses two stacked `TextReveal` spans (second delayed 180ms) to preserve the explicit line break while keeping the word-cascade entrance
@@ -201,21 +201,28 @@ All three teaser pages use the **same hero layout as the article page** — this
 
 ### Colour (Light Theme)
 
-The website uses a pure white background with the void/cosmic palette for text. This is the Kinfolk-inspired editorial expression of the brand — the dark palette lives in the app, social, and newsletter modules.
+The website uses a warm off-white background (Surface, ≈ `#f8f7f4`) with the Sumi/Yoru/Washi family for text and surfaces. This is the Kinfolk-inspired editorial expression of the brand — the cosmic palette lives in the app, social, and emotional-state modules.
 
-- **Page background:** Pure white — `oklch(1 0 0)` / `--color-surface`
+- **Page background:** Surface — `oklch(0.97 0.004 95)` / `--color-surface` (≈ `#f8f7f4`). Same warm-paper family as Washi, at higher altitude. Consumed by `<main>`, the entrance loader, the hero pre-paint flash, the email body bg, and the PWA `theme_color`. Pure `#ffffff` is no longer used anywhere on the site.
 - **Raised surfaces:** `oklch(0.95 0.005 250)` / `--color-surface-raised`
-- **Text colour:** `--color-void` (`oklch(0.08 0.025 250)`) at opacity levels:
-  - 100% — headings, titles, active nav
-  - 80% — about page prose, footer category links
-  - 70% — nav links, hover states, founder bios
-  - 60% — subtitles, article subtitle
-  - 50% — excerpts, captions
-  - 45% — "Read the latest" arrow link
-  - 40% — metadata labels, filter buttons (inactive), social share icons
-  - 35% — input placeholder text
-- **Borders:** void at 8% (dividers), 20% (form underlines), 50% (form focus)
-- **Dark module (newsletter):** `bg-void` with white text at similar opacity levels
+- **Text colour:** `--color-sumi` (`oklch(0.10 0.022 235)`) at the locked opacity tiers below.
+
+| Tier | Use |
+|------|-----|
+| 100% | Headings, titles, active nav, wordmark, menu icon |
+| 80% | About page prose, footer category links |
+| 70% | Nav links, hover states, founder bios |
+| 60% | Subtitles, article subtitle |
+| 55% | Form button hover states |
+| 50% | Excerpts, captions |
+| 45% | Eyebrow labels, metadata labels (uppercase 12-13px), filter buttons (inactive), social share icons, "Read the latest" arrow link. **Bumped from 40% when Surface moved off pure white — 40% read softer against the warm field.** |
+| 40% | Input placeholder text. **Bumped from 35% for the same reason.** |
+| 20% | Form underlines |
+| 10% | Default divider line. **Bumped from 8% — 8% reads invisible on Surface; 10% is the floor.** |
+
+- **Borders:** Sumi at 10% (default divider), 20% (form underlines), 50% (form focus).
+- **Light text on Yoru / on uniform dark surfaces:** Washi (`oklch(0.928 0.020 80)`) at the same tiers (100/80/70/60/45/40/10). Footer, FigureHook strip, SoundToggle button, dark book page, signup-form dark, cursor disc.
+- **Light text over imagery / photography:** **Surface** (`oklch(0.97 0.004 95)`), not Washi. Used for the header logo + menu icon over the transparent hero, the pillar card text overlays, two-up CTA labels, the four-pillar module index counter, the hero "Scroll" label + line, and the book-hero card text. Surface has higher luminance and lower chroma than Washi so it cuts confidently against variable photographic mid-tones; Washi blends into bright spots. **Never use `text-washi` over a photograph.**
 
 ### Spacing & Layout (Implemented)
 
@@ -402,8 +409,8 @@ Reusable components live in `src/components/`. All are server components unless 
 | EditorialFrames | `editorial-frames.tsx` | Yes | Desktop (≥md) four-pillar module. Tab gallery crossfading through four frames (Store / Book / Journal / App) with staggered reveal per frame (eyebrow → `TextReveal` heading → body → CTA). Image column pinned at 480px, text column flexible, grid template `[480px_1fr]`, `lg:gap-28` horizontal gap, `max-w-[1100px] lg:mx-auto`. Auto-advance every 7s, pauses on hover. Image crossfade: 1500ms `cubic-bezier(0.4, 0, 0.2, 1)` (symmetric ease-in-out, gentle). |
 | PillarParade | `pillar-parade.tsx` | Yes | Mobile (<md) four-pillar module. Horizontal `overflow-x-auto` row of four 3:4 cards mirroring the Journal strip (native scroll, no snap, no `touch-action` override). Cards at `w-[72vw] max-w-[360px]` so card 2 peeks clearly. FadeIn `variant="reveal"` with `revealDistance={40}` so the right-to-left cascade matches the Journal strip without pushing card 2 below the IntersectionObserver's 10% threshold. Dot indicators update via scroll listener on the scroller element. |
 | HeroFlipbook | `hero-flipbook.tsx` | Yes | Archive — scroll-driven stacked-card flipbook hero (Obsidian Assembly pattern). No longer on the live homepage; still used by `/home-1`. Mobile uses `svh`-based sticky + pixel-based transforms (computed from captured viewport height) to stay stable through iOS URL-bar retraction. Scroll-driven state updates gated by `activeIndexRef` to prevent per-frame re-renders. |
-| VideoMoment | `video-moment.tsx` | Yes | "Meet AUWA" section: portrait video card + text. Desktop: side-by-side. Mobile: stacked. |
-| AuwaVideoBlock | `auwa-video-block.tsx` | Yes | Full-width AUWA face video. Landscape desktop, square mobile. Auto-plays on visibility. |
+| VideoMoment | `video-moment.tsx` | Yes | "Meet Auwa" section: portrait video card + text. Desktop: side-by-side. Mobile: stacked. |
+| AuwaVideoBlock | `auwa-video-block.tsx` | Yes | Full-width Auwa face video. Landscape desktop, square mobile. Auto-plays on visibility. |
 | MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |
 | ObfuscatedEmail | `obfuscated-email.tsx` | Yes | Bot-proof email display. Shows `user[at]domain` initially, reveals real `mailto:` link on click. Props: `user`, `domain`. |
 | ImageFade | `image-fade.tsx` | Yes | Next.js `<Image>` wrapper that fades from opacity 0 → 1 over `DURATION.reveal` once pixels are painted. Used on the article hero AND all editorial card images (journal index, in-article image-pair / image-beside, continue-reading). Cache-guard on mount: `img.complete && naturalWidth > 0` flips `loaded` directly so cached images on revisits don't stay at opacity 0 (onLoad never fires for them). Inline `transition` re-specifies `transform` + `filter` alongside opacity so the global `a img { transition: transform 0.8s ... }` hover-zoom rule isn't wiped by the inline opacity transition. |
@@ -427,21 +434,21 @@ Reusable components live in `src/components/`. All are server components unless 
 
 **Messaging strategy — three layers, applied consistently across every page.** Each layer has a distinct job; they don't compete:
 
-- **Discovery** (what a new visitor types into Google): *"Japanese lifestyle brand"*. Used in meta descriptions, About page prose, Instagram bio, press briefings, the dinner-party answer. Instantly legible, places AUWA next to Kinfolk / Monocle / Goop in a new visitor's mental shelf.
-- **Claim** (the unique ground AUWA owns in search): *"Japanese Philosophy of Kokoro"*. Used in the homepage title tag and homepage H1. "Kokoro" is a low-competition word AUWA essentially claims outright; "Japanese Philosophy" is the higher-volume bucket the brand competes for. Titles and H1s enforce this claim.
+- **Discovery** (what a new visitor types into Google): *"Japanese lifestyle brand"*. Used in meta descriptions, About page prose, Instagram bio, press briefings, the dinner-party answer. Instantly legible, places Auwa next to Kinfolk / Monocle / Goop in a new visitor's mental shelf.
+- **Claim** (the unique ground Auwa owns in search): *"Japanese Philosophy of Kokoro"*. Used in the homepage title tag and homepage H1. "Kokoro" is a low-competition word Auwa essentially claims outright; "Japanese Philosophy" is the higher-volume bucket the brand competes for. Titles and H1s enforce this claim.
 - **Voice** (editorial prose tone): *"Japanese living"*. Thread through article intros, About narrative, newsletter prose, Instagram captions. Aspirational, not category-descriptive.
 
 **Title pattern — `" - "` (space-hyphen-space) separator. Every page matches this structure:**
 
 | Page | Title |
 |------|-------|
-| `/` | AUWA - Japanese Philosophy of Kokoro |
-| `/journal` | AUWA Journal - Japanese Philosophy, Craft & Seasons |
-| `/about` | About AUWA - A Japanese Lifestyle Brand |
-| `/store` | AUWA Store - Japanese Craftsman Objects & Figure Editions |
-| `/app` | AUWA App - Japanese Awareness Practice |
-| `/book` | AUWA Book - Illustrated Japanese Stories |
-| `/journal/[slug]` | `{article.title} - AUWA Journal` |
+| `/` | Auwa - Japanese Philosophy of Kokoro |
+| `/journal` | Auwa Journal - Japanese Philosophy, Craft & Seasons |
+| `/about` | About Auwa - A Japanese Lifestyle Brand |
+| `/store` | Auwa Store - Japanese Craftsman Objects & Figure Editions |
+| `/app` | Auwa App - Japanese Awareness Practice |
+| `/book` | Auwa Book - Illustrated Japanese Stories |
+| `/journal/[slug]` | `{article.title} - Auwa Journal` |
 
 Every title stays ≤60 chars (Google truncates after that). Every title contains "Japanese" somewhere — either as the category qualifier ("Japanese Awareness Practice") or in the unique-claim phrase ("Japanese Philosophy of Kokoro").
 
@@ -535,7 +542,7 @@ Tom and Rieko can prepare ~10 articles in a focused day using this workflow:
 2. **Gather photography** from Tom's 15+ year Japan catalogue (already shot, just needs selection and Lightroom treatment)
 3. **Write first drafts** — Tom writes in brand voice, 800-1500 words per article. Some can be shorter (500-word seasonal reflections). Use Claude to help draft, then edit for voice and authenticity.
 4. **Rieko reviews** for cultural accuracy and adds Japanese terms/context
-5. **Apply photography treatment** (Lightroom "AUWA — Atmospheric" preset)
+5. **Apply photography treatment** (Lightroom "Auwa — Atmospheric" preset)
 6. **Upload to Sanity** with metadata, hero images, categories, SEO descriptions
 
 ### Suggested Initial Articles
@@ -555,7 +562,7 @@ Tom and Rieko can prepare ~10 articles in a focused day using this workflow:
 
 **Philosophy (2-3 articles):**
 - "Everything Has Kokoro" — The foundational essay. An accessible introduction to Yaoyorozu no Kami and why it matters in modern life. The philosophical anchor for the entire journal.
-- "Awareness, Not Mindfulness" — Why AUWA uses the word "awareness" instead of "mindfulness." The difference between a Western self-help concept and a Japanese philosophical worldview.
+- "Awareness, Not Mindfulness" — Why Auwa uses the word "awareness" instead of "mindfulness." The difference between a Western self-help concept and a Japanese philosophical worldview.
 - "The Guest" — On being a respectful visitor to Japan (and to any culture). The awareness that comes from understanding you are in someone else's home. Photography: Japan travel moments.
 
 ### Content Calendar (Post-Launch)
@@ -569,12 +576,12 @@ After the initial 10 articles, publish 1-2 articles per week aligned with the 72
 Fully documented in `context/marketing/newsletter.md`. Summary:
 
 - **Welcome emails** auto-send on signup (4 variants per source: newsletter, app-waitlist, store-waitlist, book-waitlist). Sent as transactional via `resend.emails.send()`. Unsubscribe is a plain `mailto:hello@auwa.life?subject=Unsubscribe` because the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge var does not substitute in transactional sends.
-- **Welcome email subjects**: "Welcome to AUWA" (newsletter) · "You're on the AUWA App waitlist" (app) · "A note from AUWA." (store and book — softer subject keeps them out of Gmail Promotions).
+- **Welcome email subjects**: "Welcome to Auwa" (newsletter) · "You're on the Auwa App waitlist" (app) · "A note from Auwa." (store and book — softer subject keeps them out of Gmail Promotions).
 - **Newsletter sends** go through Resend's **Broadcasts API** (`resend.broadcasts.create()` + `.send()`), not the transactional Emails API. This is what enables the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge variable and the `List-Unsubscribe` header. Triggered manually via the `/marketing:newsletter` slash command or the `/api/newsletter/send` endpoint.
 - **Signup points**: shared footer on every page ("Quiet letters."), plus dedicated forms on app/store/book teaser pages
 - **Templates**: React Email components in `src/emails/` (welcome.tsx, newsletter.tsx)
 - **Resend segments**: App Waitlist, Store Waitlist, Book Waitlist (3 segments, free plan limit). Newsletter subscribers go to audience without a segment.
-- **Subject format**: `[Topic] | AUWA` — poetic, not clickbait
+- **Subject format**: `[Topic] | Auwa` — poetic, not clickbait
 
 ### Social share previews (journal articles)
 
@@ -613,4 +620,4 @@ Baked in from the April 2026 SOTD-prep pass. CLAUDE.md carries the full list of 
 
 ---
 
-*Confidential. AUWA Limited. All rights reserved.*
+*Confidential. Auwa Limited. All rights reserved.*

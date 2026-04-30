@@ -44,7 +44,7 @@ const FRAMES: Frame[] = [
     eyebrow: "Store",
     heading: "Lifetime objects.",
     body: "A home for Japanese craftsman objects, chosen slowly and kept for a lifetime. Pieces carrying the patience of the hands that made them. Quietly gathered, quietly arriving.",
-    cta: "Visit store",
+    cta: "Join waitlist",
     href: "/store",
     type: "video",
     src: "/intro/store.mp4",
@@ -53,8 +53,8 @@ const FRAMES: Frame[] = [
   {
     eyebrow: "Book",
     heading: "Open the eyes.",
-    body: "An illustrated universe following AUWA, a luminous being who reveals the Kokoro sleeping inside rivers, bowls, and strangers. The deeper world behind everything we make.",
-    cta: "Join waitlist",
+    body: "An illustrated universe following Auwa, a luminous being who reveals the Kokoro sleeping inside rivers, bowls, and strangers. The deeper world behind everything we make.",
+    cta: "Explore World",
     href: "/book",
     type: "image",
     src: "/intro/book.jpg",
@@ -79,7 +79,7 @@ const FRAMES: Frame[] = [
   },
 ];
 
-const ADVANCE_MS = 7000;
+const ADVANCE_MS = 5000;
 
 /*
   One frame's editorial content. Static — no inner animation. The parent
@@ -92,15 +92,15 @@ function FrameContent({ frame }: { frame: Frame }) {
     // body and CTA sit beneath the centred image as one composition.
     // Reverts to left-aligned at lg once the 2-column grid takes over.
     <div className="text-center lg:text-left">
-      <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
+      <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45">
         {frame.eyebrow}
       </span>
 
-      <h3 className="mt-5 md:mt-7 font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-[0.005em] text-void">
+      <h3 className="mt-5 md:mt-7 font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-[0.005em] text-sumi">
         {frame.heading}
       </h3>
 
-      <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-void/70 max-w-[460px] mx-auto lg:mx-0">
+      <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-sumi/70 max-w-[520px] mx-auto lg:mx-0">
         {frame.body}
       </p>
 
@@ -158,7 +158,7 @@ export function EditorialFrames() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white"
+      className="relative bg-surface"
       onMouseEnter={() => {
         hoveredRef.current = true;
         setPaused(true);
@@ -170,32 +170,21 @@ export function EditorialFrames() {
     >
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
         <div className="mb-12 md:mb-20 max-w-[720px]">
-          <FadeIn>
-            <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-void/40">
-              Our world
-            </span>
-          </FadeIn>
-          <div className="mt-4">
-            <TextReveal
-              as="h2"
-              delay={180}
-              stagger={80}
-              className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-void"
-            >
-              Four ways in.
-            </TextReveal>
-          </div>
+          <TextReveal
+            as="h2"
+            stagger={80}
+            className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi"
+          >
+            Four ways in.
+          </TextReveal>
         </div>
 
-        {/* Outer max-width keeps the whole image/text composition sitting
-            centrally in the viewport on wide screens rather than anchored
-            to the left gutter. Grid template is fixed 480px image column +
-            flexible text column so the image never stretches past its
-            intended size. Horizontal gap on lg+ (112px) gives the image
-            and editorial column clear visual separation — the vertical
-            80px mb-20 under the section header reads generous, so the
-            horizontal gap has to be a touch larger to feel balanced. */}
-        <div className="grid grid-cols-1 lg:grid-cols-[480px_1fr] gap-10 md:gap-14 lg:gap-28 items-center max-w-[1100px] lg:mx-auto">
+        {/* Two equal columns at lg+: image anchored to the left of the
+            page (within the gutter), text column starting at the page
+            midline. Gap is 0 on lg so the text's left edge lands exactly
+            at 50% — the natural breathing room comes from the image
+            capping at 480px inside a wider half-page column. */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-0 items-center">
           {/* Image frame.
               On tablet (single column) the image is centred as a
               framed editorial element. On desktop the grid template
@@ -207,7 +196,7 @@ export function EditorialFrames() {
               href={FRAMES[active].href}
               data-cursor="Open"
               aria-label={`Open ${FRAMES[active].eyebrow}`}
-              className="block relative w-full max-w-[480px] mx-auto aspect-[4/5] rounded-xl overflow-hidden"
+              className="block relative w-full max-w-[480px] mx-auto lg:mx-0 aspect-[4/5] overflow-hidden rounded-md"
             >
               {FRAMES.map((f, i) => (
                 <div
@@ -247,10 +236,10 @@ export function EditorialFrames() {
               ))}
               {/* Index + pillar label overlay */}
               <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 flex items-baseline gap-2 pointer-events-none">
-                <span className="font-display text-[clamp(1.8rem,3vw,2.4rem)] leading-none tracking-[0.01em] text-white tabular-nums">
+                <span className="font-display text-[clamp(1.8rem,3vw,2.4rem)] leading-none tracking-[0.01em] text-surface tabular-nums">
                   {String(active + 1).padStart(2, "0")}
                 </span>
-                <span className="font-sans text-[11px] tracking-[0.16em] uppercase text-white/70">
+                <span className="font-sans text-[11px] tracking-[0.16em] uppercase text-surface/70">
                   / {String(FRAMES.length).padStart(2, "0")}
                 </span>
               </div>
@@ -289,7 +278,7 @@ export function EditorialFrames() {
                 column. mt-10 keeps the tabs close to the CTA on tablet —
                 mt-24 on lg matches the desktop rhythm. */}
             <div className="mt-10 lg:mt-24">
-              <div className="flex items-end gap-5 md:gap-8 max-w-[450px] mx-auto lg:mx-0">
+              <div className="flex items-end gap-5 md:gap-8 max-w-[520px] mx-auto lg:mx-0">
                 {FRAMES.map((f, i) => (
                   <button
                     key={i}
@@ -298,10 +287,10 @@ export function EditorialFrames() {
                     aria-label={`Show ${f.eyebrow}`}
                     aria-current={i === active ? "true" : undefined}
                   >
-                    <span className="absolute top-0 left-0 right-0 h-[1.5px] bg-void/10 overflow-hidden rounded-full">
+                    <span className="absolute top-0 left-0 right-0 h-[1.5px] bg-sumi/10 overflow-hidden rounded-full">
                       <span
                         key={`bar-${i}-${tick}`}
-                        className="absolute inset-y-0 left-0 bg-void"
+                        className="absolute inset-y-0 left-0 bg-sumi"
                         style={{
                           width: i === active ? "100%" : "0%",
                           transition:
@@ -314,8 +303,8 @@ export function EditorialFrames() {
                     <span
                       className={`block font-sans text-[11px] md:text-[12px] tracking-[0.14em] uppercase whitespace-nowrap transition-colors duration-300 ${
                         i === active
-                          ? "text-void"
-                          : "text-void/35 group-hover:text-void/70"
+                          ? "text-sumi"
+                          : "text-sumi/40 group-hover:text-sumi/70"
                       }`}
                     >
                       {String(i + 1).padStart(2, "0")} &middot; {f.eyebrow}

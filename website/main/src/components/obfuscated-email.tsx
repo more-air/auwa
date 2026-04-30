@@ -23,7 +23,7 @@ export function ObfuscatedEmail({
     return (
       <button
         onClick={handleClick}
-        className="underline underline-offset-4 decoration-void/20 hover:decoration-void/50 transition-colors duration-300 cursor-pointer"
+        className="underline underline-offset-4 decoration-sumi/20 hover:decoration-sumi/50 transition-colors duration-300 cursor-pointer"
       >
         {user}[at]{domain}
       </button>
@@ -33,7 +33,7 @@ export function ObfuscatedEmail({
   return (
     <a
       href={`mailto:${user}@${domain}`}
-      className="underline underline-offset-4 decoration-void/20 hover:decoration-void/50 transition-colors duration-300"
+      className="underline underline-offset-4 decoration-sumi/20 hover:decoration-sumi/50 transition-colors duration-300"
     >
       {user}@{domain}
     </a>

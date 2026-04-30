@@ -1,11 +1,11 @@
 ---
 name: Newsletter
-description: Compose and send a newsletter to the AUWA mailing list. Handles content selection, preview, and sending.
+description: Compose and send a newsletter to the Auwa mailing list. Handles content selection, preview, and sending.
 ---
 
 ## Instructions
 
-You are composing and sending a newsletter for AUWA. Load these context files before starting:
+You are composing and sending a newsletter for Auwa. Load these context files before starting:
 
 - `context/marketing/newsletter.md` (email system, templates, design principles, subject line format)
 - `context/pillar/journal.md` (writing voice)
@@ -35,7 +35,7 @@ Based on the user's answers:
 
 Write the newsletter components:
 
-- **Subject line**: Follow the format in newsletter.md (`[Topic] - AUWA`, hyphen separator matches website page titles). Short, specific, lowercase after first word. No emojis.
+- **Subject line**: Follow the format in newsletter.md (`[Topic] - Auwa`, hyphen separator matches website page titles). Short, specific, lowercase after first word. No emojis.
 - **Preview text**: One sentence that works as a teaser in email clients. Not a repeat of the subject.
 - **Heading**: 1-3 words. Can be a season name, a theme, or a simple greeting.
 - **Intro paragraph**: 2-4 sentences. Set the scene or mood. Connect to the season or theme. Never salesy.
@@ -61,7 +61,7 @@ Preview: [preview text]
 
 ---
 
-AUWA
+Auwa
 
 [heading]
 

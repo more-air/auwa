@@ -11,6 +11,10 @@
  * Modes:
  *   web    - resize to 1800px max long edge (article images, 4:5 portrait → 1440×1800)
  *   pillar - resize to 2400px max long edge (homepage / teaser pillars, shown at near-full-viewport)
+ *   hero   - resize to 3840px max long edge (full-bleed heroes used with
+ *            <Image fill sizes="100vw">. Next.js's default deviceSizes go
+ *            up to 3840, so anything smaller forces a runtime upscale on
+ *            retina viewports — that's the blur.)
  *   ig     - resize+crop to 1080×1350 (4:5 portrait, centred)
  *   og     - resize+crop to 1200×630 (16:9-ish landscape, centred)
  */
@@ -36,6 +40,10 @@ if (!input || !output || !mode) {
     pipeline = pipeline
       .resize(2400, 2400, { fit: "inside", kernel: "lanczos3" })
       .sharpen({ sigma: 0.7, m1: 0.5, m2: 2.5, x1: 2, y2: 10, y3: 20 });
+  } else if (mode === "hero") {
+    pipeline = pipeline
+      .resize(3840, 3840, { fit: "inside", kernel: "lanczos3", withoutEnlargement: true })
+      .sharpen({ sigma: 0.7, m1: 0.5, m2: 2.5, x1: 2, y2: 10, y3: 20 });
   } else if (mode === "ig") {
     pipeline = pipeline
       .resize(1080, 1350, { fit: "cover", kernel: "lanczos3", position: "centre" })
@@ -45,7 +53,7 @@ if (!input || !output || !mode) {
       .resize(1200, 630, { fit: "cover", kernel: "lanczos3", position: "centre" })
       .sharpen({ sigma: 0.6, m1: 0.4, m2: 2.0 });
   } else {
-    console.error(`Unknown mode: ${mode}. Use web, ig, or og.`);
+    console.error(`Unknown mode: ${mode}. Use web, pillar, hero, ig, or og.`);
     process.exit(1);
   }
 

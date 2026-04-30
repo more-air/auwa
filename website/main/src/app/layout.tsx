@@ -50,7 +50,7 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "AUWA | Japanese Lifestyle Brand",
+  title: "Auwa | Japanese Lifestyle Brand",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   description:
-    "AUWA is a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A daily awareness practice, Japanese craftsman objects, editorial journal, and illustrated stories.",
+    "Auwa is a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A daily awareness practice, Japanese craftsman objects, editorial journal, and illustrated stories.",
   metadataBase: new URL("https://auwa.life"),
   // No global canonical. A parent canonical is inherited by every child
   // route in Next.js metadata merging, so an "https://auwa.life" here
@@ -69,11 +69,11 @@ export const metadata: Metadata = {
   // page ever needs an explicit canonical (e.g. to handle query params),
   // add `alternates: { canonical: url }` to THAT page's generateMetadata.
   openGraph: {
-    title: "AUWA | Japanese Lifestyle Brand",
+    title: "Auwa | Japanese Lifestyle Brand",
     description:
-      "AUWA is a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A daily awareness practice, Japanese craftsman objects, editorial journal, and illustrated stories.",
+      "Auwa is a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A daily awareness practice, Japanese craftsman objects, editorial journal, and illustrated stories.",
     url: "https://auwa.life",
-    siteName: "AUWA",
+    siteName: "Auwa",
     locale: "en_GB",
     type: "website",
     images: [
@@ -81,13 +81,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AUWA",
+        alt: "Auwa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AUWA | Japanese Lifestyle Brand",
+    title: "Auwa | Japanese Lifestyle Brand",
     description: "Japanese lifestyle brand rooted in the belief that a life force, a Kokoro, resides in all things.",
     images: ["/og-image.jpg"],
   },
@@ -97,7 +97,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#ffffff",
+  themeColor: "#f8f7f4",
 };
 
 export default function RootLayout({
@@ -110,6 +110,29 @@ export default function RootLayout({
       lang="en"
       className={`${ebGaramond.variable} ${instrumentSans.variable} ${notoSansJP.variable} ${notoSerifJP.variable}`}
     >
+      <head>
+        {/* Preload the homepage hero posters so the Auwa face is already
+            in cache by the time a visitor navigates to /. Closes the
+            "white logo on white body" window during the /book → /
+            transition (the hero's bg + image are visible immediately,
+            so the white header logo always sits on the dark hero). The
+            mobile + desktop posters are tiny (<200KB each) and only
+            ever needed once. */}
+        <link
+          rel="preload"
+          as="image"
+          href="/hero/poster-auwa.jpg"
+          media="(min-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/hero/poster-auwa-portrait.jpg"
+          media="(max-width: 767px)"
+          fetchPriority="high"
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"
@@ -117,7 +140,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "AUWA",
+              name: "Auwa",
               url: "https://auwa.life",
               logo: "https://auwa.life/auwa-logo.svg",
               description: "A Japanese lifestyle brand rooted in the philosophy that everything has Kokoro.",
@@ -135,7 +158,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "AUWA",
+              name: "Auwa",
               url: "https://auwa.life",
             }),
           }}

@@ -127,7 +127,7 @@ function parsePost(text: string): { sourceSlug: string | null; pillarOverride: P
     if (s) scheduled = s[1].trim();
 
     // First non-blank line that isn't a "Key: value" header is treated as a
-    // potential title hint (e.g. "The Beginning | AUWA Journal").
+    // potential title hint (e.g. "The Beginning | Auwa Journal").
     if (!titleHint && line.trim() && !line.includes(":") && !/^[=-]+$/.test(line.trim())) {
       titleHint = line.trim();
     }
@@ -201,7 +201,7 @@ async function buildTile(slug: string): Promise<PostTile> {
       title = ARTICLE_META[parsed.sourceSlug].title;
       pillar = ARTICLE_META[parsed.sourceSlug].category;
     } else if (parsed.titleHint) {
-      const cleaned = parsed.titleHint.replace(/\s*\|\s*AUWA.*$/i, "").trim();
+      const cleaned = parsed.titleHint.replace(/\s*\|\s*Auwa.*$/i, "").trim();
       if (cleaned) title = cleaned;
     }
     if (parsed.pillarOverride) pillar = parsed.pillarOverride;

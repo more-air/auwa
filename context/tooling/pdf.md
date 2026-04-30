@@ -1,6 +1,6 @@
 # AUWA PDF
 
-The recipe for generating `documents/AUWA-*.pdf` from any context file. Load this when the user asks to produce or refresh a PDF. Other tooling files (image pipeline, audio prep) can sit alongside in `context/tooling/` as they're needed.
+The recipe for generating `documents/Auwa-*.pdf` from any context file. Load this when the user asks to produce or refresh a PDF. Other tooling files (image pipeline, audio prep) can sit alongside in `context/tooling/` as they're needed.
 
 ---
 
@@ -35,32 +35,32 @@ pkill -9 -f "chromium" 2>/dev/null; pkill -9 -f "chrome" 2>/dev/null; sleep 1
 ```
 export PATH="/usr/local/bin:$PATH" && npx md-to-pdf context/[folder]/[file].md --stylesheet /tmp/auwa-pdf.css 2>&1
 ```
-Then move the output: `mv context/[folder]/[file].pdf documents/AUWA-[Name].pdf`
+Then move the output: `mv context/[folder]/[file].pdf documents/Auwa-[Name].pdf`
 
 **File → PDF name mapping:**
 
 *Pillars:*
-- `context/pillar/app.md` → `documents/AUWA-App.pdf`
-- `context/pillar/book.md` → `documents/AUWA-Book.pdf`
+- `context/pillar/app.md` → `documents/Auwa-App.pdf`
+- `context/pillar/book.md` → `documents/Auwa-Book.pdf`
 
 *Brand:*
-- `context/brand/brand.md` → `documents/AUWA-Brand.pdf`
-- `context/brand/manifesto.md` → `documents/AUWA-Manifesto.pdf`
-- `context/brand/reference.md` → `documents/AUWA-Reference.pdf`
+- `context/brand/brand.md` → `documents/Auwa-Brand.pdf`
+- `context/brand/manifesto.md` → `documents/Auwa-Manifesto.pdf`
+- `context/brand/reference.md` → `documents/Auwa-Reference.pdf`
 
 *Business:*
-- `context/business/business.md` → `documents/AUWA-Business.pdf`
-- `context/business/competitors.md` → `documents/AUWA-Competitors.pdf`
-- `context/business/japan.md` → `documents/AUWA-Japan.pdf`
-- `context/business/structure.md` → `documents/AUWA-Structure.pdf`
+- `context/business/business.md` → `documents/Auwa-Business.pdf`
+- `context/business/competitors.md` → `documents/Auwa-Competitors.pdf`
+- `context/business/japan.md` → `documents/Auwa-Japan.pdf`
+- `context/business/structure.md` → `documents/Auwa-Structure.pdf`
 
 *Website:*
-- `context/website/website.md` → `documents/AUWA-Website.pdf`
+- `context/website/website.md` → `documents/Auwa-Website.pdf`
 
 *Marketing:*
-- `context/marketing/arrival.md` → `documents/AUWA-Arrival.pdf`
-- `context/marketing/instagram.md` → `documents/AUWA-Instagram.pdf`
-- `context/marketing/social.md` → `documents/AUWA-Social.pdf`
+- `context/marketing/arrival.md` → `documents/Auwa-Arrival.pdf`
+- `context/marketing/instagram.md` → `documents/Auwa-Instagram.pdf`
+- `context/marketing/social.md` → `documents/Auwa-Social.pdf`
 
 *Claude-only (no PDF):* `context/pillar/journal.md`, `context/marketing/newsletter.md`, `context/website/patterns.md`, `context/tooling/pdf.md`.
 

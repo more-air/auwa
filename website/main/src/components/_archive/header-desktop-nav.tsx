@@ -4,7 +4,7 @@
   The live header now uses the hamburger + full-screen overlay on every
   viewport. If we ever want to bring the inline desktop links back, this
   snippet is the exact JSX that sat inside `<nav>` in `components/header.tsx`
-  to the right of the AUWA wordmark, guarded by `hidden md:flex`.
+  to the right of the Auwa wordmark, guarded by `hidden md:flex`.
 
   To restore:
   1. Re-add `{ label: "Journal", href: "/journal" }, …` to `navItems` in
@@ -30,8 +30,8 @@
 //             isTransparent
 //               ? "text-white"
 //               : active
-//                 ? "text-void"
-//                 : "text-void hover:text-void/55"
+//                 ? "text-sumi"
+//                 : "text-sumi hover:text-sumi/55"
 //           }`}
 //         >
 //           <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:-translate-y-full">

@@ -15,13 +15,25 @@ html {
 main {
   position: relative;
   z-index: 1;
-  background-color: oklch(1 0 0); /* --color-surface (white) */
+  background-color: var(--color-surface);
   overflow-x: clip; /* Contain FadeIn reveal slide-in from the right */
 }
 
+/* Dark-theme page surface (Yoru). Pages opt in by setting
+   data-page-theme="dark" on <body> (see DarkPageTheme). The rule
+   covers <html> + <body> + <main> in one place so nothing flashes
+   white between handoffs. */
+html[data-page-theme="dark"],
+html[data-page-theme="dark"] body,
+html[data-page-theme="dark"] main {
+  background-color: var(--color-yoru);
+  color: var(--color-washi);
+}
+
 @theme inline {
-  /* Foundation palette */
-  --color-void: oklch(0.08 0.025 250);
+  /* Cosmic palette — kept for app-context use (Kokoro reveal gradients,
+     emotional state backgrounds). Not used as text or surface on the
+     editorial website; that role belongs to the Sumi/Yoru/Washi trio. */
   --color-cosmic-900: oklch(0.13 0.030 250);
   --color-cosmic-800: oklch(0.18 0.028 250);
   --color-cosmic-700: oklch(0.25 0.025 250);
@@ -33,9 +45,44 @@ main {
   --color-cosmic-100: oklch(0.93 0.008 250);
   --color-cosmic-50: oklch(0.97 0.005 250);
 
-  /* Light theme base */
-  --color-surface: oklch(1 0 0);
+  /* Light theme base.
+
+     Surface is the page background on every light page. It was pure
+     white through April 2026; aligning to the warm off-white the
+     entrance loader, hero-video pre-paint flash, and email templates
+     already used (#f8f7f4) makes the whole site read as one continuous
+     warm-paper field. The loader→home handoff is now a no-op rather
+     than a colour shift. Lives in the same warm hue family as Washi
+     (hue ~95 vs Washi's 80, both well clear of the cool 235 used by
+     Sumi/Yoru) — page surface and dark-page text are tonal cousins,
+     not strangers.
+
+     Anything that needs the page tone now consumes var(--color-surface)
+     directly (entrance-loader, hero-video pre-paint, email body). Don't
+     reintroduce hardcoded #f8f7f4 or oklch(1 0 0). */
+  --color-surface: oklch(0.97 0.004 95);
   --color-surface-raised: oklch(0.95 0.005 250);
+
+  /* Brand named darks — see context/brand/brand.md §4.
+
+     Sumi (墨) + Yoru (夜) + Washi (和紙) are the editorial brand
+     colour family. They share hue 235 so they read as one tonal
+     system; the pre-rename `--color-void` at hue 250 felt like a
+     separate cosmic palette next to Yoru. Tweak any one of these
+     three and every page that uses them updates in lockstep — that's
+     the consistency contract.
+
+     Roles (one job per token, never mixed):
+       Sumi   — text + logo + menu icon on light surfaces (was `void`).
+                ~14:1 contrast on white at 100%.
+       Yoru   — every dark surface on the site: page bg on dark pages,
+                footer, FigureHook strip.
+       Washi  — every light text/icon/border on Yoru. Replaces white
+                in dark contexts so the warm-paper temperature is
+                preserved end-to-end. */
+  --color-sumi:  oklch(0.10  0.022 235);  /* ink — text on white */
+  --color-yoru:  #0f1623;                 /* night — dark surface (matches the world hero illustration's dark) */
+  --color-washi: oklch(0.928 0.020 80);   /* paper — text on Yoru */
 
   /* Accents */
   --color-glow: oklch(0.85 0.15 105);
@@ -130,7 +177,7 @@ html {
 
 body {
   background: var(--color-surface);
-  color: var(--color-void);
+  color: var(--color-sumi);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -138,11 +185,11 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: #ffffff;
+  color: var(--color-washi);
 }
 ::-moz-selection {
   background: var(--color-accent);
-  color: #ffffff;
+  color: var(--color-washi);
 }
 
 /* Scrollbar */
@@ -242,5 +289,17 @@ textarea:focus-visible {
 }
 .scroll-cue-line {
   animation: scrollCueBreathe 2800ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* Opacity-only breathing pulse for inline cue accents (e.g. the
+   "Move your cursor. Tap to glow." dot beside the AUWA character).
+   Same tempo and curve as the hero scroll cue so the page reads as
+   one consistent rhythm. */
+@keyframes cuePulse {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 1;    }
+}
+.cue-pulse {
+  animation: cuePulse 2800ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 

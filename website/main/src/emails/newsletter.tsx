@@ -28,7 +28,7 @@ interface NewsletterProps {
 }
 
 export default function Newsletter({
-  previewText = "The latest from AUWA.",
+  previewText = "The latest from Auwa.",
   heroImage,
   heroAlt = "",
   heading = "Seasonal letter.",
@@ -48,7 +48,7 @@ export default function Newsletter({
         <Container style={container}>
           {/* Logo */}
           <Section style={logoSection}>
-            <Text style={wordmark}>AUWA</Text>
+            <Text style={wordmark}>Auwa</Text>
           </Section>
 
           {/* Hero image */}

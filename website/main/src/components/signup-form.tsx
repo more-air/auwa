@@ -42,20 +42,20 @@ export function SignupForm({
   }
 
   const isDark = theme === "dark";
-  // Shared container keeps height identical between idle/submitting/success
-  // states so the block above never shifts when the form swaps to the
-  // "thank you" message.
+  // Dark theme uses washi (the brand's named light-on-Yoru tone), not
+  // pure white — keeps the warm-paper temperature of dark surfaces
+  // consistent with the footer + FigureHook + dark-page body text.
   const rowClasses = `flex items-center gap-4 border-b pb-3 min-h-[44px] transition-colors duration-300 ${
     isDark
-      ? "border-white/20 focus-within:border-white/50"
-      : "border-void/20 focus-within:border-void/50"
+      ? "border-washi/20 focus-within:border-washi/50"
+      : "border-sumi/20 focus-within:border-sumi/50"
   }`;
 
   if (status === "success") {
     return (
       <div className={className || "max-w-[440px]"}>
         <div className={rowClasses}>
-          <p className={`font-sans text-[16px] ${isDark ? "text-white" : "text-void"}`}>
+          <p className={`font-sans text-[16px] ${isDark ? "text-washi" : "text-sumi"}`}>
             {successMessage}
           </p>
         </div>
@@ -84,8 +84,8 @@ export function SignupForm({
           disabled={status === "submitting"}
           className={`flex-1 bg-transparent font-sans text-[16px] focus:outline-none focus-visible:outline-none disabled:opacity-50 ${
             isDark
-              ? "text-white placeholder:text-white/35"
-              : "text-void placeholder:text-void/35"
+              ? "text-washi placeholder:text-washi/40"
+              : "text-sumi placeholder:text-sumi/40"
           }`}
         />
         <button
@@ -93,8 +93,8 @@ export function SignupForm({
           disabled={status === "submitting"}
           className={`font-sans text-[16px] font-medium tracking-[0.02em] transition-colors duration-300 whitespace-nowrap cursor-pointer disabled:opacity-50 ${
             isDark
-              ? "text-white hover:text-white/55"
-              : "text-void hover:text-void/55"
+              ? "text-washi hover:text-washi/55"
+              : "text-sumi hover:text-sumi/55"
           }`}
         >
           {status === "submitting" ? "..." : status === "error" ? "Try again" : buttonText}

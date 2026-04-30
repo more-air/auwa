@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "AUWA",
-    short_name: "AUWA",
+    name: "Auwa",
+    short_name: "Auwa",
     description: "Japanese philosophical awareness applied to modern life.",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#ffffff",
+    background_color: "#f8f7f4",
+    theme_color: "#f8f7f4",
     icons: [
       {
         src: "/favicon.svg",

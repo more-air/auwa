@@ -1,13 +1,13 @@
 
 export const metadata = {
-  title: "Brand | AUWA",
-  description: "AUWA brand guidelines. Typography, colour, spacing, and component reference.",
+  title: "Brand | Auwa",
+  description: "Auwa brand guidelines. Typography, colour, spacing, and component reference.",
 };
 
 /* ─── Design tokens (mirrored from globals.css for display) ─── */
 
 const foundations = [
-  { name: "Void", variable: "--color-void", value: "oklch(0.08 0.025 250)", css: "bg-void" },
+  { name: "Sumi", variable: "--color-sumi", value: "oklch(0.10 0.022 235)", css: "bg-sumi" },
   { name: "Cosmic 900", variable: "--color-cosmic-900", value: "oklch(0.13 0.030 250)", css: "bg-cosmic-900" },
   { name: "Cosmic 800", variable: "--color-cosmic-800", value: "oklch(0.18 0.028 250)", css: "bg-cosmic-800" },
   { name: "Cosmic 700", variable: "--color-cosmic-700", value: "oklch(0.25 0.025 250)", css: "bg-cosmic-700" },
@@ -21,7 +21,7 @@ const foundations = [
 ];
 
 const surfaces = [
-  { name: "Surface", variable: "--color-surface", value: "oklch(1 0 0)", note: "Page background, pure white" },
+  { name: "Surface", variable: "--color-surface", value: "oklch(0.97 0.004 95)", note: "Page background — warm off-white (≈ #f8f7f4). Same paper family as Washi; the loader, hero pre-paint, and emails all consume this token." },
   { name: "Surface Raised", variable: "--color-surface-raised", value: "oklch(0.95 0.005 250)", note: "Card & placeholder backgrounds" },
 ];
 
@@ -64,33 +64,33 @@ export default function BrandPage() {
 
         {/* ── Title ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 pb-16 md:pb-24">
-          <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-void">
+          <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-sumi">
             Brand reference
           </h1>
-          <p className="mt-4 font-sans text-[14px] text-void/50">
+          <p className="mt-4 font-sans text-[14px] text-sumi/50">
             Living style guide for auwa.life. Updated April 2026.
           </p>
         </section>
 
         {/* ── Logo ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Logo</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Logo</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-surface-raised rounded-sm p-12 md:p-16 flex items-center justify-center">
-              <img src="/auwa-logo.svg" alt="AUWA wordmark on light" className="h-[24px] md:h-[32px] w-auto" />
+              <img src="/auwa-logo.svg" alt="Auwa wordmark on light" className="h-[24px] md:h-[32px] w-auto" />
             </div>
-            <div className="bg-void rounded-sm p-12 md:p-16 flex items-center justify-center">
-              <img src="/auwa-logo.svg" alt="AUWA wordmark on dark" className="h-[24px] md:h-[32px] w-auto invert" />
+            <div className="bg-sumi rounded-sm p-12 md:p-16 flex items-center justify-center">
+              <img src="/auwa-logo.svg" alt="Auwa wordmark on dark" className="h-[24px] md:h-[32px] w-auto invert" />
             </div>
           </div>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <p className="font-sans text-[14px] text-void/70 leading-[1.6]">
-                The AUWA logo is the wordmark itself: the letters A-U-W-A set in EB Garamond. No separate symbol. The natural symmetry mirrors the etymology. あ (heavens) and わ (earth) framing う (connection).
+              <p className="font-sans text-[14px] text-sumi/70 leading-[1.6]">
+                The Auwa logo is the wordmark itself: the letters A-U-W-A set in EB Garamond. No separate symbol. The natural symmetry mirrors the etymology. あ (heavens) and わ (earth) framing う (connection).
               </p>
             </div>
             <div>
-              <p className="font-sans text-[14px] text-void/70 leading-[1.6]">
+              <p className="font-sans text-[14px] text-sumi/70 leading-[1.6]">
                 Minimum clear space: the height of the letter U on all sides. Never place over busy imagery. Never distort, outline, shadow, or animate.
               </p>
             </div>
@@ -99,7 +99,7 @@ export default function BrandPage() {
 
         {/* ── Colour: Foundation ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Colour / Foundation palette</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Colour / Foundation palette</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {foundations.map((c) => (
               <div key={c.name}>
@@ -107,8 +107,8 @@ export default function BrandPage() {
                   className="aspect-square rounded-sm"
                   style={{ background: c.value }}
                 />
-                <p className="mt-2 font-sans text-[13px] text-void">{c.name}</p>
-                <p className="font-sans text-[12px] text-void/40 leading-[1.5]">{c.value}</p>
+                <p className="mt-2 font-sans text-[13px] text-sumi">{c.name}</p>
+                <p className="font-sans text-[12px] text-sumi/45 leading-[1.5]">{c.value}</p>
               </div>
             ))}
           </div>
@@ -116,18 +116,18 @@ export default function BrandPage() {
 
         {/* ── Colour: Surfaces ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Colour / Surfaces</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Colour / Surfaces</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {surfaces.map((c) => (
               <div key={c.name} className="flex items-center gap-4">
                 <div
-                  className="w-20 h-20 rounded-sm border border-void/8 flex-shrink-0"
+                  className="w-20 h-20 rounded-sm border border-sumi/10 flex-shrink-0"
                   style={{ background: c.value }}
                 />
                 <div>
-                  <p className="font-sans text-[13px] text-void">{c.name}</p>
-                  <p className="font-sans text-[12px] text-void/40">{c.value}</p>
-                  <p className="font-sans text-[12px] text-void/40">{c.note}</p>
+                  <p className="font-sans text-[13px] text-sumi">{c.name}</p>
+                  <p className="font-sans text-[12px] text-sumi/45">{c.value}</p>
+                  <p className="font-sans text-[12px] text-sumi/45">{c.note}</p>
                 </div>
               </div>
             ))}
@@ -136,7 +136,7 @@ export default function BrandPage() {
 
         {/* ── Colour: Yamato emotional states ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Colour / Yamato emotional states</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Colour / Yamato emotional states</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {emotions.map((c) => (
               <div key={c.name}>
@@ -144,11 +144,11 @@ export default function BrandPage() {
                   className="aspect-[4/3] rounded-sm"
                   style={{ background: c.value }}
                 />
-                <p className="mt-2 font-sans text-[13px] text-void">
-                  {c.name} <span className="text-void/40">{c.kanji}</span>
+                <p className="mt-2 font-sans text-[13px] text-sumi">
+                  {c.name} <span className="text-sumi/45">{c.kanji}</span>
                 </p>
-                <p className="font-sans text-[12px] text-void/40">{c.meaning}</p>
-                <p className="font-sans text-[12px] text-void/40">{c.value}</p>
+                <p className="font-sans text-[12px] text-sumi/45">{c.meaning}</p>
+                <p className="font-sans text-[12px] text-sumi/45">{c.value}</p>
               </div>
             ))}
           </div>
@@ -156,68 +156,68 @@ export default function BrandPage() {
 
         {/* ── Typography ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Typography / Typefaces</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Typography / Typefaces</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div>
-              <p className="font-display text-[32px] leading-[1.2] text-void">EB Garamond</p>
-              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-void/40">Display + editorial</p>
-              <p className="mt-4 font-display text-[18px] leading-[1.7] text-void/70">
+              <p className="font-display text-[32px] leading-[1.2] text-sumi">EB Garamond</p>
+              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45">Display + editorial</p>
+              <p className="mt-4 font-display text-[18px] leading-[1.7] text-sumi/70">
                 Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
               </p>
-              <p className="mt-2 font-display text-[18px] leading-[1.7] text-void/70">
+              <p className="mt-2 font-display text-[18px] leading-[1.7] text-sumi/70">
                 0123456789
               </p>
-              <p className="mt-3 font-sans text-[12px] text-void/40">Weights: 400, 500, 600, 700. Styles: normal, italic.</p>
+              <p className="mt-3 font-sans text-[12px] text-sumi/45">Weights: 400, 500, 600, 700. Styles: normal, italic.</p>
             </div>
             <div>
-              <p className="font-sans text-[32px] leading-[1.2] text-void">Instrument Sans</p>
-              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-void/40">Functional + UI</p>
-              <p className="mt-4 font-sans text-[18px] leading-[1.7] text-void/70">
+              <p className="font-sans text-[32px] leading-[1.2] text-sumi">Instrument Sans</p>
+              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45">Functional + UI</p>
+              <p className="mt-4 font-sans text-[18px] leading-[1.7] text-sumi/70">
                 Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
               </p>
-              <p className="mt-2 font-sans text-[18px] leading-[1.7] text-void/70">
+              <p className="mt-2 font-sans text-[18px] leading-[1.7] text-sumi/70">
                 0123456789
               </p>
-              <p className="mt-3 font-sans text-[12px] text-void/40">Weights: 400, 500, 600.</p>
+              <p className="mt-3 font-sans text-[12px] text-sumi/45">Weights: 400, 500, 600.</p>
             </div>
             <div>
-              <p className="text-[32px] leading-[1.2] text-void" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>Noto Serif JP</p>
-              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-void/40">Japanese text</p>
-              <p className="mt-4 text-[18px] leading-[1.7] text-void/70" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>
+              <p className="text-[32px] leading-[1.2] text-sumi" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>Noto Serif JP</p>
+              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45">Japanese text</p>
+              <p className="mt-4 text-[18px] leading-[1.7] text-sumi/70" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>
                 あいうえお かきくけこ さしすせそ
               </p>
-              <p className="mt-2 text-[18px] leading-[1.7] text-void/70" style={{ fontFamily: 'var(--font-jp), sans-serif' }}>
+              <p className="mt-2 text-[18px] leading-[1.7] text-sumi/70" style={{ fontFamily: 'var(--font-jp), sans-serif' }}>
                 心 魂 和 晴 哀 揺 昂
               </p>
-              <p className="mt-3 font-sans text-[12px] text-void/40">Noto Sans JP (300, 400) + Noto Serif JP (400, 600).</p>
+              <p className="mt-3 font-sans text-[12px] text-sumi/45">Noto Sans JP (300, 400) + Noto Serif JP (400, 600).</p>
             </div>
           </div>
         </section>
 
         {/* ── Type scale ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Typography / Scale</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Typography / Scale</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-void/10">
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Element</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Font</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Weight</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Size</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal hidden lg:table-cell">Tracking</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 font-normal hidden xl:table-cell">Sample</th>
+                <tr className="border-b border-sumi/10">
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Element</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Font</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Weight</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Size</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal hidden lg:table-cell">Tracking</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 font-normal hidden xl:table-cell">Sample</th>
                 </tr>
               </thead>
               <tbody>
                 {typeScale.map((row) => (
-                  <tr key={row.name} className="border-b border-void/8">
-                    <td className="font-sans text-[13px] text-void py-3 pr-6 whitespace-nowrap">{row.name}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3 pr-6 whitespace-nowrap">{row.font}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3 pr-6">{row.weight}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3 pr-6 whitespace-nowrap">{row.size}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3 pr-6 hidden lg:table-cell">{row.tracking}</td>
-                    <td className="font-sans text-[13px] text-void/40 py-3 hidden xl:table-cell">{row.sample}</td>
+                  <tr key={row.name} className="border-b border-sumi/10">
+                    <td className="font-sans text-[13px] text-sumi py-3 pr-6 whitespace-nowrap">{row.name}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3 pr-6 whitespace-nowrap">{row.font}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3 pr-6">{row.weight}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3 pr-6 whitespace-nowrap">{row.size}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3 pr-6 hidden lg:table-cell">{row.tracking}</td>
+                    <td className="font-sans text-[13px] text-sumi/45 py-3 hidden xl:table-cell">{row.sample}</td>
                   </tr>
                 ))}
               </tbody>
@@ -227,26 +227,26 @@ export default function BrandPage() {
 
         {/* ── Spacing ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Spacing system</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Spacing system</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-void/10">
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Element</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Mobile</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Tablet</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 pr-6 font-normal">Desktop</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-void/40 pb-3 font-normal">XL</th>
+                <tr className="border-b border-sumi/10">
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Element</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Mobile</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Tablet</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Desktop</th>
+                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 font-normal">XL</th>
                 </tr>
               </thead>
               <tbody>
                 {spacingSystem.map((row) => (
-                  <tr key={row.name} className="border-b border-void/8">
-                    <td className="font-sans text-[13px] text-void py-3 pr-6 whitespace-nowrap">{row.name}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3 pr-6">{row.mobile}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3 pr-6">{row.tablet}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3 pr-6">{row.desktop}</td>
-                    <td className="font-sans text-[13px] text-void/60 py-3">{row.xl}</td>
+                  <tr key={row.name} className="border-b border-sumi/10">
+                    <td className="font-sans text-[13px] text-sumi py-3 pr-6 whitespace-nowrap">{row.name}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3 pr-6">{row.mobile}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3 pr-6">{row.tablet}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3 pr-6">{row.desktop}</td>
+                    <td className="font-sans text-[13px] text-sumi/60 py-3">{row.xl}</td>
                   </tr>
                 ))}
               </tbody>
@@ -256,22 +256,22 @@ export default function BrandPage() {
 
         {/* ── Components ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Components</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Components</h2>
 
           <div className="space-y-12">
 
             {/* Form */}
             <div>
-              <p className="font-sans text-[13px] text-void mb-4">Email form (light background)</p>
+              <p className="font-sans text-[13px] text-sumi mb-4">Email form (light background)</p>
               <div className="max-w-[440px]">
-                <div className="flex items-center gap-4 border-b border-void/20 pb-3">
+                <div className="flex items-center gap-4 border-b border-sumi/20 pb-3">
                   <input
                     type="email"
                     placeholder="Email address"
                     disabled
-                    className="flex-1 bg-transparent font-sans text-[14px] text-void placeholder:text-void/35 outline-none"
+                    className="flex-1 bg-transparent font-sans text-[14px] text-sumi placeholder:text-sumi/40 outline-none"
                   />
-                  <span className="font-sans text-[14px] font-medium tracking-[0.02em] text-void whitespace-nowrap">
+                  <span className="font-sans text-[14px] font-medium tracking-[0.02em] text-sumi whitespace-nowrap">
                     Join Waitlist
                   </span>
                 </div>
@@ -280,8 +280,8 @@ export default function BrandPage() {
 
             {/* Form dark */}
             <div>
-              <p className="font-sans text-[13px] text-void mb-4">Email form (dark background)</p>
-              <div className="bg-void rounded-sm p-10 max-w-[480px]">
+              <p className="font-sans text-[13px] text-sumi mb-4">Email form (dark background)</p>
+              <div className="bg-sumi rounded-sm p-10 max-w-[480px]">
                 <div className="flex items-center gap-4 border-b border-white/20 pb-3">
                   <input
                     type="email"
@@ -298,17 +298,17 @@ export default function BrandPage() {
 
             {/* Article card */}
             <div>
-              <p className="font-sans text-[13px] text-void mb-4">Article card</p>
+              <p className="font-sans text-[13px] text-sumi mb-4">Article card</p>
               <div className="max-w-[300px]">
                 <div className="bg-surface-raised rounded-sm overflow-hidden relative aspect-[4/5]">
                   <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />
                 </div>
                 <div className="mt-4">
-                  <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40">Craft</span>
-                  <h3 className="mt-1.5 font-display text-[20px] leading-[1.2] tracking-[0.01em] text-void">
+                  <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45">Craft</span>
+                  <h3 className="mt-1.5 font-display text-[20px] leading-[1.2] tracking-[0.01em] text-sumi">
                     The knife maker of Seki
                   </h3>
-                  <p className="mt-1.5 font-sans text-[14px] leading-[1.5] text-void/50">
+                  <p className="mt-1.5 font-sans text-[14px] leading-[1.5] text-sumi/50">
                     A lifetime spent perfecting a single blade.
                   </p>
                 </div>
@@ -317,19 +317,19 @@ export default function BrandPage() {
 
             {/* Image aspect ratios */}
             <div>
-              <p className="font-sans text-[13px] text-void mb-4">Image aspect ratios</p>
+              <p className="font-sans text-[13px] text-sumi mb-4">Image aspect ratios</p>
               <div className="grid grid-cols-3 gap-4 max-w-[600px]">
                 <div>
                   <div className="bg-surface-raised rounded-sm aspect-[4/5]" />
-                  <p className="mt-2 font-sans text-[12px] text-void/40">4:5 portrait (primary)</p>
+                  <p className="mt-2 font-sans text-[12px] text-sumi/45">4:5 portrait (primary)</p>
                 </div>
                 <div>
                   <div className="bg-surface-raised rounded-sm aspect-[3/4]" />
-                  <p className="mt-2 font-sans text-[12px] text-void/40">3:4 portrait (book cover)</p>
+                  <p className="mt-2 font-sans text-[12px] text-sumi/45">3:4 portrait (book cover)</p>
                 </div>
                 <div>
                   <div className="bg-surface-raised rounded-sm aspect-[2.5/1]" />
-                  <p className="mt-2 font-sans text-[12px] text-void/40">2.5:1 landscape (image break)</p>
+                  <p className="mt-2 font-sans text-[12px] text-sumi/45">2.5:1 landscape (image break)</p>
                 </div>
               </div>
             </div>
@@ -339,64 +339,64 @@ export default function BrandPage() {
 
         {/* ── Design principles ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Design principles</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Design principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-[680px]">
             <div>
-              <p className="font-display text-[18px] text-void">Portrait-first imagery</p>
-              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-void/50">All editorial imagery uses 4:5 portrait aspect ratio. No landscape images in article layouts or card grids.</p>
+              <p className="font-display text-[18px] text-sumi">Portrait-first imagery</p>
+              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-sumi/50">All editorial imagery uses 4:5 portrait aspect ratio. No landscape images in article layouts or card grids.</p>
             </div>
             <div>
-              <p className="font-display text-[18px] text-void">Generous whitespace</p>
-              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-void/50">Sections breathe. Standard vertical rhythm of 64px mobile, 96px desktop between sections. Content doesn&apos;t crowd.</p>
+              <p className="font-display text-[18px] text-sumi">Generous whitespace</p>
+              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-sumi/50">Sections breathe. Standard vertical rhythm of 64px mobile, 96px desktop between sections. Content doesn&apos;t crowd.</p>
             </div>
             <div>
-              <p className="font-display text-[18px] text-void">Serif voice, sans function</p>
-              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-void/50">EB Garamond carries the brand voice: headlines, body, editorial. Instrument Sans handles UI, metadata, and navigation.</p>
+              <p className="font-display text-[18px] text-sumi">Serif voice, sans function</p>
+              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-sumi/50">EB Garamond carries the brand voice: headlines, body, editorial. Instrument Sans handles UI, metadata, and navigation.</p>
             </div>
             <div>
-              <p className="font-display text-[18px] text-void">Scroll-reveal motion</p>
-              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-void/50">Elements fade in with a gentle 12px rise as they enter the viewport. Ease-out-expo timing. Staggered delays on grid items.</p>
+              <p className="font-display text-[18px] text-sumi">Scroll-reveal motion</p>
+              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-sumi/50">Elements fade in with a gentle 12px rise as they enter the viewport. Ease-out-expo timing. Staggered delays on grid items.</p>
             </div>
           </div>
         </section>
 
         {/* ── Motion ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-void/40 mb-8">Motion</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Motion</h2>
           <div className="max-w-[480px] space-y-4">
             <div className="flex justify-between font-sans text-[13px]">
-              <span className="text-void">Easing</span>
-              <span className="text-void/50">cubic-bezier(0.16, 1, 0.3, 1)</span>
+              <span className="text-sumi">Easing</span>
+              <span className="text-sumi/50">cubic-bezier(0.16, 1, 0.3, 1)</span>
             </div>
-            <div className="border-b border-void/8" />
+            <div className="border-b border-sumi/10" />
             <div className="flex justify-between font-sans text-[13px]">
-              <span className="text-void">FadeIn duration</span>
-              <span className="text-void/50">800ms</span>
+              <span className="text-sumi">FadeIn duration</span>
+              <span className="text-sumi/50">800ms</span>
             </div>
-            <div className="border-b border-void/8" />
+            <div className="border-b border-sumi/10" />
             <div className="flex justify-between font-sans text-[13px]">
-              <span className="text-void">FadeIn translate</span>
-              <span className="text-void/50">12px (translateY)</span>
+              <span className="text-sumi">FadeIn translate</span>
+              <span className="text-sumi/50">12px (translateY)</span>
             </div>
-            <div className="border-b border-void/8" />
+            <div className="border-b border-sumi/10" />
             <div className="flex justify-between font-sans text-[13px]">
-              <span className="text-void">Hover transitions</span>
-              <span className="text-void/50">300ms</span>
+              <span className="text-sumi">Hover transitions</span>
+              <span className="text-sumi/50">300ms</span>
             </div>
-            <div className="border-b border-void/8" />
+            <div className="border-b border-sumi/10" />
             <div className="flex justify-between font-sans text-[13px]">
-              <span className="text-void">Stagger delay</span>
-              <span className="text-void/50">60-100ms per item</span>
+              <span className="text-sumi">Stagger delay</span>
+              <span className="text-sumi/50">60-100ms per item</span>
             </div>
           </div>
         </section>
 
         {/* ── Footer ── */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24 border-t border-void/8">
-          <p className="font-sans text-[14px] text-void/40">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-16 md:py-24 border-t border-sumi/10">
+          <p className="font-sans text-[14px] text-sumi/45">
             This is a living reference. It reads from the same design tokens as the production site. When the CSS changes, this page updates automatically.
           </p>
-          <p className="mt-2 font-sans text-[14px] text-void/40">
+          <p className="mt-2 font-sans text-[14px] text-sumi/45">
             &copy; AUWA {new Date().getFullYear()}. Confidential.
           </p>
         </section>
