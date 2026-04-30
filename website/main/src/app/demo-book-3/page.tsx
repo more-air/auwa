@@ -133,7 +133,7 @@ export default function DemoBookThreePage() {
       {/* Footer rendered in Yoru so the page reads as one continuous
           dark canvas. Parallax reveal is muted because main and footer
           share a colour — the trade-off Rieko prefers. */}
-      <Footer bgColor="var(--color-yoru)" />
+      <Footer />
     </>
   );
 }
