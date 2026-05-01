@@ -242,8 +242,17 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   // leaving phase.
   const wrapperTransform =
     phase === "leaving" ? `translate3d(0, -${driftPx}px, 0)` : undefined;
+  // Content fades 1 → 0 alongside the upward drift so EVERYTHING (text,
+  // images, sticky elements) gently dissolves together. Without the
+  // opacity sweep, only images appeared to fade — high-contrast text
+  // remained visible against the darkening wash, reading as a
+  // half-finished transition. Fade fires over LEAVE_MS so it lands
+  // when the panel reaches the top of the viewport.
+  const wrapperOpacity = phase === "leaving" ? 0 : 1;
   const wrapperTransition =
-    phase === "leaving" ? `transform ${LEAVE_MS}ms ${EASE}` : undefined;
+    phase === "leaving"
+      ? `transform ${LEAVE_MS}ms ${EASE}, opacity ${LEAVE_MS}ms ${EASE}`
+      : undefined;
 
   // Darkening wash — fades over the old page during LEAVE, snaps to 0
   // when the panel snaps off (it was hidden behind the panel anyway).
@@ -279,6 +288,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         className="relative outline-none"
         style={{
           transform: wrapperTransform,
+          opacity: wrapperOpacity,
           transition: wrapperTransition,
         }}
       >
