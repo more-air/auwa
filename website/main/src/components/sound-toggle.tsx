@@ -170,8 +170,20 @@ export function SoundToggle({ style, className = "" }: SoundToggleProps) {
               animation: playing
                 ? `sound-wave ${b.dur} cubic-bezier(0.4, 0, 0.6, 1) ${b.delay} infinite alternate`
                 : "none",
-              transform: playing ? undefined : `scaleY(${b.restY})`,
+              // Same sibling-rasterisation fix as the hamburger lines
+              // (patterns.md "Explicit transform and rendering hints
+              // on sibling animated elements"). Without these matched
+              // hints, mobile Chromium / iOS Safari put the bars on
+              // different compositor layers and rasterise them at
+              // different stroke widths. Transform is always set —
+              // even during the playing animation — so the rest
+              // value is explicit (scaleY 1) and not `undefined`,
+              // which would otherwise differ between bars.
+              transform: playing ? "scaleY(1)" : `scaleY(${b.restY})`,
               transition: "transform 240ms cubic-bezier(0.16, 1, 0.3, 1)",
+              willChange: "transform",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
             }}
           />
         ))}
