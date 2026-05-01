@@ -1116,23 +1116,22 @@ export default async function ArticlePage({
             {/* Header tone sentinel — text side reads against Surface
                 page bg, header trigger wants Sumi here. */}
             <HeaderTone tone="sumi" />
-            {/* Hold title + subtitle behind the hero image — the
-                image's ImageFade is a 2000ms fade gated on the actual
-                pixel paint, so by ~700ms it reads as established.
-                Starting the title cascade at 700ms (and subtitle at
-                1200ms) means the image arrives first, then the text
-                lands over it as a deliberate second beat. Without
-                these delays both compete for the user's eye on first
-                load. */}
+            {/* Title cascades alongside the image's 2000ms ImageFade
+                — both start at the same moment (gated on
+                usePageReady) so the user sees the photo establishing
+                while the title's word-by-word reveal plays out. The
+                short ~700ms cascade lands well within the longer
+                image fade, reading as one composed entrance.
+                Subtitle comes in a beat later (700ms) so the visual
+                hierarchy reads title → subtitle, not all at once. */}
             <TextReveal
               as="h1"
               className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-sumi"
               stagger={70}
-              delay={700}
             >
               {article.title}
             </TextReveal>
-            <FadeIn delay={1200} translateY={32}>
+            <FadeIn delay={700} translateY={32}>
               <p className="mt-4 md:mt-6 pr-2 md:pr-0 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-pretty text-sumi/60">
                 {article.subtitle}
               </p>

@@ -390,7 +390,20 @@ export function Header() {
                   // FadeIn / TextReveal elements wait until ~180ms
                   // after the menu close finishes before cascading in.
                   data-skip-transition="true"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    // Skip-transition navigations render the new page
+                    // INSTANTLY behind the closing menu. We flip the
+                    // header colour out of menuColorActive (sumi) at
+                    // the same moment, so the destination page's
+                    // per-route / sentinel tone resolves immediately
+                    // and the logo + menu icon read against the
+                    // correct page colour as the menu glides away.
+                    // Without this, the colour change waits 900ms
+                    // (the standalone-close hold) and lands AFTER the
+                    // page is already visible, reading as a flicker.
+                    setMenuColorActive(false);
+                  }}
                   className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.08] tracking-[0.005em] transition-colors duration-300 ${
                     pathname === item.href
                       ? "text-sumi"
@@ -492,7 +505,16 @@ export function Header() {
           // On routes other than `/`, the pathname-change effect would
           // close it for free; on `/` itself, navigation is a no-op so
           // we have to close it explicitly here.
-          if (menuOpen) setMenuOpen(false);
+          //
+          // Mirror the menu-link behaviour: also clear menuColorActive
+          // immediately so the header flips to the destination's tone
+          // alongside the menu close, not 900ms later (which would
+          // land AFTER the new page is visible behind the menu and
+          // read as a flicker).
+          if (menuOpen) {
+            setMenuOpen(false);
+            setMenuColorActive(false);
+          }
         }}
         // When clicked WITH menu open, skip the page-transition wipe —
         // the menu's own close motion is the visual transition, same

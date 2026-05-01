@@ -339,15 +339,6 @@ textarea:focus-visible {
   100% { transform: scaleY(1); }
 }
 
-/* Decorative watermarks (心 on home + about, etc.) — fade in
-   gracefully on load instead of appearing instantly with the page.
-   The text colour itself is at low alpha (e.g. text-sumi/[0.03]) so
-   this CSS opacity fade just animates the ALREADY-faint glyph from
-   invisible to its final 3% appearance. */
-.watermark-fade-in {
-  animation: fadeIn 1800ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
 /* Hero scroll cue — thin vertical line that slowly breathes its height
    and opacity. Quieter replacement for the default bouncing chevron. */
 @keyframes scrollCueBreathe {

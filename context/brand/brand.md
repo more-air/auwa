@@ -136,16 +136,28 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 | Pullquote (hero-scale) | EB Garamond | 400 | clamp(2rem, 5.5vw, 4.5rem) | 0.005em |
 | Page subtitle | EB Garamond | 400 | clamp(1.1rem, 2vw, 1.4rem) | — |
 | About page prose | EB Garamond | 400 | 18px / 20px | — |
-| Navigation | Instrument Sans | 400 | 14px | 0.14em (uppercase rule) |
+| Navigation (menu link, 14px CAPS) | Instrument Sans | 400 | 14px | 0.12em (uppercase scale) |
 | UI text / excerpts | Instrument Sans | 400 | 14px | — |
-| Form button (CTA) | Instrument Sans | 500 | 14px | 0.14em (uppercase rule) |
-| Uppercase filter | Instrument Sans | 400 | 13px | 0.14em (uppercase rule) |
-| Uppercase metadata | Instrument Sans | 400 | 12px | 0.14em (uppercase rule) |
+| Form button (CTA, 14px CAPS) | Instrument Sans | 500 | 14px | 0.12em (uppercase scale) |
+| Uppercase filter / interactive (13px CAPS) | Instrument Sans | 400 | 13px | 0.14em (uppercase scale) |
+| Uppercase eyebrow / metadata (12px CAPS) | Instrument Sans | 400 | 12px | 0.16em (uppercase scale) |
+| Smallest CAPS (11px, e.g. mobile FigureHook) | Instrument Sans | 400 | 11px | 0.18em (uppercase scale) |
 | Kanji (micro-season) | Noto Serif JP | 400 | clamp(3rem, 8vw, 6.5rem) | 0.06em |
 | Image captions | Instrument Sans | 400 | 13px | — |
-| Footer copyright | Instrument Sans | 400 | 14px | 0.14em (uppercase rule) |
+| Footer copyright (14px CAPS) | Instrument Sans | 400 | 14px | 0.12em (uppercase scale) |
 
-**Uppercase rule (locked).** Every piece of small uppercase text on the site uses **`tracking-[0.14em]`** — generous enough to feel deliberate, tight enough to stay confident. This applies to: eyebrows, metadata labels, filter buttons, navigation links, form CTAs, "Scroll" / "Explore" hero cues, "INSTAGRAM" handle, footer copy + copyright line, share-row labels, and the FigureHook strip. The previous mix of 0.02em / 0.06em / 0.08em / 0.14em / 0.18em / 0.22em / 0.26em was inconsistent and made the site read less considered. One tracking value across all uppercase locks the system.
+**Uppercase tracking scale (locked).** Smaller uppercase text gets MORE letter-spacing; larger uppercase text gets LESS. Optical principle: small caps need extra breathing room to read; large caps tighten naturally. The scale below is the locked set — no bespoke values:
+
+| Text size | Tracking | Typical uses |
+|-----------|----------|--------------|
+| 11px | `0.18em` | Smallest CAPS — mobile breakpoint of the FigureHook strip |
+| 12px | `0.16em` | Eyebrows, metadata labels, card categories |
+| 13px | `0.14em` | Filter buttons, "Scroll" / "Explore" hero cues, breadcrumbs, share-row labels |
+| 14px | `0.12em` | Navigation links, form CTAs, footer copyright, INSTAGRAM handle |
+| 16-19px | `0.10em` | (rare) larger interactive caps |
+| 24px+ | `0.04em` | (display caps) |
+
+This replaces an earlier "single 0.14em across everything" attempt that made the smaller text feel pinched and the larger text feel airy. The scale was applied across 20 files in May 2026; the only exceptions are display headings (h1/h2/h3 in mixed-case EB Garamond) which keep `tracking-[0.005em]` / `0.01em` and don't follow the uppercase scale.
 
 ---
 
