@@ -8,7 +8,10 @@ import { DarkPageTheme } from "@/components/dark-page-theme";
 import { EditorialFeature } from "@/components/editorial-feature";
 import { FadeIn } from "@/components/fade-in";
 import { Footer } from "@/components/footer";
+import { HeaderTone } from "@/components/header-tone";
+import { usePageReady } from "@/components/page-transition";
 import { ScrollFadeText } from "@/components/scroll-fade-text";
+import { SevenStars } from "@/components/seven-stars";
 import { SignupForm } from "@/components/signup-form";
 import { TextReveal } from "@/components/text-reveal";
 import { STAGGER } from "@/lib/motion";
@@ -38,16 +41,16 @@ type Spread = { src: string; alt: string; type?: "spread" | "cover" };
    filenames so a future swap (e.g. Rieko delivers updated artwork) is
    a one-line edit. */
 const auwaVariants = {
-  up: "/book/character/auwa-up.png",
-  down: "/book/character/auwa-down.png",
-  left: "/book/character/auwa-left.png",
-  right: "/book/character/auwa-right.png",
+  up: "/book/character/auwa-up.webp",
+  down: "/book/character/auwa-down.webp",
+  left: "/book/character/auwa-left.webp",
+  right: "/book/character/auwa-right.webp",
   glow: {
-    front: "/book/character/auwa-front-glow.png",
-    up: "/book/character/auwa-up-glow.png",
-    down: "/book/character/auwa-down-glow.png",
-    left: "/book/character/auwa-left-glow.png",
-    right: "/book/character/auwa-right-glow.png",
+    front: "/book/character/auwa-front-glow.webp",
+    up: "/book/character/auwa-up-glow.webp",
+    down: "/book/character/auwa-down-glow.webp",
+    left: "/book/character/auwa-left-glow.webp",
+    right: "/book/character/auwa-right-glow.webp",
   },
 };
 
@@ -109,6 +112,8 @@ export default function DemoWorldPage() {
         <Separator />
         <OpeningQuote />
         <Separator />
+        <SevenStars />
+        <Separator />
         <MeetAuwa />
         <Separator />
         <KokoroReveal />
@@ -159,8 +164,14 @@ export default function DemoWorldPage() {
    hero. */
 function Hero() {
   return (
-    <section className="-mt-16 md:-mt-20 relative">
+    <section className="relative">
       <div className="relative h-[100svh] w-full overflow-hidden">
+        {/* Header tone — full-bleed dark hero, header reads against
+            imagery → Surface logo + menu. Once the user scrolls past
+            the hero, the per-route fallback (darkPage → washi)
+            takes over because the post-hero content doesn't drop
+            its own sentinel. */}
+        <HeaderTone tone="surface" />
         <BookHeroLayers />
         {/* Top scrim — keeps the washi header glyphs legible over busy
             imagery without darkening the image meaningfully. */}
@@ -182,24 +193,18 @@ function Hero() {
               "linear-gradient(to bottom, transparent 0%, var(--color-yoru) 100%)",
           }}
         />
-        {/* Hero copy. Padding mirrors the header (px-6 md:px-12
-            lg:px-20 xl:px-28) so the title's left edge aligns with
-            the Auwa wordmark on every viewport — no inner max-w
-            wrapper that would centre the block on wide screens. */}
-        <div className="absolute inset-x-0 bottom-0 z-10 px-6 md:px-12 lg:px-20 xl:px-28 pb-40 md:pb-44">
-          <FadeIn>
-            <p className="font-sans text-[12px] tracking-[0.18em] uppercase text-washi/70">
-              Auwa World
-            </p>
-          </FadeIn>
-          <TextReveal
-            as="h1"
-            className="mt-6 md:mt-8 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.05] tracking-[0.01em] text-washi"
-            stagger={STAGGER.hero}
-          >
-            The Books.
-          </TextReveal>
-        </div>
+        {/* Hero copy.
+            Mobile: centred above the Explore cue (which sits bottom-
+            centre), so the title and the cue read as one composition.
+            Desktop (md+): bottom-left, padding mirrors the page gutter
+            so the title aligns with the Auwa wordmark.
+            Eyebrow removed — the title alone carries the moment. */}
+        {/* Title parked — hidden for now per design decision while
+            we decide on the right wording. The hero reads as the
+            book moment via the imagery + cue alone. An sr-only h1
+            is retained so the page still has one heading element
+            for SEO + screen-reader navigation. */}
+        <h1 className="sr-only">Auwa illustrated stories</h1>
         {/* Begin-reading cue mirrors HeroVideo's pattern (text-roll
             label + breathing vertical line). Scrolls to #begin with
             the documented header offset. */}
@@ -217,13 +222,29 @@ function Hero() {
     NOTE: V1 is intentionally NOT animated. next/image with `priority`
     serialises the inline style into the SSR HTML, and React's runtime
     style setter doesn't replace it after mount (whitespace mismatch
-    between SSR-stringified CSS and runtime CSSOM). So V1 stays at
-    opacity 1 always — which matches Rieko's framing anyway: "starts
-    on dark, pattern fades in beautifully." The pattern arrival is
-    the entrance moment; the base just needs to be there. */
+    between SSR-stringified CSS and runtime CSSOM). To animate V1
+    without hitting that issue, we drive its opacity via state that
+    flips in a post-mount rAF — the SSR HTML ships with no inline
+    style, then React's runtime style update transitions cleanly
+    from 0 to 1 over 600ms. The 600ms ease-out-expo gives V1 a soft
+    arrival; V2 then layers on top at 900ms with its 2.5s fade-in,
+    so the two transitions stack into one composed entrance. */
 function BookHeroLayers() {
+  const [v1In, setV1In] = useState(false);
   const [patternIn, setPatternIn] = useState(false);
   const [eyesClosed, setEyesClosed] = useState(false);
+  // Gate V1's fade on the page transition completing, same as the
+  // home HeroVideo. Without this gate, V1 fades in behind the
+  // covering panel during navigation and the user only sees the
+  // last few % of the fade — reads as abrupt.
+  const ready = usePageReady();
+
+  // V1 fades in once the page-transition has settled.
+  useEffect(() => {
+    if (!ready) return;
+    const id = requestAnimationFrame(() => setV1In(true));
+    return () => cancelAnimationFrame(id);
+  }, [ready]);
 
   // V2 starts its slow fade-in shortly after the base paints.
   useEffect(() => {
@@ -250,6 +271,12 @@ function BookHeroLayers() {
     };
   }, []);
 
+  const v1Style = {
+    opacity: v1In ? 1 : 0,
+    // Slow 2000ms fade — matches the home page hero so the book hero
+    // arrives with the same gentleness rather than reading abruptly.
+    transition: "opacity 2000ms cubic-bezier(0.16, 1, 0.3, 1)",
+  };
   const patternStyle = {
     opacity: patternIn ? 1 : 0,
     // Slow ease-in so the pattern arrives like light catching on it.
@@ -278,6 +305,7 @@ function BookHeroLayers() {
           quality={95}
           sizes="100vw"
           className="object-cover"
+          style={v1Style}
         />
         <Image
           src="/book/hero/portrait-2.jpg"
@@ -310,6 +338,7 @@ function BookHeroLayers() {
           quality={95}
           sizes="100vw"
           className="object-cover"
+          style={v1Style}
         />
         <Image
           src="/book/hero/landscape-2.jpg"
@@ -343,17 +372,36 @@ function BeginReadingCue() {
       onClick={() => {
         const target = document.getElementById("begin");
         if (!target) return;
-        const headerOffset = window.matchMedia("(min-width: 768px)").matches
-          ? 80
-          : 64;
-        const y =
-          target.getBoundingClientRect().top + window.scrollY - headerOffset;
-        window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+        // Same custom rAF scroll as the home hero — stops sooner so
+        // the white area doesn't run flush against the wordmark, and
+        // uses an expo.inOut curve over 1400ms instead of the
+        // implementation-defined native "smooth" which reads abrupt.
+        const stopGap = window.matchMedia("(min-width: 768px)").matches
+          ? 200
+          : 140;
+        const targetY = Math.max(
+          0,
+          target.getBoundingClientRect().top + window.scrollY - stopGap
+        );
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        if (Math.abs(distance) < 4) return;
+        const duration = 1400;
+        const startTime = performance.now();
+        const ease = (t: number) =>
+          t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+        const step = (now: number) => {
+          const elapsed = now - startTime;
+          const t = Math.min(1, elapsed / duration);
+          window.scrollTo(0, startY + distance * ease(t));
+          if (t < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
       }}
       aria-label="Explore"
       className="group absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-5 md:gap-6 cursor-pointer p-2"
     >
-      <span className="relative inline-flex overflow-hidden font-sans text-[12px] md:text-[13px] tracking-[0.26em] uppercase text-washi">
+      <span className="relative inline-flex overflow-hidden font-sans text-[12px] md:text-[13px] tracking-[0.16em] md:tracking-[0.14em] uppercase text-washi">
         <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
           Explore
         </span>
@@ -385,7 +433,7 @@ function Intro() {
     >
       <div className="max-w-[880px]">
         <FadeIn>
-          <p className="font-sans text-[12px] tracking-[0.18em] uppercase text-washi/55">
+          <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-washi/55">
             An illustrated story
           </p>
         </FadeIn>
@@ -417,7 +465,7 @@ function OpeningQuote() {
           &ldquo;In one of countless galaxies, a small blue planet was waiting.&rdquo;
         </ScrollFadeText>
         <FadeIn delay={400}>
-          <p className="mt-10 font-sans text-[12px] tracking-[0.08em] uppercase text-washi/45">
+          <p className="mt-10 font-sans text-[12px] tracking-[0.16em] uppercase text-washi/45">
             At the beginning
           </p>
         </FadeIn>
@@ -452,27 +500,32 @@ function MeetAuwa() {
     let targetScale = 0.94;
     let raf = 0;
     let active = true;
+    // Capture viewport height on mount + resize. Reading
+    // window.innerHeight live in the scroll handler causes the scale
+    // to jitter on iOS Safari as the URL bar retracts mid-scroll
+    // (the live `vh` shifts under us). Capturing once stabilises it.
+    let capturedVh = window.innerHeight;
+    const onResize = () => {
+      capturedVh = window.innerHeight;
+    };
 
     const compute = () => {
       const rect = section.getBoundingClientRect();
-      const vh = window.innerHeight;
       // 0 = section out of viewport; 1 = section centre at viewport
       // centre. Subtle 6% scale travel (0.94 → 1.0) so the entrance
-      // breathes rather than pops; previous 0.88 → 1.0 range read as
-      // a noticeable size jump.
+      // breathes rather than pops.
       const sectionMid = rect.top + rect.height / 2;
-      const viewportMid = vh / 2;
+      const viewportMid = capturedVh / 2;
       const distance = Math.abs(sectionMid - viewportMid);
-      const max = vh / 2 + rect.height / 2;
+      const max = capturedVh / 2 + rect.height / 2;
       const progress = Math.max(0, Math.min(1, 1 - distance / max));
       targetScale = 0.94 + 0.06 * progress;
     };
 
     const tick = () => {
       if (!active) return;
-      // Lerp factor 0.08 (was 0.12) — slightly slower follow so the
-      // scale settles smoothly behind the FadeIn rise rather than
-      // catching up in 300ms.
+      // Lerp factor 0.08 — slightly slower follow so the scale settles
+      // smoothly behind the FadeIn rise rather than catching up in 300ms.
       currentScale += (targetScale - currentScale) * 0.08;
       mover.style.transform = `scale(${currentScale.toFixed(3)})`;
       raf = requestAnimationFrame(tick);
@@ -481,12 +534,14 @@ function MeetAuwa() {
     compute();
     const onScroll = () => compute();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     raf = requestAnimationFrame(tick);
 
     return () => {
       active = false;
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -496,14 +551,9 @@ function MeetAuwa() {
       className="px-6 md:px-12 lg:px-20 xl:px-28 space-section"
     >
       <div className="max-w-[1100px] mx-auto text-center">
-        <FadeIn>
-          <p className="font-sans text-[12px] tracking-[0.08em] uppercase text-washi/55">
-            Meet Auwa
-          </p>
-        </FadeIn>
-        <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-balance text-washi max-w-[640px] mx-auto px-4 md:px-0">
+        <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-balance text-washi max-w-[760px] mx-auto px-4 md:px-0">
           <TextReveal as="span" className="block" stagger={STAGGER.hero}>
-            A being made of seven stars,
+            Their light became Auwa,
           </TextReveal>
           <TextReveal
             as="span"
@@ -511,19 +561,17 @@ function MeetAuwa() {
             stagger={STAGGER.hero}
             delay={STAGGER.hero}
           >
-            drawn to a small blue planet.
+            with a heart full of joy.
           </TextReveal>
         </h2>
-        {/* Interaction cue — same Meet-Auwa-eyebrow size (12px tracking
-            0.08em uppercase) and same washi/65 opacity as the subtitle
-            paragraph above, so it pops on its own merit rather than
-            shouting. mt-6 spacing matches the eyebrow→h2→subtitle rhythm
-            of the rest of the section. Copy switches by pointer kind:
-            "Move cursor, tap to glow" on fine pointers; "Tap to glow"
-            on touch devices (no cursor to move). No trailing period —
-            it's a hint, not a sentence. */}
-        <FadeIn delay={650}>
-          <p className="mt-6 font-sans text-[12px] tracking-[0.08em] uppercase text-washi/65">
+        {/* Interaction cue — 12px uppercase, washi/45 + mt-10 to
+            match the "At the beginning" cue under the OpeningQuote
+            above. Copy switches by pointer kind: "Move cursor, tap
+            to glow" on fine pointers; "Tap to glow" on touch devices
+            (no cursor to move). No trailing period — it's a hint,
+            not a sentence. */}
+        <FadeIn delay={400}>
+          <p className="mt-10 font-sans text-[12px] tracking-[0.16em] uppercase text-washi/45">
             {cueText}
           </p>
         </FadeIn>
@@ -540,7 +588,7 @@ function MeetAuwa() {
           <div className="mt-2 md:mt-4 mx-auto w-full max-w-[440px] md:max-w-[480px] lg:max-w-[540px] xl:max-w-[620px]">
             <div ref={moverRef} style={{ willChange: "transform" }}>
               <AuwaCharacter
-                src="/book/character/auwa-front.png"
+                src="/book/character/auwa-front.webp"
                 alt="Auwa, the small luminous being"
                 variants={auwaVariants}
               />
@@ -611,7 +659,7 @@ function Spreads() {
     <section className="space-section">
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14">
         <FadeIn>
-          <p className="font-sans text-[12px] tracking-[0.08em] uppercase text-washi/55">
+          <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-washi/55">
             Book preview
           </p>
         </FadeIn>
@@ -648,21 +696,21 @@ function Series() {
           stretch compared to the rest of the page. */}
       <div className="flex items-baseline justify-between gap-6">
         <FadeIn>
-          <p className="font-sans text-[12px] tracking-[0.08em] uppercase text-washi/55">
+          <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-washi/55">
             The series
           </p>
         </FadeIn>
         <FadeIn delay={120}>
-          <p className="font-sans text-[12px] tracking-[0.08em] uppercase text-washi/45">
+          <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-washi/45">
             One world
           </p>
         </FadeIn>
       </div>
-      <FadeIn delay={200}>
-        <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-balance text-washi max-w-[720px] mb-10 md:mb-14">
+      <h2 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-balance text-washi max-w-[720px] mb-10 md:mb-14">
+        <TextReveal as="span" className="block" stagger={STAGGER.hero} delay={200}>
           Earth, ocean, human, and the long way home.
-        </h2>
-      </FadeIn>
+        </TextReveal>
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 lg:gap-8">
         {futureBooks.map((book, i) => (
           <FadeIn
@@ -687,7 +735,7 @@ function Series() {
                   }}
                 />
               </div>
-              <p className="mt-4 md:mt-5 font-sans text-[12px] tracking-[0.08em] uppercase text-washi/45">
+              <p className="mt-4 md:mt-5 font-sans text-[12px] tracking-[0.16em] uppercase text-washi/45">
                 {book.num} · {book.status}
               </p>
               <h3 className="mt-2 font-display text-[20px] md:text-[22px] leading-[1.25] tracking-[0.01em] text-washi max-w-[90%]">
@@ -714,7 +762,7 @@ function Author() {
     <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
       <div className="max-w-[760px] mx-auto text-center">
         <FadeIn>
-          <p className="font-sans text-[12px] tracking-[0.08em] uppercase text-washi/55">
+          <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-washi/55">
             By Eko Maeda
           </p>
         </FadeIn>
@@ -749,6 +797,14 @@ function Signup() {
       body="An object made slowly, with care. Signed by Eko Maeda. Printed in a short first edition. Add your email and we’ll write when it arrives."
       textMaxWidth="max-w-[480px]"
       imageOpacity={0.9}
+      // Quieter heading scale here — same as the adjacent Series h2
+      // ("Earth, ocean, human, and the long way home.") so the page
+      // closes at a contemplative, not announcement, scale.
+      headingSizeClassName="text-[clamp(1.8rem,3vw,2.8rem)]"
+      // On mobile, render text+signup BEFORE the image so the
+      // photograph sits between this signup and the footer's "Quiet
+      // letters." form — visual buffer prevents two signups stacking.
+      mobileTextFirst
       // Image is 4:5 portrait, capped to a narrower column on lg+ so the
       // book photograph reads as a quiet object on the page rather than
       // dominating the module. Anchors to the right edge via lg:ml-auto

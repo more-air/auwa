@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "./fade-in";
@@ -65,6 +66,18 @@ type EditorialFeatureProps = {
       column anchors to the outer page edge via `lg:ml-auto`. Pass the
       breakpoint prefix yourself, e.g. "lg:max-w-[460px]". */
   mediaMaxWidth?: string;
+  /** On mobile, render the text column FIRST and the image SECOND
+      (default: image first). Use when the text contains a CTA / signup
+      form that would otherwise sit too close to a downstream signup
+      (e.g. the footer "Quiet letters." form). The image then acts as a
+      visual buffer between the two. Desktop layout (text-left / image-
+      right) is unaffected. */
+  mobileTextFirst?: boolean;
+  /** Override for the heading text size. Defaults to the EditorialFeature
+      hero scale clamp(2.25rem, 5vw, 3.75rem). Pass a smaller clamp for
+      a quieter module (e.g. the Signup module on the book page sits
+      better at the same scale as adjacent h2s). */
+  headingSizeClassName?: string;
 };
 
 export function EditorialFeature({
@@ -80,7 +93,12 @@ export function EditorialFeature({
   textMaxWidth = "max-w-[420px]",
   imageOpacity = 1,
   mediaMaxWidth,
+  mobileTextFirst = false,
+  headingSizeClassName = "text-[clamp(2.25rem,5vw,3.75rem)]",
 }: EditorialFeatureProps) {
+  // Body paragraph trigger: see comment beside titleGroupRef in JSX.
+  const titleGroupRef = useRef<HTMLDivElement>(null);
+
   const text = theme === "dark" ? "text-washi" : "text-sumi";
   const muted = theme === "dark" ? "text-washi/55" : "text-sumi/45";
   const bodyClr = theme === "dark" ? "text-washi/70" : "text-sumi/65";
@@ -166,12 +184,19 @@ export function EditorialFeature({
         {/* Text column. Mobile: natural flow, image-first. Desktop:
             justify-between so the eyebrow/heading/CTA group anchors top
             and the body line anchors to the bottom of the media's
-            height. */}
-        <div className="flex flex-col lg:justify-between order-2 lg:order-1 lg:pr-8">
-          <div>
+            height.
+            On lg+, the body paragraph sits at the bottom of the media
+            height (lg:justify-between) which on tall hero modules can
+            be 400-500px below the title. Without a shared trigger, the
+            body's FadeIn has its own IntersectionObserver entry — so
+            the body reveals only after the user scrolls past the
+            title, reading as a delay. titleGroupRef points the body's
+            FadeIn at the title group above, syncing the cascade. */}
+        <div className={`flex flex-col lg:justify-between ${mobileTextFirst ? "order-1" : "order-2 lg:order-1"} lg:pr-8`}>
+          <div ref={titleGroupRef}>
             <FadeIn>
               <span
-                className={`block font-sans text-[12px] tracking-[0.18em] uppercase ${muted}`}
+                className={`block font-sans text-[12px] tracking-[0.16em] uppercase ${muted}`}
               >
                 {eyebrow}
               </span>
@@ -181,13 +206,13 @@ export function EditorialFeature({
                 as="h2"
                 stagger={90}
                 delay={200}
-                className={`font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] tracking-[0.005em] text-balance ${text}`}
+                className={`font-display ${headingSizeClassName} leading-[1.05] tracking-[0.005em] text-balance ${text}`}
               >
                 {heading}
               </TextReveal>
             </div>
             {cta && (
-              <FadeIn delay={1000}>
+              <FadeIn delay={500}>
                 <div className="mt-8 md:mt-10">
                   <CtaLink href={cta.href} variant="primary">
                     {cta.label}
@@ -196,12 +221,12 @@ export function EditorialFeature({
               </FadeIn>
             )}
             {!cta && action && (
-              <FadeIn delay={1000}>
+              <FadeIn delay={500}>
                 <div className={`mt-8 md:mt-10 ${textMaxWidth}`}>{action}</div>
               </FadeIn>
             )}
           </div>
-          <FadeIn delay={1200}>
+          <FadeIn delay={600} triggerRef={titleGroupRef}>
             <p
               className={`mt-12 lg:mt-0 font-display text-[18px] md:text-[19px] leading-[1.55] ${textMaxWidth} ${bodyClr}`}
             >
@@ -214,7 +239,7 @@ export function EditorialFeature({
         <FadeIn
           variant="reveal"
           revealDistance={40}
-          className={`order-1 lg:order-2 w-full ${
+          className={`${mobileTextFirst ? "order-2" : "order-1 lg:order-2"} w-full ${
             mediaMaxWidth ? `${mediaMaxWidth} lg:ml-auto` : ""
           }`}
         >

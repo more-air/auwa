@@ -80,16 +80,26 @@ export default function AboutPage() {
             The 心 sits absolutely positioned within this wrapper with its
             top aligned to the H1's top (i.e. matching the hero's pt-12 md:pt-16). */}
         <div className="relative overflow-hidden">
-          <span
-            aria-hidden="true"
-            className="hidden lg:block pointer-events-none select-none absolute top-12 md:top-16 lg:right-12 xl:right-20 font-jp-serif leading-none text-sumi/[0.03]"
-            style={{ fontSize: "clamp(16rem, 38vw, 30rem)" }}
+          {/* Watermark fade-in is gated on usePageReady inside FadeIn,
+              so the entrance starts only AFTER the page-transition wipe
+              completes — the user actually sees the fade rather than
+              catching the tail of an already-running CSS animation. */}
+          <FadeIn
+            className="hidden lg:block pointer-events-none select-none absolute top-12 md:top-16 lg:right-12 xl:right-20"
+            duration={1800}
+            translateY={0}
           >
-            心
-          </span>
+            <span
+              aria-hidden="true"
+              className="font-jp-serif leading-none text-sumi/[0.03]"
+              style={{ fontSize: "clamp(16rem, 38vw, 30rem)" }}
+            >
+              心
+            </span>
+          </FadeIn>
 
           {/* ── Hero ── */}
-          <section className="relative px-6 md:px-12 lg:px-20 xl:px-28 pt-12 md:pt-16 space-flow">
+          <section className="relative px-6 md:px-12 lg:px-20 xl:px-28 pt-32 md:pt-44 space-flow">
             <h1 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi max-w-[700px] pr-12 md:pr-0">
               <TextReveal as="span" className="block" stagger={90}>
                 The architecture
@@ -182,7 +192,7 @@ export default function AboutPage() {
                   >
                     {k.char}
                   </p>
-                  <p className="mt-6 md:mt-8 font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45">
+                  <p className="mt-6 md:mt-8 font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
                     {k.romaji} &middot; {k.gloss}
                   </p>
                   <p className="mt-3 font-display text-[18px] md:text-[20px] leading-[1.7] text-sumi/80">
@@ -209,7 +219,7 @@ export default function AboutPage() {
 
           <FadeIn delay={200}>
             <div id="rieko" className="mt-12 scroll-mt-24 md:scroll-mt-28">
-              <p className="font-sans text-[13px] tracking-[0.06em] text-sumi/45 uppercase mb-2">
+              <p className="font-sans text-[13px] tracking-[0.14em] text-sumi/45 uppercase mb-2">
                 Co-founder
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-sumi mb-4">
@@ -223,7 +233,7 @@ export default function AboutPage() {
 
           <FadeIn delay={300}>
             <div id="tom" className="mt-12 scroll-mt-24 md:scroll-mt-28">
-              <p className="font-sans text-[13px] tracking-[0.06em] text-sumi/45 uppercase mb-2">
+              <p className="font-sans text-[13px] tracking-[0.14em] text-sumi/45 uppercase mb-2">
                 Co-founder
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-sumi mb-4">

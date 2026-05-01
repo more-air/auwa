@@ -31,28 +31,57 @@ export function CtaLink({
   theme = "light",
 }: Props) {
   const base =
-    "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.08em] uppercase transition-colors duration-500 ease-text-roll";
+    "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.14em] uppercase";
 
   // `bordered` stays as a legacy alias for the now-standard `secondary`.
   const resolved = variant === "bordered" ? "secondary" : variant;
 
   const isDark = theme === "dark";
+  // Primary / secondary: bordered button that FLOODS up with a solid
+  // colour on hover (a coloured pane translates from below to cover the
+  // button), with the text flipping to the contrasting tone in sync.
+  // Reads more decisive than a background-colour fade.
   const primary = isDark
-    ? "text-washi border border-washi/20 px-6 py-3 hover:border-washi/45"
-    : "text-sumi border border-sumi/15 px-6 py-3 hover:border-sumi/40";
+    ? "text-washi border border-washi/25 px-6 py-3 transition-[color,border-color] duration-500 ease-text-roll hover:text-yoru hover:border-washi"
+    : "text-sumi border border-sumi/20 px-6 py-3 transition-[color,border-color] duration-500 ease-text-roll hover:text-surface hover:border-sumi";
   const secondary = primary;
   const plain = isDark
-    ? "text-washi/55 hover:text-washi"
-    : "text-sumi/50 hover:text-sumi";
+    ? "text-washi/55 transition-colors duration-500 ease-text-roll hover:text-washi"
+    : "text-sumi/50 transition-colors duration-500 ease-text-roll hover:text-sumi";
 
   const variantClasses =
     resolved === "primary" ? primary : resolved === "plain" ? plain : secondary;
+
+  const isFilled = resolved === "primary" || resolved === "secondary";
+  const floodColour = isDark ? "bg-washi" : "bg-sumi";
 
   return (
     <Link
       href={href}
       className={`${base} ${variantClasses} ${className}`}
     >
+      {/* Solid flood — sits BEHIND the text in a CLIPPED wrapper.
+          The wrapper carries overflow-hidden (not the Link itself —
+          border + overflow-hidden + descendant transform causes the
+          top border to clip on iOS WebKit during hover).
+
+          We use scaleY from the BOTTOM as the flood mechanic rather
+          than translateY. translateY(100%→0) needs the pane to be
+          taller than the button to avoid a sub-pixel rounding gap
+          at the bottom mid-transition (Chrome inside the
+          EditorialFrames opacity-crossfaded parent shows it as a
+          white line). scaleY anchors at transform-origin and grows
+          to exactly fill the wrapper — no rounding gap possible. */}
+      {isFilled && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+        >
+          <span
+            className={`absolute inset-0 ${floodColour} origin-bottom scale-y-0 transition-transform duration-500 ease-text-roll group-hover:scale-y-100`}
+          />
+        </span>
+      )}
       {/*
         Inner mask carries overflow-hidden, not the Link itself. On iOS
         WebKit (including DuckDuckGo), border + overflow-hidden + descendant

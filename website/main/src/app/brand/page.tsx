@@ -1,8 +1,16 @@
+import { notFound } from "next/navigation";
 
 export const metadata = {
   title: "Brand | Auwa",
-  description: "Auwa brand guidelines. Typography, colour, spacing, and component reference.",
+  description:
+    "Auwa brand guidelines. Typography, colour, spacing, and component reference.",
+  robots: { index: false, follow: false },
 };
+
+// Internal-only — viewable on `next dev`, returns 404 in production builds.
+// Throwing notFound() at module evaluation in a Server Component means
+// the route is statically rendered as 404.html during `next build`.
+const isProduction = process.env.NODE_ENV === "production";
 
 /* ─── Design tokens (mirrored from globals.css for display) ─── */
 
@@ -58,6 +66,7 @@ const spacingSystem = [
 ];
 
 export default function BrandPage() {
+  if (isProduction) notFound();
   return (
     <>
       <main>
@@ -74,7 +83,7 @@ export default function BrandPage() {
 
         {/* ── Logo ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Logo</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Logo</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-surface-raised rounded-sm p-12 md:p-16 flex items-center justify-center">
               <img src="/auwa-logo.svg" alt="Auwa wordmark on light" className="h-[24px] md:h-[32px] w-auto" />
@@ -99,7 +108,7 @@ export default function BrandPage() {
 
         {/* ── Colour: Foundation ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Colour / Foundation palette</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Colour / Foundation palette</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {foundations.map((c) => (
               <div key={c.name}>
@@ -116,7 +125,7 @@ export default function BrandPage() {
 
         {/* ── Colour: Surfaces ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Colour / Surfaces</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Colour / Surfaces</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {surfaces.map((c) => (
               <div key={c.name} className="flex items-center gap-4">
@@ -136,7 +145,7 @@ export default function BrandPage() {
 
         {/* ── Colour: Yamato emotional states ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Colour / Yamato emotional states</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Colour / Yamato emotional states</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {emotions.map((c) => (
               <div key={c.name}>
@@ -156,11 +165,11 @@ export default function BrandPage() {
 
         {/* ── Typography ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Typography / Typefaces</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Typography / Typefaces</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div>
               <p className="font-display text-[32px] leading-[1.2] text-sumi">EB Garamond</p>
-              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45">Display + editorial</p>
+              <p className="mt-1 font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">Display + editorial</p>
               <p className="mt-4 font-display text-[18px] leading-[1.7] text-sumi/70">
                 Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
               </p>
@@ -171,7 +180,7 @@ export default function BrandPage() {
             </div>
             <div>
               <p className="font-sans text-[32px] leading-[1.2] text-sumi">Instrument Sans</p>
-              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45">Functional + UI</p>
+              <p className="mt-1 font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">Functional + UI</p>
               <p className="mt-4 font-sans text-[18px] leading-[1.7] text-sumi/70">
                 Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
               </p>
@@ -182,7 +191,7 @@ export default function BrandPage() {
             </div>
             <div>
               <p className="text-[32px] leading-[1.2] text-sumi" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>Noto Serif JP</p>
-              <p className="mt-1 font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45">Japanese text</p>
+              <p className="mt-1 font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">Japanese text</p>
               <p className="mt-4 text-[18px] leading-[1.7] text-sumi/70" style={{ fontFamily: 'var(--font-jp-serif), serif' }}>
                 あいうえお かきくけこ さしすせそ
               </p>
@@ -196,17 +205,17 @@ export default function BrandPage() {
 
         {/* ── Type scale ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Typography / Scale</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Typography / Scale</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-sumi/10">
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Element</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Font</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Weight</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Size</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal hidden lg:table-cell">Tracking</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 font-normal hidden xl:table-cell">Sample</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Element</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Font</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Weight</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Size</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal hidden lg:table-cell">Tracking</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 font-normal hidden xl:table-cell">Sample</th>
                 </tr>
               </thead>
               <tbody>
@@ -227,16 +236,16 @@ export default function BrandPage() {
 
         {/* ── Spacing ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Spacing system</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Spacing system</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-sumi/10">
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Element</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Mobile</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Tablet</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Desktop</th>
-                  <th className="font-sans text-[12px] tracking-[0.06em] uppercase text-sumi/45 pb-3 font-normal">XL</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Element</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Mobile</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Tablet</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 pr-6 font-normal">Desktop</th>
+                  <th className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 pb-3 font-normal">XL</th>
                 </tr>
               </thead>
               <tbody>
@@ -256,7 +265,7 @@ export default function BrandPage() {
 
         {/* ── Components ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Components</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Components</h2>
 
           <div className="space-y-12">
 
@@ -304,7 +313,7 @@ export default function BrandPage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/50 to-surface-raised" />
                 </div>
                 <div className="mt-4">
-                  <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45">Craft</span>
+                  <span className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">Craft</span>
                   <h3 className="mt-1.5 font-display text-[20px] leading-[1.2] tracking-[0.01em] text-sumi">
                     The knife maker of Seki
                   </h3>
@@ -339,7 +348,7 @@ export default function BrandPage() {
 
         {/* ── Design principles ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Design principles</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Design principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-[680px]">
             <div>
               <p className="font-display text-[18px] text-sumi">Portrait-first imagery</p>
@@ -362,7 +371,7 @@ export default function BrandPage() {
 
         {/* ── Motion ── */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
-          <h2 className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45 mb-8">Motion</h2>
+          <h2 className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-8">Motion</h2>
           <div className="max-w-[480px] space-y-4">
             <div className="flex justify-between font-sans text-[13px]">
               <span className="text-sumi">Easing</span>

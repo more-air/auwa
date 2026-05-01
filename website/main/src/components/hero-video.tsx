@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { DURATION, EASING } from "@/lib/motion";
+import { EASING } from "@/lib/motion";
+import { HeaderTone } from "./header-tone";
+import { usePageReady } from "./page-transition";
 
 /*
   Full-bleed Auwa face video hero.
@@ -44,10 +46,21 @@ export function HeroVideo() {
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  // Defer the fade-in until the page-transition wipe has settled.
+  // Without this gate, the hero fades up while the transition panel is
+  // still covering — by the time the panel exits, the video is already
+  // at opacity 1 and reads as an abrupt "appears". Gated on ready, the
+  // fade starts after the panel snaps off and the user sees the warm
+  // 2000ms breath we want.
+  const ready = usePageReady();
+  const visible = loaded && ready;
 
   const fadeStyle = {
-    opacity: loaded ? 1 : 0,
-    transition: `opacity ${DURATION.reveal}ms ${EASING.outExpo}`,
+    opacity: visible ? 1 : 0,
+    // Longer than DURATION.reveal (1200ms) — hero deserves a softer
+    // breath than article cards. 2000ms reads "considered" without
+    // dragging.
+    transition: `opacity 2000ms ${EASING.outExpo}`,
   };
 
   // Pick which video to drive based on viewport. Avoid double playback.
@@ -89,8 +102,17 @@ export function HeroVideo() {
   }, []);
 
   useEffect(() => {
+    // Ref-gate the setState so it only fires when `scrolled` actually
+    // changes (not every scroll frame). Per-frame setState with a fresh
+    // value forces React to re-apply inline styles, which iOS Safari
+    // re-rasterises into a visible flicker.
+    const scrolledRef = { current: false };
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const next = window.scrollY > 50;
+      if (next !== scrolledRef.current) {
+        scrolledRef.current = next;
+        setScrolled(next);
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -173,10 +195,13 @@ export function HeroVideo() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="sticky top-0 z-0 -mt-16 md:-mt-20">
+    <section ref={sectionRef} className="sticky top-0 z-0">
       <div
         className="relative h-[100svh] w-full overflow-hidden bg-surface"
       >
+        {/* Header tone sentinel — full-bleed photographic hero, both
+            sides of the floating header sit on imagery. */}
+        <HeaderTone tone="surface" />
         {/* Mobile: video fills the screen, anchored to the bottom.
             object-fit cover scales up to cover; object-position keeps
             the character visible while the top crops off. */}
@@ -236,10 +261,13 @@ export function HeroVideo() {
           }}
         />
 
-        {/* Subtle gradient from top — keeps the white header legible over the video */}
+        {/* Subtle gradient from top — fades in with the video so the
+            scrim doesn't sit alone over the warm-paper bg before the
+            video paints. */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-black/15 to-transparent z-[5]"
+          style={fadeStyle}
         />
 
         {/* Explore label + breathing line — tappable, scrolls to intro.
@@ -254,9 +282,36 @@ export function HeroVideo() {
           onClick={() => {
             const intro = document.getElementById("intro");
             if (!intro) return;
-            const headerOffset = window.matchMedia("(min-width: 768px)").matches ? 80 : 64;
-            const y = intro.getBoundingClientRect().top + window.scrollY - headerOffset;
-            window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+            // Stop sooner — leave breathing room above the intro so
+            // the white area doesn't run flush against the wordmark.
+            // 200px (md+) places the intro well below the floating
+            // logo area; 140px on mobile keeps it tasteful.
+            const stopGap = window.matchMedia("(min-width: 768px)").matches
+              ? 200
+              : 140;
+            const targetY = Math.max(
+              0,
+              intro.getBoundingClientRect().top + window.scrollY - stopGap
+            );
+            // Custom rAF scroll — the native behavior:"smooth" is
+            // implementation-defined and reads abrupt on Safari.
+            // 1400ms expo.inOut matches the page-transition pace.
+            const startY = window.scrollY;
+            const distance = targetY - startY;
+            if (Math.abs(distance) < 4) return;
+            const duration = 1400;
+            const startTime = performance.now();
+            const ease = (t: number) =>
+              t < 0.5
+                ? 8 * t * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 4) / 2; // expo.inOut-ish
+            const step = (now: number) => {
+              const elapsed = now - startTime;
+              const t = Math.min(1, elapsed / duration);
+              window.scrollTo(0, startY + distance * ease(t));
+              if (t < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
           }}
           aria-label="Scroll to introduction"
           className="group absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-5 md:gap-6 cursor-pointer p-2"
@@ -266,7 +321,7 @@ export function HeroVideo() {
             transition: "opacity 0.7s ease-out",
           }}
         >
-          <span className="relative inline-flex overflow-hidden font-sans text-[12px] md:text-[13px] tracking-[0.26em] uppercase text-surface">
+          <span className="relative inline-flex overflow-hidden font-sans text-[12px] md:text-[13px] tracking-[0.16em] md:tracking-[0.14em] uppercase text-surface">
             <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
               Scroll
             </span>

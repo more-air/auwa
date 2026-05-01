@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { EB_Garamond, Instrument_Sans, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
+import { HeaderToneProvider } from "@/components/header-tone";
 import { PageTransition } from "@/components/page-transition";
 import { EntranceLoader } from "@/components/entrance-loader";
 import { CursorLabel } from "@/components/cursor-label";
@@ -134,6 +135,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -173,10 +177,12 @@ export default function RootLayout({
           cause the logo + X to fade out with the page on link clicks.
           Rendering it here keeps it above the transition at all times.
         */}
-        <Header />
-        <PageTransition>
-          {children}
-        </PageTransition>
+        <HeaderToneProvider>
+          <Header />
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </HeaderToneProvider>
         <FigureHook />
         <Analytics />
         <script

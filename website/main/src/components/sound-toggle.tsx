@@ -1,56 +1,53 @@
 "use client";
 
 /*
-  Ambient sound toggle.
+  Ambient sound toggle — designed to live INSIDE the header, next to the
+  menu trigger.
 
-  A small bottom-left button that plays a quiet ambient loop on demand. Off
-  by default (browsers block autoplay anyway); remembers the user's choice
-  in localStorage so a returning visitor isn't silenced again.
+  Visual: 4 thin vertical bars that sit still when sound is off, and
+  animate as a quiet music wave when sound is on. No speaker icon, no
+  fixed-position chrome — just typography-scale bars that read as part
+  of the header rather than as a floating widget.
 
-  Expects an audio file at /audio/ambient.mp3. If the file is missing or
-  fails to play the toggle fails silently — the UI still updates, the
-  console stays clean, and the user's preference is not persisted.
-
-  To provide the audio: drop an `ambient.mp3` into `public/audio/`. Brand
-  guidance in context/brand/brand.md recommends a slow, warm, temple-tone
-  atmosphere (Suno-generated or similar), no beats, no vocals.
+  Behaviour:
+  - Off by default. First tap creates the <Audio> element lazily, plays
+    /audio/drift.mp3 on a 1.2s fade-in to TARGET_VOLUME.
+  - Pauses on document.visibilitychange (tab hidden) and window.pagehide
+    (bfcache, navigation, tab close). iOS Safari otherwise keeps a
+    paused-media badge and can resume after the tab returns.
+  - Persists the user preference in localStorage. The flag is read but
+    NOT auto-replayed on next visit — modern browsers block autoplay
+    without a user gesture, so we use the flag as "this user prefers
+    sound on" rather than a command to start.
 */
 
 import { useEffect, useRef, useState } from "react";
 
 const STORAGE_KEY = "auwa.sound-on";
-// Ambient track served from public/audio/. Swap the filename to rotate
-// between tracks: aurora, begin, crystal, drift, float, light, silk.
 const AUDIO_SRC = "/audio/drift.mp3";
 const TARGET_VOLUME = 0.28;
 const FADE_MS = 1200;
 
-export function SoundToggle() {
+interface SoundToggleProps {
+  /** Inline color override (passes through `color: currentColor`). Use
+      to plumb the header's pickColour result so the bars change tone
+      with the rest of the floating header. */
+  style?: React.CSSProperties;
+  className?: string;
+}
+
+export function SoundToggle({ style, className = "" }: SoundToggleProps) {
   const [playing, setPlaying] = useState(false);
   const [mounted, setMounted] = useState(false);
-  // How many pixels to lift the button upward so it never enters the
-  // dark footer region. 0 when `<main>`'s bottom is below the viewport
-  // (natural position); grows as the footer is revealed on scroll so
-  // the button sits cleanly above main's bottom edge.
-  const [lift, setLift] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeRafRef = useRef<number | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    // We intentionally do NOT auto-resume on mount even if the flag is set,
-    // because modern browsers block autoplay without a user gesture. The
-    // flag is read and then the user just taps the speaker once to
-    // actually start it. Treat the persisted flag as "user prefers sound on"
-    // rather than a command to play immediately.
   }, []);
 
-  // Stop audio when the tab is backgrounded or the page is unloaded. iOS
-  // Safari otherwise keeps a paused-media badge active and, in some cases,
-  // continues playback after the user switches tabs or closes the window.
-  // We also pause on `pagehide` (bfcache) because `unload` is unreliable
-  // on iOS. When the user comes back, the UI still reflects the last
-  // preference — they just tap the speaker again if they want sound.
+  // Pause on tab hidden / page hide. Required on iOS Safari to clear
+  // the "now playing" media badge and stop background playback.
   useEffect(() => {
     if (!mounted) return;
     const pause = () => {
@@ -69,58 +66,6 @@ export function SoundToggle() {
     return () => {
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pagehide", pause);
-    };
-  }, [mounted]);
-
-  // Stop the button from drifting into the dark footer. Track `<main>`'s
-  // bottom edge; if it rises above the button's natural position, lift
-  // the button by exactly enough to keep a 12px gap above main.bottom.
-  // When the footer is not yet revealed (main.bottom ≥ viewport bottom)
-  // the lift is 0 and the button sits at its natural offset.
-  //
-  // Measures on every scroll + resize + Lenis scroll event; rAF-gated
-  // and state-gated so React only re-renders when the lift value
-  // actually changes by ≥1px.
-  useEffect(() => {
-    if (!mounted) return;
-    const main = document.querySelector("main");
-    if (!main) return;
-
-    let rafId: number | null = null;
-    let lastLift = 0;
-
-    // Button sits at `bottom-5 right-5` on mobile (20px each) and
-    // `md:bottom-6 md:right-6` on desktop (24px each). We match the
-    // gap above main.bottom to the button's distance from the right
-    // edge so the breathing space is visually square.
-    const gap = () =>
-      window.matchMedia("(min-width: 768px)").matches ? 24 : 20;
-
-    const measure = () => {
-      rafId = null;
-      const mainBottom = main.getBoundingClientRect().bottom;
-      const g = gap();
-      // Button's natural bottom offset == gap we want above main.bottom.
-      // Desired button bottom = main.bottom - g. Lift = natural - desired.
-      const needed = window.innerHeight - g - (mainBottom - g);
-      const next = Math.max(0, needed);
-      if (Math.abs(next - lastLift) >= 1) {
-        lastLift = next;
-        setLift(next);
-      }
-    };
-    const schedule = () => {
-      if (rafId === null) rafId = requestAnimationFrame(measure);
-    };
-
-    measure();
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
-
-    return () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
     };
   }, [mounted]);
 
@@ -143,9 +88,6 @@ export function SoundToggle() {
   };
 
   const toggle = async () => {
-    // Lazy-create the audio element on first interaction — saves the
-    // network hit (and avoids pre-loading audio for visitors who never
-    // use this feature).
     if (!audioRef.current) {
       const a = new Audio(AUDIO_SRC);
       a.loop = true;
@@ -156,9 +98,21 @@ export function SoundToggle() {
     const audio = audioRef.current;
 
     if (playing) {
+      // HARD pause. Cancel any in-flight fade RAF first so it can't
+      // resume volume after we've already paused. Set volume to 0
+      // immediately and pause synchronously — the previous fade-out
+      // version let audio play at low volume for ~1.2s after the user
+      // clicked stop, and on Chrome the RAF could be interrupted,
+      // leaving audio playing indefinitely.
+      if (fadeRafRef.current !== null) {
+        cancelAnimationFrame(fadeRafRef.current);
+        fadeRafRef.current = null;
+      }
       setPlaying(false);
       localStorage.setItem(STORAGE_KEY, "0");
-      fadeTo(0, () => audio.pause());
+      audio.volume = 0;
+      audio.pause();
+      audio.currentTime = 0;
       return;
     }
 
@@ -168,13 +122,25 @@ export function SoundToggle() {
       localStorage.setItem(STORAGE_KEY, "1");
       fadeTo(TARGET_VOLUME);
     } catch {
-      // Autoplay was blocked OR the audio file is missing. Silently
-      // revert the UI so the user doesn't see a stuck "on" icon.
       setPlaying(false);
     }
   };
 
   if (!mounted) return null;
+
+  // 4 thin vertical bars. Each animates with a slightly different
+  // duration + delay so the wave reads as organic, not a metronome.
+  // Playing: bars run a height-scale loop.
+  // Paused: bars hold an ASYMMETRIC equaliser pose (per-bar restY)
+  // rather than collapsing to a uniform low strip — so the icon reads
+  // as "audio" at a glance even when sound is off, instead of as four
+  // stacked dots.
+  const bars = [
+    { key: 0, dur: "780ms", delay: "0ms", restY: 0.55 },
+    { key: 1, dur: "920ms", delay: "120ms", restY: 0.85 },
+    { key: 2, dur: "640ms", delay: "240ms", restY: 0.4 },
+    { key: 3, dur: "1040ms", delay: "60ms", restY: 0.7 },
+  ];
 
   return (
     <button
@@ -182,55 +148,34 @@ export function SoundToggle() {
       onClick={toggle}
       aria-label={playing ? "Turn ambient sound off" : "Turn ambient sound on"}
       aria-pressed={playing}
-      className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-md cursor-pointer bg-sumi/85 text-washi hover:bg-sumi transition-colors duration-300"
-      style={{
-        WebkitBackdropFilter: "blur(8px)",
-        // Lift the button so it never drifts into the dark footer.
-        // Driven by the scroll effect above: 0 when main.bottom is
-        // below the viewport; otherwise enough to sit 12px above main's
-        // bottom edge. No CSS transition on transform — the rAF-driven
-        // lift already animates smoothly frame-by-frame, and adding a
-        // 500ms easing on top would lag behind the scroll.
-        transform: `translateY(-${lift}px)`,
-      }}
+      className={`p-2 cursor-pointer ${className}`}
+      style={style}
     >
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
+      <span
+        className="block relative"
+        style={{ width: 22, height: 22 }}
         aria-hidden="true"
       >
-        {/* Speaker body (always shown) */}
-        <path
-          d="M3.5 5.5h2L9 3v10L5.5 10.5h-2z"
-          fill="currentColor"
-        />
-        {/* Sound waves fade in when playing, fade out when not — no mute
-            slash, just the bare speaker when off. Quieter than a slashed-
-            out speaker icon. */}
-        <g
-          style={{
-            opacity: playing ? 1 : 0,
-            transition: "opacity 300ms cubic-bezier(0.16, 1, 0.3, 1)",
-          }}
-        >
-          <path
-            d="M11 5.8c.9.7 1.5 1.8 1.5 2.7s-.6 2-1.5 2.7"
-            stroke="currentColor"
-            strokeWidth="1"
-            strokeLinecap="round"
-            fill="none"
+        {bars.map((b, i) => (
+          <span
+            key={b.key}
+            className="absolute rounded-full"
+            style={{
+              left: i * 6,
+              width: 2,
+              bottom: 4,
+              top: 4,
+              backgroundColor: "currentColor",
+              transformOrigin: "50% 50%",
+              animation: playing
+                ? `sound-wave ${b.dur} cubic-bezier(0.4, 0, 0.6, 1) ${b.delay} infinite alternate`
+                : "none",
+              transform: playing ? undefined : `scaleY(${b.restY})`,
+              transition: "transform 240ms cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
           />
-          <path
-            d="M12.4 4c1.6 1 2.6 2.6 2.6 4.5S14 12 12.4 13"
-            stroke="currentColor"
-            strokeWidth="1"
-            strokeLinecap="round"
-            fill="none"
-          />
-        </g>
-      </svg>
+        ))}
+      </span>
     </button>
   );
 }

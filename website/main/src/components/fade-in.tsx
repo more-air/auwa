@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { DURATION, EASING } from "@/lib/motion";
+import { usePageReady } from "./page-transition";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -25,6 +26,17 @@ interface FadeInProps {
    * cue while staying within threshold.
    */
   revealDistance?: number;
+  /**
+   * If provided, the IntersectionObserver watches `triggerRef.current`
+   * instead of the FadeIn's own wrapper. Use this to sync a body
+   * paragraph's reveal with its title's entry into the viewport when
+   * the body sits far below the title (e.g. EditorialFeature's
+   * `lg:justify-between` layout puts the body at the bottom of the
+   * media height — without a shared trigger, the body has its OWN
+   * IntersectionObserver entry point and reveals only after the user
+   * scrolls past the title, reading as a delay).
+   */
+  triggerRef?: React.RefObject<HTMLElement | null>;
 }
 
 export function FadeIn({
@@ -35,28 +47,50 @@ export function FadeIn({
   translateY = 12,
   variant = "fade",
   revealDistance = 80,
+  triggerRef,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  // Gate reveal setup on page-transition readiness. After a swipe
+  // navigation, ready flips from false → true once the panel exits.
+  // On first page load, ready is true from the first render, so this
+  // is a no-op there.
+  const ready = usePageReady();
 
   const isReveal = variant === "reveal";
 
   useEffect(() => {
-    // Fire the observer when the element is ~80px INTO the viewport
-    // (negative bottom rootMargin). Earlier we used +120px (firing
-    // before the viewport edge) for Safari compositor pre-warm, but
-    // that made animations complete before the user could see them on
-    // desktop — by the time they scrolled to the section, the reveal
-    // had already finished. Firing at -80px keeps the entrance
-    // visible while still leaving the compositor a moment to settle.
+    if (!ready) return;
+    // Watch the trigger element if provided, otherwise our own wrapper.
+    const el = triggerRef?.current ?? ref.current;
+    if (!el) return;
+
+    // Above-the-fold short-circuit: if the (trigger or own) element is
+    // already in the viewport on mount, fire immediately. The per-
+    // element `delay` prop on hero items provides cascade where it's
+    // wanted (subtitle waits behind title, etc.) without the global
+    // Y-based setTimeout chain that caused Safari scroll jitter.
+    const rect = el.getBoundingClientRect();
+    const inViewportOnMount =
+      rect.top < window.innerHeight && rect.bottom > 0;
+    if (inViewportOnMount) {
+      setIsVisible(true);
+      return;
+    }
+
+    // For scroll-triggered reveals: fire when the element is ~200px
+    // INTO the viewport (negative bottom rootMargin). -200px puts the
+    // element comfortably in the middle-lower third of the viewport
+    // when the cascade begins, so the reveal plays out as the eye
+    // moves into it (rather than animating at the bottom edge where
+    // the user is most likely to miss it).
     //
     // Reveal variant widens the RIGHT margin 200% so off-viewport-right
-    // cards in horizontal scrollers (Journal strip, two-up) still intersect
-    // when the section enters vertically. Otherwise card 2+ stays at opacity
-    // 0 on iPhone until the user swipes.
+    // cards in horizontal scrollers still intersect when the section
+    // enters vertically.
     const rootMargin = isReveal
-      ? "0px 200% -80px 0px"
-      : "0px 0px -80px 0px";
+      ? "0px 200% -200px 0px"
+      : "0px 0px -200px 0px";
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -67,9 +101,9 @@ export function FadeIn({
       { threshold: 0.1, rootMargin }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
-  }, [isReveal]);
+  }, [isReveal, ready, triggerRef]);
 
   // Durations come from motion.ts — reveal uses DURATION.reveal (image
   // cards need a longer glide); everything else uses DURATION.enter.
@@ -86,13 +120,11 @@ export function FadeIn({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        // End-state `translate3d(0, 0, 0)` instead of `none`. Holding the
-        // GPU layer after the transition completes prevents Safari from
-        // re-rasterising the element at subpixel precision when the
-        // transform clears — the re-rasterise was showing up as a tiny
-        // "nudge" after the element had visually settled. Safe now that
-        // we've removed Lenis; on native scroll the browser handles many
-        // persistent layers without compositor contention.
+        // Hold `translate3d(0, 0, 0)` after the reveal completes (not
+        // `none`). Safari demotes the compositor layer when transform
+        // clears to none, which manifests as a subpixel "settle"
+        // visible on hover/un-hover of nested images. Keeping the
+        // layer is the trade-off documented in patterns.md.
         transform: isVisible ? "translate3d(0, 0, 0)" : hiddenTransform,
         transition: `opacity ${dur}ms ${EASING.outExpo} ${delay}ms, transform ${dur}ms ${EASING.outExpo} ${delay}ms`,
       }}

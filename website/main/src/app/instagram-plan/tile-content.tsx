@@ -14,7 +14,7 @@ const PILLAR_COLOURS: Record<NonNullable<Pillar>, string> = {
 function PillarBadge({ pillar }: { pillar: Pillar }) {
   if (!pillar) return null;
   return (
-    <div className={`absolute top-2 left-2 px-1.5 py-0.5 rounded-sm text-white font-sans text-[10px] uppercase tracking-[0.06em] pointer-events-none ${PILLAR_COLOURS[pillar]}`}>
+    <div className={`absolute top-2 left-2 px-1.5 py-0.5 rounded-sm text-white font-sans text-[10px] uppercase tracking-[0.14em] pointer-events-none ${PILLAR_COLOURS[pillar]}`}>
       {pillar}
     </div>
   );
@@ -65,7 +65,7 @@ function WarningChips({ warnings }: { warnings: Warning[] }) {
       {warnings.map((w, i) => (
         <span
           key={i}
-          className="bg-[#c44a2a] text-white font-sans text-[9px] uppercase tracking-[0.06em] px-1.5 py-0.5 rounded-sm leading-none"
+          className="bg-[#c44a2a] text-white font-sans text-[9px] uppercase tracking-[0.14em] px-1.5 py-0.5 rounded-sm leading-none"
           title={w.kind}
         >
           {w.message}
@@ -133,7 +133,7 @@ export function TileContent({ tile, position, dimmed, dragging }: { tile: PostTi
             <circle cx="12" cy="12" r="10"/>
             <path d="M12 8v4M12 16h.01"/>
           </svg>
-          <span className="font-sans text-[11px] uppercase tracking-[0.08em]">Planned, no folder</span>
+          <span className="font-sans text-[11px] uppercase tracking-[0.14em]">Planned, no folder</span>
         </div>
       )}
 

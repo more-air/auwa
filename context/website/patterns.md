@@ -68,8 +68,6 @@ Learned rules from building auwa.life. Apply these when making UI changes or bui
 
 **Article excerpts:** Excerpts shown on article cards (horizontal scroll, two-up, journal index) must be 55 characters or fewer. This keeps them to 2 lines max at 14px in the card width. Tighter is better. Lead with the image, not the text.
 
-**Flipbook card headings:** Headings in the homepage flipbook hero (`hero-flipbook.tsx`) must be 28 characters or fewer. This guarantees they fit on 2 lines maximum in the right-side text column (320px wide at `clamp(1.5rem, 2.5vw, 2.2rem)`). No `\n` line breaks. Let the text wrap naturally. Test at the `lg` breakpoint (1024px viewport) where the column is narrowest. When adding new cards, count characters before committing.
-
 **SEO and social sharing (OG meta):**
 - Every page needs `title`, `description`, and an `openGraph.images` array in its metadata export.
 - Page titles: "[Page Name] | Auwa" format. Keep under 60 characters so Google doesn't truncate.
@@ -183,28 +181,20 @@ Washi tiers on Yoru mirror these one-to-one. If you change Sumi or Surface, the 
 
 **Rounded image corners — `rounded-md` (6px) site-wide.** All image containers use `rounded-md overflow-hidden`. The previous standard was `rounded-xl` (12px); after a brief square-cornered iteration we settled on `rounded-md` as the consistent token — restrained enough to feel intentional, visible enough to register. Applies to: homepage Journal strip cards, pillar cards, two-up articles, journal index cards, article inline images / image-pair / image-beside / continue-reading, about page pillars, video-moment, editorial-frames, pillar-parade, book-preview, demo-world series covers, the kokoro video container. **The only exception** is the article hero image on mobile (edge-to-edge no-radius), which uses `md:rounded-md` so radius engages only at md+. **If you add a new image container anywhere, use `rounded-md` — never re-introduce `rounded-xl` or skip the radius.**
 
-**Scroll-driven flipbook hero (Obsidian Assembly pattern):**
-- Stacked portrait cards centred on the page, driven by scroll position.
-- Component: `hero-flipbook.tsx`. Cards defined in a `CARDS` array with type (image/video), src, label, heading, pillar.
-- Desktop (lg+): three-column layout. Left: pillar label + card label (uppercase) + counter. Centre: stacked cards. Right: heading text (clickable, links to pillar page).
-- Mobile/tablet (below lg): single card centred with dots above and text pinned at bottom.
-- Mobile uses `100svh` (not `dvh`) for stable sizing. Viewport height captured on mount for scroll calculations. This prevents snap-back when mobile browser chrome hides/shows.
-- Cards show only 1 behind the active card, narrower (`scaleX` reduces faster than `scaleY`).
-- The `mounted` flag uses double `requestAnimationFrame` before revealing the flipbook, preventing a flash of unsorted cards on page load or back-navigation.
-- Header stays visible during flipbook via `data-flipbook-active` attribute on body, read by the header component.
-- Video cards: the first card can be a video. Plays when active, pauses when not.
-
 **Scroll — native everywhere.**
 - No smooth-scroll library. Lenis was removed (April 2026) after it was creating more Safari compositor jitter than the assist was worth. Native scroll on modern desktop Chrome / Firefox is silky enough on its own, and mobile Safari's native scroll is already the target feel.
 - Anchor scrolls use `window.scrollTo({ top, behavior: "smooth" })`. Example (HeroVideo scroll button): compute target `y` from `getBoundingClientRect().top + window.scrollY - headerOffset`, then `window.scrollTo({ top: Math.max(0, y), behavior: "smooth" })`.
 - Reveals (FadeIn, TextReveal) are driven by IntersectionObserver independently of scroll smoothness — they work identically regardless of which scroll implementation is in use.
 - Do NOT reintroduce Lenis or any rAF-transform smooth-scroll library. It fights Safari's native compositor; the jitter history in this file was almost entirely a Lenis artefact.
 
-**Page transitions:**
-- Lightweight crossfade on route change via `page-transition.tsx`.
-- Uses `usePathname()` to detect navigation, fades out and back in (500ms opacity transition).
-- Wrapped around children in `layout.tsx`.
-- To remove: unwrap `PageTransition` from layout.tsx.
+**Page transitions — single-pass bottom-up wipe (detroit.paris pattern).**
+- A solid panel slides UP from below the viewport, covers the leaving page, holds 200ms, then snaps off (no second slide). The new page mounts behind the panel during the hold, so the swap is seamless.
+- Panel colour matches the destination route: Yoru on `/book`, Surface on every other page.
+- Leaving content drifts UP (-40px) in the same direction as the panel, so they travel together rather than the page being statically covered.
+- Reveals (FadeIn / TextReveal / StripReveal / ImageFade) are gated on `usePageReady()` from PageTransitionContext — they only fire after the wipe is fully settled, so the new page's entrance cascades AFTER the swipe finishes.
+- Header consumes `useTransitionPanelTheme()` and flips its colour against the panel during the wipe (white over dark panel, sumi over light panel).
+- Total ~700ms (LEAVE) + 200ms (HOLD) = ~900ms before the new page reveals start. Easing: `cubic-bezier(0.83, 0, 0.17, 1)` (in-out-quart) on every property.
+- prefers-reduced-motion: navigation is instant, no panel.
 
 **FadeIn component variants:**
 - `variant="fade"` (default): opacity + 12px translateY. For text and general elements.
@@ -250,12 +240,10 @@ Washi tiers on Yoru mirror these one-to-one. If you change Sumi or Surface, the 
 
 **Homepage routes:**
 - Root `/` — Live homepage. EditorialFrames (desktop ≥md) + PillarParade (mobile <md) as the four-pillar module, via a `hidden md:block` / `md:hidden` pair.
-- `/home-1` — Archive of the previous scroll-driven HeroFlipbook homepage. Kept for reference; header treats it as transparent just like root.
 
 **Four-pillar module (replaces the scroll-driven flipbook on the live homepage):**
 - `src/components/editorial-frames.tsx` — desktop (≥md). "Magazine index" tab gallery with image crossfade, staggered reveal per frame (eyebrow → TextReveal heading → body → CTA), auto-advance every 7s, pauses on hover. Clickable image (Link with `data-cursor="Open"`) navigates to the active pillar. Image column pinned at 480px, text column flex-1, grid template `[480px_1fr]`, max-w-[1060px] mx-auto so the composition centres on wide viewports. Four frames: **Store / Lifetime objects. / Visit store**, **Book / Open the eyes. / Join waitlist**, **Journal / Quiet moments. / Explore journal**, **App / Awareness, daily. / Join waitlist**.
 - `src/components/pillar-parade.tsx` — mobile (<md). Horizontal scroll row of four tall 3:4 cards; mirrors the Journal strip exactly (native overflow-x-auto, no scroll-snap, no touch-action override, no data-lenis-prevent). Cards at `w-[72vw] max-w-[360px]`, so next card peeks clearly on first load. FadeIn variant="fade" on each card (vertical rise, no horizontal translate — horizontal translate pushes later cards off-viewport and prevents IntersectionObserver firing). Dot indicators below update via a scroll listener on the scroller element.
-- Archive: `src/components/hero-flipbook.tsx` still exists; used only by `/home-1` page now.
 
 **Homepage structure (live root `/`):**
 - Full-bleed Auwa face video ("Scroll" label + breathing vertical line instead of bouncing chevron, transparent header overlay). The "Scroll" button uses native `window.scrollTo({ top, behavior: "smooth" })` to land on the intro with an offset for the sticky header.
@@ -276,8 +264,7 @@ Washi tiers on Yoru mirror these one-to-one. If you change Sumi or Surface, the 
 - Shared `AuwaLogo` component (`src/components/auwa-logo.tsx`) — inline SVG using `fill="currentColor"`, so the header transitions between white/void via CSS `color` instead of `filter: invert()`. Fixes the "ghost logo" flash Safari showed on the previous filter-based approach.
 
 **Header `transparent` prop:**
-- Derived from pathname inside the Header itself: root `/` and `/home-1` get transparent mode (sit over the video hero). Background transparent, logo inherits white via `currentColor` on the inline SVG, nav links white. Every other page has a solid-white header.
-- Background swap uses an opacity-animated solid white layer under the nav, not a `background-color` transition, to avoid a semi-white "veil" flash on scroll-to-top.
+- Header is now edge-pinned floating (no bar). Logo + menu trigger are independent fixed elements at top corners. See "Header" notes elsewhere in this file and the website.md page-layout section for the full per-route + per-element colour matrix.
 
 **Body copy standard:** All paragraph text across homepage modules, teaser pages, and articles uses `font-display text-[18px] md:text-[19px]` for consistency.
 
@@ -348,7 +335,7 @@ transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300m
 
 **Bordered element + `overflow-hidden` + descendant transform causes iOS border flashes.** When a hover-triggered descendant transform runs (e.g. a text-roll inside a bordered CTA), iOS WebKit (including DuckDuckGo) briefly clips the top border during compositor re-raster. Move the `overflow-hidden` to an inner mask span; keep the border on the outer element. The mask still clips the animation, but the border lives on an element that never has its overflow manipulated.
 
-**Don't hold persistent compositor layers on reveal wrappers.** Once visible, FadeIn and TextReveal set `transform: none` (not `translate3d(0, 0, 0)`). Holding the layer permanently makes the entrance crisper on Safari (no subpixel "settle" at transition end) but the layer count on a page with many FadeIn elements became enough to hurt overall scroll smoothness on BOTH Chrome and Safari. Accept the tiny settle; keep scroll smooth. If you need to fix the settle on a specific high-value hero element, promote that element locally rather than every FadeIn wrapper globally.
+**Hold `translate3d(0, 0, 0)` at rest on FadeIn and TextReveal — DO NOT switch to `transform: none`.** This is settled, hard-won. Switching to `none` causes Safari to demote the compositor layer when the entrance transition completes, producing a subpixel "settle" that becomes visible whenever a neighbouring element transforms (image hover-zoom is the classic trigger — image scales up and down, parent FadeIn wrapper appears to nudge down a pixel). It also re-introduces the scroll-jitter the previous translate3d hold was added to fix. Layer count is the documented theoretical concern, but native scroll on modern Chrome / Firefox / Safari handles many persistent layers without issue. **Working code uses `translate3d(0, 0, 0)`. Future sessions must not change this without first reproducing the pre-fix bug, then making the case.**
 
 **Don't add a smooth-scroll library.** Lenis was tried and removed — its rAF transform fights Safari's native compositor, producing micro-jitter that doesn't exist with plain native scroll. Safari's native scroll is already the target feel; sites like moreair.co feel buttery precisely because they don't fight the browser. Chrome and Firefox native scroll on modern hardware are smooth enough that the library's "assist" doesn't register as an upgrade. If scroll feels rough somewhere, investigate the compositor layer count and animation patterns — don't reach for a library.
 
@@ -356,7 +343,7 @@ transition: translate 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300m
 
 **`will-change` toggling on IntersectionObserver trigger causes Safari scroll jitter.** `will-change: "opacity, transform"` while hidden + `"auto"` when visible made Safari tear down the preallocated compositor layer the instant IO flipped `isVisible` — before the transition had painted a single frame. Safari then had to create a new layer on-demand for the active transition, dropping a scroll frame in the process. Fix: **omit `will-change` entirely** on `FadeIn` / `TextReveal`. Safari auto-promotes a layer when the transition starts and demotes cleanly when it ends; that path is smoother than managing it by hand. Chrome is fine either way.
 
-**IntersectionObserver bottom rootMargin of `-80px` keeps reveals visible to the user.** An earlier iteration used `+120px` (extending the observer below the viewport) to give Safari pre-warm time on the compositor layer. The trade-off: animations finished before the user reached the section — by the time they scrolled, the reveal had already played and they only saw the settled state. We now use `-80px` (fires when the element is ~80px INTO the viewport, with threshold 0.1 = 10% of element visible). Animations are visible as the element scrolls into view, while still leaving Safari a small window to settle the compositor before the eye locks on. Applied to `FadeIn`, `StripReveal`, and `BookPreview`. ScrollFadeText is scroll-progress-driven, not IO, and is unaffected.
+**IntersectionObserver bottom rootMargin of `-200px` keeps reveals comfortably in the eye-zone.** Three iterations have shipped here: `+120px` (fires before viewport edge — animations complete before the user reaches the section, on a fast scroll the reveal is "wasted"); `-80px` (fires when ~80px into viewport — element is peeking up from the bottom of the screen, easy to miss on a quick scroll); `-200px` (current — fires when element sits comfortably in the middle-lower third of the viewport, so the reveal plays out as the eye is moving into the section). Threshold stays at 0.1 (10% of element visible). Applied to `FadeIn`, `StripReveal`, `BookPreview`, `PillarParade`, `TextReveal`, and `EditorialFrames`. ScrollFadeText is scroll-progress-driven, not IO, and is unaffected.
 
 **IntersectionObserver right rootMargin of `200%` for horizontal scrollers.** Cards sitting off-viewport-right (card 2+ in the Journal strip, two-up articles) never intersect the default root, so they stay at the FadeIn reveal variant's `translate3d(80px, 0, 0) opacity: 0` until the user swipes — producing an apparently missing image on iPhone. Widening the right rootMargin to `200%` catches cards up to 2 viewport widths to the right, so they fire when the SECTION scrolls in vertically. Page-flow layouts never place cards more than one viewport to the right, so the wider margin has no effect on non-scroller layouts.
 
@@ -423,7 +410,7 @@ Lessons baked in from the April 2026 SOTD-prep pass. Every future site (Auwa, Mo
 
 **404 + dynamic-route hygiene.** `src/app/not-found.tsx` exists and is branded (header/footer/type consistent with the rest of the site). Every `[slug]/page.tsx` calls `notFound()` when the slug isn't found, AND exports both `generateStaticParams` returning all known slugs AND `export const dynamicParams = false`. Never fall through to a fallback article/product — that returns 200 and indexes. `generateMetadata()` for unknown slugs returns `robots: { index: false, follow: false }`.
 
-**Draft / review / archive routes.** Any route that isn't meant to be publicly indexed (`/home-1`, `/book/1`, `/book/2`, /brand, /instagram, iteration mockups) needs BOTH: `robots: { index: false, follow: false }` in a sibling `layout.tsx` (client routes can't export metadata directly), AND an entry in `src/app/robots.ts` disallow list.
+**Internal-only routes.** Any route meant for local-dev use only (`/brand`, `/book-signup`, future iteration mockups) gets a top-of-component `if (process.env.NODE_ENV === "production") notFound();` guard so it 404s in prod builds while staying viewable on `next dev`. Pair with `robots: { index: false, follow: false }` in metadata AND an entry in `src/app/robots.ts` disallow list.
 
 **Per-page OG images.** Every top-level route (`/`, `/journal`, `/about`, `/app`, `/store`, `/book`, `/brand`) exports its own `openGraph.images` and `twitter.images` — don't rely on the root layout fallback. Pasting `/store` or `/book` into LinkedIn must show a specific image, not the homepage OG. Images live at `public/og/{page}.jpg`, 1200×630 JPG. Generate via `cp source.jpg dst.jpg && sips --resampleWidth 1200 dst.jpg && sips -c 630 1200 dst.jpg`. For articles, `generateMetadata()` derives OG path by replacing `-hero.jpg` with `-og.jpg`, so the article folder needs both files.
 

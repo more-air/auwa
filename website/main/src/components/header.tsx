@@ -5,47 +5,61 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { AuwaLogo } from "./auwa-logo";
+import { useHeaderTone, type Tone } from "./header-tone";
+import { useTransitionPanelTheme } from "./page-transition";
+import { SoundToggle } from "./sound-toggle";
 
 const navItems = [
   { label: "Journal", href: "/journal" },
-  { label: "Store", href: "/store" },
-  { label: "App", href: "/app" },
   { label: "Book", href: "/book" },
+  { label: "App", href: "/app" },
+  { label: "Store", href: "/store" },
   { label: "About", href: "/about" },
 ];
 
 /*
-  Header — wordmark left, hamburger right, same on every viewport.
+  Header — edge-pinned bare elements (Awwwards-style).
 
-  The inline desktop-nav that shipped originally is archived at
-  `components/_archive/header-desktop-nav.tsx`. We kept the data
-  (`navItems`) so restoring it is a copy-paste away.
+  Rather than a full-width sticky bar that hides on scroll, the wordmark
+  sits at top-left and the menu trigger sits at top-right as independent
+  fixed elements. Both are always visible (no hide-on-scroll), with
+  SOLID colour (light or dark) chosen per route + per element based on
+  the surface that sits beneath it. Reference: Aman, Aesop, current
+  Awwwards SOTD pattern.
 
-  The menu overlay is full-screen, centred, with links sized by clamp
-  so it reads cleanly from iPhone to 4K.
+  Why not `mix-blend-mode: difference`? It pixel-inverts against the
+  underlying content, which produces inverted-hue artefacts over
+  photographic mid-tones (a blueish/grey wash on the homepage's pale
+  Auwa hero, etc.). Solid colour reads cleaner.
+
+  Colour rules:
+  • Menu open  → sumi (surface overlay covers the page).
+  • Over photographic hero (home / book / article hero / teaser image
+    side) → surface (the locked tone for light foreground on imagery).
+  • Past hero on dark page (/book) → washi.
+  • Past hero on light page (article past hero, teaser scrolled) → sumi.
+  • Default light page → sumi.
 */
+
+// Routes whose top-of-page is a full-bleed photographic hero. While in
+// view, both header elements sit on imagery → Surface tone. Once
+// scrolled past, each element switches to the page theme.
+function hasPhotographicHero(pathname: string) {
+  return (
+    pathname === "/" ||
+    pathname === "/book" ||
+    (pathname.startsWith("/journal/") && pathname !== "/journal")
+  );
+}
+
 export function Header() {
   const pathname = usePathname();
-  // Homepage + the /home-1 flipbook archive both sit over the full-bleed
-  // video hero, so they share the transparent header treatment. Every
-  // other page has a solid-white header.
-  const transparent = pathname === "/" || pathname === "/home-1";
-  // Dark-themed pages opt in via DarkPageTheme (which sets
-  // `data-page-theme="dark"` on <html>) AND are listed here. Both
-  // sources are needed:
-  //
-  //   • The pathname list is read SYNCHRONOUSLY during render, so on
-  //     navigation the darkPage state flips in the same render that
-  //     pathname changes — no observer-async race, no flash of "solid
-  //     bg before going transparent" when navigating into /book from
-  //     a light page (or "washi-on-white" on the way back to /).
-  //
-  //   • The MutationObserver remains as a safety net so any future
-  //     dynamic dark surface (e.g. a marketing landing page that
-  //     mounts DarkPageTheme behind a flag) still toggles the header
-  //     correctly without needing a code change here. If the list
-  //     and the attribute disagree, the attribute wins (it's the
-  //     downstream source of truth).
+  const hideHeader =
+    pathname === "/instagram" || pathname === "/instagram-plan";
+
+  // Synchronous list of dark-themed routes for first-paint correctness;
+  // MutationObserver is the runtime safety net for any future dynamic
+  // dark surface that toggles `data-page-theme` on <html>.
   const KNOWN_DARK_ROUTES = ["/book"];
   const isKnownDarkRoute = KNOWN_DARK_ROUTES.includes(pathname);
   const [darkPage, setDarkPage] = useState(isKnownDarkRoute);
@@ -60,115 +74,159 @@ export function Header() {
     });
     return () => observer.disconnect();
   }, []);
-  // /instagram and /instagram-plan are planning grid previews, no header needed.
-  const hideHeader = pathname === "/instagram" || pathname === "/instagram-plan";
+
   const [menuOpen, setMenuOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [atTop, setAtTop] = useState(true);
+  // `closing` is set synchronously during render the moment menuOpen
+  // flips false (via the renderedMenuOpen pattern below). Without this
+  // flag, items would briefly use the "rest" class (translate-y-4) for
+  // one render frame before the useEffect could correct them — visible
+  // as a slide-down on click. Cleared 1800ms after close completes.
+  const [closing, setClosing] = useState(false);
+  const [renderedMenuOpen, setRenderedMenuOpen] = useState(menuOpen);
+  // menuColorActive flips ~1500ms after the menu opens — once the
+  // panel has reached the top of the viewport (1800ms slide). Without
+  // the delay the header would briefly sit invisible (Sumi over a
+  // dark hero) during the panel's upward rise.
+  const [menuColorActive, setMenuColorActive] = useState(false);
   const [mounted, setMounted] = useState(false);
-  // Track the last pathname we rendered for. When it changes, we reset
-  // state during render itself (see below) so the new page's FIRST render
-  // already has the correct header state — no old-state frame paints.
   const [renderedPathname, setRenderedPathname] = useState(pathname);
-  const lastScrollY = useRef(0);
-  const atTopRef = useRef(true);
 
-  // Adjust state during render on pathname change. This is a documented
-  // React pattern for "adjusting state while rendering" — calling setState
-  // during render causes React to discard the current render output and
-  // immediately re-render with the new state. The commit (and browser
-  // paint) only reflects the final state, so the old page's hidden state
-  // never leaks into the new page's first frame.
-  //
-  // This replaces an earlier useLayoutEffect + direct-DOM transition
-  // suppression approach that still animated on Safari, because the first
-  // render committed with the OLD hidden=true state (className
-  // `-translate-y-full`) before the effect could run. The new page's
-  // subsequent class change to `translate-y-0` fired the 500ms transition
-  // regardless of any inline style manipulation.
-  // Skip CSS transitions for one frame after a pathname change. Without
-  // this, the bg-layer opacity transitions from 1 (the previous page's
-  // solid header) to 0 (transparent on the new page) over 260ms — and
-  // because the bg COLOUR also flips in the same render (e.g. white →
-  // Yoru), the user sees "dark bg loads briefly before going transparent".
-  // Snapping the opacity instead of transitioning eliminates that flash;
-  // scroll-driven changes after the first frame still animate normally.
-  const [skipTransition, setSkipTransition] = useState(false);
+  // Track scroll past hero on hero pages.
+  const [pastHero, setPastHero] = useState(false);
+  const pastHeroRef = useRef(false);
 
+  // Track viewport breakpoints for per-element split-layout decisions.
+  const [isMdUp, setIsMdUp] = useState(false);
+  const [isLgUp, setIsLgUp] = useState(false);
+
+  // Reset state on pathname change (synchronous render-time pattern).
   if (renderedPathname !== pathname) {
     setRenderedPathname(pathname);
     setMenuOpen(false);
-    setHidden(false);
-    setAtTop(true);
-    // Sync darkPage with the destination pathname's known theme. React
-    // discards the in-progress render and re-renders with this new
-    // value, so the header's first paint of the new route already
-    // shows the correct dark/light state — no flash window for the
-    // observer to lag behind. Observer keeps state aligned for any
-    // future runtime attribute changes.
+    setPastHero(false);
+    pastHeroRef.current = false;
     setDarkPage(isKnownDarkRoute);
-    setSkipTransition(true);
-    atTopRef.current = true;
-    lastScrollY.current = 0;
   }
 
-  // Re-enable transitions on the frame AFTER the snapped commit, so any
-  // subsequent state change (scroll, menu open) animates as normal.
-  useEffect(() => {
-    if (!skipTransition) return;
-    const id = requestAnimationFrame(() => setSkipTransition(false));
-    return () => cancelAnimationFrame(id);
-  }, [skipTransition]);
-
+  // Synchronously derive `closing` from menuOpen during render. React's
+  // recommended pattern for state that must update before paint, so
+  // items use the correct class on the very first render after a
+  // close — no frame of slide-down.
+  if (renderedMenuOpen !== menuOpen) {
+    setRenderedMenuOpen(menuOpen);
+    setClosing(!menuOpen);
+  }
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-
-  // Hide on scroll down, show on scroll up. atTop has hysteresis so the
-  // transparent homepage header can slide up WHILE still transparent
-  // (no flash of solid white between transparent and hidden).
+  // Drive menuColorActive + clear `closing` from menuOpen.
   useEffect(() => {
-    lastScrollY.current = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      const delta = y - lastScrollY.current;
+    if (menuOpen) {
+      // Header colour flips early — at 200ms the panel has already
+      // descended enough (with the ease-in-out curve) to cover the
+      // logo + menu trigger area, so the colour change happens
+      // before the panel fully completes its 700ms slide. Together
+      // with the shorter 180ms colour transition this feels snappy
+      // rather than laggy.
+      const tColor = window.setTimeout(() => setMenuColorActive(true), 200);
+      return () => clearTimeout(tColor);
+    }
+    if (closing) {
+      // Mirror of the open flip: hold the menu colour active until the
+      // panel has nearly finished its 700ms ascend back over the
+      // header band. Flipping colour back at t=0 of the close cycle
+      // would briefly show the post-close colour (e.g. Surface) under
+      // the still-visible menu panel, reading as a flicker. 900ms
+      // matches "items fade ~150ms + 250ms hold + ~500ms into panel
+      // ascend" — by then the panel is mostly cleared from the header
+      // band area, so the 180ms colour transition lands as the panel
+      // exits.
+      const tColorOff = window.setTimeout(
+        () => setMenuColorActive(false),
+        900
+      );
+      // Clear the closing flag after the close cycle settles
+      // (~150ms items fade + 250ms delay + 700ms panel ascend = 1100ms,
+      // plus a small buffer so items can re-set their pre-open
+      // translate invisibly).
+      const tClear = window.setTimeout(() => setClosing(false), 1300);
+      return () => {
+        clearTimeout(tColorOff);
+        clearTimeout(tClear);
+      };
+    }
+    // Not open and not closing (initial mount): make sure colour is off.
+    setMenuColorActive(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [menuOpen]);
 
-      const prevAtTop = atTopRef.current;
-      const nextAtTop = prevAtTop ? y <= 400 : y <= 100;
-      if (nextAtTop !== prevAtTop) {
-        atTopRef.current = nextAtTop;
-        setAtTop(nextAtTop);
-      }
-
-      const isScrollJump = Math.abs(delta) > 200;
-      if (y <= 10) {
-        setHidden(false);
-      } else if (!isScrollJump && delta > 4) {
-        setHidden(true);
-      } else if (!isScrollJump && delta < -4) {
-        setHidden(false);
-      }
-      lastScrollY.current = y;
+  // ESC closes the menu. bfcache resync — if the user opens the menu,
+  // backgrounds the tab, then returns, iOS Safari can restore React
+  // state from before background while the visible page no longer
+  // matches; close defensively on visibilitychange + pageshow.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    const onResync = () => setMenuOpen(false);
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("pageshow", onResync);
+    document.addEventListener("visibilitychange", onResync);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("pageshow", onResync);
+      document.removeEventListener("visibilitychange", onResync);
+    };
+  }, [menuOpen]);
 
-    // iOS Safari bfcache: when the tab is reopened, React state is restored
-    // from before backgrounding, which can leave `hidden` stuck true even
-    // though the scroll position has reset to the top of the hero. Pageshow
-    // + visibilitychange re-sync against the actual scrollY on return.
-    const resync = () => {
-      const y = window.scrollY;
-      lastScrollY.current = y;
-      if (y <= 10) {
-        setHidden(false);
-        if (!atTopRef.current) {
-          atTopRef.current = true;
-          setAtTop(true);
-        }
+  useEffect(() => {
+    const md = window.matchMedia("(min-width: 768px)");
+    const lg = window.matchMedia("(min-width: 1024px)");
+    const updateMd = () => setIsMdUp(md.matches);
+    const updateLg = () => setIsLgUp(lg.matches);
+    updateMd();
+    updateLg();
+    md.addEventListener("change", updateMd);
+    lg.addEventListener("change", updateLg);
+    return () => {
+      md.removeEventListener("change", updateMd);
+      lg.removeEventListener("change", updateLg);
+    };
+  }, []);
+
+  // pastHero: ref-gated scroll listener (only re-renders on actual
+  // boundary crossing, not every scroll frame).
+  useEffect(() => {
+    if (!hasPhotographicHero(pathname)) {
+      pastHeroRef.current = false;
+      setPastHero(false);
+      return;
+    }
+    const onScroll = () => {
+      // Switch tone the moment the floating elements (top-6 = 24px
+      // from viewport top) cross out of the hero. Heroes are 100svh
+      // tall, so the boundary is at scroll = vh - 24px (i.e., scroll
+      // by which the floating element TOP has reached the hero's
+      // bottom edge in document space). The 300ms colour transition
+      // smooths the swap so it doesn't look like a hard switch.
+      const threshold = window.innerHeight - 24;
+      const next = window.scrollY > threshold;
+      if (next !== pastHeroRef.current) {
+        pastHeroRef.current = next;
+        setPastHero(next);
       }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // bfcache resync — when tab reopens, scroll may be at top while
+    // React state thinks we're past the hero.
+    const resync = () => {
+      pastHeroRef.current = false;
+      setPastHero(false);
+      onScroll();
     };
     window.addEventListener("pageshow", resync);
     document.addEventListener("visibilitychange", resync);
@@ -177,45 +235,104 @@ export function Header() {
       window.removeEventListener("pageshow", resync);
       document.removeEventListener("visibilitychange", resync);
     };
-  }, []);
+  }, [pathname]);
 
-  // Header bg + logo styling driven purely by scroll position. The menu
-  // overlay (portalled to body) provides the white covering when the
-  // menu is open — the header itself stays transparent to avoid a flash
-  // of solid-white background before the overlay has faded in.
-  // Dark pages also start transparent at top, then fade to dark on scroll.
-  const isTransparent = (transparent || darkPage) && atTop;
-  // On dark-themed pages the wordmark + menu icon stay white at every
-  // scroll position; the bg layer fades to dark void instead of white.
-  // When the menu is open, controls flip to dark (the overlay is light).
-  const buttonIsLight = darkPage
-    ? !menuOpen
-    : transparent && atTop && !menuOpen;
+  const isArticleHero =
+    pathname.startsWith("/journal/") &&
+    pathname !== "/journal" &&
+    !pastHero;
+  const isTeaser = pathname === "/app" || pathname === "/store";
 
-  // No body scroll-lock. Both `body.style.overflow = "hidden"` and
-  // `body.style.position = "fixed"` triggered a visible vertical jump
-  // on mobile iOS when the menu opened (overflow caused the URL bar to
-  // re-show and shift the layout viewport; position-fixed caused a
-  // one-frame content shift before the negative-top compensation
-  // applied). Since the menu overlay is full-screen opaque and its BG
-  // fades in within 80ms, the underlying page is covered before any
-  // scroll would be visible. The overlay itself uses
-  // `overscroll-behavior: contain` so touch scrolls on the overlay
-  // don't propagate to the body beneath.
+  // While the page-transition panel is rising, we colour the floating
+  // elements against the PANEL, not the leaving page. Dark panel →
+  // light text (washi). Light panel → dark text (sumi). This is what
+  // makes the logo flip white during the dark wipe en route to /book.
+  const panelTheme = useTransitionPanelTheme();
+  // Sentinel-based tone — sections drop <HeaderTone tone="surface|
+  // sumi|washi" /> to declare what colour the header should be while
+  // they sit beneath the floating header band. The provider returns
+  // null per side when no sentinel is in band; we fall back to the
+  // existing per-route logic in that case so pages without sentinels
+  // continue to behave correctly.
+  const tones = useHeaderTone();
+  const tokenFor = (t: Tone) =>
+    t === "surface"
+      ? "var(--color-surface)"
+      : t === "washi"
+      ? "var(--color-washi)"
+      : "var(--color-sumi)";
+
+  function pickColour(side: "left" | "right"): string {
+    // During the page-transition wipe, the leaving content is
+    // overlaid with a Yoru darkening wash. Both elements go Washi
+    // regardless of destination — the header reads against the dark.
+    if (panelTheme !== null) return "var(--color-washi)";
+    if (menuColorActive) return "var(--color-sumi)";
+
+    // Sentinel tone — wins over per-route logic when present.
+    const sentinelTone = side === "left" ? tones.left : tones.right;
+    if (sentinelTone) return tokenFor(sentinelTone);
+
+    // Fallback per-route logic for sections without sentinels.
+    if (pathname === "/" || pathname === "/book") {
+      if (pastHero)
+        return darkPage ? "var(--color-washi)" : "var(--color-sumi)";
+      return "var(--color-surface)";
+    }
+    if (isArticleHero) {
+      if (!isMdUp) return "var(--color-surface)";
+      return side === "left"
+        ? "var(--color-surface)"
+        : "var(--color-sumi)";
+    }
+    if (isTeaser) {
+      if (!isLgUp) return "var(--color-sumi)";
+      return side === "left"
+        ? "var(--color-sumi)"
+        : "var(--color-surface)";
+    }
+    return darkPage ? "var(--color-washi)" : "var(--color-sumi)";
+  }
+  const logoColour = pickColour("left");
+  const menuColour = pickColour("right");
+
+  /*
+    Menu choreography — drops down from above and ascends back above
+    (the menu trigger lives top-right, so the panel arrives FROM where
+    the user clicked).
+
+    Open:
+    • Panel descends from translateY(-100%) → 0 over 700ms with
+      expo.inOut.
+    • Items fade in starting at 500ms (per-item 60ms stagger), so the
+      cascade overlaps the panel arrival.
+
+    Close:
+    • Items fade out FIRST (150ms unstaggered).
+    • Panel ascends back: translateY 0 → -100%, 700ms, delayed 150ms
+      so items leave first. Panel fully out at ~850ms.
+  */
+  const MENU_EASE = "cubic-bezier(0.87, 0, 0.13, 1)";
+  // Menus need to feel responsive — 700ms is snappy without sacrificing
+  // the same expo.inOut curve used elsewhere on the site.
+  const MENU_MS = 700;
+  // Panel: open ends at translate(0,0); closed sits at translate(0,
+  // -100%) (above the viewport, behind where the menu trigger lives).
+  const menuPanelTransform = menuOpen
+    ? "translate3d(0, 0, 0)"
+    : "translate3d(0, -100%, 0)";
+  // Open: no delay, panel descends immediately.
+  // Close: 150ms delay so items finish fading out before panel ascends.
+  const menuPanelTransition = menuOpen
+    ? `transform ${MENU_MS}ms ${MENU_EASE}`
+    : `transform ${MENU_MS}ms ${MENU_EASE} 150ms`;
+  const menuItemActive = menuOpen;
 
   const menuOverlay = (
     <div
       className={`fixed inset-0 z-[90] ${
         menuOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
-      // The overlay has two layers: an opaque white BG that snaps on
-      // almost instantly when the menu opens, and the inner content that
-      // cascades in over 500ms. The fast BG is essential on mobile — it
-      // covers the page before any scroll/URL-bar activity could be
-      // seen. `overscroll-behavior: contain` stops touch scrolls on the
-      // overlay from propagating to the body beneath, and
-      // `touch-action: manipulation` preserves taps while disabling
-      // gesture-scroll chaining.
       style={{
         overscrollBehavior: "contain",
         touchAction: "manipulation",
@@ -223,46 +340,61 @@ export function Header() {
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-surface"
+        className="absolute inset-0 bg-paper"
         style={{
-          opacity: menuOpen ? 1 : 0,
-          // Asymmetric: open is 700ms (fast enough to cover the page
-          // instantly on mobile) and close is 1100ms (a slower exhale —
-          // the menu lingers as it releases). Same easing in both
-          // directions so the feel is consistent.
-          transition: menuOpen
-            ? "opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)"
-            : "opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: menuPanelTransform,
+          transition: menuPanelTransition,
         }}
       />
-      {/* Spacer matches the header row so the nav starts below the logo/button */}
-      <div className="relative h-16 md:h-20" />
-
-      <div className="relative flex flex-col justify-center h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] px-6 md:px-12 lg:px-20 xl:px-28">
-        <nav className="max-w-[600px]">
-          <ul className="flex flex-col">
+      {/* Nav block — vertically and horizontally centred in the overlay
+          so the user's cursor / thumb has the shortest path from the
+          menu trigger (top-right) to any nav item. */}
+      <div className="relative flex flex-col items-center justify-center h-full px-6 md:px-12 lg:px-20 xl:px-28">
+        <nav className="text-center">
+          <ul className="flex flex-col items-center">
             {navItems.map((item, i) => (
               <li
                 key={item.href}
                 className={`transition-all ease-out-expo ${
-                  menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  menuItemActive
+                    ? "opacity-100 translate-y-0"
+                    : closing
+                    ? // Closing: fade only, no slide. Items must leave
+                      // gracefully without the slide-down "running
+                      // away" feel. `closing` is set synchronously
+                      // during render so this class lands on the very
+                      // first frame after the click — no slide-down
+                      // gets played.
+                      "opacity-0 translate-y-0"
+                    : // Rest (initial paint / after close-cycle clears):
+                      // pre-set the translate so the next open animates
+                      // a rise. Invisible because opacity is 0.
+                      "opacity-0 translate-y-4"
                 }`}
-                // Open: 500ms with a per-item stagger.
-                // Close: 300ms, no stagger — items fade out quickly together
-                // so the text is fully gone before the background finishes
-                // its slower exhale (1100ms). Without this, the new page
-                // starts appearing through the fading background while the
-                // menu text is still partially visible — looks like the
-                // text is momentarily sitting on top of page content.
                 style={{
-                  transitionDuration: menuOpen ? "500ms" : "300ms",
-                  transitionDelay: menuOpen ? `${80 + i * 60}ms` : "0ms",
+                  // Open: items rise once the panel has covered. Panel
+                  // covers at 700ms; items start at 500ms with 60ms
+                  // stagger so the cascade overlaps the panel arrival.
+                  // Close: 150ms fade-out (unstaggered), so items are
+                  // gone before the panel ascends at the 150ms delay.
+                  transitionDuration: menuOpen ? "500ms" : "150ms",
+                  transitionDelay: menuOpen ? `${500 + i * 60}ms` : "0ms",
                 }}
               >
                 <Link
                   href={item.href}
+                  // Skip the visual page-transition wipe — the menu's
+                  // own close motion is the visual transition.
+                  // PageTransition still gates revealReady=false on
+                  // this navigation, so the destination page's
+                  // FadeIn / TextReveal elements wait until ~180ms
+                  // after the menu close finishes before cascading in.
+                  data-skip-transition="true"
+                  onClick={() => setMenuOpen(false)}
                   className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.08] tracking-[0.005em] transition-colors duration-300 ${
-                    pathname === item.href ? "text-sumi" : "text-sumi/45 hover:text-sumi"
+                    pathname === item.href
+                      ? "text-sumi"
+                      : "text-sumi/45 hover:text-sumi"
                   }`}
                 >
                   <span className="relative inline-block overflow-hidden pb-[0.12em]">
@@ -282,12 +414,20 @@ export function Header() {
           </ul>
 
           <div
-            className={`mt-8 md:mt-10 flex items-center gap-7 transition-all ease-out-expo ${
-              menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`mt-10 md:mt-12 flex items-center justify-center gap-7 transition-all ease-out-expo ${
+              menuItemActive
+                ? "opacity-100 translate-y-0"
+                : closing
+                ? "opacity-0 translate-y-0"
+                : "opacity-0 translate-y-4"
             }`}
             style={{
-              transitionDuration: menuOpen ? "500ms" : "300ms",
-              transitionDelay: menuOpen ? `${80 + navItems.length * 60 + 60}ms` : "0ms",
+              // Open: arrives last, after the nav cascade finishes.
+              // Close: 150ms unstaggered exit, same as the nav items.
+              transitionDuration: menuOpen ? "500ms" : "150ms",
+              transitionDelay: menuOpen
+                ? `${500 + navItems.length * 60 + 80}ms`
+                : "0ms",
             }}
           >
             <a
@@ -295,26 +435,20 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-sumi/70 hover:text-sumi transition-colors duration-300"
+              className="group relative inline-block font-sans text-[14px] tracking-[0.12em] uppercase text-sumi"
             >
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-              </svg>
+              <span className="relative inline-block overflow-hidden pb-[0.12em]">
+                <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-[110%]">
+                  INSTAGRAM
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-y-[110%] transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
+                >
+                  INSTAGRAM
+                </span>
+              </span>
             </a>
-            {/* X hidden for now — re-enable when the account has content. */}
-            {/* <a
-              href="https://x.com/auwalife"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X"
-              className="text-sumi/70 hover:text-sumi transition-colors duration-300"
-            >
-              <svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a> */}
           </div>
         </nav>
       </div>
@@ -325,148 +459,111 @@ export function Header() {
 
   return (
     <>
-      <header
-        className={`sticky top-0 inset-x-0 z-[100] will-change-transform ${
-          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
-        }`}
+      {/* Edge-pinned wordmark — fixed top-left, no bar.
+          Position aligns with the page gutter (px-6 md:px-12 lg:px-20
+          xl:px-28) so the wordmark's left edge lines up with body content
+          on every viewport.
+          Fades out when the menu opens so the open menu reads as nav + X. */}
+      <Link
+        href="/"
+        onClick={() => {
+          // If the menu is open, clicking the logo navigates home AND
+          // closes the menu (same effect as picking a "Home" menu
+          // item, which we don't render but the user reaches for).
+          // On routes other than `/`, the pathname-change effect would
+          // close it for free; on `/` itself, navigation is a no-op so
+          // we have to close it explicitly here.
+          if (menuOpen) setMenuOpen(false);
+        }}
+        className="fixed top-6 left-6 md:top-8 md:left-12 lg:top-10 lg:left-20 xl:top-12 xl:left-28 z-[100] block"
         style={{
-          transition: "translate 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+          // Logo stays visible (and clickable, navigates home) while
+          // the menu is open — same treatment as the menu trigger.
+          // pickColour flips it to Sumi when menuColorActive turns
+          // true; 180ms is snappy without snapping outright.
+          transition: "color 180ms ease-out",
+          color: logoColour,
         }}
       >
-        {/*
-          Background as a separate layer underneath the nav. Fading the
-          opacity of a solid white layer (rather than transitioning the
-          header's own background-color between bg-transparent and
-          bg-surface) avoids the "white veil" frames that produce a
-          subtle flicker when the homepage scrolls back to the top.
-        */}
-        <div
-          aria-hidden="true"
-          className={`absolute inset-0 pointer-events-none ${
-            darkPage ? "" : "bg-surface"
-          }`}
-          style={{
-            opacity: isTransparent ? 0 : 1,
-            transition: skipTransition
-              ? "none"
-              : "opacity 260ms cubic-bezier(0.16, 1, 0.3, 1)",
-            backgroundColor: darkPage ? "var(--color-yoru)" : undefined,
-          }}
-        />
-        <div className="relative px-6 md:px-12 lg:px-20 xl:px-28">
-          <nav className="flex items-center justify-between h-16 md:h-20">
-            {/*
-              Logo fades out when the menu opens so the open menu is
-              clean (nav items + X, no logo).
-            */}
-            <Link
-              href="/"
-              className="block relative z-[60]"
-              aria-hidden={menuOpen ? true : undefined}
-              tabIndex={menuOpen ? -1 : undefined}
-              style={{
-                opacity: menuOpen ? 0 : 1,
-                pointerEvents: menuOpen ? "none" : undefined,
-                transition: "opacity 300ms ease-out",
-              }}
-            >
-              <span className="sr-only">Auwa</span>
-              <AuwaLogo
-                className="block h-[20px] md:h-[22px] w-auto"
-                style={{
-                  // The light-foreground rule (locked April 2026):
-                  //   Washi   = light foreground on Yoru (uniform dark surface)
-                  //   Surface = light foreground over imagery (variable mid-tones)
-                  //   Sumi    = dark foreground on Surface
-                  // Logo state map:
-                  //   darkPage (over Yoru, e.g. /book)        → Washi
-                  //   isTransparent (over hero video imagery) → Surface
-                  //   otherwise (over Surface page bg)        → Sumi
-                  color: darkPage
-                    ? "var(--color-washi)"
-                    : isTransparent
-                      ? "var(--color-surface)"
-                      : "var(--color-sumi)",
-                  transition: skipTransition ? "none" : "color 300ms ease-out",
-                }}
-              />
-            </Link>
+        <span className="sr-only">Auwa</span>
+        <AuwaLogo className="block h-[20px] md:h-[22px] w-auto" />
+      </Link>
 
-            {/*
-              Hamburger-to-X menu button. Shown at every viewport — the
-              inline desktop nav that used to sit here is archived at
-              `_archive/header-desktop-nav.tsx`.
-            */}
-            <button
-              className="p-2 -mr-2 relative z-[60] cursor-pointer"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((v) => !v)}
-              style={{
-                // Same rule as the logo (see colour comment above).
-                //   darkPage + closed menu (over Yoru)             → Washi
-                //   buttonIsLight (over hero imagery, light pages) → Surface
-                //   otherwise (open menu / past hero / solid bg)   → Sumi
-                color: darkPage && !menuOpen
-                  ? "var(--color-washi)"
-                  : buttonIsLight
-                    ? "var(--color-surface)"
-                    : "var(--color-sumi)",
-                transition: skipTransition ? "none" : "color 300ms ease-out",
-              }}
-            >
-              {/*
-                Container h-[22px] with lines at y=2, 10, 18. Visible
-                span is ~18px, sized to feel like the Auwa logo (20px
-                mobile / 22px desktop) beside it. All three spans carry
-                identical transform + rendering hints so iOS anti-aliases
-                them the same way.
-              */}
-              <div className="w-[28px] h-[22px] relative">
-                <span
-                  className="absolute left-0 w-full h-[2px] bg-current"
-                  style={{
-                    top: menuOpen ? "10px" : "2px",
-                    transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
-                    willChange: "top, transform",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
-                  }}
-                />
-                <span
-                  className="absolute left-0 top-[10px] w-full h-[2px] bg-current"
-                  style={{
-                    opacity: menuOpen ? 0 : 1,
-                    transform: "rotate(0deg)",
-                    willChange: "opacity, transform",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    transition: "opacity 200ms ease-out",
-                  }}
-                />
-                <span
-                  className="absolute left-0 w-full h-[2px] bg-current"
-                  style={{
-                    top: menuOpen ? "10px" : "18px",
-                    transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
-                    willChange: "top, transform",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    transition: "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
-                  }}
-                />
-              </div>
-            </button>
-          </nav>
+      {/* Sound toggle — sits to the LEFT of the menu trigger and
+          shares its colour stream so the two read as one cluster.
+          Stays visible (and clickable) while the menu is open so the
+          user can still toggle ambient sound without leaving the
+          menu. Gap to the menu trigger: 24px (44px button width +
+          24px breathing). */}
+      <SoundToggle
+        className="fixed top-[calc(1.5rem-0.5rem)] right-[calc(1.5rem-0.5rem+44px+24px)] md:top-[calc(2rem-0.5rem)] md:right-[calc(3rem-0.5rem+44px+24px)] lg:top-[calc(2.5rem-0.5rem)] lg:right-[calc(5rem-0.5rem+44px+24px)] xl:top-[calc(3rem-0.5rem)] xl:right-[calc(7rem-0.5rem+44px+24px)] z-[100]"
+        style={{
+          color: menuColour,
+          transition: "color 180ms ease-out",
+        }}
+      />
+
+      {/* Edge-pinned menu trigger — fixed top-right, no bar.
+          Position aligns with the page gutter so the trigger's right edge
+          lines up with body content on every viewport. Always visible.
+          Morphs hamburger ↔ X on toggle. Sits at z-[100] above the
+          overlay (z-[90]) so the X is readable when the menu is open. */}
+      <button
+        type="button"
+        // Right offsets are 8px (p-2) larger than the page gutter so the
+        // VISUAL right edge of the hamburger lines up with the right
+        // edge of body content. The button's tap target extends 8px past
+        // that for accessibility.
+        className="fixed top-[calc(1.5rem-0.5rem)] right-[calc(1.5rem-0.5rem)] md:top-[calc(2rem-0.5rem)] md:right-[calc(3rem-0.5rem)] lg:top-[calc(2.5rem-0.5rem)] lg:right-[calc(5rem-0.5rem)] xl:top-[calc(3rem-0.5rem)] xl:right-[calc(7rem-0.5rem)] z-[100] p-2 cursor-pointer"
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((v) => !v)}
+        style={{
+          color: menuColour,
+          transition: "color 180ms ease-out",
+        }}
+      >
+        {/* Hamburger geometry preserved from the previous header.
+            Container 28×22, lines at top 2/10/18 with 2px height.
+            Visible span ~18px, sized to feel like the wordmark beside it. */}
+        <div className="w-[28px] h-[22px] relative">
+          <span
+            className="absolute left-0 w-full h-[2px] bg-current"
+            style={{
+              top: menuOpen ? "10px" : "2px",
+              transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transition:
+                "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
+          />
+          <span
+            className="absolute left-0 top-[10px] w-full h-[2px] bg-current"
+            style={{
+              opacity: menuOpen ? 0 : 1,
+              transform: "rotate(0deg)",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transition: "opacity 200ms ease-out",
+            }}
+          />
+          <span
+            className="absolute left-0 w-full h-[2px] bg-current"
+            style={{
+              top: menuOpen ? "10px" : "18px",
+              transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transition:
+                "top 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
+          />
         </div>
-      </header>
+      </button>
 
-      {/*
-        Menu is portalled to document.body so the page-transition wrapper's
-        transform doesn't clip it. Without this, `fixed inset-0` is relative
-        to the transformed ancestor and the overlay ends up off-screen.
-      */}
+      {/* Menu overlay portalled to body so the page-transition wrapper's
+          stacking context can't clip it. */}
       {mounted ? createPortal(menuOverlay, document.body) : null}
     </>
   );

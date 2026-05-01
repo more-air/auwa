@@ -96,7 +96,7 @@ export function DraggableGrid({ initialTiles }: { initialTiles: PostTile[] }) {
   return (
     <>
       <div className="max-w-[935px] mx-auto px-4 md:px-12 pb-3 flex items-center justify-between">
-        <div className="font-sans text-[12px] uppercase tracking-[0.1em] text-sumi/50">
+        <div className="font-sans text-[12px] uppercase tracking-[0.14em] text-sumi/50">
           Scheduled · {tiles.length} {tiles.length === 1 ? "slot" : "slots"} · drag to reorder
         </div>
         <SaveIndicator state={saveState} />
@@ -128,5 +128,5 @@ function SaveIndicator({ state }: { state: SaveState }) {
   if (state === "idle") return null;
   const text = state === "saving" ? "Saving" : state === "saved" ? "Saved" : "Save failed";
   const colour = state === "error" ? "text-[#c44a2a]" : "text-sumi/60";
-  return <span className={`font-sans text-[11px] uppercase tracking-[0.08em] ${colour}`}>{text}</span>;
+  return <span className={`font-sans text-[11px] uppercase tracking-[0.14em] ${colour}`}>{text}</span>;
 }

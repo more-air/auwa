@@ -113,7 +113,7 @@ export function PillarParade() {
           io.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -80px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -200px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -124,7 +124,7 @@ export function PillarParade() {
       {/* Heading row */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14">
         <FadeIn>
-          <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45">
+          <span className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
             Our world
           </span>
         </FadeIn>
@@ -194,7 +194,7 @@ export function PillarParade() {
               <div className="absolute inset-0 bg-gradient-to-t from-sumi/70 via-sumi/10 to-transparent pointer-events-none" />
               {/* Caption */}
               <div className="absolute inset-x-0 bottom-0 p-6">
-                <span className="block font-sans text-[11px] tracking-[0.16em] uppercase text-surface/70">
+                <span className="block font-sans text-[11px] tracking-[0.18em] uppercase text-surface/70">
                   {card.eyebrow}
                 </span>
                 <h3 className="mt-3 font-display text-[clamp(1.75rem,5vw,2.25rem)] leading-[1.1] tracking-[0.005em] text-surface whitespace-nowrap">

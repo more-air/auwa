@@ -101,13 +101,16 @@ export function CursorLabel() {
       style={{ willChange: "transform" }}
     >
       {/*
-        Solid black disc centred on the cursor. Scales from 0 on enter to
-        1 on leave, matching the moreair.co/work pattern. `translate(-50%,
-        -50%)` keeps the centre of the circle on the pointer position;
-        scale is applied in the same transform string.
+        Solid disc in the brand's warm-dark Yoru tone, centred on the
+        cursor. Yoru (#0f1623) reads softer than the near-black Sumi
+        (oklch 0.10) and aligns with the dark surface system used by
+        the footer and dark pages. Scales from 0 on enter to 1 on
+        leave, matching the moreair.co/work pattern. `translate(-50%,
+        -50%)` keeps the centre on the pointer; scale is applied in
+        the same transform string.
       */}
       <div
-        className="w-[72px] h-[72px] rounded-full bg-sumi text-washi flex items-center justify-center font-sans text-[10px] tracking-[0.14em] uppercase"
+        className="w-[72px] h-[72px] rounded-full bg-yoru text-washi flex items-center justify-center font-sans text-[10px] tracking-[0.18em] uppercase"
         style={{
           transform: `translate(-50%, -50%) scale(${visible ? 1 : 0})`,
           opacity: visible ? 1 : 0,

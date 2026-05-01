@@ -2,3 +2,6 @@
 .env
 .env.local
 .env*.local
+
+# Build cache — incremental TS state, regenerated on every build.
+tsconfig.tsbuildinfo

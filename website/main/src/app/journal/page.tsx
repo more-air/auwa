@@ -83,7 +83,7 @@ export default async function JournalPage({
       <main>
 
         {/* Title, filters, and article grid — one section, one rhythm */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section pt-32 md:pt-44">
           <TextReveal
             as="h1"
             className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.05] tracking-[0.01em] text-sumi"
@@ -102,7 +102,7 @@ export default async function JournalPage({
                 <Link
                   key={cat}
                   href={cat === "All" ? "/journal" : `/journal?category=${cat.toLowerCase()}`}
-                  className={`group relative inline-block font-sans text-[13px] tracking-[0.06em] uppercase transition-colors duration-300 ${
+                  className={`group relative inline-block font-sans text-[13px] tracking-[0.14em] uppercase transition-colors duration-300 ${
                     cat === activeCategory ? "text-sumi" : "text-sumi/45 hover:text-sumi"
                   }`}
                 >
@@ -144,7 +144,7 @@ export default async function JournalPage({
                     )}
                   </div>
                   <div className="mt-3 md:mt-4 max-w-[90%]">
-                    <span className="font-sans text-[11px] md:text-[12px] tracking-[0.08em] uppercase text-sumi/45">
+                    <span className="font-sans text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.16em] uppercase text-sumi/45">
                       {article.category}
                     </span>
                     <h2 className="mt-1 md:mt-1.5 font-display text-[18px] md:text-[22px] leading-[1.2] tracking-[0.01em] text-sumi group-hover:text-sumi/70 transition-colors duration-300">

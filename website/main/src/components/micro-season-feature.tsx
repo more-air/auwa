@@ -15,7 +15,7 @@ export function MicroSeasonFeature() {
     <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-breathing">
       <div className="flex flex-col items-center text-center">
         <FadeIn>
-          <span className="font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45">
+          <span className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
             72 Seasons
           </span>
         </FadeIn>

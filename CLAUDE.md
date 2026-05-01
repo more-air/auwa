@@ -1,6 +1,56 @@
 # AUWA — PROJECT CONTEXT
 
-*Last Updated: 23 April 2026*
+*Last Updated: 1 May 2026*
+
+---
+
+## WORKING WITH THIS REPO — SAFETY RULES (READ FIRST)
+
+These rules are non-negotiable, including in `--dangerously-skip-permissions` / "bypass permissions" mode. They exist because of a real incident on 1 May 2026 in which a session ran `git checkout HEAD -- <files>` to "revert the working tree", silently wiping multiple sessions of uncommitted work. The work was eventually reconstructed from session transcripts; assume the next time will not be recoverable.
+
+**Never run a destructive git command without first asking the user.**
+
+Specifically: do NOT run any of the following without an explicit, in-conversation confirmation that names the actual files / branches involved AND describes what will be lost:
+
+- `git checkout HEAD -- <path>`, `git checkout -- <path>`, `git checkout <ref> -- <path>`
+- `git restore <path>`, `git restore --source=… <path>`
+- `git reset --hard`, `git reset --merge`
+- `git clean -fd`, `git clean -fdx`
+- `git rm` against tracked files with uncommitted changes
+- `git stash drop`, `git stash clear`
+- `git branch -D`, `git push --force`, `git push --force-with-lease`
+- `git rebase -i`, `git rebase --onto …` against branches with uncommitted work
+- `rm -rf` against the repo or any subdirectory containing uncommitted work
+- `cp <source> <dest>` or `Write` over a file with uncommitted changes from a different on-disk source (HEAD, another branch, a backup)
+
+Before running ANY of these:
+
+1. State plainly what the command will do. Example: *"This runs `git checkout HEAD -- src/app/book/page.tsx` which will wipe the uncommitted changes shown in `git diff` for that file. The lost work cannot be recovered from git."*
+2. Show the user the current `git status` and `git diff --stat` for the affected paths.
+3. Wait for an explicit OK that names the files (e.g., "yes, revert book/page.tsx").
+4. Only then run the command.
+
+**If the user asks for a "working tree revert" or "undo my changes" or similar, treat it as ambiguous.** Do not assume they mean `git checkout HEAD --`. Ask: *"Do you want to discard these specific changes permanently, or stash them, or commit them to a throwaway branch first?"* The default answer is to PRESERVE work, not discard it.
+
+**Don't propose `git checkout HEAD --` as a fix for build/runtime errors.** The fix is in the source code, not in throwing away local changes. If reverting feels like the simplest path, the user can revert in their editor file-by-file and keep what they want.
+
+**Recovery is not free.** Reconstructing wiped work from `~/.claude/projects/<project>/*.jsonl` transcripts is possible but slow, brittle, and only works if the bad command happened recently enough that the relevant sessions are still on disk. Treat that path as last-resort, not a safety net that justifies casual destructive commands.
+
+### If you ever DO need to recover from a destructive command
+
+A documented recovery walkthrough exists. The high-level shape:
+
+1. List sessions in `/Users/admin/.claude/projects/-Users-admin-Github-auwa/*.jsonl` by mtime; identify the disaster session and the sessions whose work needs recovering (typically: everything after the last deploy through to the moment of the destructive command).
+2. In the disaster session, locate the FIRST destructive command's timestamp — that's the cutoff.
+3. For every file in `src/`, `public/`, `context/`, `scripts/`, or the project root that was Edit/Write-touched in that window, replay the events: take the most recent full Read result before the cutoff (strip the `<num>\t` cat-n prefix), then apply each subsequent Edit's old/new replacement and each Write in chronological order. Skip partial Reads (offset/limit set) — they shouldn't replace `current_content`.
+4. Diff each reconstructed file against current on-disk; present diffs one at a time for explicit apply/skip approval. Apply via `Edit` or `Write` tools. **Never** via `git checkout`, `git restore`, or any other destructive primitive.
+5. Files that need bootstrap content (no full Read in window) can be initialised from `git show HEAD:<path>` — flag clearly that this is a bootstrap.
+
+The full session that did this on 1 May 2026 is preserved in the transcripts and can be referenced as a worked example if it happens again. Don't try to skip steps; the partial-Read trap and the IO ref bug will both bite a careless replay.
+
+### Routine commits to GitHub + Vercel
+
+The simplest preventive habit is to commit + deploy at the end of every meaningful session — that way a destructive command can only wipe one session's worth of work, not many. The `/website:deploy` slash command runs the full flow (commit, push, deploy to Vercel). Use it.
 
 ---
 

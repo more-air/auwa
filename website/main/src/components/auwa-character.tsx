@@ -243,7 +243,7 @@ export function AuwaCharacter({ src, alt, variants = {} }: AuwaCharacterProps) {
       // each glow variant must never be clipped by the layout box,
       // and the cursor-lean translation can take Auwa a few px past
       // the box edge.
-      className="relative w-full aspect-square cursor-pointer focus:outline-none focus-visible:outline-none bg-transparent border-0 p-0"
+      className="relative w-full aspect-square cursor-pointer bg-transparent border-0 p-0"
     >
       {/* Mover — receives the lerped cursor-follow translate. Both
           slots live inside it so the calm and glow layers move as

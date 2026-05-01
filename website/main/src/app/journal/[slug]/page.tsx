@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import { HeaderTone } from "@/components/header-tone";
 import { TextReveal } from "@/components/text-reveal";
 import { CtaLink } from "@/components/cta-link";
 import { ImageFade } from "@/components/image-fade";
@@ -1089,23 +1090,32 @@ export default async function ArticlePage({
       <main>
 
         {/* ── Hero: split layout, viewport height ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]">
-          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden md:rounded-md">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:h-[100svh]">
+          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
+            {/* Header tone sentinel — image side reads against
+                photography, header logo wants Surface here. */}
+            <HeaderTone tone="surface" />
             {article.heroImage ? (
               <ImageFade
                 src={article.heroImage}
                 alt={article.title}
                 fill
                 priority
+                quality={95}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                topScrim
+                fadeDuration={2000}
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100 to-surface-raised" />
             )}
           </div>
 
-          <div className="flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:pb-16 lg:pb-20">
+          <div className="relative flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:pb-16 lg:pb-20">
+            {/* Header tone sentinel — text side reads against Surface
+                page bg, header trigger wants Sumi here. */}
+            <HeaderTone tone="sumi" />
             <TextReveal
               as="h1"
               className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-sumi"
@@ -1114,7 +1124,7 @@ export default async function ArticlePage({
               {article.title}
             </TextReveal>
             <FadeIn delay={400} translateY={32}>
-              <p className="mt-4 md:mt-6 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-sumi/60">
+              <p className="mt-4 md:mt-6 pr-2 md:pr-0 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-pretty text-sumi/60">
                 {article.subtitle}
               </p>
             </FadeIn>
@@ -1126,23 +1136,23 @@ export default async function ArticlePage({
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-6 md:py-8 border-b border-sumi/10">
             <div className="flex flex-wrap items-center justify-between gap-4 text-sumi/45">
               <div className="flex flex-wrap items-center">
-                <Link href="/journal" className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-sumi transition-colors duration-300">
+                <Link href="/journal" className="font-sans text-[12px] tracking-[0.16em] uppercase hover:text-sumi transition-colors duration-300">
                   Journal
                 </Link>
-                <span className="font-sans text-[12px] tracking-[0.08em] uppercase mx-2">/</span>
-                <Link href={`/journal?category=${article.category.toLowerCase()}`} className="font-sans text-[12px] tracking-[0.08em] uppercase hover:text-sumi transition-colors duration-300">
+                <span className="font-sans text-[12px] tracking-[0.16em] uppercase mx-2">/</span>
+                <Link href={`/journal?category=${article.category.toLowerCase()}`} className="font-sans text-[12px] tracking-[0.16em] uppercase hover:text-sumi transition-colors duration-300">
                   {article.category}
                 </Link>
               </div>
               <div className="flex items-center gap-5">
                 <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" className="hover:text-sumi transition-colors duration-300">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </a>
                 <a href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}&description=${encodeURIComponent(article.title + ': ' + article.subtitle)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest" className="hover:text-sumi transition-colors duration-300">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
                 </a>
                 <a href={`https://x.com/intent/tweet?url=${encodeURIComponent(`https://auwa.life/journal/${slug}`)}&text=${encodeURIComponent(article.title + ': ' + article.subtitle)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X" className="hover:text-sumi transition-colors duration-300">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
               </div>
             </div>
@@ -1247,28 +1257,28 @@ export default async function ArticlePage({
 
                 return samePerson ? (
                   <div>
-                    <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-sumi/45 mb-2">
+                    <p className="font-sans text-[11px] tracking-[0.18em] uppercase text-sumi/45 mb-2">
                       Words &amp; photos
                     </p>
-                    <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
+                    <Link href={author.href} className="block font-sans text-[13px] tracking-[0.14em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                       {article.author}
                     </Link>
                   </div>
                 ) : (
                   <div className="flex gap-10 md:gap-14">
                     <div>
-                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-sumi/45 mb-2">
+                      <p className="font-sans text-[11px] tracking-[0.18em] uppercase text-sumi/45 mb-2">
                         Words
                       </p>
-                      <Link href={author.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
+                      <Link href={author.href} className="block font-sans text-[13px] tracking-[0.14em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                         {article.author}
                       </Link>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] tracking-[0.14em] uppercase text-sumi/45 mb-2">
+                      <p className="font-sans text-[11px] tracking-[0.18em] uppercase text-sumi/45 mb-2">
                         Photos
                       </p>
-                      <Link href={photographer.href} className="block font-sans text-[13px] tracking-[0.08em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
+                      <Link href={photographer.href} className="block font-sans text-[13px] tracking-[0.14em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                         {article.photographer}
                       </Link>
                     </div>
@@ -1321,7 +1331,7 @@ export default async function ArticlePage({
                   )}
                 </div>
                 <div className="mt-4 max-w-[90%]">
-                  <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45">
+                  <span className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
                     {related.category}
                   </span>
                   <h3 className="mt-1.5 font-display text-[18px] md:text-[20px] leading-[1.25] text-sumi group-hover:text-sumi/70 transition-colors duration-300">

@@ -136,14 +136,16 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 | Pullquote (hero-scale) | EB Garamond | 400 | clamp(2rem, 5.5vw, 4.5rem) | 0.005em |
 | Page subtitle | EB Garamond | 400 | clamp(1.1rem, 2vw, 1.4rem) | — |
 | About page prose | EB Garamond | 400 | 18px / 20px | — |
-| Navigation | Instrument Sans | 400 | 14px | 0.06em |
+| Navigation | Instrument Sans | 400 | 14px | 0.14em (uppercase rule) |
 | UI text / excerpts | Instrument Sans | 400 | 14px | — |
-| Form button (CTA) | Instrument Sans | 500 | 14px | 0.02em |
-| Uppercase filter | Instrument Sans | 400 | 13px | 0.06em |
-| Uppercase metadata | Instrument Sans | 400 | 12px | 0.08em |
+| Form button (CTA) | Instrument Sans | 500 | 14px | 0.14em (uppercase rule) |
+| Uppercase filter | Instrument Sans | 400 | 13px | 0.14em (uppercase rule) |
+| Uppercase metadata | Instrument Sans | 400 | 12px | 0.14em (uppercase rule) |
 | Kanji (micro-season) | Noto Serif JP | 400 | clamp(3rem, 8vw, 6.5rem) | 0.06em |
 | Image captions | Instrument Sans | 400 | 13px | — |
-| Footer copyright | Instrument Sans | 400 | 14px | 0.02em |
+| Footer copyright | Instrument Sans | 400 | 14px | 0.14em (uppercase rule) |
+
+**Uppercase rule (locked).** Every piece of small uppercase text on the site uses **`tracking-[0.14em]`** — generous enough to feel deliberate, tight enough to stay confident. This applies to: eyebrows, metadata labels, filter buttons, navigation links, form CTAs, "Scroll" / "Explore" hero cues, "INSTAGRAM" handle, footer copy + copyright line, share-row labels, and the FigureHook strip. The previous mix of 0.02em / 0.06em / 0.08em / 0.14em / 0.18em / 0.22em / 0.26em was inconsistent and made the site read less considered. One tracking value across all uppercase locks the system.
 
 ---
 
@@ -182,6 +184,7 @@ Three colours carry Japanese names because they appear together as the brand's s
 | **Yoru** (夜, "night") | `#1F2A2E` (rendered as `#0f1623` in `--color-yoru` to match the world hero illustration's dark) | Background. Slightly warmer and more atmospheric than pure void. The base layer for the footer, dark pages (`<DarkPageTheme />`), the FigureHook strip, and the editorial IG slides — any quiet, contemplative dark canvas. |
 | **Washi** (和紙, traditional Japanese paper) | `#EFE9DD` / `oklch(0.928 0.020 80)` | Light text, icon, border, and wordmark on **Yoru / Sumi** — uniform dark surfaces. Footer, FigureHook strip, SoundToggle button, dark book page, signup-form `theme="dark"`, cursor disc, dark CTA accents. The "warm paper ink" that gives dark contexts their old-book character. |
 | **Surface** (warm off-white) | `#f8f7f4` / `oklch(0.97 0.004 95)` | Two roles. (1) The page bg on every light page (`<main>`, journal, about, teasers), the entrance loader, hero pre-paint flash, email body bg, PWA `theme_color`. (2) Light foreground over **imagery / photography** — header logo + menu icon while transparent (over hero video), pillar card overlays, two-up CTAs, hero "Scroll" label + line, four-pillar module index counter, book-hero card text. Surface has more luminance (L 0.97 vs Washi 0.928) and lower chroma, so it cuts confidently against the variable mid-tones of a photograph where Washi blends with bright spots. |
+| **Paper** (raised warm off-white) | `#ecebe7` / `oklch(0.94 0.005 95)` | A layered surface that needs to read as a distinct plane sitting *above* Surface. Currently the menu overlay panel — when it slides in over a Surface page bg, the ~3% lower luminance is enough to register as "this is a separate layer" without introducing a different hue. Same warm hue 95 family as Surface so it doesn't clash. Don't use as the page bg or as a foreground colour; it's specifically for raised panels. |
 
 The discipline — locked rule for foreground colour:
 

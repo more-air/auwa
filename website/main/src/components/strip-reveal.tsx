@@ -2,6 +2,7 @@
 
 import { Children, useEffect, useRef, useState } from "react";
 import { DURATION, EASING, STAGGER } from "@/lib/motion";
+import { usePageReady } from "./page-transition";
 
 interface StripRevealProps {
   children: React.ReactNode;
@@ -38,10 +39,19 @@ export function StripReveal({
 }: StripRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
+  const ready = usePageReady();
 
   useEffect(() => {
+    if (!ready) return;
     const el = ref.current;
     if (!el) return;
+    // Above-the-fold short-circuit: hero strips visible on mount fire
+    // immediately so they don't require a scroll.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setRevealed(true);
+      return;
+    }
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -49,11 +59,11 @@ export function StripReveal({
           io.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -80px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -200px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [ready]);
 
   const items = Children.toArray(children);
 

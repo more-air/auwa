@@ -38,7 +38,7 @@ export function VideoMoment() {
 
           <div className="flex flex-col justify-center">
             <FadeIn delay={200}>
-              <span className="font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45">
+              <span className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
                 Meet Auwa
               </span>
             </FadeIn>
@@ -82,7 +82,7 @@ export function VideoMoment() {
 
           <div className="mt-8 text-center flex flex-col items-center">
             <FadeIn delay={200}>
-              <span className="font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45">
+              <span className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
                 Meet Auwa
               </span>
             </FadeIn>

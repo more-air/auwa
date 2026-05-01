@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { DURATION, EASING } from "@/lib/motion";
+import { usePageReady } from "./page-transition";
 
 /*
   Text reveal animation: words fade in and rise one by one.
@@ -34,10 +35,24 @@ export function TextReveal({
 }: TextRevealProps) {
   const ref = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  // Wait for the page transition to fully complete before observing,
+  // so reveals fire AFTER the swipe — not racing the panel exit.
+  const ready = usePageReady();
 
   useEffect(() => {
-    // Fire ~120px before entry so Safari can set up the per-word
-    // compositor layers before the scroll reaches the element.
+    if (!ready) return;
+    const el = ref.current;
+    if (!el) return;
+
+    // Above-the-fold short-circuit: if the element is already in
+    // viewport on mount, fire immediately. Hero headlines that sit
+    // on first paint shouldn't require a scroll to animate.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -45,12 +60,12 @@ export function TextReveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
+      { threshold: 0, rootMargin: "0px 0px -200px 0px" }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [ready]);
 
   const words = children.split(" ");
 
@@ -67,13 +82,9 @@ export function TextReveal({
             className="inline-block"
             style={{
               opacity: isVisible ? 1 : 0,
-              // End-state `translate3d(0, 0, 0)` (not `none`). Holding the
-              // GPU layer after the transition completes prevents Safari
-              // from re-rasterising the glyphs at subpixel precision when
-              // the transform clears — that re-rasterise was showing up as
-              // a tiny "nudge" after the letters had visually settled.
-              // Per-headline scope (3-6 words) keeps the compositor layer
-              // count low enough that scroll smoothness isn't affected.
+              // Hold `translate3d(0, 0, 0)` after the reveal completes.
+              // Demoting to `none` on Safari causes a subpixel settle
+              // visible mid-hover on neighbouring elements.
               transform: isVisible
                 ? "translate3d(0, 0, 0)"
                 : "translate3d(0, 100%, 0)",

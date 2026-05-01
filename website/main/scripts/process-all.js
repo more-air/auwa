@@ -56,7 +56,12 @@ for (const [photoSlug, article] of Object.entries(articles)) {
       console.error(`  MISSING: ${source}`);
       continue;
     }
-    run(source, path.join(webDir, `${photoSlug}-${name}.jpg`), "web");
+    // Hero is shown half-width on desktop split layout; on a 4K retina
+    // monitor that's a 1280-logical-px column = 2560 source px needed.
+    // `pillar` (2400px) covers it without forcing next/image to upscale.
+    // Body images use `web` (1800px) since they cap at ~900 CSS px.
+    const mode = name === "hero" ? "pillar" : "web";
+    run(source, path.join(webDir, `${photoSlug}-${name}.jpg`), mode);
     run(source, path.join(igDir, `image-${name}.jpg`), "ig");
   }
 

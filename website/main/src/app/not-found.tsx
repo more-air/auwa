@@ -17,7 +17,7 @@ export default function NotFound() {
         <section className="min-h-[calc(100svh-5rem)] flex items-center justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           <div className="w-full max-w-[640px] text-center">
             <FadeIn>
-              <p className="font-sans text-[13px] tracking-[0.08em] uppercase text-sumi/45 mb-6">
+              <p className="font-sans text-[13px] tracking-[0.14em] uppercase text-sumi/45 mb-6">
                 404
               </p>
             </FadeIn>

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
+import { HeaderTone } from "@/components/header-tone";
 import { MicroSeasonFeature } from "@/components/micro-season-feature";
 import { EditorialFrames } from "@/components/editorial-frames";
 import { PillarParade } from "@/components/pillar-parade";
@@ -68,6 +69,12 @@ export default function Home() {
           across it.
         */}
         <div className="relative z-10 bg-surface">
+        {/* Header tone — overrides the HeroVideo's "surface" sentinel
+            once the user scrolls into the page content. The hero is
+            position:sticky and never exits the IO band, so this
+            later-in-DOM sentinel takes precedence the moment the
+            content section reaches the header band. */}
+        <HeaderTone tone="sumi" />
 
         {/* ── Intro block: eyebrow + scroll-fade paragraph + CTA ── */}
         <section id="intro" className="relative scroll-mt-16 md:scroll-mt-20 px-6 md:px-12 lg:px-20 xl:px-28 space-section">
@@ -77,16 +84,25 @@ export default function Home() {
             philosophy. Desktop only, 3% alpha — atmospheric texture, never
             competes with the paragraph.
           */}
-          <span
-            aria-hidden="true"
-            className="hidden lg:block pointer-events-none select-none absolute top-1/2 -translate-y-1/2 lg:right-12 xl:right-20 font-jp-serif leading-none text-sumi/[0.03]"
-            style={{ fontSize: "clamp(16rem, 38vw, 30rem)" }}
+          {/* Watermark fade-in is gated on usePageReady inside FadeIn so
+              the entrance only starts AFTER the page-transition wipe
+              completes — same pattern as /about. */}
+          <FadeIn
+            className="hidden lg:block pointer-events-none select-none absolute top-1/2 -translate-y-1/2 lg:right-12 xl:right-20"
+            duration={1800}
+            translateY={0}
           >
-            心
-          </span>
+            <span
+              aria-hidden="true"
+              className="font-jp-serif leading-none text-sumi/[0.03]"
+              style={{ fontSize: "clamp(16rem, 38vw, 30rem)" }}
+            >
+              心
+            </span>
+          </FadeIn>
           <div className="relative max-w-[880px]">
             <FadeIn>
-              <h1 className="block font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45 m-0 font-normal">
+              <h1 className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 m-0 font-normal">
                 Japanese Lifestyle Brand
               </h1>
             </FadeIn>
@@ -142,7 +158,7 @@ export default function Home() {
               The character.
             </h2>
           </FadeIn>
-          <FadeIn variant="reveal" revealDistance={40}>
+          <FadeIn translateY={32}>
             <BookHeroCard />
           </FadeIn>
         </section>
@@ -160,7 +176,7 @@ export default function Home() {
             <FadeIn delay={120}>
               <Link
                 href="/journal"
-                className="group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.14em] uppercase text-sumi/50 hover:text-sumi transition-colors duration-500 ease-text-roll"
+                className="group relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/50 hover:text-sumi transition-colors duration-500 ease-text-roll"
               >
                 <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
                   View all
@@ -175,7 +191,7 @@ export default function Home() {
             className="flex gap-5 md:gap-6 lg:gap-8 overflow-x-auto pb-4 px-6 md:px-12 lg:px-20 xl:px-28 scrollbar-hide"
             itemClassName="flex-shrink-0 w-[260px] md:w-[280px] lg:w-[300px]"
           >
-            {latestArticles.map((article) => (
+            {latestArticles.map((article, i) => (
               <Link key={article.slug} href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
                 <div className="aspect-[4/5] overflow-hidden rounded-md relative">
                   {article.image ? (
@@ -186,6 +202,13 @@ export default function Home() {
                       sizes="(max-width: 768px) 260px, (max-width: 1024px) 280px, 300px"
                       className="object-cover"
                       loading="eager"
+                      // Priority on the first three cards so the
+                      // browser fetches them at high priority on first
+                      // paint — otherwise the first card's image was
+                      // intermittently still streaming when the
+                      // StripReveal cascade fired, leaving an empty
+                      // box.
+                      priority={i < 3}
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/40 to-surface-raised" />
@@ -193,7 +216,7 @@ export default function Home() {
                 </div>
                 <div className="mt-4 max-w-[90%]">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="font-sans text-[12px] tracking-[0.08em] uppercase text-sumi/45">
+                    <span className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
                       {article.category}
                     </span>
                   </div>
@@ -237,6 +260,7 @@ export default function Home() {
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"
                         loading="eager"
+                        priority={i === 0}
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
@@ -271,7 +295,7 @@ export default function Home() {
         </section>
 
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-12">
             {twoUpArticles.map((article, i) => (
               <FadeIn key={article.slug} delay={i * STAGGER.grid} variant="reveal" revealDistance={40}>
                 <Link href={`/journal/${article.slug}`} className="group block" data-cursor="Read">
@@ -293,7 +317,7 @@ export default function Home() {
                         {article.title}
                       </h3>
                       <p className="mt-3">
-                        <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.08em] uppercase text-surface">
+                        <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.14em] uppercase text-surface">
                           <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
                             Read the essay
                           </span>
@@ -320,12 +344,22 @@ export default function Home() {
           heading="Kokoro lives in every quiet, ordinary thing."
           cta={{ label: "Explore world", href: "/book" }}
           body="Auwa, a character from our illustrated stories who reveals what the world has been too busy to notice. Auwa will also appear in our app."
-          aspectClassName="aspect-[4/5] md:aspect-square"
+          // Portrait video on every viewport — Auwa revealing the
+          // Kokoro in living things. Same footage used in the book
+          // page's "What Auwa does" module. The warm-tint wash is
+          // disabled (the footage already sits in the right palette,
+          // and a tint over moving pixels reads as a colour shift).
+          aspectClassName="aspect-[9/16] md:aspect-[2/3]"
+          warmTint={false}
+          mediaMaxWidth="md:max-w-[480px]"
           image={{
-            src: "/book/hero/landscape-1.jpg",
-            mobileSrc: "/book/hero/portrait-1.jpg",
-            alt: "Auwa, a luminous being arriving in the world",
+            src: "/book/character/auwa-kokoro.mp4",
+            alt: "Auwa revealing the Kokoro in living things",
             href: "/book",
+            video: {
+              poster: "/book/character/auwa-kokoro-poster.jpg",
+              objectPosition: "bottom",
+            },
           }}
         />
 

@@ -95,7 +95,7 @@ export default function DemoAboutPage() {
         </span>
         <div className="relative max-w-[1100px]">
           <FadeIn>
-            <p className="font-sans text-[12px] tracking-[0.22em] uppercase text-sumi/45">
+            <p className="font-sans text-[12px] tracking-[0.14em] uppercase text-sumi/45">
               About
             </p>
           </FadeIn>
@@ -138,7 +138,7 @@ export default function DemoAboutPage() {
       <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-24 md:py-40">
         <div className="max-w-[1300px] mx-auto">
           <FadeIn>
-            <p className="font-sans text-[12px] tracking-[0.22em] uppercase text-sumi/45">
+            <p className="font-sans text-[12px] tracking-[0.14em] uppercase text-sumi/45">
               The name
             </p>
           </FadeIn>
@@ -162,7 +162,7 @@ export default function DemoAboutPage() {
                   >
                     {k.kana}
                   </p>
-                  <p className="mt-4 font-sans text-[12px] tracking-[0.22em] uppercase text-sumi/45">
+                  <p className="mt-4 font-sans text-[12px] tracking-[0.14em] uppercase text-sumi/45">
                     {k.romaji} · {k.gloss}
                   </p>
                   <p className="mt-3 font-display text-[17px] md:text-[18px] leading-[1.6] text-sumi/70">
@@ -199,7 +199,7 @@ export default function DemoAboutPage() {
           <div className="md:grid md:grid-cols-12 md:gap-12">
             <div className="md:col-span-4 mb-12 md:mb-0">
               <FadeIn>
-                <p className="font-sans text-[12px] tracking-[0.22em] uppercase text-sumi/45">
+                <p className="font-sans text-[12px] tracking-[0.14em] uppercase text-sumi/45">
                   Ten years
                 </p>
               </FadeIn>
@@ -243,7 +243,7 @@ export default function DemoAboutPage() {
       <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-24 md:py-32">
         <div className="max-w-[1300px] mx-auto mb-14 md:mb-24">
           <FadeIn>
-            <p className="font-sans text-[12px] tracking-[0.22em] uppercase text-sumi/45">
+            <p className="font-sans text-[12px] tracking-[0.14em] uppercase text-sumi/45">
               The creators
             </p>
           </FadeIn>
@@ -318,7 +318,7 @@ function FounderSpread({
         </FadeIn>
         <div className={imageOnLeft ? "md:order-2 md:col-span-6" : "md:order-1 md:col-span-6"}>
           <FadeIn>
-            <p className="font-sans text-[12px] tracking-[0.22em] uppercase text-sumi/45">
+            <p className="font-sans text-[12px] tracking-[0.14em] uppercase text-sumi/45">
               {role}
             </p>
           </FadeIn>

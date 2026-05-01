@@ -33,6 +33,23 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "Auwa",
+  description: "An illustrated world by Eko Maeda. Auwa, a small luminous being, arrives in a forest at twilight and shows the world what it has been too busy to notice.",
+  author: { "@type": "Person", name: "Eko Maeda" },
+  publisher: { "@type": "Organization", name: "Auwa", url: "https://auwa.life" },
+  url: "https://auwa.life/book",
+  image: "https://auwa.life/og/book.jpg",
+  inLanguage: "en",
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {children}
+    </>
+  );
 }

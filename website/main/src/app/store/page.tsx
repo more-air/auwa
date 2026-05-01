@@ -1,4 +1,5 @@
 import { FadeIn } from "@/components/fade-in";
+import { HeaderTone } from "@/components/header-tone";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
@@ -23,16 +24,28 @@ export const metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Store",
+  name: "Auwa Store",
+  description: "Curated Japanese craftsman objects, and our own signed figure editions. Made slowly, chosen for a lifetime.",
+  url: "https://auwa.life/store",
+  publisher: { "@type": "Organization", name: "Auwa", url: "https://auwa.life" },
+  image: "https://auwa.life/og/store.jpg",
+};
+
 export default function StorePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
         <div>
           {/* Mobile: text on top half, image on bottom half, fits viewport
               with no scroll. Desktop (lg+): side-by-side grid. */}
-          <div className="flex flex-col h-[calc(100dvh-4rem)] lg:grid lg:grid-cols-2 lg:h-[calc(100dvh-5rem)]">
+          <div className="flex flex-col h-[100svh] lg:grid lg:grid-cols-2">
 
-            <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-section shrink-0">
+            <div className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 pt-32 md:pt-32 lg:pt-24 pb-16 md:pb-24 shrink-0">
+              <HeaderTone tone="sumi" />
               <TextReveal
                 as="h1"
                 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi"
@@ -53,13 +66,17 @@ export default function StorePage() {
             </div>
 
             <div className="relative overflow-hidden flex-1 min-h-0">
+              <HeaderTone tone="surface" />
               <ImageFade
                 src="/pillars/store.jpg"
                 alt="Japanese ceramics and wooden bowl in afternoon light"
                 fill
                 priority
+                quality={95}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
+                topScrim
+                fadeDuration={2000}
               />
             </div>
 

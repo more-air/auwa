@@ -70,7 +70,7 @@ export function BookPreview({
           io.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -80px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -200px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -138,16 +138,16 @@ export function BookPreview({
       aria-label="Book preview — flick through key spreads"
       tabIndex={0}
       onKeyDown={onKey}
-      className="relative outline-none"
+      className="relative"
     >
       {/* counter top-right; eyebrow on the left when provided */}
       <div className={`px-6 md:px-12 lg:px-20 xl:px-28 mb-6 md:mb-8 flex items-baseline gap-6 ${eyebrow ? "justify-between" : "justify-end"}`}>
         {eyebrow ? (
-          <p className={`font-sans text-[12px] tracking-[0.08em] uppercase ${counterColor}`}>
+          <p className={`font-sans text-[12px] tracking-[0.16em] uppercase ${counterColor}`}>
             {eyebrow}
           </p>
         ) : null}
-        <p className={`font-sans tabular-nums text-[12px] tracking-[0.08em] uppercase ${counterColor}`}>
+        <p className={`font-sans tabular-nums text-[12px] tracking-[0.16em] uppercase ${counterColor}`}>
           {String(active + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </p>
       </div>

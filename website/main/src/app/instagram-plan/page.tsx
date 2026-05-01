@@ -42,7 +42,7 @@ function ProfileHeader({ count }: { count: number }) {
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-5">
             <h2 className="text-[20px] font-sans font-normal text-sumi">auwa.life</h2>
-            <span className="font-sans text-[11px] uppercase tracking-[0.1em] text-sumi/50 border border-sumi/20 px-2 py-0.5 rounded-sm">Planning</span>
+            <span className="font-sans text-[11px] uppercase tracking-[0.14em] text-sumi/50 border border-sumi/20 px-2 py-0.5 rounded-sm">Planning</span>
           </div>
           <div className="flex gap-10 mb-5">
             <div className="font-sans text-[14px] text-sumi"><span className="font-medium">{count}</span> posts</div>
@@ -66,7 +66,7 @@ function ProfileHeader({ count }: { count: number }) {
           <div className="flex-1">
             <div className="flex items-center gap-1.5 mb-2">
               <h2 className="font-sans text-[20px] font-normal text-sumi">auwa.life</h2>
-              <span className="font-sans text-[10px] uppercase tracking-[0.1em] text-sumi/50 border border-sumi/20 px-1.5 py-0.5 rounded-sm">Planning</span>
+              <span className="font-sans text-[10px] uppercase tracking-[0.14em] text-sumi/50 border border-sumi/20 px-1.5 py-0.5 rounded-sm">Planning</span>
             </div>
             <div className="flex gap-6">
               <div className="font-sans text-[14px] text-sumi"><span className="font-semibold">{count}</span> posts</div>
@@ -104,7 +104,7 @@ function TabBar() {
             <rect x="9" y="17" width="6" height="6" rx="0.5"/>
             <rect x="17" y="17" width="6" height="6" rx="0.5"/>
           </svg>
-          <span className="hidden md:inline text-[12px] font-sans font-medium uppercase tracking-[0.08em]">Plan</span>
+          <span className="hidden md:inline text-[12px] font-sans font-medium uppercase tracking-[0.14em]">Plan</span>
         </button>
       </div>
     </div>
@@ -130,7 +130,7 @@ export default async function InstagramPlanPage() {
         {backlog.length > 0 && (
           <>
             <div className="max-w-[935px] mx-auto px-4 md:px-12 pt-10 pb-3">
-              <div className="font-sans text-[12px] uppercase tracking-[0.1em] text-sumi/50 mb-1">
+              <div className="font-sans text-[12px] uppercase tracking-[0.14em] text-sumi/50 mb-1">
                 Backlog · {backlog.length} {backlog.length === 1 ? "folder" : "folders"}
               </div>
               <div className="font-sans text-[12px] text-sumi/50">

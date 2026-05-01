@@ -9,6 +9,16 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Force the scrollbar to render on every page — including teasers
+     (/app, /store, /book, /book-signup) that fit in 100vh. Without
+     this, navigating between a tall page (scrollbar present) and a
+     teaser (no scrollbar) shifts the entire layout horizontally by
+     ~15px on systems with traditional (non-overlay) scrollbars.
+     `overflow-y: scroll` forces the gutter to always be there;
+     `scrollbar-gutter: stable` is a modern equivalent kept as
+     belt-and-braces. */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 /* Footer parallax reveal: page content sits above sticky footer */
@@ -62,6 +72,14 @@ html[data-page-theme="dark"] main {
      reintroduce hardcoded #f8f7f4 or oklch(1 0 0). */
   --color-surface: oklch(0.97 0.004 95);
   --color-surface-raised: oklch(0.95 0.005 250);
+
+  /* Paper — slightly darker warm off-white, sits in the Surface
+     family (same hue 95, still very low chroma). Used for layered
+     surfaces that need to read as a distinct plane against the page
+     background — currently the menu overlay panel. Hex ≈ #ecebe7;
+     ~3% darker than Surface so the contrast registers without
+     introducing a different hue. */
+  --color-paper: oklch(0.94 0.005 95);
 
   /* Brand named darks — see context/brand/brand.md §4.
 
@@ -171,8 +189,16 @@ html[data-page-theme="dark"] main {
 }
 
 html {
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
+  /* Scrollbar overlays content rather than reserving a gutter on the
+     right (modern Awwwards default; matches macOS overlay scrollbars).
+     - Removed `overflow-y: scroll` so the scrollbar only appears when
+       the page actually overflows (no permanent track on short pages).
+     - Removed `scrollbar-gutter: stable` so the right edge of content
+       reaches the viewport edge instead of being pushed inward by the
+       reserved gutter.
+     The page transition's full-screen panel covers any layout shift
+     that would otherwise occur when navigating between pages of
+     different heights, so neither setting is needed for stability. */
 }
 
 body {
@@ -255,6 +281,29 @@ header a:hover video {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+/* Skip-to-content link — invisible until keyboard focus, then a quiet
+   pill at the top-left so a Tab-first visitor can jump past the header
+   straight to the page body. Awwwards a11y polish. */
+.skip-to-content {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.625rem 1rem;
+  background: var(--color-sumi);
+  color: var(--color-surface);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transform: translateY(-200%);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+}
 /* Don't show the ring on cards/links that wrap large imagery — the outline
    would chase the image edge. The inner interactive targets handle focus. */
 a:focus-visible img {
@@ -279,6 +328,24 @@ textarea:focus-visible {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* Sound-toggle wave bars — each bar gets a different duration + delay
+   so the four together read as an organic music wave rather than a
+   metronome. transform-origin is the centre of the bar so it scales
+   symmetrically (no jiggle of either tip). */
+@keyframes sound-wave {
+  0%   { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* Decorative watermarks (心 on home + about, etc.) — fade in
+   gracefully on load instead of appearing instantly with the page.
+   The text colour itself is at low alpha (e.g. text-sumi/[0.03]) so
+   this CSS opacity fade just animates the ALREADY-faint glyph from
+   invisible to its final 3% appearance. */
+.watermark-fade-in {
+  animation: fadeIn 1800ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Hero scroll cue — thin vertical line that slowly breathes its height

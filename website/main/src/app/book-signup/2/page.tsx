@@ -17,6 +17,9 @@
 */
 
 import { useEffect } from "react";
+import { notFound } from "next/navigation";
+
+const isProduction = process.env.NODE_ENV === "production";
 
 interface TextOverlay {
   x: string;
@@ -89,6 +92,7 @@ function Overlays({ overlays }: { overlays?: TextOverlay[] }) {
 }
 
 export default function Book2Page() {
+  if (isProduction) notFound();
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown" || e.key === "ArrowRight") {

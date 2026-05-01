@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DURATION, EASING } from "@/lib/motion";
 
 /*
@@ -29,6 +29,43 @@ export function FigureHook() {
   const pathname = usePathname();
   const [scrolledPast, setScrolledPast] = useState(false);
   const [nearFooter, setNearFooter] = useState(false);
+  // `snap` disables the opacity+transform transition for the FIRST
+  // committed render after mount or after a route change — so the
+  // strip starts at its hidden position with no animation. Without
+  // this, navigating from a page where the strip was visible to a
+  // fresh article causes the transition to interpolate from the
+  // pre-nav transform (translate3d 0,0,0 — visible) to the new
+  // (translate3d 0,100% — hidden) value, producing a brief 10px
+  // dark lip sliding off-screen at the bottom on page load.
+  //
+  // The previous render-phase `setState` pattern doesn't work here:
+  // React detects render-phase setState and re-runs the render with
+  // the updated state, which means the *committed* render always
+  // sees `pathJustChanged === false` — so the "none" transition
+  // path never actually fired.
+  const [snap, setSnap] = useState(true);
+  const pathRef = useRef(pathname);
+
+  // On path change: snap to hidden + reset state.
+  useEffect(() => {
+    if (pathRef.current !== pathname) {
+      pathRef.current = pathname;
+      setSnap(true);
+      setScrolledPast(false);
+      setNearFooter(false);
+    }
+  }, [pathname]);
+
+  // Clear snap on the next animation frame after a render where it's
+  // true. Two frames separates the "settle hidden" paint from the
+  // "transition is live" paint, so subsequent state changes animate.
+  useEffect(() => {
+    if (!snap) return;
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setSnap(false));
+    });
+    return () => cancelAnimationFrame(id);
+  }, [snap]);
 
   useEffect(() => {
     if (HIDE_ON.includes(pathname)) return;
@@ -53,8 +90,16 @@ export function FigureHook() {
     );
     io.observe(sentinel);
 
+    // Ref-gate the setState so it only fires when `scrolledPast`
+    // actually changes — prevents per-frame re-renders that iOS
+    // Safari re-rasterises into visible flicker.
+    const scrolledRef = { current: false };
     const onScroll = () => {
-      setScrolledPast(window.scrollY > SCROLL_IN_THRESHOLD);
+      const next = window.scrollY > SCROLL_IN_THRESHOLD;
+      if (next !== scrolledRef.current) {
+        scrolledRef.current = next;
+        setScrolledPast(next);
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -73,11 +118,17 @@ export function FigureHook() {
   return (
     <div
       aria-hidden={!show}
-      className="fixed bottom-0 inset-x-0 z-[80] pointer-events-none"
+      className="fixed bottom-0 inset-x-0 z-[70] pointer-events-none"
       style={{
         opacity: show ? 1 : 0,
         transform: show ? "translate3d(0, 0, 0)" : "translate3d(0, 100%, 0)",
-        transition: `opacity ${DURATION.reveal}ms ${EASING.outExpo}, transform ${DURATION.reveal}ms ${EASING.outExpo}`,
+        // Snap on first paint after mount / route change (see `snap`
+        // above) so the strip never animates IN from a stale pre-
+        // nav position when the new page mounts — which produced
+        // the 10px dark lip flash at the bottom on article loads.
+        transition: snap
+          ? "none"
+          : `opacity ${DURATION.reveal}ms ${EASING.outExpo}, transform ${DURATION.reveal}ms ${EASING.outExpo}`,
       }}
     >
       <Link
@@ -85,10 +136,10 @@ export function FigureHook() {
         className="group pointer-events-auto block bg-yoru border-t border-washi/10"
       >
         <div className="flex items-center justify-between gap-6 px-6 md:px-12 lg:px-20 xl:px-28 h-14 md:h-16">
-          <p className="font-sans text-[11px] md:text-[13px] leading-none tracking-[0.1em] md:tracking-[0.14em] uppercase whitespace-nowrap text-washi">
+          <p className="font-sans text-[11px] md:text-[13px] leading-none tracking-[0.18em] md:tracking-[0.14em] uppercase whitespace-nowrap text-washi">
             Win first edition Auwa figure
           </p>
-          <span className="font-sans text-[11px] md:text-[12px] tracking-[0.14em] uppercase whitespace-nowrap text-washi">
+          <span className="font-sans text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.16em] uppercase whitespace-nowrap text-washi">
             Enter
             <span aria-hidden="true" className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>

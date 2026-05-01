@@ -1,18 +1,21 @@
+import { notFound } from "next/navigation";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 import { ImageFade } from "@/components/image-fade";
 
-// Kept as a fallback / archive of the original single-viewport book
-// signup page. The production /book page is now the world page (the
-// former /demo-world). This route is noindex and not linked from the
-// nav — we're preserving it in case we want to bring this layout back.
+// Internal-only — viewable on `next dev`, returns 404 in production
+// builds. Preserved as an archive of the original single-viewport
+// book signup layout in case we want to bring it back.
 export const metadata = {
   title: "Auwa Book Signup | Archived",
   robots: { index: false, follow: false },
 };
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export default function BookPage() {
+  if (isProduction) notFound();
   return (
     <>
       <main>

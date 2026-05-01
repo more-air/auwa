@@ -3,7 +3,9 @@
 /*
   Editorial Frames — desktop four-pillar module.
   "Magazine index" tab gallery that crossfades between four pillar frames.
-  No scroll-hijacking, no sticky transforms. Auto-advances every 7s,
+  No scroll-hijacking, no sticky transforms. Auto-advances every 10s
+  (long enough for the pillar-01 video, ~9s, to play through before
+  rotating),
   pauses on hover, resets on interaction. Safe on iOS by design.
 
   Reveal: each frame's content is static. The only animation is the outer
@@ -79,7 +81,7 @@ const FRAMES: Frame[] = [
   },
 ];
 
-const ADVANCE_MS = 5000;
+const ADVANCE_MS = 10000;
 
 /*
   One frame's editorial content. Static — no inner animation. The parent
@@ -92,7 +94,7 @@ function FrameContent({ frame }: { frame: Frame }) {
     // body and CTA sit beneath the centred image as one composition.
     // Reverts to left-aligned at lg once the 2-column grid takes over.
     <div className="text-center lg:text-left">
-      <span className="block font-sans text-[12px] tracking-[0.18em] uppercase text-sumi/45">
+      <span className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
         {frame.eyebrow}
       </span>
 
@@ -134,7 +136,7 @@ export function EditorialFrames() {
           io.disconnect(); // one-shot; from here on hover-pause is the only gate
         }
       },
-      { rootMargin: "0px 0px -20% 0px", threshold: 0 }
+      { rootMargin: "0px 0px -200px 0px", threshold: 0 }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -239,7 +241,7 @@ export function EditorialFrames() {
                 <span className="font-display text-[clamp(1.8rem,3vw,2.4rem)] leading-none tracking-[0.01em] text-surface tabular-nums">
                   {String(active + 1).padStart(2, "0")}
                 </span>
-                <span className="font-sans text-[11px] tracking-[0.16em] uppercase text-surface/70">
+                <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-surface/70">
                   / {String(FRAMES.length).padStart(2, "0")}
                 </span>
               </div>
@@ -301,7 +303,7 @@ export function EditorialFrames() {
                       />
                     </span>
                     <span
-                      className={`block font-sans text-[11px] md:text-[12px] tracking-[0.14em] uppercase whitespace-nowrap transition-colors duration-300 ${
+                      className={`block font-sans text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.16em] uppercase whitespace-nowrap transition-colors duration-300 ${
                         i === active
                           ? "text-sumi"
                           : "text-sumi/40 group-hover:text-sumi/70"

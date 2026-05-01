@@ -17,6 +17,9 @@
 */
 
 import { useEffect } from "react";
+import { notFound } from "next/navigation";
+
+const isProduction = process.env.NODE_ENV === "production";
 
 interface TextOverlay {
   x: string; // CSS left position (e.g. "5%")
@@ -77,6 +80,7 @@ function Overlays({ overlays }: { overlays?: TextOverlay[] }) {
 }
 
 export default function Book1Page() {
+  if (isProduction) notFound();
   // Arrow key navigation
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {

@@ -47,7 +47,7 @@ auwa.life/brand             → Living style guide (noindex, disallowed in robot
 auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves any unmatched URL
 ```
 
-**Noindex / disallowed routes:** `/home-1` (archive of the flipbook hero), `/book/1`, `/book/2` (draft book-viewer mockups), `/brand`, `/instagram`, `/api/`. Each has both `robots: { index: false, follow: false }` in its `layout.tsx` (or page metadata for server routes) AND an entry in `src/app/robots.ts` disallow list. `/app/sitemap.ts` lists only the real public routes and the article slugs.
+**Internal-only routes (`/brand`, `/book-signup`):** `notFound()` is called at the top of each page component when `process.env.NODE_ENV === "production"`, so they 404 in prod builds while still being viewable on `next dev`. Both routes are also listed in `src/app/robots.ts` disallow as a belt-and-braces. `/app/sitemap.ts` lists only the real public routes and the article slugs.
 
 ### Information Architecture
 
@@ -65,11 +65,11 @@ auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves a
 
 ### Home Page (Implemented)
 
-The homepage leads with a full-bleed Auwa face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet Auwa" video moment. All images use `rounded-xl`. Scroll is native across every browser — no smooth-scroll library. Page transitions crossfade between routes. The scroll-driven flipbook hero lives on at `/home-1` as an archive.
+The homepage leads with a full-bleed Auwa face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet Auwa" video moment (the Auwa-kokoro footage). All images use `rounded-md`. Scroll is native across every browser. Page transitions are a single-pass bottom-up Yoru/Surface wipe (panel colour matches destination); reveals fire AFTER the wipe via PageReadyContext.
 
 **Structure (top to bottom):**
 
-1. **Header** — Auwa wordmark (inline SVG, `currentColor`) left-aligned. Navigation right: Journal, Store, App, Book, About. Transparent mode inferred from pathname (root `/` and `/home-1` only), otherwise solid white. Sticky, hides on scroll down, reveals on scroll up. Rendered once in `layout.tsx` outside `PageTransition` so the logo and menu button sit above all page-leave animations.
+1. **Header** — Edge-pinned floating elements (no bar). Auwa wordmark `fixed top-6 left-6` (md/lg/xl scaled to match page gutter). Hamburger menu trigger `fixed top-6 right-6` mirrored. Always visible (no hide-on-scroll). Colours computed per-route + per-element + per-scroll: Surface over photographic hero (homepage video, book hero, article hero left), Sumi after past-hero on light pages, Washi on dark pages (`/book`). Article hero on md+ runs split: logo Surface (over image), menu Sumi (over text). Teaser pages on lg+ run split: logo Sumi (over text-left), menu Surface (over image-right). During a page-transition wipe, both elements flip against the panel theme via `useTransitionPanelTheme()`. Menu open uses a portalled full-screen Surface overlay with centred nav items + Instagram link; nav items click-close instantly while the bg fades on a 1100ms exhale (asymmetric).
 
 2. **HeroVideo** — Full-bleed Auwa face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line replaces the bouncing chevron; the button calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro section.
 
@@ -92,8 +92,6 @@ The homepage leads with a full-bleed Auwa face video, then moves through editori
 11. **Meet Auwa video moment** — `VideoMoment` component. Portrait video of the Auwa character in a rounded card (left on desktop, stacked on mobile) with descriptive text alongside. Video and heading link to `/journal/the-beginning`. "The story behind Auwa" link goes to `/about`.
 
 12. **Footer** — Dark (`bg-void`), sticky at bottom with parallax reveal effect (content slides over it as you scroll). "Quiet letters." newsletter signup, pillar links, copyright + social icons.
-
-**Archive: `/home-1`** — The previous scroll-driven stacked-card flipbook hero (Obsidian Assembly pattern, `HeroFlipbook` component) is kept at this route for reference. The header treats it as transparent like root. Lessons learned there (mobile `svh` sticky, pixel-based transforms computed from captured viewport height, `activeIndexRef`-gated scroll state) are preserved in `hero-flipbook.tsx` and noted under Tailwind gotchas in CLAUDE.md.
 
 ### Journal Index
 
@@ -408,7 +406,6 @@ Reusable components live in `src/components/`. All are server components unless 
 | HeroVideo | `hero-video.tsx` | Yes | Full-bleed video hero for the live homepage. `h-[100svh]` on all viewports (no desktop aspect cap), so the video bottom pins to the browser bottom whatever the monitor ratio. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line is a `<button>` that calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro. |
 | EditorialFrames | `editorial-frames.tsx` | Yes | Desktop (≥md) four-pillar module. Tab gallery crossfading through four frames (Store / Book / Journal / App) with staggered reveal per frame (eyebrow → `TextReveal` heading → body → CTA). Image column pinned at 480px, text column flexible, grid template `[480px_1fr]`, `lg:gap-28` horizontal gap, `max-w-[1100px] lg:mx-auto`. Auto-advance every 7s, pauses on hover. Image crossfade: 1500ms `cubic-bezier(0.4, 0, 0.2, 1)` (symmetric ease-in-out, gentle). |
 | PillarParade | `pillar-parade.tsx` | Yes | Mobile (<md) four-pillar module. Horizontal `overflow-x-auto` row of four 3:4 cards mirroring the Journal strip (native scroll, no snap, no `touch-action` override). Cards at `w-[72vw] max-w-[360px]` so card 2 peeks clearly. FadeIn `variant="reveal"` with `revealDistance={40}` so the right-to-left cascade matches the Journal strip without pushing card 2 below the IntersectionObserver's 10% threshold. Dot indicators update via scroll listener on the scroller element. |
-| HeroFlipbook | `hero-flipbook.tsx` | Yes | Archive — scroll-driven stacked-card flipbook hero (Obsidian Assembly pattern). No longer on the live homepage; still used by `/home-1`. Mobile uses `svh`-based sticky + pixel-based transforms (computed from captured viewport height) to stay stable through iOS URL-bar retraction. Scroll-driven state updates gated by `activeIndexRef` to prevent per-frame re-renders. |
 | VideoMoment | `video-moment.tsx` | Yes | "Meet Auwa" section: portrait video card + text. Desktop: side-by-side. Mobile: stacked. |
 | AuwaVideoBlock | `auwa-video-block.tsx` | Yes | Full-width Auwa face video. Landscape desktop, square mobile. Auto-plays on visibility. |
 | MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |
@@ -438,17 +435,17 @@ Reusable components live in `src/components/`. All are server components unless 
 - **Claim** (the unique ground Auwa owns in search): *"Japanese Philosophy of Kokoro"*. Used in the homepage title tag and homepage H1. "Kokoro" is a low-competition word Auwa essentially claims outright; "Japanese Philosophy" is the higher-volume bucket the brand competes for. Titles and H1s enforce this claim.
 - **Voice** (editorial prose tone): *"Japanese living"*. Thread through article intros, About narrative, newsletter prose, Instagram captions. Aspirational, not category-descriptive.
 
-**Title pattern — `" - "` (space-hyphen-space) separator. Every page matches this structure:**
+**Title pattern — `" | "` (space-pipe-space) separator. Every page matches this structure:**
 
 | Page | Title |
 |------|-------|
-| `/` | Auwa - Japanese Philosophy of Kokoro |
-| `/journal` | Auwa Journal - Japanese Philosophy, Craft & Seasons |
-| `/about` | About Auwa - A Japanese Lifestyle Brand |
-| `/store` | Auwa Store - Japanese Craftsman Objects & Figure Editions |
-| `/app` | Auwa App - Japanese Awareness Practice |
-| `/book` | Auwa Book - Illustrated Japanese Stories |
-| `/journal/[slug]` | `{article.title} - Auwa Journal` |
+| `/` | Auwa \| Japanese Philosophy of Kokoro |
+| `/journal` | Auwa Journal \| Japanese Philosophy, Craft & Seasons |
+| `/about` | About Auwa \| A Japanese Lifestyle Brand |
+| `/store` | Auwa Store \| Japanese Craftsman Objects & Figure Editions |
+| `/app` | Auwa App \| Japanese Awareness Practice |
+| `/book` | Auwa Book \| Illustrated Japanese Stories |
+| `/journal/[slug]` | `{article.title} \| Auwa Journal` |
 
 Every title stays ≤60 chars (Google truncates after that). Every title contains "Japanese" somewhere — either as the category qualifier ("Japanese Awareness Practice") or in the unique-claim phrase ("Japanese Philosophy of Kokoro").
 
@@ -609,7 +606,7 @@ Baked in from the April 2026 SOTD-prep pass. CLAUDE.md carries the full list of 
 
 - Branded `src/app/not-found.tsx` renders for any unmatched URL (test with `/definitely-not-a-page`).
 - Every dynamic slug route (`/journal/[slug]`) calls `notFound()` for unknown slugs AND exports `generateStaticParams` + `dynamicParams = false`. Never fall through to a fallback article.
-- Draft / archive / internal routes (`/home-1`, `/book/1`, `/book/2`, `/brand`, `/instagram`) are noindex'd via metadata AND disallowed in `src/app/robots.ts`.
+- Internal-only routes (`/brand`, `/book-signup`) are guarded by `notFound()` under `process.env.NODE_ENV === "production"` so they 404 in prod builds. They're also disallowed in `src/app/robots.ts`.
 - `src/app/manifest.ts` exists with name, theme_color, icons. Both `favicon.svg` and `apple-touch-icon.png` present.
 - Every top-level route exports its own `openGraph.images` + `twitter.images` at 1200×630. OG files under `public/og/{page}.jpg`. Article OGs live at `public/journal/{slug}/{slug}-og.jpg` — the `write-article` command now covers generation.
 - All site imagery uses `next/image` (including inside horizontal scrollers with `loading="eager"` and `priority={i < 2}` on the first two cards — the default lazy-load heuristic misses off-viewport-right cards on iOS).
