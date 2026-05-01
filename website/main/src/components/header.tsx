@@ -413,8 +413,27 @@ export function Header() {
             ))}
           </ul>
 
+          {/* Hairline separator — sits in the same delayed-reveal block
+              as the Instagram link, so it cascades in together. Matches
+              the dividers used elsewhere on the site (sumi at 10%). */}
           <div
-            className={`mt-10 md:mt-12 flex items-center justify-center gap-7 transition-all ease-out-expo ${
+            aria-hidden="true"
+            className={`mt-10 md:mt-12 mx-auto h-px w-10 bg-sumi/15 transition-all ease-out-expo ${
+              menuItemActive
+                ? "opacity-100 translate-y-0"
+                : closing
+                ? "opacity-0 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+            style={{
+              transitionDuration: menuOpen ? "500ms" : "150ms",
+              transitionDelay: menuOpen
+                ? `${500 + navItems.length * 60 + 80}ms`
+                : "0ms",
+            }}
+          />
+          <div
+            className={`mt-8 md:mt-10 flex items-center justify-center gap-7 transition-all ease-out-expo ${
               menuItemActive
                 ? "opacity-100 translate-y-0"
                 : closing
@@ -435,7 +454,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="group relative inline-block font-sans text-[14px] tracking-[0.12em] uppercase text-sumi"
+              className="group relative inline-block font-sans text-[14px] tracking-[0.12em] uppercase text-sumi/45 hover:text-sumi transition-colors duration-300"
             >
               <span className="relative inline-block overflow-hidden pb-[0.12em]">
                 <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-[110%]">
