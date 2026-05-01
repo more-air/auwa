@@ -533,13 +533,25 @@ export function Header() {
       >
         {/* Hamburger geometry preserved from the previous header.
             Container 28×22, lines at top 2/10/18 with 2px height.
-            Visible span ~18px, sized to feel like the wordmark beside it. */}
+            Visible span ~18px, sized to feel like the wordmark beside it.
+            All three spans share IDENTICAL rendering hints (willChange,
+            backfaceVisibility, transform always set, transformOrigin
+            centred) so iOS Safari assigns them the same compositor
+            layer and rasterises each line at the same thickness. The
+            middle span's transition list only animates opacity but
+            still declares `top, transform` in willChange so its layer
+            properties match the outer two — without that match, iOS
+            renders it visibly thinner than its siblings. Same fix as
+            patterns.md "Tailwind 4 gotchas / Explicit transform and
+            rendering hints on sibling animated elements". */}
         <div className="w-[28px] h-[22px] relative">
           <span
             className="absolute left-0 w-full h-[2px] bg-current"
             style={{
               top: menuOpen ? "10px" : "2px",
               transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
+              transformOrigin: "50% 50%",
+              willChange: "top, transform",
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transition:
@@ -551,6 +563,8 @@ export function Header() {
             style={{
               opacity: menuOpen ? 0 : 1,
               transform: "rotate(0deg)",
+              transformOrigin: "50% 50%",
+              willChange: "top, transform",
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transition: "opacity 200ms ease-out",
@@ -561,6 +575,8 @@ export function Header() {
             style={{
               top: menuOpen ? "10px" : "18px",
               transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
+              transformOrigin: "50% 50%",
+              willChange: "top, transform",
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transition:
