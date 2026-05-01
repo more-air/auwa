@@ -475,6 +475,14 @@ export function Header() {
           // we have to close it explicitly here.
           if (menuOpen) setMenuOpen(false);
         }}
+        // When clicked WITH menu open, skip the page-transition wipe —
+        // the menu's own close motion is the visual transition, same
+        // pattern as the nav items below. Without this, the user saw
+        // a "double transition" (menu closing + dark wash + light
+        // panel rising). When the menu is closed, the logo is just a
+        // normal home link and the full page transition runs as
+        // designed.
+        {...(menuOpen ? { "data-skip-transition": "true" } : {})}
         className="fixed top-6 left-6 md:top-8 md:left-12 lg:top-10 lg:left-20 xl:top-12 xl:left-28 z-[100] block"
         style={{
           // Logo stays visible (and clickable, navigates home) while
