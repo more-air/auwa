@@ -14,6 +14,8 @@ import {
 
 const BASE_URL = "https://auwa.life";
 
+const INSTAGRAM_URL = "https://instagram.com/auwalife";
+
 const sourceContent = {
   newsletter: {
     preview: "Something quiet is on its way.",
@@ -21,8 +23,8 @@ const sourceContent = {
     body: "You've joined a small group of people building a more aware life. We send occasional letters on Japanese craft, seasonal living, and the philosophy behind Auwa. Nothing noisy. Just things worth reading.",
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics in afternoon light",
-    cta: null,
-    ctaUrl: null,
+    cta: "Follow on Instagram",
+    ctaUrl: INSTAGRAM_URL,
   },
   "app-waitlist": {
     preview: "You're on the Auwa App waitlist.",
@@ -30,8 +32,8 @@ const sourceContent = {
     body: "The Auwa app is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
     image: `${BASE_URL}/pillars/app.jpg`,
     imageAlt: "Auwa awareness app",
-    cta: "Read our journal",
-    ctaUrl: `${BASE_URL}/journal`,
+    cta: "Follow on Instagram",
+    ctaUrl: INSTAGRAM_URL,
   },
   "store-waitlist": {
     preview: "You're on the Auwa Store waitlist.",
@@ -39,8 +41,8 @@ const sourceContent = {
     body: "The Auwa Store will bring together Japanese craftsman objects and our own signed figure editions, small, hand-finished batches made in house. We'll write when the doors open, and you're in the draw to win our first edition.",
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics and wooden bowl in afternoon light",
-    cta: "Read our journal",
-    ctaUrl: `${BASE_URL}/journal`,
+    cta: "Follow on Instagram",
+    ctaUrl: INSTAGRAM_URL,
   },
   "book-waitlist": {
     preview: "You're on the Auwa Book waitlist.",
@@ -48,8 +50,8 @@ const sourceContent = {
     body: "Illustrated stories following Auwa the character as it shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
     image: `${BASE_URL}/pillars/book.jpg`,
     imageAlt: "Auwa: The Beginning illustrated book",
-    cta: "Read our journal",
-    ctaUrl: `${BASE_URL}/journal`,
+    cta: "Follow on Instagram",
+    ctaUrl: INSTAGRAM_URL,
   },
 };
 
@@ -74,7 +76,13 @@ export default function WelcomeEmail({
         <Container style={container}>
           {/* Logo */}
           <Section style={logoSection}>
-            <Text style={wordmark}>Auwa</Text>
+            <Img
+              src={`${BASE_URL}/email/auwa-logo.png`}
+              alt="AUWA"
+              width="110"
+              height="22"
+              style={wordmark}
+            />
           </Section>
 
           {/* Hero image */}
@@ -106,12 +114,16 @@ export default function WelcomeEmail({
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerLinks}>
-              <Link href={`${BASE_URL}/journal`} style={footerLink}>
-                Read Journal
+              <Link href={`${BASE_URL}/book`} style={footerLink}>
+                Book
               </Link>
               {"  ·  "}
-              <Link href="https://instagram.com/auwalife" style={footerLink}>
-                Follow on Instagram
+              <Link href={`${BASE_URL}/journal`} style={footerLink}>
+                Journal
+              </Link>
+              {"  ·  "}
+              <Link href={`${BASE_URL}/about`} style={footerLink}>
+                About
               </Link>
             </Text>
             <Text style={footerText}>
@@ -148,13 +160,9 @@ const logoSection: React.CSSProperties = {
 };
 
 const wordmark: React.CSSProperties = {
-  fontFamily: "'EB Garamond', Georgia, serif",
-  fontSize: "24px",
-  fontWeight: 400,
-  letterSpacing: "0.25em",
-  color: "#141318",
-  textAlign: "center" as const,
-  margin: "0",
+  display: "inline-block",
+  height: "22px",
+  width: "110px",
 };
 
 const imageSection: React.CSSProperties = {

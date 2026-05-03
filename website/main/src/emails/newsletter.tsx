@@ -48,7 +48,13 @@ export default function Newsletter({
         <Container style={container}>
           {/* Logo */}
           <Section style={logoSection}>
-            <Text style={wordmark}>Auwa</Text>
+            <Img
+              src="https://auwa.life/email/auwa-logo.png"
+              alt="AUWA"
+              width="110"
+              height="22"
+              style={wordmark}
+            />
           </Section>
 
           {/* Hero image */}
@@ -110,12 +116,16 @@ export default function Newsletter({
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerLinks}>
-              <Link href="https://auwa.life/journal" style={footerLink}>
-                Read Journal
+              <Link href="https://auwa.life/book" style={footerLink}>
+                Book
               </Link>
               {"  ·  "}
-              <Link href="https://instagram.com/auwalife" style={footerLink}>
-                Follow on Instagram
+              <Link href="https://auwa.life/journal" style={footerLink}>
+                Journal
+              </Link>
+              {"  ·  "}
+              <Link href="https://auwa.life/about" style={footerLink}>
+                About
               </Link>
             </Text>
             <Text style={footerText}>
@@ -151,13 +161,9 @@ const logoSection: React.CSSProperties = {
 };
 
 const wordmark: React.CSSProperties = {
-  fontFamily: "'EB Garamond', Georgia, serif",
-  fontSize: "24px",
-  fontWeight: 400,
-  letterSpacing: "0.25em",
-  color: "#141318",
-  textAlign: "center" as const,
-  margin: "0",
+  display: "inline-block",
+  height: "22px",
+  width: "110px",
 };
 
 const heroSection: React.CSSProperties = {
