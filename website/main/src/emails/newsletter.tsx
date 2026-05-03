@@ -111,23 +111,15 @@ export default function Newsletter({
           <Section style={footer}>
             <Text style={footerLinks}>
               <Link href="https://auwa.life/journal" style={footerLink}>
-                Journal
+                Read Journal
               </Link>
               {"  ·  "}
-              <Link href="https://auwa.life/store" style={footerLink}>
-                Store
-              </Link>
-              {"  ·  "}
-              <Link href="https://auwa.life/app" style={footerLink}>
-                App
-              </Link>
-              {"  ·  "}
-              <Link href="https://auwa.life/book" style={footerLink}>
-                Book
+              <Link href="https://instagram.com/auwalife" style={footerLink}>
+                Follow on Instagram
               </Link>
             </Text>
             <Text style={footerText}>
-              © AUWA {new Date().getFullYear()}
+              © Auwa {new Date().getFullYear()}
             </Text>
             <Text style={unsubscribeText}>
               <Link href="{{{RESEND_UNSUBSCRIBE_URL}}}" style={unsubscribeLink}>

@@ -171,7 +171,7 @@ export function EditorialFrames() {
       }}
     >
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
-        <div className="mb-12 md:mb-20 max-w-[720px]">
+        <div className="mb-10 md:mb-14 max-w-[720px]">
           <TextReveal
             as="h2"
             stagger={80}

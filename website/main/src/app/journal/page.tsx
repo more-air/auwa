@@ -93,7 +93,7 @@ export default async function JournalPage({
           </TextReveal>
           <FadeIn delay={100}>
             <p className="mt-8 md:mt-10 max-w-[640px] font-display text-[18px] md:text-[19px] leading-[1.65] text-sumi/80">
-              Writing from Japan on philosophy, craft, the seasons, and the long way around. The journal is where Auwa&rsquo;s philosophy of awareness becomes practice: slower attention to the lives behind the things we use, to the people we share our days with, to the places we pass through too quickly.
+              Writing on Japanese philosophy, travel, craft, and the long way around. The journal is where Auwa&rsquo;s philosophy of awareness becomes practice: slower attention to the lives behind the things we use, to the people we share our days with, to the places we pass through too quickly.
             </p>
           </FadeIn>
           <FadeIn delay={200}>

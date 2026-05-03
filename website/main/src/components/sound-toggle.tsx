@@ -10,8 +10,16 @@
   of the header rather than as a floating widget.
 
   Behaviour:
-  - Off by default. First tap creates the <Audio> element lazily, plays
-    /audio/drift.mp3 on a 1.2s fade-in to TARGET_VOLUME.
+  - Off by default. The <Audio> element is created and pre-loaded on
+    MOUNT (not lazily on first tap) so the audio is already cached and
+    decoded by the time the user taps. On Android Chrome, the lazy
+    "create + play in the same gesture tick" pattern intermittently
+    failed the FIRST tap because the audio source wasn't fetched in
+    time — play() rejected, the user had to tap a second time. Mount-
+    side preload is one ~250KB GET that happens once per page; in
+    return, every first tap plays cleanly across Chromium / iOS Safari
+    / Android Chrome.
+  - On tap, plays /audio/drift.mp3 on a 1.2s fade-in to TARGET_VOLUME.
   - Pauses on document.visibilitychange (tab hidden) and window.pagehide
     (bfcache, navigation, tab close). iOS Safari otherwise keeps a
     paused-media badge and can resume after the tab returns.
@@ -44,6 +52,26 @@ export function SoundToggle({ style, className = "" }: SoundToggleProps) {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Pre-create + pre-load the Audio element on mount. Calling play()
+  // for the first time on a freshly-constructed Audio inside the click
+  // handler is the path that fails intermittently on Android Chrome —
+  // the source isn't fetched in time, play() rejects, the user has to
+  // tap twice. Pre-loading here means the buffer is decoded and ready,
+  // so the click handler's play() resolves on the first attempt.
+  // (We don't auto-play; modern autoplay policy still requires the
+  // user gesture, which the click handler provides.)
+  useEffect(() => {
+    if (audioRef.current) return;
+    const a = new Audio(AUDIO_SRC);
+    a.loop = true;
+    a.volume = 0;
+    a.preload = "auto";
+    // Explicit load() kicks off the network fetch + decode immediately
+    // rather than waiting for the first play() call.
+    a.load();
+    audioRef.current = a;
   }, []);
 
   // Pause on tab hidden / page hide. Required on iOS Safari to clear
@@ -88,6 +116,10 @@ export function SoundToggle({ style, className = "" }: SoundToggleProps) {
   };
 
   const toggle = async () => {
+    // Audio is pre-created on mount (see useEffect above). Defensive
+    // fallback for the rare case where mount-side construction failed
+    // (e.g. SSR rehydration race) — still creates lazily here so the
+    // toggle never no-ops.
     if (!audioRef.current) {
       const a = new Audio(AUDIO_SRC);
       a.loop = true;

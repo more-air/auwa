@@ -171,21 +171,22 @@ Run the slideshow branch of `.claude/commands/instagram/post.md` from Step 2A on
 
 - Skip "which slug" (use this article's photo-slug)
 - Skip the manifest check (article.md just populated it)
-- Skip the photo processing step inside the slideshow flow (Step 2 of this command already generated `image-[name].jpg` for every article photo). The slideshow flow then only needs to generate the four text frames and write `_post.txt`.
+- Skip the photo loop in Step 6A (this command already generated `image-[name].jpg` for every article photo). The slideshow flow still needs to ask the cover questions (Step 4A: title source / eyebrow yes-no / Japanese translation review), pick the quote (Step 5A), then render the cover and the four text frames.
 
-The IG post step asks YOU which quote (three IG-optimised candidates), so it stays interactive. After the slideshow flow runs, the article folder under `social/instagram/[photo-slug]/` contains:
+The slideshow asks YOU two interactive things: the cover title + JP translation (Step 4A) and the slide-2 quote (Step 5A). After the slideshow flow runs, the article folder under `social/instagram/[photo-slug]/` contains:
 
 ```
 _post.txt                 ← caption, hashtags, alt text per image
-image-hero.jpg            ← every article photo at 1080×1350
-image-[name].jpg
-text-quote-dark.jpg       ← carousel slot 2 (dark theme)
-text-quote-light.jpg      ← carousel slot 2 (light theme)
-text-close-dark.jpg       ← carousel slot 4 (dark theme)
-text-close-light.jpg      ← carousel slot 4 (light theme)
+image-hero.jpg            ← clean hero, no overlay (slide 1 alternative)
+image-hero-text.jpg       ← typeset cover: AUWA logo + 1-2 word title + optional JP translation
+image-[name].jpg          ← every other article photo at 1080×1350
+text-quote-dark.jpg       ← slide 2 (dark theme)
+text-quote-light.jpg      ← slide 2 (light theme)
+text-close-dark.jpg       ← final slide (dark theme)
+text-close-light.jpg      ← final slide (light theme)
 ```
 
-Whoever posts picks two of the `image-*.jpg` files for slides 1 and 3 at upload time, and one of the dark/light theme pairs for slides 2 and 4.
+Whoever posts picks either `image-hero-text.jpg` or `image-hero.jpg` for slide 1 (typeset vs bare photo), one of the dark/light pairs for slide 2 and the final slide, and however many `image-[name].jpg` files in between as suit the article.
 
 ## Step 8: Request indexing (after the deploy lands)
 

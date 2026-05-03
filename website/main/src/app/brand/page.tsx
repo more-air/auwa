@@ -406,7 +406,7 @@ export default function BrandPage() {
             This is a living reference. It reads from the same design tokens as the production site. When the CSS changes, this page updates automatically.
           </p>
           <p className="mt-2 font-sans text-[14px] text-sumi/45">
-            &copy; AUWA {new Date().getFullYear()}. Confidential.
+            &copy; Auwa {new Date().getFullYear()}. Confidential.
           </p>
         </section>
 

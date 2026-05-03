@@ -1,9 +1,21 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 // Production metadata for the Auwa book page.
 // The page itself is a "use client" component (interactive Auwa
 // character, Kokoro video, BookPreview carousel etc.), so metadata
 // has to live on this server-side layout file.
+
+// Per-route theme-color override. The book page sits on Yoru (dark)
+// surface (set via DarkPageTheme + the html[data-page-theme="dark"]
+// rule in globals.css). Without overriding here, Android Chrome paints
+// its system browser-chrome regions (URL bar transition gaps, bottom
+// gesture-bar overscroll fill) using the global Surface theme-color
+// (#f8f7f4) — read as a "white peak" at the bottom of the dark page
+// during scroll-driven URL-bar collapses.
+export const viewport: Viewport = {
+  themeColor: "#0f1623", // --color-yoru
+};
+
 export const metadata: Metadata = {
   title: "Auwa Book | An Illustrated World",
   description:

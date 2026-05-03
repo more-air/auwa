@@ -9,11 +9,17 @@ import { useHeaderTone, type Tone } from "./header-tone";
 import { useTransitionPanelTheme } from "./page-transition";
 import { SoundToggle } from "./sound-toggle";
 
+// Main menu — only fully-developed sections. /app and /store are signup
+// teasers; the home page surfaces them via the four-pillar module + the
+// three-pillar cards, so they don't earn a top-level menu slot until
+// they're real destinations.
+//
+// Order: Book, Journal, About. Book leads because it's the most
+// developed pillar (illustrated story, character, seven stars), the
+// thing first-time visitors are most likely to be drawn into.
 const navItems = [
-  { label: "Journal", href: "/journal" },
   { label: "Book", href: "/book" },
-  { label: "App", href: "/app" },
-  { label: "Store", href: "/store" },
+  { label: "Journal", href: "/journal" },
   { label: "About", href: "/about" },
 ];
 
@@ -134,18 +140,25 @@ export function Header() {
       return () => clearTimeout(tColor);
     }
     if (closing) {
-      // Mirror of the open flip: hold the menu colour active until the
-      // panel has nearly finished its 700ms ascend back over the
-      // header band. Flipping colour back at t=0 of the close cycle
-      // would briefly show the post-close colour (e.g. Surface) under
-      // the still-visible menu panel, reading as a flicker. 900ms
-      // matches "items fade ~150ms + 250ms hold + ~500ms into panel
-      // ascend" — by then the panel is mostly cleared from the header
-      // band area, so the 180ms colour transition lands as the panel
-      // exits.
+      // Hold the menu colour active until the panel is approaching
+      // the header band on its ascent — then flip the colour so the
+      // 180ms transition LANDS on destination tone exactly as the
+      // panel uncovers the header. With the panel ascend taking 700ms
+      // and starting at t=150ms (after the 150ms items-fade), the
+      // panel's bottom edge passes the header band (~10vh from the
+      // viewport top) at roughly t=780ms (Y reaches -90% near the
+      // end of the eased ascent). Flipping at 600ms means the 180ms
+      // colour transition completes at ~780ms — by the moment the
+      // user can see the destination page's header band, the logo +
+      // menu icon are already in the destination tone. Earlier flips
+      // (e.g. immediate on click) showed the destination tone while
+      // the panel was still covering — read as "the colour changed
+      // inside the menu". Later flips (e.g. 900ms after close started)
+      // showed the menu tone briefly against the destination page.
+      // 600ms is the handoff sweet spot.
       const tColorOff = window.setTimeout(
         () => setMenuColorActive(false),
-        900
+        600
       );
       // Clear the closing flag after the close cycle settles
       // (~150ms items fade + 250ms delay + 700ms panel ascend = 1100ms,
@@ -392,17 +405,16 @@ export function Header() {
                   data-skip-transition="true"
                   onClick={() => {
                     setMenuOpen(false);
-                    // Skip-transition navigations render the new page
-                    // INSTANTLY behind the closing menu. We flip the
-                    // header colour out of menuColorActive (sumi) at
-                    // the same moment, so the destination page's
-                    // per-route / sentinel tone resolves immediately
-                    // and the logo + menu icon read against the
-                    // correct page colour as the menu glides away.
-                    // Without this, the colour change waits 900ms
-                    // (the standalone-close hold) and lands AFTER the
-                    // page is already visible, reading as a flicker.
-                    setMenuColorActive(false);
+                    // The 900ms timer in the close useEffect handles
+                    // the colour flip — it fires once the menu panel
+                    // has mostly cleared the header band, so the
+                    // header reads in the menu's tone for as long as
+                    // the menu is meaningfully on screen. Flipping
+                    // immediately on click left the logo + menu icon
+                    // in the destination tone (often Washi for /book)
+                    // while the panel was still mostly covering them,
+                    // which read as a colour change happening "inside"
+                    // the menu rather than at the handoff.
                   }}
                   className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.08] tracking-[0.005em] transition-colors duration-300 ${
                     pathname === item.href
@@ -466,20 +478,24 @@ export function Header() {
               href="https://instagram.com/auwalife"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="group relative inline-block font-sans text-[14px] tracking-[0.12em] uppercase text-sumi/45 hover:text-sumi transition-colors duration-300"
+              aria-label="Auwa on Instagram"
+              className="inline-block text-sumi/45 hover:text-sumi transition-colors duration-300"
             >
-              <span className="relative inline-block overflow-hidden pb-[0.12em]">
-                <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-[110%]">
-                  INSTAGRAM
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-y-[110%] transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
-                >
-                  INSTAGRAM
-                </span>
-              </span>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
             </a>
           </div>
         </nav>
@@ -506,14 +522,12 @@ export function Header() {
           // close it for free; on `/` itself, navigation is a no-op so
           // we have to close it explicitly here.
           //
-          // Mirror the menu-link behaviour: also clear menuColorActive
-          // immediately so the header flips to the destination's tone
-          // alongside the menu close, not 900ms later (which would
-          // land AFTER the new page is visible behind the menu and
-          // read as a flicker).
+          // Mirror the menu-link behaviour: don't flip menuColorActive
+          // on click — the 900ms close-useEffect timer handles it once
+          // the panel has cleared the header band, so the colour change
+          // happens at the handoff rather than inside the closing menu.
           if (menuOpen) {
             setMenuOpen(false);
-            setMenuColorActive(false);
           }
         }}
         // When clicked WITH menu open, skip the page-transition wipe —

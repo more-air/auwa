@@ -17,9 +17,9 @@ import Link from "next/link";
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
 const pillars = [
-  { label: "Book", description: "Illustrated stories", href: "/book", image: "/pillars/book.jpg" },
-  { label: "Store", description: "Craftsman objects", href: "/store", image: "/pillars/store.jpg" },
-  { label: "App", description: "Daily awareness", href: "/app", image: "/pillars/app.jpg" },
+  { label: "Book", cta: "Explore world", href: "/book", image: "/pillars/book.jpg" },
+  { label: "Store", cta: "Join waitlist", href: "/store", image: "/pillars/store.jpg" },
+  { label: "App", cta: "Join waitlist", href: "/app", image: "/pillars/app.jpg" },
 ];
 
 const latestArticles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
@@ -270,8 +270,18 @@ export default function Home() {
                       <h3 className="font-display text-[32px] md:text-[40px] leading-[1.05] tracking-[0.005em] text-surface">
                         {pillar.label}
                       </h3>
-                      <p className="mt-2 font-sans text-[14px] md:text-[15px] tracking-[0.01em] text-surface">
-                        {pillar.description}
+                      <p className="mt-3">
+                        <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.14em] uppercase text-surface">
+                          <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
+                            {pillar.cta} &rarr;
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0 flex items-center translate-y-full transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
+                          >
+                            {pillar.cta} &rarr;
+                          </span>
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -319,13 +329,13 @@ export default function Home() {
                       <p className="mt-3">
                         <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.14em] uppercase text-surface">
                           <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
-                            Read the essay
+                            Read essay &rarr;
                           </span>
                           <span
                             aria-hidden="true"
                             className="absolute inset-0 flex items-center translate-y-full transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
                           >
-                            Read the essay
+                            Read essay &rarr;
                           </span>
                         </span>
                       </p>

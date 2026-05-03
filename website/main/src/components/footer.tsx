@@ -1,24 +1,22 @@
 import Link from "next/link";
 import { SignupForm } from "@/components/signup-form";
 
+// Footer pillar nav — only fully-developed sections are listed here.
+// /app and /store are signup teasers (one screen + form); the home page's
+// four-pillar module and three-pillar cards already surface them with
+// richer context, so listing them in the footer would overstate their
+// readiness as siblings of /journal, /book, and /about. Reinstate when
+// they are real destinations.
+// Order matches the main menu: Book, Journal, About.
 const pillarLinks = [
-  { label: "Journal", href: "/journal" },
   { label: "Book", href: "/book" },
-  { label: "App", href: "/app" },
-  { label: "Store", href: "/store" },
+  { label: "Journal", href: "/journal" },
   { label: "About", href: "/about" },
 ];
 
-const socialLinks = [
-  {
-    label: "Instagram",
-    href: "https://instagram.com/auwalife",
-  },
-  // X hidden for now — re-enable when the account has content.
-  // Note the article-page Share on X button (journal/[slug]/page.tsx)
-  // stays live; it composes a tweet from the reader's side so an empty
-  // @auwalife profile isn't linked to.
-];
+// Instagram is the only live social channel today. X is intentionally
+// omitted (the article-page Share on X button remains live since it
+// composes from the reader's side without linking to an empty profile).
 
 /*
   Footer — Yoru surface, washi text. One footer, everywhere. The brand's
@@ -71,34 +69,36 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pb-10 md:pb-12 pt-12 md:pt-20 flex items-center justify-between">
         <p className="font-sans text-[14px] tracking-[0.12em] uppercase text-washi">
-          &copy; AUWA {new Date().getFullYear()}
+          &copy; Auwa {new Date().getFullYear()}
         </p>
 
         <div className="flex items-center gap-6">
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              // Match copyright styling — same size / colour / tracking
-              // so the footer baseline reads as one row of metadata.
-              // Hover: text-roll flip (same pattern as nav links and CTAs).
-              className="group relative inline-block font-sans text-[14px] tracking-[0.12em] uppercase text-washi"
+          <a
+            href="https://instagram.com/auwalife"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Auwa on Instagram"
+            // Same colour stream as the copyright; subtle opacity dip on
+            // hover gives a tactile response without competing with the
+            // text-roll motion used for content links elsewhere.
+            className="inline-block text-washi hover:opacity-70 transition-opacity duration-300"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <span className="relative inline-block overflow-hidden pb-[0.12em]">
-                <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-[110%]">
-                  {link.label.toUpperCase()}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-y-[110%] transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
-                >
-                  {link.label.toUpperCase()}
-                </span>
-              </span>
-            </a>
-          ))}
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
         </div>
       </div>
     </footer>

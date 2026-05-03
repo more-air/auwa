@@ -4,6 +4,22 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DURATION, EASING, STAGGER } from "@/lib/motion";
 
+/*
+  History note (May 2026):
+    - Removed scroll-snap-type / scrollSnapAlign. On mobile, the mandatory
+      x-snap was forcing an automatic scrollLeft adjustment on first paint
+      that combined with the per-card translate3d entrance to read as a
+      visible "card sitting at the screen edge, then jumping to centre."
+      Native scroll without snap matches the Journal strip's behaviour
+      exactly; arrow nav (scrollBy) and dot nav (scrollTo) still page
+      through cleanly without snap.
+    - Per-image `loaded` state gates the gutter-shadow overlay so the
+      multiply gradient never paints alone before the spread image has
+      arrived underneath.
+    - All spreads load eagerly so they're already cached by the time
+      the strip enters the viewport (the strip is below the fold).
+*/
+
 type Spread = {
   src: string;
   alt: string;
@@ -56,6 +72,14 @@ export function BookPreview({
   // component in <FadeIn variant="reveal">, which only animated the
   // container as one unit (no per-card stagger).
   const [revealed, setRevealed] = useState(false);
+  // Per-card image-loaded state. The gutter-shadow overlay (a
+  // multiply gradient at the spine of two-page spreads) only paints
+  // once the underlying image has fired onLoad — without this gate,
+  // the gradient would composite against the placeholder bg colour
+  // and read as a free-floating dark band before the spread arrived.
+  const [loaded, setLoaded] = useState<boolean[]>(() =>
+    spreads.map(() => false)
+  );
 
   const isDark = theme === "dark";
   const total = spreads.length;
@@ -154,12 +178,13 @@ export function BookPreview({
 
       {/* scroller — pb-12 so the spread shadow has room to fade out
           fully inside the auto-scroll bounds (overflow-x:auto forces
-          overflow-y:auto, which would otherwise clip the shadow). */}
+          overflow-y:auto, which would otherwise clip the shadow).
+          No scroll-snap: native free-scroll (matches Journal strip).
+          Arrow / dot nav still page cleanly via scrollBy + scrollTo. */}
       <div
         ref={scrollerRef}
         className="flex gap-4 md:gap-6 lg:gap-8 overflow-x-auto px-6 md:px-12 lg:px-20 xl:px-28 pb-12 scrollbar-hide"
         style={{
-          scrollSnapType: "x mandatory",
           // Inertial scrolling on iOS for a smooth flick.
           WebkitOverflowScrolling: "touch",
         }}
@@ -186,7 +211,6 @@ export function BookPreview({
               data-spread
               className={`flex-shrink-0 ${widthClasses} flex items-center`}
               style={{
-                scrollSnapAlign: "center",
                 opacity: revealed ? 1 : 0,
                 transform: revealed ? "none" : "translate3d(60px, 0, 0)",
                 transition: `opacity ${DURATION.reveal}ms ${EASING.outExpo} ${i * STAGGER.strip}ms, transform ${DURATION.reveal}ms ${EASING.outExpo} ${i * STAGGER.strip}ms`,
@@ -213,15 +237,27 @@ export function BookPreview({
                       : "(max-width: 640px) 88vw, (max-width: 1024px) 78vw, 1000px"
                   }
                   className="object-cover"
-                  loading={i < 2 ? "eager" : undefined}
+                  loading="eager"
                   priority={i < 2}
+                  onLoad={() =>
+                    setLoaded((prev) => {
+                      if (prev[i]) return prev;
+                      const next = prev.slice();
+                      next[i] = true;
+                      return next;
+                    })
+                  }
                 />
                 {/* Book-gutter shadow — tight vertical band at the spine
                     of two-page spreads. Narrow (≈10% of width) and a
                     soft mid-grey peak via multiply so it reads as the
                     crease where pages meet without dominating the
-                    illustration. Covers stay clean. */}
-                {!isCover && (
+                    illustration. Covers stay clean. Gated on the
+                    image's onLoad so the multiply gradient never
+                    composites against the placeholder bg before the
+                    spread arrives — otherwise the dark band reads as
+                    a free-floating crease in empty space. */}
+                {!isCover && loaded[i] && (
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 pointer-events-none"

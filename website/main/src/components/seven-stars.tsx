@@ -108,7 +108,7 @@ function PlanetRow({
 }) {
   return (
     <StripReveal
-      className="flex items-end justify-center gap-2 lg:gap-3 xl:gap-4"
+      className="flex items-end justify-center gap-0"
       itemClassName="flex-shrink-0"
       stagger={STAGGER.strip}
       translateX={60}
@@ -141,7 +141,7 @@ function PlanetColumn({
   // planet — the apparent breathing room comes from the artwork.
   return (
     <StripReveal
-      className="flex flex-col items-center gap-2"
+      className="flex flex-col items-center gap-0"
       itemClassName="w-[280px] flex justify-start"
       stagger={STAGGER.strip}
       translateX={60}

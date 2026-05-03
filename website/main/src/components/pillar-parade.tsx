@@ -121,15 +121,12 @@ export function PillarParade() {
 
   return (
     <section ref={sectionRef} className="relative space-section">
-      {/* Heading row */}
+      {/* Heading row — eyebrow ("Our world") was retired May 2026; the
+          heading now matches "The character." sibling treatment on the
+          home page (single h2, no eyebrow, same mb rhythm below). */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14">
         <FadeIn>
-          <span className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
-            Our world
-          </span>
-        </FadeIn>
-        <FadeIn delay={120}>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi">
+          <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi">
             Four ways in.
           </h2>
         </FadeIn>
@@ -165,7 +162,7 @@ export function PillarParade() {
             <Link
               href={card.href}
               data-cursor="Open"
-              className="group relative block aspect-[3/4] overflow-hidden rounded-md"
+              className="group relative block aspect-[9/16] overflow-hidden rounded-md"
             >
               {card.type === "video" ? (
                 <video

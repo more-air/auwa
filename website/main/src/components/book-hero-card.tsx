@@ -151,8 +151,18 @@ export function BookHeroCard() {
         <h3 className="font-display text-[32px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[0.005em] text-surface">
           Meet Auwa.
         </h3>
-        <p className="mt-3 md:mt-4 font-sans text-[14px] md:text-[15px] leading-[1.5] text-surface max-w-[420px]">
-          From our illustrated world.
+        <p className="mt-3 md:mt-4">
+          <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.14em] uppercase text-surface">
+            <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
+              Explore world &rarr;
+            </span>
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 flex items-center translate-y-full transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
+            >
+              Explore world &rarr;
+            </span>
+          </span>
         </p>
       </div>
     </Link>

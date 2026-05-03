@@ -30,16 +30,16 @@ const sourceContent = {
     body: "The Auwa app is a daily awareness practice rooted in Japanese philosophy. You'll be among the first to try it, and we'll write to you when it's ready. Until then, the journal has lots to explore.",
     image: `${BASE_URL}/pillars/app.jpg`,
     imageAlt: "Auwa awareness app",
-    cta: "Read the journal",
+    cta: "Read our journal",
     ctaUrl: `${BASE_URL}/journal`,
   },
   "store-waitlist": {
     preview: "You're on the Auwa Store waitlist.",
     heading: "Made by hand, chosen with care.",
-    body: "The Auwa Store will bring together Japanese craftsman objects and our own signed figure editions — small, hand-finished batches made in house. We'll write when the doors open, and you're in the draw to win our first edition.",
+    body: "The Auwa Store will bring together Japanese craftsman objects and our own signed figure editions, small, hand-finished batches made in house. We'll write when the doors open, and you're in the draw to win our first edition.",
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics and wooden bowl in afternoon light",
-    cta: "Read the journal",
+    cta: "Read our journal",
     ctaUrl: `${BASE_URL}/journal`,
   },
   "book-waitlist": {
@@ -48,7 +48,7 @@ const sourceContent = {
     body: "Illustrated stories following Auwa the character as it shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
     image: `${BASE_URL}/pillars/book.jpg`,
     imageAlt: "Auwa: The Beginning illustrated book",
-    cta: "Read the journal",
+    cta: "Read our journal",
     ctaUrl: `${BASE_URL}/journal`,
   },
 };
@@ -107,23 +107,15 @@ export default function WelcomeEmail({
           <Section style={footer}>
             <Text style={footerLinks}>
               <Link href={`${BASE_URL}/journal`} style={footerLink}>
-                Journal
+                Read Journal
               </Link>
               {"  ·  "}
-              <Link href={`${BASE_URL}/store`} style={footerLink}>
-                Store
-              </Link>
-              {"  ·  "}
-              <Link href={`${BASE_URL}/app`} style={footerLink}>
-                App
-              </Link>
-              {"  ·  "}
-              <Link href={`${BASE_URL}/book`} style={footerLink}>
-                Book
+              <Link href="https://instagram.com/auwalife" style={footerLink}>
+                Follow on Instagram
               </Link>
             </Text>
             <Text style={footerText}>
-              © AUWA {new Date().getFullYear()}
+              © Auwa {new Date().getFullYear()}
             </Text>
             <Text style={footerText}>
               <Link href="mailto:hello@auwa.life?subject=Unsubscribe" style={{ color: "#999", textDecoration: "underline" }}>
