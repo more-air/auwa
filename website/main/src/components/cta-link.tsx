@@ -31,7 +31,7 @@ export function CtaLink({
   theme = "light",
 }: Props) {
   const base =
-    "group relative inline-flex items-center justify-center font-sans text-[13px] tracking-[0.14em] uppercase";
+    "group relative inline-flex items-center justify-center font-sans text-[12px] tracking-[0.16em] uppercase";
 
   // `bordered` stays as a legacy alias for the now-standard `secondary`.
   const resolved = variant === "bordered" ? "secondary" : variant;

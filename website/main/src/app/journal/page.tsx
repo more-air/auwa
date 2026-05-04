@@ -102,7 +102,7 @@ export default async function JournalPage({
                 <Link
                   key={cat}
                   href={cat === "All" ? "/journal" : `/journal?category=${cat.toLowerCase()}`}
-                  className={`group relative inline-block font-sans text-[13px] tracking-[0.14em] uppercase transition-colors duration-300 ${
+                  className={`group relative inline-block font-sans text-[12px] tracking-[0.16em] uppercase transition-colors duration-300 ${
                     cat === activeCategory ? "text-sumi" : "text-sumi/45 hover:text-sumi"
                   }`}
                 >

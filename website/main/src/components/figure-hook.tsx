@@ -136,7 +136,7 @@ export function FigureHook() {
         className="group pointer-events-auto block bg-yoru border-t border-washi/10"
       >
         <div className="flex items-center justify-between gap-6 px-6 md:px-12 lg:px-20 xl:px-28 h-14 md:h-16">
-          <p className="font-sans text-[11px] md:text-[13px] leading-none tracking-[0.18em] md:tracking-[0.14em] uppercase whitespace-nowrap text-washi">
+          <p className="font-sans text-[11px] md:text-[12px] leading-none tracking-[0.18em] md:tracking-[0.16em] uppercase whitespace-nowrap text-washi">
             Win first edition Auwa figure
           </p>
           <span className="font-sans text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.16em] uppercase whitespace-nowrap text-washi">

@@ -122,7 +122,7 @@ For Japanese text (micro-season names, kanji, Rieko's Japanese copy). Light (300
 
 ### Type Hierarchy (Implemented — auwa.life)
 
-The website uses a clean sizing system: 12px for metadata labels, 13px for interactive uppercase elements, 14px for all UI text, 18-19px for article body, and responsive clamp() for display sizes.
+The website uses a clean sizing system: 12px for all small uppercase (eyebrows, metadata, filter buttons, hero cues, share-row, footer copyright, bordered CTAs), 14px for navigation and form CTAs, 18-19px for article body, and responsive clamp() for display sizes.
 
 | Element | Typeface | Weight | Size | Tracking |
 |---------|----------|--------|------|----------|
@@ -139,21 +139,18 @@ The website uses a clean sizing system: 12px for metadata labels, 13px for inter
 | Navigation (menu link, 14px CAPS) | Instrument Sans | 400 | 14px | 0.12em (uppercase scale) |
 | UI text / excerpts | Instrument Sans | 400 | 14px | — |
 | Form button (CTA, 14px CAPS) | Instrument Sans | 500 | 14px | 0.12em (uppercase scale) |
-| Uppercase filter / interactive (13px CAPS) | Instrument Sans | 400 | 13px | 0.14em (uppercase scale) |
-| Uppercase eyebrow / metadata (12px CAPS) | Instrument Sans | 400 | 12px | 0.16em (uppercase scale) |
+| Uppercase eyebrow / metadata / filter / hero cue / footer copyright / bordered CTA (12px CAPS) | Instrument Sans | 400 | 12px | 0.16em (uppercase scale) |
 | Smallest CAPS (11px, e.g. mobile FigureHook) | Instrument Sans | 400 | 11px | 0.18em (uppercase scale) |
 | Kanji (micro-season) | Noto Serif JP | 400 | clamp(3rem, 8vw, 6.5rem) | 0.06em |
 | Image captions | Instrument Sans | 400 | 13px | — |
-| Footer copyright (14px CAPS) | Instrument Sans | 400 | 14px | 0.12em (uppercase scale) |
 
 **Uppercase tracking scale (locked).** Smaller uppercase text gets MORE letter-spacing; larger uppercase text gets LESS. Optical principle: small caps need extra breathing room to read; large caps tighten naturally. The scale below is the locked set — no bespoke values:
 
 | Text size | Tracking | Typical uses |
 |-----------|----------|--------------|
 | 11px | `0.18em` | Smallest CAPS — mobile breakpoint of the FigureHook strip |
-| 12px | `0.16em` | Eyebrows, metadata labels, card categories |
-| 13px | `0.14em` | Filter buttons, "Scroll" / "Explore" hero cues, breadcrumbs, share-row labels |
-| 14px | `0.12em` | Navigation links, form CTAs, footer copyright, INSTAGRAM handle |
+| 12px | `0.16em` | Eyebrows, metadata labels, card categories, filter buttons, hero "Scroll" / "Explore" cues, breadcrumbs, share-row labels, footer copyright, image-overlay CTAs, bordered CtaLink buttons |
+| 14px | `0.12em` | Navigation links, form CTAs, INSTAGRAM handle |
 | 16-19px | `0.10em` | (rare) larger interactive caps |
 | 24px+ | `0.04em` | (display caps) |
 
@@ -247,7 +244,7 @@ The auwa.life website uses a light-mode, Kinfolk-inspired editorial aesthetic on
 | 60% | Page subtitles, article subtitles |
 | 55% | Form button hover states |
 | 50% | Excerpts, captions, "Read the latest" arrow link is at 45% (one tier softer for the editorial linkstop) |
-| 45% | Eyebrow labels, metadata labels (uppercase 12-13px), filter buttons (inactive), social share icons. Bumped from 40% when Surface moved off pure white — 40% reads softer against the warm field. |
+| 45% | Eyebrow labels, metadata labels (uppercase 12px), filter buttons (inactive), social share icons. Bumped from 40% when Surface moved off pure white — 40% reads softer against the warm field. |
 | 40% | Input placeholder text. Bumped from 35% for the same reason. |
 | 20% | Form underlines |
 | 10% | Default divider line. Bumped from 8% — 8% reads invisible on Surface. |

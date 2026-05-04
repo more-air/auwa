@@ -278,7 +278,7 @@ Washi tiers on Yoru mirror these one-to-one. If you change Sumi or Surface, the 
 - Email Capture: text + form left, Narai snow image right. No shadow on image.
 
 **Button style (bordered CTA):**
-- `font-sans text-[13px] tracking-[0.08em] uppercase text-void/50 border border-void/15 px-6 py-3 hover:text-void hover:border-void/30 transition-all duration-300`
+- `font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/50 border border-sumi/15 px-6 py-3 hover:text-sumi hover:border-sumi/30 transition-all duration-300`
 - Always add `self-start` when inside a flex column to prevent full-width stretch
 
 **Desktop nav hover:**

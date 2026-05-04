@@ -68,7 +68,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pb-10 md:pb-12 pt-12 md:pt-20 flex items-center justify-between">
-        <p className="font-sans text-[14px] tracking-[0.12em] uppercase text-washi">
+        <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-washi">
           &copy; Auwa {new Date().getFullYear()}
         </p>
 

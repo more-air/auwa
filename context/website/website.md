@@ -197,9 +197,8 @@ All three teaser pages use the **same hero layout as the article page** — this
 | Text size | Tracking | Examples |
 |-----------|----------|----------|
 | 11px | `0.18em` | mobile FigureHook strip |
-| 12px | `0.16em` | eyebrows, card categories, metadata labels |
-| 13px | `0.14em` | filter buttons, hero "Scroll" / "Explore" cues, breadcrumbs, share-row |
-| 14px | `0.12em` | navigation, form CTAs, footer copyright, INSTAGRAM handle |
+| 12px | `0.16em` | eyebrows, card categories, metadata labels, filter buttons, hero "Scroll" / "Explore" cues, breadcrumbs, share-row, footer copyright, image-overlay CTAs, bordered CtaLink buttons |
+| 14px | `0.12em` | navigation, form CTAs, INSTAGRAM handle |
 | 16-19px | `0.10em` | (rare) larger interactive caps |
 | 24px+ | `0.04em` | display caps |
 
@@ -223,7 +222,7 @@ The website uses a warm off-white background (Surface, ≈ `#f8f7f4`) with the S
 | 60% | Subtitles, article subtitle |
 | 55% | Form button hover states |
 | 50% | Excerpts, captions |
-| 45% | Eyebrow labels, metadata labels (uppercase 12-13px), filter buttons (inactive), social share icons, "Read the latest" arrow link. **Bumped from 40% when Surface moved off pure white — 40% read softer against the warm field.** |
+| 45% | Eyebrow labels, metadata labels (uppercase 12px), filter buttons (inactive), social share icons, "Read the latest" arrow link. **Bumped from 40% when Surface moved off pure white — 40% read softer against the warm field.** |
 | 40% | Input placeholder text. **Bumped from 35% for the same reason.** |
 | 20% | Form underlines |
 | 10% | Default divider line. **Bumped from 8% — 8% reads invisible on Surface; 10% is the floor.** |

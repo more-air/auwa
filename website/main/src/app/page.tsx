@@ -271,7 +271,7 @@ export default function Home() {
                         {pillar.label}
                       </h3>
                       <p className="mt-3">
-                        <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.14em] uppercase text-surface">
+                        <span className="relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase text-surface">
                           <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
                             {pillar.cta} &rarr;
                           </span>
@@ -327,7 +327,7 @@ export default function Home() {
                         {article.title}
                       </h3>
                       <p className="mt-3">
-                        <span className="relative inline-flex overflow-hidden font-sans text-[13px] tracking-[0.14em] uppercase text-surface">
+                        <span className="relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase text-surface">
                           <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
                             Read essay &rarr;
                           </span>

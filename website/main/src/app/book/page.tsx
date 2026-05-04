@@ -401,7 +401,7 @@ function BeginReadingCue() {
       aria-label="Explore"
       className="group absolute bottom-10 md:bottom-14 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-5 md:gap-6 cursor-pointer p-2"
     >
-      <span className="relative inline-flex overflow-hidden font-sans text-[12px] md:text-[13px] tracking-[0.16em] md:tracking-[0.14em] uppercase text-washi">
+      <span className="relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase text-washi">
         <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
           Explore
         </span>

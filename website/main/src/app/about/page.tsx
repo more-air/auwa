@@ -219,7 +219,7 @@ export default function AboutPage() {
 
           <FadeIn delay={200}>
             <div id="rieko" className="mt-12 scroll-mt-24 md:scroll-mt-28">
-              <p className="font-sans text-[13px] tracking-[0.14em] text-sumi/45 uppercase mb-2">
+              <p className="font-sans text-[12px] tracking-[0.16em] text-sumi/45 uppercase mb-2">
                 Co-founder
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-sumi mb-4">
@@ -233,7 +233,7 @@ export default function AboutPage() {
 
           <FadeIn delay={300}>
             <div id="tom" className="mt-12 scroll-mt-24 md:scroll-mt-28">
-              <p className="font-sans text-[13px] tracking-[0.14em] text-sumi/45 uppercase mb-2">
+              <p className="font-sans text-[12px] tracking-[0.16em] text-sumi/45 uppercase mb-2">
                 Co-founder
               </p>
               <h3 className="font-display text-[22px] md:text-[24px] tracking-[0.01em] text-sumi mb-4">

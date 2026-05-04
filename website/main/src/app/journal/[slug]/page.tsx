@@ -1268,7 +1268,7 @@ export default async function ArticlePage({
                     <p className="font-sans text-[11px] tracking-[0.18em] uppercase text-sumi/45 mb-2">
                       Words &amp; photos
                     </p>
-                    <Link href={author.href} className="block font-sans text-[13px] tracking-[0.14em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
+                    <Link href={author.href} className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                       {article.author}
                     </Link>
                   </div>
@@ -1278,7 +1278,7 @@ export default async function ArticlePage({
                       <p className="font-sans text-[11px] tracking-[0.18em] uppercase text-sumi/45 mb-2">
                         Words
                       </p>
-                      <Link href={author.href} className="block font-sans text-[13px] tracking-[0.14em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
+                      <Link href={author.href} className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                         {article.author}
                       </Link>
                     </div>
@@ -1286,7 +1286,7 @@ export default async function ArticlePage({
                       <p className="font-sans text-[11px] tracking-[0.18em] uppercase text-sumi/45 mb-2">
                         Photos
                       </p>
-                      <Link href={photographer.href} className="block font-sans text-[13px] tracking-[0.14em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
+                      <Link href={photographer.href} className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
                         {article.photographer}
                       </Link>
                     </div>

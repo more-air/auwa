@@ -321,7 +321,7 @@ export function HeroVideo() {
             transition: "opacity 0.7s ease-out",
           }}
         >
-          <span className="relative inline-flex overflow-hidden font-sans text-[12px] md:text-[13px] tracking-[0.16em] md:tracking-[0.14em] uppercase text-surface">
+          <span className="relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase text-surface">
             <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
               Scroll
             </span>
