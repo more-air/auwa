@@ -60,15 +60,15 @@ export default function Home() {
         {/*
           Cover layer. The rest of the page sits inside this z-10 bg-surface
           wrapper so that, as the user scrolls, the page content slides up
-          and over the (now sticky) hero rather than the hero scrolling
+          and over the (now fixed) hero rather than the hero scrolling
           away. Mirrors the footer-parallax pattern at the top of the page:
-          HeroVideo is sticky top-0 z-0; this wrapper is relative z-10
-          bg-surface; their relationship reproduces main+footer in the
-          opposite direction. Makes the scroll-driven frost a lot more
-          visible because the image stays put while the page glides
-          across it.
+          HeroVideo is position: fixed top-0 z-0; this wrapper is relative
+          z-10 bg-surface with mt-[100svh] to push it below the hero in
+          flow (since the fixed hero takes 0 flow space). Makes the scroll-
+          driven frost a lot more visible because the image stays put
+          while the page glides across it.
         */}
-        <div className="relative z-10 bg-surface">
+        <div className="relative z-10 bg-surface mt-[100svh]">
         {/* Header tone — overrides the HeroVideo's "surface" sentinel
             once the user scrolls into the page content. The hero is
             position:sticky and never exits the IO band, so this

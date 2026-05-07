@@ -195,9 +195,23 @@ export function HeroVideo() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="sticky top-0 z-0">
+    // position: fixed (not sticky). With <html> set to `overflow-y: scroll`
+    // for cross-page scrollbar-gutter stability, sticky positioning falls
+    // back to main-thread updates and produces velocity-dependent wobble
+    // on the first scroll after the entrance loader. Fixed positioning is
+    // always composited, so the pin is rock-solid regardless of main-
+    // thread load. The visual effect is identical: hero stays at the top
+    // of the viewport while the z-10 page wrapper (with mt-[100svh] on
+    // the homepage) scrolls up over it. The hero is the FIRST child of
+    // <main>, and `position: fixed` takes it out of flow, so the home
+    // page's wrapper compensates with `mt-[100svh]` to push content
+    // below the fixed hero.
+    <section
+      ref={sectionRef}
+      className="fixed top-0 left-0 right-0 h-[100svh] z-0"
+    >
       <div
-        className="relative h-[100svh] w-full overflow-hidden bg-surface"
+        className="relative h-full w-full overflow-hidden bg-surface"
       >
         {/* Header tone sentinel — full-bleed photographic hero, both
             sides of the floating header sit on imagery. */}

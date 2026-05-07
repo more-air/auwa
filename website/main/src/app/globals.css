@@ -16,7 +16,14 @@ html {
      ~15px on systems with traditional (non-overlay) scrollbars.
      `overflow-y: scroll` forces the gutter to always be there;
      `scrollbar-gutter: stable` is a modern equivalent kept as
-     belt-and-braces. */
+     belt-and-braces.
+
+     Note (May 2026): `overflow-y: scroll` on <html> opts the homepage's
+     hero out of compositor-thread sticky positioning. The hero now uses
+     position: fixed instead of position: sticky to side-step that — see
+     hero-video.tsx. Don't add `position: sticky` to anything that needs
+     to stay glued to the viewport; the gutter rule here will cause
+     velocity-dependent main-thread lag on first scroll. */
   overflow-y: scroll;
   scrollbar-gutter: stable;
 }

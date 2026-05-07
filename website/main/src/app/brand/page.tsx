@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export const metadata = {
@@ -79,6 +80,213 @@ export default function BrandPage() {
           <p className="mt-4 font-sans text-[14px] text-sumi/50">
             Living style guide for auwa.life. Updated April 2026.
           </p>
+        </section>
+
+        {/* ── Brand book plates (case-study screenshots) ── */}
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 pb-16 md:pb-24">
+          <div className="mb-10 md:mb-14 max-w-[640px]">
+            <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-3">Brand book</p>
+            <h2 className="font-display text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.15] tracking-[0.005em] text-sumi">
+              Selected sheets, intended for case-study capture.
+            </h2>
+          </div>
+
+          <div className="space-y-8 md:space-y-12">
+
+            {/* ─── Plate 01 — Identity ─── */}
+            <article className="border border-sumi/12 rounded-md bg-surface px-8 sm:px-12 md:px-20 py-12 md:py-20">
+              {/* Plate header */}
+              <header className="flex items-baseline justify-between pb-12 md:pb-16 border-b border-sumi/10">
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi">01 — Identity</p>
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">Auwa Brand Book</p>
+              </header>
+
+              {/* Wordmark + tagline */}
+              <div className="text-center pt-12 md:pt-20 pb-12 md:pb-16">
+                <p className="font-display leading-none text-sumi" style={{ fontSize: "clamp(4.5rem,14vw,11rem)", letterSpacing: "0.22em", paddingLeft: "0.22em" }}>
+                  AUWA
+                </p>
+                <p className="mt-8 md:mt-10 font-display italic text-sumi/55" style={{ fontSize: "clamp(1rem,1.6vw,1.4rem)" }}>
+                  Japanese Philosophy of Kokoro
+                </p>
+              </div>
+
+              <div className="border-t border-sumi/10" />
+
+              {/* Etymology */}
+              <div className="grid grid-cols-3 gap-6 md:gap-12 text-center py-12 md:py-16">
+                {[
+                  { kana: "あ", gloss: "Heavens" },
+                  { kana: "う", gloss: "Connection" },
+                  { kana: "わ", gloss: "Earth" },
+                ].map((e) => (
+                  <div key={e.kana}>
+                    <p className="text-sumi leading-none" style={{ fontFamily: "var(--font-jp-serif), serif", fontSize: "clamp(2.75rem,7vw,5rem)" }}>
+                      {e.kana}
+                    </p>
+                    <p className="mt-5 md:mt-6 font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
+                      {e.gloss}
+                    </p>
+                  </div>
+                ))}
+                <p className="col-span-3 mt-2 font-display italic text-sumi/45" style={{ fontSize: "clamp(0.95rem,1.4vw,1.15rem)" }}>
+                  Heavens and earth, framing connection.
+                </p>
+              </div>
+
+              <div className="border-t border-sumi/10" />
+
+              {/* Brand purpose */}
+              <div className="text-center max-w-[760px] mx-auto py-14 md:py-20">
+                <p className="font-display text-sumi" style={{ fontSize: "clamp(1.5rem,3vw,2.25rem)", lineHeight: 1.25, letterSpacing: "0.005em" }}>
+                  &ldquo;Restore awareness to a distracted world.&rdquo;
+                </p>
+                <p className="mt-6 md:mt-8 font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
+                  Brand purpose
+                </p>
+              </div>
+
+              <div className="border-t border-sumi/10" />
+
+              {/* Type pairing */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 pt-12 md:pt-16">
+                <div>
+                  <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-4">Voice — Display + Editorial</p>
+                  <p className="font-display leading-none text-sumi" style={{ fontSize: "clamp(2.25rem,4.5vw,3.25rem)" }}>EB Garamond</p>
+                  <p className="mt-4 font-display text-sumi/70" style={{ fontSize: "18px", lineHeight: 1.6 }}>
+                    Aa Bb Cc · 0123 · The plum blossoms open for five days, and if you look away you miss them.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-4">Function — UI + Metadata</p>
+                  <p className="font-sans leading-none text-sumi" style={{ fontSize: "clamp(2.25rem,4.5vw,3.25rem)" }}>Instrument Sans</p>
+                  <p className="mt-4 font-sans text-sumi/70" style={{ fontSize: "14px", lineHeight: 1.6 }}>
+                    Aa Bb Cc · 0123 · Quiet by default. The serif carries voice; sans handles function.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            {/* ─── Plate 02 — Colour ─── */}
+            <article className="border border-sumi/12 rounded-md bg-surface px-8 sm:px-12 md:px-20 py-12 md:py-20">
+              {/* Plate header */}
+              <header className="flex items-baseline justify-between pb-12 md:pb-16 border-b border-sumi/10">
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi">02 — Colour</p>
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">Auwa Brand Book</p>
+              </header>
+
+              {/* Foundations title */}
+              <div className="pt-12 md:pt-16 pb-10 md:pb-12 max-w-[760px]">
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-3">Named foundations</p>
+                <h3 className="font-display text-sumi leading-[1.15] tracking-[0.005em]" style={{ fontSize: "clamp(1.75rem,3.2vw,2.5rem)" }}>
+                  Two families.<br />Warm paper for light, deep ink for dark.
+                </h3>
+              </div>
+
+              {/* Foundation swatches */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 pb-14 md:pb-20">
+                {[
+                  { name: "Surface", role: "Page background", hex: "#f8f7f4", value: "oklch(0.97 0.004 95)", bg: "oklch(0.97 0.004 95)", bordered: true },
+                  { name: "Washi", role: "Light ink on dark", hex: "#EFE9DD", value: "oklch(0.928 0.020 80)", bg: "oklch(0.928 0.020 80)", bordered: true },
+                  { name: "Yoru", role: "Dark surface", hex: "#0F1623", value: "oklch(0.16 0.022 235)", bg: "var(--color-yoru)", bordered: false },
+                  { name: "Sumi", role: "Dark ink on light", hex: "#0a1119", value: "oklch(0.10 0.022 235)", bg: "var(--color-sumi)", bordered: false },
+                ].map((s) => (
+                  <div key={s.name}>
+                    <div
+                      className={`aspect-[4/5] rounded-md ${s.bordered ? "border border-sumi/10" : ""}`}
+                      style={{ background: s.bg }}
+                    />
+                    <p className="mt-5 font-display text-[22px] leading-none tracking-[0.005em] text-sumi">{s.name}</p>
+                    <p className="mt-2 font-sans text-[12px] text-sumi/55">{s.role}</p>
+                    <p className="mt-2 font-sans text-[12px] text-sumi/35">{s.hex}</p>
+                    <p className="font-sans text-[12px] text-sumi/35">{s.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-t border-sumi/10" />
+
+              {/* Yamato states title */}
+              <div className="pt-12 md:pt-16 pb-10 md:pb-12 max-w-[760px]">
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-3">Yamato emotional states</p>
+                <h3 className="font-display text-sumi leading-[1.15] tracking-[0.005em]" style={{ fontSize: "clamp(1.75rem,3.2vw,2.5rem)" }}>
+                  Five states. Drawn from ancient Yamato language.
+                </h3>
+              </div>
+
+              {/* Yamato swatches with kanji */}
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-6">
+                {emotions.map((c) => (
+                  <div key={c.name}>
+                    <div
+                      className="aspect-[4/5] rounded-md flex items-end justify-start p-5 md:p-6"
+                      style={{ background: c.value }}
+                    >
+                      <p
+                        className="leading-none text-sumi"
+                        style={{ fontFamily: "var(--font-jp-serif), serif", fontSize: "clamp(3rem,5vw,4.5rem)" }}
+                      >
+                        {c.kanji}
+                      </p>
+                    </div>
+                    <p className="mt-5 font-display text-[20px] leading-none tracking-[0.005em] text-sumi">{c.name}</p>
+                    <p className="mt-2 font-sans text-[12px] text-sumi/55">{c.meaning}</p>
+                    <p className="mt-2 font-sans text-[12px] text-sumi/35">{c.value}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            {/* ─── Plate 03 — Architecture ─── */}
+            <article className="border border-sumi/12 rounded-md bg-surface px-8 sm:px-12 md:px-20 py-12 md:py-20">
+              {/* Plate header */}
+              <header className="flex items-baseline justify-between pb-12 md:pb-16 border-b border-sumi/10">
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi">03 — Architecture</p>
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">Auwa Brand Book</p>
+              </header>
+
+              {/* Title */}
+              <div className="pt-12 md:pt-16 pb-12 md:pb-16 max-w-[760px]">
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-3">The four expressions</p>
+                <h3 className="font-display text-sumi leading-[1.15] tracking-[0.005em]" style={{ fontSize: "clamp(2rem,4vw,3rem)" }}>
+                  Four ways in.<br />One philosophy.
+                </h3>
+                <p className="mt-6 font-display italic text-sumi/55 max-w-[640px]" style={{ fontSize: "clamp(1rem,1.5vw,1.25rem)", lineHeight: 1.55 }}>
+                  Auwa expresses its philosophy of Kokoro through four interconnected doors. The app builds emotional awareness; the store cultivates material awareness; the journal carries cultural awareness; the book teaches philosophical awareness.
+                </p>
+              </div>
+
+              {/* Pillars grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                {[
+                  { num: "01", name: "Store", tagline: "Lifetime objects.", desc: "Curated Japanese craftsman goods. The antithesis of throwaway culture.", img: "/intro/store-poster.jpg" },
+                  { num: "02", name: "Book", tagline: "Open the eyes.", desc: "Illustrated stories where the Auwa character lives. The mythology, in print.", img: "/intro/book.jpg" },
+                  { num: "03", name: "Journal", tagline: "Quiet moments.", desc: "Editorial essays on craft, season, and philosophy. The brand's slow voice.", img: "/intro/journal.jpg" },
+                  { num: "04", name: "App", tagline: "Awareness, daily.", desc: "A daily Kokoro mirror. Share how you feel; receive a quiet reflection.", img: "/intro/app.jpg" },
+                ].map((p) => (
+                  <div key={p.name}>
+                    <div className="relative aspect-[4/5] rounded-md overflow-hidden bg-surface-raised">
+                      <Image
+                        src={p.img}
+                        alt={`${p.name} — ${p.tagline}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="mt-5 font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">{p.num} — {p.name}</p>
+                    <p className="mt-3 font-display text-sumi leading-[1.15] tracking-[0.005em]" style={{ fontSize: "clamp(1.25rem,1.8vw,1.5rem)" }}>
+                      {p.tagline}
+                    </p>
+                    <p className="mt-3 font-display text-sumi/60" style={{ fontSize: "15px", lineHeight: 1.55 }}>
+                      {p.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+          </div>
         </section>
 
         {/* ── Logo ── */}
