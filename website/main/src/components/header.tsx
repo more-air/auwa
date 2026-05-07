@@ -440,10 +440,14 @@ export function Header() {
 
           {/* Hairline separator — sits in the same delayed-reveal block
               as the Instagram link, so it cascades in together. Matches
-              the dividers used elsewhere on the site (sumi at 10%). */}
+              the dividers used elsewhere on the site (sumi at 10%).
+              Tightened from mt-10/mt-12 to mt-6/mt-8 in May 2026 after
+              /app and /store were removed from the menu — the original
+              spacing was proportional to a 5-item stack and read as a
+              void below About in the 3-item version. */}
           <div
             aria-hidden="true"
-            className={`mt-10 md:mt-12 mx-auto h-px w-10 bg-sumi/15 transition-all ease-out-expo ${
+            className={`mt-4 mx-auto h-px w-10 bg-sumi/15 transition-all ease-out-expo ${
               menuItemActive
                 ? "opacity-100 translate-y-0"
                 : closing
@@ -458,7 +462,7 @@ export function Header() {
             }}
           />
           <div
-            className={`mt-8 md:mt-10 flex items-center justify-center gap-7 transition-all ease-out-expo ${
+            className={`mt-7 flex items-center justify-center gap-7 transition-all ease-out-expo ${
               menuItemActive
                 ? "opacity-100 translate-y-0"
                 : closing
