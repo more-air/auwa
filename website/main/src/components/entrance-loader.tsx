@@ -69,8 +69,23 @@ export function EntranceLoader() {
     }
 
     // Lock scroll while the loader is playing so the user can't interact
-    // with content hidden behind it.
-    document.body.style.overflow = "hidden";
+    // with content hidden behind it. Use a wheel/touch event listener
+    // (preventDefault on non-passive listeners) instead of toggling
+    // body.style.overflow — toggling overflow forces the browser to
+    // re-anchor sticky elements when overflow changes, and that re-anchor
+    // is what produced the velocity-dependent first-scroll wobble on the
+    // homepage's sticky hero after the loader unmounted (May 2026). With
+    // event-based locking the scroll container never changes.
+    const blockScroll = (e: Event) => e.preventDefault();
+    const blockKeys = (e: KeyboardEvent) => {
+      // Space, PageUp, PageDown, End, Home, Arrow keys — common scroll keys.
+      if ([" ", "PageUp", "PageDown", "End", "Home", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        e.preventDefault();
+      }
+    };
+    window.addEventListener("wheel", blockScroll, { passive: false });
+    window.addEventListener("touchmove", blockScroll, { passive: false });
+    window.addEventListener("keydown", blockKeys);
 
     // Timeline
     const enterA = 100;
@@ -119,13 +134,17 @@ export function EntranceLoader() {
         // invoke of this effect (run 1 sets flag, cleanup, run 2 reads
         // flag and skips).
         sessionStorage.setItem(STORAGE_KEY, "1");
-        document.body.style.overflow = "";
+        window.removeEventListener("wheel", blockScroll);
+        window.removeEventListener("touchmove", blockScroll);
+        window.removeEventListener("keydown", blockKeys);
       }, doneTime),
     ];
 
     return () => {
       timers.forEach((t) => window.clearTimeout(t));
-      document.body.style.overflow = "";
+      window.removeEventListener("wheel", blockScroll);
+      window.removeEventListener("touchmove", blockScroll);
+      window.removeEventListener("keydown", blockKeys);
     };
   }, []);
 
