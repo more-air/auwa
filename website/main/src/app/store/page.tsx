@@ -2,7 +2,7 @@ import { FadeIn } from "@/components/fade-in";
 import { HeaderTone } from "@/components/header-tone";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
-import { ImageFade } from "@/components/image-fade";
+import { StoreCharacterCarousel } from "@/components/store-character-carousel";
 
 export const metadata = {
   title: "Auwa Store | Japanese Craftsman Objects & Figure Editions",
@@ -67,17 +67,7 @@ export default function StorePage() {
 
             <div className="relative overflow-hidden flex-1 min-h-0">
               <HeaderTone tone="surface" />
-              <ImageFade
-                src="/pillars/store.jpg"
-                alt="Japanese ceramics and wooden bowl in afternoon light"
-                fill
-                priority
-                quality={95}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-                topScrim
-                fadeDuration={2000}
-              />
+              <StoreCharacterCarousel />
             </div>
 
           </div>
