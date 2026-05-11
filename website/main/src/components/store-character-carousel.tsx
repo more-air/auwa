@@ -222,23 +222,30 @@ export function StoreCharacterCarousel() {
                   : `transform 0ms linear ${FADE_MS}ms`,
               }}
             />
+
+            {/* Top scrim, baked into THIS image's wrapper so it inherits the
+                same opacity gate as the image itself. Keeps the floating
+                Surface-toned header legible over bright upper regions in
+                some of the frames (the bathroom mirror, the kitchen
+                window). Previously a separate sibling, which on slow
+                networks could appear briefly over an empty surface before
+                the image painted. Inheriting the wrapper's opacity makes
+                that state impossible: the scrim and the image are now one
+                atomic fade. Two adjacent frames' scrims compound mid-
+                crossfade, but alpha compositing of the same colour
+                converges to within a fraction of a percent of the single-
+                scrim coverage, so the visual is identical. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 h-48 md:h-64"
+              style={{
+                background:
+                  "linear-gradient(to bottom, color-mix(in oklch, var(--color-yoru) 12%, transparent) 0%, color-mix(in oklch, var(--color-yoru) 6%, transparent) 50%, transparent 100%)",
+              }}
+            />
           </div>
         );
       })}
-
-      {/* Top scrim — matches the previous static image, keeps the floating
-          Surface-toned header legible over bright upper regions in some of
-          the frames (the bathroom mirror, the kitchen window). */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-48 md:h-64"
-        style={{
-          background:
-            "linear-gradient(to bottom, color-mix(in oklch, var(--color-yoru) 12%, transparent) 0%, color-mix(in oklch, var(--color-yoru) 6%, transparent) 50%, transparent 100%)",
-          opacity: firstReady ? 1 : 0,
-          transition: `opacity ${FADE_MS}ms ${EASING.inOut}`,
-        }}
-      />
 
       {/* Hairline progress mark. A 1px line at the bottom of the frame,
           filling left → right over the visible window. The inner span is

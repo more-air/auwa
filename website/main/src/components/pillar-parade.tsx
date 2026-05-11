@@ -187,8 +187,12 @@ export function PillarParade() {
                   priority={i < 2}
                 />
               )}
-              {/* Readability gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-sumi/70 via-sumi/10 to-transparent pointer-events-none" />
+              {/* Readability gradient — matches the homepage's three pillar
+                  cards and two-up articles (from-sumi/40 via-transparent).
+                  Was previously from-sumi/70 via-sumi/10, almost double the
+                  darkness, which made these cards read heavy on mobile next
+                  to the lighter ones below. */}
+              <div className="absolute inset-0 bg-gradient-to-t from-sumi/40 via-transparent to-transparent pointer-events-none" />
               {/* Caption */}
               <div className="absolute inset-x-0 bottom-0 p-6">
                 <span className="block font-sans text-[11px] tracking-[0.18em] uppercase text-surface/70">
