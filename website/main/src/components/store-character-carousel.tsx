@@ -206,18 +206,31 @@ export function StoreCharacterCarousel() {
               style={{
                 objectPosition: POSITION_VALUE[f.position],
                 // Subtle Ken Burns drift on the active image: scale 1.00 →
-                // 1.04 linearly over the full cycle. When an image stops
-                // being active, the reset to scale(1) is DELAYED by FADE_MS
-                // (the crossfade duration) and runs with 0ms duration —
-                // i.e. the image holds its peak scale all the way through
+                // 1.04 linearly over the full cycle.
+                //
+                // Keyed on `visible`, not `isActive`. Image 0 is active from
+                // first mount (active starts at 0), so if we keyed on
+                // isActive, image 0's transform would commit at scale(1.04)
+                // on initial render with no preceding scale(1) value to
+                // transition from — and the browser would silently skip the
+                // animation. By keying on `visible` (which starts false for
+                // image 0 thanks to the firstReady gate), image 0 mounts at
+                // scale(1) while invisible, then transitions to scale(1.04)
+                // the moment firstReady flips and the image fades in. Every
+                // image now gets the zoom on its first showing.
+                //
+                // When an image stops being visible, the reset to scale(1)
+                // is DELAYED by FADE_MS (the crossfade duration) and runs
+                // with 0ms duration — the image holds its peak scale through
                 // its outgoing fade, then snaps back to 1.0 silently while
-                // it's already invisible. Without that delayed reset, the
-                // user saw a visible "pop" at the start of every crossfade.
-                transform: isActive && !reducedMotion ? "scale(1.04)" : "scale(1)",
+                // already invisible. Without that delayed reset, the
+                // previous implementation showed a visible "pop" at every
+                // crossfade start.
+                transform: visible && !reducedMotion ? "scale(1.04)" : "scale(1)",
                 transformOrigin: "50% 50%",
                 transition: reducedMotion
                   ? "none"
-                  : isActive
+                  : visible
                   ? `transform ${CYCLE_MS}ms linear`
                   : `transform 0ms linear ${FADE_MS}ms`,
               }}
