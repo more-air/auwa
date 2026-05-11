@@ -14,11 +14,14 @@ import { SoundToggle } from "./sound-toggle";
 // three-pillar cards, so they don't earn a top-level menu slot until
 // they're real destinations.
 //
-// Order: Book, Journal, About. Book leads because it's the most
-// developed pillar (illustrated story, character, seven stars), the
-// thing first-time visitors are most likely to be drawn into.
+// Order: Book, Store, Journal, About. Book leads because it's the most
+// developed pillar (illustrated story, character, seven stars), the thing
+// first-time visitors are most likely to be drawn into. Store sits second
+// now that it carries the signed Auwa figure editions — a real product
+// hook, not just a teaser.
 const navItems = [
   { label: "Book", href: "/book" },
+  { label: "Store", href: "/store" },
   { label: "Journal", href: "/journal" },
   { label: "About", href: "/about" },
 ];
@@ -60,8 +63,7 @@ function hasPhotographicHero(pathname: string) {
 
 export function Header() {
   const pathname = usePathname();
-  const hideHeader =
-    pathname === "/instagram" || pathname === "/instagram-plan";
+  const hideHeader = pathname === "/instagram";
 
   // Synchronous list of dark-themed routes for first-paint correctness;
   // MutationObserver is the runtime safety net for any future dynamic

@@ -1,15 +1,13 @@
 import Link from "next/link";
 import { SignupForm } from "@/components/signup-form";
 
-// Footer pillar nav — only fully-developed sections are listed here.
-// /app and /store are signup teasers (one screen + form); the home page's
-// four-pillar module and three-pillar cards already surface them with
-// richer context, so listing them in the footer would overstate their
-// readiness as siblings of /journal, /book, and /about. Reinstate when
-// they are real destinations.
-// Order matches the main menu: Book, Journal, About.
+// Footer pillar nav — Store joins the list now that it carries the signed
+// Auwa figure editions (a real product hook, not just a teaser). /app
+// remains a signup teaser only, surfaced through the home page modules
+// rather than the footer. Order matches the main menu.
 const pillarLinks = [
   { label: "Book", href: "/book" },
+  { label: "Store", href: "/store" },
   { label: "Journal", href: "/journal" },
   { label: "About", href: "/about" },
 ];

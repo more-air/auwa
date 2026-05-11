@@ -1,40 +1,77 @@
 "use client";
 
 /*
-  Store Character Carousel — ambient crossfade.
+  Store Character Carousel — ambient crossfade with Ken Burns drift.
 
   Six 4:5 portraits of the Auwa figure in different settings, presented
   with no visible controls. Each image holds for `HOLD_MS`, then crossfades
-  to the next over `FADE_MS`. A 1px hairline at the bottom of the image
-  fills slowly to mark progress through the visible window — the only UI
-  signal, deliberately quiet.
+  to the next over `FADE_MS`. The active image breathes with a slow
+  1.00 → 1.04 scale drift over its full cycle. When it stops being active,
+  the scale reset is delayed by `FADE_MS` so the image holds its peak
+  scale all the way through its outgoing crossfade, then snaps back to 1.0
+  while invisible. Without that delayed reset, the previous version
+  showed a visible "pop" right when each crossfade started.
 
-  Disciplines (match `EditorialFrames`):
+  A 1px hairline at the bottom of the image fills slowly to mark progress
+  through the visible window — the only UI signal, deliberately quiet.
+
+  Disciplines:
   - One-shot IntersectionObserver gates the rotation start, so a returning
     visitor doesn't arrive mid-cycle.
-  - Pause on hover (desktop).
+  - Tap / click anywhere on the image advances to the next frame, forward
+    only. The progress mark remounts and replays from zero, providing the
+    only visible feedback. No back gesture, no dots, no arrows.
+  - No hover-pause. With tap-to-advance and the progress bar already giving
+    feedback and control, hover-pause was redundant — and it created a
+    desktop/touch inconsistency (touch devices have no hover, so the
+    behaviours diverged). Removed for cross-device consistency and brand
+    voice; Aman, Aesop, Hoshinoya all let hero imagery run continuously.
   - Reduced-motion: hold the first image, no crossfade, no progress bar,
-    no scale.
+    no tap-to-advance (the page reads as a static image).
 
   Page-ready gate: the first image fades in once `usePageReady()` resolves
   and the image has loaded, matching the rest of the site's reveal rhythm.
 */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import { EASING } from "@/lib/motion";
 import { usePageReady } from "./page-transition";
 
-type Frame = { src: string; alt: string };
+/**
+ * `position` controls how each image is anchored when `object-cover`
+ * crops it to the column. The Auwa figure tends to sit in the lower
+ * portion of these compositions, so `"bottom"` keeps it in view when
+ * the column ratio is taller than the image ratio (the common case on
+ * desktop where the right column is ~50vw wide). Switch to `"center"`
+ * for compositions where the focal point is closer to the middle.
+ *
+ * Maps to CSS `object-position` values: bottom → `50% 100%`,
+ * center → `50% 50%`. Add more positions here if needed (e.g.
+ * `"bottom-left"` → `"0% 100%"`).
+ */
+type Frame = { src: string; alt: string; position: "center" | "bottom" };
 
 const FRAMES: Frame[] = [
-  { src: "/store/insitu-1.jpg", alt: "Auwa figure on a marble disc, a hand reaching in to touch it" },
-  { src: "/store/insitu-2.jpg", alt: "Auwa figure on a stone bathroom counter, in front of a mirror" },
-  { src: "/store/insitu-3.jpg", alt: "Auwa figure on a wooden kitchen counter beside a ceramic bowl and persimmon" },
-  { src: "/store/insitu-4a.jpg", alt: "Auwa figure inside a museum vitrine beside fossilised wood and minerals" },
-  { src: "/store/insitu-5.jpg", alt: "Auwa figure on an old wooden table by a misty window, beside washi paper" },
-  { src: "/store/insitu-6.jpg", alt: "Four Auwa figures gathered on a woven rug, surrounded by plants in afternoon light" },
+  // Hand reaching in from the right; figure on the marble disc sits roughly
+  // mid-frame, so `center` keeps the disc and the hand both in view.
+  { src: "/store/insitu-1.jpg", alt: "Auwa figure on a marble disc, a hand reaching in to touch it", position: "center" },
+  // Counter and figure in the lower portion; mirror dominates the top.
+  { src: "/store/insitu-2.jpg", alt: "Auwa figure on a stone bathroom counter, in front of a mirror", position: "bottom" },
+  // Figure on a wooden kitchen counter; garden visible top-right.
+  { src: "/store/insitu-3.jpg", alt: "Auwa figure on a wooden kitchen counter beside a ceramic bowl and persimmon", position: "bottom" },
+  // Figure inside a low vitrine; gallery wall behind extends above.
+  { src: "/store/insitu-4a.jpg", alt: "Auwa figure inside a museum vitrine beside fossilised wood and minerals", position: "bottom" },
+  // Figure on a wooden table; large window dominates the upper half.
+  { src: "/store/insitu-5.jpg", alt: "Auwa figure on an old wooden table by a misty window, beside washi paper", position: "bottom" },
+  // Four figures on a rug; plants and walls fill the upper portion.
+  { src: "/store/insitu-6.jpg", alt: "Four Auwa figures gathered on a woven rug, surrounded by plants in afternoon light", position: "bottom" },
 ];
+
+const POSITION_VALUE: Record<Frame["position"], string> = {
+  center: "50% 50%",
+  bottom: "50% 100%",
+};
 
 /** How long each image holds at full opacity before the crossfade begins. */
 const HOLD_MS = 8000;
@@ -46,7 +83,6 @@ const CYCLE_MS = HOLD_MS + FADE_MS;
 export function StoreCharacterCarousel() {
   const [active, setActive] = useState(0);
   const [tick, setTick] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [inView, setInView] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [loaded, setLoaded] = useState<boolean[]>(() => FRAMES.map(() => false));
@@ -82,15 +118,15 @@ export function StoreCharacterCarousel() {
     return () => io.disconnect();
   }, []);
 
-  // Rotation tick. Gated on inView, !paused, !reducedMotion, and page-ready.
+  // Rotation tick. Gated on inView, !reducedMotion, and page-ready.
   useEffect(() => {
-    if (!inView || paused || reducedMotion || !firstReady) return;
+    if (!inView || reducedMotion || !firstReady) return;
     const id = window.setTimeout(() => {
       setActive((a) => (a + 1) % FRAMES.length);
       setTick((t) => t + 1);
     }, CYCLE_MS);
     return () => window.clearTimeout(id);
-  }, [inView, paused, reducedMotion, firstReady, tick]);
+  }, [inView, reducedMotion, firstReady, tick]);
 
   const markLoaded = (i: number) =>
     setLoaded((prev) => {
@@ -100,12 +136,46 @@ export function StoreCharacterCarousel() {
       return next;
     });
 
+  // Tap / click anywhere on the carousel to advance to the next frame.
+  // Bumping `tick` resets the rotation timer AND remounts the progress bar
+  // span (via its `key={bar-${tick}}`) so the bar replays from 0 — giving
+  // the user feedback that their action registered. The new image gets its
+  // full hold time.
+  //
+  // No back-gesture, no dots, no arrows. The page stays editorial; the
+  // affordance is discovered by trying.
+  const advance = () => {
+    if (reducedMotion) return;
+    setActive((a) => (a + 1) % FRAMES.length);
+    setTick((t) => t + 1);
+  };
+
+  // Interactivity is only attached when motion is allowed. Under
+  // prefers-reduced-motion the carousel is a static image (frame 1 held)
+  // and shouldn't behave like a button. `cursor: pointer` is set
+  // unconditionally — on touch devices it's a no-op since cursors aren't
+  // rendered, on desktop it signals the tap affordance.
+  const interactiveProps = reducedMotion
+    ? {}
+    : {
+        onClick: advance,
+        role: "button" as const,
+        tabIndex: 0,
+        "aria-label": "Show next image",
+        onKeyDown: (e: KeyboardEvent) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            advance();
+          }
+        },
+        style: { cursor: "pointer" },
+      };
+
   return (
     <div
       ref={containerRef}
       className="relative w-full h-full"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      {...interactiveProps}
     >
       {FRAMES.map((f, i) => {
         const isActive = i === active;
@@ -133,6 +203,24 @@ export function StoreCharacterCarousel() {
               priority={i === 0}
               onLoad={() => markLoaded(i)}
               className="object-cover"
+              style={{
+                objectPosition: POSITION_VALUE[f.position],
+                // Subtle Ken Burns drift on the active image: scale 1.00 →
+                // 1.04 linearly over the full cycle. When an image stops
+                // being active, the reset to scale(1) is DELAYED by FADE_MS
+                // (the crossfade duration) and runs with 0ms duration —
+                // i.e. the image holds its peak scale all the way through
+                // its outgoing fade, then snaps back to 1.0 silently while
+                // it's already invisible. Without that delayed reset, the
+                // user saw a visible "pop" at the start of every crossfade.
+                transform: isActive && !reducedMotion ? "scale(1.04)" : "scale(1)",
+                transformOrigin: "50% 50%",
+                transition: reducedMotion
+                  ? "none"
+                  : isActive
+                  ? `transform ${CYCLE_MS}ms linear`
+                  : `transform 0ms linear ${FADE_MS}ms`,
+              }}
             />
           </div>
         );
@@ -171,17 +259,12 @@ export function StoreCharacterCarousel() {
             key={`bar-${tick}`}
             className="absolute inset-y-0 left-0 bg-surface"
             style={{
-              width: paused ? "var(--paused-width, 100%)" : "100%",
-              // Start at 0% (key change remounts the element), animate to
-              // 100% over the cycle duration linearly. Pause on hover by
-              // freezing the animation via `animation-play-state` would be
-              // cleaner but transitions don't support pause; instead we
-              // run the timeline through and accept that hover-pause holds
-              // the bar at its current position naturally (the transition
-              // continues to its end, but the rotation is paused so the
-              // bar's full width stays in sync with the held image).
+              // Animate width 0% → 100% over the cycle linearly. The `key`
+              // prop change remounts the element on every tick (auto-advance
+              // or tap-to-advance), so the keyframe always replays cleanly
+              // from zero — no manual reset required, no need to toggle
+              // animation-play-state.
               animation: `store-progress ${CYCLE_MS}ms linear`,
-              animationPlayState: paused ? "paused" : "running",
             }}
           />
           <style>{`
