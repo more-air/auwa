@@ -1,15 +1,13 @@
 "use client";
 
 /*
-  Store Character Carousel — ambient crossfade with Ken Burns drift.
+  Store Character Carousel — ambient crossfade.
 
   Six 4:5 portraits of the Auwa figure in different settings, presented
   with no visible controls. Each image holds for `HOLD_MS`, then crossfades
-  to the next over `FADE_MS`. The active image breathes with a slow
-  scale drift (1.0 → 1.04) over its visible window so each "frame" has a
-  cinematic feel without ever feeling animated. A 1px hairline at the
-  bottom of the image fills slowly to mark progress through the visible
-  window — the only UI signal, deliberately quiet.
+  to the next over `FADE_MS`. A 1px hairline at the bottom of the image
+  fills slowly to mark progress through the visible window — the only UI
+  signal, deliberately quiet.
 
   Disciplines (match `EditorialFrames`):
   - One-shot IntersectionObserver gates the rotation start, so a returning
@@ -135,17 +133,6 @@ export function StoreCharacterCarousel() {
               priority={i === 0}
               onLoad={() => markLoaded(i)}
               className="object-cover"
-              style={{
-                // Ken Burns drift. The active image scales from 1.0 → 1.04
-                // over its full visible window (hold + fade). The inactive
-                // images snap back to 1.0 with no transition, so they re-arm
-                // for their next turn without a visible reset.
-                transform: isActive ? "scale(1.04)" : "scale(1)",
-                transformOrigin: "50% 50%",
-                transition: isActive
-                  ? `transform ${CYCLE_MS}ms linear`
-                  : "none",
-              }}
             />
           </div>
         );
