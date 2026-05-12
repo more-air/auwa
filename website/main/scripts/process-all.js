@@ -24,7 +24,8 @@ const REPO_ROOT = path.resolve(__dirname, "../../..");
 const MANIFEST_PATH = path.join(REPO_ROOT, "photography/_manifest.json");
 const PHOTOGRAPHY_DIR = path.join(REPO_ROOT, "photography");
 const PUBLIC_JOURNAL = path.join(REPO_ROOT, "website/main/public/journal");
-const SOCIAL_IG = path.join(REPO_ROOT, "social/instagram");
+// Journal articles produce IG carousels — they live under the journal pillar.
+const SOCIAL_IG = path.join(REPO_ROOT, "social/instagram/3-journal");
 const PROCESS_IMAGE = path.join(__dirname, "process-image.js");
 
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));

@@ -24,7 +24,7 @@ Ask the user:
 
 ## Step 2: Check the Mix
 
-Look at the last four weeks of posts in `social/instagram/` and tally pillar frequency:
+Look at the last four weeks of posts across the pillar folders (`social/instagram/0-brand/`, `1-book/`, `2-store/`, `3-journal/`, `4-app/`) and tally pillar frequency:
 
 - 35% Kokoro Reveal (character content)
 - 25% Editorial Slideshows

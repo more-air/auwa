@@ -14,7 +14,7 @@ import { DURATION, EASING } from "@/lib/motion";
   Hidden on:
   - /store   — destination page; strip linking back to itself reads wrong
   - /app, /book — teaser pages already carrying their own signup as primary
-  - /instagram, /instagram-plan — internal grid previews
+  - /instagram — internal grid preview
 
   Detection mirrors the SoundToggle pattern: a zero-height sentinel is
   appended to <main>'s last child so the strip responds to main-content-
@@ -22,7 +22,7 @@ import { DURATION, EASING } from "@/lib/motion";
   because the footer is sticky bottom-0 from page load).
 */
 
-const HIDE_ON = ["/store", "/app", "/book", "/book-signup", "/instagram", "/instagram-plan"];
+const HIDE_ON = ["/store", "/app", "/book", "/book-signup", "/instagram"];
 const SCROLL_IN_THRESHOLD = 600; // px — appears after the hero is past
 
 export function FigureHook() {

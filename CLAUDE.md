@@ -1,4 +1,4 @@
-# AUWA — PROJECT CONTEXT
+# Auwa — Project Context
 
 *Last Updated: 1 May 2026*
 
@@ -54,7 +54,7 @@ The simplest preventive habit is to commit + deploy at the end of every meaningf
 
 ---
 
-## WHAT AUWA IS
+## What Auwa is
 
 Auwa is influenced by the ancient Japanese belief that a life force resides in all things. Not just people and animals, but rivers, mountains, a handmade bowl, a well-worn knife, the changing light of a season you almost didn't notice. Auwa uses the word Kokoro (心) as its own expression of this idea. Unlike English, which separates heart, mind, soul, and spirit into distinct concepts, Kokoro holds them as a single, undivided whole. In a culture of speed, distraction, and disposability, Auwa builds awareness: of how you feel, of the objects you live with, of the world you move through, and of your connection to the people and nature around you.
 
@@ -108,7 +108,7 @@ The app uses two additional Japanese philosophical frameworks internally:
 
 ---
 
-## WHAT AUWA IS NOT
+## What Auwa is not
 
 - Not clinical (no CBT, no diagnosis, no coping strategies)
 - Not gamified (no streaks, no badges, no push notifications)
@@ -139,6 +139,7 @@ The app uses two additional Japanese philosophical frameworks internally:
 **Brand architecture:**
 - Single domain: auwa.life with /app, /store, /journal, /book. All variants (auwalife.com, www.auwalife.com, www.auwa.life) 301 redirect to auwa.life. Google Search Console verified, sitemap submitted.
 - Auwa wordmark logo (serif typeface) — character saved for app, stories, figures, not the logo
+- **Brand name in writing:** always "Auwa" in body copy, captions, alt text, articles, hashtags, headings — never "AUWA". The all-caps form belongs to the wordmark/logo treatment only, not to prose. Hashtags are always lowercase (`#auwa`, `#kokoro`).
 - Premium, refined aesthetic — serif type has that ancient, crafted feel
 
 **App:**

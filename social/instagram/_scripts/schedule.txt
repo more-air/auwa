@@ -1,0 +1,45 @@
+# Auwa Instagram schedule
+# One folder slug per line, top = most recent / next-to-post.
+# Slugs are <pillar>/<post-name> — e.g. 3-journal/koya-san, 1-book/inside-9.
+# Pillars: 0-brand, 1-book, 2-store, 3-journal, 4-app.
+# Lines starting with # are ignored. Blank lines are ignored.
+# Slugs without a folder render as a placeholder (plan-ahead).
+# Folders not listed here appear in the Backlog section.
+
+2-store/figure-1
+3-journal/yaoyorozu-no-kami
+1-book/teaser-2
+3-journal/72-seasons
+2-store/figure-5
+3-journal/washi-paper
+2-store/figure-2
+3-journal/shigefusa-knife
+2-store/figure-3
+2-store/figure-4
+3-journal/oroku-gushi
+1-book/inside-4
+1-book/inside-7
+1-book/inside-9
+1-book/inside-10
+1-book/inside-13
+1-book/inside-14
+1-book/inside-15
+1-book/inside-16
+1-book/inside-17
+2-store/figure-7
+4-app/teaser-2
+3-journal/narai-juku
+3-journal/koya-san
+2-store/figure-6
+1-book/series
+3-journal/onsen-lesson
+4-app/teaser-1
+2-store/figure-blender
+0-brand/kokoro
+3-journal/nozawa-festival
+1-book/teaser-1
+0-brand/magical
+2-store/intro
+3-journal/yakushima-island
+3-journal/the-beginning
+0-brand/face

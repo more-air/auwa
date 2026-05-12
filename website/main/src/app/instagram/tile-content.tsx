@@ -1,24 +1,7 @@
 "use client";
 
 import { useState, type PointerEvent } from "react";
-import type { PostTile, Pillar, PostType, Warning } from "./lib";
-
-const PILLAR_COLOURS: Record<NonNullable<Pillar>, string> = {
-  Craft: "bg-[#7a5230]",
-  Travel: "bg-[#3a5a6a]",
-  Philosophy: "bg-[#4a4458]",
-  Seasons: "bg-[#5e7a3a]",
-  Book: "bg-[#7a3a4a]",
-};
-
-function PillarBadge({ pillar }: { pillar: Pillar }) {
-  if (!pillar) return null;
-  return (
-    <div className={`absolute top-2 left-2 px-1.5 py-0.5 rounded-sm text-white font-sans text-[10px] uppercase tracking-[0.14em] pointer-events-none ${PILLAR_COLOURS[pillar]}`}>
-      {pillar}
-    </div>
-  );
-}
+import type { PostTile, PostType } from "./lib";
 
 function TypeIcon({ type, isVideo }: { type: PostType; isVideo: boolean }) {
   const baseClass = "absolute top-2 right-2 w-6 h-6 rounded-full bg-sumi/70 flex items-center justify-center text-white pointer-events-none";
@@ -54,23 +37,6 @@ function TypeIcon({ type, isVideo }: { type: PostType; isVideo: boolean }) {
   return (
     <div className={baseClass} title="Unknown">
       <span className="text-[11px] font-medium">?</span>
-    </div>
-  );
-}
-
-function WarningChips({ warnings }: { warnings: Warning[] }) {
-  if (warnings.length === 0) return null;
-  return (
-    <div className="absolute bottom-2 left-2 right-2 flex flex-wrap gap-1 pointer-events-none">
-      {warnings.map((w, i) => (
-        <span
-          key={i}
-          className="bg-[#c44a2a] text-white font-sans text-[9px] uppercase tracking-[0.14em] px-1.5 py-0.5 rounded-sm leading-none"
-          title={w.kind}
-        >
-          {w.message}
-        </span>
-      ))}
     </div>
   );
 }
@@ -137,9 +103,7 @@ export function TileContent({ tile, position, dimmed, dragging }: { tile: PostTi
         </div>
       )}
 
-      <PillarBadge pillar={tile.pillar} />
       <TypeIcon type={tile.type} isVideo={isVideo} />
-      <WarningChips warnings={tile.warnings} />
 
       {total > 1 && (
         <>

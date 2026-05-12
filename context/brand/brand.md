@@ -419,7 +419,7 @@ Exposure is deliberately excluded from every preset, since starting exposure var
 5. Optional crop or straighten per image.
 6. Export from Lightroom (`File > Export`) using the saved export preset:
    - **Auwa Article Export**: full-quality JPG (no resize), sRGB, quality 90, target `auwa/photography/{slug}/2-edited/`. The article command picks up from here.
-7. Run `/journal:article`. It reads from `2-edited/`, generates the 1800px web versions to `website/main/public/journal/{slug}/`, the 1080×1350 IG versions to `social/instagram/{slug}/`, and the 1200×630 OG image alongside the web hero.
+7. Run `/journal:article`. It reads from `2-edited/`, generates the 1800px web versions to `website/main/public/journal/{slug}/`, the 1080×1350 IG versions to `social/instagram/3-journal/{slug}/`, and the 1200×630 OG image alongside the web hero.
 
 Set the export target up once as a Lightroom Export Preset (`Export > Add` in the export dialog). After that, exporting a whole article's set is one click.
 

@@ -3,19 +3,12 @@ import path from "node:path";
 
 const REPO_ROOT = path.resolve(process.cwd(), "..", "..");
 export const SOCIAL_ROOT = path.join(REPO_ROOT, "social", "instagram");
-const SCHEDULE_FILE = path.join(SOCIAL_ROOT, "_schedule.txt");
+const SCHEDULE_FILE = path.join(SOCIAL_ROOT, "_scripts", "schedule.txt");
 
 const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
 const VIDEO_EXT = /\.(mp4|mov|webm)$/i;
 
 export type PostType = "editorial" | "reel" | "single" | "carousel" | "unknown";
-
-export type Pillar = "Craft" | "Travel" | "Philosophy" | "Seasons" | "Book" | null;
-
-export type Warning = {
-  kind: "run-pillar" | "run-type" | "echo-pillar";
-  message: string;
-};
 
 export type Candidate = {
   name: string;
@@ -30,28 +23,26 @@ export type PostTile = {
   cover: string | null;
   isVideo: boolean;
   title: string;
-  pillar: Pillar;
   scheduled: string | null;
   files: string[];
-  warnings: Warning[];
   candidates: Candidate[];
   coverIndex: number;
 };
 
 // URL-slug -> article metadata. Mirrors the journal articles object
 // (kept inline to avoid pulling 800 lines of article content into this route).
-const ARTICLE_META: Record<string, { title: string; category: Pillar }> = {
-  "yakushima-island": { title: "Yakushima", category: "Travel" },
-  "koya-san": { title: "Koya-san", category: "Travel" },
-  "nozawa-fire-festival": { title: "Nozawa Fire Festival", category: "Seasons" },
-  "making-washi": { title: "Making Washi", category: "Craft" },
-  "oroku-gushi": { title: "Oroku-gushi", category: "Craft" },
-  "72-seasons": { title: "72 Seasons", category: "Seasons" },
-  "the-onsen-lesson": { title: "The Onsen Lesson", category: "Philosophy" },
-  "shigefusa-knife": { title: "Shigefusa", category: "Craft" },
-  "narai-juku": { title: "Narai in Snow", category: "Travel" },
-  "yaoyorozu-no-kami": { title: "Yaoyorozu no Kami", category: "Philosophy" },
-  "the-beginning": { title: "The Beginning", category: "Philosophy" },
+const ARTICLE_TITLES: Record<string, string> = {
+  "yakushima-island": "Yakushima",
+  "koya-san": "Koya-san",
+  "nozawa-fire-festival": "Nozawa Fire Festival",
+  "making-washi": "Making Washi",
+  "oroku-gushi": "Oroku-gushi",
+  "72-seasons": "72 Seasons",
+  "the-onsen-lesson": "The Onsen Lesson",
+  "shigefusa-knife": "Shigefusa",
+  "narai-juku": "Narai in Snow",
+  "yaoyorozu-no-kami": "Yaoyorozu no Kami",
+  "the-beginning": "The Beginning",
 };
 
 function detectType(files: string[]): PostType {
@@ -69,7 +60,10 @@ function detectType(files: string[]): PostType {
 }
 
 function buildCandidates(folder: string, files: string[], type: PostType): { candidates: Candidate[]; coverIndex: number } {
-  const enc = (f: string) => `/api/social-media/instagram/${encodeURIComponent(folder)}/${encodeURIComponent(f)}`;
+  const enc = (f: string) => {
+    const segments = folder.split("/").map(encodeURIComponent).join("/");
+    return `/api/social-media/instagram/${segments}/${encodeURIComponent(f)}`;
+  };
 
   // Hero candidates: every image (excluding text-* slide frames) plus any
   // video files. Sorted so order is stable across renders.
@@ -83,7 +77,9 @@ function buildCandidates(folder: string, files: string[], type: PostType): { can
   // Default cover goes first so the initial visible image matches the
   // type heuristic (image-hero for editorial, video for reel, etc.).
   if (type === "editorial") {
-    const hero = images.find((f) => /^image-hero\.(jpe?g|png|webp)$/i.test(f));
+    const hero =
+      images.find((f) => /^image-hero-text\.(jpe?g|png|webp)$/i.test(f)) ||
+      images.find((f) => /^image-hero\.(jpe?g|png|webp)$/i.test(f));
     if (hero) candidates.push({ name: hero, url: enc(hero), isVideo: false });
   } else if (type === "reel" && videos.length > 0) {
     const v = videos[0];
@@ -104,10 +100,9 @@ function buildCandidates(folder: string, files: string[], type: PostType): { can
   return { candidates, coverIndex: 0 };
 }
 
-function parsePost(text: string): { sourceSlug: string | null; pillarOverride: Pillar; scheduled: string | null; titleHint: string | null } {
+function parsePost(text: string): { sourceSlug: string | null; scheduled: string | null; titleHint: string | null } {
   const lines = text.split(/\r?\n/);
   let sourceSlug: string | null = null;
-  let pillarOverride: Pillar = null;
   let scheduled: string | null = null;
   let titleHint: string | null = null;
 
@@ -118,11 +113,6 @@ function parsePost(text: string): { sourceSlug: string | null; pillarOverride: P
       const slugMatch = url.match(/\/journal\/([a-z0-9-]+)/i);
       if (slugMatch) sourceSlug = slugMatch[1];
     }
-    const p = line.match(/^Pillar:\s*(Craft|Travel|Philosophy|Seasons|Book)\b/i);
-    if (p) {
-      const v = p[1].toLowerCase();
-      pillarOverride = (v.charAt(0).toUpperCase() + v.slice(1)) as Pillar;
-    }
     const s = line.match(/^Scheduled:\s*(.+)$/i);
     if (s) scheduled = s[1].trim();
 
@@ -132,7 +122,7 @@ function parsePost(text: string): { sourceSlug: string | null; pillarOverride: P
       titleHint = line.trim();
     }
   }
-  return { sourceSlug, pillarOverride, scheduled, titleHint };
+  return { sourceSlug, scheduled, titleHint };
 }
 
 async function readScheduleOrder(): Promise<string[]> {
@@ -156,7 +146,10 @@ async function readPostFile(folder: string): Promise<string | null> {
 }
 
 function humaniseSlug(slug: string): string {
-  return slug
+  // For nested slugs (pillar/post), humanise only the leaf segment so the
+  // tile title is "Koya San" not "Journal Koya San".
+  const leaf = slug.includes("/") ? slug.slice(slug.lastIndexOf("/") + 1) : slug;
+  return leaf
     .split("-")
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
@@ -176,10 +169,8 @@ async function buildTile(slug: string): Promise<PostTile> {
       cover: null,
       isVideo: false,
       title: humaniseSlug(slug),
-      pillar: null,
       scheduled: null,
       files: [],
-      warnings: [],
       candidates: [],
       coverIndex: 0,
     };
@@ -191,20 +182,17 @@ async function buildTile(slug: string): Promise<PostTile> {
   const isVideo = candidates[coverIndex]?.isVideo ?? false;
 
   let title = humaniseSlug(slug);
-  let pillar: Pillar = null;
   let scheduled: string | null = null;
 
   const postText = await readPostFile(slug);
   if (postText) {
     const parsed = parsePost(postText);
-    if (parsed.sourceSlug && ARTICLE_META[parsed.sourceSlug]) {
-      title = ARTICLE_META[parsed.sourceSlug].title;
-      pillar = ARTICLE_META[parsed.sourceSlug].category;
+    if (parsed.sourceSlug && ARTICLE_TITLES[parsed.sourceSlug]) {
+      title = ARTICLE_TITLES[parsed.sourceSlug];
     } else if (parsed.titleHint) {
       const cleaned = parsed.titleHint.replace(/\s*\|\s*Auwa.*$/i, "").trim();
       if (cleaned) title = cleaned;
     }
-    if (parsed.pillarOverride) pillar = parsed.pillarOverride;
     if (parsed.scheduled && parsed.scheduled.toUpperCase() !== "TBD") scheduled = parsed.scheduled;
   }
 
@@ -215,52 +203,11 @@ async function buildTile(slug: string): Promise<PostTile> {
     cover,
     isVideo,
     title,
-    pillar,
     scheduled,
     files: entries,
-    warnings: [],
     candidates,
     coverIndex,
   };
-}
-
-function annotateWarnings(tiles: PostTile[]): void {
-  for (let i = 0; i < tiles.length; i++) {
-    const tile = tiles[i];
-
-    // Run of 3: same pillar three slots in a row
-    if (i >= 2 && tile.pillar) {
-      const a = tiles[i - 2].pillar;
-      const b = tiles[i - 1].pillar;
-      if (a === tile.pillar && b === tile.pillar) {
-        tile.warnings.push({ kind: "run-pillar", message: `3 ${tile.pillar} in a row` });
-      }
-    }
-
-    // Run of 3: same content type three slots in a row
-    if (i >= 2 && tile.type !== "unknown") {
-      const a = tiles[i - 2].type;
-      const b = tiles[i - 1].type;
-      if (a === tile.type && b === tile.type) {
-        tile.warnings.push({ kind: "run-type", message: `3 ${tile.type} in a row` });
-      }
-    }
-
-    // Echo: same pillar within last 4 slots. Skip if run-pillar already
-    // fired on this tile (don't double-warn for the same problem).
-    const hasRunPillar = tile.warnings.some((w) => w.kind === "run-pillar");
-    if (tile.pillar && !hasRunPillar) {
-      for (let lookback = 1; lookback <= 4; lookback++) {
-        const j = i - lookback;
-        if (j < 0) break;
-        if (tiles[j].pillar === tile.pillar) {
-          const label = lookback === 1 ? "1 post ago" : `${lookback} posts ago`;
-          tile.warnings.push({ kind: "echo-pillar", message: `${tile.pillar} ${label}` });
-          break;
-        }
-      }
-    }
-  }
 }
 
 export type PlanData = {
@@ -271,20 +218,10 @@ export type PlanData = {
 
 export async function loadPlan(): Promise<PlanData> {
   const order = await readScheduleOrder();
-
-  let allFolders: string[] = [];
-  try {
-    const dirents = await readdir(SOCIAL_ROOT, { withFileTypes: true });
-    allFolders = dirents
-      .filter((d) => d.isDirectory() && !d.name.startsWith("_") && !d.name.startsWith("."))
-      .map((d) => d.name);
-  } catch {
-    allFolders = [];
-  }
+  const allFolders = await discoverFolders();
 
   const scheduledSet = new Set(order);
   const scheduled = await Promise.all(order.map(buildTile));
-  annotateWarnings(scheduled);
   const backlogSlugs = allFolders.filter((f) => !scheduledSet.has(f)).sort();
   const backlog = await Promise.all(backlogSlugs.map(buildTile));
 
@@ -293,4 +230,30 @@ export async function loadPlan(): Promise<PlanData> {
     backlog,
     totalFolders: allFolders.length,
   };
+}
+
+// Discover folders two levels deep — pillar/post-name. Top-level dirs that
+// start with "_" or "." are reserved (e.g. _resize, _scripts, _assets).
+async function discoverFolders(): Promise<string[]> {
+  const out: string[] = [];
+  let pillars: { name: string; isDirectory: () => boolean }[] = [];
+  try {
+    pillars = await readdir(SOCIAL_ROOT, { withFileTypes: true });
+  } catch {
+    return out;
+  }
+  for (const p of pillars) {
+    if (!p.isDirectory() || p.name.startsWith("_") || p.name.startsWith(".")) continue;
+    try {
+      const posts = await readdir(path.join(SOCIAL_ROOT, p.name), { withFileTypes: true });
+      for (const post of posts) {
+        if (post.isDirectory() && !post.name.startsWith("_") && !post.name.startsWith(".")) {
+          out.push(`${p.name}/${post.name}`);
+        }
+      }
+    } catch {
+      // Skip unreadable pillar dirs.
+    }
+  }
+  return out;
 }

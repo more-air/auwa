@@ -157,7 +157,7 @@ Claude Code should run this optimisation pipeline automatically:
 1. **Create the article output directories:**
    ```
    mkdir -p website/main/public/journal/[slug]/
-   mkdir -p social/instagram/[slug]/
+   mkdir -p social/instagram/3-journal/[slug]/
    ```
 
 2. **Optimise each image using sharp** (Node.js, installed in `website/main/node_modules`). Sips was used previously but produces visibly soft output because it doesn't apply post-resize sharpening; sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. The wrapper script lives at `website/main/scripts/process-image.js`. Always run from `website/main/`:
@@ -172,7 +172,7 @@ Claude Code should run this optimisation pipeline automatically:
    - Web hero: `[slug]-hero.jpg`
    - Web supporting: `[slug]-[descriptive-name].jpg` (e.g. `shigefusa-box.jpg`)
    - Image pair: `[slug]-[name-1].jpg` and `[slug]-[name-2].jpg`
-   - IG counterparts: same name plus `-ig` suffix in `social/instagram/[slug]/`
+   - IG counterparts: same name plus `-ig` suffix in `social/instagram/3-journal/[slug]/`
    - OG (hero only): `[slug]-og.jpg` (the article page derives this path from the hero)
    - All lowercase, hyphens not underscores, no spaces
 
@@ -199,7 +199,7 @@ website/main/public/journal/[slug]/   (web at 1800px + 1200×630 OG)
   ...
   [slug]-og.jpg
 
-social/instagram/[slug]/              (IG at 1080×1350)
+social/instagram/3-journal/[slug]/              (IG at 1080×1350)
   [slug]-hero-ig.jpg
   [slug]-[name]-ig.jpg
 ```

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render AUWA editorial slideshow text frames at 1080x1350.
+"""Render Auwa editorial slideshow text frames at 1080x1350.
 
 Three variants:
   cover  - hero photo + 10% black overlay + drop-shadowed wordmark, optional

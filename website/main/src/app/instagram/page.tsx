@@ -3,7 +3,7 @@ import { TileContent } from "./tile-content";
 import { DraggableGrid } from "./draggable-grid";
 
 export const metadata = {
-  title: "Instagram Plan | Auwa",
+  title: "Instagram | Auwa",
   description: "Internal planning view for Instagram content.",
   robots: { index: false, follow: false },
 };
@@ -134,7 +134,7 @@ export default async function InstagramPlanPage() {
                 Backlog · {backlog.length} {backlog.length === 1 ? "folder" : "folders"}
               </div>
               <div className="font-sans text-[12px] text-sumi/50">
-                Folders that exist on disk but aren&rsquo;t in <span className="font-mono">_schedule.txt</span>.
+                Folders that exist on disk but aren&rsquo;t in <span className="font-mono">_scripts/schedule.txt</span>.
               </div>
             </div>
             <div className="max-w-[935px] mx-auto">
@@ -149,7 +149,7 @@ export default async function InstagramPlanPage() {
 
         <div className="max-w-[935px] mx-auto px-4 md:px-12 py-12 font-sans text-[12px] text-sumi/45">
           {totalFolders} {totalFolders === 1 ? "folder" : "folders"} discovered in <span className="font-mono">social/instagram/</span>.
-          Drag tiles to reorder, or edit <span className="font-mono">social/instagram/_schedule.txt</span> directly.
+          Drag tiles to reorder, or edit <span className="font-mono">social/instagram/_scripts/schedule.txt</span> directly.
         </div>
       </div>
     </main>

@@ -75,14 +75,13 @@ export function DraggableGrid({ initialTiles }: { initialTiles: PostTile[] }) {
     setSaveState("saving");
 
     try {
-      const res = await fetch("/api/instagram-plan/schedule", {
+      const res = await fetch("/api/instagram/schedule", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ order: next.map((t) => t.slug) }),
       });
       if (!res.ok) throw new Error(await res.text());
       setSaveState("saved");
-      // Re-fetch server-rendered data so warnings recompute.
       startTransition(() => router.refresh());
       setTimeout(() => setSaveState("idle"), 1500);
     } catch {
