@@ -26,6 +26,7 @@
 1-book/inside-15
 1-book/inside-16
 1-book/inside-17
+1-book/sketches
 2-store/figure-7
 4-app/teaser-2
 3-journal/narai-juku
