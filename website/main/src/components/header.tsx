@@ -406,17 +406,27 @@ export function Header() {
                   // after the menu close finishes before cascading in.
                   data-skip-transition="true"
                   onClick={() => {
-                    setMenuOpen(false);
-                    // The 900ms timer in the close useEffect handles
-                    // the colour flip — it fires once the menu panel
-                    // has mostly cleared the header band, so the
-                    // header reads in the menu's tone for as long as
-                    // the menu is meaningfully on screen. Flipping
-                    // immediately on click left the logo + menu icon
-                    // in the destination tone (often Washi for /book)
-                    // while the panel was still mostly covering them,
-                    // which read as a colour change happening "inside"
-                    // the menu rather than at the handoff.
+                    // Don't close the menu here for cross-page clicks.
+                    // PageTransition's click handler calls router.push
+                    // immediately, but the new page doesn't mount
+                    // synchronously — there's a window (variable, up to
+                    // a few hundred ms) before the route commits. If
+                    // the panel starts ascending in that window, the
+                    // OLD page is still mounted underneath and the user
+                    // sees a flash of it through the bottom of the
+                    // rising panel. Instead, let the pathname-change
+                    // reset above call setMenuOpen(false) once the new
+                    // page has actually mounted — by then the page
+                    // below the panel is the destination page, so the
+                    // ascent reveals it cleanly. Same-page clicks won't
+                    // trigger a pathname change, so close manually.
+                    // The colour-flip useEffect (keyed on menuOpen)
+                    // schedules itself relative to that close event,
+                    // so the destination tone still lands as the panel
+                    // uncovers the header.
+                    if (pathname === item.href) {
+                      setMenuOpen(false);
+                    }
                   }}
                   className={`group relative inline-block font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.08] tracking-[0.005em] transition-colors duration-300 ${
                     pathname === item.href
@@ -521,18 +531,15 @@ export function Header() {
       <Link
         href="/"
         onClick={() => {
-          // If the menu is open, clicking the logo navigates home AND
-          // closes the menu (same effect as picking a "Home" menu
-          // item, which we don't render but the user reaches for).
-          // On routes other than `/`, the pathname-change effect would
-          // close it for free; on `/` itself, navigation is a no-op so
-          // we have to close it explicitly here.
-          //
-          // Mirror the menu-link behaviour: don't flip menuColorActive
-          // on click — the 900ms close-useEffect timer handles it once
-          // the panel has cleared the header band, so the colour change
-          // happens at the handoff rather than inside the closing menu.
-          if (menuOpen) {
+          // Mirrors the menu-link behaviour. For cross-page navigation
+          // (user on /journal clicks logo), let the pathname-change
+          // reset in render close the menu once the destination has
+          // mounted — otherwise the panel ascends before the new page
+          // commits and the user sees a flash of the old page through
+          // the bottom of the rising panel. For same-page click (user
+          // already on /), no pathname change will fire, so close
+          // explicitly here.
+          if (menuOpen && pathname === "/") {
             setMenuOpen(false);
           }
         }}

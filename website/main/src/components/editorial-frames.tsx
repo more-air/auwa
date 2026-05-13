@@ -92,8 +92,8 @@ function FrameContent({ frame }: { frame: Frame }) {
   return (
     // Centre the stack on tablet (single-column layout) so the title,
     // body and CTA sit beneath the centred image as one composition.
-    // Reverts to left-aligned at lg once the 2-column grid takes over.
-    <div className="text-center lg:text-left">
+    // Reverts to left-aligned at xl once the 2-column grid takes over.
+    <div className="text-center xl:text-left">
       <span className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45">
         {frame.eyebrow}
       </span>
@@ -102,7 +102,7 @@ function FrameContent({ frame }: { frame: Frame }) {
         {frame.heading}
       </h3>
 
-      <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-sumi/70 max-w-[520px] mx-auto lg:mx-0">
+      <p className="mt-6 md:mt-8 font-display text-[18px] md:text-[19px] leading-[1.55] tracking-[0.005em] text-sumi/70 max-w-[520px] mx-auto xl:mx-0">
         {frame.body}
       </p>
 
@@ -181,12 +181,15 @@ export function EditorialFrames() {
           </TextReveal>
         </div>
 
-        {/* Two equal columns at lg+: image anchored to the left of the
+        {/* Two equal columns at xl+: image anchored to the left of the
             page (within the gutter), text column starting at the page
-            midline. Gap is 0 on lg so the text's left edge lands exactly
+            midline. Gap is 0 on xl so the text's left edge lands exactly
             at 50% — the natural breathing room comes from the image
-            capping at 480px inside a wider half-page column. */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-0 items-center">
+            capping at 480px inside a wider half-page column. Layout
+            switch sits at xl (1280px), not lg (1024px), because below
+            ~1280 the 480px image's right edge crowds the text column
+            (visible on iPad Pro landscape and narrow desktop). */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 md:gap-14 xl:gap-0 items-center">
           {/* Image frame.
               On tablet (single column) the image is centred as a
               framed editorial element. On desktop the grid template
@@ -198,7 +201,7 @@ export function EditorialFrames() {
               href={FRAMES[active].href}
               data-cursor="Open"
               aria-label={`Open ${FRAMES[active].eyebrow}`}
-              className="block relative w-full max-w-[480px] mx-auto lg:mx-0 aspect-[4/5] overflow-hidden rounded-md"
+              className="block relative w-full max-w-[480px] mx-auto xl:mx-0 aspect-[4/5] overflow-hidden rounded-md"
             >
               {FRAMES.map((f, i) => (
                 <div
@@ -253,9 +256,9 @@ export function EditorialFrames() {
             {/* Tighter min-height on tablet (single column) — content is
                 only ~280px tall per frame, so the desktop-era 440px left
                 ~150px of dead air between the CTA and the tab row. Full
-                440px reservation returns at lg when the crossfade sits
+                440px reservation returns at xl when the crossfade sits
                 beside the 480px portrait image. */}
-            <div className="relative min-h-[300px] lg:min-h-[440px]">
+            <div className="relative min-h-[300px] xl:min-h-[440px]">
               {FRAMES.map((f, i) => {
                 const isActive = i === active;
                 return (
@@ -276,11 +279,11 @@ export function EditorialFrames() {
             </div>
 
             {/* Pillar tab row. On tablet, the row is centred beneath the
-                composition; on lg it anchors to the left of the editorial
+                composition; on xl it anchors to the left of the editorial
                 column. mt-10 keeps the tabs close to the CTA on tablet —
-                mt-24 on lg matches the desktop rhythm. */}
-            <div className="mt-10 lg:mt-24">
-              <div className="flex items-end gap-5 md:gap-8 max-w-[520px] mx-auto lg:mx-0">
+                mt-24 on xl matches the desktop rhythm. */}
+            <div className="mt-10 xl:mt-24">
+              <div className="flex items-end gap-5 md:gap-8 max-w-[520px] mx-auto xl:mx-0">
                 {FRAMES.map((f, i) => (
                   <button
                     key={i}

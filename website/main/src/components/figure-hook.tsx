@@ -118,7 +118,16 @@ export function FigureHook() {
   return (
     <div
       aria-hidden={!show}
-      className="fixed bottom-0 inset-x-0 z-[70] pointer-events-none"
+      // bg-yoru + border-t live on the OUTER wrapper, not the inner
+      // Link. Reason: during the opacity+transform transition on iOS
+      // Safari, the compositor occasionally renders the outer's
+      // bounding box one frame before the inner Link's bg paints —
+      // showing the page surface (warm off-white) through the
+      // transparent outer for a flash, with the Link's top border
+      // floating as a thin dark line against it. Pinning the dark bg
+      // (and border) on the same composited layer as the transform
+      // eliminates the gap.
+      className="fixed bottom-0 inset-x-0 z-[70] pointer-events-none bg-yoru border-t border-washi/10"
       style={{
         opacity: show ? 1 : 0,
         transform: show ? "translate3d(0, 0, 0)" : "translate3d(0, 100%, 0)",
@@ -133,7 +142,7 @@ export function FigureHook() {
     >
       <Link
         href="/store"
-        className="group pointer-events-auto block bg-yoru border-t border-washi/10"
+        className="group pointer-events-auto block"
       >
         <div className="flex items-center justify-between gap-6 px-6 md:px-12 lg:px-20 xl:px-28 h-14 md:h-16">
           <p className="font-sans text-[11px] md:text-[12px] leading-none tracking-[0.18em] md:tracking-[0.16em] uppercase whitespace-nowrap text-washi">

@@ -42,8 +42,8 @@ export default function AppPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
         <div>
-          {/* Mobile: text on top half, image on bottom half, fits viewport
-              with no scroll. Desktop (lg+): side-by-side grid, viewport-
+          {/* Mobile + tablet portrait: text on top, image below, fits
+              viewport with no scroll. lg+: side-by-side grid, viewport-
               locked height. */}
           <div className="flex flex-col h-[100svh] lg:grid lg:grid-cols-2">
 

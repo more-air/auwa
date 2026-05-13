@@ -1089,9 +1089,9 @@ export default async function ArticlePage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
 
-        {/* ── Hero: split layout, viewport height ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 md:h-[100svh]">
-          <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
+        {/* ── Hero: stacked on mobile + tablet portrait, split at lg ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:h-[100svh]">
+          <div className="relative aspect-[4/5] lg:aspect-auto overflow-hidden">
             {/* Header tone sentinel — image side reads against
                 photography, header logo wants Surface here. */}
             <HeaderTone tone="surface" />
@@ -1112,7 +1112,7 @@ export default async function ArticlePage({
             )}
           </div>
 
-          <div className="relative flex flex-col justify-end px-6 md:px-10 lg:px-14 py-10 md:pb-16 lg:pb-20">
+          <div className="relative flex flex-col justify-end px-6 md:px-12 lg:px-14 py-10 md:py-16 lg:py-0 lg:pb-20">
             {/* Header tone sentinel — text side reads against Surface
                 page bg, header trigger wants Sumi here. */}
             <HeaderTone tone="sumi" />
@@ -1171,10 +1171,11 @@ export default async function ArticlePage({
         <article className="space-section">
           {sections.map((section, si) => {
 
-            {/* Text-only: right half */}
+            {/* Text-only: full editorial column on mobile + tablet
+                (capped at 760px for reading width), right half at xl. */}
             if (section.kind === "text-only") {
               return (
-                <div key={si} className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 max-w-full">
+                <div key={si} className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 xl:ml-[50%] max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
                   {section.blocks.map((block, bi) => renderTextBlock(block, si * 10 + bi))}
                 </div>
               );
@@ -1208,11 +1209,12 @@ export default async function ArticlePage({
               );
             }
 
-            {/* Image beside: image left, text right */}
+            {/* Image beside: stacked on mobile + tablet, image-left /
+                text-right grid at xl. */}
             if (section.kind === "image-beside") {
               return (
-                <div key={si} className="md:grid md:grid-cols-2 my-10 md:my-16">
-                  <div className="px-6 md:pl-12 lg:pl-20 xl:pl-28 md:pr-16 lg:pr-24 xl:pr-32 mb-8 md:mb-0">
+                <div key={si} className="xl:grid xl:grid-cols-2 my-10 md:my-16">
+                  <div className="px-6 md:px-12 lg:px-20 xl:pl-28 xl:pr-32 mb-8 xl:mb-0">
                     <FadeIn delay={100} translateY={32}>
                       <figure>
                         <div className="relative aspect-[4/5] overflow-hidden rounded-md">
@@ -1237,7 +1239,7 @@ export default async function ArticlePage({
                     </FadeIn>
                   </div>
 
-                  <div className="px-6 md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 md:pt-0">
+                  <div className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
                     {section.blocks.map((block, bi) => renderTextBlock(block, si * 10 + bi))}
                   </div>
                 </div>
@@ -1250,7 +1252,7 @@ export default async function ArticlePage({
 
         {/* ── Byline ── */}
         <FadeIn translateY={32}>
-          <div className="px-6 md:ml-[50%] md:px-10 lg:px-14 md:pr-12 lg:pr-20 xl:pr-28 space-flow">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 xl:ml-[50%] space-flow max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
             <div className="pt-8 border-t border-sumi/10 max-w-[90%]">
               {(() => {
                 const credit = (name: string) => {

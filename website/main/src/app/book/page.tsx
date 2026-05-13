@@ -292,11 +292,11 @@ function BookHeroLayers() {
 
   return (
     <>
-      {/* Mobile portrait stack.
+      {/* Mobile + tablet portrait stack (<lg).
           quality=95 because next/image otherwise recompresses at q=75
           regardless of source — at full-bleed hero scale that's
           visibly soft on the magical-Auwa artwork. */}
-      <div className="absolute inset-0 md:hidden">
+      <div className="absolute inset-0 lg:hidden">
         <Image
           src="/book/hero/portrait-1.jpg"
           alt="Auwa, a luminous being arriving in the world"
@@ -328,8 +328,8 @@ function BookHeroLayers() {
           style={eyesStyle}
         />
       </div>
-      {/* Desktop landscape stack */}
-      <div className="absolute inset-0 hidden md:block">
+      {/* lg+ landscape stack */}
+      <div className="absolute inset-0 hidden lg:block">
         <Image
           src="/book/hero/landscape-1.jpg"
           alt="Auwa, a luminous being arriving in the world"

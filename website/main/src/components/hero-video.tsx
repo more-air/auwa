@@ -7,10 +7,10 @@ import { usePageReady } from "./page-transition";
 
 /*
   Full-bleed Auwa face video hero.
-  Mobile: portrait video at natural aspect, pinned to the bottom of the
-    visible area. Beige shows above if video is shorter; if taller, the
-    top is clipped (overflow-hidden on the stage).
-  Desktop: landscape 16:9 video, native aspect ratio.
+  Mobile + tablet portrait (<lg): portrait video at natural aspect,
+    pinned to the bottom of the visible area. Beige shows above if video
+    is shorter; if taller, the top is clipped (overflow-hidden).
+  lg+: landscape 16:9 video, native aspect ratio.
   "Scroll" cue + breathing line fades on scroll.
 
   Fade-in: video + its poster fade from opacity 0 to 1 over DURATION.reveal
@@ -64,11 +64,14 @@ export function HeroVideo() {
   };
 
   // Pick which video to drive based on viewport. Avoid double playback.
+  // MQ must match the visual portrait/landscape switch (lg = 1024px) —
+  // if it doesn't, play() runs on the hidden element and the visible
+  // element stays paused on its poster.
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    const mq = window.matchMedia("(max-width: 767px)");
+    const mq = window.matchMedia("(max-width: 1023px)");
     let currentRef = mq.matches ? mobileVideoRef : desktopVideoRef;
 
     const observer = new IntersectionObserver(
@@ -213,7 +216,7 @@ export function HeroVideo() {
         */}
         <video
           ref={mobileVideoRef}
-          className="md:hidden absolute inset-0 w-full h-full"
+          className="lg:hidden absolute inset-0 w-full h-full"
           style={{
             objectFit: "cover",
             objectPosition: "center bottom",
@@ -228,10 +231,10 @@ export function HeroVideo() {
           <source src="/hero/portrait-auwa.mp4" type="video/mp4" />
         </video>
 
-        {/* Desktop: landscape, object-cover fills the 16:9 stage */}
+        {/* lg+: landscape, object-cover fills the 16:9 stage */}
         <video
           ref={desktopVideoRef}
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+          className="hidden lg:block absolute inset-0 w-full h-full object-cover"
           style={fadeStyle}
           poster="/hero/poster-auwa.jpg"
           loop
