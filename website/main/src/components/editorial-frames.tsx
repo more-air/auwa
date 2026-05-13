@@ -46,7 +46,7 @@ const FRAMES: Frame[] = [
     eyebrow: "Store",
     heading: "Lifetime objects.",
     body: "A home for Japanese craftsman objects, chosen slowly and kept for a lifetime. Pieces carrying the patience of the hands that made them. Quietly gathered, quietly arriving.",
-    cta: "Join waitlist",
+    cta: "Be early",
     href: "/store",
     type: "video",
     src: "/intro/store.mp4",
@@ -74,7 +74,7 @@ const FRAMES: Frame[] = [
     eyebrow: "App",
     heading: "Awareness, daily.",
     body: "A Kokoro mirror. Share how you feel, receive a quiet reflection drawn from an ancient Japanese emotional framework. No advice, no streaks, no numbers. Just daily attention.",
-    cta: "Join waitlist",
+    cta: "Be early",
     href: "/app",
     type: "image",
     src: "/intro/app.jpg",
@@ -170,16 +170,10 @@ export function EditorialFrames() {
         setPaused(false);
       }}
     >
-      <div className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
-        <div className="mb-10 md:mb-14 max-w-[720px]">
-          <TextReveal
-            as="h2"
-            stagger={80}
-            className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi"
-          >
-            Four ways in.
-          </TextReveal>
-        </div>
+      {/* Heading hoisted to the homepage section that wraps both this
+          and PillarParade — keeps a single canonical <h2> in the page
+          regardless of which viewport-variant renders. */}
+      <div className="px-6 md:px-12 lg:px-20 xl:px-28">
 
         {/* Two equal columns at xl+: image anchored to the left of the
             page (within the gutter), text column starting at the page

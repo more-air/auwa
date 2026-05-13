@@ -204,7 +204,7 @@ function Hero() {
             book moment via the imagery + cue alone. An sr-only h1
             is retained so the page still has one heading element
             for SEO + screen-reader navigation. */}
-        <h1 className="sr-only">Auwa illustrated stories</h1>
+        <h1 className="sr-only">Auwa Illustrated Stories</h1>
         {/* Begin-reading cue mirrors HeroVideo's pattern (text-roll
             label + breathing vertical line). Scrolls to #begin with
             the documented header offset. */}
@@ -767,7 +767,7 @@ function Author() {
           </p>
         </FadeIn>
         <FadeIn delay={150}>
-          <p className="mt-8 font-display text-[clamp(1.25rem,2.4vw,1.75rem)] leading-[1.5] text-balance text-washi/85">
+          <p className="mt-8 font-display text-[clamp(1.25rem,2.4vw,1.75rem)] leading-[1.5] text-balance text-washi/80">
             Born and raised in Kansai, within the philosophy that life resides in everything. Auwa began as a single drawing, ten years ago. The world grew quietly around it.
           </p>
         </FadeIn>

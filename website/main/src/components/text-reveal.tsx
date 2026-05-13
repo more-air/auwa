@@ -98,7 +98,7 @@ export function TextReveal({
             }}
           >
             {word}
-            {i < words.length - 1 ? "\u00A0" : ""}
+            {"\u00A0"}
           </span>
         </span>
       ))}

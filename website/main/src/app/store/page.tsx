@@ -5,10 +5,10 @@ import { SignupForm } from "@/components/signup-form";
 import { StoreCharacterCarousel } from "@/components/store-character-carousel";
 
 export const metadata = {
-  title: "Auwa Store | Japanese Craftsman Objects & Figure Editions",
+  title: "Auwa Store | Japanese Craftsman Objects & Figures",
   description: "Japanese craftsman objects, and our own signed figure editions. Made slowly, chosen for a lifetime. Sign up for the opening, and a chance to win our first edition.",
   openGraph: {
-    title: "Auwa Store | Japanese Craftsman Objects & Figure Editions",
+    title: "Auwa Store | Japanese Craftsman Objects & Figures",
     description: "Japanese craftsman objects, and our own signed figure editions. Made slowly, chosen for a lifetime. Sign up for the opening, and a chance to win our first edition.",
     url: "https://auwa.life/store",
     siteName: "Auwa",
@@ -18,7 +18,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "Auwa Store | Japanese Craftsman Objects & Figure Editions",
+    title: "Auwa Store | Japanese Craftsman Objects & Figures",
     description: "Japanese craftsman objects, and our own signed figure editions.",
     images: ["/og/store.jpg"],
   },
@@ -44,14 +44,14 @@ export default function StorePage() {
               viewport with no scroll. lg+: side-by-side grid. */}
           <div className="flex flex-col h-[100svh] lg:grid lg:grid-cols-2">
 
-            <div className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 pt-32 md:pt-32 lg:pt-24 pb-16 md:pb-24 shrink-0">
+            <div className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-teaser-hero shrink-0">
               <HeaderTone tone="sumi" />
               <TextReveal
                 as="h1"
                 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi"
                 stagger={90}
               >
-                Join waitlist.
+                Lifetime objects.
               </TextReveal>
               <FadeIn delay={400}>
                 <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-sumi/60 max-w-[440px]">

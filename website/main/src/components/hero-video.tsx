@@ -71,7 +71,13 @@ export function HeroVideo() {
     const section = sectionRef.current;
     if (!section) return;
 
-    const mq = window.matchMedia("(max-width: 1023px)");
+    // Tailwind's `lg` breakpoint is min-width: 64rem (1024px at the
+    // default 16px root). To stay perfectly complementary across sub-
+    // pixel viewport widths (retina), invert the desktop query rather
+    // than using `max-width: 1023px` — at 1023.5px both `max-width:
+    // 1023px` and `min-width: 1024px` would be false, leaving a 0.5px
+    // gap where neither branch fires.
+    const mq = window.matchMedia("not (min-width: 64rem)");
     let currentRef = mq.matches ? mobileVideoRef : desktopVideoRef;
 
     const observer = new IntersectionObserver(

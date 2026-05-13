@@ -44,7 +44,7 @@ const articles: Record<
   "yakushima-island": {
     title: "Yakushima",
     subtitle: "On the island where the trees outlived history.",
-    description: "A journey to Yakushima, the Japanese island of thousand-year cedars that inspired Princess Mononoke. On forests, moss, and slow attention.",
+    description: "Yakushima, the Japanese island of thousand-year cedars that inspired Princess Mononoke. On forests, moss, and slow attention.",
     category: "Travel",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -906,7 +906,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "So Tom and I began building the rest. Auwa is becoming four things, each one a different way into the same idea. The illustrated stories, where the character lives most fully. A daily practice app called Kokoro Mirror, where Auwa meets you in the morning and reveals the kokoro in whatever you are feeling that day. A store, where we curate objects from Japanese craftsmen whose work carries its own kokoro. And this journal, where Tom and I write in long form about Japan, about craft, about awareness, about the way the seasons turn.",
+        text: "So Tom and I began building the rest. Auwa is becoming four things, each one a different way into the same idea. The illustrated stories, where the character lives most fully. A daily practice app called Kokoro Mirror, where Auwa meets you in the morning and reveals the kokoro in whatever you are feeling that day. A store, where we gather objects from Japanese craftsmen whose work carries its own kokoro. And this journal, where Tom and I write in long form about Japan, about craft, about awareness, about the way the seasons turn.",
       },
       {
         type: "text",

@@ -5,6 +5,7 @@ import { MicroSeasonFeature } from "@/components/micro-season-feature";
 import { EditorialFrames } from "@/components/editorial-frames";
 import { PillarParade } from "@/components/pillar-parade";
 import { StripReveal } from "@/components/strip-reveal";
+import { TextReveal } from "@/components/text-reveal";
 import { EditorialFeature } from "@/components/editorial-feature";
 import { BookHeroCard } from "@/components/book-hero-card";
 import { HeroVideo } from "@/components/hero-video";
@@ -17,9 +18,9 @@ import Link from "next/link";
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
 const pillars = [
-  { label: "Book", cta: "Explore world", href: "/book", image: "/pillars/book.jpg" },
-  { label: "Store", cta: "Join waitlist", href: "/store", image: "/pillars/store.jpg" },
-  { label: "App", cta: "Join waitlist", href: "/app", image: "/pillars/app.jpg" },
+  { label: "The book.",  alt: "Auwa Book — illustrated Japanese stories",     cta: "Explore",  href: "/book",  image: "/pillars/book.jpg" },
+  { label: "The store.", alt: "Auwa Store — Japanese craftsman objects",      cta: "Be early", href: "/store", image: "/pillars/store.jpg" },
+  { label: "The app.",   alt: "Auwa App — daily Japanese awareness practice", cta: "Be early", href: "/app",   image: "/pillars/app.jpg" },
 ];
 
 const latestArticles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
@@ -94,7 +95,7 @@ export default function Home() {
           >
             <span
               aria-hidden="true"
-              className="font-jp-serif leading-none text-sumi/[0.03]"
+              className="font-jp-serif leading-none text-sumi/3"
               style={{ fontSize: "clamp(16rem, 38vw, 30rem)" }}
             >
               心
@@ -103,14 +104,14 @@ export default function Home() {
           <div className="relative max-w-[880px]">
             <FadeIn>
               <h1 className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 m-0 font-normal">
-                Japanese Lifestyle Brand
+                Japanese Philosophy of Kokoro
               </h1>
             </FadeIn>
             <ScrollFadeText
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-sumi"
             >
-              Auwa: a character, a philosophy, a world. Built on the ancient idea that a life force, or Kokoro (心), resides in all things: a river, a handmade bowl, the wind through bamboo at dusk. Auwa is an invitation to notice again in a world that rarely pauses. We bring this perspective to life through four paths: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
+              Auwa: a character, a philosophy, a world. Built on the ancient idea that a life force, or Kokoro (心), resides in all things: a river, a handmade bowl, the wind through bamboo at dusk. Auwa is an invitation to notice again. We bring this perspective to life through four paths: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
@@ -130,7 +131,7 @@ export default function Home() {
               className="font-display text-[clamp(2.25rem,6vw,4.75rem)] leading-[1.05] tracking-[0.003em] text-sumi"
               finishAt={0.4}
             >
-              &ldquo;There is a quieter way to live, and the Japanese have been practising it for centuries. It begins with paying attention.&rdquo;
+              &ldquo;There is a quieter way to live, and the Japanese have been practising it for centuries. It begins with what you stop to notice.&rdquo;
             </ScrollFadeText>
           </div>
         </section>
@@ -141,13 +142,32 @@ export default function Home() {
             Desktop (md+): Editorial Frames tab gallery with crossfade +
             staggered reveals — tab-driven, no scroll-hijacking.
             Mobile (<md): Pillar Parade horizontal scroll-snap row —
-            native swipe, fits the viewport. Both are self-contained. */}
-        <div className="hidden md:block">
-          <EditorialFrames />
-        </div>
-        <div className="md:hidden">
-          <PillarParade />
-        </div>
+            native swipe, fits the viewport.
+
+            The h2 is hoisted here (rather than living inside each
+            variant) so the page renders exactly one canonical "Four
+            ways in." heading regardless of viewport. Previously both
+            EditorialFrames and PillarParade owned their own h2, which
+            put two identical headings into the SSR HTML — display:none
+            hid one from sight, but crawlers and inactive viewports
+            still saw the duplicate. */}
+        <section className="space-section">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14 max-w-[720px]">
+            <TextReveal
+              as="h2"
+              stagger={80}
+              className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi"
+            >
+              Four ways in.
+            </TextReveal>
+          </div>
+          <div className="hidden md:block">
+            <EditorialFrames />
+          </div>
+          <div className="md:hidden">
+            <PillarParade />
+          </div>
+        </section>
 
         <Separator />
 
@@ -255,7 +275,7 @@ export default function Home() {
                     {pillar.image ? (
                       <Image
                         src={pillar.image}
-                        alt={pillar.label}
+                        alt={pillar.alt}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"

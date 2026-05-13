@@ -101,6 +101,9 @@ html[data-page-theme="dark"] main {
   --color-sumi:  oklch(0.10  0.022 235);  /* ink — text on white */
   --color-yoru:  #0f1623;                 /* night — dark surface (matches the world hero illustration's dark) */
   --color-washi: oklch(0.928 0.020 80);   /* paper — text on Yoru */
+  --color-kraft: #BFAE9C;                 /* deep washi — warm earth tone, paired with Washi in soft-light overlays
+                                             on BookHeroCard / EditorialFeature to harmonise cool cosmic bokeh
+                                             with the warm-paper brand family. Always used in a gradient with Washi. */
 
   /* Accents */
   --color-glow: oklch(0.85 0.15 105);
@@ -185,6 +188,34 @@ html[data-page-theme="dark"] main {
   padding-block: 7rem;
   @media (min-width: 768px) {
     padding-block: 11rem;
+  }
+}
+
+/* space-teaser-hero: viewport-locked half-grid pages (app, store, 404).
+   The top padding pulls the centred text column down clear of the header;
+   the bottom padding holds it off the lower image / next module. Tighter
+   at lg+ because the layout flips to a 50/50 grid and the text column
+   no longer needs as much breathing above. Used on every teaser-style
+   single-viewport page so they share one rhythm. */
+@utility space-teaser-hero {
+  padding-top: 8rem;          /* pt-32 */
+  padding-bottom: 4rem;       /* pb-16 */
+  @media (min-width: 768px) {
+    padding-bottom: 6rem;     /* md:pb-24 */
+  }
+  @media (min-width: 1024px) {
+    padding-top: 6rem;        /* lg:pt-24 */
+  }
+}
+
+/* space-page-hero: editorial page top padding (journal index, about). Pairs
+   with space-flow or space-section to provide the bottom rhythm. Larger
+   md value than space-teaser-hero because these heroes scroll into the
+   page rather than fitting in one viewport, so the top airlock can breathe. */
+@utility space-page-hero {
+  padding-top: 8rem;          /* pt-32 */
+  @media (min-width: 768px) {
+    padding-top: 11rem;       /* md:pt-44 */
   }
 }
 

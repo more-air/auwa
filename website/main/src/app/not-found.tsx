@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/footer";
-import { FadeIn } from "@/components/fade-in";
-import { TextReveal } from "@/components/text-reveal";
 import { CtaLink } from "@/components/cta-link";
+import { FadeIn } from "@/components/fade-in";
+import { HeaderTone } from "@/components/header-tone";
+import { ImageFade } from "@/components/image-fade";
+import { TextReveal } from "@/components/text-reveal";
 
 export const metadata: Metadata = {
   title: "Lost the path | Auwa",
@@ -12,40 +13,52 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <>
-      <main>
-        <section className="min-h-[calc(100svh-5rem)] flex items-center justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-section">
-          <div className="w-full max-w-[640px] text-center">
-            <FadeIn>
-              <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-6">
-                404
+    <main>
+      <div>
+        {/* Mobile + tablet portrait: text on top, image below, fits
+            viewport with no scroll. lg+: side-by-side grid. Mirrors the
+            teaser-page pattern so the 404 reads as part of the brand
+            world, not a system page. */}
+        <div className="flex flex-col h-[100svh] lg:grid lg:grid-cols-2">
+
+          <div className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-teaser-hero shrink-0">
+            <HeaderTone tone="sumi" />
+            <TextReveal
+              as="h1"
+              className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi"
+              stagger={90}
+            >
+              Lost the path.
+            </TextReveal>
+            <FadeIn delay={400}>
+              <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-sumi/60 max-w-[440px]">
+                Nothing here, only quiet. The page you wanted has slipped from the path. In Japan, a shrine often waits at the end of a trail you almost missed.
               </p>
             </FadeIn>
-
-            <h1 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi">
-              <TextReveal as="span" className="block" stagger={90}>
-                Nothing here,
-              </TextReveal>
-              <TextReveal as="span" className="block" stagger={90} delay={180}>
-                only quiet.
-              </TextReveal>
-            </h1>
-
-            <FadeIn delay={420}>
-              <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.7] text-sumi/70 mx-auto max-w-[520px]">
-                The page you were looking for isn&rsquo;t here. A small break in the path. In Japan, a shrine often sits at the end of a trail you almost didn&rsquo;t take. Consider this one of those moments.
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={560}>
-              <div className="mt-12 flex justify-center">
-                <CtaLink href="/" variant="primary">Back to home</CtaLink>
+            <FadeIn delay={600}>
+              <div className="mt-12 md:mt-16">
+                <CtaLink href="/" variant="primary">Return Home</CtaLink>
               </div>
             </FadeIn>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+
+          <div className="relative overflow-hidden flex-1 min-h-0">
+            <HeaderTone tone="surface" />
+            <ImageFade
+              src="/journal/yakushima-island/yakushima-island-hero.jpg"
+              alt="Yakushima, the Japanese island of thousand-year cedars."
+              fill
+              priority
+              quality={95}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              topScrim
+              fadeDuration={2000}
+            />
+          </div>
+
+        </div>
+      </div>
+    </main>
   );
 }

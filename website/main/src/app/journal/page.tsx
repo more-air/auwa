@@ -83,7 +83,7 @@ export default async function JournalPage({
       <main>
 
         {/* Title, filters, and article grid — one section, one rhythm */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section pt-32 md:pt-44">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section space-page-hero">
           <TextReveal
             as="h1"
             className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.05] tracking-[0.01em] text-sumi"

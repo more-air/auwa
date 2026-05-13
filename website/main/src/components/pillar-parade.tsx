@@ -120,17 +120,10 @@ export function PillarParade() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative space-section">
-      {/* Heading row — eyebrow ("Our world") was retired May 2026; the
-          heading now matches "The character." sibling treatment on the
-          home page (single h2, no eyebrow, same mb rhythm below). */}
-      <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14">
-        <FadeIn>
-          <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi">
-            Four ways in.
-          </h2>
-        </FadeIn>
-      </div>
+    <section ref={sectionRef} className="relative">
+      {/* Heading hoisted to the homepage section that wraps both this
+          and EditorialFrames — keeps a single canonical <h2> in the
+          page regardless of which viewport-variant renders. */}
 
       {/* Horizontal scroller — pure native, no snap, no JS scroll
           hijacking. Matches the Journal strip so the scroll feel is

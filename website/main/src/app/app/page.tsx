@@ -47,7 +47,7 @@ export default function AppPage() {
               locked height. */}
           <div className="flex flex-col h-[100svh] lg:grid lg:grid-cols-2">
 
-            <div className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 pt-32 md:pt-32 lg:pt-24 pb-16 md:pb-24 shrink-0">
+            <div className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-28 space-teaser-hero shrink-0">
               <HeaderTone tone="sumi" />
               <TextReveal
                 as="h1"

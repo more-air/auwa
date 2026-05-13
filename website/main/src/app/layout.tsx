@@ -51,7 +51,7 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "Auwa | Japanese Lifestyle Brand",
+  title: "Auwa | Japanese Philosophy of Kokoro",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   description:
-    "Auwa is a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A daily awareness practice, Japanese craftsman objects, editorial journal, and illustrated stories.",
+    "A Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A practice, a store, a journal, an illustrated world.",
   metadataBase: new URL("https://auwa.life"),
   // No global canonical. A parent canonical is inherited by every child
   // route in Next.js metadata merging, so an "https://auwa.life" here
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
   // page ever needs an explicit canonical (e.g. to handle query params),
   // add `alternates: { canonical: url }` to THAT page's generateMetadata.
   openGraph: {
-    title: "Auwa | Japanese Lifestyle Brand",
+    title: "Auwa | Japanese Philosophy of Kokoro",
     description:
-      "Auwa is a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A daily awareness practice, Japanese craftsman objects, editorial journal, and illustrated stories.",
+      "A Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. A practice, a store, a journal, an illustrated world.",
     url: "https://auwa.life",
     siteName: "Auwa",
     locale: "en_GB",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auwa | Japanese Lifestyle Brand",
+    title: "Auwa | Japanese Philosophy of Kokoro",
     description: "Japanese lifestyle brand rooted in the belief that a life force, a Kokoro, resides in all things.",
     images: ["/og-image.jpg"],
   },

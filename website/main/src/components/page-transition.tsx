@@ -131,13 +131,28 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       setPhase("visible");
       setPanelTheme(null);
     }, 80);
-    const tReveal = window.setTimeout(
-      () => setRevealReady(true),
-      80 + REVEAL_DELAY_MS
-    );
+    // Wait the snap + reveal-delay window AND then double-rAF before
+    // flipping revealReady. The setTimeout gives the panel time to
+    // exit and provides the deliberate blank beat after navigation;
+    // the double rAF then waits for the browser to paint at least
+    // once past that point so per-element reveals never fire against
+    // a half-mounted page (slow networks, heavy client-side renders).
+    // Without this, a slow Next.js client render after pathname change
+    // could leave the new page still mounting when the cascade starts.
+    let rafA = 0;
+    let rafB = 0;
+    const tReveal = window.setTimeout(() => {
+      rafA = window.requestAnimationFrame(() => {
+        rafB = window.requestAnimationFrame(() => {
+          setRevealReady(true);
+        });
+      });
+    }, 80 + REVEAL_DELAY_MS);
     return () => {
       clearTimeout(tSnap);
       clearTimeout(tReveal);
+      if (rafA) cancelAnimationFrame(rafA);
+      if (rafB) cancelAnimationFrame(rafB);
     };
   }, [pathname]);
 

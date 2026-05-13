@@ -140,7 +140,7 @@ export function BookHeroCard() {
         className="absolute inset-0 pointer-events-none mix-blend-soft-light"
         style={{
           background:
-            "linear-gradient(135deg, #EFE9DD 0%, #BFAE9C 100%)",
+            "linear-gradient(135deg, var(--color-washi) 0%, var(--color-kraft) 100%)",
         }}
       />
 

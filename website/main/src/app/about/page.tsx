@@ -91,7 +91,7 @@ export default function AboutPage() {
           >
             <span
               aria-hidden="true"
-              className="font-jp-serif leading-none text-sumi/[0.03]"
+              className="font-jp-serif leading-none text-sumi/3"
               style={{ fontSize: "clamp(16rem, 38vw, 30rem)" }}
             >
               心
@@ -99,7 +99,7 @@ export default function AboutPage() {
           </FadeIn>
 
           {/* ── Hero ── */}
-          <section className="relative px-6 md:px-12 lg:px-20 xl:px-28 pt-32 md:pt-44 space-flow">
+          <section className="relative px-6 md:px-12 lg:px-20 xl:px-28 space-page-hero space-flow">
             <h1 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi max-w-[700px] pr-12 md:pr-0">
               <TextReveal as="span" className="block" stagger={90}>
                 The architecture
@@ -125,7 +125,7 @@ export default function AboutPage() {
               </FadeIn>
               <FadeIn delay={200}>
                 <p className="mt-8 font-display text-[18px] md:text-[20px] leading-[1.7] text-sumi/80">
-                  We bring this to life through four things: a journal from Japan, a daily awareness practice, a curated store of craftsman objects, and illustrated stories.
+                  We bring this perspective to life through four paths: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
                 </p>
               </FadeIn>
             </div>

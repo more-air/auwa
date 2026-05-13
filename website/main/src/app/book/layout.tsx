@@ -19,11 +19,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Auwa Book | An Illustrated World",
   description:
-    "Auwa, a small luminous being who arrives in the first illustrated book by Eko Maeda. The world drawn here is the same one we live in, only seen with closer attention.",
+    "An illustrated world rooted in the Japanese philosophy of Kokoro. Auwa, a small luminous being, arrives to reveal what we are too busy to notice.",
   openGraph: {
     title: "Auwa Book | An Illustrated World",
     description:
-      "Auwa, a small luminous being who arrives in the first illustrated book by Eko Maeda. The world drawn here is the same one we live in, only seen with closer attention.",
+      "An illustrated world rooted in the Japanese philosophy of Kokoro. Auwa, a small luminous being, arrives to reveal what we are too busy to notice.",
     url: "https://auwa.life/book",
     siteName: "Auwa",
     locale: "en_GB",
