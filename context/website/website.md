@@ -73,17 +73,17 @@ The homepage leads with a full-bleed Auwa face video, then moves through editori
 
 2. **HeroVideo** — Full-bleed Auwa face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line replaces the bouncing chevron; the button calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro section.
 
-3. **Intro block** — "Japanese Philosophy" `<h1>` rendered in the small-caps eyebrow style (so the composition is visually unchanged while the page now has a keyword-rich H1 signal Google can read). `ScrollFadeText` paragraph introducing Auwa and its four expressions, "The Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha behind the paragraph.
+3. **Intro block** — "Japanese Philosophy of Kokoro" `<h1>` rendered in the small-caps eyebrow style (the page's claim-layer keyword; the previous "Japanese Lifestyle Brand" was the discovery-layer phrase and was crowded by Goop/Kinfolk/Monocle territory). `ScrollFadeText` paragraph introducing Auwa and its four expressions, "Our Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha (`text-sumi/3`) behind the paragraph.
 
-4. **Pullquote 1** — Hero-scale `ScrollFadeText` ("What you pay attention to…") at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05.
+4. **Pullquote 1** — Hero-scale `ScrollFadeText` *"There is a quieter way to live, and the Japanese have been practising it for centuries. It begins with what you stop to notice."* at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05. The closing sentence ends with concrete sensory action ("what you stop to notice"), not abstract noun phrase ("paying attention"); pullquote 1 sets up the Kokoro payoff in pullquote 2 without competing with it for sensory imagery.
 
-5. **Four-pillar module** — Desktop (`md+`) renders `EditorialFrames`: a tab gallery that crossfades the active pillar's image (portrait 4:5, 480px column) with its editorial content (eyebrow, heading via `TextReveal`, body, CTA). Auto-advances every 10s (long enough for the pillar-01 video, ~9s, to play through before rotating), pauses on hover. Mobile (`<md`) renders `PillarParade`: horizontal overflow-x-auto row of four 3:4 cards with right-to-left reveal entrance (matches the Journal strip), dot indicators below. Both modules use the same heading ("Four ways in."). No scroll-hijacking; no sticky transforms.
+5. **Four-pillar module** — Desktop (`md+`) renders `EditorialFrames`: a tab gallery that crossfades the active pillar's image (portrait 4:5, 480px column) with its editorial content (eyebrow, heading via `TextReveal`, body, CTA). Auto-advances every 10s (long enough for the pillar-01 video, ~9s, to play through before rotating), pauses on hover. Mobile (`<md`) renders `PillarParade`: horizontal overflow-x-auto row of four 3:4 cards with right-to-left reveal entrance (matches the Journal strip), dot indicators below. **The "Four ways in." `<h2>` is hoisted to the homepage section that wraps both variants** — only ONE canonical heading lives in the DOM regardless of which viewport-variant renders. Components return only their inner content; reintroducing an `<h2>` inside either is drift. No scroll-hijacking; no sticky transforms. Pillar CTAs are "Visit store" / "Explore World" / "Explore journal" / "Be early" (Store + App share "Be early" — both are pre-launch waitlists; "Join waitlist" is retired SaaS phrasing).
 
 6. **Journal strip** — 11 article cards in a horizontal scrolling row. Each card: 4:5 portrait image, rounded corners, category label, title, excerpt (55 chars max). FadeIn `variant="reveal"` cascade (60ms stagger).
 
 7. **Micro-season** — 72 micro-season kanji display (`MicroSeasonFeature`). Breathing room either side. CtaLink "Read the essay" to the 72 Seasons article.
 
-8. **Three pillar cards** — Book, Store, App. Portrait 4:5 aspect, rounded corners, gradient overlay with pillar name. Staggered cascade `variant="reveal"` (150ms stagger).
+8. **Three pillar cards** — "The book." / "The store." / "The app." (lowercase period-statement signature matches the four-pillar module's editorial voice; previously bare "Book / Store / App" which read transactional after the editorial buildup above). Portrait 4:5 aspect, rounded corners, gradient overlay with the lowercase pillar name + CTA underneath. CTAs: "Explore" (Book — live), "Be early" (Store and App — pre-launch). Staggered cascade `variant="reveal"` (150ms stagger). Image `alt` is a descriptive sentence with the Japanese qualifier ("Auwa Book — illustrated Japanese stories" etc.), not a one-word label.
 
 9. **Pullquote 2** — Hero-scale `ScrollFadeText` ("In every handmade bowl…"), matching pullquote 1 size.
 
@@ -226,10 +226,12 @@ The website uses a warm off-white background (Surface, ≈ `#f8f7f4`) with the S
 | 40% | Input placeholder text. **Bumped from 35% for the same reason.** |
 | 20% | Form underlines |
 | 10% | Default divider line. **Bumped from 8% — 8% reads invisible on Surface; 10% is the floor.** |
+| 3%  | Kanji watermarks only (the 心 behind the homepage intro paragraph and the about page hero). The single permitted use below the 10% floor — at this level the glyph is felt rather than read, which is exactly the point. Don't promote 3% to other roles; if a new element needs to sit below 10%, it probably belongs at 10% with a different size or placement instead. |
 
 - **Borders:** Sumi at 10% (default divider), 20% (form underlines), 50% (form focus).
 - **Light text on Yoru / on uniform dark surfaces:** Washi (`oklch(0.928 0.020 80)`) at the same tiers (100/80/70/60/45/40/10). Footer, FigureHook strip, SoundToggle button, dark book page, signup-form dark, cursor disc.
 - **Light text over imagery / photography:** **Surface** (`oklch(0.97 0.004 95)`), not Washi. Used for the header logo + menu icon over the transparent hero, the pillar card text overlays, two-up CTA labels, the four-pillar module index counter, the hero "Scroll" label + line, and the book-hero card text. Surface has higher luminance and lower chroma than Washi so it cuts confidently against variable photographic mid-tones; Washi blends into bright spots. **Never use `text-washi` over a photograph.**
+- **Kraft** (`--color-kraft`, `#BFAE9C`) — deep warm earth tone paired with Washi in `mix-blend-soft-light` overlays on `BookHeroCard` and `EditorialFeature`. Never used as text or surface on its own; always inside a `linear-gradient(135deg, var(--color-washi) 0%, var(--color-kraft) 100%)` wash that pulls cool cosmic bokeh toward the warm-paper palette of the rest of the page. If a future surface needs a "warm earth" accent, this is the token to consume; don't hardcode `#BFAE9C` anywhere.
 
 ### Spacing & Layout (Implemented)
 
@@ -239,27 +241,28 @@ The website uses a warm off-white background (Surface, ≈ `#f8f7f4`) with the S
 - Desktop: 80px (`lg:px-20`)
 - XL: 112px (`xl:px-28`)
 
-**Vertical section spacing — three tokens, locked.**
+**Vertical section spacing — five tokens, locked.**
 
-Every section on the site uses one of three utility classes defined as `@utility` in `globals.css`. No bespoke `py-xx` or `pb-xx` values anywhere. Changing a token in one place propagates across every page.
+Every section on the site uses one of five utility classes defined as `@utility` in `globals.css`. No bespoke `py-xx` or `pt-xx` or `pb-xx` values anywhere. Changing a token in one place propagates across every page.
 
-Why three? Because "consistent rhythm" means different things in different contexts. Two adjacent modules need a breathing gap between them. Paragraphs inside one essay need tight flow. Hero moments need generous airlocks. One token for each pattern, no overlap.
+Three core tokens handle the body of the page; two hero tokens handle the top airlocks. Each token solves a distinct rhythm problem — adjacent modules need a breathing gap, narrative paragraphs need tight flow, hero moments need generous airlocks, viewport-locked teaser pages need their own asymmetric padding, editorial heros need a top-only push below the header.
 
 | Token | Value | Use |
 |-------|-------|-----|
 | `space-section` | `py-16 md:py-24` (64/96px, both sides) | **Discrete modules** — home page sections, journal grid, video moment. Two adjacent `space-section` sections produce a 192px gap between content, which reads as "distinct module to distinct module." |
 | `space-flow` | `pb-16 md:pb-24` (64/96px, bottom only) | **Continuous narrative** — About page paragraphs, article byline, any columnar content that feels like parts of one essay. Sections flow with a single 96px gap, not doubled. |
 | `space-breathing` | `py-28 md:py-44` (112/176px, both sides) | **Hero moments** — pullquotes and the 72 micro-seasons kanji module. Content that needs to stand alone and inhale. |
+| `space-teaser-hero` | `pt-32 pb-16 md:pb-24 lg:pt-24` (top 8rem mobile/md, 6rem lg+; bottom 4rem mobile, 6rem md+) | **Viewport-locked half-grid pages** — `/app`, `/store`, `/404`. Top padding pulls the centred text column clear of the header; bottom holds it off the lower image. Tighter at lg+ where the layout flips to a 50/50 grid and the text column no longer needs as much breathing above. |
+| `space-page-hero` | `pt-32 md:pt-44` (top 8rem mobile, 11rem md+) | **Editorial page top padding** — journal index, about. Pairs with `space-flow` or `space-section` to provide the bottom rhythm. Larger md value than `space-teaser-hero` because these heroes scroll into the page rather than fit in one viewport, so the top airlock can breathe more. |
 
-**How to pick.** Ask: is this section an independent module, or a paragraph in a continuous narrative? Home page sections are independent (each has its own identity) → `space-section`. About page paragraphs are narrative (they flow as one essay) → `space-flow`. Pullquotes and the kanji moment are hero content → `space-breathing`.
+**How to pick.** Ask: is this section a hero or a body section? If hero — single-viewport (teaser) → `space-teaser-hero`; editorial (about, journal index) → `space-page-hero`. If body — independent module → `space-section`; continuous narrative paragraph → `space-flow`; pullquote / standalone moment → `space-breathing`.
 
-**Exceptions — the complete list.** These are the only places we deviate from the three tokens. If you need something outside this list, promote the new exception into this table before writing it in code.
+**Exceptions — the complete list.** Outside of these, no bespoke `pt-*`, `pb-*`, or `py-*` belongs in page or section code.
 
-- Hero top padding: `pt-12 md:pt-16` (48/64px) — for page heroes that use `space-flow` and need a tighter top to sit close to the header (e.g. About page hero).
 - Header height: `h-16 md:h-20` (64/80px)
 - Newsletter (footer): lives inside `footer.tsx` — the footer has its own internal rhythm and doesn't use any section token.
 
-Any page-section `<section>` in `src/app/**/page.tsx` or `src/components/*.tsx` MUST use `space-section`, `space-flow`, or `space-breathing`. Hardcoded `py-20`, `pb-32`, etc. are drift — treat as bugs.
+Any page-section `<section>` in `src/app/**/page.tsx` or `src/components/*.tsx` MUST use one of the five tokens above. Hardcoded `py-20`, `pb-32`, `pt-32 md:pt-44`, etc. are drift — treat as bugs.
 
 **Separator placement — always between sections, never inline.**
 
