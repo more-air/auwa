@@ -244,7 +244,12 @@ export function EditorialFeature({
           }`}
         >
           {image.href ? (
-            <Link href={image.href} data-cursor="Open" className="block">
+            /* aria-label uses the media's alt as the link's accessible
+               name — without it, the link wraps a <video> (no alt) or
+               an <Image> whose alt only describes the picture, not the
+               destination, and Lighthouse / screen readers report a
+               "link without discernible name". */
+            <Link href={image.href} data-cursor="Open" className="block" aria-label={image.alt}>
               {MediaEl}
             </Link>
           ) : (

@@ -54,22 +54,28 @@ export function SoundToggle({ style, className = "" }: SoundToggleProps) {
     setMounted(true);
   }, []);
 
-  // Pre-create + pre-load the Audio element on mount. Calling play()
-  // for the first time on a freshly-constructed Audio inside the click
-  // handler is the path that fails intermittently on Android Chrome —
-  // the source isn't fetched in time, play() rejects, the user has to
-  // tap twice. Pre-loading here means the buffer is decoded and ready,
-  // so the click handler's play() resolves on the first attempt.
-  // (We don't auto-play; modern autoplay policy still requires the
-  // user gesture, which the click handler provides.)
+  // Pre-create the Audio element on mount so the first click handler
+  // has a ready element to call play() on (without this, freshly
+  // constructing Audio inside the click handler was the path that
+  // failed intermittently on Android Chrome — play() rejected before
+  // the source was fetched, and the user had to tap twice).
+  //
+  // preload="metadata" instead of "auto": fetches just the audio
+  // headers (a few KB) on mount so the element is initialised and
+  // ready to play, but the full ~3MB file is only downloaded when
+  // play() is called by the user gesture. Net effect: first tap
+  // works (small play delay while the buffer fills, but it works),
+  // and we save ~3MB on every initial page load — the single biggest
+  // payload reduction on the site. Modern browsers handle the
+  // fetch-on-play handoff transparently for short audio (< a few MB).
   useEffect(() => {
     if (audioRef.current) return;
     const a = new Audio(AUDIO_SRC);
     a.loop = true;
     a.volume = 0;
-    a.preload = "auto";
-    // Explicit load() kicks off the network fetch + decode immediately
-    // rather than waiting for the first play() call.
+    a.preload = "metadata";
+    // Explicit load() kicks off the metadata fetch immediately so the
+    // element is fully initialised before any click handler fires.
     a.load();
     audioRef.current = a;
   }, []);
