@@ -119,18 +119,30 @@ export function FigureHook() {
     <div
       aria-hidden={!show}
       // bg-yoru + border-t live on the OUTER wrapper, not the inner
-      // Link. Reason: during the opacity+transform transition on iOS
-      // Safari, the compositor occasionally renders the outer's
-      // bounding box one frame before the inner Link's bg paints —
-      // showing the page surface (warm off-white) through the
-      // transparent outer for a flash, with the Link's top border
-      // floating as a thin dark line against it. Pinning the dark bg
-      // (and border) on the same composited layer as the transform
-      // eliminates the gap.
-      className="fixed bottom-0 inset-x-0 z-[70] pointer-events-none bg-yoru border-t border-washi/10"
+      // Link, AND are pinned via inline style with hardcoded hex
+      // values (not Tailwind / CSS-variable). Reason: during the
+      // opacity+transform transition on iOS Safari AND during Android
+      // Chrome's URL-bar collapse/expand viewport resize, the
+      // compositor occasionally re-rasterises the bottom-fixed layer
+      // and paints one frame with the layer's bounding box but no
+      // background (showing the page surface through it for ~1 frame,
+      // with the top border floating as a thin line). Two layered
+      // fixes:
+      //   1. backgroundColor + borderTop inline with hex values, so
+      //      the paint never has to wait on CSS-variable resolution
+      //      during the re-rasterise.
+      //   2. willChange + backfaceVisibility hint the compositor to
+      //      keep this on a permanent GPU layer, so URL-bar resize
+      //      doesn't trigger a full re-rasterise in the first place.
+      className="fixed bottom-0 inset-x-0 z-[70] pointer-events-none"
       style={{
+        backgroundColor: "#0f1623", // --color-yoru
+        borderTop: "1px solid rgba(243, 240, 232, 0.1)", // washi/10
         opacity: show ? 1 : 0,
         transform: show ? "translate3d(0, 0, 0)" : "translate3d(0, 100%, 0)",
+        willChange: "transform, opacity",
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
         // Snap on first paint after mount / route change (see `snap`
         // above) so the strip never animates IN from a stale pre-
         // nav position when the new page mounts — which produced

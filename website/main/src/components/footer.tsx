@@ -26,7 +26,25 @@ const pillarLinks = [
 */
 export function Footer() {
   return (
-    <footer className="flex flex-col sticky bottom-0 z-0 bg-yoru border-t border-washi/10">
+    <footer
+      // bg-yoru + border-t pinned via inline style with hardcoded hex
+      // values (not Tailwind / CSS-variable). Reason: Android Chrome's
+      // URL-bar collapse/expand viewport resize re-rasterises sticky
+      // bottom layers; for one frame the bg-color fails to paint and
+      // the page surface (Surface / white) shows through, with the
+      // top border floating as a thin line. Same defensive recipe as
+      // FigureHook — inline hex bg, willChange + backfaceVisibility
+      // hints to keep this on a permanent GPU layer so URL-bar
+      // resize doesn't trigger a full re-rasterise in the first place.
+      className="flex flex-col sticky bottom-0 z-0"
+      style={{
+        backgroundColor: "#0f1623", // --color-yoru
+        borderTop: "1px solid rgba(243, 240, 232, 0.1)", // washi/10
+        willChange: "transform",
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
+      }}
+    >
       {/* Main footer content — two columns */}
       <div className="px-6 md:px-12 lg:px-20 xl:px-28 pt-16 md:pt-20">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12 md:gap-16">
