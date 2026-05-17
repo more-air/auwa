@@ -138,9 +138,19 @@ export function FigureHook() {
       style={{
         backgroundColor: "#0f1623", // --color-yoru
         borderTop: "1px solid rgba(243, 240, 232, 0.1)", // washi/10
-        opacity: show ? 1 : 0,
+        // TRANSFORM-ONLY reveal — opacity is permanently 1.
+        // Earlier opacity-based fade caused Android Chrome to paint a
+        // pre-transition frame where the composited layer was at low
+        // alpha, showing the page Surface (warm off-white) through
+        // the layer's bounding box for ~1 frame with the washi/10
+        // border floating as a thin line. With opacity locked at 1,
+        // the dark backgroundColor is the ONLY thing ever painted in
+        // the layer's bounds — so the bg can never visually "miss".
+        // Hide is purely positional: translate the whole strip 100%
+        // below the viewport edge; reveal slides it back up.
+        opacity: 1,
         transform: show ? "translate3d(0, 0, 0)" : "translate3d(0, 100%, 0)",
-        willChange: "transform, opacity",
+        willChange: "transform",
         WebkitBackfaceVisibility: "hidden",
         backfaceVisibility: "hidden",
         // Snap on first paint after mount / route change (see `snap`
@@ -149,7 +159,7 @@ export function FigureHook() {
         // the 10px dark lip flash at the bottom on article loads.
         transition: snap
           ? "none"
-          : `opacity ${DURATION.reveal}ms ${EASING.outExpo}, transform ${DURATION.reveal}ms ${EASING.outExpo}`,
+          : `transform ${DURATION.reveal}ms ${EASING.outExpo}`,
       }}
     >
       <Link
