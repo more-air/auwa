@@ -121,7 +121,10 @@ export default function BookPage() {
         <Intro />
         <Separator />
         <OpeningQuote />
-        <Separator />
+        {/* No separator here — SevenStarsOrbital includes the separator
+            at the top of its sticky-pinned area (desktop only), so the
+            user sees the separator FREEZE at viewport top when the
+            scroll-pin engages, then unfreeze once the cascade is done. */}
         <SevenStarsOrbital />
         <Separator />
         <MeetAuwa />
@@ -781,8 +784,26 @@ const END_Y_FRACTION_DESKTOP = 0.15;
 const START_Y_FRACTION_MOBILE = 1.15;
 const END_Y_FRACTION_MOBILE = 0.2;
 
+// Desktop-only scroll-pin: the section is wrapped in a runway of this
+// height (vh units). The inner content is `position: sticky; top: 0;
+// height: 100vh`, so it stays pinned to the viewport while the user
+// scrolls through the runway. Progress (0 → 1) is derived from how far
+// the runway has moved past the viewport top — 0 the instant the
+// runway's top edge meets the viewport top, 1 the instant the runway's
+// bottom edge passes the viewport bottom.
+//
+// 230vh = 100vh of pinned viewport + 130vh of scrollable distance. The
+// orbital phase runs 0 → 0.50 (≈ 65vh of scroll), the cascade 0.50 →
+// 0.80 (≈ 39vh of scroll), and 0.80 → 1.00 is a 26vh holding beat
+// where all seven kokoros sit fully revealed before the pin releases.
+const RUNWAY_VH_DESKTOP = 230;
+
 function SevenStarsOrbital() {
   const sectionRef = useRef<HTMLElement>(null);
+  // Outer scroll runway — desktop only. On mobile this wrapper has
+  // natural height and is not used by the progress calc; mobile keeps
+  // the original Wakon-viewport-Y math (see `compute()` below).
+  const runwayRef = useRef<HTMLDivElement>(null);
   // Layout containers — one per breakpoint, both rendered but
   // visibility switched via Tailwind. The active container is the
   // one whose layout matches the current viewport.
@@ -856,18 +877,42 @@ function SevenStarsOrbital() {
     let active = true;
 
     const compute = () => {
+      // DESKTOP: progress is driven by the user's scroll through the
+      // RUNWAY (the tall outer wrapper). Inside the runway, the
+      // section is sticky-pinned to the viewport top, so the user's
+      // scroll progresses the animation while the section appears to
+      // stay still. progress = 0 the instant the runway's top reaches
+      // viewport top (pin engages); progress = 1 the instant the
+      // runway's bottom passes viewport bottom (pin releases).
+      if (isDesktop) {
+        const runway = runwayRef.current;
+        if (!runway) return;
+        const vh = window.innerHeight;
+        const scrollableDistance = runway.offsetHeight - vh;
+        if (scrollableDistance <= 0) {
+          target = 0;
+          return;
+        }
+        const rRect = runway.getBoundingClientRect();
+        const scrolled = -rRect.top;
+        target = Math.max(0, Math.min(1, scrolled / scrollableDistance));
+        return;
+      }
+
+      // MOBILE: original anchor — progress maps Wakon's settled
+      // viewport-Y from START_Y_FRACTION_MOBILE → END_Y_FRACTION_MOBILE.
+      // The vertical column of seven planets is taller than viewport,
+      // so pinning would only show the top 3-4 planets; the original
+      // scroll-through-the-column behaviour reveals all seven as they
+      // pass through the viewport.
       const { container } = getActive();
       const wakonFinal = finalPositions[WAKON_INDEX];
       if (!container || !wakonFinal) return;
-      // Anchor progress to Wakon's settled position in the viewport.
-      // endY differs per breakpoint (see END_Y_FRACTION_* above) —
-      // mobile uses a shallower end so all seven planets can be
-      // visible at their reveal moments across the cascade.
       const containerRect = container.getBoundingClientRect();
       const wakonViewportY = containerRect.top + wakonFinal.y;
       const vh = window.innerHeight;
-      const startY = vh * (isDesktop ? START_Y_FRACTION_DESKTOP : START_Y_FRACTION_MOBILE);
-      const endY = vh * (isDesktop ? END_Y_FRACTION_DESKTOP : END_Y_FRACTION_MOBILE);
+      const startY = vh * START_Y_FRACTION_MOBILE;
+      const endY = vh * END_Y_FRACTION_MOBILE;
       const raw = (startY - wakonViewportY) / (startY - endY);
       target = Math.max(0, Math.min(1, raw));
     };
@@ -1052,85 +1097,127 @@ function SevenStarsOrbital() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 space-breathing"
-    >
-      <div className="text-center max-w-[900px] mx-auto">
-        <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-balance text-washi max-w-[760px] mx-auto px-4 md:px-0">
-          <TextReveal as="span" className="block" stagger={STAGGER.hero}>
-            Seven stars gathered their light,
-          </TextReveal>
-          <TextReveal
-            as="span"
-            className="block"
-            stagger={STAGGER.hero}
-            delay={STAGGER.hero}
-          >
-            each revealing their Kokoro.
-          </TextReveal>
-        </h2>
-      </div>
-
-      {/* Desktop layout — horizontal row, mirrors production. Each
-          PlanetButton wrapped in a div that the rAF loop transforms
-          into orbital position during the entrance.
-          `position: relative` on the container makes it the
-          offsetParent of the planet wrappers, so offsetLeft/Top
-          values read by the rAF loop are relative to the container
-          (which is what the orbital math assumes).
-          mt-28/32/36 (vs production's mt-16/20/24): the orbital
-          phase carries planets to the top of the orbit ~170px above
-          the row's natural position. The extra ~48px gap to the
-          heading above keeps the orbit from kissing the title line
-          when it's at its highest point. */}
+    <section ref={sectionRef} className="relative">
+      {/* RUNWAY — outer scroll container.
+          Desktop: tall (RUNWAY_VH_DESKTOP) so the user has scroll room
+          for the orbital + cascade while the inner content is pinned.
+          Mobile: natural height, no pinning; the inner content sits in
+          flow exactly as before. */}
       <div
-        ref={desktopContainerRef}
-        className="hidden md:block mt-28 lg:mt-32 xl:mt-36 relative"
+        ref={runwayRef}
+        className="relative"
+        style={{
+          // Inline style so the runway height token lives next to its
+          // constant. md+ only — mobile falls back to natural height.
+          ["--runway-h" as string]: `${RUNWAY_VH_DESKTOP}vh`,
+        }}
       >
-        <div className="flex items-end justify-center gap-0">
-          {STARS.map((star, i) => (
-            <div
-              key={star.slug}
-              ref={(el) => {
-                desktopWrapRefs.current[i] = el;
-              }}
-              className="flex-shrink-0 will-change-transform"
-            >
-              <DemoPlanetButton
-                star={star}
-                isRevealed={revealedIndices.includes(i)}
-                nameRef={(el) => {
-                  desktopNameRefs.current[i] = el;
-                }}
-                variant="stacked"
-              />
+        <style>{`
+          @media (min-width: 768px) {
+            .seven-stars-runway { height: var(--runway-h); }
+          }
+        `}</style>
+        <div className="seven-stars-runway">
+          {/* PINNED INNER — sticky to viewport top on desktop, in flow
+              on mobile. h-screen + overflow-hidden on desktop so the
+              pinned area exactly fills the viewport.
+              Layout when pinned:
+                top:    Separator (matches the "scroll lock when
+                        separator hits viewport top" gesture)
+                middle: heading + planets, vertically centred in the
+                        remaining height. */}
+          <div className="md:sticky md:top-0 md:h-screen md:overflow-hidden md:flex md:flex-col">
+            {/* Separator at the top of the pinned area — it freezes
+                here when the pin engages, and unfreezes when the
+                runway scrolls out. */}
+            <div className="md:flex-shrink-0">
+              <Separator />
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Mobile layout — vertical column, mirrors production. */}
-      <div ref={mobileContainerRef} className="md:hidden mt-12 relative">
-        <div className="flex flex-col items-center gap-0">
-          {STARS.map((star, i) => (
-            <div
-              key={star.slug}
-              ref={(el) => {
-                mobileWrapRefs.current[i] = el;
-              }}
-              className="w-[280px] flex justify-start will-change-transform"
-            >
-              <DemoPlanetButton
-                star={star}
-                isRevealed={revealedIndices.includes(i)}
-                nameRef={(el) => {
-                  mobileNameRefs.current[i] = el;
-                }}
-                variant="inline"
-              />
+            {/* Main composition — centred in the pinned viewport on
+                desktop. On mobile this just flows naturally inside the
+                section with the original space-breathing padding. */}
+            <div className="md:flex-1 md:flex md:flex-col md:justify-center px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 space-breathing md:!py-0">
+              <div className="text-center max-w-[900px] mx-auto">
+                <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] tracking-[0.01em] text-balance text-washi max-w-[760px] mx-auto px-4 md:px-0">
+                  <TextReveal as="span" className="block" stagger={STAGGER.hero}>
+                    Seven stars gathered their light,
+                  </TextReveal>
+                  <TextReveal
+                    as="span"
+                    className="block"
+                    stagger={STAGGER.hero}
+                    delay={STAGGER.hero}
+                  >
+                    each revealing their Kokoro.
+                  </TextReveal>
+                </h2>
+              </div>
+
+              {/* Desktop layout — horizontal row, mirrors production.
+                  Each PlanetButton wrapped in a div that the rAF loop
+                  transforms into orbital position during the entrance.
+                  `position: relative` on the container makes it the
+                  offsetParent of the planet wrappers, so offsetLeft /
+                  Top values read by the rAF loop are relative to the
+                  container (which is what the orbital math assumes).
+                  mt-28/32/36 (vs production's mt-16/20/24): the
+                  orbital phase carries planets to the top of the orbit
+                  ~170px above the row's natural position. The extra
+                  ~48px gap to the heading above keeps the orbit from
+                  kissing the title line when it's at its highest
+                  point. */}
+              <div
+                ref={desktopContainerRef}
+                className="hidden md:block mt-28 lg:mt-32 xl:mt-36 relative"
+              >
+                <div className="flex items-end justify-center gap-0">
+                  {STARS.map((star, i) => (
+                    <div
+                      key={star.slug}
+                      ref={(el) => {
+                        desktopWrapRefs.current[i] = el;
+                      }}
+                      className="flex-shrink-0 will-change-transform"
+                    >
+                      <DemoPlanetButton
+                        star={star}
+                        isRevealed={revealedIndices.includes(i)}
+                        nameRef={(el) => {
+                          desktopNameRefs.current[i] = el;
+                        }}
+                        variant="stacked"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile layout — vertical column, mirrors production. */}
+              <div ref={mobileContainerRef} className="md:hidden mt-12 relative">
+                <div className="flex flex-col items-center gap-0">
+                  {STARS.map((star, i) => (
+                    <div
+                      key={star.slug}
+                      ref={(el) => {
+                        mobileWrapRefs.current[i] = el;
+                      }}
+                      className="w-[280px] flex justify-start will-change-transform"
+                    >
+                      <DemoPlanetButton
+                        star={star}
+                        isRevealed={revealedIndices.includes(i)}
+                        nameRef={(el) => {
+                          mobileNameRefs.current[i] = el;
+                        }}
+                        variant="inline"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
