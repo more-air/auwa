@@ -323,7 +323,22 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         }}
       />
 
-      {/* Panel — z-85. Header (z-100) stays above. */}
+      {/* Panel — z-85. Header (z-100) stays above.
+          visibility: hidden when idle (phase === "visible") so the
+          Surface-coloured panel parked at translateY(100%) cannot
+          paint a single pixel between transitions. On Android Chrome,
+          URL-bar collapse/expand viewport resize re-positions every
+          fixed element to the new viewport bottom; the panel
+          occasionally overshoots back into the visible area for one
+          frame, flashing a Surface (warm off-white) strip at the
+          bottom edge — stark white against /book's Yoru page, faint
+          against the home Surface page. Setting visibility:hidden
+          when idle removes the panel from painting entirely (it
+          stays in the layout, transform/bg ready for the next
+          transition), so even if Chrome mispositions it, there's
+          nothing to render. visibility flips to "visible" the same
+          render as phase enters "leaving", before the transform
+          animation begins, so the wipe is uninterrupted. */}
       <div
         aria-hidden="true"
         className="fixed inset-0 z-[85] pointer-events-none"
@@ -331,6 +346,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
           backgroundColor: panelBg,
           transform: panelTransform,
           transition: panelTransition,
+          visibility: phase === "visible" ? "hidden" : "visible",
           willChange:
             phase === "visible" ? undefined : "transform",
         }}
