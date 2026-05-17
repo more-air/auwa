@@ -111,59 +111,68 @@ export function FigureHook() {
     };
   }, [pathname]);
 
-  if (HIDE_ON.includes(pathname)) return null;
-
-  const show = scrolledPast && !nearFooter;
+  // HIDE_ON paths: the FigureHook STILL renders (DOM persists), but is
+  // pushed off-screen via transform and made non-interactive +
+  // accessibility-hidden. Why: returning null on HIDE_ON destroys the
+  // DOM element on every navigation, and a freshly-recreated element
+  // has to be re-promoted to a fresh compositor layer. On Android
+  // Chrome's Blink compositor, the layer's bounding box and 1px border
+  // can paint a frame BEFORE the background-color fill arrives —
+  // producing a "white block with thin top border, then dark fills in
+  // a frame later". Symptom only appears on SECOND visit (home →
+  // /book → home), because first-mount the element has been
+  // continuously composited since page load and the race window has
+  // already passed. Keeping the DOM permanent keeps its layer warm.
+  const onHidePage = HIDE_ON.includes(pathname);
+  const show = !onHidePage && scrolledPast && !nearFooter;
 
   return (
     <div
       aria-hidden={!show}
       // bg-yoru + border-t live on the OUTER wrapper, not the inner
       // Link, AND are pinned via inline style with hardcoded hex
-      // values (not Tailwind / CSS-variable). Reason: during the
-      // opacity+transform transition on iOS Safari AND during Android
-      // Chrome's URL-bar collapse/expand viewport resize, the
-      // compositor occasionally re-rasterises the bottom-fixed layer
-      // and paints one frame with the layer's bounding box but no
-      // background (showing the page surface through it for ~1 frame,
-      // with the top border floating as a thin line). Two layered
-      // fixes:
-      //   1. backgroundColor + borderTop inline with hex values, so
-      //      the paint never has to wait on CSS-variable resolution
-      //      during the re-rasterise.
-      //   2. willChange + backfaceVisibility hint the compositor to
-      //      keep this on a permanent GPU layer, so URL-bar resize
-      //      doesn't trigger a full re-rasterise in the first place.
+      // values (not Tailwind / CSS-variable). Layered defenses against
+      // the Android Chrome / iOS Safari compositor race where the
+      // bounding box + border paint a frame before the bg fill:
+      //   1. backgroundColor + borderTop inline with hex values — no
+      //      CSS-variable resolution during the re-rasterise.
+      //   2. opacity locked at 1 — no partially-transparent frames.
+      //   3. willChange + backfaceVisibility — keep the GPU layer
+      //      permanently promoted, no on-demand layer creation.
+      //   4. contain: layout style paint — paint is fully bounded to
+      //      the element's box; the browser cannot commit border /
+      //      bounding-box paint independently from the bg-fill paint.
+      //      Atomic commit eliminates the cross-frame split that was
+      //      producing the "white-first-then-dark" sequence.
+      //   5. DOM persistence across HIDE_ON paths (see comment above
+      //      on onHidePage) — layer stays warm across navigations.
       className="fixed bottom-0 inset-x-0 z-[70] pointer-events-none"
       style={{
         backgroundColor: "#0f1623", // --color-yoru
         borderTop: "1px solid rgba(243, 240, 232, 0.1)", // washi/10
-        // TRANSFORM-ONLY reveal — opacity is permanently 1.
-        // Earlier opacity-based fade caused Android Chrome to paint a
-        // pre-transition frame where the composited layer was at low
-        // alpha, showing the page Surface (warm off-white) through
-        // the layer's bounding box for ~1 frame with the washi/10
-        // border floating as a thin line. With opacity locked at 1,
-        // the dark backgroundColor is the ONLY thing ever painted in
-        // the layer's bounds — so the bg can never visually "miss".
-        // Hide is purely positional: translate the whole strip 100%
-        // below the viewport edge; reveal slides it back up.
         opacity: 1,
         transform: show ? "translate3d(0, 0, 0)" : "translate3d(0, 100%, 0)",
         willChange: "transform",
         WebkitBackfaceVisibility: "hidden",
         backfaceVisibility: "hidden",
+        contain: "layout style paint",
         // Snap on first paint after mount / route change (see `snap`
         // above) so the strip never animates IN from a stale pre-
         // nav position when the new page mounts — which produced
         // the 10px dark lip flash at the bottom on article loads.
-        transition: snap
-          ? "none"
-          : `transform ${DURATION.reveal}ms ${EASING.outExpo}`,
+        // Also snap on HIDE_ON pages so the strip stays put off-
+        // screen without a visible slide-out as the user navigates
+        // into /book, /store, etc.
+        transition:
+          snap || onHidePage
+            ? "none"
+            : `transform ${DURATION.reveal}ms ${EASING.outExpo}`,
       }}
     >
       <Link
         href="/store"
+        tabIndex={show ? 0 : -1}
+        aria-hidden={!show}
         className="group pointer-events-auto block"
       >
         <div className="flex items-center justify-between gap-6 px-6 md:px-12 lg:px-20 xl:px-28 h-14 md:h-16">
