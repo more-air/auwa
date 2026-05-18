@@ -14,6 +14,16 @@ import { CursorTrail } from "./cursor-trail";
   On hover (desktop + pointer:fine), a CursorTrail emits soft warm-light
   particles at the cursor position — like the kokoro light shower being
   drawn out by the visitor's attention.
+
+  KNOWN ISSUE: on Safari refresh there is a brief frame where the warm
+  soft-light overlay can flash as a brown rectangle before the video
+  paints. We tried several mitigations (conditional render, gating on
+  requestVideoFrameCallback, bfcache handling, opacity transitions, a
+  lighter gradient) and none reliably eliminated it — Safari's compositor
+  paints the blend-mode layer before the video pixels are on screen. The
+  warm vibe of the card is worth the trade-off; the flash is brief and
+  rare (refresh only, not navigation), and the live-site behaviour matches
+  what shipped first.
 */
 
 export function BookHeroCard() {
@@ -37,15 +47,23 @@ export function BookHeroCard() {
       // GPU-promoted layers — including <video> and <canvas>, which
       // otherwise render with square corners regardless of an
       // overflow-hidden parent. Tailwind's rounded-md is 6px.
-      className="group block relative aspect-[4/5] md:aspect-[16/9]"
+      //
+      // isolation:isolate creates a stacking context so the mix-blend-
+      // soft-light warm tint blends only against the video inside this
+      // Link and nothing outside it.
+      className="group block relative aspect-[4/5] md:aspect-[16/9] isolate"
       style={{ clipPath: "inset(0 round 6px)" }}
     >
       <video
         ref={videoRef}
-        // rounded-md as belt-and-braces alongside the parent clip-path —
-        // Safari sometimes treats <video> as a separate compositor layer
-        // that doesn't inherit the parent's clip.
+        // will-change: transform forces the <video> onto a standard CSS
+        // compositor layer (instead of Safari's specialised video-decoder
+        // pipeline that CSS blend modes don't see), so the warm soft-light
+        // overlay below applies consistently on every browser.
+        //
+        // rounded-md belt-and-braces alongside the parent clip-path.
         className="absolute inset-0 w-full h-full object-cover rounded-md"
+        style={{ willChange: "transform" }}
         poster="/book/hero/auwa-hero-poster.jpg"
         autoPlay
         loop
@@ -56,15 +74,22 @@ export function BookHeroCard() {
         <source src="/book/hero/auwa-hero-card.mp4" type="video/mp4" />
       </video>
 
+      {/* Warm tint — soft-light blend with the brand's washi/kraft pair
+          pulls the cool cosmic bokeh toward the warm palette of the rest
+          of the page. The bottom-darkening gradient (from-sumi/40) that
+          usually pairs with text-over-image cards is omitted so the wash
+          isn't compounded into reading darker than intended. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none mix-blend-soft-light"
+        style={{
+          background:
+            "linear-gradient(135deg, var(--color-washi) 0%, var(--color-kraft) 100%)",
+        }}
+      />
+
       <CursorTrail />
 
-      {/* Bottom-left text overlay. The site-wide text-card convention
-          adds a from-sumi/40 bottom-darkening gradient for readability,
-          but it's omitted here so the video reads as bright as the
-          source. Text legibility relies on the character's bright halo
-          sitting above the text and the white surface tone of the type
-          itself; if it ever looks weak on a brighter bokeh frame, add a
-          subtle text-shadow rather than reintroducing the gradient. */}
       <div className="absolute bottom-0 left-0 p-6 md:p-10 max-w-[90%]">
         <h3 className="font-display text-[32px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[0.005em] text-surface">
           Meet Auwa.
