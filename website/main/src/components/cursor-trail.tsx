@@ -200,6 +200,12 @@ export function CursorTrail({
     <canvas
       ref={canvasRef}
       aria-hidden="true"
+      // inherit the parent's border-radius. <canvas>, like <video>, is
+      // often promoted to its own GPU compositor layer that doesn't
+      // always inherit the parent's overflow clip on Safari — particularly
+      // inside an isolation:isolate stacking context. Inheriting the
+      // radius applies the clip to the canvas's own layer.
+      style={{ borderRadius: "inherit" }}
       className={`absolute inset-0 w-full h-full pointer-events-none ${className}`}
     />
   );

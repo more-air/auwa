@@ -38,7 +38,12 @@ export function BookHeroCard() {
     >
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        // rounded-md on the video itself: Safari promotes <video> to a
+        // separate compositor layer that doesn't always inherit the
+        // parent's border-radius clip, particularly inside an
+        // isolation:isolate stacking context on an anchor. Applying
+        // the radius directly to the video layer is the reliable fix.
+        className="absolute inset-0 w-full h-full object-cover rounded-md"
         poster="/book/hero/auwa-hero-poster.jpg"
         autoPlay
         loop
