@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { AuwaCharacter } from "@/components/auwa-character";
 import { BookPreview } from "@/components/book-preview";
+import { CursorTrail } from "@/components/cursor-trail";
 import { DarkPageTheme } from "@/components/dark-page-theme";
 import { EditorialFeature } from "@/components/editorial-feature";
 import { FadeIn } from "@/components/fade-in";
@@ -186,6 +187,18 @@ function Hero() {
             its own sentinel. */}
         <HeaderTone tone="surface" />
         <BookHeroLayers />
+        {/* Cursor particle trail — same component as the home card, but
+            tuned dimmer + larger for the dark full-bleed Yoru background
+            and the bigger surface area. Sits above the layered images
+            but below the scrims (z-[5]) so the bottom gradient still
+            darkens the page bridge. */}
+        <CursorTrail
+          sizeMin={5}
+          sizeMax={14}
+          maxAlpha={0.4}
+          spawnIntervalMs={14}
+          maxParticles={150}
+        />
         {/* Top scrim — keeps the washi header glyphs legible over busy
             imagery without darkening the image meaningfully. */}
         <div
