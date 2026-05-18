@@ -32,17 +32,19 @@ export function BookHeroCard() {
     <Link
       href="/book"
       data-cursor="Open"
-      // isolation:isolate gives Safari a proper stacking context so the
-      // mix-blend-soft-light warm tint blends against the video below.
-      className="group block relative aspect-[4/5] md:aspect-[16/9] overflow-hidden rounded-md isolate"
+      // clip-path on the Link is enforced at the compositor level (not
+      // just the paint level) so Safari respects it across all child
+      // GPU-promoted layers — including <video> and <canvas>, which
+      // otherwise render with square corners regardless of an
+      // overflow-hidden parent. Tailwind's rounded-md is 6px.
+      className="group block relative aspect-[4/5] md:aspect-[16/9]"
+      style={{ clipPath: "inset(0 round 6px)" }}
     >
       <video
         ref={videoRef}
-        // rounded-md on the video itself: Safari promotes <video> to a
-        // separate compositor layer that doesn't always inherit the
-        // parent's border-radius clip, particularly inside an
-        // isolation:isolate stacking context on an anchor. Applying
-        // the radius directly to the video layer is the reliable fix.
+        // rounded-md as belt-and-braces alongside the parent clip-path —
+        // Safari sometimes treats <video> as a separate compositor layer
+        // that doesn't inherit the parent's clip.
         className="absolute inset-0 w-full h-full object-cover rounded-md"
         poster="/book/hero/auwa-hero-poster.jpg"
         autoPlay
@@ -54,27 +56,15 @@ export function BookHeroCard() {
         <source src="/book/hero/auwa-hero-card.mp4" type="video/mp4" />
       </video>
 
-      {/* Warm tint — soft-light blend with the brand's washi/kraft pair
-          pulls the cool cosmic bokeh toward the warm palette of the rest
-          of the page. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none mix-blend-soft-light"
-        style={{
-          background:
-            "linear-gradient(135deg, var(--color-washi) 0%, var(--color-kraft) 100%)",
-        }}
-      />
-
-      {/* Cursor particle trail. Sits above the tint (so particles read as
-          real emitted light, not muted by atmosphere) but below the bottom
-          gradient + text overlay (so text stays clean). Defaults tuned for
-          this card's busy cosmic bokeh field. */}
       <CursorTrail />
 
-      {/* Bottom-left text overlay — same gradient + type pattern as the
-          two-up onsen / nozawa cards on this page. */}
-      <div className="absolute inset-0 bg-gradient-to-t from-sumi/40 via-transparent to-transparent" />
+      {/* Bottom-left text overlay. The site-wide text-card convention
+          adds a from-sumi/40 bottom-darkening gradient for readability,
+          but it's omitted here so the video reads as bright as the
+          source. Text legibility relies on the character's bright halo
+          sitting above the text and the white surface tone of the type
+          itself; if it ever looks weak on a brighter bokeh frame, add a
+          subtle text-shadow rather than reintroducing the gradient. */}
       <div className="absolute bottom-0 left-0 p-6 md:p-10 max-w-[90%]">
         <h3 className="font-display text-[32px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[0.005em] text-surface">
           Meet Auwa.
