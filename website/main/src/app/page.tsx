@@ -393,11 +393,55 @@ export default function Home() {
           }}
         />
 
-        {/* Trailing gap before the footer. Mirrors the 96px that sits
-            between adjacent sections elsewhere on the page, so VideoMoment
-            doesn't butt up against the footer. Without this the space
-            below the last module reads tight against the space above it. */}
-        <div className="h-16 md:h-24" aria-hidden="true" />
+        <Separator />
+
+        {/* Closing invitation. The Meet Auwa block above handles the
+            atmospheric setup (video + descriptive body); this is the
+            action beat — a final weighted call into /book before the
+            footer. CTA uses CtaLink (the site-wide bordered button) to
+            stay consistent with the "Our Story" CTA up at the intro.
+            Padding is one-off: bigger than space-breathing (the
+            pullquote token at 112/176px) because this is a final
+            declaration before the footer rather than a mid-page rest,
+            and it wants visible separation from the Meet Auwa block
+            above and the dark Yoru footer below.
+            A soft radial glow pulses behind the heading + button —
+            colour palette echoes Auwa's character halo (warm cream
+            through soft amber with a whisper of cosmic violet at the
+            edge), connecting this moment to the /book hero visually
+            without re-using its imagery literally. The pulse is slow
+            (5s, ease-in-out) so it reads as breathing, not flashing. */}
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-52 md:py-80 relative overflow-hidden">
+          <FadeIn className="absolute inset-0 pointer-events-none flex items-center justify-center">
+            <div
+              aria-hidden="true"
+              className="book-closing-glow"
+              style={{
+                width: "min(800px, 90%)",
+                aspectRatio: "1 / 1",
+                background: "radial-gradient(circle at center, rgba(255,240,200,0.55) 0%, rgba(250,220,180,0.4) 18%, rgba(230,200,220,0.25) 42%, rgba(200,195,230,0.14) 62%, transparent 80%)",
+                filter: "blur(20px)",
+              }}
+            />
+          </FadeIn>
+          <div className="max-w-[1100px] mx-auto text-center relative">
+            {/* Heading cascades word-by-word (TextReveal). With default
+                80ms stagger and 4 words, the last word fires at ~240ms;
+                each word fades in over DURATION.enter (800ms), so the
+                full cascade completes around 1040ms. Button delay 650ms
+                so it begins fading in while the last word is settling —
+                heading lands, button arrives just behind it. */}
+            <TextReveal
+              as="h2"
+              className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] tracking-[0.005em] text-sumi"
+            >
+              Ready to step in?
+            </TextReveal>
+            <FadeIn delay={650} className="mt-10 md:mt-12">
+              <CtaLink href="/book" variant="primary">Open book</CtaLink>
+            </FadeIn>
+          </div>
+        </section>
 
         </div>
       </main>

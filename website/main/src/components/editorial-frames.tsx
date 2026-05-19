@@ -274,9 +274,11 @@ export function EditorialFrames() {
 
             {/* Pillar tab row. On tablet, the row is centred beneath the
                 composition; on xl it anchors to the left of the editorial
-                column. mt-10 keeps the tabs close to the CTA on tablet —
-                mt-24 on xl matches the desktop rhythm. */}
-            <div className="mt-10 xl:mt-24">
+                column. Spacing progression: mt-10 mobile (40px) → md:mt-16
+                tablet (64px) → xl:mt-24 desktop (96px), so each viewport
+                tier gets a proportional breathing increment between the
+                frame CTA and the tab row. */}
+            <div className="mt-10 md:mt-16 xl:mt-24">
               <div className="flex items-end gap-5 md:gap-8 max-w-[520px] mx-auto xl:mx-0">
                 {FRAMES.map((f, i) => (
                   <button

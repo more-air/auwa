@@ -361,6 +361,24 @@ textarea:focus-visible {
   to { opacity: 1; }
 }
 
+/* Soft pulsing halo behind the home page's closing "Ready to step in?"
+   moment. Breathes from near-zero to full glow so the halo appears to
+   bloom in and dissolve away with each cycle — gentler than a constant
+   presence, more inviting than a flash. 5s ease-in-out keeps the
+   rhythm at breathing pace, not heartbeat. Disabled under
+   prefers-reduced-motion — the static state at 0.6 opacity still
+   provides the warm halo feel without animation. */
+@keyframes book-closing-glow-pulse {
+  0%, 100% { opacity: 0.05; transform: scale(0.92); }
+  50%      { opacity: 0.85; transform: scale(1.06); }
+}
+.book-closing-glow {
+  animation: book-closing-glow-pulse 5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-closing-glow { animation: none; opacity: 0.6; transform: scale(1); }
+}
+
 /* Sound-toggle wave bars — each bar gets a different duration + delay
    so the four together read as an organic music wave rather than a
    metronome. transform-origin is the centre of the bar so it scales

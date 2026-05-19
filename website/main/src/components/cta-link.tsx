@@ -77,8 +77,18 @@ export function CtaLink({
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 overflow-hidden"
         >
+          {/* Flood extends 1px beyond the wrapper on left and right.
+              The wrapper's overflow-hidden clips the overhang invisibly,
+              but it guarantees the visible interior fills fully even
+              when the parent CtaLink sits at sub-pixel coordinates —
+              which happens in text-center contexts (MicroSeasonFeature,
+              the home page closing prompt) where the centering algorithm
+              produces fractional offsets. Without the overshoot, Chrome's
+              compositor rounds the clip box to integer pixels but the
+              flood's transform rounds independently, producing a 1px
+              white sliver on one side during the rise. */}
           <span
-            className={`absolute inset-0 ${floodColour} origin-bottom scale-y-0 transition-transform duration-500 ease-text-roll group-hover:scale-y-100`}
+            className={`absolute inset-y-0 -inset-x-px ${floodColour} origin-bottom scale-y-0 transition-transform duration-500 ease-text-roll group-hover:scale-y-100`}
           />
         </span>
       )}
