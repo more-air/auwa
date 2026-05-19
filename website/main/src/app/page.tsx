@@ -411,7 +411,7 @@ export default function Home() {
             edge), connecting this moment to the /book hero visually
             without re-using its imagery literally. The pulse is slow
             (5s, ease-in-out) so it reads as breathing, not flashing. */}
-        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-52 md:py-80 relative overflow-hidden">
+        <section className="px-6 md:px-12 lg:px-20 xl:px-28 py-64 md:py-80 relative overflow-hidden">
           <FadeIn className="absolute inset-0 pointer-events-none flex items-center justify-center">
             <div
               aria-hidden="true"

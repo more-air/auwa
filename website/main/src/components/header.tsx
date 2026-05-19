@@ -187,10 +187,24 @@ export function Header() {
       if (e.key === "Escape") setMenuOpen(false);
     };
     const onResync = () => setMenuOpen(false);
+    // Lock background scroll while the menu is open. Without this, on
+    // Android Chrome a scroll gesture on the menu would scroll the body
+    // beneath, and the URL-bar collapse/expand triggered by that scroll
+    // would briefly expose a gap below the fixed menu (the fixed
+    // element is anchored to the layout viewport, but the visual
+    // viewport grows/shrinks during the URL-bar transition, and there's
+    // a frame where they're misaligned). Event-based lock — not
+    // `body.style.overflow = "hidden"` — to avoid the sticky-element
+    // re-anchor wobble we hit with the EntranceLoader (May 2026).
+    const blockScroll = (e: Event) => e.preventDefault();
+    window.addEventListener("wheel", blockScroll, { passive: false });
+    window.addEventListener("touchmove", blockScroll, { passive: false });
     document.addEventListener("keydown", onKey);
     window.addEventListener("pageshow", onResync);
     document.addEventListener("visibilitychange", onResync);
     return () => {
+      window.removeEventListener("wheel", blockScroll);
+      window.removeEventListener("touchmove", blockScroll);
       document.removeEventListener("keydown", onKey);
       window.removeEventListener("pageshow", onResync);
       document.removeEventListener("visibilitychange", onResync);

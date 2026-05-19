@@ -86,6 +86,14 @@ export function EntranceLoader() {
     window.addEventListener("wheel", blockScroll, { passive: false });
     window.addEventListener("touchmove", blockScroll, { passive: false });
     window.addEventListener("keydown", blockKeys);
+    let scrollLocked = true;
+    const releaseScrollLock = () => {
+      if (!scrollLocked) return;
+      scrollLocked = false;
+      window.removeEventListener("wheel", blockScroll);
+      window.removeEventListener("touchmove", blockScroll);
+      window.removeEventListener("keydown", blockKeys);
+    };
 
     // Timeline
     const enterA = 100;
@@ -114,10 +122,18 @@ export function EntranceLoader() {
         () => setChars((c) => [c[0], c[1], "visible"]),
         enterWa
       ),
-      window.setTimeout(
-        () => setChars((c) => [c[0], c[1], "exited"]),
-        exitWa
-      ),
+      window.setTimeout(() => {
+        setChars((c) => [c[0], c[1], "exited"]);
+        // Release scroll lock the moment chars start exiting. Visually
+        // the loader is dismissing from this point on, and the user's
+        // first swipe instinct lands here. Previously the lock held
+        // until doneTime (~4800ms after mount), so a quick first swipe
+        // was silently preventDefault'd and the user thought scroll
+        // was broken — they'd swipe a second time after the lock
+        // released and only then see the page move (Android Chrome
+        // report, May 2026).
+        releaseScrollLock();
+      }, exitWa),
       window.setTimeout(
         () => setChars((c) => [c[0], "exited", c[2]]),
         exitU
@@ -134,17 +150,16 @@ export function EntranceLoader() {
         // invoke of this effect (run 1 sets flag, cleanup, run 2 reads
         // flag and skips).
         sessionStorage.setItem(STORAGE_KEY, "1");
-        window.removeEventListener("wheel", blockScroll);
-        window.removeEventListener("touchmove", blockScroll);
-        window.removeEventListener("keydown", blockKeys);
+        // releaseScrollLock is idempotent and guards against double-
+        // removal — covers the case where the user never tripped the
+        // exitWa release path (e.g. unmount triggered early).
+        releaseScrollLock();
       }, doneTime),
     ];
 
     return () => {
       timers.forEach((t) => window.clearTimeout(t));
-      window.removeEventListener("wheel", blockScroll);
-      window.removeEventListener("touchmove", blockScroll);
-      window.removeEventListener("keydown", blockKeys);
+      releaseScrollLock();
     };
   }, []);
 
