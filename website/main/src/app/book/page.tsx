@@ -930,6 +930,16 @@ function SevenStarsOrbital() {
       target = Math.max(0, Math.min(1, raw));
     };
 
+    // Per-element cache so the rAF tick can short-circuit identical
+    // transform writes. Without this, every frame re-assigns the same
+    // transform string to each of the 7 wraps and to the name spans,
+    // and Safari can invalidate the GPU layer's rasterisation on each
+    // assignment — manifests as a "the whole pinned module vibrates"
+    // jitter during scroll, even when none of the values have actually
+    // changed.
+    const lastTransform = new WeakMap<HTMLElement, string>();
+    const lastOpacity = new WeakMap<HTMLElement, string>();
+
     const apply = (now: number, p: number) => {
       const { container, wraps, names } = getActive();
       const wakonFinal = finalPositions[WAKON_INDEX];
@@ -1011,7 +1021,11 @@ function SevenStarsOrbital() {
         const dx = (orbitalX - finalPos.x) * (1 - eased);
         const dy = (orbitalY - finalPos.y) * (1 - eased);
 
-        wrap.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
+        const nextTransform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
+        if (lastTransform.get(wrap) !== nextTransform) {
+          wrap.style.transform = nextTransform;
+          lastTransform.set(wrap, nextTransform);
+        }
 
         const name = names[i];
         if (name) {
@@ -1021,7 +1035,11 @@ function SevenStarsOrbital() {
           // the start of the kokoro cascade.
           const nameStart = orbitalEnd - 0.02;
           const nameOpacity = Math.max(0, Math.min(1, (p - nameStart) / 0.08));
-          name.style.opacity = String(nameOpacity);
+          const nextOpacity = nameOpacity.toFixed(2);
+          if (lastOpacity.get(name) !== nextOpacity) {
+            name.style.opacity = nextOpacity;
+            lastOpacity.set(name, nextOpacity);
+          }
         }
       });
 
@@ -1094,6 +1112,7 @@ function SevenStarsOrbital() {
 
     const tick = (now: number) => {
       if (!active) return;
+      compute();
       current += (target - current) * 0.16;
       apply(now, current);
       raf = requestAnimationFrame(tick);
@@ -1139,7 +1158,10 @@ function SevenStarsOrbital() {
                         separator hits viewport top" gesture)
                 middle: heading + planets, vertically centred in the
                         remaining height. */}
-          <div className="md:sticky md:top-0 md:h-screen md:overflow-hidden md:flex md:flex-col">
+          <div
+            className="md:sticky md:top-0 md:h-screen md:overflow-hidden md:flex md:flex-col"
+            style={{ willChange: "transform" }}
+          >
             {/* Separator at the top of the pinned area — it freezes
                 here when the pin engages, and unfreezes when the
                 runway scrolls out. */}
