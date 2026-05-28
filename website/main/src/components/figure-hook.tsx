@@ -23,6 +23,17 @@ import { DURATION, EASING } from "@/lib/motion";
 */
 
 const HIDE_ON = ["/store", "/app", "/book", "/book-signup", "/instagram"];
+// Prefix-matched hides — the /app/pwa Kokoro Mirror surface is a
+// distinct cosmic-themed experience that should not carry editorial
+// chrome. Any nested route below it (/app/pwa/archive, /app/pwa/trove,
+// etc.) is also suppressed.
+const HIDE_PREFIXES = ["/app/pwa"];
+function isHidden(pathname: string) {
+  return (
+    HIDE_ON.includes(pathname) ||
+    HIDE_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+  );
+}
 const SCROLL_IN_THRESHOLD = 600; // px — appears after the hero is past
 
 export function FigureHook() {
@@ -68,7 +79,7 @@ export function FigureHook() {
   }, [snap]);
 
   useEffect(() => {
-    if (HIDE_ON.includes(pathname)) return;
+    if (isHidden(pathname)) return;
 
     const main = document.querySelector("main");
     if (!main) return;
@@ -123,7 +134,7 @@ export function FigureHook() {
   // /book → home), because first-mount the element has been
   // continuously composited since page load and the race window has
   // already passed. Keeping the DOM permanent keeps its layer warm.
-  const onHidePage = HIDE_ON.includes(pathname);
+  const onHidePage = isHidden(pathname);
   const show = !onHidePage && scrolledPast && !nearFooter;
 
   return (

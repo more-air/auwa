@@ -40,10 +40,33 @@ html[data-page-theme="dark"] main {
   color: var(--color-washi);
 }
 
+/* Cosmic-theme page surface. Pages opt in by setting
+   data-page-theme="cosmic" on <html> (see CosmicPageTheme). Reserved
+   for the Kokoro Mirror app at /app/pwa/* — a third theme alongside
+   light (warm Surface) and dark (Yoru). The cosmic surface is true
+   near-black (Void, L 0.08) at hue 250, distinct from Yoru's L 0.16
+   hue 235. Primary text is cosmic-50 (near-white, faint cool cast)
+   so it stays inside the cosmic hue family. Secondary text is
+   cosmic-400. The five Yamato gradient families bloom on top of this
+   surface during the revelation. */
+html[data-page-theme="cosmic"],
+html[data-page-theme="cosmic"] body,
+html[data-page-theme="cosmic"] main {
+  background-color: var(--color-void);
+  color: var(--color-cosmic-50);
+}
+
 @theme inline {
-  /* Cosmic palette — kept for app-context use (Kokoro reveal gradients,
-     emotional state backgrounds). Not used as text or surface on the
-     editorial website; that role belongs to the Sumi/Yoru/Washi trio. */
+  /* Cosmic palette — app-context surface system for /app/pwa/* (the
+     Kokoro Mirror). Not used as text or surface on the editorial
+     website; that role belongs to the Sumi/Yoru/Washi trio.
+
+     Void sits one step deeper than cosmic-900 (L 0.08 vs L 0.13). It
+     was the original brand "void" before the website-pass rename of
+     the editorial dark to Sumi (which moved to hue 235). The five
+     Yamato gradients bloom out of Void; cosmic-900 is the raised
+     surface (cards, archive items) one tone up. */
+  --color-void:       oklch(0.08 0.025 250);
   --color-cosmic-900: oklch(0.13 0.030 250);
   --color-cosmic-800: oklch(0.18 0.028 250);
   --color-cosmic-700: oklch(0.25 0.025 250);
@@ -53,7 +76,7 @@ html[data-page-theme="dark"] main {
   --color-cosmic-300: oklch(0.75 0.015 250);
   --color-cosmic-200: oklch(0.87 0.012 250);
   --color-cosmic-100: oklch(0.93 0.008 250);
-  --color-cosmic-50: oklch(0.97 0.005 250);
+  --color-cosmic-50:  oklch(0.97 0.005 250);
 
   /* Light theme base.
 
@@ -112,12 +135,42 @@ html[data-page-theme="dark"] main {
   /* Warm accent — muted washi/sumi tone, used sparingly on eyebrow labels, newsletter header, etc. */
   --color-accent: oklch(0.5 0.035 60);
 
-  /* Yamato emotional states */
-  --color-hare: oklch(0.82 0.14 85);
-  --color-takaburi: oklch(0.60 0.18 25);
-  --color-aware: oklch(0.70 0.06 250);
-  --color-yuragi: oklch(0.65 0.12 55);
-  --color-nagomi: oklch(0.75 0.10 160);
+  /* Yamato emotional state seed colours — the starting hue per state.
+     Used for accents, share-card type tints, and the mid-stop of each
+     gradient. The full gradient (mid → deep → edge) is defined as a
+     three-stop set below. */
+  --color-hare:     oklch(0.82 0.14  85);
+  --color-takaburi: oklch(0.60 0.18  25);
+  --color-aware:    oklch(0.70 0.06 250);
+  --color-yuragi:   oklch(0.65 0.12  55);
+  --color-nagomi:   oklch(0.75 0.10 160);
+
+  /* Yamato gradient stops — three OKLCH stops per state. Consumed by
+     the <GradientField state="..." /> component, which renders a
+     radial-gradient from mid → deep → edge fading into Void. Each
+     gradient blooms out of cosmic dark; the "edge" stop is deliberately
+     low-L so the bloom dissolves rather than ends.
+
+     mid  — the visible heart of the bloom (the seed colour above)
+     deep — one step down in L, slightly inward chroma
+     edge — the receding ring before Void takes over
+
+     Tune any stop here and every revelation surface follows. */
+  --gradient-hare-mid:      oklch(0.82 0.14  85);
+  --gradient-hare-deep:     oklch(0.68 0.16  65);
+  --gradient-hare-edge:     oklch(0.45 0.10  45);
+  --gradient-takaburi-mid:  oklch(0.60 0.18  25);
+  --gradient-takaburi-deep: oklch(0.45 0.16  30);
+  --gradient-takaburi-edge: oklch(0.28 0.12  35);
+  --gradient-aware-mid:     oklch(0.70 0.06 250);
+  --gradient-aware-deep:    oklch(0.50 0.07 250);
+  --gradient-aware-edge:    oklch(0.30 0.06 250);
+  --gradient-yuragi-mid:    oklch(0.65 0.12  55);
+  --gradient-yuragi-deep:   oklch(0.50 0.13  50);
+  --gradient-yuragi-edge:   oklch(0.30 0.10  45);
+  --gradient-nagomi-mid:    oklch(0.75 0.10 160);
+  --gradient-nagomi-deep:   oklch(0.55 0.09 150);
+  --gradient-nagomi-edge:   oklch(0.32 0.07 140);
 
   /* Fonts.
      Japanese stacks include OS-native fallbacks (Hiragino Mincho / Yu
@@ -148,6 +201,19 @@ html[data-page-theme="dark"] main {
   --duration-reveal: 1200ms;  /* FadeIn reveal variant — image cards */
   --duration-hover: 300ms;    /* Hover and state transitions */
   --duration-page: 500ms;     /* PageTransition crossfade */
+
+  /* Motion — app-specific durations for the Kokoro Mirror surfaces.
+     Slower than the editorial set because the app's tempo is breath,
+     not interaction. Tune carefully: the orb breath sits at the upper
+     end of "calm but alive"; the light shower covers the worst-case
+     Haiku classification round-trip without ever feeling like a
+     loading state. */
+  --duration-orb-breath:    4400ms;  /* full inhale-exhale cycle */
+  --duration-light-shower:  3600ms;  /* input tap to revelation paint */
+  --duration-bloom:         1800ms;  /* gradient bloom inside the shower */
+  --duration-emerge:        1400ms;  /* Kokoro scale-in after the shower */
+  --duration-firefly:        900ms;  /* capture pulse + drift to trove */
+  --duration-letter:        2000ms;  /* letter fold / unfold */
 }
 
 /* Section rhythm — three values lock the vertical spacing across every

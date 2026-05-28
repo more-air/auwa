@@ -17,6 +17,7 @@
 */
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { EASING } from "@/lib/motion";
 
 const STORAGE_KEY = "auwa.loader-shown";
@@ -49,13 +50,20 @@ const OVERLAY_EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
 type CharPhase = "initial" | "visible" | "exited";
 
 export function EntranceLoader() {
+  const pathname = usePathname();
+  // The editorial loader (warm Surface, あうわ in serif) is brand-correct
+  // for the marketing site but wrong for the Kokoro Mirror app surface,
+  // which arrives in cosmic dark with its own breathing orb. Skip the
+  // loader on /app/pwa/* — the app has its own arrival.
+  const onAppSurface = pathname.startsWith("/app/pwa");
+
   const [chars, setChars] = useState<CharPhase[]>([
     "initial",
     "initial",
     "initial",
   ]);
   const [overlayVisible, setOverlayVisible] = useState(true);
-  const [gone, setGone] = useState(false);
+  const [gone, setGone] = useState(onAppSurface);
 
   useEffect(() => {
     const reduced = window.matchMedia(
@@ -63,7 +71,7 @@ export function EntranceLoader() {
     ).matches;
     const alreadyShown = sessionStorage.getItem(STORAGE_KEY) === "1";
 
-    if (reduced || alreadyShown) {
+    if (reduced || alreadyShown || onAppSurface) {
       setGone(true);
       return;
     }
