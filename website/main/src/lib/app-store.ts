@@ -308,11 +308,10 @@ export function fireflysIn(
 ): Firefly[] {
   if (period === "all") return fireflies;
   const now = Date.now();
-  const cutoffs: Record<typeof period, number> = {
+  const cutoffs: Record<"week" | "month" | "year", number> = {
     week: 7 * 24 * 60 * 60 * 1000,
     month: 30 * 24 * 60 * 60 * 1000,
     year: 365 * 24 * 60 * 60 * 1000,
-    all: 0,
   };
   const cutoff = now - cutoffs[period];
   return fireflies.filter((f) => new Date(f.createdAt).getTime() >= cutoff);
