@@ -63,12 +63,7 @@ function hasPhotographicHero(pathname: string) {
 
 export function Header() {
   const pathname = usePathname();
-  // Hidden on the IG grid preview and across the Kokoro Mirror app
-  // surface — /app/pwa/* is a distinct cosmic experience with no
-  // editorial chrome. The early return below short-circuits all the
-  // header's state and effect setup on those routes.
-  const hideHeader =
-    pathname === "/instagram" || pathname.startsWith("/app/pwa");
+  const hideHeader = pathname === "/instagram";
 
   // Synchronous list of dark-themed routes for first-paint correctness;
   // MutationObserver is the runtime safety net for any future dynamic
