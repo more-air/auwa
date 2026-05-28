@@ -1,7 +1,25 @@
 @import "tailwindcss";
 
+/* auwa.app — Kokoro Mirror PWA.
+   The entire surface is cosmic; there is no editorial Surface/Sumi/
+   Yoru/Washi system here. The five Yamato gradient families bloom
+   out of Void during revelations.
+
+   Brand tokens MIRROR ../main/src/app/globals.css for cosmic +
+   Yamato + motion. If you tune anything here, propagate to the
+   editorial site if it consumes the same token (IG editorial slides
+   still rely on the cosmic palette there). */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 @theme inline {
-  --color-void: oklch(0.08 0.025 250);
+  /* Cosmic palette — true near-black through near-white, hue 250.
+     Void sits one step deeper than cosmic-900 so the five gradients
+     have somewhere to dissolve into. */
+  --color-void:       oklch(0.08 0.025 250);
   --color-cosmic-900: oklch(0.13 0.030 250);
   --color-cosmic-800: oklch(0.18 0.028 250);
   --color-cosmic-700: oklch(0.25 0.025 250);
@@ -11,35 +29,116 @@
   --color-cosmic-300: oklch(0.75 0.015 250);
   --color-cosmic-200: oklch(0.87 0.012 250);
   --color-cosmic-100: oklch(0.93 0.008 250);
-  --color-cosmic-50: oklch(0.97 0.005 250);
+  --color-cosmic-50:  oklch(0.97 0.005 250);
 
-  --color-glow: oklch(0.85 0.15 105);
+  /* Accents */
+  --color-glow:     oklch(0.85 0.15 105);
   --color-glow-dim: oklch(0.70 0.10 105);
 
-  --color-joy: oklch(0.82 0.14 85);
-  --color-anger: oklch(0.60 0.18 25);
-  --color-sorrow: oklch(0.70 0.06 250);
-  --color-ease: oklch(0.75 0.10 160);
+  /* Yamato emotional state seed colours. */
+  --color-hare:     oklch(0.82 0.14  85);
+  --color-takaburi: oklch(0.60 0.18  25);
+  --color-aware:    oklch(0.70 0.06 250);
+  --color-yuragi:   oklch(0.65 0.12  55);
+  --color-nagomi:   oklch(0.75 0.10 160);
 
-  --font-display: var(--font-cormorant);
+  /* Yamato gradient stops — three OKLCH stops per state. Consumed by
+     the <GradientField state="..." /> component. */
+  --gradient-hare-mid:      oklch(0.82 0.14  85);
+  --gradient-hare-deep:     oklch(0.68 0.16  65);
+  --gradient-hare-edge:     oklch(0.45 0.10  45);
+  --gradient-takaburi-mid:  oklch(0.60 0.18  25);
+  --gradient-takaburi-deep: oklch(0.45 0.16  30);
+  --gradient-takaburi-edge: oklch(0.28 0.12  35);
+  --gradient-aware-mid:     oklch(0.70 0.06 250);
+  --gradient-aware-deep:    oklch(0.50 0.07 250);
+  --gradient-aware-edge:    oklch(0.30 0.06 250);
+  --gradient-yuragi-mid:    oklch(0.65 0.12  55);
+  --gradient-yuragi-deep:   oklch(0.50 0.13  50);
+  --gradient-yuragi-edge:   oklch(0.30 0.10  45);
+  --gradient-nagomi-mid:    oklch(0.75 0.10 160);
+  --gradient-nagomi-deep:   oklch(0.55 0.09 150);
+  --gradient-nagomi-edge:   oklch(0.32 0.07 140);
+
+  /* Fonts. Japanese stacks include OS-native fallbacks so glyphs
+     render in a sensible native face during the font-display block
+     period. */
+  --font-display: var(--font-eb-garamond);
   --font-sans: var(--font-instrument-sans);
-  --font-jp: var(--font-noto-sans-jp);
+  --font-jp: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --font-jp-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", "Noto Serif CJK JP", serif;
 
+  /* Motion — easings. */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Motion — durations. App-specific tempo is breath, not interaction. */
+  --duration-enter:        800ms;
+  --duration-reveal:      1200ms;
+  --duration-hover:        300ms;
+  --duration-page:         500ms;
+  --duration-orb-breath:  4400ms;  /* full inhale-exhale cycle */
+  --duration-light-shower: 3600ms; /* input tap to revelation paint */
+  --duration-bloom:       1800ms;
+  --duration-emerge:      1400ms;
+  --duration-firefly:      900ms;
+  --duration-letter:      2000ms;
 }
 
 body {
   background: var(--color-void);
-  color: var(--color-cosmic-200);
+  color: var(--color-cosmic-50);
   font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: oklch(0.85 0.15 105 / 0.3);
+  background: var(--color-cosmic-700);
   color: var(--color-cosmic-50);
 }
 
+/* Image protection — deters casual right-click/drag saving. */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Keyboard focus — quiet ring on the cosmic surface. */
+:focus-visible {
+  outline: 2px solid oklch(0.85 0.15 105 / 0.45);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Signup-style inputs use their underline as the focus indicator. */
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* Skip-to-content link for keyboard users. */
+.skip-to-content {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.625rem 1rem;
+  background: var(--color-cosmic-50);
+  color: var(--color-void);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transform: translateY(-200%);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
+/* Reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.2s !important;

@@ -1,76 +1,97 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+/*
+  Orb — Auwa's presence before the character appears.
 
-export function Orb() {
-  const reducedMotion = useReducedMotion();
+  A small breathing glow that anchors every app surface (arrival,
+  sanctuary, senshin, the letter, the first-gift beat). The orb is
+  Auwa's constant presence; the five character variants are how
+  Auwa appears in a particular state.
 
+  Implementation: a circle with a radial-gradient soft halo, scaled
+  and opacity-pulsed on `--duration-orb-breath`. Pure CSS animation,
+  no React state, no rAF — the orb breathes whether anything else
+  is happening or not.
+
+  Sizes:
+    sm  — 32px. Quiet entry markers, header presence.
+    md  — 64px. Arrival anchor above the state arc.
+    lg  — 128px. First-gift beat, sanctuary, senshin closure.
+    xl  — 220px. Welcome, paused / pre-shower moments.
+
+  Placeholder note: the orb itself is brand-canonical (already on the
+  teaser page) — this component is the real implementation, not a
+  placeholder. Rieko's character variants are the placeholders.
+*/
+
+const SIZES = {
+  sm: "w-8 h-8",
+  md: "w-16 h-16",
+  lg: "w-32 h-32",
+  xl: "w-[220px] h-[220px]",
+} as const;
+
+export type OrbProps = {
+  size?: keyof typeof SIZES;
+  className?: string;
+  /** Hold the orb at full glow without breathing — used during the
+   *  light shower's bloom phase. Default false. */
+  still?: boolean;
+};
+
+export function Orb({ size = "md", className = "", still = false }: OrbProps) {
   return (
-    <div className="relative flex items-center justify-center w-52 h-52 md:w-72 md:h-72">
-      {/* Outer ambient glow — wider, more visible pulse */}
-      <motion.div
-        className="absolute inset-[-20%] rounded-full"
+    <div
+      className={[
+        SIZES[size],
+        "relative pointer-events-none",
+        className,
+      ].join(" ")}
+      aria-hidden="true"
+    >
+      {/* Outer halo */}
+      <div
+        className="absolute inset-0 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.85 0.15 105 / 0.15) 0%, oklch(0.85 0.15 105 / 0.06) 35%, transparent 65%)",
-        }}
-        animate={
-          reducedMotion
-            ? { scale: 1, opacity: 0.8 }
-            : { scale: [1, 1.25, 1], opacity: [0.4, 1, 0.4] }
-        }
-        transition={{
-          duration: 5,
-          repeat: reducedMotion ? 0 : Infinity,
-          ease: "easeInOut",
+            "radial-gradient(circle at 50% 50%, var(--color-glow) 0%, transparent 65%)",
+          opacity: 0.55,
+          animation: still
+            ? "none"
+            : "auwa-orb-breath var(--duration-orb-breath) ease-in-out infinite",
+          transformOrigin: "50% 50%",
         }}
       />
-
-      {/* Middle ring — stronger presence */}
-      <motion.div
-        className="absolute w-36 h-36 md:w-48 md:h-48 rounded-full"
+      {/* Core glow */}
+      <div
+        className="absolute inset-[20%] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.85 0.15 105 / 0.10) 0%, oklch(0.85 0.15 105 / 0.03) 50%, transparent 70%)",
-        }}
-        animate={
-          reducedMotion
-            ? { scale: 1, opacity: 0.5 }
-            : { scale: [1, 1.12, 1], opacity: [0.3, 0.8, 0.3] }
-        }
-        transition={{
-          duration: 7,
-          repeat: reducedMotion ? 0 : Infinity,
-          ease: "easeInOut",
-          delay: reducedMotion ? 0 : 0.8,
+            "radial-gradient(circle at 50% 50%, var(--color-glow) 0%, var(--color-glow-dim) 70%, transparent 100%)",
+          opacity: 0.85,
+          animation: still
+            ? "none"
+            : "auwa-orb-core var(--duration-orb-breath) ease-in-out infinite",
+          transformOrigin: "50% 50%",
         }}
       />
-
-      {/* Core orb — slightly more pronounced breathing */}
-      <motion.div
-        className="relative w-20 h-20 md:w-24 md:h-24 rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle at 40% 35%, oklch(0.95 0.05 105) 0%, oklch(0.85 0.15 105) 40%, oklch(0.70 0.10 105) 100%)",
-        }}
-        animate={
-          reducedMotion
-            ? { scale: 1, boxShadow: "0 0 50px oklch(0.85 0.15 105 / 0.3), 0 0 100px oklch(0.85 0.15 105 / 0.15)" }
-            : {
-                scale: [1, 1.06, 1],
-                boxShadow: [
-                  "0 0 40px oklch(0.85 0.15 105 / 0.3), 0 0 80px oklch(0.85 0.15 105 / 0.12), 0 0 120px oklch(0.85 0.15 105 / 0.06)",
-                  "0 0 60px oklch(0.85 0.15 105 / 0.45), 0 0 110px oklch(0.85 0.15 105 / 0.2), 0 0 160px oklch(0.85 0.15 105 / 0.1)",
-                  "0 0 40px oklch(0.85 0.15 105 / 0.3), 0 0 80px oklch(0.85 0.15 105 / 0.12), 0 0 120px oklch(0.85 0.15 105 / 0.06)",
-                ],
-              }
+      {/* Local keyframes — declared inline so the orb component is
+          self-contained. globals.css doesn't need to know about it. */}
+      <style>{`
+        @keyframes auwa-orb-breath {
+          0%, 100% { transform: scale(0.94); opacity: 0.45; }
+          50%      { transform: scale(1.06); opacity: 0.75; }
         }
-        transition={{
-          duration: 4,
-          repeat: reducedMotion ? 0 : Infinity,
-          ease: "easeInOut",
-        }}
-      />
+        @keyframes auwa-orb-core {
+          0%, 100% { transform: scale(0.96); opacity: 0.7; }
+          50%      { transform: scale(1.04); opacity: 1;   }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [aria-hidden="true"] > div {
+            animation: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
