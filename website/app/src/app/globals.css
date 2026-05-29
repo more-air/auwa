@@ -102,23 +102,26 @@ html {
 
   /* Yamato gradient stops — three OKLCH stops per state, consumed
      by the StatePicker cards and the GradientField on Revelation.
-     Boosted chroma and brighter mid so the bloom reads as the
-     state's colour at a glance rather than as restrained darkness. */
-  --gradient-hare-mid:      oklch(0.86 0.16  88);
-  --gradient-hare-deep:     oklch(0.62 0.18  62);
-  --gradient-hare-edge:     oklch(0.28 0.10  50);
-  --gradient-takaburi-mid:  oklch(0.66 0.20  22);
-  --gradient-takaburi-deep: oklch(0.42 0.18  25);
-  --gradient-takaburi-edge: oklch(0.20 0.12  30);
-  --gradient-aware-mid:     oklch(0.74 0.10 250);
-  --gradient-aware-deep:    oklch(0.46 0.10 250);
-  --gradient-aware-edge:    oklch(0.20 0.06 250);
-  --gradient-yuragi-mid:    oklch(0.72 0.14  58);
-  --gradient-yuragi-deep:   oklch(0.46 0.14  50);
-  --gradient-yuragi-edge:   oklch(0.22 0.09  45);
-  --gradient-nagomi-mid:    oklch(0.78 0.12 158);
-  --gradient-nagomi-deep:   oklch(0.50 0.10 150);
-  --gradient-nagomi-edge:   oklch(0.22 0.06 140);
+
+     Mid values sit in the 0.55-0.70 L range so the white Auwa
+     character has consistent contrast across all five states.
+     Pastels (L > 0.75) hide the white silhouette; we use saturated
+     mid-tones instead. */
+  --gradient-hare-mid:      oklch(0.74 0.17  82);
+  --gradient-hare-deep:     oklch(0.50 0.18  62);
+  --gradient-hare-edge:     oklch(0.22 0.10  50);
+  --gradient-takaburi-mid:  oklch(0.60 0.20  22);
+  --gradient-takaburi-deep: oklch(0.38 0.18  25);
+  --gradient-takaburi-edge: oklch(0.18 0.12  30);
+  --gradient-aware-mid:     oklch(0.62 0.12 250);
+  --gradient-aware-deep:    oklch(0.40 0.11 250);
+  --gradient-aware-edge:    oklch(0.18 0.06 250);
+  --gradient-yuragi-mid:    oklch(0.62 0.14  58);
+  --gradient-yuragi-deep:   oklch(0.42 0.14  50);
+  --gradient-yuragi-edge:   oklch(0.20 0.09  45);
+  --gradient-nagomi-mid:    oklch(0.62 0.14 158);
+  --gradient-nagomi-deep:   oklch(0.42 0.11 150);
+  --gradient-nagomi-edge:   oklch(0.20 0.06 140);
 }
 
 /* ---------------------------------------------------------------

@@ -29,7 +29,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { History, Settings as SettingsIcon } from "lucide-react";
+import { History, Settings as SettingsIcon, ChevronLeft } from "lucide-react";
 import { Orb } from "@/components/orb";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
 import { StatePicker } from "@/components/state-picker";
@@ -41,6 +41,8 @@ import { DailyLightCapture } from "@/components/daily-light-capture";
 import { QuietEntries } from "@/components/quiet-entries";
 import { IconButton } from "@/components/icon-button";
 import { Button } from "@/components/button";
+import { StackCard } from "@/components/stack-card";
+import { pickCurrentLetter } from "@/lib/letters";
 import {
   getYamatoState,
   type YamatoState,
@@ -56,7 +58,8 @@ import {
 } from "@/lib/app-store";
 
 type Phase =
-  | "arrival"
+  | "home"
+  | "picker"
   | "refining"
   | "context"
   | "shower"
@@ -70,7 +73,7 @@ export default function KokoroMirror() {
   const store = useAppStore();
   const ready = useStoreReady();
 
-  const [phase, setPhase] = useState<Phase>("arrival");
+  const [phase, setPhase] = useState<Phase>("home");
   const [state, setState] = useState<YamatoState | null>(null);
   const [subExpression, setSubExpression] = useState<SubExpression | null>(null);
   const [contextResult, setContextResult] = useState<ContextResult | null>(null);
@@ -86,6 +89,10 @@ export default function KokoroMirror() {
   const stateDef = state ? getYamatoState(state) : null;
   const isFirstRun = ready && !store.onboarding.completed;
   const last = lastRevelation(store);
+
+  const handleBeginCheckIn = useCallback(() => {
+    setPhase("picker");
+  }, []);
 
   const handleStateSelect = useCallback((s: YamatoState) => {
     setState(s);
@@ -135,7 +142,13 @@ export default function KokoroMirror() {
     setSubExpression(null);
     setContextResult(null);
     setReflection("");
-    setPhase("arrival");
+    setPhase("home");
+  }, []);
+
+  const handleBackToHome = useCallback(() => {
+    setState(null);
+    setSubExpression(null);
+    setPhase("home");
   }, []);
 
   const handleLightDone = useCallback(() => {
@@ -157,12 +170,20 @@ export default function KokoroMirror() {
 
   const screen = useMemo(() => {
     switch (phase) {
-      case "arrival":
+      case "home":
         return (
-          <ArrivalScreen
-            onSelectState={handleStateSelect}
+          <HomeScreen
+            onBeginCheckIn={handleBeginCheckIn}
             lastState={last?.state ?? null}
+            lastAt={last?.createdAt ?? null}
             motifs={store.onboarding.motifs}
+          />
+        );
+      case "picker":
+        return (
+          <PickerScreen
+            onBack={handleBackToHome}
+            onSelectState={handleStateSelect}
           />
         );
       case "refining":
@@ -215,6 +236,8 @@ export default function KokoroMirror() {
     reflection,
     last,
     store.onboarding.motifs,
+    handleBeginCheckIn,
+    handleBackToHome,
     handleStateSelect,
     handleProceedFromRefine,
     handleContextSelect,
@@ -239,21 +262,37 @@ export default function KokoroMirror() {
 }
 
 /* ============================================================
-   ARRIVAL — the showcase surface for the Phase 1+2 redesign.
-   Header band with icon buttons, hero block (orb + Kokoro +
-   prompt + arc) clustered tightly, quiet entries at the foot.
+   HOME — scene + stacked cards.
+
+   Top half is the Kokoro scene: Auwa character centred in a soft
+   cosmic environment with the user's motifs as fireflies floating
+   around. Bottom half is a stack of action cards led by the primary
+   "Begin today's reflection" CTA. Tab bar persists at the foot.
    ============================================================ */
 
-function ArrivalScreen({
-  onSelectState,
+function HomeScreen({
+  onBeginCheckIn,
   lastState,
+  lastAt,
   motifs,
 }: {
-  onSelectState: (s: YamatoState) => void;
+  onBeginCheckIn: () => void;
   lastState: YamatoState | null;
+  lastAt: string | null;
   motifs: string[];
 }) {
   const lastDef = lastState ? getYamatoState(lastState) : null;
+  const store = useAppStore();
+  const letter = pickCurrentLetter();
+  const letterUnread = letter ? !store.lettersSeen.includes(letter.id) : false;
+
+  const lastDateLabel = lastAt
+    ? new Date(lastAt).toLocaleDateString(undefined, {
+        day: "numeric",
+        month: "short",
+      })
+    : null;
+
   return (
     <section
       className="min-h-svh flex flex-col px-safe"
@@ -273,47 +312,133 @@ function ArrivalScreen({
         </Link>
       </header>
 
-      {/* Kokoro band — small Auwa silhouette showing the user's
-          last-state form, with motif dots floating around. Tap to
-          open the Kokoro view. */}
-      <div className="flex-none flex flex-col items-center pt-2 pb-1">
-        <Link
-          href="/kokoro"
-          aria-label="Open Kokoro view"
-          className="active:scale-[0.96] transition-transform duration-[var(--duration-press)]"
-        >
-          <KokoroSilhouette size="sm" motifs={motifs} state={lastState ?? undefined} />
-        </Link>
+      {/* Hero scene — Auwa character in cosmic environment with
+          motifs floating as fireflies. Background subtly tinted by
+          the last revelation's state. Tap → Kokoro view. */}
+      <KokoroScene
+        state={lastState ?? undefined}
+        motifs={motifs}
+      />
+
+      {/* Stacked cards below the scene. The Begin CTA is the
+          primary action; secondary cards (letter notification,
+          status) sit below. */}
+      <div className="flex-1 flex flex-col gap-3 px-4 pb-4 pt-2 overflow-y-auto">
+        <StackCard
+          variant="raised"
+          eyebrow="Today"
+          title="How are you feeling?"
+          body="Begin a moment with Auwa."
+          onClick={onBeginCheckIn}
+          trailing={
+            <Button size="sm" onClick={onBeginCheckIn}>
+              Begin
+            </Button>
+          }
+        />
+
+        {letterUnread && letter ? (
+          <StackCard
+            eyebrow="Letter from Auwa"
+            title={letter.body[0].split(",")[0]}
+            body={letter.body[0].slice(letter.body[0].indexOf(",") + 2)}
+            href="/letter"
+          />
+        ) : null}
+
+        {lastDef && lastDateLabel ? (
+          <StackCard
+            eyebrow="Last visit"
+            title={lastDef.english}
+            body={lastDateLabel}
+            href="/archive"
+          />
+        ) : null}
       </div>
 
-      {/* Hero — the question owns the screen. Picker fills the
-          remaining vertical. */}
-      <div className="flex-1 flex flex-col items-center px-5 pb-4">
-        <div className="flex flex-col items-center gap-1.5 mt-2 mb-6 text-center">
-          {lastDef ? (
-            <p
-              className="t-meta text-cosmic-50/48 italic"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Last visit, {lastDef.english.toLowerCase()}
-            </p>
-          ) : null}
-          <h1 className="t-display text-cosmic-50/96 max-w-[14rem]">
-            How are you feeling right now?
-          </h1>
-        </div>
-
-        <div className="w-full flex-1 flex items-start">
-          <StatePicker selected={null} onSelect={onSelectState} />
-        </div>
-      </div>
-
-      {/* Bottom strip — quiet entries with a hairline divider above. */}
+      {/* Tab bar with hairline divider above. */}
       <div
-        className="flex-none border-t border-cosmic-50/8 px-3"
+        className="flex-none border-t border-cosmic-50/8 px-3 bg-[var(--color-void)]"
         style={{ paddingBottom: "max(env(safe-area-inset-bottom), 12px)" }}
       >
         <QuietEntries />
+      </div>
+    </section>
+  );
+}
+
+/* The cosmic scene that hosts the Kokoro on Home. Three layers:
+   1. a subtle radial wash tinted by the last revelation's state,
+   2. the Auwa character centred with a soft halo,
+   3. motifs floating as small fireflies around the inner orbit.
+
+   When Rieko delivers per-state illustrated environments, the
+   wash layer becomes an <Image> behind the character. */
+function KokoroScene({
+  state,
+  motifs,
+}: {
+  state?: YamatoState;
+  motifs: string[];
+}) {
+  const tint = state
+    ? `radial-gradient(ellipse 70% 50% at 50% 38%, var(--gradient-${state}-mid) 0%, transparent 60%)`
+    : "radial-gradient(ellipse 70% 50% at 50% 38%, oklch(0.86 0.14 95 / 0.18) 0%, transparent 60%)";
+
+  return (
+    <Link
+      href="/kokoro"
+      aria-label="Open Kokoro view"
+      className="flex-none relative w-full h-[42svh] min-h-[280px] active:scale-[0.995] transition-transform duration-[var(--duration-press)]"
+    >
+      {/* State-tinted wash. z-0 keeps it behind the character. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{ background: tint, opacity: 0.55 }}
+      />
+      {/* Centred Kokoro. z-10 puts it above the tint. */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <KokoroSilhouette size="lg" motifs={motifs} />
+      </div>
+    </Link>
+  );
+}
+
+/* ============================================================
+   PICKER — the dedicated feeling check-in screen.
+   ============================================================ */
+
+function PickerScreen({
+  onBack,
+  onSelectState,
+}: {
+  onBack: () => void;
+  onSelectState: (s: YamatoState) => void;
+}) {
+  return (
+    <section
+      className="min-h-svh flex flex-col px-safe"
+      style={{
+        paddingTop: "env(safe-area-inset-top)",
+        paddingBottom: "max(env(safe-area-inset-bottom), 16px)",
+      }}
+    >
+      <header className="h-12 px-2 flex items-center justify-between flex-none">
+        <IconButton label="Back" onClick={onBack}>
+          <ChevronLeft size={22} strokeWidth={1.6} />
+        </IconButton>
+        <span className="t-eyebrow text-cosmic-50/44">Today</span>
+        <span className="w-10" />
+      </header>
+
+      <div className="flex-1 flex flex-col items-center px-5 pt-4 pb-2">
+        <h1 className="t-display text-cosmic-50/96 text-center max-w-[18rem] mb-7">
+          How are you feeling right now?
+        </h1>
+        <div className="w-full flex-1 flex items-start">
+          <StatePicker selected={null} onSelect={onSelectState} />
+        </div>
       </div>
     </section>
   );

@@ -1,29 +1,32 @@
 "use client";
 
 /*
-  QuietEntries — bottom-strip navigation on Arrival.
+  QuietEntries — the persistent bottom tab bar.
 
-  Tab-bar pattern with icon + label per entry, evenly distributed
-  across the strip. Five entries; Letter is conditional (only
-  appears when a new letter is unread, so the strip reads 4-or-5
-  items depending on state).
+  Five tabs: Home, Light, Rest, Trove, Senshin. Active tab is shown
+  with full-opacity icon + label; inactive tabs sit at 44% opacity.
+  Pattern matches Apple's iOS native tab bar + Finch's home/quests/
+  shop/profile + Bloom's today/explore/stats/entries.
 
-  Icons (Lucide React):
-    Light    → Sparkle    (a small noticing)
-    Rest     → Moon       (sanctuary, contemplation)
-    Trove    → Sparkles   (a constellation of captured lights)
-    Senshin  → Droplet    (water of the chōzubachi, washing the heart)
-    Letter   → custom folded-paper SVG, refined
+  Letter doesn't live in the tab bar anymore — it surfaces as a
+  card on Home when there's an unread letter waiting.
 
-  Stroke weight is 1.5 across all icons for a quieter visual weight
-  than Lucide's default 2px. Labels sit at t-eyebrow tracking.
+  Tab bar is visible on:
+    /              (Home)
+    /light         (Daily Light standalone)
+    /rest          (Sanctuary)
+    /trove         (Firefly Trove)
+    /senshin       (Senshin entry)
+
+  All other surfaces (drill-downs, modals, the daily flow phases)
+  render without the tab bar so the user's attention sits with the
+  task.
 */
 
 import Link from "next/link";
-import { Sparkle, Moon, Sparkles, Droplet } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Sparkle, Moon, Sparkles, Droplet, House } from "lucide-react";
 import type { ReactNode } from "react";
-import { pickCurrentLetter } from "@/lib/letters";
-import { useAppStore } from "@/lib/app-store";
 
 type Entry = {
   key: string;
@@ -33,10 +36,17 @@ type Entry = {
   icon: ReactNode;
 };
 
-const ICON_SIZE = 20;
-const STROKE = 1.4;
+const ICON_SIZE = 22;
+const STROKE = 1.5;
 
 const ENTRIES: Entry[] = [
+  {
+    key: "home",
+    label: "Home",
+    href: "/",
+    ariaLabel: "Home, today's Kokoro",
+    icon: <House size={ICON_SIZE} strokeWidth={STROKE} />,
+  },
   {
     key: "light",
     label: "Light",
@@ -72,80 +82,42 @@ export type QuietEntriesProps = {
 };
 
 export function QuietEntries({ className = "" }: QuietEntriesProps) {
-  const store = useAppStore();
-  const letter = pickCurrentLetter();
-  const letterUnread = letter ? !store.lettersSeen.includes(letter.id) : false;
-
+  const pathname = usePathname();
   return (
     <nav
-      aria-label="Secondary surfaces"
+      aria-label="Primary surfaces"
       className={[
         "w-full max-w-md mx-auto flex items-stretch",
         className,
       ].join(" ")}
     >
-      {ENTRIES.map((e) => (
-        <EntryLink key={e.key} entry={e} />
-      ))}
-      {letterUnread ? (
-        <EntryLink
-          entry={{
-            key: "letter",
-            label: "Letter",
-            href: "/letter",
-            ariaLabel: "A new letter from Auwa is waiting",
-            icon: <FoldedLetterIcon />,
-          }}
-          highlighted
-        />
-      ) : null}
+      {ENTRIES.map((e) => {
+        const active = isActive(e.href, pathname);
+        return (
+          <Link
+            key={e.key}
+            href={e.href}
+            aria-label={e.ariaLabel}
+            aria-current={active ? "page" : undefined}
+            className={[
+              "flex-1 group flex flex-col items-center justify-center gap-1 py-3",
+              "transition-colors duration-[var(--duration-hover)]",
+              "active:scale-[0.96] transition-transform",
+              active
+                ? "text-cosmic-50"
+                : "text-cosmic-50/44 hover:text-cosmic-50/82",
+            ].join(" ")}
+          >
+            <span className="block">{e.icon}</span>
+            <span className="t-eyebrow text-[10px]">{e.label}</span>
+          </Link>
+        );
+      })}
     </nav>
   );
 }
 
-function EntryLink({
-  entry,
-  highlighted = false,
-}: {
-  entry: Entry;
-  highlighted?: boolean;
-}) {
-  return (
-    <Link
-      href={entry.href}
-      aria-label={entry.ariaLabel}
-      className={[
-        "flex-1 group flex flex-col items-center justify-center gap-1.5 py-3",
-        "transition-colors duration-[var(--duration-hover)] ease-out",
-        "active:scale-[0.96]",
-        highlighted
-          ? "text-cosmic-50/72 hover:text-cosmic-50"
-          : "text-cosmic-50/44 hover:text-cosmic-50/85",
-      ].join(" ")}
-    >
-      <span className="block">{entry.icon}</span>
-      <span className="t-eyebrow">{entry.label}</span>
-    </Link>
-  );
-}
-
-function FoldedLetterIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      strokeLinejoin="round"
-      strokeLinecap="round"
-      aria-hidden="true"
-    >
-      <path d="M3.5 4h9L16.5 8V16.5h-13V4z" />
-      <path d="M12.5 4V8H16.5" />
-      <path d="M6 11h6" opacity="0.7" />
-      <path d="M6 13.5h4" opacity="0.5" />
-    </svg>
-  );
+function isActive(href: string, pathname: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
 }
