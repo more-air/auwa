@@ -19,6 +19,8 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
 import { PlaceholderAsset } from "@/components/placeholder-asset";
+import { PageHeader } from "@/components/page-header";
+import { Button } from "@/components/button";
 import { useAppStore } from "@/lib/app-store";
 import { FIRST_GIFT_MOTIF, getMotif } from "@/lib/motifs";
 
@@ -40,22 +42,10 @@ export default function KokoroView() {
   const focusedMotif = focused ? getMotif(focused) ?? null : null;
 
   return (
-    <main id="main-content" className="min-h-svh px-6 pt-16 pb-16">
-      <header className="flex items-center justify-between mb-8">
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-        >
-          ← Back
-        </button>
-        <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45">
-          Kokoro
-        </span>
-        <span className="w-12" />
-      </header>
+    <main id="main-content" className="min-h-svh bg-[var(--color-void)]">
+      <PageHeader title="Kokoro" onBack={() => router.push("/")} />
 
-      <div className="max-w-md mx-auto flex flex-col items-center gap-6">
+      <div className="max-w-md mx-auto flex flex-col items-center gap-6 px-6 pt-4 pb-16">
         <KokoroSilhouette
           size="lg"
           motifs={motifs.map((m) => m.key)}
@@ -63,15 +53,13 @@ export default function KokoroView() {
 
         {focusedMotif ? (
           <div className="text-center max-w-xs">
-            <p className="font-display text-[17px] text-cosmic-50/95">
-              {focusedMotif.label}
-            </p>
-            <p className="font-display text-[14px] text-cosmic-50/55 mt-1 leading-[1.5]">
+            <p className="t-title text-cosmic-50/95">{focusedMotif.label}</p>
+            <p className="t-voice text-cosmic-50/55 mt-1">
               {motifDescription(focusedMotif.key, store.onboarding.firstGiftMotif)}
             </p>
           </div>
         ) : (
-          <p className="font-display text-[14px] text-cosmic-50/45 text-center leading-[1.55] max-w-xs">
+          <p className="t-voice text-cosmic-50/45 text-center max-w-xs">
             The motifs your Kokoro carries. Tap one.
           </p>
         )}
@@ -104,19 +92,20 @@ export default function KokoroView() {
           })}
         </div>
 
-        <div className="mt-8 pt-6 border-t border-cosmic-50/10 w-full text-center">
-          <p className="font-display text-[14px] text-cosmic-50/55 leading-[1.55] max-w-xs mx-auto">
+        <div className="mt-8 pt-6 border-t border-cosmic-50/10 w-full flex flex-col items-center text-center">
+          <p className="t-body text-cosmic-50/55 max-w-xs mx-auto">
             At year-end, order a printed portrait of your Kokoro on
             hand-pressed Japanese paper. £30-40.
           </p>
-          <button
-            type="button"
+          <Button
+            variant="secondary"
+            size="sm"
             disabled
-            className="mt-4 font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/25 border border-cosmic-50/10 px-5 py-2 rounded-sm cursor-not-allowed"
+            className="mt-4"
             title="Available in late 2026"
           >
             Order print · later this year
-          </button>
+          </Button>
         </div>
       </div>
     </main>

@@ -14,6 +14,9 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { PageHeader } from "@/components/page-header";
+import { Chip } from "@/components/chip";
+import { SegmentedControl } from "@/components/segmented-control";
 import {
   senshinCountsByCategory,
   senshinCountsByEmotion,
@@ -36,49 +39,27 @@ export default function SenshinLookBack() {
   const byEmotion = useMemo(() => senshinCountsByEmotion(entries), [entries]);
 
   return (
-    <main id="main-content" className="min-h-svh px-6 pt-16 pb-16">
-      <header className="flex items-center justify-between mb-8">
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-        >
-          ← Back
-        </button>
-        <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45">
-          Look Back
-        </span>
-        <span className="w-12" />
-      </header>
+    <main id="main-content" className="min-h-svh bg-[var(--color-void)]">
+      <PageHeader title="Look Back" onBack={() => router.push("/")} />
 
-      <div className="max-w-md mx-auto">
+      <div className="max-w-md mx-auto px-6 pt-4 pb-16">
         {entries.length === 0 ? (
-          <p className="font-display text-[16px] text-cosmic-50/55 text-center mt-12 leading-[1.55]">
+          <p className="t-voice-l text-cosmic-50/55 text-center mt-12">
             Nothing to look back on yet. After your first wash, this page
             begins keeping a quiet record.
           </p>
         ) : (
           <>
-            <div className="flex items-center justify-center gap-5 mb-8">
-              {(["status", "category", "emotion"] as View[]).map((v) => (
-                <button
-                  key={v}
-                  type="button"
-                  onClick={() => setView(v)}
-                  className={[
-                    "font-sans text-[11px] tracking-[0.18em] uppercase transition-colors",
-                    view === v
-                      ? "text-cosmic-50"
-                      : "text-cosmic-50/35 hover:text-cosmic-50/65",
-                  ].join(" ")}
-                >
-                  {v === "status"
-                    ? "Status"
-                    : v === "category"
-                      ? "Category"
-                      : "Emotion"}
-                </button>
-              ))}
+            <div className="flex items-center justify-center mb-8">
+              <SegmentedControl<View>
+                value={view}
+                onChange={setView}
+                options={[
+                  { value: "status", label: "Status" },
+                  { value: "category", label: "Category" },
+                  { value: "emotion", label: "Emotion" },
+                ]}
+              />
             </div>
 
             {view === "status" && <ByStatus entries={entries} />}
@@ -100,7 +81,7 @@ function ByStatus({ entries }: { entries: SenshinEntry[] }) {
 
   return (
     <div>
-      <p className="font-display text-[16px] text-cosmic-50/85 text-center mb-8 leading-[1.5]">
+      <p className="t-body text-cosmic-50/85 text-center mb-8">
         {entries.length} {entries.length === 1 ? "worry" : "worries"} washed.
         {" "}
         <span className="text-cosmic-50/55">
@@ -124,53 +105,32 @@ function StatusRow({ entry }: { entry: SenshinEntry }) {
   const setStatus = (status: SenshinStatus) =>
     setSenshinStatus(entry.id, status);
   return (
-    <div className="border border-cosmic-50/12 rounded-md p-3 flex flex-col gap-2">
+    <div className="border border-cosmic-50/12 rounded-[16px] p-3 flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/45">
+        <span className="t-eyebrow text-cosmic-50/45">
           {when}
         </span>
-        <span className="font-display text-[13px] text-cosmic-50/55">
+        <span className="t-meta text-cosmic-50/55">
           {labelCategories(entry.categories)}
         </span>
       </div>
-      <div className="flex items-center justify-end gap-3 mt-1">
-        <StatusChip
-          label="Settled"
-          active={entry.status === "settled"}
+      <div className="flex items-center justify-end gap-2 mt-1">
+        <Chip
+          size="sm"
+          selected={entry.status === "settled"}
           onClick={() => setStatus("settled")}
-        />
-        <StatusChip
-          label="Still on my mind"
-          active={entry.status === "on-my-mind"}
+        >
+          Settled
+        </Chip>
+        <Chip
+          size="sm"
+          selected={entry.status === "on-my-mind"}
           onClick={() => setStatus("on-my-mind")}
-        />
+        >
+          Still on my mind
+        </Chip>
       </div>
     </div>
-  );
-}
-
-function StatusChip({
-  label,
-  active,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={[
-        "font-sans text-[10px] tracking-[0.16em] uppercase px-2.5 py-1 rounded-sm border transition-colors",
-        active
-          ? "border-cosmic-50/55 text-cosmic-50 bg-cosmic-50/8"
-          : "border-cosmic-50/15 text-cosmic-50/55 hover:text-cosmic-50/85 hover:border-cosmic-50/30",
-      ].join(" ")}
-    >
-      {label}
-    </button>
   );
 }
 
@@ -183,10 +143,10 @@ function ByCategory({ counts }: { counts: Record<string, number> }) {
           key={key}
           className="flex items-center justify-between border-b border-cosmic-50/10 pb-2"
         >
-          <span className="font-display text-[16px] text-cosmic-50/90 capitalize">
+          <span className="t-body text-cosmic-50/90 capitalize">
             {key.startsWith("other:") ? key.slice(6) : key.replace(/-/g, " ")}
           </span>
-          <span className="font-display text-[16px] text-cosmic-50/55 tabular-nums">
+          <span className="t-body text-cosmic-50/55 tabular-nums">
             {count}
           </span>
         </div>
@@ -240,10 +200,10 @@ function ByEmotion({
               key={s}
               className="flex items-center justify-between border-b border-cosmic-50/10 pb-2"
             >
-              <span className="font-display text-[16px] text-cosmic-50/90">
+              <span className="t-body text-cosmic-50/90">
                 {def.english}
               </span>
-              <span className="font-display text-[16px] text-cosmic-50/55 tabular-nums">
+              <span className="t-body text-cosmic-50/55 tabular-nums">
                 {counts[s]}
               </span>
             </div>
@@ -252,7 +212,7 @@ function ByEmotion({
       </div>
       {crossRef.length > 0 ? (
         <div>
-          <h3 className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/45 mb-2">
+          <h3 className="t-eyebrow text-cosmic-50/45 mb-2">
             Cross-reference
           </h3>
           <div className="flex flex-col gap-1.5">
@@ -260,7 +220,7 @@ function ByEmotion({
               topState ? (
                 <p
                   key={category}
-                  className="font-display text-[13px] text-cosmic-50/75 leading-[1.55]"
+                  className="t-meta text-cosmic-50/75 leading-[1.55]"
                 >
                   <span className="capitalize">
                     {category.replace(/-/g, " ")}

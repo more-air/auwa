@@ -13,6 +13,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
+import { PageHeader } from "@/components/page-header";
 
 const READING = [
   {
@@ -36,16 +37,10 @@ const READING = [
 export default function AboutSenshin() {
   const router = useRouter();
   return (
-    <main id="main-content" className="min-h-svh px-6 pt-16 pb-16">
-      <button
-        type="button"
-        onClick={() => router.back()}
-        className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-      >
-        ← Back
-      </button>
+    <main id="main-content" className="min-h-svh bg-[var(--color-void)]">
+      <PageHeader onBack={() => router.back()} />
 
-      <article className="max-w-md mx-auto mt-10 flex flex-col gap-6">
+      <article className="max-w-md mx-auto -mt-12 px-6 pb-16 flex flex-col gap-6">
         <div className="flex flex-col items-center gap-3">
           <Orb size="sm" />
           <h1
@@ -54,12 +49,12 @@ export default function AboutSenshin() {
           >
             洗心
           </h1>
-          <span className="font-display text-[15px] text-cosmic-50/65 italic">
+          <span className="t-voice text-cosmic-50/65 italic">
             Senshin, washing the heart
           </span>
         </div>
 
-        <div className="font-display text-[16px] text-cosmic-50/85 leading-[1.65]">
+        <div className="t-voice text-cosmic-50/85 leading-[1.65]">
           <p>
             At a Shinto shrine, before you enter, you stop at the chōzubachi
             and pour water over your hands. The gesture is older than any
@@ -81,7 +76,7 @@ export default function AboutSenshin() {
         </div>
 
         <div>
-          <h2 className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/45 mb-3">
+          <h2 className="t-eyebrow text-cosmic-50/45 mb-3">
             Further reading
           </h2>
           <ul className="flex flex-col gap-3">
@@ -91,7 +86,7 @@ export default function AboutSenshin() {
                   href={r.href}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="font-display text-[15px] text-cosmic-50/85 hover:text-cosmic-50 underline underline-offset-4 decoration-cosmic-50/25 hover:decoration-cosmic-50/55 transition-colors"
+                  className="t-body text-cosmic-50/85 hover:text-cosmic-50 underline underline-offset-4 decoration-cosmic-50/25 hover:decoration-cosmic-50/55 transition-colors"
                 >
                   {r.title}
                 </a>
@@ -103,13 +98,13 @@ export default function AboutSenshin() {
         <div className="mt-4 pt-4 border-t border-cosmic-50/10 flex flex-col gap-3">
           <Link
             href="/senshin/help"
-            className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
+            className="t-eyebrow text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
           >
             Crisis support →
           </Link>
           <Link
             href="/senshin/look-back"
-            className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
+            className="t-eyebrow text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
           >
             Look Back →
           </Link>

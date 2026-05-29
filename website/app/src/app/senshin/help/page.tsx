@@ -10,6 +10,7 @@
 
 import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
+import { PageHeader } from "@/components/page-header";
 
 const SERVICES = [
   {
@@ -53,44 +54,40 @@ const SERVICES = [
 export default function CrisisHelp() {
   const router = useRouter();
   return (
-    <main id="main-content" className="min-h-svh px-6 pt-16 pb-16">
-      <button
-        type="button"
-        onClick={() => router.back()}
-        className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-      >
-        ← Back
-      </button>
+    <main id="main-content" className="min-h-svh bg-[var(--color-void)]">
+      <PageHeader onBack={() => router.back()} />
 
-      <div className="max-w-md mx-auto mt-10 flex flex-col items-center text-center gap-4">
-        <Orb size="sm" />
-        <p className="font-display text-[19px] text-cosmic-50 leading-[1.5] max-w-xs">
-          Help is one tap away when you need it.
-        </p>
-        <p className="font-display text-[13px] text-cosmic-50/55 leading-[1.55] max-w-xs">
-          These are independent organisations. Auwa is not affiliated with
-          any of them.
-        </p>
-      </div>
+      <div className="max-w-md mx-auto -mt-10 px-6 pb-16">
+        <div className="flex flex-col items-center text-center gap-4">
+          <Orb size="sm" />
+          <p className="t-voice-l text-cosmic-50 max-w-xs">
+            Help is one tap away when you need it.
+          </p>
+          <p className="t-meta text-cosmic-50/55 max-w-xs leading-[1.55]">
+            These are independent organisations. Auwa is not affiliated with
+            any of them.
+          </p>
+        </div>
 
-      <div className="max-w-md mx-auto mt-10 flex flex-col gap-5">
-        {SERVICES.map((s) => (
-          <a
-            key={s.region}
-            href={s.href}
-            className="block border border-cosmic-50/15 hover:border-cosmic-50/35 rounded-md px-4 py-3 transition-colors"
-          >
-            <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/45 block">
-              {s.region}
-            </span>
-            <span className="font-display text-[16px] text-cosmic-50 mt-1 block">
-              {s.name}
-            </span>
-            <span className="font-display text-[13px] text-cosmic-50/65 mt-0.5 block">
-              {s.contact}
-            </span>
-          </a>
-        ))}
+        <div className="mt-10 flex flex-col gap-3">
+          {SERVICES.map((s) => (
+            <a
+              key={s.region}
+              href={s.href}
+              className="block border border-cosmic-50/12 hover:border-cosmic-50/35 rounded-[16px] px-4 py-3 transition-colors"
+            >
+              <span className="t-eyebrow text-cosmic-50/45 block">
+                {s.region}
+              </span>
+              <span className="t-title text-cosmic-50 mt-1 block">
+                {s.name}
+              </span>
+              <span className="t-meta text-cosmic-50/65 mt-0.5 block">
+                {s.contact}
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
     </main>
   );

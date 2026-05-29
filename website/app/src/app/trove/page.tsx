@@ -20,6 +20,8 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
+import { PageHeader } from "@/components/page-header";
+import { SegmentedControl } from "@/components/segmented-control";
 import {
   fireflysIn,
   useAppStore,
@@ -64,44 +66,24 @@ export default function FireflyTrove() {
       />
 
       <div className="relative z-10 min-h-svh flex flex-col">
-        <header className="px-6 pt-6 pb-4 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => router.push("/")}
-            className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-            aria-label="Back to arrival"
-          >
-            ← Back
-          </button>
-          <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55">
-            Trove
-          </span>
-          <span className="w-12" />
-        </header>
+        <PageHeader title="Trove" onBack={() => router.push("/")} transparent />
 
-        <div className="px-6 mb-4 flex items-center justify-center gap-5">
-          {(Object.keys(PERIOD_LABELS) as Period[]).map((p) => (
-            <button
-              key={p}
-              type="button"
-              onClick={() => setPeriod(p)}
-              className={[
-                "font-sans text-[11px] tracking-[0.18em] uppercase transition-colors",
-                period === p
-                  ? "text-cosmic-50"
-                  : "text-cosmic-50/35 hover:text-cosmic-50/65",
-              ].join(" ")}
-            >
-              {PERIOD_LABELS[p]}
-            </button>
-          ))}
+        <div className="px-6 mb-4 flex items-center justify-center">
+          <SegmentedControl<Period>
+            value={period}
+            onChange={setPeriod}
+            options={(Object.keys(PERIOD_LABELS) as Period[]).map((p) => ({
+              value: p,
+              label: PERIOD_LABELS[p],
+            }))}
+          />
         </div>
 
         <div className="text-center mb-4">
-          <span className="font-display text-[16px] text-cosmic-50/85">
+          <span className="t-voice-l text-cosmic-50/85 tabular-nums">
             {visible.length}
           </span>
-          <span className="font-display text-[16px] text-cosmic-50/55 ml-2">
+          <span className="t-voice text-cosmic-50/55 ml-2">
             {visible.length === 1 ? "firefly" : "fireflies"}
           </span>
         </div>
@@ -159,7 +141,7 @@ function EmptyState() {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6">
       <Orb size="md" />
-      <p className="font-display text-[18px] text-cosmic-50/65 text-center max-w-xs">
+      <p className="t-voice-l text-cosmic-50/65 text-center max-w-xs">
         Your trove is empty. What did you notice today?
       </p>
     </div>
@@ -265,13 +247,13 @@ function FireflyInspector({
       className="absolute inset-x-0 bottom-0 z-20 px-6 pb-10 pt-8 bg-gradient-to-t from-[var(--color-void)] via-[var(--color-void)]/95 to-transparent"
     >
       <div className="max-w-md mx-auto flex flex-col items-center text-center gap-4">
-        <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45">
+        <span className="t-eyebrow text-cosmic-50/45">
           {when}
         </span>
-        <p className="font-display text-[15px] text-cosmic-50/75 max-w-xs leading-[1.5]">
+        <p className="t-voice text-cosmic-50/75 max-w-xs">
           {fly.question}
         </p>
-        <p className="font-display text-[18px] text-cosmic-50 max-w-sm leading-[1.45]">
+        <p className="t-voice-l text-cosmic-50 max-w-sm">
           {fly.answer}
         </p>
         {fly.photoDataUrl ? (
@@ -284,7 +266,7 @@ function FireflyInspector({
         <button
           type="button"
           onClick={onClose}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors mt-2"
+          className="t-eyebrow text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors mt-2"
         >
           Tap to release
         </button>

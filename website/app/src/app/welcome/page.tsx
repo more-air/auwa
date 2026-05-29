@@ -33,6 +33,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
+import { Button } from "@/components/button";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
 import { PlaceholderAsset } from "@/components/placeholder-asset";
 import { FIRST_GIFT_MOTIF, MOTIFS, type MotifCategory } from "@/lib/motifs";
@@ -179,7 +180,7 @@ function WelcomePhase({ onNext }: { onNext: () => void }) {
         <Orb size="lg" />
       </div>
       <div className="flex flex-col items-center gap-8 max-w-sm">
-        <div className="text-center font-display text-[19px] text-cosmic-50/90 leading-[1.55]">
+        <div className="text-center t-voice-l text-cosmic-50/90">
           <p>Auwa reveals what is there in you.</p>
           <p className="mt-3">Choose a few things you love.</p>
           <p className="mt-3">Your Kokoro starts here.</p>
@@ -209,7 +210,7 @@ function WhatBringsPhase({
         <Orb size="md" />
       </div>
       <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="font-display text-[20px] text-cosmic-50 text-center">
+        <p className="t-voice-l text-cosmic-50 text-center">
           What brings you to Auwa?
         </p>
         <div className="w-full grid grid-cols-1 gap-3">
@@ -242,7 +243,7 @@ function PersonalisationPhase({
     <PhaseShell>
       <div className="flex flex-col items-center gap-3 mb-4">
         <KokoroSilhouette size="sm" motifs={selected} halo={false} />
-        <p className="font-display text-[17px] text-cosmic-50/90 text-center max-w-xs">
+        <p className="t-voice-l text-cosmic-50/90 text-center max-w-xs">
           Choose 5 to 7 things that feel like you.
         </p>
       </div>
@@ -251,7 +252,7 @@ function PersonalisationPhase({
           const items = MOTIFS.filter((m) => m.category === cat);
           return (
             <div key={cat}>
-              <h3 className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/40 mb-2">
+              <h3 className="t-eyebrow text-cosmic-50/40 mb-2">
                 {cat}
               </h3>
               <div className="grid grid-cols-3 gap-2">
@@ -271,7 +272,7 @@ function PersonalisationPhase({
                         );
                       }}
                       className={[
-                        "aspect-square rounded-md border transition-colors duration-200",
+                        "aspect-square rounded-[16px] border transition-colors duration-200",
                         "flex items-center justify-center text-center px-2",
                         isSelected
                           ? "border-cosmic-50/60 bg-cosmic-50/10"
@@ -280,7 +281,7 @@ function PersonalisationPhase({
                             : "border-cosmic-50/15 hover:border-cosmic-50/35",
                       ].join(" ")}
                     >
-                      <span className="font-display text-[13px] text-cosmic-50/90 leading-tight">
+                      <span className="t-meta text-cosmic-50/90 leading-tight">
                         {m.label}
                       </span>
                     </button>
@@ -343,7 +344,7 @@ function FirstGiftPhase({ onNext }: { onNext: () => void }) {
           </div>
         </div>
         <p
-          className="font-display text-[18px] text-cosmic-50/85 text-center mt-10 leading-[1.5]"
+          className="t-voice-l text-cosmic-50/85 text-center mt-10"
           style={{
             animation: "auwa-fade-in 1800ms ease-out 2000ms forwards",
             opacity: 0,
@@ -381,7 +382,7 @@ function WhenFitsPhase({
         <Orb size="md" />
       </div>
       <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="font-display text-[20px] text-cosmic-50 text-center">
+        <p className="t-voice-l text-cosmic-50 text-center">
           When does Auwa fit your day?
         </p>
         <div className="w-full grid grid-cols-2 gap-3">
@@ -432,7 +433,7 @@ function TraitPhase({
         <KokoroSilhouette size="sm" />
       </div>
       <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="font-display text-[20px] text-cosmic-50 text-center">
+        <p className="t-voice-l text-cosmic-50 text-center">
           Pick a quality your Kokoro carries.
         </p>
         <div className="w-full grid grid-cols-2 gap-3">
@@ -474,7 +475,7 @@ function SourcePhase({
         <Orb size="sm" />
       </div>
       <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="font-display text-[20px] text-cosmic-50 text-center">
+        <p className="t-voice-l text-cosmic-50 text-center">
           Where did you find Auwa?
         </p>
         <div className="w-full grid grid-cols-2 gap-3">
@@ -501,10 +502,10 @@ function BreathPhase({ onNext }: { onNext: () => void }) {
       className="flex-1 flex flex-col items-center justify-center px-6 py-12 w-full"
     >
       <Orb size="lg" />
-      <p className="font-display text-[19px] text-cosmic-50/85 text-center mt-12 max-w-xs leading-[1.5]">
+      <p className="t-voice-l text-cosmic-50/85 text-center mt-12 max-w-xs">
         In a moment, you will see Auwa for the first time.
       </p>
-      <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/35 mt-8">
+      <span className="t-eyebrow text-cosmic-50/35 mt-8">
         Tap to continue
       </span>
     </button>
@@ -529,18 +530,18 @@ function TapCard({
       type="button"
       onClick={onClick}
       className={[
-        "py-4 px-4 rounded-md border transition-colors duration-200",
+        "py-4 px-4 rounded-[16px] border transition-colors duration-200",
         "flex flex-col items-center justify-center text-center",
         selected
           ? "border-cosmic-50/55 bg-cosmic-50/8"
           : "border-cosmic-50/15 hover:border-cosmic-50/35 hover:bg-cosmic-50/5",
       ].join(" ")}
     >
-      <span className="font-display text-[16px] text-cosmic-50/95">
+      <span className="t-button text-cosmic-50/95">
         {label}
       </span>
       {sublabel ? (
-        <span className="font-sans text-[10px] tracking-[0.14em] uppercase text-cosmic-50/40 mt-1">
+        <span className="t-eyebrow text-cosmic-50/40 mt-1">
           {sublabel}
         </span>
       ) : null}
@@ -558,20 +559,8 @@ function ContinueButton({
   disabled?: boolean;
 }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className={[
-        "font-sans text-[12px] tracking-[0.16em] uppercase",
-        "border rounded-sm px-6 py-3",
-        "transition-colors duration-300",
-        disabled
-          ? "text-cosmic-50/25 border-cosmic-50/10 cursor-not-allowed"
-          : "text-cosmic-50/85 border-cosmic-50/25 hover:text-cosmic-50 hover:border-cosmic-50/55",
-      ].join(" ")}
-    >
+    <Button variant="primary" onClick={onClick} disabled={disabled}>
       {label}
-    </button>
+    </Button>
   );
 }

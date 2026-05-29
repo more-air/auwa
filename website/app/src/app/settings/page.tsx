@@ -14,6 +14,8 @@
 */
 
 import { useRouter } from "next/navigation";
+import { PageHeader } from "@/components/page-header";
+import { Button } from "@/components/button";
 import {
   exportStore,
   resetStore,
@@ -50,22 +52,10 @@ export default function Settings() {
   };
 
   return (
-    <main id="main-content" className="min-h-svh px-6 pt-16 pb-16">
-      <header className="flex items-center justify-between mb-8">
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-        >
-          ← Back
-        </button>
-        <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45">
-          Settings
-        </span>
-        <span className="w-12" />
-      </header>
+    <main id="main-content" className="min-h-svh bg-[var(--color-void)]">
+      <PageHeader title="Settings" onBack={() => router.push("/")} />
 
-      <div className="max-w-md mx-auto flex flex-col gap-10">
+      <div className="max-w-md mx-auto flex flex-col gap-10 px-6 pt-4 pb-16">
         <Section title="Practice">
           <Toggle
             label="Remind me about unfinished Senshin practices"
@@ -76,34 +66,26 @@ export default function Settings() {
         </Section>
 
         <Section title="Your data">
-          <p className="font-display text-[14px] text-cosmic-50/65 leading-[1.55]">
+          <p className="t-body text-cosmic-50/65">
             Everything Auwa knows about you lives on this device. Export it
             any time as a JSON file.
           </p>
-          <button
-            type="button"
-            onClick={exportData}
-            className="mt-3 self-start font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/85 hover:text-cosmic-50 border border-cosmic-50/25 hover:border-cosmic-50/55 px-5 py-2.5 rounded-sm transition-colors"
-          >
+          <Button variant="secondary" size="sm" onClick={exportData} className="mt-4">
             Export data
-          </button>
+          </Button>
         </Section>
 
         <Section title="Reset">
-          <p className="font-display text-[14px] text-cosmic-50/65 leading-[1.55]">
+          <p className="t-body text-cosmic-50/65">
             For testing: wipe local data and start onboarding again. Your
             archive, fireflies, and Senshin entries are deleted.
           </p>
-          <button
-            type="button"
-            onClick={reset}
-            className="mt-3 self-start font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/65 hover:text-cosmic-50/95 border border-cosmic-50/20 hover:border-cosmic-50/45 px-5 py-2.5 rounded-sm transition-colors"
-          >
+          <Button variant="secondary" size="sm" onClick={reset} className="mt-4">
             Reset everything
-          </button>
+          </Button>
         </Section>
 
-        <p className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/30 text-center">
+        <p className="t-eyebrow text-cosmic-50/30 text-center">
           Kokoro Mirror · v1 friends-release
         </p>
       </div>
@@ -120,9 +102,7 @@ function Section({
 }) {
   return (
     <section>
-      <h2 className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/45 mb-4">
-        {title}
-      </h2>
+      <h2 className="t-eyebrow text-cosmic-50/45 mb-4">{title}</h2>
       <div className="flex flex-col items-start">{children}</div>
     </section>
   );
@@ -148,11 +128,9 @@ function Toggle({
       className="w-full flex items-start justify-between gap-4 text-left py-2"
     >
       <span className="flex flex-col">
-        <span className="font-display text-[16px] text-cosmic-50/95">
-          {label}
-        </span>
+        <span className="t-body text-cosmic-50/95">{label}</span>
         {description ? (
-          <span className="font-display text-[13px] text-cosmic-50/55 mt-1 leading-[1.55]">
+          <span className="t-meta text-cosmic-50/55 mt-1 leading-[1.55]">
             {description}
           </span>
         ) : null}

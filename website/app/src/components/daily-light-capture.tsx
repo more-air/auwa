@@ -19,6 +19,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { Orb } from "./orb";
+import { Button } from "./button";
 import { addFirefly } from "@/lib/app-store";
 import { pickDailyLightPrompt } from "@/lib/daily-light-prompts";
 
@@ -84,9 +85,7 @@ export function DailyLightCapture({
       <section className="min-h-svh flex flex-col items-center justify-center px-6">
         <div className="flex flex-col items-center gap-3">
           <Orb size="md" />
-          <p className="font-sans text-[12px] tracking-[0.18em] uppercase text-cosmic-50/75 mt-4">
-            Captured
-          </p>
+          <p className="t-eyebrow text-cosmic-50/75 mt-4">Captured</p>
         </div>
       </section>
     );
@@ -96,13 +95,13 @@ export function DailyLightCapture({
     <section className="min-h-svh flex flex-col items-center justify-between px-6 pt-12 pb-10">
       <div className="flex flex-col items-center mt-4">
         <Orb size="sm" />
-        <p className="font-display text-[18px] text-cosmic-50/85 text-center mt-4 max-w-xs leading-[1.5]">
+        <p className="t-voice-l text-cosmic-50/85 text-center mt-4 max-w-xs">
           Auwa noticed a small light today.
         </p>
       </div>
 
       <div className="w-full max-w-md flex flex-col items-center gap-6">
-        <p className="font-display text-[19px] text-cosmic-50 text-center leading-[1.4]">
+        <p className="t-voice-l text-cosmic-50 text-center">
           {prompt.question}
         </p>
         <textarea
@@ -120,7 +119,7 @@ export function DailyLightCapture({
           ].join(" ")}
         />
         {overLimit ? (
-          <span className="font-sans text-[10px] tracking-[0.14em] uppercase text-cosmic-50/50 -mt-3">
+          <span className="t-eyebrow text-cosmic-50/50 -mt-3">
             A little shorter is fine
           </span>
         ) : null}
@@ -163,29 +162,18 @@ export function DailyLightCapture({
         </div>
       </div>
 
-      <div className="flex items-center gap-8">
-        <button
-          type="button"
-          onClick={onSkip}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/35 hover:text-cosmic-50/65 transition-colors"
-        >
+      <div className="flex items-center gap-5">
+        <Button variant="ghost" size="sm" onClick={onSkip}>
           Skip
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
+          variant="primary"
+          size="md"
           onClick={capture}
           disabled={!answer.trim()}
-          className={[
-            "font-sans text-[12px] tracking-[0.16em] uppercase",
-            "border rounded-sm px-6 py-3",
-            "transition-colors duration-300",
-            answer.trim()
-              ? "text-cosmic-50/85 border-cosmic-50/30 hover:text-cosmic-50 hover:border-cosmic-50/60"
-              : "text-cosmic-50/25 border-cosmic-50/10 cursor-not-allowed",
-          ].join(" ")}
         >
           Capture
-        </button>
+        </Button>
       </div>
     </section>
   );

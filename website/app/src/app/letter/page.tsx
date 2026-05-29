@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
+import { PageHeader } from "@/components/page-header";
 import { GradientField } from "@/components/gradient-field";
 import {
   lastRevelation,
@@ -42,8 +43,9 @@ export default function LetterPage() {
 
   if (!letter) {
     return (
-      <main className="min-h-svh px-6 pt-16 pb-16">
-        <p className="text-center font-display text-[16px] text-cosmic-50/55">
+      <main className="min-h-svh bg-[var(--color-void)]">
+        <PageHeader onBack={() => router.push("/")} />
+        <p className="text-center t-voice-l text-cosmic-50/55 px-6 mt-16">
           No letter waiting. The next one will arrive on a quiet day.
         </p>
       </main>
@@ -60,28 +62,22 @@ export default function LetterPage() {
         <div className="absolute inset-0 bg-[var(--color-void)]" />
       )}
 
-      <div className="relative z-10 min-h-svh px-6 pt-16 pb-16 flex flex-col">
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors self-start"
-        >
-          ← Back
-        </button>
+      <PageHeader onBack={() => router.push("/")} transparent />
 
+      <div className="relative z-10 min-h-svh px-6 pb-16 flex flex-col -mt-12">
         <article className="flex-1 max-w-md mx-auto flex flex-col items-center justify-center gap-8 text-center">
           <Orb size="md" />
-          <div className="font-display text-[19px] text-cosmic-50/95 leading-[1.7]">
+          <div className="t-voice-l text-cosmic-50/95 leading-[1.7]">
             {letter.body.map((line, i) => (
               <p key={i} className={i > 0 ? "mt-5" : ""}>
                 {line}
               </p>
             ))}
           </div>
-          <span className="font-display text-[16px] text-cosmic-50/55 italic">
+          <span className="t-voice text-cosmic-50/55 italic">
             Auwa
           </span>
-          <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/35">
+          <span className="t-eyebrow text-cosmic-50/35">
             {new Date(letter.publishedAt).toLocaleDateString(undefined, {
               day: "numeric",
               month: "long",
@@ -92,7 +88,7 @@ export default function LetterPage() {
 
         {archive.length > 0 ? (
           <div className="max-w-md mx-auto mt-12 w-full">
-            <h2 className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/35 mb-3 text-center">
+            <h2 className="t-eyebrow text-cosmic-50/35 mb-3 text-center">
               Earlier letters
             </h2>
             <div className="flex flex-col gap-2">
@@ -100,7 +96,7 @@ export default function LetterPage() {
                 <Link
                   key={l.id}
                   href={`/letter`}
-                  className="font-display text-[14px] text-cosmic-50/55 hover:text-cosmic-50/85 text-center"
+                  className="t-meta text-cosmic-50/55 hover:text-cosmic-50/85 text-center transition-colors"
                 >
                   {new Date(l.publishedAt).toLocaleDateString(undefined, {
                     day: "numeric",

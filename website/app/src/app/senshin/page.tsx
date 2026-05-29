@@ -21,6 +21,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
+import { Button } from "@/components/button";
+import { Chip } from "@/components/chip";
 import {
   YAMATO_STATES,
   getYamatoState,
@@ -158,17 +160,17 @@ function SenshinHeader({ onExit }: { onExit: () => void }) {
       <button
         type="button"
         onClick={onExit}
-        className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45 hover:text-cosmic-50/80 transition-colors"
+        className="t-eyebrow text-cosmic-50/45 hover:text-cosmic-50/80 transition-colors"
         aria-label="Exit Senshin"
       >
-        ← Exit
+        Exit
       </button>
-      <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45">
+      <span className="t-eyebrow text-cosmic-50/45">
         Senshin
       </span>
       <Link
         href="/senshin/about"
-        className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45 hover:text-cosmic-50/80 transition-colors"
+        className="t-eyebrow text-cosmic-50/45 hover:text-cosmic-50/80 transition-colors"
       >
         About
       </Link>
@@ -180,7 +182,7 @@ function CrisisLink() {
   return (
     <Link
       href="/senshin/help"
-      className="absolute bottom-4 inset-x-0 z-20 mx-auto block text-center font-sans text-[10px] tracking-[0.16em] uppercase text-cosmic-50/30 hover:text-cosmic-50/55 transition-colors px-6"
+      className="absolute bottom-4 inset-x-0 z-20 mx-auto block text-center t-eyebrow text-cosmic-50/30 hover:text-cosmic-50/55 transition-colors px-6"
     >
       If this is heavier than the page can hold, find someone to talk to.
     </Link>
@@ -198,14 +200,14 @@ function BreathPhase({ onNext }: { onNext: () => void }) {
     >
       <Orb size="lg" />
       <div className="text-center max-w-xs">
-        <p className="font-display text-[20px] text-cosmic-50/90 leading-[1.4]">
+        <p className="t-voice-l text-cosmic-50/90">
           Take a breath.
         </p>
-        <p className="font-display text-[19px] text-cosmic-50/65 leading-[1.4] mt-3">
+        <p className="t-voice-l text-cosmic-50/65 mt-3">
           What needs washing?
         </p>
       </div>
-      <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/30">
+      <span className="t-eyebrow text-cosmic-50/30">
         Tap to continue
       </span>
     </button>
@@ -230,32 +232,22 @@ function CategorisePhase({
     <section className="min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
       <div className="flex flex-col items-center gap-3 max-w-sm">
         <Orb size="sm" />
-        <p className="font-display text-[18px] text-cosmic-50/90 text-center mt-4">
+        <p className="t-voice-l text-cosmic-50/90 text-center mt-4">
           What kind of thing is this?
         </p>
       </div>
 
       <div className="w-full max-w-md flex flex-col gap-4">
-        <div className="grid grid-cols-2 gap-2.5">
-          {CATEGORIES.map((c) => {
-            const isSelected = selected.includes(c.key);
-            return (
-              <button
-                key={c.key}
-                type="button"
-                onClick={() => onToggle(c.key)}
-                className={[
-                  "py-3 px-3 rounded-md border transition-colors duration-200",
-                  "font-display text-[15px]",
-                  isSelected
-                    ? "border-cosmic-50/55 bg-cosmic-50/8 text-cosmic-50"
-                    : "border-cosmic-50/15 text-cosmic-50/85 hover:border-cosmic-50/35",
-                ].join(" ")}
-              >
-                {c.label}
-              </button>
-            );
-          })}
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          {CATEGORIES.map((c) => (
+            <Chip
+              key={c.key}
+              selected={selected.includes(c.key)}
+              onClick={() => onToggle(c.key)}
+            >
+              {c.label}
+            </Chip>
+          ))}
         </div>
         {otherSelected ? (
           <input
@@ -263,26 +255,18 @@ function CategorisePhase({
             value={otherNote}
             onChange={(e) => onChangeOther(e.target.value.slice(0, 60))}
             placeholder="A few words"
-            className="w-full bg-transparent border-b border-cosmic-50/25 py-2 px-1 font-display text-[16px] text-cosmic-50 placeholder:text-cosmic-50/30 focus:outline-none focus:border-cosmic-50/55"
+            className="w-full bg-transparent border-b border-cosmic-50/25 py-2 px-1 t-body text-[16px] text-cosmic-50 placeholder:text-cosmic-50/30 focus:outline-none focus:border-cosmic-50/55"
           />
         ) : null}
       </div>
 
-      <button
-        type="button"
+      <Button
+        variant="primary"
         onClick={onNext}
         disabled={selected.length === 0}
-        className={[
-          "font-sans text-[12px] tracking-[0.16em] uppercase",
-          "border rounded-sm px-6 py-3",
-          "transition-colors duration-300",
-          selected.length === 0
-            ? "text-cosmic-50/25 border-cosmic-50/10 cursor-not-allowed"
-            : "text-cosmic-50/85 border-cosmic-50/30 hover:text-cosmic-50 hover:border-cosmic-50/60",
-        ].join(" ")}
       >
         Continue
-      </button>
+      </Button>
     </section>
   );
 }
@@ -305,7 +289,7 @@ function EmotionPhase({
     <section className="min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
       <div className="flex flex-col items-center gap-3">
         <Orb size="sm" />
-        <p className="font-display text-[18px] text-cosmic-50/90 text-center mt-4 max-w-xs">
+        <p className="t-voice-l text-cosmic-50/90 text-center mt-4 max-w-xs">
           How does this feel right now?
         </p>
       </div>
@@ -332,11 +316,11 @@ function EmotionPhase({
                       : "opacity-40 hover:opacity-80",
                 ].join(" ")}
               >
-                <span className="font-display text-[13px] sm:text-[15px] text-cosmic-50 text-center leading-[1.15]">
+                <span className="t-title text-[13px] sm:text-[15px] text-cosmic-50 text-center leading-[1.15]">
                   {s.english}
                 </span>
                 <span
-                  className="font-jp-serif text-[10px] tracking-[0.04em] text-cosmic-50/45 mt-1 text-center"
+                  className="t-jp text-cosmic-50/45 mt-1 text-center"
                   style={{ fontFamily: "var(--font-jp-serif)" }}
                 >
                   {s.kanji}
@@ -347,50 +331,31 @@ function EmotionPhase({
         </div>
 
         {def ? (
-          <div className="w-full flex flex-wrap items-start justify-center gap-x-4 gap-y-2 mt-2">
+          <div className="w-full flex flex-wrap items-center justify-center gap-2 mt-2">
             {def.subExpressions.slice(0, 4).map((sub) => {
               const isSelected = subExpression?.key === sub.key;
               return (
-                <button
+                <Chip
                   key={sub.key}
-                  type="button"
+                  size="sm"
+                  selected={isSelected}
                   onClick={() =>
                     onSelectSub(
                       isSelected ? null : { key: sub.key, english: sub.english }
                     )
                   }
-                  className={[
-                    "px-2 py-1 transition-opacity duration-300",
-                    isSelected
-                      ? "opacity-100"
-                      : "opacity-55 hover:opacity-90",
-                  ].join(" ")}
                 >
-                  <span className="font-display text-[14px] text-cosmic-50/90">
-                    {sub.english}
-                  </span>
-                </button>
+                  {sub.english}
+                </Chip>
               );
             })}
           </div>
         ) : null}
       </div>
 
-      <button
-        type="button"
-        onClick={onNext}
-        disabled={state === null}
-        className={[
-          "font-sans text-[12px] tracking-[0.16em] uppercase",
-          "border rounded-sm px-6 py-3",
-          "transition-colors duration-300",
-          state === null
-            ? "text-cosmic-50/25 border-cosmic-50/10 cursor-not-allowed"
-            : "text-cosmic-50/85 border-cosmic-50/30 hover:text-cosmic-50 hover:border-cosmic-50/60",
-        ].join(" ")}
-      >
+      <Button variant="primary" onClick={onNext} disabled={state === null}>
         Continue
-      </button>
+      </Button>
     </section>
   );
 }
@@ -407,7 +372,7 @@ function GuidancePhase({
       <Orb size="sm" />
 
       <div className="w-full max-w-sm flex flex-col items-center gap-6">
-        <div className="font-display text-[17px] text-cosmic-50/90 leading-[1.6] text-center">
+        <div className="t-voice text-cosmic-50/90 text-center">
           <p>Now reach for your notebook.</p>
           <p className="mt-4">Write the worry through, then write what is actually true.</p>
           <p className="mt-4 text-cosmic-50/65">
@@ -418,22 +383,14 @@ function GuidancePhase({
             When you are finished, you do not need to return here.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={onTypeInstead}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45 hover:text-cosmic-50/75 transition-colors underline-offset-4 hover:underline"
-        >
+        <Button variant="ghost" size="sm" onClick={onTypeInstead}>
           Type here instead
-        </button>
+        </Button>
       </div>
 
-      <button
-        type="button"
-        onClick={onPaper}
-        className="font-sans text-[12px] tracking-[0.16em] uppercase text-cosmic-50/85 hover:text-cosmic-50 border border-cosmic-50/30 hover:border-cosmic-50/60 px-6 py-3 rounded-sm transition-colors duration-300"
-      >
-        I'm done
-      </button>
+      <Button variant="primary" onClick={onPaper}>
+        I&apos;m done
+      </Button>
     </section>
   );
 }
@@ -454,14 +411,14 @@ function WritePhase({
   return (
     <section className="min-h-svh flex flex-col items-stretch px-6 pt-20 pb-20 gap-5">
       <div className="text-center">
-        <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45">
+        <span className="t-eyebrow text-cosmic-50/45">
           Mind Wash
         </span>
       </div>
 
       <div className="flex-1 flex flex-col gap-4 max-w-md w-full mx-auto">
         <label className="block">
-          <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55">
+          <span className="t-eyebrow text-cosmic-50/55">
             The worry
           </span>
           <textarea
@@ -469,15 +426,15 @@ function WritePhase({
             onChange={(e) => onChangeWorry(e.target.value)}
             placeholder="Write it through."
             rows={5}
-            className="w-full mt-2 bg-transparent border border-cosmic-50/15 rounded-md p-3 font-display text-[15px] text-cosmic-50 placeholder:text-cosmic-50/25 focus:outline-none focus:border-cosmic-50/40"
+            className="w-full mt-2 bg-transparent border border-cosmic-50/15 rounded-[16px] p-3 t-body text-cosmic-50 placeholder:text-cosmic-50/25 focus:outline-none focus:border-cosmic-50/40"
           />
         </label>
-        <p className="font-display text-[13px] text-cosmic-50/55 leading-[1.55] px-1">
+        <p className="t-voice text-cosmic-50/55 px-1">
           Often, when we write it down, we see it differently. What facts
           would your future self want you to remember?
         </p>
         <label className="block">
-          <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55">
+          <span className="t-eyebrow text-cosmic-50/55">
             The reality
           </span>
           <textarea
@@ -485,19 +442,15 @@ function WritePhase({
             onChange={(e) => onChangeReality(e.target.value)}
             placeholder="What is actually true."
             rows={5}
-            className="w-full mt-2 bg-transparent border border-cosmic-50/15 rounded-md p-3 font-display text-[15px] text-cosmic-50 placeholder:text-cosmic-50/25 focus:outline-none focus:border-cosmic-50/40"
+            className="w-full mt-2 bg-transparent border border-cosmic-50/15 rounded-[16px] p-3 t-body text-cosmic-50 placeholder:text-cosmic-50/25 focus:outline-none focus:border-cosmic-50/40"
           />
         </label>
       </div>
 
       <div className="flex justify-center">
-        <button
-          type="button"
-          onClick={onSave}
-          className="font-sans text-[12px] tracking-[0.16em] uppercase text-cosmic-50/85 hover:text-cosmic-50 border border-cosmic-50/30 hover:border-cosmic-50/60 px-6 py-3 rounded-sm transition-colors duration-300"
-        >
+        <Button variant="primary" onClick={onSave}>
           Save
-        </button>
+        </Button>
       </div>
     </section>
   );
@@ -528,10 +481,10 @@ function ClosurePhase({ onNext }: { onNext: () => void }) {
       />
       <div className="relative z-10 flex flex-col items-center gap-10">
         <Orb size="md" still />
-        <p className="font-display text-[22px] text-cosmic-50/95 text-center max-w-xs leading-[1.4]">
+        <p className="t-voice-xl text-cosmic-50/95 text-center max-w-xs">
           Held.
         </p>
-        <p className="font-display text-[18px] text-cosmic-50/65 text-center max-w-xs leading-[1.5]">
+        <p className="t-voice-l text-cosmic-50/65 text-center max-w-xs">
           Go gently.
         </p>
       </div>
@@ -557,24 +510,16 @@ function HandoffPhase({
   return (
     <section className="min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
       <Orb size="sm" />
-      <p className="font-display text-[19px] text-cosmic-50/85 text-center max-w-xs leading-[1.5]">
+      <p className="t-voice-l text-cosmic-50/85 text-center max-w-xs">
         Would you like a moment to settle?
       </p>
-      <div className="flex items-center gap-8">
-        <button
-          type="button"
-          onClick={onLeave}
-          className="font-sans text-[12px] tracking-[0.16em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-        >
+      <div className="flex items-center gap-5">
+        <Button variant="ghost" size="sm" onClick={onLeave}>
           Not now
-        </button>
-        <button
-          type="button"
-          onClick={onRest}
-          className="font-sans text-[12px] tracking-[0.16em] uppercase text-cosmic-50/85 hover:text-cosmic-50 border border-cosmic-50/30 hover:border-cosmic-50/60 px-6 py-3 rounded-sm transition-colors duration-300"
-        >
+        </Button>
+        <Button variant="primary" onClick={onRest}>
           Yes, sit a moment
-        </button>
+        </Button>
       </div>
     </section>
   );

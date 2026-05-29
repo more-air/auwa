@@ -42,7 +42,7 @@ export default function Sanctuary() {
       <div className="relative z-10 min-h-svh flex flex-col items-center justify-center gap-10 px-6">
         <Orb size="md" />
         <KokoroSilhouette size="md" />
-        <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/25 absolute bottom-10">
+        <span className="t-eyebrow text-cosmic-50/25 absolute bottom-10">
           Tap anywhere to leave
         </span>
       </div>

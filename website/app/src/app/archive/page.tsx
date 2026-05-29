@@ -14,6 +14,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { PageHeader } from "@/components/page-header";
 import {
   useAppStore,
   type Revelation,
@@ -28,35 +29,23 @@ export default function Archive() {
   const observation = useMemo(() => stubObservation(revelations), [revelations]);
 
   return (
-    <main id="main-content" className="min-h-svh px-6 pt-16 pb-16 bg-[var(--color-void)]">
-      <header className="flex items-center justify-between mb-8">
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors"
-        >
-          ← Back
-        </button>
-        <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/45">
-          Archive
-        </span>
-        <span className="w-12" />
-      </header>
+    <main id="main-content" className="min-h-svh bg-[var(--color-void)]">
+      <PageHeader title="Archive" onBack={() => router.push("/")} />
 
-      <div className="max-w-md mx-auto">
+      <div className="max-w-md mx-auto px-6 pt-4 pb-16">
         {revelations.length === 0 ? (
-          <p className="font-display text-[16px] text-cosmic-50/55 text-center mt-16 leading-[1.55]">
+          <p className="t-voice-l text-cosmic-50/55 text-center mt-16">
             Nothing in the archive yet. Your first revelation will land here
             when it lands.
           </p>
         ) : (
           <>
             {observation ? (
-              <div className="border border-cosmic-50/12 rounded-md px-4 py-4 mb-8">
-                <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/45 block mb-2">
+              <div className="border border-cosmic-50/12 rounded-[16px] px-4 py-4 mb-8">
+                <span className="t-eyebrow text-cosmic-50/45 block mb-2">
                   Observations
                 </span>
-                <p className="font-display text-[15px] text-cosmic-50/85 leading-[1.55]">
+                <p className="t-body text-cosmic-50/85">
                   {observation}
                 </p>
               </div>
@@ -87,7 +76,7 @@ function ArchiveCard({ revelation }: { revelation: Revelation }) {
       type="button"
       onClick={() => setExpanded((e) => !e)}
       className={[
-        "w-full text-left border border-cosmic-50/12 rounded-md px-4 py-4",
+        "w-full text-left border border-cosmic-50/12 rounded-[16px] px-4 py-4",
         "transition-colors duration-200",
         "hover:border-cosmic-50/25",
         // Tint with the state's mid gradient stop at low alpha
@@ -106,24 +95,24 @@ function ArchiveCard({ revelation }: { revelation: Revelation }) {
             >
               {def.kanji}
             </span>
-            <span className="font-display text-[15px] text-cosmic-50">
+            <span className="t-title text-cosmic-50">
               {def.english}
             </span>
             {revelation.subExpressionEnglish ? (
-              <span className="font-display text-[13px] text-cosmic-50/55">
+              <span className="t-meta text-cosmic-50/55">
                 · {revelation.subExpressionEnglish}
               </span>
             ) : null}
           </div>
-          <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-cosmic-50/45">
+          <span className="t-eyebrow text-cosmic-50/45">
             {when}
           </span>
         </div>
-        <p className="font-display text-[15px] text-cosmic-50/85 leading-[1.55]">
+        <p className="t-voice text-cosmic-50/85">
           {expanded ? revelation.reflection : opening}
         </p>
         {revelation.contextTag ? (
-          <span className="font-sans text-[10px] tracking-[0.16em] uppercase text-cosmic-50/35 block mt-2">
+          <span className="t-eyebrow text-cosmic-50/35 block mt-2">
             {humanContext(revelation.contextTag, revelation.contextNote)}
           </span>
         ) : null}

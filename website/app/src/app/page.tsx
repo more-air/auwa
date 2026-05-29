@@ -329,7 +329,6 @@ function HomeScreen({
           eyebrow="Today"
           title="How are you feeling?"
           body="Begin a moment with Auwa."
-          onClick={onBeginCheckIn}
           trailing={
             <Button size="sm" onClick={onBeginCheckIn}>
               Begin
