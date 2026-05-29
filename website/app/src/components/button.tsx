@@ -4,29 +4,32 @@
   Button — the workhorse interactive primitive.
 
   Variants:
-    primary    — filled cosmic-50 on void, used for the one primary
-                 action on a screen (Continue, Begin, Save).
+    primary    — full-width pill, cosmic-50 filled, void text.
+                 The one primary action on the screen, sitting in
+                 the safe-area bottom (Continue, Begin, Save).
     secondary  — outlined cosmic-50/22, used for confirming actions
                  that aren't the page's primary.
     tertiary   — text-only, no border, used for skip / cancel.
-    ghost      — text-only, cosmic-50/55, used for dismiss / quiet
+    ghost      — text-only, lower opacity, used for dismiss / quiet
                  actions that should not pull the eye.
 
   Sizes:
-    md (default)  — 48px tall, comfortable thumb target.
+    lg (default)  — 56px tall, full bold presence. Used for primary
+                    page actions.
+    md            — 48px tall, comfortable thumb target.
     sm            — 40px tall, used inside dense rows.
 
   States: rest, pressed (scale 0.97 + opacity dip), disabled.
 
-  This component is the most-used primitive on auwa.app — every
-  surface should reach for it before defining a bespoke button.
+  Reach for this primitive on every surface. Bespoke buttons are
+  drift.
 */
 
 import { forwardRef } from "react";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "tertiary" | "ghost";
-type Size = "md" | "sm";
+type Size = "lg" | "md" | "sm";
 
 export type ButtonProps = {
   variant?: Variant;
@@ -38,24 +41,25 @@ export type ButtonProps = {
 
 const VARIANT_CLASSES: Record<Variant, string> = {
   primary:
-    "bg-cosmic-50 text-[var(--color-void)] active:bg-cosmic-100 disabled:bg-cosmic-50/15 disabled:text-cosmic-50/30",
+    "bg-cosmic-50 text-[var(--color-void)] hover:bg-white active:bg-cosmic-100 disabled:bg-cosmic-50/15 disabled:text-cosmic-50/30",
   secondary:
     "border border-cosmic-50/22 text-cosmic-50 hover:border-cosmic-50/45 active:bg-cosmic-50/5 disabled:border-cosmic-50/10 disabled:text-cosmic-50/25",
   tertiary:
-    "text-cosmic-50/70 hover:text-cosmic-50 active:text-cosmic-50/85 disabled:text-cosmic-50/25",
+    "text-cosmic-50/72 hover:text-cosmic-50 active:text-cosmic-50/85 disabled:text-cosmic-50/25",
   ghost:
     "text-cosmic-50/55 hover:text-cosmic-50/85 active:text-cosmic-50/70 disabled:text-cosmic-50/20",
 };
 
 const SIZE_CLASSES: Record<Size, string> = {
-  md: "h-12 px-6 rounded-full",
-  sm: "h-10 px-5 rounded-full",
+  lg: "h-14 px-7 rounded-full t-button text-[17px]",
+  md: "h-12 px-6 rounded-full t-button",
+  sm: "h-10 px-5 rounded-full t-meta",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     variant = "primary",
-    size = "md",
+    size = "lg",
     fullWidth = false,
     leadingIcon,
     trailingIcon,
@@ -72,16 +76,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       type="button"
       disabled={disabled}
       className={[
-        // base
-        "t-button",
         "inline-flex items-center justify-center gap-2",
+        "font-medium",
         "transition-[transform,opacity,background-color,border-color,color] duration-[var(--duration-press)] ease-out",
         "active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100",
         "focus-visible:outline-2 focus-visible:outline-offset-2",
-        // layout
         SIZE_CLASSES[size],
         fullWidth ? "w-full" : "",
-        // variant
         VARIANT_CLASSES[variant],
         className,
       ].join(" ")}

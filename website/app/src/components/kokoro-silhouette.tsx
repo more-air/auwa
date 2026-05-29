@@ -1,140 +1,140 @@
 "use client";
 
 /*
-  KokoroSilhouette — the user's accumulating self-portrait.
+  KokoroSilhouette — the user's Kokoro.
 
-  v1 placeholder: a soft tonal disc that reads as a quiet presence
-  rather than a labelled rectangle. Layered glow + faint inner halo,
-  with accumulated motifs sprinkled as small dots around the inner
-  ring. When Rieko's silhouette art lands, the inner content is
-  swapped; the outer disc and motif positioning stay.
+  In Auwa's canon, the Kokoro takes an Auwa-shape that carries the
+  user's feelings, personality, and noticed details. v1 renders this
+  as the real Auwa silhouette (sized appropriately for the surface)
+  with the user's accumulated motifs as small luminous marks
+  floating around the inner orbit. A soft warm halo sits behind
+  the character so it reads as a presence, not a sticker.
 
-  The dashed-ring / text-label placeholder used in v1 was reading as
-  "wireframe" in every screenshot. This treatment reads as a
-  considered placeholder that could plausibly be the final visual
-  language during the friends-release window.
+  When the user has a recent revelation, the variant matches that
+  state (so the Kokoro reflects how the user was carrying
+  themselves last time). With no revelation yet, the calm
+  forward-facing Auwa renders.
 
-  Motifs the user has picked at onboarding land as small bright
-  marks on the inner ring at deterministic positions (seeded by
-  motif key, so the same Kokoro renders identically across visits).
+  Motifs sit on a deterministic ring inside the halo so the same
+  Kokoro renders identically across renders. Each motif is a small
+  warm dot with a soft glow shadow — these are placeholder visuals;
+  Rieko will deliver per-motif illustrations later.
 */
 
 import { useMemo } from "react";
+import type { YamatoState } from "@/lib/yamato";
+
+const STATE_VARIANT: Record<YamatoState, string> = {
+  hare: "/character/auwa-up.webp",
+  takaburi: "/character/auwa-front-glow.webp",
+  aware: "/character/auwa-down.webp",
+  yuragi: "/character/auwa-left.webp",
+  nagomi: "/character/auwa-right.webp",
+};
+
+const DEFAULT_VARIANT = "/character/auwa-front.webp";
 
 const SIZES = {
-  sm: "w-24 h-24",
-  md: "w-[200px] h-[200px]",
-  lg: "w-[300px] h-[300px]",
+  xs: { box: "w-16 h-16", halo: 14, dot: 4 },
+  sm: { box: "w-24 h-24", halo: 18, dot: 5 },
+  md: { box: "w-36 h-36", halo: 24, dot: 6 },
+  lg: { box: "w-56 h-56", halo: 32, dot: 8 },
+  xl: { box: "w-72 h-72", halo: 40, dot: 10 },
 } as const;
-
-const MOTIF_DOT_SIZE: Record<keyof typeof SIZES, number> = {
-  sm: 5,
-  md: 7,
-  lg: 9,
-};
 
 export type KokoroSilhouetteProps = {
   size?: keyof typeof SIZES;
-  /** Motif keys the Kokoro carries — placed as small dots around the
-   *  inner ring. The first 7 are rendered; further are deferred to
-   *  emotional-weather marks (not in v1). */
+  /** The state to use as the Kokoro's current form. If undefined,
+   *  renders the calm forward-facing variant. */
+  state?: YamatoState;
+  /** Motif keys the Kokoro carries (from onboarding personalisation
+   *  + first-gift + accumulation). Rendered as small lights orbiting
+   *  the character. */
   motifs?: string[];
-  /** Show the soft halo around the disc. Default true for arrival,
-   *  set false on the smaller archive markers. */
+  /** Render the soft warm halo behind the character. Default true. */
   halo?: boolean;
   className?: string;
 };
 
 export function KokoroSilhouette({
   size = "md",
+  state,
   motifs = [],
   halo = true,
   className = "",
 }: KokoroSilhouetteProps) {
+  const sizeCfg = SIZES[size];
+  const variant = state ? STATE_VARIANT[state] : DEFAULT_VARIANT;
   const dotPositions = useMemo(
-    () => motifs.slice(0, 7).map((key, i) => motifPosition(key, i, motifs.length)),
+    () => motifs.slice(0, 7).map((key, i) => motifPosition(key, i, motifs.slice(0, 7).length)),
     [motifs]
   );
-  const dotSize = MOTIF_DOT_SIZE[size];
 
   return (
-    <div className={[SIZES[size], "relative", className].join(" ")}>
-      {/* Outer halo */}
+    <div className={[sizeCfg.box, "relative", className].join(" ")}>
+      {/* Soft warm halo behind the character. */}
       {halo ? (
         <div
           aria-hidden="true"
-          className="absolute -inset-[14%] rounded-full pointer-events-none"
+          className="absolute rounded-full pointer-events-none"
           style={{
+            inset: `-${sizeCfg.halo}px`,
             background:
-              "radial-gradient(circle, oklch(0.97 0.005 250 / 0.06) 0%, oklch(0.86 0.14 95 / 0.04) 38%, transparent 70%)",
+              "radial-gradient(circle, oklch(0.86 0.14 95 / 0.10) 0%, oklch(0.86 0.14 95 / 0.04) 38%, transparent 72%)",
           }}
         />
       ) : null}
 
-      {/* Disc */}
-      <div
-        role="img"
-        aria-label={
+      {/* Auwa silhouette — fills the box. The character has its own
+          transparent background so it sits cleanly on cosmic. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={variant}
+        alt={
           motifs.length > 0
             ? `Your Kokoro, carrying ${motifs.length} ${motifs.length === 1 ? "motif" : "motifs"}`
             : "Your Kokoro"
         }
-        className="absolute inset-0 rounded-full overflow-hidden"
-        style={{
-          background:
-            "radial-gradient(circle at 38% 32%, oklch(0.32 0.018 250) 0%, oklch(0.18 0.018 250) 55%, oklch(0.10 0.020 250) 92%)",
-          boxShadow:
-            "0 0 0 1px oklch(0.97 0.005 250 / 0.06) inset, 0 0 24px -8px oklch(0.97 0.005 250 / 0.10)",
-        }}
-      >
-        {/* Inner highlight */}
+        className="absolute inset-0 w-full h-full object-contain"
+        decoding="async"
+      />
+
+      {/* Motif marks — small warm lights orbiting the inner ring. */}
+      {dotPositions.map(({ left, top }, i) => (
         <span
+          key={motifs[i]}
           aria-hidden="true"
-          className="absolute inset-0 rounded-full pointer-events-none"
+          className="absolute rounded-full pointer-events-none"
           style={{
+            left: `${left}%`,
+            top: `${top}%`,
+            width: sizeCfg.dot,
+            height: sizeCfg.dot,
+            marginLeft: -sizeCfg.dot / 2,
+            marginTop: -sizeCfg.dot / 2,
             background:
-              "radial-gradient(circle at 32% 22%, oklch(1 0 0 / 0.10) 0%, transparent 42%)",
+              "radial-gradient(circle, oklch(0.92 0.14 95) 0%, oklch(0.75 0.12 95) 55%, transparent 100%)",
+            boxShadow: `0 0 ${sizeCfg.dot}px 0 oklch(0.86 0.14 95 / 0.50)`,
+            opacity: 0.92,
           }}
         />
-
-        {/* Motif marks */}
-        {dotPositions.map(({ left, top }, i) => (
-          <span
-            key={motifs[i]}
-            aria-hidden="true"
-            className="absolute rounded-full"
-            style={{
-              left: `${left}%`,
-              top: `${top}%`,
-              width: dotSize,
-              height: dotSize,
-              marginLeft: -dotSize / 2,
-              marginTop: -dotSize / 2,
-              background:
-                "radial-gradient(circle, oklch(0.86 0.14 95) 0%, oklch(0.70 0.10 95) 60%, transparent 100%)",
-              boxShadow: "0 0 6px 0 oklch(0.86 0.14 95 / 0.40)",
-              opacity: 0.85,
-            }}
-          />
-        ))}
-      </div>
+      ))}
     </div>
   );
 }
 
-/* Deterministic ring layout — motifs placed on a circle at 64%
-   radius (inside the inner ring), evenly distributed across the
-   number of motifs, with a small offset hash so each Kokoro looks
-   unique even with the same motif count. */
+/* Position motifs on a ring orbiting just outside the character's
+   bounding rectangle (the halo region). Seeded by motif key so each
+   motif's slot stays consistent across renders. */
 function motifPosition(
   motifKey: string,
   index: number,
   total: number
 ): { left: number; top: number } {
-  const radius = 32; // percent from centre
+  const radius = 56; // % from centre, outside the character's body
   const baseAngle = (index / Math.max(1, total)) * Math.PI * 2;
-  const offset = (hash(motifKey) % 30) / 30 - 0.5; // -0.5..0.5
-  const angle = baseAngle + offset * 0.25 - Math.PI / 2; // start at top
+  const offset = (hash(motifKey) % 30) / 30 - 0.5;
+  const angle = baseAngle + offset * 0.3 - Math.PI / 2;
   return {
     left: 50 + Math.cos(angle) * radius,
     top: 50 + Math.sin(angle) * radius,

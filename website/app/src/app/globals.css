@@ -46,36 +46,6 @@ html {
   --color-glow-dim: oklch(0.70 0.10 95);
   --color-glow-faint: oklch(0.55 0.06 95);
 
-  /* Yamato emotional state seed colours — used as the mid stop of
-     each gradient family and for tinting summary chips in Archive
-     and Look Back. */
-  --color-hare:     oklch(0.82 0.14  85);
-  --color-takaburi: oklch(0.60 0.18  25);
-  --color-aware:    oklch(0.70 0.06 250);
-  --color-yuragi:   oklch(0.65 0.12  55);
-  --color-nagomi:   oklch(0.75 0.10 160);
-
-  /* Yamato gradient stops — three OKLCH stops per state. Boosted
-     from the v1 build: brighter mid, wider bloom, slower edge fade,
-     so the bloom reads emotive rather than restrained. The deep
-     stop now carries higher chroma so the colour is felt; the edge
-     dissolves to void at 90% radius so the wash fills the surface. */
-  --gradient-hare-mid:      oklch(0.86 0.16  88);
-  --gradient-hare-deep:     oklch(0.66 0.18  60);
-  --gradient-hare-edge:     oklch(0.30 0.10  50);
-  --gradient-takaburi-mid:  oklch(0.66 0.20  22);
-  --gradient-takaburi-deep: oklch(0.45 0.18  25);
-  --gradient-takaburi-edge: oklch(0.22 0.12  30);
-  --gradient-aware-mid:     oklch(0.76 0.08 250);
-  --gradient-aware-deep:    oklch(0.50 0.09 250);
-  --gradient-aware-edge:    oklch(0.22 0.06 250);
-  --gradient-yuragi-mid:    oklch(0.72 0.14  58);
-  --gradient-yuragi-deep:   oklch(0.50 0.14  50);
-  --gradient-yuragi-edge:   oklch(0.25 0.09  45);
-  --gradient-nagomi-mid:    oklch(0.80 0.11 158);
-  --gradient-nagomi-deep:   oklch(0.55 0.10 150);
-  --gradient-nagomi-edge:   oklch(0.25 0.06 140);
-
   /* --------------------------------------------------------------
      FONTS
      EB Garamond for voice. Instrument Sans for system. Noto JP
@@ -109,6 +79,46 @@ html {
   --duration-emerge:      1400ms;
   --duration-firefly:      900ms;
   --duration-letter:      2000ms;
+}
+
+/* ---------------------------------------------------------------
+   YAMATO PALETTE + GRADIENTS
+   Defined outside @theme so they're always emitted on :root,
+   regardless of whether Tailwind utilities consume them. The
+   gradients are referenced via inline style in state-picker.tsx
+   and gradient-field.tsx, which Tailwind's tree-shaker doesn't
+   trace.
+   --------------------------------------------------------------- */
+
+:root {
+  /* Yamato emotional state seed colours — used for state-specific
+     glow shadows and for tinting summary chips in Archive + Look
+     Back. */
+  --color-hare:     oklch(0.82 0.14  85);
+  --color-takaburi: oklch(0.60 0.18  25);
+  --color-aware:    oklch(0.70 0.06 250);
+  --color-yuragi:   oklch(0.65 0.12  55);
+  --color-nagomi:   oklch(0.75 0.10 160);
+
+  /* Yamato gradient stops — three OKLCH stops per state, consumed
+     by the StatePicker cards and the GradientField on Revelation.
+     Boosted chroma and brighter mid so the bloom reads as the
+     state's colour at a glance rather than as restrained darkness. */
+  --gradient-hare-mid:      oklch(0.86 0.16  88);
+  --gradient-hare-deep:     oklch(0.62 0.18  62);
+  --gradient-hare-edge:     oklch(0.28 0.10  50);
+  --gradient-takaburi-mid:  oklch(0.66 0.20  22);
+  --gradient-takaburi-deep: oklch(0.42 0.18  25);
+  --gradient-takaburi-edge: oklch(0.20 0.12  30);
+  --gradient-aware-mid:     oklch(0.74 0.10 250);
+  --gradient-aware-deep:    oklch(0.46 0.10 250);
+  --gradient-aware-edge:    oklch(0.20 0.06 250);
+  --gradient-yuragi-mid:    oklch(0.72 0.14  58);
+  --gradient-yuragi-deep:   oklch(0.46 0.14  50);
+  --gradient-yuragi-edge:   oklch(0.22 0.09  45);
+  --gradient-nagomi-mid:    oklch(0.78 0.12 158);
+  --gradient-nagomi-deep:   oklch(0.50 0.10 150);
+  --gradient-nagomi-edge:   oklch(0.22 0.06 140);
 }
 
 /* ---------------------------------------------------------------
@@ -196,6 +206,18 @@ textarea:focus-visible {
      t-meta      captions, dates, secondary metadata (sans regular)
      t-eyebrow   section headers (sans medium uppercase)
    --------------------------------------------------------------- */
+
+@utility t-display {
+  /* Hero serif — used for the primary question on Arrival, the
+     prompt on Daily Light, and the headline beat on Closing. EB
+     Garamond at regular weight, larger than t-voice-xl, with tight
+     line-height that lets two lines stack closely. */
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.18;
+  letter-spacing: -0.014em;
+  font-weight: 400;
+}
 
 @utility t-voice-xl {
   font-family: var(--font-display);

@@ -32,7 +32,7 @@ import { useRouter } from "next/navigation";
 import { History, Settings as SettingsIcon } from "lucide-react";
 import { Orb } from "@/components/orb";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
-import { StateArc } from "@/components/state-arc";
+import { StatePicker } from "@/components/state-picker";
 import { SubExpressionRow } from "@/components/sub-expression-row";
 import { ContextGrid, type ContextResult } from "@/components/context-grid";
 import { LightShower } from "@/components/light-shower";
@@ -259,8 +259,7 @@ function ArrivalScreen({
       className="min-h-svh flex flex-col px-safe"
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      {/* Header band — Archive left, Settings right. Real tap targets
-          (40px) at the top of the surface, in the safe-area. */}
+      {/* Header band — Archive left, Settings right. */}
       <header className="h-12 px-2 flex items-center justify-between flex-none">
         <Link href="/archive" aria-label="Archive">
           <IconButton label="Archive">
@@ -274,30 +273,39 @@ function ArrivalScreen({
         </Link>
       </header>
 
-      {/* Hero — flex-1 so the cluster centres in the remaining space
-          between header and quiet entries. */}
-      <div className="flex-1 flex flex-col items-center justify-center gap-8 px-6 pb-4">
+      {/* Kokoro band — small Auwa silhouette showing the user's
+          last-state form, with motif dots floating around. Tap to
+          open the Kokoro view. */}
+      <div className="flex-none flex flex-col items-center pt-2 pb-1">
         <Link
           href="/kokoro"
           aria-label="Open Kokoro view"
-          className="flex flex-col items-center gap-5 active:scale-[0.99] transition-transform duration-[var(--duration-press)]"
+          className="active:scale-[0.96] transition-transform duration-[var(--duration-press)]"
         >
-          <Orb size="sm" />
-          <KokoroSilhouette size="md" motifs={motifs} />
+          <KokoroSilhouette size="sm" motifs={motifs} state={lastState ?? undefined} />
         </Link>
+      </div>
 
-        <div className="flex flex-col items-center gap-2 max-w-xs text-center">
+      {/* Hero — the question owns the screen. Picker fills the
+          remaining vertical. */}
+      <div className="flex-1 flex flex-col items-center px-5 pb-4">
+        <div className="flex flex-col items-center gap-1.5 mt-2 mb-6 text-center">
           {lastDef ? (
-            <p className="t-eyebrow text-cosmic-50/42">
+            <p
+              className="t-meta text-cosmic-50/48 italic"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Last visit, {lastDef.english.toLowerCase()}
             </p>
           ) : null}
-          <h2 className="t-voice-l text-cosmic-50/95">
+          <h1 className="t-display text-cosmic-50/96 max-w-[14rem]">
             How are you feeling right now?
-          </h2>
+          </h1>
         </div>
 
-        <StateArc onSelect={onSelectState} />
+        <div className="w-full flex-1 flex items-start">
+          <StatePicker selected={null} onSelect={onSelectState} />
+        </div>
       </div>
 
       {/* Bottom strip — quiet entries with a hairline divider above. */}

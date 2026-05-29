@@ -1,101 +1,109 @@
 "use client";
 
 /*
-  AuwaCharacter — visual placeholder for the five Yamato variants
-  Rieko will illustrate.
+  AuwaCharacter — the real Auwa silhouette, in its five Yamato
+  variants. Used inside the state picker cards on Arrival, inside
+  the Revelation hero, and anywhere a single state needs to be
+  embodied.
 
-  v1 design: an elegant tonal disc tinted with the state's seed
-  colour, with the state's kanji as a faint watermark at the centre.
-  The disc is a three-stop radial wash so each variant has its own
-  emotional temperature without any illustration yet.
+  Asset mapping (sourced from /book/character — the canonical Auwa
+  established in the book and on the website):
 
-  When Rieko's character art lands, swap the inner content. The disc
-  shape, size, and surrounding margins stay constant so the
-  consumers (StateArc, RefiningScreen, Revelation) need zero change.
+    Hare      (Radiant)      up         + up-glow
+    Takaburi  (Intense)      front      + front-glow
+    Aware     (Reflective)   down       + down-glow
+    Yuragi    (Unsettled)    left       + left-glow
+    Nagomi    (Serene)       right      + right-glow
 
-  This treatment is intentionally restrained — it should feel like a
-  considered placeholder, not a wireframe. The earlier "AUWA / HARE
-  VARIANT" labelled rectangle was reading "unfinished" in every
-  screenshot.
+  When Rieko delivers definitive state-specific variants, drop them
+  into /public/character/ with the same filenames or update the
+  mapping. Consumers (StateCard, KokoroSilhouette, RevelationScreen)
+  don't change.
+
+  The `active` prop controls calm vs glow. Default false renders the
+  calm variant; true cross-fades to the glow variant. The cross-fade
+  duration matches the brand's candle-warmth easing.
 */
 
 import type { YamatoState } from "@/lib/yamato";
 
-const KANJI: Record<YamatoState, string> = {
-  hare: "晴",
-  takaburi: "昂",
-  aware: "哀",
-  yuragi: "揺",
-  nagomi: "和",
+const VARIANT: Record<YamatoState, { calm: string; glow: string }> = {
+  hare: {
+    calm: "/character/auwa-up.webp",
+    glow: "/character/auwa-up-glow.webp",
+  },
+  takaburi: {
+    calm: "/character/auwa-front.webp",
+    glow: "/character/auwa-front-glow.webp",
+  },
+  aware: {
+    calm: "/character/auwa-down.webp",
+    glow: "/character/auwa-down-glow.webp",
+  },
+  yuragi: {
+    calm: "/character/auwa-left.webp",
+    glow: "/character/auwa-left-glow.webp",
+  },
+  nagomi: {
+    calm: "/character/auwa-right.webp",
+    glow: "/character/auwa-right-glow.webp",
+  },
 };
 
 const SIZES = {
-  sm: { box: "w-14 h-14", kanji: "text-[20px]" },
-  md: { box: "w-24 h-24", kanji: "text-[32px]" },
-  lg: { box: "w-64 h-64", kanji: "text-[88px]" },
+  sm: "w-12 h-12",
+  md: "w-20 h-20",
+  lg: "w-32 h-32",
+  xl: "w-48 h-48",
+  xxl: "w-64 h-64",
 } as const;
 
 export type AuwaCharacterProps = {
   state: YamatoState;
   size?: keyof typeof SIZES;
-  /** When true, the character reads as the active focused one —
-   *  full bloom + soft surround glow. Default false. */
+  /** Show the glow variant when true (selected / focused / active). */
   active?: boolean;
   className?: string;
 };
 
 export function AuwaCharacter({
   state,
-  size = "sm",
+  size = "md",
   active = false,
   className = "",
 }: AuwaCharacterProps) {
-  const sizeCfg = SIZES[size];
+  const variant = VARIANT[state];
   return (
     <div
       role="img"
       aria-label={`Auwa, ${state}`}
       className={[
-        "relative rounded-full",
-        sizeCfg.box,
-        "transition-[transform,opacity,box-shadow] duration-[var(--duration-hover)] ease-[var(--ease-out-expo)]",
+        "relative pointer-events-none",
+        SIZES[size],
         className,
       ].join(" ")}
-      style={{
-        background: `radial-gradient(circle at 38% 32%, var(--gradient-${state}-mid) 0%, var(--gradient-${state}-deep) 58%, var(--gradient-${state}-edge) 92%, var(--color-void) 100%)`,
-        opacity: active ? 1 : 0.82,
-        boxShadow: active
-          ? `0 0 28px -2px var(--color-${state}), 0 0 0 1px oklch(1 0 0 / 0.08) inset`
-          : "0 0 0 1px oklch(1 0 0 / 0.05) inset",
-      }}
     >
-      {/* Subtle highlight at the upper-left, giving the disc dimension. */}
-      <span
+      {/* Calm variant — always rendered, opacity-modulated. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={variant.calm}
+        alt=""
         aria-hidden="true"
-        className="absolute inset-0 rounded-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at 32% 20%, oklch(1 0 0 / 0.20) 0%, transparent 38%)",
-        }}
+        className="absolute inset-0 w-full h-full object-contain transition-opacity duration-[520ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+        style={{ opacity: active ? 0 : 1 }}
+        decoding="async"
       />
-      {/* Kanji watermark, very faint. Becomes slightly more visible
-          when active so the tap registers. */}
-      <span
+      {/* Glow variant — opacity-modulated. Both layers stay mounted so
+          the cross-fade is seamless and the bitmap stays decoded. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={variant.glow}
+        alt=""
         aria-hidden="true"
-        className={[
-          "absolute inset-0 flex items-center justify-center select-none pointer-events-none",
-          sizeCfg.kanji,
-        ].join(" ")}
-        style={{
-          fontFamily: "var(--font-jp-serif)",
-          color: "oklch(1 0 0)",
-          opacity: active ? 0.48 : 0.28,
-          textShadow: "0 1px 1px rgba(0,0,0,0.18)",
-          fontWeight: 400,
-        }}
-      >
-        {KANJI[state]}
-      </span>
+        className="absolute inset-0 w-full h-full object-contain transition-opacity duration-[520ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+        style={{ opacity: active ? 1 : 0 }}
+        decoding="async"
+      />
     </div>
   );
 }
