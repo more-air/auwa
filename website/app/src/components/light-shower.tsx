@@ -24,7 +24,6 @@
 */
 
 import { useEffect } from "react";
-import { Orb } from "./orb";
 import { GradientField } from "./gradient-field";
 import type { YamatoState } from "@/lib/yamato";
 
@@ -53,17 +52,20 @@ export function LightShower({ state, onComplete }: LightShowerProps) {
         <GradientField state={state} />
       </div>
 
-      {/* Orb — sits centred, scales up gently from 1.0 to 1.6, then
-          fades out into the bloom around the 2.4s mark. */}
+      {/* Light flare — a soft white core blooms from centre and washes
+          outward, then dissolves into the state gradient. No orb: the
+          shower is pure light, the character is revealed after. */}
       <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
+          width: "60vw",
+          height: "60vw",
+          background:
+            "radial-gradient(circle, oklch(1 0 0 / 0.9) 0%, oklch(0.95 0.05 95 / 0.6) 25%, transparent 70%)",
           animation:
-            "auwa-shower-orb 3600ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+            "auwa-shower-flare 3600ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
         }}
-      >
-        <Orb size="lg" still />
-      </div>
+      />
 
       <style>{`
         @keyframes auwa-shower-bloom {
@@ -71,15 +73,11 @@ export function LightShower({ state, onComplete }: LightShowerProps) {
           70%  { opacity: 1; }
           100% { opacity: 1; }
         }
-        @keyframes auwa-shower-orb {
-          0%   { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
-          25%  { transform: translate(-50%, -50%) scale(1.35); opacity: 1; }
-          60%  { transform: translate(-50%, -50%) scale(1.6);  opacity: 0.85; }
-          85%  { transform: translate(-50%, -50%) scale(1.2);  opacity: 0.2; }
-          100% { transform: translate(-50%, -50%) scale(1);    opacity: 0; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .light-shower-reduced div { animation: none !important; opacity: 1 !important; }
+        @keyframes auwa-shower-flare {
+          0%   { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+          18%  { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
+          55%  { transform: translate(-50%, -50%) scale(1.4); opacity: 0.7; }
+          100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; }
         }
       `}</style>
     </div>

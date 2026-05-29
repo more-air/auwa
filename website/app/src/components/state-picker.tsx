@@ -51,27 +51,31 @@ export function StatePicker({
   onSelect,
   className = "",
 }: StatePickerProps) {
+  // Even grid — all five cards identical size. The four corners sit in
+  // a 2×2 (positives left, negatives right); Yuragi, the unsettled
+  // middle, sits centred below at the same single-column width so no
+  // card is wider than another.
   return (
     <div
       role="radiogroup"
       aria-label="How are you feeling right now?"
-      className={[
-        "w-full grid grid-cols-2 gap-3",
-        className,
-      ].join(" ")}
+      className={["w-full flex flex-col gap-3", className].join(" ")}
     >
-      <StateCard state="hare" selected={selected === "hare"} onSelect={onSelect} />
-      <StateCard state="takaburi" selected={selected === "takaburi"} onSelect={onSelect} />
-      <div className="col-span-2">
-        <StateCard
-          state="yuragi"
-          selected={selected === "yuragi"}
-          onSelect={onSelect}
-          wide
-        />
+      <div className="grid grid-cols-2 gap-3">
+        <StateCard state="hare" selected={selected === "hare"} onSelect={onSelect} />
+        <StateCard state="takaburi" selected={selected === "takaburi"} onSelect={onSelect} />
+        <StateCard state="nagomi" selected={selected === "nagomi"} onSelect={onSelect} />
+        <StateCard state="aware" selected={selected === "aware"} onSelect={onSelect} />
       </div>
-      <StateCard state="nagomi" selected={selected === "nagomi"} onSelect={onSelect} />
-      <StateCard state="aware" selected={selected === "aware"} onSelect={onSelect} />
+      <div className="flex justify-center">
+        <div className="w-[calc(50%-0.375rem)]">
+          <StateCard
+            state="yuragi"
+            selected={selected === "yuragi"}
+            onSelect={onSelect}
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -80,12 +84,10 @@ function StateCard({
   state,
   selected,
   onSelect,
-  wide = false,
 }: {
   state: YamatoState;
   selected: boolean;
   onSelect: (s: YamatoState) => void;
-  wide?: boolean;
 }) {
   const def = getYamatoState(state);
   return (
@@ -95,19 +97,13 @@ function StateCard({
       aria-checked={selected}
       onClick={() => onSelect(state)}
       className={[
-        "relative w-full overflow-hidden",
-        wide ? "h-24" : "h-36",
-        "rounded-[22px]",
+        "relative w-full overflow-hidden h-32 rounded-hero",
         "transition-[transform,border-color] duration-[var(--duration-press)] ease-out",
         "active:scale-[0.98]",
         "focus-visible:outline-2 focus-visible:outline-offset-2",
         selected ? "scale-[1.02]" : "scale-100",
       ].join(" ")}
       style={{
-        // Bigger explicit-radius radial so the mid stop fills most of
-        // the card. The previous default-radius gradient compressed
-        // the bright colour into a tiny upper-left spot and the
-        // edge-to-void fade dominated, making every card read black.
         background: `radial-gradient(circle 240px at 28% 18%, var(--gradient-${state}-mid) 0%, var(--gradient-${state}-deep) 55%, var(--gradient-${state}-edge) 100%)`,
         boxShadow: selected
           ? `0 0 0 1.5px oklch(0.97 0.005 250 / 0.42) inset, 0 16px 40px -8px var(--color-${state})`
@@ -123,40 +119,18 @@ function StateCard({
             "radial-gradient(circle at 28% 18%, oklch(1 0 0 / 0.16) 0%, transparent 38%)",
         }}
       />
-
-      {wide ? (
-        // Wide Yuragi card — character left, text right.
-        <div className="relative h-full flex items-center px-6 gap-4">
-          <AuwaCharacter state={state} size="md" active={selected} />
-          <div className="flex-1 text-left">
-            <p className="t-title text-cosmic-50 text-[18px]">
-              {def.english}
-            </p>
-            <p
-              className="t-jp text-cosmic-50/65 mt-0.5"
-              style={{ fontFamily: "var(--font-jp-serif)" }}
-            >
-              {def.kanji} {def.romaji}
-            </p>
-          </div>
+      <div className="relative h-full flex flex-col items-center justify-between py-3.5">
+        <AuwaCharacter state={state} size="md" active={selected} />
+        <div className="text-center">
+          <p className="t-title text-cosmic-50 text-[16px]">{def.english}</p>
+          <p
+            className="t-jp text-cosmic-50/65 mt-0.5"
+            style={{ fontFamily: "var(--font-jp-serif)" }}
+          >
+            {def.kanji} {def.romaji}
+          </p>
         </div>
-      ) : (
-        // Standard 2-up card — character top, text below.
-        <div className="relative h-full flex flex-col items-center justify-between py-4">
-          <AuwaCharacter state={state} size="md" active={selected} />
-          <div className="text-center">
-            <p className="t-title text-cosmic-50 text-[16px]">
-              {def.english}
-            </p>
-            <p
-              className="t-jp text-cosmic-50/65 mt-0.5"
-              style={{ fontFamily: "var(--font-jp-serif)" }}
-            >
-              {def.kanji} {def.romaji}
-            </p>
-          </div>
-        </div>
-      )}
+      </div>
     </button>
   );
 }

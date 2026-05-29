@@ -16,6 +16,7 @@
 import { useState } from "react";
 import { Chip } from "./chip";
 import { Button } from "./button";
+import { AdvanceButton } from "./advance-button";
 
 export type ContextTag =
   | "working"
@@ -48,46 +49,58 @@ const TAGS: { key: ContextTag; label: string }[] = [
 export type ContextGridProps = {
   onSelect: (result: ContextResult) => void;
   onSkip: () => void;
-  className?: string;
+  onBack: () => void;
 };
 
-export function ContextGrid({ onSelect, onSkip, className = "" }: ContextGridProps) {
-  const [openOther, setOpenOther] = useState(false);
+export function ContextGrid({ onSelect, onSkip, onBack }: ContextGridProps) {
   const [note, setNote] = useState("");
   const [selected, setSelected] = useState<ContextTag | null>(null);
+  const isOther = selected === "something-else";
+
+  const advance = () => {
+    if (!selected) return;
+    onSelect({
+      tag: selected,
+      note: isOther ? note.trim() || undefined : undefined,
+    });
+  };
 
   return (
-    <div className={["w-full max-w-md mx-auto flex flex-col gap-7", className].join(" ")}>
-      <h2 className="t-display text-cosmic-50/96 text-center text-[26px]">
-        What were you up to?
-      </h2>
+    <section
+      className="h-svh relative flex flex-col px-6"
+      style={{
+        paddingTop: "max(env(safe-area-inset-top), 12px)",
+        paddingBottom: "max(env(safe-area-inset-bottom), 16px)",
+      }}
+    >
+      <div className="h-10 flex items-center flex-none">
+        <AdvanceButton
+          direction="back"
+          tone="subtle"
+          size={40}
+          onClick={onBack}
+          aria-label="Back"
+        />
+      </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {TAGS.map((t) => {
-          const isOther = t.key === "something-else";
-          const isSelected = selected === t.key;
-          return (
+      <div className="flex-1 flex flex-col items-center justify-center gap-8 min-h-0">
+        <h1 className="t-display text-cosmic-50/95 text-center">
+          What were you up to?
+        </h1>
+
+        <div className="flex flex-wrap items-center justify-center gap-2 max-w-md">
+          {TAGS.map((t) => (
             <Chip
               key={t.key}
-              selected={isSelected}
-              onClick={() => {
-                if (isOther) {
-                  setSelected("something-else");
-                  setOpenOther(true);
-                } else {
-                  setSelected(t.key);
-                  onSelect({ tag: t.key });
-                }
-              }}
+              selected={selected === t.key}
+              onClick={() => setSelected(t.key)}
             >
               {t.label}
             </Chip>
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      {openOther ? (
-        <div className="flex flex-col items-stretch gap-4 mt-2">
+        {isOther ? (
           <input
             type="text"
             value={note}
@@ -95,45 +108,26 @@ export function ContextGrid({ onSelect, onSkip, className = "" }: ContextGridPro
             placeholder="A few words"
             autoFocus
             className={[
-              "w-full bg-transparent border-b border-cosmic-50/22 py-2 px-1",
+              "w-full max-w-xs bg-transparent border-b border-cosmic-50/22 py-2 px-1",
               "t-body text-[17px] text-cosmic-50 text-center",
               "placeholder:text-cosmic-50/30",
               "focus:outline-none focus:border-cosmic-50/55",
             ].join(" ")}
           />
-          <div className="flex items-center justify-center gap-3 mt-2">
-            <Button
-              variant="tertiary"
-              size="md"
-              onClick={() => {
-                setOpenOther(false);
-                setNote("");
-                setSelected(null);
-              }}
-            >
-              Back
-            </Button>
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() =>
-                onSelect({
-                  tag: "something-else",
-                  note: note.trim() || undefined,
-                })
-              }
-            >
-              Continue
-            </Button>
-          </div>
-        </div>
-      ) : (
-        <div className="flex justify-center mt-2">
-          <Button variant="ghost" size="sm" onClick={onSkip}>
-            Skip
-          </Button>
-        </div>
-      )}
-    </div>
+        ) : null}
+      </div>
+
+      <div className="flex-none flex items-center justify-between pt-4">
+        <Button variant="ghost" size="sm" onClick={onSkip}>
+          Skip
+        </Button>
+        <AdvanceButton
+          direction="next"
+          onClick={advance}
+          disabled={!selected}
+          aria-label="Continue"
+        />
+      </div>
+    </section>
   );
 }

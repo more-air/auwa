@@ -29,9 +29,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { History, Settings as SettingsIcon, ChevronLeft } from "lucide-react";
+import { History, Settings as SettingsIcon, ChevronLeft, Share2 } from "lucide-react";
 import { Orb } from "@/components/orb";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
+import { AuwaCharacter } from "@/components/auwa-character";
 import { StatePicker } from "@/components/state-picker";
 import { SubExpressionRow } from "@/components/sub-expression-row";
 import { ContextGrid, type ContextResult } from "@/components/context-grid";
@@ -41,6 +42,8 @@ import { DailyLightCapture } from "@/components/daily-light-capture";
 import { QuietEntries } from "@/components/quiet-entries";
 import { IconButton } from "@/components/icon-button";
 import { Button } from "@/components/button";
+import { AdvanceButton } from "@/components/advance-button";
+import { ShareCard } from "@/components/share-card";
 import { StackCard } from "@/components/stack-card";
 import { pickCurrentLetter } from "@/lib/letters";
 import {
@@ -64,6 +67,7 @@ type Phase =
   | "context"
   | "shower"
   | "revelation"
+  | "share"
   | "light"
   | "closing"
   | "signup";
@@ -137,6 +141,9 @@ export default function KokoroMirror() {
     setPhase("light");
   }, []);
 
+  const handleOpenShare = useCallback(() => setPhase("share"), []);
+  const handleCloseShare = useCallback(() => setPhase("revelation"), []);
+
   const handleStartOver = useCallback(() => {
     setState(null);
     setSubExpression(null);
@@ -150,6 +157,13 @@ export default function KokoroMirror() {
     setSubExpression(null);
     setPhase("home");
   }, []);
+
+  const handleBackToPicker = useCallback(() => {
+    setSubExpression(null);
+    setPhase("picker");
+  }, []);
+
+  const handleBackToRefining = useCallback(() => setPhase("refining"), []);
 
   const handleLightDone = useCallback(() => {
     if (isFirstRun) {
@@ -194,7 +208,7 @@ export default function KokoroMirror() {
             subExpression={subExpression}
             onSelectSub={setSubExpression}
             onProceed={handleProceedFromRefine}
-            motifs={store.onboarding.motifs}
+            onBack={handleBackToPicker}
           />
         );
       case "context":
@@ -202,6 +216,7 @@ export default function KokoroMirror() {
           <ContextScreen
             onSelect={handleContextSelect}
             onSkip={handleContextSkip}
+            onBack={handleBackToRefining}
           />
         );
       case "shower":
@@ -213,7 +228,18 @@ export default function KokoroMirror() {
             state={state}
             reflection={reflection}
             onContinue={handleRevelationContinue}
+            onShare={handleOpenShare}
             motifs={store.onboarding.motifs}
+          />
+        );
+      case "share":
+        if (!state) return null;
+        return (
+          <ShareCard
+            state={state}
+            reflection={reflection}
+            motifs={store.onboarding.motifs}
+            onClose={handleCloseShare}
           />
         );
       case "light":
@@ -238,11 +264,15 @@ export default function KokoroMirror() {
     store.onboarding.motifs,
     handleBeginCheckIn,
     handleBackToHome,
+    handleBackToPicker,
+    handleBackToRefining,
     handleStateSelect,
     handleProceedFromRefine,
     handleContextSelect,
     handleContextSkip,
     handleRevelationContinue,
+    handleOpenShare,
+    handleCloseShare,
     handleLightDone,
     handleClosingContinue,
     handleSignupContinue,
@@ -452,51 +482,59 @@ function RefiningScreen({
   subExpression,
   onSelectSub,
   onProceed,
-  motifs,
+  onBack,
 }: {
   state: YamatoState;
   subExpression: SubExpression | null;
   onSelectSub: (sub: SubExpression | null) => void;
   onProceed: () => void;
-  motifs: string[];
+  onBack: () => void;
 }) {
   const def = getYamatoState(state);
   return (
     <section
-      className="min-h-svh flex flex-col px-safe"
+      className="h-svh relative flex flex-col px-6"
       style={{
-        paddingTop: "env(safe-area-inset-top)",
-        paddingBottom: "max(env(safe-area-inset-bottom), 24px)",
+        paddingTop: "max(env(safe-area-inset-top), 12px)",
+        paddingBottom: "max(env(safe-area-inset-bottom), 16px)",
       }}
     >
-      <header className="h-12 flex-none" />
+      <GradientField state={state} intent="soft" />
 
-      <div className="flex-1 flex flex-col items-center justify-between px-6 pb-6">
-        <div className="flex flex-col items-center gap-4 mt-4">
-          <Orb size="sm" />
-          <KokoroSilhouette size="sm" motifs={motifs} halo={false} />
-        </div>
-
-        <div className="w-full flex flex-col items-center gap-8 max-w-md">
-          <div className="flex flex-col items-center gap-1">
-            <span className="t-voice-l text-cosmic-50">{def.english}</span>
-            <span className="t-jp text-cosmic-50/48">
-              {def.kanji} {def.romaji}
-            </span>
-          </div>
-          <p className="t-meta text-cosmic-50/55 text-center max-w-[14rem]">
-            Closer to anything in particular?
-          </p>
-          <SubExpressionRow
-            state={state}
-            selected={subExpression?.key ?? null}
-            onSelect={onSelectSub}
+      <div className="relative z-10 flex flex-col h-full min-h-0">
+        <div className="h-10 flex items-center flex-none">
+          <AdvanceButton
+            direction="back"
+            tone="subtle"
+            size={40}
+            onClick={onBack}
+            aria-label="Back"
           />
         </div>
 
-        <Button variant="primary" onClick={onProceed}>
-          Continue
-        </Button>
+        <div className="flex-1 flex flex-col items-center justify-center gap-8 min-h-0">
+          <AuwaCharacter state={state} size="xl" active />
+          <div className="flex flex-col items-center gap-1">
+            <h1 className="t-display text-cosmic-50/95 text-center">{def.english}</h1>
+            <span className="t-jp text-cosmic-50/55">
+              {def.kanji} {def.romaji}
+            </span>
+          </div>
+          <div className="w-full max-w-sm flex flex-col items-center gap-4">
+            <p className="t-meta text-cosmic-50/55 text-center">
+              Closer to anything in particular?
+            </p>
+            <SubExpressionRow
+              state={state}
+              selected={subExpression?.key ?? null}
+              onSelect={onSelectSub}
+            />
+          </div>
+        </div>
+
+        <div className="flex-none flex justify-end pt-4">
+          <AdvanceButton direction="next" onClick={onProceed} aria-label="Continue" />
+        </div>
       </div>
     </section>
   );
@@ -509,21 +547,13 @@ function RefiningScreen({
 function ContextScreen({
   onSelect,
   onSkip,
+  onBack,
 }: {
   onSelect: (r: ContextResult) => void;
   onSkip: () => void;
+  onBack: () => void;
 }) {
-  return (
-    <section
-      className="min-h-svh flex items-center justify-center px-6"
-      style={{
-        paddingTop: "max(env(safe-area-inset-top), 64px)",
-        paddingBottom: "max(env(safe-area-inset-bottom), 64px)",
-      }}
-    >
-      <ContextGrid onSelect={onSelect} onSkip={onSkip} />
-    </section>
-  );
+  return <ContextGrid onSelect={onSelect} onSkip={onSkip} onBack={onBack} />;
 }
 
 /* ============================================================
@@ -534,34 +564,17 @@ function RevelationScreen({
   state,
   reflection,
   onContinue,
+  onShare,
   motifs,
 }: {
   state: YamatoState;
   reflection: string;
   onContinue: () => void;
+  onShare: () => void;
   motifs: string[];
 }) {
-  const def = getYamatoState(state);
-  const share = async () => {
-    const text = `${reflection}\n\nRevealed by Auwa.`;
-    if (typeof navigator !== "undefined" && "share" in navigator) {
-      try {
-        await navigator.share({
-          title: `Auwa: ${def.english}`,
-          text,
-          url: "https://auwa.app",
-        });
-        return;
-      } catch {
-        /* user cancelled */
-      }
-    }
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      await navigator.clipboard.writeText(text);
-    }
-  };
   return (
-    <section className="min-h-svh relative">
+    <section className="h-svh relative">
       <GradientField state={state} />
       {/* Celebratory bloom — a one-shot radial flash behind the
           character on arrival, in the state's own colour, settling
@@ -576,22 +589,21 @@ function RevelationScreen({
         }}
       />
       <div
-        className="relative z-10 min-h-svh flex flex-col items-center justify-between px-6"
+        className="relative z-10 h-full flex flex-col items-center justify-between px-6"
         style={{
-          paddingTop: "max(env(safe-area-inset-top), 32px)",
-          paddingBottom: "max(env(safe-area-inset-bottom), 32px)",
+          paddingTop: "max(env(safe-area-inset-top), 40px)",
+          paddingBottom: "max(env(safe-area-inset-bottom), 24px)",
         }}
       >
-        <Orb size="sm" />
-
-        <div className="flex flex-col items-center gap-10 max-w-md">
+        {/* No orb — the Kokoro is the hero of the reveal. */}
+        <div className="flex-1 flex flex-col items-center justify-center gap-10 max-w-md">
           <div
             style={{
               animation: "auwa-reveal-emerge 1400ms var(--ease-out-expo) forwards",
               opacity: 0,
             }}
           >
-            <KokoroSilhouette size="lg" motifs={motifs} />
+            <KokoroSilhouette size="lg" state={state} motifs={motifs} />
           </div>
           <p
             className="t-voice-xl text-cosmic-50/98 text-center text-balance max-w-[22rem]"
@@ -604,19 +616,23 @@ function RevelationScreen({
           </p>
         </div>
 
+        {/* Share leads (we want it shared); Continue is the quieter
+            circle-arrow advance, bottom-right. */}
         <div
-          className="flex flex-col items-center gap-5"
+          className="w-full flex items-center justify-between gap-4"
           style={{
             animation: "auwa-fade-in 800ms ease-out 1300ms forwards",
             opacity: 0,
           }}
         >
-          <Button variant="primary" onClick={onContinue}>
-            Continue
-          </Button>
-          <Button variant="ghost" size="sm" onClick={share}>
+          <Button
+            variant="secondary"
+            leadingIcon={<Share2 size={18} strokeWidth={1.75} />}
+            onClick={onShare}
+          >
             Share
           </Button>
+          <AdvanceButton direction="next" onClick={onContinue} aria-label="Continue" />
         </div>
       </div>
 
