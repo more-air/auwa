@@ -1,29 +1,36 @@
 "use client";
 
 /*
-  QuietEntries — the small one-word row beside the state arc on the
-  arrival screen. Each entry opens a secondary surface; none of them
-  are required, none of them are highlighted.
+  QuietEntries — the four secondary destinations on Arrival, plus
+  the letter-mark when a new letter is waiting.
 
-  Spec: §5.3 of context/pillar/app.md.
+  v2 refinement (May 2026): treat as a proper bottom-row navigation
+  strip, not a wrapping pile of tiny links. Each entry sits in a
+  fixed-width column, evenly distributed across the row. The letter
+  mark slides in as a fifth entry when unread, otherwise hides.
 
-  Typographic rule: deliberately subordinated to the state arc.
-  Smaller text, lower opacity, generous letter-spacing. The user who
-  needs each one finds it; the user who does not never notices it.
-
-  A small folded-paper mark sits beside these entries when an unread
-  letter is waiting — the spec calls for it (§5.3, §5.12).
+  Typography: t-eyebrow (11px uppercase tracking), with active hover
+  state pulling to 80% opacity. Tap target sits at 44px tall via
+  py-3, so the row feels reachable on a phone without competing
+  visually with the state arc above.
 */
 
 import Link from "next/link";
 import { pickCurrentLetter } from "@/lib/letters";
 import { useAppStore } from "@/lib/app-store";
 
-const ENTRIES: { key: string; label: string; href: string; "aria-label": string }[] = [
-  { key: "light", label: "light", href: "/light", "aria-label": "Daily Light, capture a small noticing" },
-  { key: "rest", label: "rest", href: "/rest", "aria-label": "Sanctuary, a place to rest" },
-  { key: "trove", label: "trove", href: "/trove", "aria-label": "Firefly Trove, your captured noticings" },
-  { key: "senshin", label: "senshin", href: "/senshin", "aria-label": "Senshin, wash a worry" },
+type Entry = {
+  key: string;
+  label: string;
+  href: string;
+  ariaLabel: string;
+};
+
+const ENTRIES: Entry[] = [
+  { key: "light",   label: "Light",   href: "/light",   ariaLabel: "Daily Light, capture a small noticing" },
+  { key: "rest",    label: "Rest",    href: "/rest",    ariaLabel: "Sanctuary, a place to rest" },
+  { key: "trove",   label: "Trove",   href: "/trove",   ariaLabel: "Firefly Trove, your captured noticings" },
+  { key: "senshin", label: "Senshin", href: "/senshin", ariaLabel: "Senshin, wash a worry" },
 ];
 
 export type QuietEntriesProps = {
@@ -36,9 +43,10 @@ export function QuietEntries({ className = "" }: QuietEntriesProps) {
   const letterUnread = letter ? !store.lettersSeen.includes(letter.id) : false;
 
   return (
-    <div
+    <nav
+      aria-label="Secondary surfaces"
       className={[
-        "flex items-center justify-center gap-6 flex-wrap",
+        "w-full max-w-md mx-auto flex items-center justify-between",
         className,
       ].join(" ")}
     >
@@ -46,11 +54,11 @@ export function QuietEntries({ className = "" }: QuietEntriesProps) {
         <Link
           key={e.key}
           href={e.href}
-          aria-label={e["aria-label"]}
+          aria-label={e.ariaLabel}
           className={[
-            "font-sans text-[11px] tracking-[0.18em] uppercase",
-            "text-cosmic-50/35 hover:text-cosmic-50/70",
-            "transition-colors duration-300",
+            "flex-1 flex items-center justify-center py-3",
+            "t-eyebrow text-cosmic-50/40 hover:text-cosmic-50/80 active:text-cosmic-50",
+            "transition-colors duration-[var(--duration-hover)]",
           ].join(" ")}
         >
           {e.label}
@@ -60,15 +68,13 @@ export function QuietEntries({ className = "" }: QuietEntriesProps) {
         <Link
           href="/letter"
           aria-label="A new letter from Auwa is waiting"
-          className="flex items-center gap-1.5"
+          className="flex-1 flex items-center justify-center gap-1.5 py-3 t-eyebrow text-cosmic-50/60 hover:text-cosmic-50 transition-colors"
         >
           <FoldedPaperIcon />
-          <span className="font-sans text-[11px] tracking-[0.18em] uppercase text-cosmic-50/55 hover:text-cosmic-50/85 transition-colors">
-            letter
-          </span>
+          <span>Letter</span>
         </Link>
       ) : null}
-    </div>
+    </nav>
   );
 }
 
@@ -80,9 +86,8 @@ function FoldedPaperIcon() {
       viewBox="0 0 10 12"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1"
+      strokeWidth="1.25"
       strokeLinejoin="round"
-      className="text-cosmic-50/65"
       aria-hidden="true"
     >
       <path d="M1.5 1.5h5L8.5 3.5V10.5h-7V1.5z" />

@@ -7,6 +7,13 @@
       "runtimeArgs": ["website/main/start-dev.sh"],
       "port": 3003,
       "autoPort": false
+    },
+    {
+      "name": "auwa-app",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "website/app"],
+      "port": 3004,
+      "autoPort": false
     }
   ]
 }

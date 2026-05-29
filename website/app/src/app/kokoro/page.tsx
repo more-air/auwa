@@ -58,7 +58,7 @@ export default function KokoroView() {
       <div className="max-w-md mx-auto flex flex-col items-center gap-6">
         <KokoroSilhouette
           size="lg"
-          motifsLabel={`${motifs.length} motif${motifs.length === 1 ? "" : "s"} carried`}
+          motifs={motifs.map((m) => m.key)}
         />
 
         {focusedMotif ? (

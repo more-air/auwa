@@ -1,36 +1,33 @@
 "use client";
 
 /*
-  StateArc — the five Yamato character variants arranged in a gentle
-  arc below the Kokoro on the arrival screen. The user taps the one
-  that feels like the right one right now.
+  StateArc — five Yamato character variants in a gentle arc.
 
-  UI presentation rule (Section 4 of app.md): English label leads as
-  the primary label, Yamato sits underneath in smaller subtext. The
-  Yamato anchors the brand culturally; the English ensures the meaning
-  is never opaque.
+  Tap any one to commit to that state. The selected variant brightens
+  and the others quiet down. The prompt sits above the arc as a
+  serif voice line; the English-primary label sits underneath each
+  disc, with the romaji as a small subtext companion.
 
-  Spec source: §5.3 Arrival in context/pillar/app.md.
+  Arc shape: a shallow concave dip — middle variant rests low, outer
+  two reach up toward the eye. The spec asks for this gentle smile;
+  pure CSS translate-Y per item handles it.
 
-  Arc shape: five items, the middle one slightly higher than the outer
-  two, so the row reads as a soft smile rather than a flat list. Pure
-  CSS translate per item — no JS layout, no fragile measurement.
+  v2 refinement (May 2026): the AuwaCharacter discs are now elegant
+  tonal placeholders, not labelled rectangles. State labels are
+  serif (t-voice ladder) with romaji subtext in Noto Serif JP. The
+  arc is constrained to 320px max so the items group tightly on
+  phones rather than spreading across the viewport.
 */
 
 import { useState } from "react";
 import { YAMATO_STATES, type YamatoState } from "@/lib/yamato";
 import { AuwaCharacter } from "./auwa-character";
 
-// Y-offset per arc position (0..4). Index 2 (middle) sits lowest in
-// the arc visually but highest on the page (negative translateY), so
-// the row reads as a shallow concave dip — the centre variant is the
-// natural rest position, the outer two reach toward the user.
-const ARC_OFFSETS_PX = [0, -8, -14, -8, 0];
+// Y-offset per arc position. Middle = highest on page (negative Y).
+const ARC_OFFSETS_PX = [4, -6, -12, -6, 4];
 
 export type StateArcProps = {
-  /** Optional initial state. If provided, that variant starts focused. */
   initial?: YamatoState;
-  /** Fires when the user taps a variant. Parent owns the state. */
   onSelect: (state: YamatoState) => void;
   className?: string;
 };
@@ -41,7 +38,7 @@ export function StateArc({ initial, onSelect, className = "" }: StateArcProps) {
   return (
     <div
       className={[
-        "w-full max-w-md mx-auto flex items-end justify-between sm:justify-center sm:gap-5",
+        "w-full max-w-[340px] mx-auto flex items-end justify-between",
         className,
       ].join(" ")}
       role="radiogroup"
@@ -49,6 +46,7 @@ export function StateArc({ initial, onSelect, className = "" }: StateArcProps) {
     >
       {YAMATO_STATES.map((s, i) => {
         const isFocused = focused === s.key;
+        const isDimmed = focused !== null && !isFocused;
         return (
           <button
             key={s.key}
@@ -60,30 +58,34 @@ export function StateArc({ initial, onSelect, className = "" }: StateArcProps) {
               onSelect(s.key);
             }}
             className={[
-              "group flex flex-col items-center px-1 py-1",
-              // Constrain the item to the character's footprint on
-              // mobile so the labels wrap to two lines inside the
-              // column instead of pushing siblings off-viewport.
-              "w-[64px] sm:w-auto",
-              "transition-opacity duration-300",
-              isFocused
-                ? "opacity-100"
-                : focused === null
-                  ? "opacity-90 hover:opacity-100"
-                  : "opacity-45 hover:opacity-80",
+              "group flex flex-col items-center gap-2.5 px-0.5 py-1",
+              "w-[60px]",
+              "transition-opacity duration-300 ease-[var(--ease-out-expo)]",
+              "active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2",
+              isDimmed ? "opacity-40" : "opacity-100",
             ].join(" ")}
-            style={{ transform: `translateY(${ARC_OFFSETS_PX[i]}px)` }}
+            style={{
+              transform: `translateY(${ARC_OFFSETS_PX[i]}px)`,
+              transition: "transform 300ms var(--ease-out-expo), opacity 300ms ease-out",
+            }}
           >
-            <AuwaCharacter state={s.key} size="sm" />
-            <span className="flex flex-col items-center leading-tight mt-2">
-              <span className="font-display text-[14px] sm:text-[17px] text-cosmic-50 tracking-[0.005em] text-center leading-[1.15]">
+            <AuwaCharacter state={s.key} size="sm" active={isFocused} />
+            <span className="flex flex-col items-center leading-tight">
+              <span
+                className={[
+                  "t-voice text-[14px] leading-[1.1] text-center",
+                  isFocused ? "text-cosmic-50" : "text-cosmic-50/82",
+                ].join(" ")}
+              >
                 {s.english}
               </span>
               <span
-                className="font-jp-serif text-[10px] sm:text-[11px] tracking-[0.04em] text-cosmic-50/50 mt-1 text-center"
-                style={{ fontFamily: "var(--font-jp-serif)" }}
+                className={[
+                  "t-jp leading-[1.1] mt-0.5 text-center",
+                  isFocused ? "text-cosmic-50/55" : "text-cosmic-50/38",
+                ].join(" ")}
               >
-                {s.kanji} {s.romaji}
+                {s.romaji}
               </span>
             </span>
           </button>

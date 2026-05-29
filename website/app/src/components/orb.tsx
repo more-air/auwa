@@ -3,95 +3,68 @@
 /*
   Orb — Auwa's presence before the character appears.
 
-  A small breathing glow that anchors every app surface (arrival,
-  sanctuary, senshin, the letter, the first-gift beat). The orb is
-  Auwa's constant presence; the five character variants are how
-  Auwa appears in a particular state.
-
-  Implementation: a circle with a radial-gradient soft halo, scaled
-  and opacity-pulsed on `--duration-orb-breath`. Pure CSS animation,
-  no React state, no rAF — the orb breathes whether anything else
-  is happening or not.
+  Constant subtle anchor on every surface. Two concentric layers
+  (outer halo + core glow) breathe in opposing phase via CSS
+  animations declared in globals.css. No React state, no rAF.
 
   Sizes:
-    sm  — 32px. Quiet entry markers, header presence.
-    md  — 64px. Arrival anchor above the state arc.
-    lg  — 128px. First-gift beat, sanctuary, senshin closure.
-    xl  — 220px. Welcome, paused / pre-shower moments.
+    xs  — 24px. Inline next to header titles.
+    sm  — 32px. Top-of-surface anchors.
+    md  — 56px. Arrival, refining.
+    lg  — 112px. First-gift beat, sanctuary, senshin closure.
+    xl  — 200px. Welcome, pre-shower moments.
 
-  Placeholder note: the orb itself is brand-canonical (already on the
-  teaser page) — this component is the real implementation, not a
-  placeholder. Rieko's character variants are the placeholders.
+  `still` halts the breath at full glow — used during the light
+  shower's bloom phase where the orb scales but does not breathe.
 */
 
 const SIZES = {
+  xs: "w-6 h-6",
   sm: "w-8 h-8",
-  md: "w-16 h-16",
-  lg: "w-32 h-32",
-  xl: "w-[220px] h-[220px]",
+  md: "w-14 h-14",
+  lg: "w-28 h-28",
+  xl: "w-[200px] h-[200px]",
 } as const;
 
 export type OrbProps = {
   size?: keyof typeof SIZES;
-  className?: string;
-  /** Hold the orb at full glow without breathing — used during the
-   *  light shower's bloom phase. Default false. */
+  /** Hold the orb at full glow without breathing. */
   still?: boolean;
+  className?: string;
 };
 
-export function Orb({ size = "md", className = "", still = false }: OrbProps) {
+export function Orb({ size = "md", still = false, className = "" }: OrbProps) {
   return (
     <div
-      className={[
-        SIZES[size],
-        "relative pointer-events-none",
-        className,
-      ].join(" ")}
       aria-hidden="true"
+      className={["relative pointer-events-none", SIZES[size], className].join(" ")}
     >
       {/* Outer halo */}
       <div
         className="absolute inset-0 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, var(--color-glow) 0%, transparent 65%)",
-          opacity: 0.55,
+            "radial-gradient(circle at 50% 50%, var(--color-glow) 0%, var(--color-glow-dim) 35%, transparent 70%)",
+          opacity: still ? 0.85 : undefined,
           animation: still
             ? "none"
             : "auwa-orb-breath var(--duration-orb-breath) ease-in-out infinite",
           transformOrigin: "50% 50%",
         }}
       />
-      {/* Core glow */}
+      {/* Core */}
       <div
-        className="absolute inset-[20%] rounded-full"
+        className="absolute inset-[22%] rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, var(--color-glow) 0%, var(--color-glow-dim) 70%, transparent 100%)",
-          opacity: 0.85,
+            "radial-gradient(circle at 40% 35%, oklch(0.98 0.04 95) 0%, var(--color-glow) 40%, var(--color-glow-dim) 90%, transparent 100%)",
+          opacity: still ? 1 : undefined,
           animation: still
             ? "none"
             : "auwa-orb-core var(--duration-orb-breath) ease-in-out infinite",
           transformOrigin: "50% 50%",
         }}
       />
-      {/* Local keyframes — declared inline so the orb component is
-          self-contained. globals.css doesn't need to know about it. */}
-      <style>{`
-        @keyframes auwa-orb-breath {
-          0%, 100% { transform: scale(0.94); opacity: 0.45; }
-          50%      { transform: scale(1.06); opacity: 0.75; }
-        }
-        @keyframes auwa-orb-core {
-          0%, 100% { transform: scale(0.96); opacity: 0.7; }
-          50%      { transform: scale(1.04); opacity: 1;   }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          [aria-hidden="true"] > div {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }

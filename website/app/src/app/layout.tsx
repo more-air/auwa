@@ -4,24 +4,24 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 /*
-  Root layout for auwa.app (Kokoro Mirror PWA).
+  Root layout — auwa.app (Kokoro Mirror PWA).
 
-  The entire site is the cosmic surface — there's no editorial layout
-  to suppress here. Background is Void at the body level, text is
-  cosmic-50, and the five Yamato gradient families bloom on top
-  during revelations.
+  The entire app is the cosmic surface. Body is Void with cosmic-50
+  at 70% as the base text colour; t-* typography utilities override
+  with explicit opacity per role.
 
-  Manifest is at /manifest.webmanifest, scoped to /, so installing
-  from any path lands the user in the daily flow on first launch.
+  Mobile-first. Safe-area-inset is applied at the body so every
+  child surface inherits the iOS notch + home-indicator clearance.
 
-  Not indexed while v1 testing is in progress (robots noindex,
-  reinforced by sitemap absence).
+  Not indexed during v1 friends-release (robots noindex, no
+  sitemap). Manifest scoped to / so PWA install from any route
+  lands the user in the daily flow.
 */
 
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -48,14 +48,14 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "Kokoro Mirror | Auwa",
+  title: "Auwa",
   description:
     "A daily practice for awareness. Tap how you feel, and Auwa names what is there.",
   manifest: "/manifest.webmanifest",
   metadataBase: new URL("https://auwa.app"),
   robots: { index: false, follow: false },
   openGraph: {
-    title: "Kokoro Mirror | Auwa",
+    title: "Auwa",
     description: "A daily practice for awareness.",
     url: "https://auwa.app",
     siteName: "Auwa",
@@ -67,14 +67,15 @@ export const metadata: Metadata = {
   },
 };
 
-// Hex equivalent of --color-void (oklch(0.08 0.025 250)). theme_color
-// drives the iOS status-bar tint when the PWA is installed and
-// launched standalone.
+// Hex equivalent of --color-void (oklch(0.07 0.020 250)). Drives the
+// iOS status-bar tint when the PWA launches standalone.
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
   viewportFit: "cover",
-  themeColor: "#070b14",
+  themeColor: "#06090f",
 };
 
 export default function RootLayout({

@@ -1,56 +1,101 @@
+"use client";
+
 /*
-  AuwaCharacter — placeholder for the five Yamato variants Rieko will
-  illustrate. Each variant is the Auwa character in one of the five
-  emotional states (Hare, Takaburi, Aware, Yuragi, Nagomi), with
-  posture, gesture, and palette tuned to that state.
+  AuwaCharacter — visual placeholder for the five Yamato variants
+  Rieko will illustrate.
 
-  Today this renders a labelled circle naming the state. When Rieko's
-  batch lands, this component swaps to <Image src="/app/character/{state}.png"/>
-  with the same prop signature — no consumer needs to change.
+  v1 design: an elegant tonal disc tinted with the state's seed
+  colour, with the state's kanji as a faint watermark at the centre.
+  The disc is a three-stop radial wash so each variant has its own
+  emotional temperature without any illustration yet.
 
-  Sizes match the use cases in the spec:
-    sm  — 64px. State arc tap targets on the arrival screen.
-    md  — 120px. Sub-expression refinement preview.
-    lg  — 280px. Inside the revelation's gradient bloom (when the
-                 character is the surface, not the Kokoro).
+  When Rieko's character art lands, swap the inner content. The disc
+  shape, size, and surrounding margins stay constant so the
+  consumers (StateArc, RefiningScreen, Revelation) need zero change.
+
+  This treatment is intentionally restrained — it should feel like a
+  considered placeholder, not a wireframe. The earlier "AUWA / HARE
+  VARIANT" labelled rectangle was reading "unfinished" in every
+  screenshot.
 */
 
-import { PlaceholderAsset } from "./placeholder-asset";
 import type { YamatoState } from "@/lib/yamato";
 
-const SIZES = {
-  sm: "w-16 h-16",
-  md: "w-[120px] h-[120px]",
-  lg: "w-[280px] h-[280px]",
-} as const;
-
-const STATE_LABELS: Record<YamatoState, string> = {
-  hare: "Hare variant",
-  takaburi: "Takaburi variant",
-  aware: "Aware variant",
-  yuragi: "Yuragi variant",
-  nagomi: "Nagomi variant",
+const KANJI: Record<YamatoState, string> = {
+  hare: "晴",
+  takaburi: "昂",
+  aware: "哀",
+  yuragi: "揺",
+  nagomi: "和",
 };
+
+const SIZES = {
+  sm: { box: "w-14 h-14", kanji: "text-[20px]" },
+  md: { box: "w-24 h-24", kanji: "text-[32px]" },
+  lg: { box: "w-64 h-64", kanji: "text-[88px]" },
+} as const;
 
 export type AuwaCharacterProps = {
   state: YamatoState;
   size?: keyof typeof SIZES;
+  /** When true, the character reads as the active focused one —
+   *  full bloom + soft surround glow. Default false. */
+  active?: boolean;
   className?: string;
 };
 
 export function AuwaCharacter({
   state,
   size = "sm",
+  active = false,
   className = "",
 }: AuwaCharacterProps) {
+  const sizeCfg = SIZES[size];
   return (
-    <div className={[SIZES[size], className].join(" ")}>
-      <PlaceholderAsset
-        label="Auwa"
-        subLabel={STATE_LABELS[state]}
-        tone="cosmic-800"
-        rounded
+    <div
+      role="img"
+      aria-label={`Auwa, ${state}`}
+      className={[
+        "relative rounded-full",
+        sizeCfg.box,
+        "transition-[transform,opacity,box-shadow] duration-[var(--duration-hover)] ease-[var(--ease-out-expo)]",
+        className,
+      ].join(" ")}
+      style={{
+        background: `radial-gradient(circle at 38% 32%, var(--gradient-${state}-mid) 0%, var(--gradient-${state}-deep) 58%, var(--gradient-${state}-edge) 92%, var(--color-void) 100%)`,
+        opacity: active ? 1 : 0.82,
+        boxShadow: active
+          ? `0 0 28px -2px var(--color-${state}), 0 0 0 1px oklch(1 0 0 / 0.08) inset`
+          : "0 0 0 1px oklch(1 0 0 / 0.05) inset",
+      }}
+    >
+      {/* Subtle highlight at the upper-left, giving the disc dimension. */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 32% 20%, oklch(1 0 0 / 0.20) 0%, transparent 38%)",
+        }}
       />
+      {/* Kanji watermark, very faint. Becomes slightly more visible
+          when active so the tap registers. */}
+      <span
+        aria-hidden="true"
+        className={[
+          "absolute inset-0 flex items-center justify-center select-none pointer-events-none",
+          sizeCfg.kanji,
+        ].join(" ")}
+        style={{
+          fontFamily: "var(--font-jp-serif)",
+          color: "oklch(1 0 0)",
+          opacity: active ? 0.48 : 0.28,
+          textShadow: "0 1px 1px rgba(0,0,0,0.18)",
+          fontWeight: 400,
+        }}
+      >
+        {KANJI[state]}
+      </span>
     </div>
   );
 }

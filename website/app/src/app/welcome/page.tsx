@@ -241,14 +241,7 @@ function PersonalisationPhase({
   return (
     <PhaseShell>
       <div className="flex flex-col items-center gap-3 mb-4">
-        <KokoroSilhouette
-          size="sm"
-          motifsLabel={
-            selected.length > 0
-              ? `${selected.length} motif${selected.length === 1 ? "" : "s"} chosen`
-              : "Pick what you love"
-          }
-        />
+        <KokoroSilhouette size="sm" motifs={selected} halo={false} />
         <p className="font-display text-[17px] text-cosmic-50/90 text-center max-w-xs">
           Choose 5 to 7 things that feel like you.
         </p>
@@ -330,7 +323,7 @@ function FirstGiftPhase({ onNext }: { onNext: () => void }) {
           <Orb size="md" />
         </div>
         <div className="relative">
-          <KokoroSilhouette size="md" motifsLabel="A new motif settling" />
+          <KokoroSilhouette size="md" motifs={[]} halo />
           {/* The arriving motif. Drops from above the Kokoro to its
               surface over 3.5s, then sits. */}
           <div
