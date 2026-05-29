@@ -3,40 +3,31 @@
 /*
   Onboarding (welcome) — §2.1 of context/pillar/app.md.
 
-  This page handles eight of the eleven onboarding phases:
-    1. Welcome
-    2. What brings you to Auwa?
-    3. Motif personalisation
-    4. First-gift moment
-    5. When does Auwa fit?
-    6. Pick a quality
-    7. Where did you find Auwa?
-    8. Breath interlude
+  Eight phases handled here (1-8); the daily flow + closing + signup
+  (9-11) live in /page.tsx where the route lands next.
 
-  The remaining three phases live in /page.tsx (the root daily flow) where the user
-  arrives next:
-    9. First daily flow (the spine)
-    10. Closing
-    11. Signup prompt
+    1. Welcome           2. What brings you      3. Personalisation
+    4. First-gift        5. When does Auwa fit   6. Pick a quality
+    7. Where did you     8. Breath interlude
 
-  Splitting at this seam means onboarding doesn't have to embed the
-  full daily flow — the route change from /welcome → / is invisible
-  (both cosmic surfaces) and step 9 just is the daily flow rendering
-  naturally.
-
-  The store records `welcomeDone: true` (via setting motifs + trait
-  + source) before the route change; the daily flow page checks
-  `onboarding.completed` to decide whether to show the closing +
-  signup overlays after the first revelation.
+  Design system (rebuilt 29 May 2026 per Tom's craft pass):
+  - The simple Auwa character accompanies every screen (Finch-style);
+    on personalisation it visibly gains the user's motifs; the full
+    Kokoro (motifs + first gift) is the reveal at the first-gift beat.
+  - Chrome is centralised in OnboardingShell: Stoic-style equal-segment
+    progress at top, a back chevron from step 2 on, and the circle-arrow
+    AdvanceButton bottom-right (one consistent advance affordance).
+  - Titles use t-display (the one screen-title rule). Option tiles use
+    the TapCard primitive at the shared card radius.
 */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Orb } from "@/components/orb";
-import { Button } from "@/components/button";
-import { StepProgress } from "@/components/step-progress";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
 import { PlaceholderAsset } from "@/components/placeholder-asset";
+import { StepProgress } from "@/components/step-progress";
+import { AdvanceButton } from "@/components/advance-button";
+import { ChevronLeft } from "lucide-react";
 import { FIRST_GIFT_MOTIF, MOTIFS, type MotifCategory } from "@/lib/motifs";
 import {
   updateOnboarding,
@@ -65,32 +56,35 @@ const MOTIF_CATEGORIES: MotifCategory[] = [
   "objects",
 ];
 
+/* The five question/selection steps share the progress track. The
+   atmospheric beats (welcome, firstGift, breath) sit outside it. */
+const STEP_INDEX: Partial<Record<Phase, number>> = {
+  whatBrings: 0,
+  personalisation: 1,
+  whenFits: 2,
+  trait: 3,
+  source: 4,
+};
+const TOTAL_STEPS = 5;
+
 export default function Welcome() {
   const router = useRouter();
   const store = useAppStore();
   const ready = useStoreReady();
   const [phase, setPhase] = useState<Phase>("welcome");
 
-  // If the user has already finished welcome, skip them to the auwa.app cosmic surface.
-  // We only redirect when the store has hydrated so we don't bounce
-  // a real new user on their very first render.
   useEffect(() => {
     if (ready && store.onboarding.completed) {
       router.replace("/");
     }
   }, [ready, store.onboarding.completed, router]);
 
-  const finishWelcome = () => {
-    // Welcome phases done. Daily flow + closing + signup live on
-    // / next. Onboarding.completed flips true after the
-    // first revelation lands.
-    router.push("/");
-  };
+  const finishWelcome = () => router.push("/");
 
   return (
     <main
       id="main-content"
-      className="min-h-svh relative overflow-hidden flex flex-col"
+      className="h-svh relative overflow-hidden flex flex-col"
     >
       {phase === "welcome" && (
         <WelcomePhase onNext={() => setPhase("whatBrings")} />
@@ -98,15 +92,15 @@ export default function Welcome() {
       {phase === "whatBrings" && (
         <WhatBringsPhase
           selected={store.onboarding.whatBrings}
-          onNext={(v) => {
-            updateOnboarding({ whatBrings: v });
-            setPhase("personalisation");
-          }}
+          onBack={() => setPhase("welcome")}
+          onSelect={(v) => updateOnboarding({ whatBrings: v })}
+          onNext={() => setPhase("personalisation")}
         />
       )}
       {phase === "personalisation" && (
         <PersonalisationPhase
           picked={store.onboarding.motifs}
+          onBack={() => setPhase("whatBrings")}
           onNext={(motifs) => {
             updateOnboarding({ motifs });
             setPhase("firstGift");
@@ -115,6 +109,7 @@ export default function Welcome() {
       )}
       {phase === "firstGift" && (
         <FirstGiftPhase
+          motifs={store.onboarding.motifs}
           onNext={() => {
             updateOnboarding({ firstGiftMotif: FIRST_GIFT_MOTIF.key });
             setPhase("whenFits");
@@ -124,6 +119,7 @@ export default function Welcome() {
       {phase === "whenFits" && (
         <WhenFitsPhase
           selected={store.onboarding.whenFits}
+          onBack={() => setPhase("firstGift")}
           onNext={(v) => {
             updateOnboarding({ whenFits: v });
             setPhase("trait");
@@ -133,19 +129,17 @@ export default function Welcome() {
       {phase === "trait" && (
         <TraitPhase
           selected={store.onboarding.trait}
-          onNext={(v) => {
-            updateOnboarding({ trait: v });
-            setPhase("source");
-          }}
+          onBack={() => setPhase("whenFits")}
+          onSelect={(v) => updateOnboarding({ trait: v })}
+          onNext={() => setPhase("source")}
         />
       )}
       {phase === "source" && (
         <SourcePhase
           selected={store.onboarding.source}
-          onNext={(v) => {
-            updateOnboarding({ source: v });
-            setPhase("breath");
-          }}
+          onBack={() => setPhase("trait")}
+          onSelect={(v) => updateOnboarding({ source: v })}
+          onNext={() => setPhase("breath")}
         />
       )}
       {phase === "breath" && <BreathPhase onNext={finishWelcome} />}
@@ -153,64 +147,121 @@ export default function Welcome() {
   );
 }
 
-/* ---------- phases ---------- */
+/* ============================================================
+   OnboardingShell — the consistent chrome for every step.
 
-function PhaseShell({
-  children,
-  className = "",
+   [progress]                          (back chevron, step ≥ 2)
+   [            companion + content            ]   (flex-1)
+                              [ ← advance circle-arrow ]
+   ============================================================ */
+
+function OnboardingShell({
   step,
-  totalSteps,
+  onBack,
+  onAdvance,
+  canAdvance = true,
+  advanceLabel = "Continue",
+  children,
 }: {
-  children: React.ReactNode;
-  className?: string;
-  /** Zero-based step index — when set with totalSteps, shows the
-   *  progress indicator. Omitted on atmospheric beats. */
+  /** Zero-based step index — shows the progress track when set. */
   step?: number;
-  totalSteps?: number;
+  onBack?: () => void;
+  onAdvance?: () => void;
+  canAdvance?: boolean;
+  advanceLabel?: string;
+  children: React.ReactNode;
 }) {
   return (
     <section
-      className={[
-        "relative flex-1 flex flex-col items-center justify-between px-6 pt-16 pb-12",
-        className,
-      ].join(" ")}
+      className="relative flex-1 min-h-0 flex flex-col px-6"
+      style={{
+        paddingTop: "max(env(safe-area-inset-top), 12px)",
+        paddingBottom: "max(env(safe-area-inset-bottom), 16px)",
+      }}
     >
-      {typeof step === "number" && totalSteps ? (
-        <StepProgress
-          total={totalSteps}
-          current={step}
-          className="absolute top-6 left-0 right-0 px-6"
-        />
+      <div className="relative h-10 flex items-center justify-center flex-none">
+        {onBack ? (
+          <button
+            type="button"
+            onClick={onBack}
+            aria-label="Back"
+            className="absolute left-0 w-10 h-10 -ml-1 flex items-center justify-center text-cosmic-50/55 hover:text-cosmic-50 active:scale-[0.92] transition-[color,transform] duration-[var(--duration-press)] rounded-pill"
+          >
+            <ChevronLeft size={22} strokeWidth={1.75} />
+          </button>
+        ) : null}
+        {typeof step === "number" ? (
+          <StepProgress total={TOTAL_STEPS} current={step} />
+        ) : null}
+      </div>
+
+      <div className="flex-1 flex flex-col min-h-0">{children}</div>
+
+      {onAdvance ? (
+        <div className="flex-none flex justify-end pt-4">
+          <AdvanceButton
+            direction="next"
+            onClick={onAdvance}
+            disabled={!canAdvance}
+            aria-label={advanceLabel}
+          />
+        </div>
       ) : null}
-      {children}
     </section>
   );
 }
 
+/* A consistent body: companion up top, serif title, then content.
+   Sparse screens centre; the personalisation screen overrides this. */
+function StepBody({
+  companion,
+  title,
+  children,
+}: {
+  companion: React.ReactNode;
+  title: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div className="flex-1 flex flex-col items-center justify-center gap-9 py-4">
+      {companion}
+      <div className="w-full flex flex-col items-center gap-7 max-w-sm">
+        <h1 className="t-display text-cosmic-50/95 text-center text-balance">
+          {title}
+        </h1>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- phases ---------- */
+
 function WelcomePhase({ onNext }: { onNext: () => void }) {
   return (
-    <PhaseShell>
-      <div className="flex-1 flex items-center justify-center">
-        <Orb size="lg" />
-      </div>
-      <div className="flex flex-col items-center gap-8 max-w-sm">
-        <div className="text-center t-voice-l text-cosmic-50/90">
+    <OnboardingShell onAdvance={onNext} advanceLabel="Begin">
+      <div className="flex-1 flex flex-col items-center justify-center gap-10 py-4">
+        <KokoroSilhouette size="lg" halo />
+        <div className="text-center t-voice-l text-cosmic-50/90 leading-[1.45] max-w-[17rem]">
           <p>Auwa reveals what is there in you.</p>
-          <p className="mt-3">Choose a few things you love.</p>
-          <p className="mt-3">Your Kokoro starts here.</p>
+          <p className="mt-2">Choose a few things you love.</p>
+          <p className="mt-2">Your Kokoro starts here.</p>
         </div>
-        <ContinueButton label="Begin" onClick={onNext} />
       </div>
-    </PhaseShell>
+    </OnboardingShell>
   );
 }
 
 function WhatBringsPhase({
   selected,
+  onBack,
+  onSelect,
   onNext,
 }: {
   selected: WhatBrings | undefined;
-  onNext: (v: WhatBrings) => void;
+  onBack: () => void;
+  onSelect: (v: WhatBrings) => void;
+  onNext: () => void;
 }) {
   const options: { key: WhatBrings; label: string }[] = [
     { key: "curiosity", label: "Curiosity" },
@@ -219,56 +270,71 @@ function WhatBringsPhase({
     { key: "something-else", label: "Something else" },
   ];
   return (
-    <PhaseShell step={0} totalSteps={5}>
-      <div className="flex-1 flex items-center justify-center">
-        <Orb size="md" />
-      </div>
-      <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="t-voice-l text-cosmic-50 text-center">
-          What brings you to Auwa?
-        </p>
-        <div className="w-full grid grid-cols-1 gap-3">
+    <OnboardingShell
+      step={STEP_INDEX.whatBrings}
+      onBack={onBack}
+      onAdvance={onNext}
+      canAdvance={Boolean(selected)}
+    >
+      <StepBody
+        companion={<KokoroSilhouette size="md" halo />}
+        title="What brings you to Auwa?"
+      >
+        <div className="w-full flex flex-col gap-2.5">
           {options.map((o) => (
             <TapCard
               key={o.key}
               label={o.label}
               selected={selected === o.key}
-              onClick={() => onNext(o.key)}
+              onClick={() => onSelect(o.key)}
             />
           ))}
         </div>
-      </div>
-      <div />
-    </PhaseShell>
+      </StepBody>
+    </OnboardingShell>
   );
 }
 
 function PersonalisationPhase({
   picked,
+  onBack,
   onNext,
 }: {
   picked: string[];
+  onBack: () => void;
   onNext: (motifs: string[]) => void;
 }) {
   const [selected, setSelected] = useState<string[]>(picked);
   const enough = selected.length >= 5;
   const limit = 7;
+  const remaining = Math.max(0, 5 - selected.length);
+
   return (
-    <PhaseShell step={1} totalSteps={5}>
-      <div className="flex flex-col items-center gap-3 mb-4">
-        <KokoroSilhouette size="sm" motifs={selected} halo={false} />
+    <OnboardingShell
+      step={STEP_INDEX.personalisation}
+      onBack={onBack}
+      onAdvance={() => enough && onNext(selected)}
+      canAdvance={enough}
+    >
+      {/* Companion pinned at the top with breathing room so the motifs
+          visibly land on the Kokoro as they're picked. */}
+      <div className="flex-none flex flex-col items-center gap-3 pt-2 pb-4">
+        <KokoroSilhouette size="md" motifs={selected} />
         <p className="t-voice-l text-cosmic-50/90 text-center max-w-xs">
-          Choose 5 to 7 things that feel like you.
+          {enough
+            ? "Your Kokoro is taking shape."
+            : `Choose ${remaining} or more things that feel like you.`}
         </p>
       </div>
-      <div className="w-full max-w-md flex flex-col gap-6 overflow-y-auto py-2">
+
+      {/* Scrollable motif grid fills the remaining space; the advance
+          button stays pinned and visible the whole time. */}
+      <div className="flex-1 min-h-0 overflow-y-auto w-full max-w-md mx-auto flex flex-col gap-5 py-1">
         {MOTIF_CATEGORIES.map((cat) => {
           const items = MOTIFS.filter((m) => m.category === cat);
           return (
             <div key={cat}>
-              <h3 className="t-eyebrow text-cosmic-50/40 mb-2">
-                {cat}
-              </h3>
+              <h3 className="t-eyebrow text-cosmic-50/40 mb-2">{cat}</h3>
               <div className="grid grid-cols-3 gap-2">
                 {items.map((m) => {
                   const isSelected = selected.includes(m.key);
@@ -278,18 +344,18 @@ function PersonalisationPhase({
                       key={m.key}
                       type="button"
                       disabled={disabled}
-                      onClick={() => {
+                      onClick={() =>
                         setSelected((s) =>
                           isSelected
                             ? s.filter((k) => k !== m.key)
                             : [...s, m.key]
-                        );
-                      }}
+                        )
+                      }
                       className={[
-                        "aspect-square rounded-[16px] border transition-colors duration-200",
+                        "aspect-square rounded-card border transition-colors duration-200",
                         "flex items-center justify-center text-center px-2",
                         isSelected
-                          ? "border-cosmic-50/60 bg-cosmic-50/10"
+                          ? "border-cosmic-50/55 bg-cosmic-50/10"
                           : disabled
                             ? "border-cosmic-50/8 opacity-30"
                             : "border-cosmic-50/15 hover:border-cosmic-50/35",
@@ -306,20 +372,19 @@ function PersonalisationPhase({
           );
         })}
       </div>
-      <ContinueButton
-        label={enough ? "Continue" : `Pick at least ${5 - selected.length} more`}
-        onClick={() => enough && onNext(selected)}
-        disabled={!enough}
-      />
-    </PhaseShell>
+    </OnboardingShell>
   );
 }
 
-function FirstGiftPhase({ onNext }: { onNext: () => void }) {
-  // Five-second atmospheric beat. The motif "arrives" from above and
-  // "settles" on the Kokoro. The line appears half-way through. Tap
-  // to proceed at any time after 1.5s. No skip during the first
-  // half-beat so the moment can land.
+function FirstGiftPhase({
+  motifs,
+  onNext,
+}: {
+  motifs: string[];
+  onNext: () => void;
+}) {
+  // Atmospheric beat: the Kokoro sits in its just-personalised state,
+  // and one more motif (Auwa's gift) drifts down and settles. No orb.
   const [tapEnabled, setTapEnabled] = useState(false);
   useEffect(() => {
     const t = window.setTimeout(() => setTapEnabled(true), 1500);
@@ -327,24 +392,17 @@ function FirstGiftPhase({ onNext }: { onNext: () => void }) {
   }, []);
 
   return (
-    <button
-      type="button"
-      onClick={tapEnabled ? onNext : undefined}
-      className="flex-1 flex flex-col items-center justify-center px-6 py-12 w-full"
-      aria-label="Continue"
+    <OnboardingShell
+      onAdvance={tapEnabled ? onNext : undefined}
+      canAdvance={tapEnabled}
     >
-      <div className="relative flex flex-col items-center max-w-sm">
-        <div className="mb-4">
-          <Orb size="md" />
-        </div>
+      <div className="flex-1 flex flex-col items-center justify-center gap-10 py-4">
         <div className="relative">
-          <KokoroSilhouette size="md" motifs={[]} halo />
-          {/* The arriving motif. Drops from above the Kokoro to its
-              surface over 3.5s, then sits. */}
+          <KokoroSilhouette size="lg" motifs={motifs} halo />
           <div
             className="absolute left-1/2 -translate-x-1/2 w-12 h-12"
             style={{
-              top: "-20%",
+              top: "-16%",
               animation:
                 "auwa-first-gift 3500ms cubic-bezier(0.16, 1, 0.3, 1) 600ms forwards",
               opacity: 0,
@@ -358,7 +416,7 @@ function FirstGiftPhase({ onNext }: { onNext: () => void }) {
           </div>
         </div>
         <p
-          className="t-voice-l text-cosmic-50/85 text-center mt-10"
+          className="t-display text-cosmic-50/90 text-center text-balance max-w-[16rem]"
           style={{
             animation: "auwa-fade-in 1800ms ease-out 2000ms forwards",
             opacity: 0,
@@ -369,70 +427,67 @@ function FirstGiftPhase({ onNext }: { onNext: () => void }) {
       </div>
       <style>{`
         @keyframes auwa-first-gift {
-          0%   { opacity: 0; transform: translate(-50%, -40px) scale(0.7); }
-          30%  { opacity: 1; transform: translate(-50%, -40px) scale(1);   }
-          80%  { opacity: 1; transform: translate(-50%, 90px) scale(1);    }
-          100% { opacity: 1; transform: translate(-50%, 90px) scale(1);    }
+          0%   { opacity: 0; transform: translate(-50%, -52px) scale(0.7); }
+          30%  { opacity: 1; transform: translate(-50%, -52px) scale(1);   }
+          80%  { opacity: 1; transform: translate(2.6rem, 150px) scale(0.9); }
+          100% { opacity: 1; transform: translate(2.6rem, 150px) scale(0.9); }
         }
-        @keyframes auwa-fade-in {
-          to { opacity: 1; }
-        }
+        @keyframes auwa-fade-in { to { opacity: 1; } }
       `}</style>
-    </button>
+    </OnboardingShell>
   );
 }
 
 function WhenFitsPhase({
   selected,
+  onBack,
   onNext,
 }: {
   selected: WhenFits[];
+  onBack: () => void;
   onNext: (v: WhenFits[]) => void;
 }) {
   const [picks, setPicks] = useState<WhenFits[]>(selected);
   return (
-    <PhaseShell step={2} totalSteps={5}>
-      <div className="flex-1 flex items-center justify-center">
-        <Orb size="md" />
-      </div>
-      <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="t-voice-l text-cosmic-50 text-center">
-          When does Auwa fit your day?
-        </p>
-        <div className="w-full grid grid-cols-2 gap-3">
-          {(["morning", "evening"] as WhenFits[]).map((k) => {
-            const isSelected = picks.includes(k);
-            return (
-              <TapCard
-                key={k}
-                label={k === "morning" ? "Morning" : "Evening"}
-                selected={isSelected}
-                onClick={() =>
-                  setPicks((p) =>
-                    p.includes(k) ? p.filter((x) => x !== k) : [...p, k]
-                  )
-                }
-              />
-            );
-          })}
+    <OnboardingShell
+      step={STEP_INDEX.whenFits}
+      onBack={onBack}
+      onAdvance={() => picks.length > 0 && onNext(picks)}
+      canAdvance={picks.length > 0}
+    >
+      <StepBody
+        companion={<KokoroSilhouette size="md" halo />}
+        title="When does Auwa fit your day?"
+      >
+        <div className="w-full grid grid-cols-2 gap-2.5">
+          {(["morning", "evening"] as WhenFits[]).map((k) => (
+            <TapCard
+              key={k}
+              label={k === "morning" ? "Morning" : "Evening"}
+              selected={picks.includes(k)}
+              onClick={() =>
+                setPicks((p) =>
+                  p.includes(k) ? p.filter((x) => x !== k) : [...p, k]
+                )
+              }
+            />
+          ))}
         </div>
-        <ContinueButton
-          label="Continue"
-          onClick={() => picks.length > 0 && onNext(picks)}
-          disabled={picks.length === 0}
-        />
-      </div>
-      <div />
-    </PhaseShell>
+      </StepBody>
+    </OnboardingShell>
   );
 }
 
 function TraitPhase({
   selected,
+  onBack,
+  onSelect,
   onNext,
 }: {
   selected: Trait | undefined;
-  onNext: (v: Trait) => void;
+  onBack: () => void;
+  onSelect: (v: Trait) => void;
+  onNext: () => void;
 }) {
   const options: { key: Trait; label: string; descr: string }[] = [
     { key: "quiet", label: "Quiet", descr: "still water" },
@@ -441,38 +496,42 @@ function TraitPhase({
     { key: "open", label: "Open", descr: "weather-ready" },
   ];
   return (
-    <PhaseShell step={3} totalSteps={5}>
-      <div className="flex-1 flex items-center justify-center gap-4">
-        <Orb size="sm" />
-        <KokoroSilhouette size="sm" />
-      </div>
-      <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="t-voice-l text-cosmic-50 text-center">
-          Pick a quality your Kokoro carries.
-        </p>
-        <div className="w-full grid grid-cols-2 gap-3">
+    <OnboardingShell
+      step={STEP_INDEX.trait}
+      onBack={onBack}
+      onAdvance={onNext}
+      canAdvance={Boolean(selected)}
+    >
+      <StepBody
+        companion={<KokoroSilhouette size="md" halo />}
+        title="Pick a quality your Kokoro carries."
+      >
+        <div className="w-full grid grid-cols-2 gap-2.5">
           {options.map((o) => (
             <TapCard
               key={o.key}
               label={o.label}
               sublabel={o.descr}
               selected={selected === o.key}
-              onClick={() => onNext(o.key)}
+              onClick={() => onSelect(o.key)}
             />
           ))}
         </div>
-      </div>
-      <div />
-    </PhaseShell>
+      </StepBody>
+    </OnboardingShell>
   );
 }
 
 function SourcePhase({
   selected,
+  onBack,
+  onSelect,
   onNext,
 }: {
   selected: Source | undefined;
-  onNext: (v: Source) => void;
+  onBack: () => void;
+  onSelect: (v: Source) => void;
+  onNext: () => void;
 }) {
   const options: { key: Source; label: string }[] = [
     { key: "instagram", label: "Instagram" },
@@ -484,49 +543,45 @@ function SourcePhase({
     { key: "somewhere-else", label: "Somewhere else" },
   ];
   return (
-    <PhaseShell step={4} totalSteps={5}>
-      <div className="flex-1 flex items-center justify-center">
-        <Orb size="sm" />
-      </div>
-      <div className="w-full flex flex-col items-center gap-8 max-w-sm">
-        <p className="t-voice-l text-cosmic-50 text-center">
-          Where did you find Auwa?
-        </p>
-        <div className="w-full grid grid-cols-2 gap-3">
+    <OnboardingShell
+      step={STEP_INDEX.source}
+      onBack={onBack}
+      onAdvance={onNext}
+      canAdvance={Boolean(selected)}
+    >
+      <StepBody
+        companion={<KokoroSilhouette size="md" halo />}
+        title="Where did you find Auwa?"
+      >
+        <div className="w-full grid grid-cols-2 gap-2.5">
           {options.map((o) => (
             <TapCard
               key={o.key}
               label={o.label}
               selected={selected === o.key}
-              onClick={() => onNext(o.key)}
+              onClick={() => onSelect(o.key)}
             />
           ))}
         </div>
-      </div>
-      <div />
-    </PhaseShell>
+      </StepBody>
+    </OnboardingShell>
   );
 }
 
 function BreathPhase({ onNext }: { onNext: () => void }) {
   return (
-    <button
-      type="button"
-      onClick={onNext}
-      className="flex-1 flex flex-col items-center justify-center px-6 py-12 w-full"
-    >
-      <Orb size="lg" />
-      <p className="t-voice-l text-cosmic-50/85 text-center mt-12 max-w-xs">
-        In a moment, you will see Auwa for the first time.
-      </p>
-      <span className="t-eyebrow text-cosmic-50/35 mt-8">
-        Tap to continue
-      </span>
-    </button>
+    <OnboardingShell onAdvance={onNext} advanceLabel="Continue">
+      <div className="flex-1 flex flex-col items-center justify-center gap-10 py-4">
+        <KokoroSilhouette size="lg" halo />
+        <p className="t-display text-cosmic-50/90 text-center text-balance max-w-[17rem]">
+          In a moment, Auwa will reveal what is there in you.
+        </p>
+      </div>
+    </OnboardingShell>
   );
 }
 
-/* ---------- shared bits ---------- */
+/* ---------- shared option tile ---------- */
 
 function TapCard({
   label,
@@ -543,38 +598,19 @@ function TapCard({
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={selected}
       className={[
-        "py-4 px-4 rounded-[16px] border transition-colors duration-200",
-        "flex flex-col items-center justify-center text-center",
+        "py-4 px-4 rounded-card border transition-[background-color,border-color,transform] duration-[var(--duration-press)]",
+        "flex flex-col items-center justify-center text-center active:scale-[0.98]",
         selected
-          ? "border-cosmic-50/55 bg-cosmic-50/8"
-          : "border-cosmic-50/15 hover:border-cosmic-50/35 hover:bg-cosmic-50/5",
+          ? "border-cosmic-50/55 bg-cosmic-50/10"
+          : "border-cosmic-50/15 bg-cosmic-50/[0.03] hover:border-cosmic-50/35 hover:bg-cosmic-50/[0.06]",
       ].join(" ")}
     >
-      <span className="t-button text-cosmic-50/95">
-        {label}
-      </span>
+      <span className="t-button text-cosmic-50/95">{label}</span>
       {sublabel ? (
-        <span className="t-eyebrow text-cosmic-50/40 mt-1">
-          {sublabel}
-        </span>
+        <span className="t-eyebrow text-cosmic-50/40 mt-1">{sublabel}</span>
       ) : null}
     </button>
-  );
-}
-
-function ContinueButton({
-  label,
-  onClick,
-  disabled = false,
-}: {
-  label: string;
-  onClick: () => void;
-  disabled?: boolean;
-}) {
-  return (
-    <Button variant="primary" onClick={onClick} disabled={disabled}>
-      {label}
-    </Button>
   );
 }
