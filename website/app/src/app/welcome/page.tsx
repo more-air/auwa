@@ -34,6 +34,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
 import { Button } from "@/components/button";
+import { StepProgress } from "@/components/step-progress";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
 import { PlaceholderAsset } from "@/components/placeholder-asset";
 import { FIRST_GIFT_MOTIF, MOTIFS, type MotifCategory } from "@/lib/motifs";
@@ -157,17 +158,30 @@ export default function Welcome() {
 function PhaseShell({
   children,
   className = "",
+  step,
+  totalSteps,
 }: {
   children: React.ReactNode;
   className?: string;
+  /** Zero-based step index — when set with totalSteps, shows the
+   *  progress indicator. Omitted on atmospheric beats. */
+  step?: number;
+  totalSteps?: number;
 }) {
   return (
     <section
       className={[
-        "flex-1 flex flex-col items-center justify-between px-6 pt-16 pb-12",
+        "relative flex-1 flex flex-col items-center justify-between px-6 pt-16 pb-12",
         className,
       ].join(" ")}
     >
+      {typeof step === "number" && totalSteps ? (
+        <StepProgress
+          total={totalSteps}
+          current={step}
+          className="absolute top-6 left-0 right-0 px-6"
+        />
+      ) : null}
       {children}
     </section>
   );
@@ -205,7 +219,7 @@ function WhatBringsPhase({
     { key: "something-else", label: "Something else" },
   ];
   return (
-    <PhaseShell>
+    <PhaseShell step={0} totalSteps={5}>
       <div className="flex-1 flex items-center justify-center">
         <Orb size="md" />
       </div>
@@ -240,7 +254,7 @@ function PersonalisationPhase({
   const enough = selected.length >= 5;
   const limit = 7;
   return (
-    <PhaseShell>
+    <PhaseShell step={1} totalSteps={5}>
       <div className="flex flex-col items-center gap-3 mb-4">
         <KokoroSilhouette size="sm" motifs={selected} halo={false} />
         <p className="t-voice-l text-cosmic-50/90 text-center max-w-xs">
@@ -377,7 +391,7 @@ function WhenFitsPhase({
 }) {
   const [picks, setPicks] = useState<WhenFits[]>(selected);
   return (
-    <PhaseShell>
+    <PhaseShell step={2} totalSteps={5}>
       <div className="flex-1 flex items-center justify-center">
         <Orb size="md" />
       </div>
@@ -427,7 +441,7 @@ function TraitPhase({
     { key: "open", label: "Open", descr: "weather-ready" },
   ];
   return (
-    <PhaseShell>
+    <PhaseShell step={3} totalSteps={5}>
       <div className="flex-1 flex items-center justify-center gap-4">
         <Orb size="sm" />
         <KokoroSilhouette size="sm" />
@@ -470,7 +484,7 @@ function SourcePhase({
     { key: "somewhere-else", label: "Somewhere else" },
   ];
   return (
-    <PhaseShell>
+    <PhaseShell step={4} totalSteps={5}>
       <div className="flex-1 flex items-center justify-center">
         <Orb size="sm" />
       </div>

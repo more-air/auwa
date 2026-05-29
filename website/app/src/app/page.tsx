@@ -563,6 +563,18 @@ function RevelationScreen({
   return (
     <section className="min-h-svh relative">
       <GradientField state={state} />
+      {/* Celebratory bloom — a one-shot radial flash behind the
+          character on arrival, in the state's own colour, settling
+          to a soft glow. The moment of revelation gets a beat. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-[5] pointer-events-none"
+        style={{
+          background: `radial-gradient(circle 320px at 50% 42%, var(--gradient-${state}-mid) 0%, transparent 65%)`,
+          animation: "auwa-reveal-bloom 1800ms var(--ease-out-expo) forwards",
+          opacity: 0,
+        }}
+      />
       <div
         className="relative z-10 min-h-svh flex flex-col items-center justify-between px-6"
         style={{
@@ -573,13 +585,32 @@ function RevelationScreen({
         <Orb size="sm" />
 
         <div className="flex flex-col items-center gap-10 max-w-md">
-          <KokoroSilhouette size="lg" motifs={motifs} />
-          <p className="t-voice-xl text-cosmic-50/98 text-center text-balance max-w-[22rem]">
+          <div
+            style={{
+              animation: "auwa-reveal-emerge 1400ms var(--ease-out-expo) forwards",
+              opacity: 0,
+            }}
+          >
+            <KokoroSilhouette size="lg" motifs={motifs} />
+          </div>
+          <p
+            className="t-voice-xl text-cosmic-50/98 text-center text-balance max-w-[22rem]"
+            style={{
+              animation: "auwa-rise 900ms var(--ease-out-expo) 700ms forwards",
+              opacity: 0,
+            }}
+          >
             {reflection}
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-5">
+        <div
+          className="flex flex-col items-center gap-5"
+          style={{
+            animation: "auwa-fade-in 800ms ease-out 1300ms forwards",
+            opacity: 0,
+          }}
+        >
           <Button variant="primary" onClick={onContinue}>
             Continue
           </Button>
@@ -588,6 +619,18 @@ function RevelationScreen({
           </Button>
         </div>
       </div>
+
+      <style>{`
+        @keyframes auwa-reveal-bloom {
+          0%   { opacity: 0;    transform: scale(0.85); }
+          35%  { opacity: 0.9;  transform: scale(1.05); }
+          100% { opacity: 0.45; transform: scale(1); }
+        }
+        @keyframes auwa-reveal-emerge {
+          0%   { opacity: 0; transform: scale(0.9)  translateY(10px); }
+          100% { opacity: 1; transform: scale(1)    translateY(0); }
+        }
+      `}</style>
     </section>
   );
 }

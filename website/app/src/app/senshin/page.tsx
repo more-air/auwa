@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import { Orb } from "@/components/orb";
 import { Button } from "@/components/button";
 import { Chip } from "@/components/chip";
+import { StepProgress } from "@/components/step-progress";
 import {
   YAMATO_STATES,
   getYamatoState,
@@ -229,7 +230,8 @@ function CategorisePhase({
 }) {
   const otherSelected = selected.includes("something-else");
   return (
-    <section className="min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
+    <section className="relative min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
+      <StepProgress total={3} current={0} className="absolute top-14 inset-x-0" />
       <div className="flex flex-col items-center gap-3 max-w-sm">
         <Orb size="sm" />
         <p className="t-voice-l text-cosmic-50/90 text-center mt-4">
@@ -286,7 +288,8 @@ function EmotionPhase({
 }) {
   const def = state ? getYamatoState(state) : null;
   return (
-    <section className="min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
+    <section className="relative min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
+      <StepProgress total={3} current={1} className="absolute top-14 inset-x-0" />
       <div className="flex flex-col items-center gap-3">
         <Orb size="sm" />
         <p className="t-voice-l text-cosmic-50/90 text-center mt-4 max-w-xs">
@@ -368,7 +371,8 @@ function GuidancePhase({
   onTypeInstead: () => void;
 }) {
   return (
-    <section className="min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
+    <section className="relative min-h-svh flex flex-col items-center justify-between px-6 pt-20 pb-20">
+      <StepProgress total={3} current={2} className="absolute top-14 inset-x-0" />
       <Orb size="sm" />
 
       <div className="w-full max-w-sm flex flex-col items-center gap-6">
