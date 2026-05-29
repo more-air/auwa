@@ -29,7 +29,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Clock, Settings as SettingsIcon } from "lucide-react";
+import { History, Settings as SettingsIcon } from "lucide-react";
 import { Orb } from "@/components/orb";
 import { KokoroSilhouette } from "@/components/kokoro-silhouette";
 import { StateArc } from "@/components/state-arc";
@@ -264,12 +264,12 @@ function ArrivalScreen({
       <header className="h-12 px-2 flex items-center justify-between flex-none">
         <Link href="/archive" aria-label="Archive">
           <IconButton label="Archive">
-            <Clock size={20} strokeWidth={1.6} />
+            <History size={20} strokeWidth={1.5} />
           </IconButton>
         </Link>
         <Link href="/settings" aria-label="Settings">
           <IconButton label="Settings">
-            <SettingsIcon size={20} strokeWidth={1.6} />
+            <SettingsIcon size={20} strokeWidth={1.5} />
           </IconButton>
         </Link>
       </header>

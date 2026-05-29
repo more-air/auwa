@@ -1,21 +1,27 @@
 "use client";
 
 /*
-  QuietEntries — the four secondary destinations on Arrival, plus
-  the letter-mark when a new letter is waiting.
+  QuietEntries — bottom-strip navigation on Arrival.
 
-  v2 refinement (May 2026): treat as a proper bottom-row navigation
-  strip, not a wrapping pile of tiny links. Each entry sits in a
-  fixed-width column, evenly distributed across the row. The letter
-  mark slides in as a fifth entry when unread, otherwise hides.
+  Tab-bar pattern with icon + label per entry, evenly distributed
+  across the strip. Five entries; Letter is conditional (only
+  appears when a new letter is unread, so the strip reads 4-or-5
+  items depending on state).
 
-  Typography: t-eyebrow (11px uppercase tracking), with active hover
-  state pulling to 80% opacity. Tap target sits at 44px tall via
-  py-3, so the row feels reachable on a phone without competing
-  visually with the state arc above.
+  Icons (Lucide React):
+    Light    → Sparkle    (a small noticing)
+    Rest     → Moon       (sanctuary, contemplation)
+    Trove    → Sparkles   (a constellation of captured lights)
+    Senshin  → Droplet    (water of the chōzubachi, washing the heart)
+    Letter   → custom folded-paper SVG, refined
+
+  Stroke weight is 1.5 across all icons for a quieter visual weight
+  than Lucide's default 2px. Labels sit at t-eyebrow tracking.
 */
 
 import Link from "next/link";
+import { Sparkle, Moon, Sparkles, Droplet } from "lucide-react";
+import type { ReactNode } from "react";
 import { pickCurrentLetter } from "@/lib/letters";
 import { useAppStore } from "@/lib/app-store";
 
@@ -24,13 +30,41 @@ type Entry = {
   label: string;
   href: string;
   ariaLabel: string;
+  icon: ReactNode;
 };
 
+const ICON_SIZE = 20;
+const STROKE = 1.4;
+
 const ENTRIES: Entry[] = [
-  { key: "light",   label: "Light",   href: "/light",   ariaLabel: "Daily Light, capture a small noticing" },
-  { key: "rest",    label: "Rest",    href: "/rest",    ariaLabel: "Sanctuary, a place to rest" },
-  { key: "trove",   label: "Trove",   href: "/trove",   ariaLabel: "Firefly Trove, your captured noticings" },
-  { key: "senshin", label: "Senshin", href: "/senshin", ariaLabel: "Senshin, wash a worry" },
+  {
+    key: "light",
+    label: "Light",
+    href: "/light",
+    ariaLabel: "Daily Light, capture a small noticing",
+    icon: <Sparkle size={ICON_SIZE} strokeWidth={STROKE} />,
+  },
+  {
+    key: "rest",
+    label: "Rest",
+    href: "/rest",
+    ariaLabel: "Sanctuary, a place to rest",
+    icon: <Moon size={ICON_SIZE} strokeWidth={STROKE} />,
+  },
+  {
+    key: "trove",
+    label: "Trove",
+    href: "/trove",
+    ariaLabel: "Firefly Trove, your captured noticings",
+    icon: <Sparkles size={ICON_SIZE} strokeWidth={STROKE} />,
+  },
+  {
+    key: "senshin",
+    label: "Senshin",
+    href: "/senshin",
+    ariaLabel: "Senshin, wash a worry",
+    icon: <Droplet size={ICON_SIZE} strokeWidth={STROKE} />,
+  },
 ];
 
 export type QuietEntriesProps = {
@@ -46,52 +80,72 @@ export function QuietEntries({ className = "" }: QuietEntriesProps) {
     <nav
       aria-label="Secondary surfaces"
       className={[
-        "w-full max-w-md mx-auto flex items-center justify-between",
+        "w-full max-w-md mx-auto flex items-stretch",
         className,
       ].join(" ")}
     >
       {ENTRIES.map((e) => (
-        <Link
-          key={e.key}
-          href={e.href}
-          aria-label={e.ariaLabel}
-          className={[
-            "flex-1 flex items-center justify-center py-3",
-            "t-eyebrow text-cosmic-50/40 hover:text-cosmic-50/80 active:text-cosmic-50",
-            "transition-colors duration-[var(--duration-hover)]",
-          ].join(" ")}
-        >
-          {e.label}
-        </Link>
+        <EntryLink key={e.key} entry={e} />
       ))}
       {letterUnread ? (
-        <Link
-          href="/letter"
-          aria-label="A new letter from Auwa is waiting"
-          className="flex-1 flex items-center justify-center gap-1.5 py-3 t-eyebrow text-cosmic-50/60 hover:text-cosmic-50 transition-colors"
-        >
-          <FoldedPaperIcon />
-          <span>Letter</span>
-        </Link>
+        <EntryLink
+          entry={{
+            key: "letter",
+            label: "Letter",
+            href: "/letter",
+            ariaLabel: "A new letter from Auwa is waiting",
+            icon: <FoldedLetterIcon />,
+          }}
+          highlighted
+        />
       ) : null}
     </nav>
   );
 }
 
-function FoldedPaperIcon() {
+function EntryLink({
+  entry,
+  highlighted = false,
+}: {
+  entry: Entry;
+  highlighted?: boolean;
+}) {
+  return (
+    <Link
+      href={entry.href}
+      aria-label={entry.ariaLabel}
+      className={[
+        "flex-1 group flex flex-col items-center justify-center gap-1.5 py-3",
+        "transition-colors duration-[var(--duration-hover)] ease-out",
+        "active:scale-[0.96]",
+        highlighted
+          ? "text-cosmic-50/72 hover:text-cosmic-50"
+          : "text-cosmic-50/44 hover:text-cosmic-50/85",
+      ].join(" ")}
+    >
+      <span className="block">{entry.icon}</span>
+      <span className="t-eyebrow">{entry.label}</span>
+    </Link>
+  );
+}
+
+function FoldedLetterIcon() {
   return (
     <svg
-      width="10"
-      height="12"
-      viewBox="0 0 10 12"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.25"
+      strokeWidth="1.4"
       strokeLinejoin="round"
+      strokeLinecap="round"
       aria-hidden="true"
     >
-      <path d="M1.5 1.5h5L8.5 3.5V10.5h-7V1.5z" />
-      <path d="M6.5 1.5V3.5H8.5" />
+      <path d="M3.5 4h9L16.5 8V16.5h-13V4z" />
+      <path d="M12.5 4V8H16.5" />
+      <path d="M6 11h6" opacity="0.7" />
+      <path d="M6 13.5h4" opacity="0.5" />
     </svg>
   );
 }
