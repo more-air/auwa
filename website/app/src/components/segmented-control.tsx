@@ -60,7 +60,7 @@ export function SegmentedControl<T extends string>({
       ref={trackRef}
       role="tablist"
       className={[
-        "relative inline-flex items-center p-1 rounded-full",
+        "relative inline-flex items-center p-1 rounded-pill",
         "bg-cosmic-50/6",
         fullWidth ? "w-full" : "",
         className,
@@ -69,7 +69,7 @@ export function SegmentedControl<T extends string>({
       {/* Sliding pill */}
       <span
         aria-hidden="true"
-        className="absolute top-1 bottom-1 rounded-full bg-cosmic-50/12 transition-[left,width] duration-300 ease-[var(--ease-out-expo)]"
+        className="absolute top-1 bottom-1 rounded-pill bg-cosmic-50/12 transition-[left,width] duration-300 ease-[var(--ease-out-expo)]"
         style={{ left: pillStyle.left, width: pillStyle.width }}
       />
       {options.map((option) => {
@@ -85,7 +85,7 @@ export function SegmentedControl<T extends string>({
             aria-selected={isActive}
             onClick={() => onChange(option.value)}
             className={[
-              "relative z-10 t-meta px-4 h-9 rounded-full",
+              "relative z-10 t-meta px-4 h-9 rounded-pill",
               "transition-colors duration-200",
               fullWidth ? "flex-1" : "",
               isActive

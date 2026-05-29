@@ -69,7 +69,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
       disabled={disabled}
       className={[
         "inline-flex items-center justify-center gap-1.5",
-        "rounded-full",
+        "rounded-pill",
         multiline ? "py-2 h-auto leading-[1.2]" : SIZE_CLASSES[size].replace(/h-\d+/, ""),
         !multiline ? SIZE_CLASSES[size] : "px-4 t-button text-[15px]",
         "transition-[transform,background-color,color,box-shadow] duration-[var(--duration-press)] ease-out",

@@ -74,7 +74,7 @@ export default function CrisisHelp() {
             <a
               key={s.region}
               href={s.href}
-              className="block border border-cosmic-50/12 hover:border-cosmic-50/35 rounded-[16px] px-4 py-3 transition-colors"
+              className="block border border-cosmic-50/12 hover:border-cosmic-50/35 rounded-card px-4 py-3 transition-colors"
             >
               <span className="t-eyebrow text-cosmic-50/45 block">
                 {s.region}

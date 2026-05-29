@@ -49,7 +49,7 @@ export function PlaceholderAsset({
       className={[
         "w-full h-full flex flex-col items-center justify-center p-3 text-center",
         TONES[tone],
-        rounded ? "rounded-full" : "rounded-md",
+        rounded ? "rounded-full" : "rounded-card",
         className,
       ].join(" ")}
       role="img"

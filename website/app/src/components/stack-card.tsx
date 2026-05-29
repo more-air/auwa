@@ -99,7 +99,7 @@ export const StackCard = forwardRef<HTMLElement, StackCardProps>(function StackC
   );
 
   const baseClasses = [
-    "w-full flex items-center gap-4 rounded-[20px] px-4 py-4",
+    "w-full flex items-center gap-4 rounded-card px-4 py-4",
     "transition-[transform,background-color] duration-[var(--duration-press)]",
     interactive ? "active:scale-[0.985]" : "",
     VARIANT_CLASSES[variant],

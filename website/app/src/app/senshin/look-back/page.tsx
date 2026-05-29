@@ -105,7 +105,7 @@ function StatusRow({ entry }: { entry: SenshinEntry }) {
   const setStatus = (status: SenshinStatus) =>
     setSenshinStatus(entry.id, status);
   return (
-    <div className="border border-cosmic-50/12 rounded-[16px] p-3 flex flex-col gap-2">
+    <div className="border border-cosmic-50/12 rounded-card p-3 flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <span className="t-eyebrow text-cosmic-50/45">
           {when}

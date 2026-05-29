@@ -41,7 +41,7 @@ export default function Archive() {
         ) : (
           <>
             {observation ? (
-              <div className="border border-cosmic-50/12 rounded-[16px] px-4 py-4 mb-8">
+              <div className="border border-cosmic-50/12 rounded-card px-4 py-4 mb-8">
                 <span className="t-eyebrow text-cosmic-50/45 block mb-2">
                   Observations
                 </span>
@@ -76,7 +76,7 @@ function ArchiveCard({ revelation }: { revelation: Revelation }) {
       type="button"
       onClick={() => setExpanded((e) => !e)}
       className={[
-        "w-full text-left border border-cosmic-50/12 rounded-[16px] px-4 py-4",
+        "w-full text-left border border-cosmic-50/12 rounded-card px-4 py-4",
         "transition-colors duration-200",
         "hover:border-cosmic-50/25",
         // Tint with the state's mid gradient stop at low alpha

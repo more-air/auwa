@@ -51,9 +51,9 @@ const VARIANT_CLASSES: Record<Variant, string> = {
 };
 
 const SIZE_CLASSES: Record<Size, string> = {
-  lg: "h-14 px-7 rounded-full t-button text-[17px]",
-  md: "h-12 px-6 rounded-full t-button",
-  sm: "h-10 px-5 rounded-full t-meta",
+  lg: "h-14 px-7 rounded-card t-button text-[17px]",
+  md: "h-12 px-6 rounded-card t-button",
+  sm: "h-10 px-5 rounded-card t-meta",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
