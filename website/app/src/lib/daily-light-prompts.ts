@@ -42,7 +42,7 @@ export const DAILY_LIGHT_PROMPTS: DailyLightPrompt[] = [
   { id: "p22", question: "What did you make space for?" },
   { id: "p23", question: "What is one small thing that worked out?" },
   { id: "p24", question: "What did the wind feel like?" },
-  { id: "p25", question: "What did you choose to let go of?", lean: "evening" },
+  { id: "p25", question: "What is one good thing you almost missed today?", lean: "evening" },
 ];
 
 /** Pick a prompt for today. v1 uses a date-based deterministic index

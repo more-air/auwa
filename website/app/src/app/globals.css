@@ -357,3 +357,7 @@ textarea:focus-visible {
   0%, 100% { transform: scale(0.96); opacity: 0.75; }
   50%      { transform: scale(1.04); opacity: 1; }
 }
+@keyframes auwa-firefly-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50%      { opacity: 1;   transform: scale(1.12); }
+}

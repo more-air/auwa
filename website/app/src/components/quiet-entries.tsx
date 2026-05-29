@@ -25,7 +25,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sparkle, Moon, Sparkles, Droplet } from "lucide-react";
+import { Sparkle, Moon, Droplet } from "lucide-react";
 import type { ReactNode } from "react";
 
 type Entry = {
@@ -72,7 +72,7 @@ const ENTRIES: Entry[] = [
     key: "light",
     label: "Light",
     href: "/light",
-    ariaLabel: "Daily Light, capture a small noticing",
+    ariaLabel: "Daily Light, capture and revisit your fireflies",
     icon: <Sparkle size={ICON_SIZE} strokeWidth={STROKE} />,
   },
   {
@@ -81,13 +81,6 @@ const ENTRIES: Entry[] = [
     href: "/rest",
     ariaLabel: "Sanctuary, a place to rest",
     icon: <Moon size={ICON_SIZE} strokeWidth={STROKE} />,
-  },
-  {
-    key: "trove",
-    label: "Trove",
-    href: "/trove",
-    ariaLabel: "Firefly Trove, your captured noticings",
-    icon: <Sparkles size={ICON_SIZE} strokeWidth={STROKE} />,
   },
   {
     key: "senshin",
