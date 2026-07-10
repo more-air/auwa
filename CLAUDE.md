@@ -229,12 +229,13 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 
 **Shortcut phrases.** When the user's first message contains any of these phrases, load the listed files together without asking:
 
+- *"app session"*, *"app build"*, *"app updates"*, *"app work"*, *"app tweak"*, *"app fix"*, *"app design"*, *"app review"* → load `context/app/app.md` + `context/app/patterns.md` + `context/pillar/app.md` + `context/brand/brand.md`, AND launch the local preview by calling `mcp__Claude_Preview__preview_start` with `name: "auwa-app"` (port 3004, configured in `.claude/launch.json`) so Tom can see the current state immediately. Set the viewport to mobile (375x812) before doing anything else, since the app is mobile-first.
 - *"website session"*, *"website updates"*, *"website work"*, *"website tweak"*, *"website fix"*, *"website bug"* → load `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 - *"newsletter send"*, *"send newsletter"* → load `context/marketing/newsletter.md` + `context/pillar/journal.md` + `context/brand/brand.md`.
 - *"social session"*, *"instagram"*, *"social post"* → load `context/marketing/instagram.md` + `context/brand/brand.md` + `context/marketing/arrival.md`.
 - *"article"*, *"journal article"*, *"write article"* → load `context/pillar/journal.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 
-Whenever `context/website/website.md` is loaded for implementation work (component changes, bug fixes, deploys), ALSO load `context/website/patterns.md`. The two are paired.
+Whenever `context/app/app.md` is loaded, `context/app/patterns.md` is paired. Same for `context/website/website.md` + `context/website/patterns.md` on implementation work.
 
 **Pillars (`context/pillar/`):**
 
@@ -254,6 +255,11 @@ Whenever `context/website/website.md` is loaded for implementation work (compone
 - `context/business/competitors.md` — Competitor analysis: AI journaling (Reflection, Rosebud, Mindsera, Stoic), mood tracking (Daylio, Reflectly, Moodnotes), wellness (Headspace, Calm, Wysa), Japanese cultural products (72 Seasons, Pentad), collectibles (Labubu, KAWS, Sonny Angel), multi-category lifestyle brands (Goop, Snow Peak, Rapha, Monocle, School of Life), Japanese craft exporters (Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto). Competitive matrix, features to adopt/avoid, signals to monitor.
 - `context/business/japan.md` — Japan market analysis: tourism stats (42.7M visitors, ¥9.5T spending), cultural export growth (anime $37.7B), yen dynamics, Japandi trend (405% Pinterest growth), ikigai/wellness crossover (5-7M books sold), the structurally unoccupied EQ/wellness gap, multi-category lifestyle brand precedents with revenue data.
 - `context/business/structure.md` — Business structure, IP & legal: corporate entities (Auwa Limited + More Air Limited), directors, shareholders, ownership chain, all trademark filings (word mark UK00004341028 + UK00004373944, design mark UK00004373930), 7 Nice classes, Madrid Protocol deadline (15 Aug 2026), copyright, licensing agreements, domains, costs, key dates, open actions. (Social handles live in `context/marketing/social.md`.)
+
+**App (`context/app/`):**
+
+- `context/app/app.md` — auwa.app build status + design language: current state of the Kokoro Mirror PWA, what's done, what's outstanding (Rounds A/B/C of the design pass), full type system + opacity ladder + spacing + Yamato gradient tokens, component primitive inventory, Mobbin + Finch design references with Tom's notes, working principles. **Load for any app session.** Paired with `patterns.md`.
+- `context/app/patterns.md` — auwa.app BUILD PATTERNS: deployment workflow (multiple Vercel projects, git author requirement, rootDirectory setting), file structure, design token reference, state management (localStorage app store), Tailwind 4 gotchas (`@theme` tree-shaking the gradient tokens), component patterns, Auwa character asset mapping, preview + seed test state, lessons learned. **Load for any app implementation work.**
 
 **Website (`context/website/`):**
 

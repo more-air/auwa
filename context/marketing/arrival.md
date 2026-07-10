@@ -90,12 +90,12 @@ SOTD signature interaction. Auwa's gaze tracks the cursor on desktop. Rieko prod
 
 ### 8. Ongoing through June
 
-- Rieko: craftsman shortlist + Japanese one-pager. 30-50 craftsmen, tiered.
+- Rieko: collab partner shortlist + Japanese one-pager. 5-10 partners, tiered. (Revised May 2026: store model pivoted from multi-vendor marketplace to first-party + collab editions. Shortlist scope is now smaller and deeper, not broader and lighter. Each partner is a potential collab edition, not a merchant.)
 - Newsletter "arrival" letter to existing subscribers in early May. One paragraph, one link. Warm, not promotional.
 - Continue journal publishing at roughly two articles per month.
 - Begin Seasonal Journey internal planning; see Seasonal Journeys section.
 
-**Phase 1 target by end of June:** 2-3K IG followers, 400-600 subscribers, 12-15 published articles, Fin DAC article shipped, Awwwards submitted, all warm-network shares done, craftsman shortlist drafted, app in friends' hands.
+**Phase 1 target by end of June:** 2-3K IG followers, 400-600 subscribers, 12-15 published articles, Fin DAC article shipped, Awwwards submitted, all warm-network shares done, collab partner shortlist drafted, app in friends' hands.
 
 ### 9. Phase 2 onward (summer 2026 into 2027)
 
@@ -106,7 +106,7 @@ With Phase 1 targets met:
 - First figure edition drop via subscriber lottery (the site's bottom-strip entry teaser already seeds this).
 - First Seasonal Journey trialled by Tom and Rieko alone in 2027.
 - Book pre-order campaign opens once the draft is polished.
-- Store soft launch with first handful of craftsmen.
+- Store launches in Year 1 (autumn 2026) with the first Auwa figure drop. First collab edition (Fin DAC × Auwa figure) follows in late Year 1 or early Year 2. Revised May 2026 timing given the figure's active 3D-printing progress; the old "Year 2 store" line is retired.
 
 ---
 
@@ -234,7 +234,7 @@ Two to three hours the day before submission. Walk through the site desktop and 
 - App public at 500-2,000 users
 - Two or three press pieces landed
 - 30-50 journal articles compounding SEO
-- 5-10 craftsmen onboarded
+- 3-5 collab partners agreed (Fin DAC plus 2-4 craftsmen for late-Y1 / Y2 collab editions)
 - Book pre-order campaign live or imminent
 - Shigefusa film shipped or in the can
 - First figure edition sold out
@@ -246,7 +246,7 @@ Slow, dignified, correct for the brand.
 ## Year 2 Success
 
 - 40-75K IG followers
-- Store live with 20-30 craftsmen, revenue flowing
+- Store live with the full first-party range (figures, books, prints, Kokoro prints) plus 2-3 collab editions live or recently shipped
 - Book shipped in two editions, reviewed somewhere aligned
 - App at 5-10K users, paid tier converting
 - First Seasonal Journey run (Tom and Rieko pilot)

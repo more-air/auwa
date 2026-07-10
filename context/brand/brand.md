@@ -285,6 +285,28 @@ The glowing orb is Auwa's presence before the character appears. It pulses gentl
 
 **Never:** place the orb next to the wordmark as a combined logo. They serve different purposes.
 
+### The Fireflies (added 27 May 2026)
+
+Fireflies (蛍, hotaru) are now part of Auwa's iconographic vocabulary, alongside the Kokoro, the orb, and the gradient families. They appear in the app's Daily Light + Firefly Trove mechanic (see `context/pillar/app.md` Section 8) as small captured lights representing moments the user noticed in their day.
+
+**Visual treatment:**
+- Small soft glowing dots, warm yellow with subtle warmth variation
+- Each firefly breathes (pulses on a 1.4-2.1 second cycle, randomised so the swarm never reads synchronised)
+- Lives best on Auwa's existing dark cosmic palette (deep navy with a hint of purple). Never on light backgrounds in primary use
+- Slight size variation (5-15%) across a swarm; the trove at scale becomes a living constellation
+- Visually distinct from the orb: the orb is Auwa's presence (single, large, central, breathing); fireflies are the user's collected noticings (many, small, drifting, accumulating)
+
+**Cultural framing.** Used year-round, not seasonally. Auwa uses the firefly the way Japanese art has always used it: as a symbol of small light caught in darkness, of *mono no aware* (the bittersweet awareness of impermanence), of brief life held in memory. The symbol outlives the calendar season. Hokusai painted fireflies in winter scenes; literature uses them as symbols of fleeting love, lost souls, small lights against the dark. Our usage is consistent with this tradition. Seasonal multi-motif treatment (petals, leaves, snowflakes alongside fireflies) was considered and deferred to a possible v2 or v3.
+
+**Conservation tie-in.** Fireflies in Auwa are also a real-world commitment: five percent of every Kokoro Mirror subscription supports firefly habitat conservation in Japan and globally. See `context/business/business.md` Section 6.6 for partners and structure.
+
+**Usage rules:**
+- App: the Daily Light capture moment, the Firefly Trove screen
+- Marketing visuals: trove screenshots as App Store images, Instagram posts, press
+- Brand video: fireflies drifting in dark cosmic space is part of Auwa's signature motion vocabulary
+- Print: the Year-End Firefly Year book (hand-pressed Japanese paper)
+- Never: fireflies as a flat decorative element divorced from the trove logic; fireflies in bright contexts (white backgrounds, daylight scenes); fireflies clustered into shapes or logos
+
 ---
 
 ## 6. Photography Direction

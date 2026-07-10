@@ -12,7 +12,7 @@ And you're not starting from nothing. You're starting with more relevant experie
 
 ---
 
-## The Eight Reasons
+## The Nine Reasons
 
 ### 1. Rieko's dream, realised.
 
@@ -51,6 +51,10 @@ Separately, each of you has done pieces of this before and succeeded. Auwa is th
 ### 8. Something that's truly yours.
 
 After 17 years of More Air, you've built beautiful things for other people's brands, other people's visions, other people's timelines. Auwa is different. Nobody is approving your colour palette or questioning your creative direction. Every decision is yours. Every beautiful detail exists because you both believed it should. Client work pays the bills. Auwa feeds the soul.
+
+### 9. A small act of preservation, beyond the personal one. (Added 27 May 2026.)
+
+The Daily Light + Firefly Trove mechanic gives every Auwa user a way to capture small moments of light from their own day that would otherwise have been lost. The fireflies in the app are also a real-world commitment: five percent of every subscription supports firefly habitat conservation in Japan and globally, from the first paid subscriber. Real fireflies are disappearing because the world is too loud, too bright, too polluted; some scientists describe the current cohort as the last generation that will reliably witness them in many regions. Auwa is a small, sustained act of preservation, of one's own small good moments and of a fragile species that matters to Rieko personally. The personal practice and the brand's commitment to the world are the same gesture.
 
 ---
 

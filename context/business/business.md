@@ -2,6 +2,8 @@
 
 *Source: Master Business Plan, March 2026. Updated April 2026 following strategic review. Maintained as living document.*
 
+*Update 8 July 2026 (decision logged in the finance project's `overview.md`): Auwa gets the household's whole working engine through launch. The planned More Air 2.0 promotion push is deferred to Q1 2027, where the Auwa launch itself becomes More Air's flagship AI-native venture case study; More Air keeps only the weekly warm-network drip until then. A pre-approved £15,000 Year 1 envelope is authorised through More Air Limited (ceiling not target; the decision gates in sections 8 and 6.2 still govern), covering: the Madrid Protocol filing for Japan, US and EU, to be filed before the six-month priority window from the 16 April 2026 UK filings closes in mid-October (priority order if trimming: Japan first, then US, then EU, classes matched to the actual revenue lines); the figure production run and materials; book printing (POD first, offset against pre-orders); and the £2k Year 1 paid-social lane on proven content. Production spend within the envelope needs no further per-item approval. The two quality bets money cannot buy remain the priorities: the app's writing quality and the launch moment.*
+
 ---
 
 ## 1. Executive Summary
@@ -138,23 +140,37 @@ The daily practice of noticing and naming your emotions — the core of the Koko
 - Free: 3 revelations/month
 - Paid: £6.99/month or £49.99/year (unlimited revelations, full archive, pattern insights, journal, story unlocks, shareable cards, early figure access)
 
-### 6.2 Auwa Store (auwa.life/store) - Year 1 Soft Launch
+### 6.2 Auwa Store (auwa.life/store) - First-party + collab editions
 
-A curated multi-merchant marketplace for Japanese craftsman products, plus Auwa's own collectible figures. Positioned as "lifetime products with Kokoro" — the antithesis of throwaway culture. In the same way Hodinkee proved that a digital-age audience would develop deep appreciation for hand-crafted mechanical watches, Auwa bets that AI acceleration makes people more hungry for objects made by human hands with centuries of tradition behind them.
+*Revised May 2026: store model pivoted from multi-vendor Japanese craftsman marketplace to first-party Auwa store with periodic collaboration editions. Higher margin, lower operational lift, brand-coherent. The marketplace concept is retired.*
 
-**Concept:** Japanese master craftsmen sell through the Auwa platform. Merchants manage their own products, orders, and shipping from Japan. Auwa provides the brand, curation, audience, and premium presentation. Tom's experience running a Japanese multi-merchant platform (2005-2007) is the direct precedent: standardised premium imagery, automated currency conversion, and direct-from-Japan shipping. The Monolise project (designed by More Air for a Japanese craft store connecting local craftspeople with global buyers) provides additional design and operational insight — minimal presentation that lets the products speak, Shopify-based, anti-throwaway culture positioning.
+A first-party store selling Auwa-made items only: figures, books, prints, Kokoro prints. Every item passes through Rieko's hand. Periodic collaboration editions bring an outside artist or craftsman in for a single drop (Auwa × Fin DAC figure, Auwa × a knife-maker figure later). The collaborator gets one timed product slot alongside the collab edition (e.g. one Fin DAC print, one Japanese craftsman's signature piece). The store stays Auwa-owned at the core.
 
-**What's on the store:**
-- **Shokunin Treasures:** Curated Japanese craft — knives, ceramics, tea caddies, washi goods, textiles. Hand-made, lifetime quality. £80-500+. Each product includes craftsman story and photography.
-- **Auwa Figures:** Limited-edition collectible figures representing Auwa's emotional states. 3D-printed in-house (BambuLab X1 Carbon), eco-friendly materials, hand-finished, numbered, signed by Rieko. 12-15cm, £120-180. Certificate of authenticity + story booklet.
+In the same way Hodinkee proved a digital-age audience would develop deep appreciation for hand-crafted mechanical objects, Auwa bets that AI acceleration makes people more hungry for hand-made artefacts with cultural depth behind them.
 
-**Tech stack:** Shopify with Multi-Vendor Marketplace app (Webkul or equivalent). Stripe Connect for direct merchant payouts to Japan. Shopify Duty & Import Taxes for transparent landed-cost pricing at checkout. AI-assisted image standardisation (consistent white backgrounds, premium presentation across all merchants).
+**What's in the store:**
 
-**Merchant onboarding:** Rieko leads outreach in Japanese. Initial target: 5-10 craftsmen from existing Monolise relationships and new contacts. Merchants upload products in Japanese; Auwa handles translation, image polish, and Western-facing presentation.
+- **Auwa figures.** Limited-edition collectible figures of the Auwa character. Already in active development (Blender model done, 3D-printing with bio materials in progress, refinements before packaging). 12-15cm, £140-180, hand-finished, numbered, signed. Limited runs (~100 per edition), never reissued.
+- **Books.** Rieko's illustrated stories, print-on-demand (IngramSpark) plus offset first editions funded by pre-orders. £28-35 trade, £45-60 signed first edition.
+- **Prints.** Selected Rieko illustrations and scenes from the books as fine art prints. Hand-pressed Japanese paper, numbered. £40-80.
+- **Kokoro prints (personalised).** Year-end portrait of the user's accumulated Kokoro, drawn from their app data. £30-40. Sold via the app and the store. Unique to each user.
+- **Collab editions.** Time-limited drops with named collaborators. The first targeted: Fin DAC × Auwa figure, with one Fin DAC print sold alongside. Later candidates include a Japanese knife-maker, a ceramic artist. Each collab is its own press cycle.
 
-**Timeline:** Teaser page live from Week 1. First craftsman products Month 6-9 (after app validates). Auwa figures can launch earlier (Month 4-6) as they're self-produced.
+**Why first-party plus collab beats the marketplace model:**
 
-**Figure success metrics:** 70%+ sell-through within 4 weeks. If <30%: pause figures.
+- **Margin.** 60-80% on Auwa items vs 15-25% commission on someone else's. The store revenue per unit is meaningfully higher.
+- **Operational lift.** No multi-vendor platform, no Stripe Connect across Japanese merchants, no currency-conversion logistics across 20+ relationships. Auwa controls inventory, packaging, fulfilment for its own items. Collab partners handle their one item.
+- **Brand coherence.** Every box that ships is Auwa. Closer to the Studio Ghibli museum shop or a KAWS drop than to a Japanese craft store with a logo on it.
+- **Press cadence.** Each collab is its own news cycle. Fin DAC's 96K Instagram audience meets Auwa on launch day. Marketplace launches don't have that arc.
+- **Audience for the print-of-your-Kokoro product.** The most natural shelf for this is a first-party store of Auwa-made items; it would feel out of place in a marketplace.
+
+**Tech stack:** Standard Shopify, no multi-vendor app needed. Stripe for direct payments. Shopify Duty & Import Taxes for transparent landed-cost pricing where relevant. Print fulfilment via partner (TBD) for Kokoro prints and editorial prints.
+
+**Collab partner shortlist (initial):** Fin DAC (warm, existing Auwa stencil, 96K IG). A Japanese knife-maker (TBD via Rieko's outreach). A ceramic or washi artist (TBD). 5-10 target partners across Year 1-2, not 20-50. Smaller pool, deeper relationships, more bespoke deals.
+
+**Timeline:** Figures launch in Year 1 given the active 3D-printing progress, likely autumn 2026 alongside the app's public arrival. First print-on-demand book follows. First collab edition (Fin DAC) Year 1 or early Year 2. Kokoro prints available from Phase 4+ of the app build.
+
+**Figure success metrics:** 70%+ sell-through within 4 weeks. If <30%: pause figures and reassess pricing or audience.
 
 ### 6.3 Auwa Journal (auwa.life/journal) - Year 1 Editorial
 
@@ -193,7 +209,32 @@ Stories originally written in Japanese. Limited-edition physical printed version
 
 Small, once-a-year guided Japan experiences for foreigners to meet craftsmen and visit places not otherwise accessible. Five people, four to six days. Constrained to one trip per year by the founders' UK life (dog) and by the quality bar. Prototype Autumn 2026 or Spring 2027. At £3-4K per person, a single trip generates £15-20K at healthy margin and produces a year's worth of editorial content. Why this matters: the journal is *about* hidden experiences; the journey *is* that experience; the store sells the craftsmen's objects; the app builds daily awareness. The journey is what binds the pillars into something lived. Interest gathering begins immediately via soft CTAs at the foot of relevant journal articles and a dedicated Resend segment. See `arrival.md` for full plan.
 
-### 6.6 Year 2+ Vision (Earned by Year 1 Results)
+### 6.6 Firefly Conservation Commitment
+
+*Added 27 May 2026 in response to Rieko's note that real fireflies are disappearing because they need clean water, dark skies, and healthy habitat, and that some scientists describe the current cohort as the last generation to reliably witness them in many regions.*
+
+The Kokoro Mirror app's Daily Light + Firefly Trove mechanic (see `context/pillar/app.md` Section 8) makes the firefly the central iconography of Auwa's daily practice. Each user collects fireflies they noticed in their own day; each captured firefly is a small act of preservation in the user's life. The commitment extends that preservation outward into the world.
+
+**Auwa commits five percent of every subscription to firefly habitat conservation, from the first paid subscriber, not contingent on profitability.** The commitment applies to all subscription revenue (Free tier capture does not generate revenue and is unaffected; gift subscriptions, annual subscriptions, and any future tiers all carry the same five percent).
+
+**Partners.** Identified by Rieko's Japan network. Initial shortlist:
+- Tatsuno Firefly Conservation Society (Nagano)
+- Moriyama Hotaru Festival conservation arm (Shiga)
+- Itoshima Hotaru Network (Fukuoka)
+- Xerces Society for Invertebrate Conservation (US / international)
+
+Final partner selection during Stage 6 of the app build (content engine + friends release). Two partners maximum at launch to keep relationships substantive; expand later as revenue allows.
+
+**Communication.** Three surfaces:
+- One sentence on the App Store description and auwa.life/app: *Five percent of every Auwa subscription supports firefly habitat conservation in Japan and globally.*
+- A small line in Settings: *Your subscription has supported firefly conservation. Read our annual impact report.*
+- An annual impact email and shareable PDF: *This year, Auwa subscribers funded £X for firefly habitat restoration in [places]. Photos and project details inside.*
+
+**Why this is also business strategy.** A weekend-built Claude-wrapper competitor can copy the app's UI. It cannot easily ship a real conservation programme with named partners and annual impact reporting. The commitment is part of Auwa's non-substitutable moat (see Section 15). It is also a credible signal to the audience we want (Kinfolk-readers, Japan-curious, design-conscious, values-aligned): they expect brands they invest in to put values into practice.
+
+**Financial model.** At 1,000 paid subscribers (£6.99/month) the annual conservation commitment is roughly £4,200. At 10,000 paid subscribers it is roughly £42,000. At the 30K Year-2 target the commitment is roughly £125,000 per year, which is significant funding at the scale of any small conservation organisation. The marginal cost on the unit economics is real but proportionate; gross margin pre-commitment is over 85% on a digital subscription, so five percent leaves the unit economics healthy.
+
+### 6.7 Year 2+ Vision (Earned by Year 1 Results)
 
 - London pop-up workshops (kintsugi, ikebana, EQ classes)
 - Hotel Digital EQ Experience (B2B) - white-label for luxury hotels
@@ -322,7 +363,7 @@ Auwa generates revenue across all four pillars. More Air client work funds found
 
 **App (auwa.life/app):** Freemium subscriptions. Free tier (3 revelations/month) drives trial; paid tier (£6.99/month or £49.99/year) unlocks unlimited use, archive insights, story content, shareable cards.
 
-**Store (auwa.life/store):** Two streams. (1) Commission on craftsman products sold through the marketplace (15-25% depending on category and merchant). (2) Direct revenue from Auwa's own collectible figures (self-produced, high margin). Tom's operational precedent: a niche Japanese vinyl figure store in 2004-2007 generated ~£1,500/month profit — with a fraction of the audience and tools available today.
+**Store (auwa.life/store):** First-party items (figures, books, prints, Kokoro prints) at 60-80% margin, plus collaboration editions (Auwa × Fin DAC, Auwa × craftsmen) that drive press and bring partner audiences in. The multi-vendor marketplace model is retired; the new model is higher margin and lower operational lift. Tom's operational precedent: a niche Japanese vinyl figure store in 2004-2007 generated ~£1,500/month profit with a fraction of today's audience and tools.
 
 **Journal (auwa.life/journal):** Not a direct revenue stream in Year 1 — its value is brand building, SEO traffic, and audience development that feeds the other three pillars. Future potential: sponsored content from aligned brands, affiliate partnerships with featured craftsmen, premium subscriber-only articles.
 
@@ -333,10 +374,13 @@ Auwa generates revenue across all four pillars. More Air client work funds found
 | Stream | Conservative | Expected | Optimistic |
 |--------|-------------|----------|------------|
 | App Subscriptions | £1,000 | £3,500 | £12,000 |
-| Store — Craftsman Commission (Month 6+) | £0 | £3,000 | £9,000 |
-| **Auwa Total** | **£1,000** | **£6,500** | **£21,000** |
+| Store — Auwa figures (autumn 2026 drop, run of ~100) | £4,000 | £8,000 | £16,000 |
+| Store — Prints + Kokoro prints | £500 | £2,000 | £6,000 |
+| Store — Books (POD) | £0 | £1,000 | £3,000 |
+| Store — First collab edition (Fin DAC, late Year 1 or early Y2) | £0 | £2,000 | £6,000 |
+| **Auwa Total** | **£5,500** | **£16,500** | **£43,000** |
 
-Year 1 is conservative by design: the website and journal launch first, the app follows, the store comes last. No figure drops in Year 1 (moved to Year 2 when audience is established).
+Revised May 2026: figure drops moved from Year 2 to Year 1 given active 3D-printing progress. The store revenue line is now meaningfully higher than the earlier multi-vendor model projected, because first-party margins are 60-80% vs the 15-25% commission slice the marketplace model implied. The trade-off is that Auwa carries all the operational lift for its own items; collab partners handle their one item only.
 
 ### Costs
 
@@ -423,7 +467,69 @@ Year 1: App design and build, brand, business development, financials, marketing
 
 ---
 
-## 15. Strategic Priorities (Next 12 Weeks)
+## 15. AI Disruption & Market Timing
+
+*Added 27 May 2026 in response to the question: is now the right time to launch an app like this, or are apps like this being disrupted by AI.*
+
+The "SaaS is being crushed by AI" narrative is real but applies to a different category of product than Auwa. Three things are getting conflated in the discourse and they have different risk profiles. This section names where Auwa sits in the landscape and why now is a structurally good time to launch.
+
+### What "AI disrupting apps" actually means
+
+The disruption is happening in single-purpose B2B productivity tools with thin AI wrappers. Grammarly losing share to ChatGPT. Jasper losing share to ChatGPT. Standalone summarisation, translation, scheduling, and meeting-notes apps being absorbed into general-purpose LLM interfaces. The pattern: a product that does one workflow task with a thin wrapper around technology that has commoditised gets squeezed when the underlying technology becomes free.
+
+Defensible B2B SaaS now needs deep workflow integration, proprietary data, network effects, or a hard-to-replicate vertical specialisation. Generic tools die. Notion, Linear, Figma are fine. Grammarly Premium is in trouble. Auwa is not in this category.
+
+### Where consumer apps actually stand
+
+Consumer apps with strong identity, content, or community are growing during the AI boom, not shrinking. Recent data points:
+
+- **Finch.** Launched 2021, grew to $30M ARR and 2M daily users entirely during the AI boom years. No VC. Character plus content plus practice. Not touched by AI disruption.
+- **Calm.** ~$250M revenue, still expanding. Tamara's voice reading sleep stories, rain sounds, guided meditations. Human-attended content, not replaceable by a chatbot.
+- **Headspace.** $200M+ revenue. Same shape: brand, voice, human-attended content.
+- **BeReal, Lapse, Locket.** Grew through AI peak by leaning into aesthetic, ritual, friend-graph identity.
+- **Letterboxd, Goodreads, Strava, Duolingo.** Strong identity, community, ritual. Continuing growth.
+
+The pattern: apps where the *content is the product* (a story, a character, a voice, a ritual, a community) are not being replaced by AI agents. Apps where the *workflow is the product* are.
+
+### The agentic-future argument
+
+The strong version of the disruption narrative says that in five years you talk to an agent and it handles all workflows that today require opening twenty apps. Plausible for many categories. Implausible for Auwa, for a structural reason worth naming.
+
+Awareness is inherently user-present. You cannot delegate noticing what you feel to an agent. An agent that said "I have noticed you are feeling Aware today, here is what you should do about it" would be the exact thing Auwa is built to refuse. The user wants their own awareness, not a delegated one. The same logic applies to meditation, journaling, art-making, prayer, and any first-person ritual.
+
+Apps that survive agentification are the ones whose value comes from being present to them. Apps whose value comes from completing a task are the ones being absorbed. Auwa, Finch, Calm, Headspace, Strava, Duolingo, BeReal, Letterboxd are all in the first category.
+
+### Why AI is a tailwind for Auwa specifically
+
+Three real tailwinds.
+
+First, AI fatigue is a real and growing consumer signal. As feeds fill with AI-generated text and images, there is a measurable counter-movement toward human-made, slow, ritual, craft. Auwa is exactly this: Rieko's illustrations, Japanese philosophy, hand-pressed paper print, slow daily practice. The brand reads as a counterweight to AI noise, which is increasingly what people are paying for.
+
+Second, build cost has collapsed. Auwa being built by two people in six weeks is only possible because of AI tooling. Three years ago this needed a team of five to ten people and a year. The tooling shift means the same craft can be shipped much faster and at much lower capital risk. We are beneficiaries of the disruption, not victims of it.
+
+Third, the wellness and Japan-curiosity markets are both expanding. Wellness apps grew roughly 10% in 2025. Japan inbound tourism hit a record. Ikigai and philosophy books continue selling millions. The structural conditions are favourable independent of AI.
+
+### Where AI is genuinely a threat, and the defence
+
+The real risk is not AI agents replacing Auwa. It is generic AI tools commoditising poorly-positioned competitors that copy Auwa's surface. Anyone can build a generic mood tracker with a Claude wrapper in a weekend. If Auwa positions itself as "AI-powered emotional reflection," it will get commoditised within months by indie builders shipping the same thing.
+
+The defence is what we have already chosen: brand, voice, character, philosophy, craft, the physical artefacts, and (added 27 May 2026) the firefly conservation commitment. The reflection library written in Rieko's voice direction, the five Yamato character variants, the printed Kokoro portrait, the Firefly Year book, the curated craftsman store, the journal, the illustrated book, and a real conservation programme with named partners and annual impact reporting. These are non-substitutable. A Claude wrapper cannot ship them, and the conservation programme in particular cannot be cloned in a weekend.
+
+Auwa's positioning explicitly avoids the AI-tool framing in marketing. The app does use Claude Haiku for classification (one cheap call per revelation), but the user-facing identity is Japanese philosophy, illustrated by a Japanese artist, written in a specific voice, anchored in a ten-year creative project. That positioning is durable. A pivot to "AI-powered" anything would invite the disruption we are otherwise insulated from.
+
+The Senshin feature (see `context/pillar/app.md` Section 9) is also part of this moat. The combination of end-to-end encryption for the user's most sensitive content, a paper-first principle that contradicts the standard *more engagement equals more revenue* design, a culturally accurate framing in the chōzubachi temple-purification tradition, a thoughtful always-available crisis link without detection or intervention, and a free-forever commitment for mental-health-adjacent material is hard to replicate by a Claude-wrapper competitor. Each principled choice on its own is buildable; the combination of all of them with the conservation commitment, the no-AI-generated-content commitment, and the Rieko-anchored illustration system is what compounds into a defensible position.
+
+### The honest summary
+
+Apps as a category are bifurcating. The half being disrupted is single-purpose workflow tools with thin AI wrappers. The half not being disrupted is identity-and-content products with brand, voice, community, ritual, and human craft. Auwa is firmly in the second half. The wellness category specifically has not been touched by AI disruption and shows no sign of being.
+
+Auwa's real risks are not AI disruption. They are craft quality (does the writing actually land), distribution (Instagram audience growth toward 5K+), and unit economics at low scale (£6.99/month against a small launch user base). These are real risks but they are the normal risks of launching a consumer brand. None of them are accelerated by the AI shift; if anything the AI shift makes the craft and identity bets more valuable.
+
+Market timing is favourable. The build window is open.
+
+---
+
+## 16. Strategic Priorities (Next 12 Weeks)
 
 1. **Lock creative direction (Weeks 1-2):** Illustration refresh, character variants, font decision, colour system finalised. Brand feel locked before building anything.
 2. **Build core website — auwa.life (Weeks 1-3):** Brand home, journal section, app teaser, store teaser, email capture. Kinfolk-level design quality. Built with Claude Code on the existing Next.js foundation. A few focused days, not weeks.
@@ -436,7 +542,7 @@ App soft launch at Week 12-16. Store soft launch Month 6-9. Figures and YouTube 
 
 ---
 
-## 16. Future Vision
+## 17. Future Vision
 
 As AI accelerates and automates more of life's cognitive tasks, the human layer that matters most is awareness — of how you feel, what you value, how your choices affect the world around you, and how you connect with other people. Auwa is designed for this future.
 

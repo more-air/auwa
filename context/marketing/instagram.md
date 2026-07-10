@@ -1,156 +1,135 @@
 # Auwa Instagram
 
-*Created: April 2026. Maintained as living document.*
+*Updated: May 2026. Living document.*
 *Load when working on social media content, Instagram ads, or audience growth.*
 
 ---
 
-## Strategy Summary
+## Where we are
 
-Instagram is Auwa's sole social platform until 5,000 followers. The audience (affluent, design-conscious, interested in Japanese culture, awareness, emotional intelligence) lives on Instagram, not TikTok. One strong account beats three scattered ones. Expand to TikTok reposts and YouTube depth content after 5K.
+Account: **@auwalife** at instagram.com/auwalife. Five posts live as of the May 2026 restart, ~31 more prepared and queued in `social/instagram/_scripts/schedule.txt`. Roughly 10 weeks of content ready to go at the planned three-posts-per-week rhythm.
+
+Content folders live under `social/instagram/<pillar>/<post>/` with the pillar prefixes `0-brand`, `1-book`, `2-store`, `3-journal`, `4-app`. Each post folder contains an `_post.txt` brief (caption, alt text, hashtags, notes) plus the images. The planning view at auwa.life/instagram (dev: localhost:3003/instagram) renders the schedule live from disk.
+
+---
+
+## Strategy in one paragraph
+
+Build an audience that joins for the **world** (philosophy, character, craft, Japan), not for the product. Sales come as a side-effect of trust, never as the headline. Post three times per week, mix Reels and carousels, hold pace for a year. Single-platform focus on Instagram until 5,000 followers; expand to TikTok reposts and YouTube depth content only after that bar is cleared.
 
 ---
 
 ## The Gift Ethos
 
-Everything Auwa posts should feel like a gift, not a sale. Brands that behave like businesses plateau on Instagram; brands that behave like contributions compound. Every post should give the reader something. A new word, a moment of beauty, a piece of craft knowledge, a reflection they want to hold. The commercial messaging (teaser signups, product launches, store openings) appears rarely and quietly, as a natural consequence of trust already built, never as the driver of content.
+Everything Auwa posts should feel like a gift, not a sale. Brands that behave like businesses plateau on Instagram; brands that behave like contributions compound. Every post gives the reader something — a new word, a moment of beauty, a piece of craft knowledge, a reflection they want to hold. The commercial messaging (teaser signups, product launches, store openings) appears rarely and quietly, as a natural consequence of trust already built, never as the driver of content.
 
-Touchstones: Kinfolk, The Marginalian (Maria Popova), School of Life, Blackbird Spyplane. All gave freely for years before monetising lightly.
+Touchstones: Kinfolk, The Marginalian, School of Life, Blackbird Spyplane. All gave freely for years before monetising lightly.
 
-Tension to manage: "gift" is a feeling, not an identity. Auwa *is* a business. The posture is "a brand that behaves like a gift, and occasionally invites you to buy something we've made." Giving sets the default. Selling is an exception earned by giving first.
-
----
-
-## Restart Context (April 2026)
-
-Rieko's earlier Auwa IG account reached roughly 700 followers through animated character posts. Those posts have been archived as the execution didn't match current ambition. The account now restarts fresh, but the 700 are an asset: they chose Auwa when it was quieter, smaller, less polished. Do not apologise for the archive or explain the hiatus. Welcome them by not referencing it. New visitors simply arrive alongside them.
-
-Animated character content was the original growth hook and remains Auwa's single most uncopyable asset. In the new mix, it should carry more than a quarter of the grid weight (see Recommended Mix below).
+Tension to manage: "gift" is a feeling, not an identity. Auwa *is* a business. The posture is **a brand that behaves like a gift, and occasionally invites you to buy something we've made.** Giving sets the default. Selling is an exception earned by giving first.
 
 ---
 
-## Image & Video Specs (2025-2026 Standards)
+## Pillar priority (May 2026)
 
-### Reels (Primary Growth Format)
-- **Dimensions:** 1080 x 1920px (9:16 vertical)
-- **Safe zone:** Keep text/key visuals within centre 1080 x 1420px — top ~200px and bottom ~250px obscured by UI overlays
-- **Length:** 30-60 seconds is the sweet spot. 15-30 seconds for maximum discovery/reach. Up to 3 minutes supported but only if retention is high
-- **Format:** MP4, H.264, 30fps minimum
-- **Cover photo:** Displays 1080 x 1920 in Reels tab, crops to 1080 x 1350 in feed grid — design covers with this dual crop in mind
+In order of weight in the current schedule and the next 10 weeks of posts:
 
-### Stories
-- **Dimensions:** 1080 x 1920px (9:16)
-- **Duration:** Up to 60 seconds per slide
-- **Engagement:** 5-7 slides per sequence performs well; drop-off accelerates after slide 7
-- **Interactive stickers** (polls, quizzes, sliders, questions) are heavily weighted by the algorithm
-
-### Feed Posts — Single Image
-- **Recommended:** 1080 x 1350px (4:5 portrait) — maximum screen real estate in feed
-- **Square:** 1080 x 1080 (1:1) still works but less impactful
-- **Landscape:** 1080 x 566 (1.91:1) — avoid; wastes screen space
-
-### Feed Posts — Carousel
-- **Dimensions:** 1080 x 1350px (4:5) recommended
-- **Up to 20 slides** (increased from 10 in mid-2024)
-- **All slides same aspect ratio**
-- **Key insight:** Carousels are re-served to users who didn't engage first time (Instagram shows slide 2+ on second impression). Highest-reach static format.
-
-### Profile Photo
-- Displays 110 x 110px mobile, 180 x 180px desktop
-- Upload at 500 x 500px minimum (circular crop)
+1. **Book** (`1-book`) — the illustrated story universe. Heaviest pillar. Character animations from Rieko, book inside-N teasers, sketchbook process, book-as-object lifestyle shots, the four-book series statement.
+2. **Store** (`2-store`) — Auwa figures. First-edition launch is the year's commercial moment. Figure-in-setting shots, the edition reveal, the Blender process Reel.
+3. **Journal** (`3-journal`) — editorial carousels from auwa.life/journal articles. Rieko writes one article per fortnight, which yields one editorial slideshow for Instagram.
+4. **Brand** (`0-brand`) — atmospheric character pieces (kokoro, magical, face). Sparingly placed for tonal breath.
+5. **App** (`4-app`) — **deprioritised.** Two teasers already in the queue, but app promotion is held until the book/store audience is built. Don't add more app content for now.
 
 ---
 
-## Algorithm Priorities (2025-2026)
+## Three posts per week
 
-1. **Sends/shares via DM** — the #1 ranking signal. Content people send to friends gets dramatically more reach
-2. **Watch-through rate on Reels** — watched to completion or replayed = major boost
-3. **Original content prioritised** — algorithm deprioritises content with watermarks from other platforms
-4. **Carousels now rival Reels** for reach — a major shift from 2023
-5. **Caption text is indexed** for Instagram search — write captions with natural keywords (emotional intelligence, Japanese philosophy, mindfulness etc.)
+A sustainable rhythm that wins by consistency, not volume. Five-a-week for three months underperforms three-a-week for fifty-two weeks. The algorithm punishes inconsistency more than it punishes low frequency.
 
----
+Suggested weekly shape (adjust to the queue and the moment):
 
-## Content Pillars (4 Themes)
+- **Mid-week Reel** (Tue/Wed) — character animation from Rieko, or process Reel (e.g. `figure-blender`). The growth driver.
+- **Weekend slideshow** (Fri/Sat) — editorial carousel from a journal article, or a book teaser, or a store figure shot. Drives saves and DM-shares.
+- **Sunday post** (atmospheric photo or single image) — quiet close to the week.
 
-Every post fits one pillar. Rotate through the week for variety within coherence.
-
-### 1. Kokoro Reveal (Inspire / Share)
-Auwa illustrations paired with poetic reflections. Emotional insight that stops the scroll. The brand's signature content.
-- **Format:** Single stunning image, short atmospheric Reel
-- **Purpose:** Brand building, shareability (DM sends)
-- **Examples:** Auwa character in emotional state + reflection text, shareable Kokoro cards
-
-### 2. Japanese Wisdom (Educate / Discover)
-Yamato emotional concepts, micro-season philosophy, Japanese ideas (mono no aware, wabi-sabi, ma, ikigai). The intellectual depth that differentiates.
-- **Format:** Carousels (5-7 slides teaching), short Reels with text overlay
-- **Purpose:** Authority, discoverability, attract the curious
-- **Examples:** "5 ancient Japanese words for emotions you've never heard of," "The word for the feeling when autumn arrives"
-
-### 3. Behind the Kokoro (Connect / Humanise)
-Rieko's illustration process, creative decisions, the journey of building Auwa. The human story.
-- **Format:** Stories, Reels (time-lapses, process videos), casual carousels
-- **Purpose:** Creator connection, authenticity, community
-- **Examples:** Rieko drawing Auwa, illustration before/after, studio moments, Japan trip BTS
-
-### 4. Seasonal Living (Lifestyle / Aspire)
-Atmospheric content tied to the rhythm of the year. Not micro-season taxonomy, but the feeling of seasonal change. Morning light, rain on leaves, the shift from spring to summer. Also bridges awareness to everyday experience — the philosophical applied to the personal.
-- **Format:** Atmospheric Reels, photo carousels, single striking images, text-based carousels, quote graphics
-- **Purpose:** Mood, aspiration, discoverability, the life Auwa represents
-- **Examples:** Japan travel photography, temple visits, seasonal nature, onsen, silent walks, "Why you feel restless at the change of seasons"
+Plus **daily Stories** (1–3 slides). Stories are separate from the feed. Use interactive stickers (polls, sliders, question boxes) at least twice a week.
 
 ---
 
-## Weekly Cadence (Sustainable Three-Post Rhythm)
+## Content production rates
 
-Three posts per week, sustainable indefinitely. Over-posting burns out the creator and confuses the algorithm. Consistency beats volume. A steady three-post rhythm for 52 weeks outperforms five posts a week for three months.
+What's being produced on an ongoing basis:
 
-- **Mid-week Reel** (character animation) — Tuesday or Wednesday. The growth engine. Brings new followers in.
-- **Weekend Slideshow** (article digest, see Editorial Slideshow Format below) — Friday or Saturday. Deepens the audience already there. Drives traffic to auwa.life.
-- **Sunday post** (micro-season photograph + kanji, or atmospheric Seasonal Living image) — Sunday evening. The quiet close to the week.
+| Stream | Rate | What it yields |
+|---|---|---|
+| Editorial articles | 1 per fortnight | 1 editorial IG slideshow + 1 Story share |
+| Character Reels | 1 per week from Rieko | 1 Reel (the growth driver) |
+| Behind-the-scenes | Ongoing as it happens | Mostly Stories; the strongest get promoted to feed |
+| Figure / book lifestyle shots | As assets are produced | Single-image feed posts |
 
-### Stories (daily, 1-3 slides)
-Rotate across pillars. Process snippets, studio moments, reactions to the week. Stories are looser than the grid. Use interactive stickers at least twice/week (polls, sliders, question boxes).
-
-### Recommended Mix (weighted by pillar, not format)
-- **35%** Kokoro Reveal — the character, the uncopyable asset, the growth driver
-- **25%** Editorial Slideshows — journal articles digested for the grid
-- **20%** Seasonal Living — atmospheric photography, micro-season rhythm, moody
-- **10%** Japanese Wisdom — carousel explainers, save-worthy
-- **10%** Behind the Kokoro — studio moments, process, humanising
-
-Format mix that results from the weighted pillars: roughly 40% Reels, 40% Slideshows/Carousels, 20% single images. Reels drive reach and new followers; slideshows drive saves, shares, and return visits.
+That's ~6 new pieces a month from these streams, comfortably feeding the 3-per-week cadence with material to spare. The queue currently has more than 10 weeks of content prepared, so the production rate above represents the **replenishment**, not the launch volume.
 
 ---
 
-## Editorial Slideshow Format
+## Algorithm priorities (2026)
 
-For each Journal article, a companion Instagram carousel turns editorial writing into swipeable grid content. The format honours the Gift Ethos: readers learn something or hold something beautiful, rather than being sold to.
+In order of impact on reach:
 
-**Template (5 slides):**
+1. **Sends/shares via DM** — the #1 ranking signal. Content people send to friends gets dramatically more reach.
+2. **Watch-through rate on Reels** — watched to completion or replayed = major boost.
+3. **Caption keywords** — IG's 2026 search reads captions semantically. Put words like *Auwa, Kokoro, Eko Maeda, picture book, Japanese awareness, illustrated story* naturally into prose.
+4. **Carousels rival Reels for reach** — IG re-serves slides 2+ to users who didn't engage first time.
 
-1. **Hero** — the article's hero image, no text overlay (or a single floating title in small caps)
-2. **Pull quote A** — short phrase, large serif, on white or colour wash. Make the viewer pause.
-3. **Pull quote B** — different typography from A. Medium-length excerpt overlaid on a photo detail or colour field.
-4. **Pull quote C** — third and final quote. Shortest of the three. Returns emotional weight.
-5. **Close** — a final quiet image with "auwa.life/journal" beneath it. No loud CTA. "Continue reading at auwa.life" is fine if a line is needed.
-
-Key principles:
-- The three pull quotes must feel typographically distinct from each other. Identical layouts = scrolled past.
-- Each article generates one slideshow. With a weekly cadence, that's ~50 slideshows per year — a meaningful editorial pipeline.
-- Never use the format to sell anything. If a product teaser is needed, make that a separate post.
+Hashtags increasingly behave as topic classifiers rather than discovery channels of their own. Three to five sharp tags outperform ten mixed ones. Don't repeat identical hashtag sets across many posts — the algorithm reads that as bot-pattern.
 
 ---
 
-## Content Ideas (Vault + Ongoing)
+## Image & Video Specs
+
+**Reels** — 1080 × 1920 (9:16). 30–60s sweet spot for retention. MP4 H.264 30fps min. Cover crops to 1080 × 1350 in the feed grid, so design the cover with both crops in mind.
+
+**Stories** — 1080 × 1920. 5–7 slides per sequence performs well; drop-off accelerates after slide 7. Interactive stickers heavily weighted.
+
+**Feed singles** — 1080 × 1350 (4:5 portrait). Maximum screen real estate.
+
+**Feed carousels** — 1080 × 1350. Up to 20 slides. All slides must be the same aspect ratio.
+
+**Profile photo** — 500 × 500 minimum, circular crop. Auwa character (see Profile Setup below).
+
+---
+
+## Editorial slideshow format
+
+For each Journal article, a companion Instagram carousel turns editorial writing into swipeable grid content.
+
+**Template (5+ slides):**
+
+1. **Hero cover** — per-post decision:
+   - Lead with `image-hero.jpg` (clean photo) when the **image** is the hook — atmospheric landscape, human moment, beautiful object. Examples: Yakushima cedars, Koya-san stone bridge, Shigefusa blade, washi maker's hands.
+   - Lead with `image-hero-text.jpg` (typeset title) when the **concept** is the hook — an unfamiliar word or unique idea the reader needs to see named. Examples: Kokoro / Yaoyorozu no Kami, 72 Seasons.
+   - Default: clean photo. Use the `Cover:` field in `_post.txt` to override per post.
+2. **Pull quote** (`text-quote-dark` or `text-quote-light`) — short phrase, large serif. Make the viewer pause.
+3. **Body photo** — one of the article's `image-*.jpg` body images.
+4. **Pull quote** or additional body photo — varied typographic treatment from slide 2 if both are quotes.
+5. **Close** (`text-close-dark` or `text-close-light`) — "Continue reading at auwa.life/journal/[slug]". Quiet CTA.
+
+Slides 3 to N-1 can mix body photos and pull quotes in whatever order serves the article. Up to 20 slides total; the strongest articles deserve 6–8.
+
+**Typography note:** the typeset cover treatment (serif title centred, AUWA wordmark masthead-style above, Japanese underneath in lighter weight) sits at Cereal Magazine / Casa BRUTUS tier. Not the Pinterest-infographic style that gets devalued.
+
+Each article generates one slideshow. With one article per fortnight, that's ~25 slideshows per year.
+
+---
+
+## Content ideas (vault + ongoing)
 
 ### Ready to deploy now (existing vault)
 - Japan photography (15+ years of trips)
 - Rieko's illustrations and Auwa animations
 - Fin DAC Auwa stencil session
 - Craftsman photography from Monolise research trips
-- Auwa story scenes (10+ polished scenes)
+- Auwa story scenes from the books in progress
 - Rieko drawing process time-lapses
+- Sketchbook pages (the early-ideas set)
 
 ### Ongoing production
 - Auwa character animations (Runway, After Effects)
@@ -158,7 +137,6 @@ Key principles:
 - Japan travel teases (temples, paths, seasonal moments)
 - Stories/polls ("Which emotion resonates today?")
 - Collaborations (Fin DAC collab post, Japanese culture accounts)
-- EQ tips and frameworks (carousel series)
 - Kokoro quotes (text over illustration)
 - App demos and shareable card reveals (post-launch)
 - Store unboxing and craftsman spotlights (post-store launch)
@@ -168,133 +146,154 @@ Key principles:
 
 ---
 
-## Growth Plan: 700 → 5,000 Followers
+## Growth plan: 700 → 5,000
 
-### Phase 1: Relaunch (Weeks 1-4)
+### Phase 1 — Establish (weeks 1–4, posts 6–17)
 
-**First post (Week 1, Monday):** The Auwa face video from the website hero. Post as a **Reel** (not a Story, not a feed post). A Reel is the only format that plays on the Reels tab for non-follower discovery, autoposts to the grid, and gets re-served to users across sessions. Stories disappear in 24 hours and don't reach new audiences; single-image feed posts have a fraction of Reel reach.
+Profile depth is the goal. Build the grid so a first-time visitor scans 9–12 tiles and understands what Auwa is.
 
-**Caption (three sentences, no em dashes):**
+- **Content focus:** universe-establishing posts first — `1-book/series`, the character Reel `0-brand/kokoro`, the first figure reveal `2-store/figure-1`. Sprinkle behind-the-scenes (`1-book/sketches`, `2-store/figure-blender`).
+- **Paid:** No follower-growth boosts yet — profile too sparse to convert. Optional Lead Form ads (£10/day) for store waitlist; small retargeting (£3–5/day) for past auwa.life visitors.
+- **Engagement:** Reply to every comment. Engage genuinely on 10–15 relevant accounts daily (Japanese art, illustration, slow living, design culture, emotional intelligence).
+- **Target:** 700 → 1,500 followers, 100–200 email signups.
 
-*"Hello. Kokoro (心) is the Japanese word for heart, mind and spirit held as one. The quality you sense in a handmade knife, in a season you almost missed, in your own feelings when you stop long enough to notice. auwa.life."*
+### Phase 2 — Amplify (weeks 5–8, posts 18–29)
 
-Don't explain the archive or the hiatus. No "we're back," no "exciting things coming." Just presence.
+Grid is deep enough. Start paid awareness on proven organic performers.
 
-**Hashtags (in caption, not first comment):**
+- **Content focus:** the story-led book moments (`inside-9` Kokoro reveal, `inside-10` Bluu memory). More figure shots. Continue 1 Reel/week from Rieko. Two editorial articles in this window.
+- **Paid (~£800):** boost `1-book/series` (£200), `2-store/figure-1` (£200), `0-brand/kokoro` (£150), `1-book/sketches` (£150), `4-app/teaser-2` (£100).
+- **Engagement:** Fin DAC collab post (warm lead). Reach out to 5–10 complementary accounts (5K–50K followers) for collab posts.
+- **Target:** 1,500 → 3,000 followers.
 
-`#Auwa #Kokoro #japanesephilosophy #slowliving #japaneseaesthetic`
+### Phase 3 — Convert (weeks 9–12+, posts 30+)
 
-Five hashtags: one branded, one niche, two mid-range, one broad. Refine over the first month based on which reach the right audience.
+Audience is built. Drive to product moments.
 
-**Share to Story with a link sticker, immediately after posting.** Stories support link stickers (since 2021). Tap "Add yours" or the link sticker, point it to auwa.life, publish. This gives the Reel dual life: Reel drives reach and grid visibility, Story drives direct traffic to the site.
+- **Content focus:** climactic book posts (`inside-16` connection, `inside-17` song). Figure edition reveal (`figure-6`). First product launches (book first edition + figure drop).
+- **Paid (~£700–1,200):** boost `1-book/inside-9`, `inside-16`, `2-store/figure-4` (vitrine), `2-store/figure-6` (edition). Retargeting for waitlist non-converters.
+- **Target:** 3,000 → 5,000+ followers.
 
-If Instagram's native "Add link" feature on Reels is available to the account (available to many business accounts), add auwa.life there too. The Reel caption should also say "link in bio" for anyone who sees it via the Reels tab.
-
-**Pin the post to the top of the grid** and leave it there for at least two weeks, so every new profile visitor lands on it before anything else.
-
-**Do not post anything else on Day 1.** Let it breathe. The next post (character Reel or editorial slideshow) arrives mid-week per the weekly cadence above.
-
-The 700 existing followers get a gentle re-anchor. New visitors get a self-contained introduction. The video carries the emotional weight.
-
-**Weeks 1-4:**
-- Pin 3 best posts to top of grid (first face-video post, the first character Reel, the first editorial slideshow)
-- Settle into the three-post weekly cadence (Reel, slideshow, Sunday post) from Week 2
-- Daily Stories (1-3 slides, stickers, behind-scenes glimpses)
-- Engage genuinely on 10-15 relevant accounts daily (Japanese art, calligraphy, seasonal living, emotional wellness, design culture)
-- Bio: "Auwa | Japanese Awareness Practice" — clear value prop, link to auwa.life
-- Highlights: Universe, Kokoro, Seasons, Process (4-6 with custom covers matching brand aesthetic)
-
-### Phase 2: Paid Acceleration (Weeks 5-10)
-- Begin Instagram ads: £15-25/day on best-performing organic Reels
-- Campaign split: 60% Engagement/Awareness (follower growth), 30% Traffic (email capture to teaser pages), 10% Retargeting
-- Targeting: Japanese culture, emotional intelligence, mindfulness, illustration art, wellness, Studio Ghibli, wabi-sabi
-- A/B test 2-3 ad variations per campaign, run 5-7 days before optimising
-- DM automation (ManyChat): "Comment KOKORO to get early access" → auto-DM with waitlist link
-
-### Phase 3: Collaboration + Launch (Weeks 8-12)
-- Fin DAC collab post (his stencil of Auwa, co-authored via Instagram native collab feature)
-- Instagram giveaway tied to first figure drop ("Tag a friend for a chance to win the first Auwa figure")
-- App soft launch content: shareable Kokoro cards, light shower video, user testimonials
-- Reach out to 5-10 complementary accounts (5K-50K followers) for collab posts
-
-### Expected Results
-- £2,000 paid spend → 1,500-3,000 new quality followers + 300-800 email signups
-- Organic growth (content + collabs) → additional 1,000-2,000 followers
-- Target: 3,000-5,000 total followers by Month 3-4
+### Expected outcome at £2,000 paid spend
+1,500–3,000 new quality followers from paid, plus organic growth of another 1,000–2,000 via content + collabs. **Realistic Year 1 finish: 4,000–5,000 followers.** Paid amplifies the floor, not the ceiling — content quality, the Fin DAC collab, daily Stories, and community DMs do the heaviest lifting.
 
 ---
 
-## Paid Advertising (£2,000 Year 1 Budget)
+## Paid advertising (£2,000 Year 1 Budget)
 
-- **Budget pacing:** £15-25/day over 2-3 months (not £50/day for 1 month — algorithm needs time to optimise)
-- **Creative:** repurpose best-performing organic content as ads. Native-feeling outperforms polished "ad-looking" creative
-- **Objectives:** Use "Engagement" or "Awareness" for follower growth (NOT the "Followers" objective — attracts low-quality). Use "Traffic" or "Leads" for email capture
-- **Lead forms:** Instagram's native Lead Form ad format collects emails within the app (no landing page friction)
-- **Retargeting:** Small budget on people who visited teaser pages but didn't sign up
-- **Budget split:** £1,200 Reel ads (growth/awareness), £500 conversion ads (email capture), £300 retargeting
+### When to start boosting
+
+**Wait until the profile has 12+ posts on the grid before running follower-growth boosts.** With a sparse profile, ad-clicked visitors scroll for 3–7 seconds, see thin content, and leave. Same £100 typically converts at 10–25 followers on a 5-post account vs. 50–100 on a 15-post account.
+
+What can run earlier than 12 posts:
+
+- **Lead Form ads** — convert on the post + native IG form, not on profile depth. Add emails to the list. Anytime.
+- **Retargeting** — past website visitors. Anytime, £3–5/day.
+
+### Budget pacing
+£15–25/day over 2–3 months. Algorithm needs time to optimise. Avoid £50/day for one month.
+
+### Boost shortlist
+See Phase 2 and Phase 3 above for the specific posts and allocation. In short: lean on `series`, `figure-1`, `kokoro`, `sketches`, `inside-9`, `figure-4`, `figure-6`, `inside-16`. **Don't boost** `figure-7` (the meditating maybe-variant) — that post earns its value from comment-volume signal, which paid would distort.
+
+### Check organic before boosting
+Always look at a post's organic performance at 48–72 hours before deciding to boost it:
+
+- >500 reach + >5% engagement → strong boost candidate
+- 100–500 reach + 2–4% engagement → moderate; boost the best of these
+- <100 reach + <1% engagement → don't boost. The post is the problem; reallocate.
+
+### Quality signal
+Cost-per-follower under £1 + cost-per-signup under £2 = working. 3–5× higher = stop and reallocate. Don't try to rescue a non-converting boost.
 
 ---
 
-## Profile Setup
+## Profile setup
 
 - **Name field:** "Auwa | Japanese Awareness Practice" (searchable, keyword-rich)
-- **Bio:** Lead with what it IS. "Japanese philosophical awareness applied to modern life. Reveal your Kokoro. auwa.life launching 2026." Minimal emoji (1-2 max for premium feel)
-- **Category:** Health/Beauty or Art
-- **Profile photo:** Auwa wordmark or character icon at 500x500px minimum
-- **Link:** Use Instagram's native 5-link feature (waitlist, auwa.life/journal, specific content piece). No third-party link tools needed
-- **Highlights (4-6):** Universe, Kokoro, Seasons, Process, Press — custom covers in brand colours
+- **Bio:** Lead with what it IS. "Japanese philosophical awareness applied to modern life. Illustrated stories, an awareness practice app, and a craftsman store. auwa.life launching 2026." Minimal emoji.
+- **Category:** Art / Health & Beauty
+- **Profile photo:** **Auwa character**, not the wordmark. At 110px circular crop, the character (luminous form, two black eyes) is instantly identifiable; the "A" wordmark reads as any boutique brand. The character is the strongest recognition signal in every IG discovery surface. The "A" wordmark belongs on the website header and project labels, not the IG avatar. Revisit at ~50K+ followers if a confident-minimal switch ever feels earned.
+- **Highlights (4–6):** Universe, Kokoro, Seasons, Process, Press — custom covers in brand colours.
+- **Link:** native 5-link feature pointing to auwa.life and selected sub-paths (/book, /store, /journal).
 
 ---
 
-## Best Posting Times (UK)
+## Hashtag strategy
 
-- **Weekdays:** 7:00-8:30 AM (morning scroll), 12:00-1:00 PM (lunch), 7:00-9:00 PM (evening)
-- **Sunday:** 10:00 AM-12:00 PM (lifestyle/wellness performs well)
-- **Japan overlap:** 7-8 AM UK = 3-4 PM Japan (if dual-audience matters, morning posts hit both)
-- Refine with Instagram Insights once audience data accumulates
+**3–5 highly relevant tags per post**, not 10 mixed. The 2026 algorithm reads caption keywords semantically; hashtags are topic classifiers, not discovery channels in themselves.
+
+Per post:
+- 1–2 broad (500K–5M posts): #japanesephilosophy, #emotionalintelligence
+- 1–2 mid-range (50K–500K): #picturebooks, #designertoy, #japaneseart
+- 1–2 niche / branded: #auwa, #kokoro
+
+Avoid:
+- Identical hashtag sets across posts (algorithm flags this as spam pattern)
+- Generic mood tags alone (#vibes, #aesthetic)
+- Banned or restricted tags (check before using)
+- Competitor brand tags (#kaws, #labubu) — reads opportunistic and may suppress reach
+
+Caption keywords matter more than hashtags. Let *Auwa, Kokoro, Eko Maeda, picture book, Japanese awareness, illustrated story* appear naturally in the prose.
 
 ---
 
-## Hashtag Strategy
+## Best posting times (UK)
 
-3-5 highly relevant hashtags per post (not 20-30 generic ones):
-- 1-2 broad (500K-5M posts): #emotionalintelligence, #japanesephilosophy
-- 2-3 mid-range (50K-500K): #japaneseart, #japanesecraft, #awarenessjournal
-- 1-2 niche/branded: #Auwa, #Kokoromirror, #revealyourKokoro
-- Place in caption (not first comment). Vary between posts.
-- Use alt text on images with natural keyword descriptions for additional discovery.
+- **Weekdays:** 7:00–8:30 AM (morning scroll), 12:00–1:00 PM (lunch), 7:00–9:00 PM (evening)
+- **Sunday:** 10:00 AM–12:00 PM (lifestyle/wellness performs well)
+- **Japan overlap:** 7–8 AM UK = 3–4 PM Japan. Morning posts hit both audiences.
+- Refine with Instagram Insights once audience data accumulates.
 
 ---
 
-## Key Metrics to Track
+## Key metrics to track
 
 - **Follower growth rate** (weekly)
 - **Reach per post** (especially non-follower reach)
-- **Shares/sends** (the #1 algorithm signal)
-- **Saves** (indicates high-value content)
-- **Email signups from Instagram** (teaser page conversions)
+- **Shares/sends via DM** (the #1 algorithm signal)
+- **Saves** (high-value content indicator)
+- **Email signups from Instagram** (waitlist conversions)
 - **Engagement rate** (likes + comments + saves + shares / reach)
-- **Best-performing content type** (Reel vs carousel vs single)
+- **Cost-per-follower and cost-per-signup** on boosted posts
 
 ---
 
-## Photography & Image Workflow
+## Photography & image workflow
 
 **Tom's credentials:** Published photographer. Japan photography has 17M+ views on Unsplash and has been used by Condé Nast Traveler, Vogue, WEF, Travel + Leisure, TimeOut, and Culture Trip. 15+ years of Japan photography provides a deep content vault.
 
-**Content production pipeline:**
+**Pipeline:**
 - Japan travel catalogue (temples, seasonal landscapes, street scenes, food culture) → Seasonal Living pillar
-- Craftsman photography from Monolise research trips → Behind the Kokoro / Store spotlights
+- Craftsman photography from Monolise research trips → Behind the Kokoro / store spotlights
 - Rieko's illustration process captures → Behind the Kokoro pillar
 - AI-assisted image standardisation for store products (Remove.bg, Claude Vision → consistent white backgrounds)
 - MidJourney + Rieko refinement for Auwa character content → Kokoro Reveal pillar
 
-**Image editing:** Lightroom for photography. Remove.bg or Claude Vision for product background removal. Figma for card layouts, carousel templates, and Story templates. Canva as fallback for quick social graphics.
+**Tools:** Lightroom for photography. Remove.bg or Claude Vision for product background removal. Figma for card layouts, carousel templates, and Story templates. Canva as fallback for quick social graphics.
 
 ---
 
-## Expansion (Post-5K)
+## Expansion (post-5K)
 
 - **TikTok:** Repurpose best-performing Instagram Reels. Same content, different platform. Low effort.
-- **YouTube:** Original depth content. Craftsman making videos (30-45 min ASMR), Japan travel, philosophy deep-dives, interviews. Bi-weekly uploads. This is the long-term authority-building channel.
+- **YouTube:** Original depth content. Craftsman making videos (30–45 min ASMR), Japan travel, philosophy deep-dives, interviews. Bi-weekly uploads. The long-term authority-building channel.
 - **Podcast appearances:** Pitch wellness, Japan culture, design, and EQ podcasts after 5K as social proof.
+- **App promotion:** Once book + store audience is established (potentially Q3 2026 or later), reintroduce app teasers and reveals.
+
+---
+
+## Quick-reference checklist
+
+For the next 12 weeks of launch:
+
+1. **Cadence:** 3 posts per week. Don't deviate up or down for at least a year.
+2. **Pillar weighting:** Book + Store + Journal. App on hold.
+3. **Boost timing:** Wait until 12+ posts before growth boosts. Lead Form and retargeting ads can run earlier.
+4. **Cover treatment:** Per-post decision via `Cover:` field. Default: clean photo. Use typeset title when the concept is the hook.
+5. **Hashtags:** 3–5 sharp tags per post. Vary the tail; don't repeat identical sets.
+6. **Avatar:** Auwa character, not the wordmark.
+7. **First comment:** always within 5 minutes of publishing.
+8. **Check organic performance** at 48–72h before boosting any post.
+9. **No app posts** in the schedule for now.
+10. **Single-platform:** Instagram only until 5K. No TikTok cross-posting yet.

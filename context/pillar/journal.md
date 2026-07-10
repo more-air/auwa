@@ -246,16 +246,14 @@ Each article belongs to one of four categories. These map to the brand's four pi
 
 ---
 
-## 6. Launch Article Plan
+## 6. Published Launch Articles
 
-The website needs 8-10 articles at launch. A mix across all four categories gives the journal enough density to feel established.
+All launch articles are now live on auwa.life/journal as of May 2026. The journal launched with the full set, giving it the density needed to feel established rather than nascent.
 
-**Prepared:**
-- "Shigefusa" (Craft) - complete, with placeholder images
-
-**To write:**
+**Live:**
+- "Shigefusa" (Craft) - the wa-gyuto knife that took two years to arrive
 - "Seimei: the light returns" (Seasons) - current micro-season at launch
-- "The fifth day" (Seasons) - introduction to 72 micro-seasons
+- "The fifth day" (Seasons) - introduction to the 72 micro-seasons
 - "Objects with Kokoro" (Craft) - philosophy of lifetime objects
 - "Temple mornings" (Travel) - the ritual of arriving before dawn
 - "The onsen lesson" (Travel) - shared space, vulnerability, hot water
@@ -263,7 +261,7 @@ The website needs 8-10 articles at launch. A mix across all four categories give
 - "Awareness, not mindfulness" (Philosophy) - why Auwa uses "awareness"
 - "What wabi-sabi means" (Philosophy) - reclaiming the concept
 
-Each article follows the production workflow in Section 4. The brief and photographs are provided, the draft is written, checked against the voice rules, and assembled with images.
+Each follows the production workflow in Section 4. Image processing pipeline is in place; all photography is Lightroom-edited and sharp-optimised. Articles are linkable from external surfaces (LinkedIn, Instagram, newsletter) without caveat.
 
 ---
 

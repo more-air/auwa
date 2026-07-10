@@ -6,9 +6,11 @@
 
 ## Executive Summary
 
-Auwa is a four-pillar Japanese lifestyle brand (app + store + journal + book) and occupies a unique position by combining elements no existing product has assembled. AI journaling apps offer reflection but lack cultural grounding. Mood trackers offer pattern recognition but lack depth. Wellness apps offer scale but lack awareness specificity. Japanese cultural products offer authenticity but lack interactivity. Collectibles offer physical presence but lack a digital companion. Japanese craft exporters sell products but lack a philosophical framework or digital companion. Multi-category lifestyle brands (Goop, Snow Peak, Kinfolk, Monocle) prove the model works but none have Japanese philosophical awareness at their core.
+Auwa is a four-pillar Japanese lifestyle brand (app + store + journal + book) and occupies a unique position by combining elements no existing product has assembled. AI journaling apps offer reflection but lack cultural grounding. Mood trackers offer pattern recognition but lack depth. Wellness apps offer scale but lack awareness specificity. Character-based wellness companions like Finch have validated that an illustrated being mirroring your inner state is what users return for, but they're built on generic Western self-care, not philosophy. Japanese cultural products offer authenticity but lack interactivity. Collectibles offer physical presence but lack a digital companion. Japanese craft exporters sell products but lack a philosophical framework or digital companion. Multi-category lifestyle brands (Goop, Snow Peak, Kinfolk, Monocle) prove the model works but none have Japanese philosophical awareness at their core.
 
 **Key finding:** No existing brand combines: Japanese philosophical awareness (Yaoyorozu no Kami), a proprietary Yamato emotional framework, AI-powered daily awareness practice, a companion character with decade-long narrative, curated Japanese craftsman marketplace, editorial journal, and a physical collectible layer. Auwa's differentiation is not a better feature but a fundamentally different type of brand grounded in authentic Japanese philosophy, delivered through four interconnected pillars.
+
+**Animaru note (private validation, increasingly public asset).** Tom and Rieko developed Animaru for Nokia San Francisco in 2014, a character-based wellness app where an illustrated animal mirrored the user's health metrics. Concept loved internally, never released. Finch launched the popular Western version of this DNA in 2021 and is now at $30M ARR, 2M daily users, and an animated brand film (2026). Auwa is the Japanese-philosophy version of an idea this team has been holding since 2014. The lineage is strong and increasingly tellable.
 
 ---
 
@@ -127,9 +129,11 @@ Alain de Botton. Philosophy applied to everyday life. Shops, online store, class
 
 ---
 
-## Category G: Japanese Craft Exporters
+## Category G: Japanese Craft Exporters (reference points, not direct competitors)
 
-Small businesses curating Japanese craft for Western buyers. They prove the niche exists but none have Auwa's breadth.
+*Recontextualised May 2026 after the store pivot. Auwa's store is no longer a multi-vendor Japanese craftsman marketplace. It's a first-party store of Auwa-made items (figures, books, prints, Kokoro prints) with periodic collaboration editions. The closer competitive parallel is now KAWS × Pop Mart territory with Japanese cultural depth, not Nalata Nalata's curation model. The businesses below remain useful as tone references and as partners for occasional collabs, but they're not the shelf Auwa is competing on.*
+
+Small businesses curating Japanese craft for Western buyers. They prove the cultural niche exists but operate in a different category than Auwa's revised store now does.
 
 ### Nalata Nalata (NYC)
 Japanese homewares store, East Village. Husband-wife team (furniture designer + apparel designer), est. 2013. Curates Japanese artisan goods discovered on Japan trips. Functions as gallery/education space as much as retail. Premium (£30-300+). Beautiful maker storytelling. ~40K IG followers.
@@ -146,7 +150,7 @@ Near Venice Beach, founded by former IDEE (Tokyo) furniture designer. Named for 
 ### Kobo (Seattle) / Kinto (Global)
 Kobo: small Japanese ceramics and craft store. Kinto: Japanese tableware brand, founded 1972, now in LA + Tokyo flagships. Accessible price point (£15-80) for Japanese design. Strong specialty retail distribution.
 
-**Auwa's advantage across category:** None of these have a digital wellness app, character universe, emotional framework, or broader brand narrative. They sell products. Auwa sells a philosophy with products inside it. Auwa Store competes on curation and cultural context, not just product range.
+**Auwa's relationship to this category (revised May 2026):** These are no longer competitors. Auwa's store sells its own first-party items, not a curated catalogue of other people's craft. The closer competitive frame is Category E (KAWS, Pop Mart, Sonny Angel) for the collectible-figure model, plus the Studio Ghibli museum shop for the character-led retail tone. The craft exporters above remain useful as **collab partners** (Auwa × a Nalata Nalata-listed knife-maker, for example, where Auwa releases a collab figure and the partner sells one of their pieces alongside for a timed window). The relationship is partnership, not competition.
 
 ---
 
@@ -162,6 +166,8 @@ Kobo: small Japanese ceramics and craft store. Kinto: Japanese tableware brand, 
 | Daylio | - | - | - | - | - | - | - | - |
 | Headspace | + | - | - | - | - | - | - | - |
 | Calm | - | - | + | - | - | - | - | - |
+| **Finch** | + | - | ++ | ++ | - | - | + | + |
+| Habitica | - | - | + | + | - | - | - | - |
 | 72 Seasons | - | ++ | + | - | - | - | - | - |
 | Labubu/Pop Mart | - | - | + | + | ++ | - | - | - |
 | KAWS | - | - | ++ | - | ++ | - | - | - |
@@ -176,13 +182,14 @@ No competitor scores across all columns. Auwa is the only brand assembling all e
 
 ## Key Competitive Insights
 
-### The Real Competition: Stoic, Rosebud, and Mindsera
+### The Real Competition: Finch, Stoic, Rosebud, Mindsera
 
 Each would need to fundamentally reinvent themselves to occupy Auwa's position. That's not a feature gap. That's an identity gap. Identity gaps don't close with product updates.
 
-- **Stoic** could add AI personalisation but cannot adopt the Yamato emotional framework or Auwa's visual art system
-- **Rosebud** could add prettier visuals but can't adopt "witness, don't question" without abandoning its therapeutic chatbot model
-- **Mindsera** could add "Japanese philosophy mode" but bolting Eastern wisdom onto a Western optimisation engine would feel superficial
+- **Finch** is the structurally closest competitor (character-led wellness, app-centric, illustrated, same audience). Could add philosophical content but cannot retrofit a decade of Japanese cultural authenticity, the Yamato framework, or Rieko's existing book IP. The character is a 2021 invention; Auwa's is a decade old.
+- **Stoic** could add AI personalisation but cannot adopt the Yamato emotional framework or Auwa's visual art system.
+- **Rosebud** could add prettier visuals but can't adopt "witness, don't question" without abandoning its therapeutic chatbot model.
+- **Mindsera** could add "Japanese philosophy mode" but bolting Eastern wisdom onto a Western optimisation engine would feel superficial.
 
 ### What Competitors Can Copy
 Tech stack, freemium pricing, 72 micro-seasons content (public domain), AI-generated reflections, collectible format, awareness positioning language.
@@ -238,6 +245,42 @@ Principle: if it makes the user more self-aware, it belongs. If it makes Auwa fe
 - Any brand attempting app + craft store + illustrated story under one roof
 
 When this happens, Auwa will have a head start in user relationships, cultural authenticity, and multi-pillar integration that compounds.
+
+---
+
+## Category I: Character-Based Wellness Companions
+
+The category Animaru sketched in 2014 and Finch validated commercially in 2021-2024. The user returns for the character, not the journaling or tracking or listening. An illustrated being reflects the user's state back to them. This is structurally the closest category to Auwa, and the doc previously missed it. Fixed.
+
+### Finch (Self-Care Pet)
+Founded 2021 by Finch Care. The user adopts a virtual baby bird that grows as they complete self-care tasks: mood check-ins, breathing exercises, micro-journals, reflections, gratitude prompts. Freemium with Finch Plus subscription. ~2M daily users. ~$30M ARR, no VC funding. 4.95 average across 550K+ App Store reviews. ~76% female, mostly aged 25-35. App Store Editor's Choice. Launched first animated brand film in May 2026 ("Whatever It Takes to Get Through the Day", dir. Kirsten Lepore, of Marcel the Shell), signalling intent to extend the character into media.
+
+**Closest single competitor to Auwa in the entire landscape.** Same DNA: character-led wellness, app-centric, female-skewing premium audience, illustration-first aesthetic, character-as-mirror mechanic.
+
+**Auwa wins with:** Japanese philosophical grounding vs generic Western self-care. Auwa-as-revealer vs pet-to-care-for. Dark contemplative aesthetic vs bright playful pastel. Ten years of book IP behind the brand vs a character invented in 2021. Yamato emotional framework vs CBT-flavoured task loops. Anti-gamification by design (no streaks, no badges, no completion meters). Multi-pillar ecosystem (store, journal, books) vs single-product app.
+
+**What Auwa should learn from Finch:** The cross-media move (animated film) is the right Year 2-3 play. Books first (foundation), figures (bridge), animated short (amplifier). The Year 2 marketing budget should plan for at least one short film, not just IG ads.
+
+**Audience crossover: Very high.** Finch users who've outgrown "feed your bird" loops or want a deeper philosophical container for their practice are Auwa's most likely converts.
+
+### Habitica
+RPG-style productivity and habit tracker. User has a customisable character that levels up as they complete real-world habits. Gamified explicitly: XP, gold, equipment, party guilds. Niche but loyal audience.
+
+**Auwa wins with:** Auwa is contemplative practice, not productivity gamification. Habitica's mechanic is the inverse of Auwa's "no streaks, no badges" stance.
+
+**Audience crossover: Low.** Different psychological mode entirely.
+
+### Pou / Tamagotchi (genre ancestors)
+Pou (2012) and Tamagotchi (1996) are the long-running consumer ancestors of character-led care apps. Pou is a digital alien you feed, clean, and play with. Tamagotchi is the original virtual pet that bred two decades of media (anime, manga, films, merchandise, collectibles). Neither is a direct competitor today, but both established the cultural permission for "I take care of an illustrated character on my phone." Tamagotchi specifically validates the long-term IP arc that Auwa is building: character → product → book/film → physical collectibles → community.
+
+### Category-level patterns
+
+- **The mechanic works.** Character-as-mirror has proved sustainable across decades (Tamagotchi) and at internet scale today (Finch).
+- **Audience skews 25-35 female.** Premium, design-conscious, emotionally curious. Same audience Auwa is courting.
+- **Cross-media expansion is now expected.** Finch's 2026 animated film is the new playbook. Books and figures sit naturally alongside a character-led app.
+- **Regulatory caution.** Replika (€5M EU fine, FTC complaint) and Woebot (shut down June 2025) show the risks of letting characters drift toward therapy/companion territory. Auwa's "reveals, not treats" stance is the correct defensive posture.
+
+**Auwa's advantage across category:** Japanese philosophy as the structural foundation, Rieko's decade of book IP, the Yamato emotional framework, the multi-pillar ecosystem, and the anti-gamification stance. The character isn't a pet. It's a being that reveals.
 
 ---
 
