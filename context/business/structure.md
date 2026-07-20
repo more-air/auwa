@@ -166,6 +166,44 @@ Screenshots saved in `trademark/3 design mark/search/`.
 
 ---
 
+## PROTECTION RATIONALE — why these classes and territories
+
+The single principle: **a trademark protects the *name* "Auwa" and the *character shape*, not the products.** Copying the actual artwork or figure is stopped by copyright (Rieko's dated originals) and the design mark. Each class stakes the name in a category of commerce tied to a real Auwa product or pillar, so this is the answer to any future "why did we pay for this class" question.
+
+### Word mark classes
+
+| Class | Protects the name "Auwa" on… | Auwa product / pillar |
+|-------|------------------------------|-----------------------|
+| **9** | downloadable software, the app, digital content and publications | Kokoro Mirror app (as a downloadable product) |
+| **16** | printed and illustrated books, art prints, stationery, cards | Rieko's illustrated books and prints (Book pillar / store) |
+| **20** | decorative objects, figurines, ornaments (non-toy) | the Auwa figure as a decorative object; craft objects |
+| **25** | clothing, headwear, apparel | merch / print-on-demand apparel (planned, plausible within 5 yrs) |
+| **28** | toys, collectible and art figures, character toys | the collectible Auwa figure — the flagship physical product |
+| **35** | online retail store services | the Auwa store as a named business, especially the Year 2 craftsman marketplace (selling third-party goods under the Auwa banner) |
+| **41** | entertainment/education services, online experiences, publishing, exhibitions, interactive stories | the app *experience*, the Journal, the Book universe as experiences, exhibitions |
+
+**9 and 41 deliberately overlap:** the app is both a downloadable product (9) and an online service/experience (41), and an examiner or opponent could characterise it either way, so both flanks are covered. 41 also carries the Journal, the exhibition strategy, and the story-experiences, which are services, not downloadable goods.
+
+**Why 35 is worth having** (the least obvious class): it protects "Auwa" as the *name of a shop/retail service*, independent of the goods. The goods classes stop someone selling Auwa-branded books or figures; class 35 stops someone opening an online store *called* "Auwa" selling their own unrelated products on our goodwill, and it is the class that covers selling *other people's* craftsman goods under the Auwa banner (the Year 2 marketplace line in the business plan). Quieter than 9/28/41, but coherent.
+
+### Design mark (the character silhouette) — classes 20 + 28
+
+Protects the character *shape* as a brand identifier: stops a copycat selling a confusingly similar Auwa-like figurine (20) or collectible toy (28). This is the tier-one, hardest-to-replace asset in the value hierarchy.
+
+### Territories
+
+| Territory | Why |
+|-----------|-----|
+| **UK** | Home; the base registrations everything else rests on |
+| **EU** | Largest UK-adjacent consumer market; where early European sales and press land |
+| **US** | Biggest market on earth for collectibles, illustrated books and app spend; DTC online sales reach US collectors; high-counterfeit market where enforcement matters. (Ranked #2 in the 8 Jul plan's own trim priority: JP > US > EU.) |
+| **Japan** | Cultural home of the philosophy and Rieko's origin; a real target market and a source of cultural validation |
+| **China** | Defensive only: anti-squat / anti-counterfeit for character IP in a first-to-file country, where curing a squat later is slow and costly. Cheap insurance (~£1,080 across both marks). Figures are self-produced at home, so China is **not** a manufacturing dependency. |
+
+Copyright (Rieko's dated original artwork, automatic under the Berne Convention across all five territories) protects the artwork itself; the trademarks protect the *name* and *character shape* as brand identifiers. Complementary layers: copyright stops reproduction of the art, trademark stops commercial use of the brand.
+
+---
+
 ## INTERNATIONAL FILING (Madrid Protocol)
 
 **DECISION MADE (15 July 2026): file comprehensively now, both marks, four core markets.** Tom and Rieko chose the full-perimeter option over the earlier lean/deferred plan. Rationale: the capital cost is negligible against net worth and the risk of a first-to-file squatter (especially in China, the likely manufacturing base for the figure) is real once the character and name are public. Auwa is a product ecosystem, not an anonymous artist moniker, so the norm is to protect *before* launch. This also buys total mental clarity — no multi-year WIPO calendar dictating attention. The earlier "word mark only / design deferred to Year 2 / £650-1,050" plan is **retired.**
