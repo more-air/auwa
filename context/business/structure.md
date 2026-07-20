@@ -1,6 +1,6 @@
 # Auwa Structure
 
-*Last Updated: 16 April 2026*
+*Last Updated: 20 July 2026*
 
 This file is the single reference for Auwa's corporate structure, intellectual property, trademarks, licensing, domains, and social accounts. Original documents are stored in `Dropbox/3 venture/auwa/admin/`.
 
@@ -79,7 +79,7 @@ Following the traditional Japanese ukiyo-e model: eshi (artist) + hanmoto (publi
 | Classes | 9, 16, 20, 41 |
 | Priority Date | 15 February 2026 |
 | Cost | £320 |
-| Status | **Advertisement phase** (published for opposition 6 Mar 2026) |
+| Status | **REGISTERED** (15 May 2026, no opposition) |
 | Documents | `trademark/2 word mark/application/batch 1/` |
 
 **Nice Classification:**
@@ -100,13 +100,16 @@ Following the traditional Japanese ukiyo-e model: eshi (artist) + hanmoto (publi
 | Registry | UK IPO |
 | Classes | 25, 28, 35 |
 | Cost | £325 |
+| Status | Pending (per WIPO Global Brand Database, July 2026) |
 | Owner | Auwa Limited |
 | Documents | `trademark/2 word mark/application/batch 2/` |
 
-**Nice Classification:**
-- **Class 25:** Clothing, footwear, headwear, t-shirts, hoodies, sweaters, graphic t-shirts, casual clothing, loungewear, sleepwear, scarves, hats, caps, beanies, socks, clothing featuring artistic illustrations and seasonal designs
-- **Class 28:** Toys, games, collectible toys, collectible figures, collectible figurines, vinyl toys, designer toys, art toys, display figurines, decorative toy figures, limited edition collectible figures, blind box toys, character toys, ornamental toy figures, miniature figurines, toy figures featuring illustrated characters
-- **Class 35:** Online retail store services relating to wellness software, mobile applications, downloadable digital content, books, illustrated books, printed publications, art prints, posters, calendars, notebooks, stationery, greeting cards, decorative objects, figurines, works of art, ornaments, collectible toys, collectible figures, vinyl toys, designer toys, art toys, clothing, t-shirts, sweatshirts, hoodies, sweaters, jackets, hats, caps, scarves, socks
+**Nice Classification** (exact register wording, verified against WIPO Global Brand Database 20 Jul 2026):
+- **Class 25:** clothing, footwear, headwear; t-shirts; sweatshirts; hoodies; sweaters; jackets; tops; printed t-shirts; graphic t-shirts; casual clothing; loungewear; sleepwear; scarves; hats; caps; beanies; socks; clothing featuring artistic illustrations and seasonal designs
+- **Class 28:** toys, games, and playthings; collectible toys; collectible figures; collectible figurines; vinyl toys; designer toys; art toys; display figurines; decorative toy figures; limited edition collectible figures; blind box toys; character toys; ornamental toy figures; miniature figurines; toy figures featuring illustrated characters
+- **Class 35:** online retail store services relating to wellness software, mobile applications, downloadable digital content, books, illustrated books, printed publications, art prints, posters, calendars, notebooks, stationery, greeting cards, figurines, works of art, ornaments, collectible toys, collectible figures, vinyl toys, designer toys, art toys, clothing, t-shirts, sweatshirts, hoodies, sweaters, jackets, hats, caps, scarves, socks
+
+*(Note: "decorative objects" is in Class 20 of the Batch 1 word mark and in the design mark, NOT in Class 35.)*
 
 **Combined word mark coverage:** Batch 1 + Batch 2 gives Auwa word mark protection across **7 classes** (9, 16, 20, 25, 28, 35, 41) in the UK.
 
@@ -138,6 +141,7 @@ An attempt to add Classes 25, 28, 35 via TM3A form (~23 February 2026, £150) wa
 | Invoice No. | 1026117494 |
 | Payment Ref | L8PTTUYNSY |
 | Owner | Auwa Limited |
+| Status | Published 3 July 2026 (journal 2026/027); opposition period runs to ~3 September 2026 |
 | Image Format | Black silhouette on white background |
 | Artwork | `trademark/3 design mark/artwork/auwa.ai` and `auwa.png` |
 | Documents | `trademark/3 design mark/application/01-*.pdf` |
@@ -164,15 +168,60 @@ Screenshots saved in `trademark/3 design mark/search/`.
 
 ## INTERNATIONAL FILING (Madrid Protocol)
 
-| Field | Detail |
-|-------|--------|
-| Deadline | **15 August 2026** (6 months from UK priority date) |
-| Target Jurisdictions | Japan, USA, EU |
-| Classes | 9, 16, 20, 41 (from word mark Batch 1). Add 28 if Batch 2 completes in time |
-| Estimated Cost | £650–1,050 (word mark only) |
-| Strategy | Word mark only internationally. Design mark UK-only initially |
+**DECISION MADE (15 July 2026): file comprehensively now, both marks, four core markets.** Tom and Rieko chose the full-perimeter option over the earlier lean/deferred plan. Rationale: the capital cost is negligible against net worth and the risk of a first-to-file squatter (especially in China, the likely manufacturing base for the figure) is real once the character and name are public. Auwa is a product ecosystem, not an anonymous artist moniker, so the norm is to protect *before* launch. This also buys total mental clarity — no multi-year WIPO calendar dictating attention. The earlier "word mark only / design deferred to Year 2 / £650-1,050" plan is **retired.**
 
-Word mark provides ~80% of protection at ~30% of the cost. Design mark international filing deferred to Year 2.
+### What is being filed
+
+| Mark | Classes | Territories | WIPO fee |
+|------|---------|-------------|----------|
+| **Word mark ("Auwa")** | 9, 16, 20, 25, 28, 35, 41 (all 7 UK classes; JP excludes 25) | JP, US, EU, CN | CHF 7,571 |
+| **Design mark (figure silhouette)** | 20, 28 | JP, US, EU, CN | CHF 3,169 |
+| | | **Total** | **CHF 10,740** (~£9,600) + 2× £50 IPO handling |
+
+These are **two separate international applications** (different marks = different international registrations, each its own MM2 and basic fee). Word mark rests on the UK bases: Batch 1 (registered, classes 9/16/20/41) + Batch 2 (pending, classes 25/28/35). Design mark rests on the UK design mark (published, pending registration).
+
+Fees are the WIPO Fee Calculator figures of 20 Jul 2026 (mark black & white, office of origin UK). Breakdown per mark: basic 653 CHF + individual fees per party (no complementary/supplementary — all four are individual-fee jurisdictions). Word mark: JP **1,261 (6 classes — class 25 dropped from Japan)** + US 3,220 + EU 1,557 + CN 880. Design mark: JP 429 + US 920 + EU 837 + CN 330. The word-mark fee summary PDF in the folder still shows the 7-class Japan figure (7,779); the amount to pay is **7,571**. **Re-run the calculator immediately before paying** in case the fee schedule changes.
+
+### Applications FILED (20 Jul 2026)
+
+Both international applications **emailed to internationaltrademarks@ipo.gov.uk on 20 Jul 2026** (two separate emails, each with MM2 + continuation sheet + MM18). Signed by Thomas Vining (Director) and dated 20/07/2026. £50 IPO handling fee paid online per mark, from More Air:
+- Word mark — FS4 payment reference **HJ74X644X6**
+- Design mark — FS4 payment reference **KUVHCCJHVR**
+
+Source forms stored in `trademark/4 global expansion/application/`. WIPO fees (CHF 7,571 word / CHF 3,169 design) still to be paid to WIPO directly once billed after certification. **Now awaiting IPO certification** (payment receipt ~5 days; certification or deficiency notice within ~15 working days), then onward transmission to WIPO.
+
+### What happens next (post-filing)
+
+1. **UK IPO** certifies the applications match the UK basic marks and forwards to WIPO. If any deficiency, they email; respond and resend.
+2. **WIPO** examines formalities. Possible "irregularity" notices (classification, fees) — fixable. Then records the International Registration, assigns an IR number, publishes in the WIPO Gazette, notifies each designated office, and bills the CHF fees.
+3. **Each designated office (JP, US, EU, CN)** examines under its own law within the Madrid deadline (12 or 18 months). Each either grants protection or issues a **provisional refusal** (relative grounds = conflicting mark, or absolute = descriptiveness, or a query on the goods wording). Most likely touch-points: **US** (USPTO tends to query goods/services specificity), **EU** (a 3-month third-party opposition window after publication), **China** (relative-grounds check). Japan class 25 was dropped, so no Juno refusal expected.
+4. **Responding to a provisional refusal usually requires a LOCAL attorney** in that country (national offices require a local address for service; WIPO cannot represent you). Budget for this only if a refusal actually lands. Claude can help triage/strategise, but the formal response is filed by local counsel.
+5. No refusal within the deadline = automatic **statement of grant of protection**. Full process typically 12–18 months per territory; the IR itself is recorded within a few weeks.
+
+### Payment routing (preserves Auwa Ltd dormancy)
+
+**More Air Limited pays WIPO directly.** Do NOT route through Auwa Limited — a payment or cross-charge would end its dormant status and trigger tax filings. Because More Air is the exclusive licensee trading on the IP, the trademark cost is "wholly and exclusively" for More Air's trade and is an allowable Corporation Tax deduction. Set up the WIPO account in More Air's name, pay from a More Air card/account, save the receipt alongside the licence agreement. Do NOT let More Air invoice Auwa Ltd for it. True net personal cost after CT relief and dividend-tax-avoided is roughly £5,200-7,300 depending on marginal rate.
+
+### Priority deadlines (the only hard clocks)
+
+- **15 Aug 2026** — word mark classes 9, 16, 20, 41 (Batch 1 priority, 15 Feb). File the whole word-mark MM2 by this date; a single application can carry multiple priority claims, so classes 25/28/35 (Batch 2 priority, 16 Apr, live until 16 Oct) can ride in the same filing.
+- **16 Oct 2026** — design mark (filed 16 Apr) and word-mark classes 25/28/35 if for any reason they're split into a later filing.
+
+### Sequencing plan — RESOLVED
+
+Tom asked **Laura McLoughlin** (UK IPO) whether the two pending marks (Batch 2 word mark, design mark) could be registered before the Madrid filing. Reply (15 Jul 2026): they are in the publication phase, opposition period ends **3 Sep 2026**, and if unopposed they register ~2 weeks later (**~17 Sep 2026**); the timeline is a legal requirement and cannot be accelerated. Decision: filed anyway on 20 Jul (word mark had a hard 15 Aug priority deadline regardless). The two pending bases therefore carry the 5-year "central attack" dependency until they register — low risk given no opposition flagged, with paid "transformation" into national filings as a safety valve if a base ever failed.
+
+### Known conflict to handle: Japan class 25 — DECISION: drop from Japan
+
+Juno International holds "Auwa" in Japan including **class 25** (clothing). Japan examines earlier rights on its own initiative, so a class-25 designation there would be refused (senior identical mark). **Decision (20 Jul 2026): drop class 25 from the Japan designation.** Done on the word-mark MM2 via an item 10(b) limitation: "The designation of Japan is limited to Classes 9, 16, 20, 28, 35 and 41. Protection is NOT sought in Japan for Class 25." This lowers Japan's individual fee from CHF 1,469 (7 classes) to **CHF 1,261 (6 classes)**, saving ~£185; the word-mark total drops to CHF 7,571. No separate communication to WIPO/IPO is needed — the limitation is a standard MM2 field the IPO certifies and WIPO records. The WIPO fee calculator can't isolate one class per country in a combined run, so the fee summary PDF still shows 7 classes; Japan's 6-class fee (1,261) is confirmed by the per-class fee structure and can be re-verified via a Japan-only 6-class calculator run. All other filed classes are clear in Japan (Juno's 3/10/14/18 don't overlap).
+
+### Later relocation to Japan (noted, not yet planned)
+
+If Tom and Rieko permanently relocate and move the brand to a Japanese Auwa entity, the international registration can be reassigned to the new owner for a small administrative WIPO fee (per Gemini). Not a near-term action; recorded so the option is known.
+
+### Adding territories later (if ever)
+
+Subsequent designation (form MM4) extends the existing international registration to a new country for ~CHF 300 base + that country's individual fee. So Korea, Indonesia, etc. (the wider KAWS-style perimeter) can be added cheaply later if manufacturing or counterfeit activity ever justifies it. No need to over-file now beyond the four core markets.
 
 ### Japan: Juno International Conflict
 
@@ -185,7 +234,7 @@ Word mark provides ~80% of protection at ~30% of the cost. Design mark internati
 | Documents | `trademark/2 word mark/exclusions/juno-international.txt` |
 
 **Safe in Japan:** App, books, figurines, wooden objects, digital experiences, entertainment, toys/collectibles.
-**Blocked in Japan:** Tote bags, t-shirts, cosmetics, jewellery (Juno's classes).
+**Blocked in Japan:** Class 25 (clothing) — Juno's class. **Decision is to drop class 25 from the Japan Madrid designation** (item 10(b) limitation on the word-mark MM2), saving ~£185 (see "Known conflict to handle: Japan class 25" above).
 **Options (deferred):** Contact Juno, challenge for non-use, or negotiate. Japanese IP lawyer ~£1,500-2,000.
 
 ### Other Conflicts
@@ -282,8 +331,11 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 | Word mark Batch 2 (Classes 25, 28, 35) | £325 | Paid |
 | Design mark UK (Classes 20, 28) | £265 | Paid |
 | **Total spent** | **~£1,061** | |
-| Madrid Protocol (planned) | £650–1,050 | Planned |
-| **Estimated Year 1 total** | **~£1,711–2,111** | |
+| Madrid word mark (7 classes × US/EU/CN; JP 6 classes) | CHF 7,571 | Forms prepared 20 Jul; pay via More Air |
+| Madrid design mark (2 classes × JP/US/EU/CN) | CHF 3,169 | Forms prepared 20 Jul; pay via More Air |
+| Madrid IPO handling (2× £50) | £100 | Pay via More Air |
+| **Madrid total** | **CHF 10,740 (~£9,600) + £100** | Re-run calculator before paying |
+| **Estimated total IP spend** | **~£10,800** | |
 
 ---
 
@@ -299,8 +351,15 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 | 6 Mar 2026 | Word mark Batch 1 enters advertisement (opposition) period |
 | 16 Apr 2026 | Design mark filed (UK00004373930), Classes 20 + 28 |
 | 16 Apr 2026 | Word mark Batch 2 filed (UK00004373944), Classes 25, 28, 35 |
-| ~6 May 2026 | Expected: Word mark Batch 1 registration (if no opposition) |
-| **15 Aug 2026** | **DEADLINE: Madrid Protocol filing (6-month priority window)** |
+| 15 May 2026 | Word mark Batch 1 REGISTERED (UK00004341028) |
+| 3 Jul 2026 | Design mark published for opposition (journal 2026/027); window ends ~3 Sep 2026 |
+| 15 Jul 2026 | Decision to file Madrid comprehensively; McLoughlin confirms pending marks can't be expedited |
+| **20 Jul 2026** | **Madrid applications FILED — word mark + design mark, JP/US/EU/CN, emailed to IPO** |
+| ~5 days after | IPO payment receipt expected |
+| ~15 working days after | IPO certification (or deficiency notice) expected |
+| ~3 Sep 2026 | UK opposition window ends for Batch 2 word mark + design mark |
+| ~17 Sep 2026 | Batch 2 word mark + design mark expected to REGISTER (if unopposed) |
+| (12–18 months) | Designated offices (JP/US/EU/CN) grant protection or issue provisional refusals |
 
 ---
 
@@ -308,8 +367,10 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 
 1. ~~**Design mark filing**~~ — **DONE.** 16 April 2026. UK00004373930. Classes 20 + 28. £265.
 2. ~~**Word mark additional classes**~~ — **DONE.** 16 April 2026. UK00004373944. Classes 25, 28, 35. £325.
-3. **Madrid Protocol filing** — Word mark in Japan, USA, EU. Must file by **15 August 2026**. Budget £650-1,050. Skip Class 25 in Japan (Juno conflict).
-4. **Word mark Batch 1 opposition period** — Monitor for any opposition on UK00004341028. Expected to clear ~May 2026.
+3. ~~**Madrid Protocol filing**~~ — **FILED 20 Jul 2026.** Both MM2s (+ FS4, continuation, MM18) emailed to the IPO. Word mark CHF 7,571 (JP class 25 dropped), design mark CHF 3,169, both JP/US/EU/CN. £50 handling fee paid per mark (refs HJ74X644X6 word / KUVHCCJHVR design). **Now open:** (a) watch for IPO payment receipt (~5 days) and certification (~15 working days); (b) **pay WIPO the CHF fees** when billed, from More Air; (c) respond to any WIPO irregularity; (d) later, respond to any provisional refusals from JP/US/EU/CN (likely needs local counsel — flag to Claude). See "What happens next" under INTERNATIONAL FILING.
+4. ~~**Word mark Batch 1 opposition period**~~ — **DONE.** Registered 15 May 2026, no opposition.
+4b. **Design mark opposition window** — published 3 July 2026; monitor until ~3 September 2026. UKIPO notifies if opposed; no action otherwise.
+4c. **Batch 2 registration** — still pending; monitor (part of the McLoughlin expedite ask). Rides in the Madrid filing on the pending application until registered (central-attack dependency until then).
 5. **Royalty structure** — When Auwa generates revenue, add royalty terms to the More Air license. Accountant review needed.
 6. **Social handle registration** — Secure across remaining platforms (see handles table above).
 
