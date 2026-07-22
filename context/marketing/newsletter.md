@@ -26,7 +26,7 @@ Sent automatically on signup. Four variants based on source, with subjects tuned
 - **book-waitlist**: subject "A note from Auwa." · "Many stories, one light." body
 
 ### newsletter.tsx
-The template for manual newsletter sends. Accepts:
+The template for manual newsletter sends (article-led, monthly-ish). Accepts:
 - `previewText` — the preview line shown in email clients
 - `heroImage` — optional full-width image URL at the top
 - `heroAlt` — alt text for the hero image
@@ -34,6 +34,17 @@ The template for manual newsletter sends. Accepts:
 - `intro` — opening paragraph
 - `articles` — array of `{ title, excerpt, url, image? }` objects
 - `closingNote` — optional italic closing line
+
+### quiet-letter.tsx
+The **Quiet Letter** — the every-5-days micro-season note. Smaller than the newsletter: one season, Rieko's illustration, two to four sentences, no article list. It re-dresses the same asset Rieko already makes for the 72-season Instagram cadence, so it's near-zero marginal work. This is the primary list-warming mechanism and a real reason to subscribe ("a hand-drawn letter as each season turns"). Sent via its own endpoint `/api/quiet-letter/send` (same NEWSLETTER_SECRET, same audience, Broadcast so unsubscribe works). Run it with the **`/marketing:quiet-letter`** slash command, which auto-fills the current season from `website/main/src/lib/micro-seasons.ts`. Accepts:
+- `previewText`
+- `kanji` / `romaji` / `translation` — the season, from micro-seasons.ts (don't hand-type kanji)
+- `image` / `imageAlt` — Rieko's illustration (absolute public URL; must be live before send)
+- `paragraphs` — array of short paragraphs (the letter body, 2-4 sentences total)
+- `link` — optional `{ label, url }` soft link (e.g. "See it move" → the IG Reel)
+- `signOff` — optional italic closing line (e.g. "Rieko")
+
+Season illustrations for email go in `website/main/public/email/seasons/` and deploy, referenced as `https://auwa.life/email/seasons/[file]`. Cadence: every ~5 days as each season turns; keep each tiny so the rhythm reads as a gift.
 
 ---
 
@@ -143,10 +154,15 @@ Keep it short, specific, lowercase after the first word. Hyphen separator matche
 
 ```
 website/main/src/emails/welcome.tsx      — Welcome email template (auto-sent)
-website/main/src/emails/newsletter.tsx   — Newsletter template (manual send)
+website/main/src/emails/newsletter.tsx   — Newsletter template (manual send, article-led)
+website/main/src/emails/quiet-letter.tsx — Quiet Letter template (every-5-days micro-season note)
+website/main/src/lib/micro-seasons.ts    — 72-season data + getCurrentMicroSeason()
 website/main/src/app/api/signup/route.ts — Signup + welcome email API
-website/main/src/app/api/newsletter/send/route.ts — Newsletter send API
-website/main/.env.local                  — API keys and newsletter secret
+website/main/src/app/api/newsletter/send/route.ts    — Newsletter send API
+website/main/src/app/api/quiet-letter/send/route.ts  — Quiet Letter send API
+website/main/public/email/seasons/       — Rieko's per-season illustrations for the letter
+website/main/.env.local                  — API keys and newsletter secret (shared)
+.claude/commands/marketing/quiet-letter.md — /marketing:quiet-letter slash command
 ```
 
 ---
