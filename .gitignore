@@ -20,3 +20,40 @@ bug/
 
 # Share / handoff assets (large binaries, kept local + on Dropbox, never for git)
 share/
+
+# Social + photography working media. The heavy image/video binaries are kept
+# local + on Dropbox; only the web-optimised copies under website/main/public/
+# are tracked. Caption copy (_post.txt), scripts, schedule, manifest, and fonts
+# stay in git.
+social/**/*.jpg
+social/**/*.jpeg
+social/**/*.JPG
+social/**/*.png
+social/**/*.PNG
+social/**/*.mp4
+social/**/*.MP4
+social/**/*.mov
+social/**/*.MOV
+social/**/*.gif
+social/**/*.webp
+social/**/*.psd
+social/**/*.tif
+social/**/*.tiff
+social/**/*.heic
+social/**/*.HEIC
+photography/**/*.jpg
+photography/**/*.jpeg
+photography/**/*.JPG
+photography/**/*.png
+photography/**/*.PNG
+photography/**/*.mp4
+photography/**/*.MP4
+photography/**/*.mov
+photography/**/*.MOV
+photography/**/*.gif
+photography/**/*.webp
+photography/**/*.psd
+photography/**/*.tif
+photography/**/*.tiff
+photography/**/*.heic
+photography/**/*.HEIC
