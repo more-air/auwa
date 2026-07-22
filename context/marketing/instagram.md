@@ -1,13 +1,24 @@
 # Auwa Instagram
 
-*Updated: May 2026. Living document.*
+*Updated: 22 July 2026. Living document.*
 *Load when working on social media content, Instagram ads, or audience growth.*
 
 ---
 
-## Where we are
+## Where we are (15 July 2026)
 
-Account: **@auwalife** at instagram.com/auwalife. Five posts live as of the May 2026 restart, ~31 more prepared and queued in `social/instagram/_scripts/schedule.txt`. Roughly 10 weeks of content ready to go at the planned three-posts-per-week rhythm.
+Account: **@auwalife** at instagram.com/auwalife. **Followers: 2,553** (up from ~700 at the May restart — on plan; the arrival.md Phase 1 target was 2-3K by end June). Rieko kept the account posting through ~6 weeks (early June to mid-July) while Tom was away following his father's death, which is why the one compounding metric held.
+
+**What's working:**
+- **~£200 ad spend used so far** (well inside the £2K Year 1 budget). Blended cost-per-follower far under the £1 quality gate. Some promoted posts did very well.
+- **Breakout post: [instagram.com/p/DYchpYBseo1](https://www.instagram.com/p/DYchpYBseo1/)** — 4,000+ likes, 65 comments, ~200 shares, warm comments. Shares are the #1 algorithm signal, so this format travelled. **Study what made it work and repeat the format before inventing new ones.**
+- **72 micro-seasons cadence:** Rieko now makes an illustration or short video every 5 days for the seasons, and is enjoying the rhythm. She's flagged these could be released later as a complete set (72 pieces) — a natural print/calendar/newsletter asset once the series is complete. This is also the obvious spine for a "quiet letter every five days" newsletter hook (see arrival.md capture gap).
+
+**Content pipeline:** posts prepared and queued in `social/instagram/_scripts/schedule.txt`; the planning view at auwa.life/instagram renders the schedule live from disk.
+
+**The gap:** despite 2,553 followers + heavy Awwwards traffic, newsletter subs total only ~91 (12 book / 41 store / 38 app). Capture is the weak link, not audience growth. See arrival.md.
+
+**Attacking the gap (22 Jul 2026):** two moves this session. (1) A proper **Meta lead-form ad** is now live for store signups — see "Meta lead ads — playbook + live campaign" under Paid advertising below; it's in review, don't touch for ~5 days, and the leads need pulling from Meta into Resend. (2) Two site fixes that were quietly costing conversions: the あうわ **entrance loader was removed** (it made every cold visitor wait ~3s before the page appeared — worst for paid mobile traffic), and a **auwa.life/privacy page was created** (standard pre-launch policy, required for Meta lead forms; not lawyer-reviewed). Both deployed to production.
 
 Content folders live under `social/instagram/<pillar>/<post>/` with the pillar prefixes `0-brand`, `1-book`, `2-store`, `3-journal`, `4-app`. Each post folder contains an `_post.txt` brief (caption, alt text, hashtags, notes) plus the images. The planning view at auwa.life/instagram (dev: localhost:3003/instagram) renders the schedule live from disk.
 
@@ -189,6 +200,34 @@ What can run earlier than 12 posts:
 
 - **Lead Form ads** — convert on the post + native IG form, not on profile depth. Add emails to the list. Anytime.
 - **Retargeting** — past website visitors. Anytime, £3–5/day.
+
+### Meta lead ads — playbook + live campaign (22 Jul 2026)
+
+This is now the primary lever against the capture gap (only ~91 newsletter subs despite 2.5K followers). A Lead Form ad collects the email *inside Instagram*, so it sidesteps the website loader/bounce problem entirely.
+
+**What the first attempt taught us (the failed boost, 20 Jul).** A 1-day boost run from the Instagram app spent ~£19 and drove 421 site visits to auwa.life/store but produced only **3 signups**. Post-mortem from the Meta/Vercel/Resend stats:
+- The IG-app "Boost" button forces **Advantage+ placements** (auto Facebook + Audience Network) and a **traffic / "website visits" objective**. It optimises for the *cheapest click*, not the signup. Cost per visit was £0.05 — a red flag, not a bargain.
+- Result: top referrer was `m.facebook.com` (426), not Instagram; geography was France 26% / Malaysia 26% / India — cheap-click junk, not the intended English audience. The vertical Reel was shown mostly on Facebook feed, cropped and out of context.
+- Rieko had picked UK + US + France + Malaysia (Malaysia on a hunch it's wealthy). France + Malaysia were the leak. **Lesson: for an English brand, start UK + US only.**
+
+**The correct setup (built 22 Jul, use this as the template):**
+- Build in **Ads Manager on desktop** (adsmanager.facebook.com), NOT the IG-app Boost button. Boost can't turn off Advantage+ placements or set a Leads objective.
+- Ad account: run under the **Auwa Limited** business portfolio, not Rieko's personal account (company owns the history/billing). Note: moving Rieko's old personal ad account in was blocked ("no payment made yet"), so a **new ad account was created** under Auwa Limited with the company card. The old personal-account boosts stay where they are.
+- Objective: **Leads**. Conversion location: **Instant forms** (not Website — no pixel needed, and it dodges the site entirely).
+- Budget: **Campaign budget**, **£5/day** for a clean test. Advantage+ leads campaign toggle can stay on for the *campaign*, but placements must be manual.
+- Placements: **Manual → Instagram only.** Critically, **untick "Allow limited spending to excluded placements"** — left ticked, Meta leaks ~5%/placement back onto Facebook et al.
+- Audience: **UK + US only** (locations are a hard cap even with Advantage+ audience on). Left age/gender default.
+- Creative: **Use existing post → Instagram tab**, the breakout animation reel (`Everything holds a Kokoro`, post ID `17886841077516285`, 17 May 2026, = [instagram.com/p/DYchpYBseo1](https://www.instagram.com/p/DYchpYBseo1/)). Note: Ads Manager's post-picker shows stale/low engagement counts (showed 113 vs the real 4.5K) — ignore it, the live ad carries the real numbers.
+- Instant form: type **More volume**; **email only** (delete name field); intro headline "Join the Auwa list" + the figure-giveaway hook; data-use disclosure line is **required** (name the email use + unsubscribe); completion screen "We'll be in touch when it's time to launch, and if you've been selected for the first-edition Auwa figure giveaway." Flexible form delivery **Off** for a clean first test.
+- Privacy policy: Meta requires a live URL. Built **auwa.life/privacy** this session (standard pre-launch policy, deployed; NOT lawyer-reviewed — revisit before scaling / before app+store launch).
+
+**Live campaign:** `Auwa Signups - Store` / ad set `New Leads ad set` / form `Auwa Store Waitlist - 22 Jul`. Published 22 Jul 2026, in review. £5/day, UK+US, IG-only, the breakout reel.
+
+**NEXT SESSION — what to do:**
+1. **Do not touch it for ~5 days.** Every edit resets Meta's learning. Judge on **cost per lead**, not likes/clicks. Working = cost-per-signup under ~£2 (see Quality signal below).
+2. **Retrieve the leads → Resend.** Signups sit inside Meta, they do NOT auto-flow to Resend. Manual route: Ads Manager → the form → "retrieve leads" → download CSV → import into Resend (Audience → Add contacts → tag **Store Waitlist**). Do this the first time *with* Tom.
+3. **Better: automate delivery.** The form's "Automated lead delivery → Google Sheets" option drops leads into a sheet in real time; from there a connector (or a scheduled import) into Resend removes the manual CSV step. Set up if the ad performs.
+4. If it works, consider turning Flexible form delivery **On + Optimised** and scaling budget slowly; if cost-per-lead is 3–5× the target, stop and rethink the creative/offer, don't rescue it.
 
 ### Budget pacing
 £15–25/day over 2–3 months. Algorithm needs time to optimise. Avoid £50/day for one month.
