@@ -17,3 +17,6 @@ video/
 
 # Local working / scratch
 bug/
+
+# Share / handoff assets (large binaries, kept local + on Dropbox, never for git)
+share/
