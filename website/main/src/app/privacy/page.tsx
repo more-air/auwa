@@ -25,13 +25,15 @@ export const metadata = {
 // newsletter, via the website form or via Meta (Instagram/Facebook) lead
 // forms; sends email through Resend; hosts on Vercel with cookieless
 // analytics. No products are sold yet, so no payment data is handled.
-// Update the effective date whenever the substance changes.
-const EFFECTIVE_DATE = "22 July 2026";
+// Controller is More Air Limited (the active trading company that operates
+// Auwa under licence and actually handles the data); Auwa Limited is dormant
+// and holds IP only.
 
+// Body + heading type match the About page for a consistent editorial feel.
 const bodyClass =
-  "font-display text-[17px] md:text-[18px] leading-[1.75] text-sumi/80";
+  "font-display text-[18px] md:text-[20px] leading-[1.7] text-sumi/80";
 const headingClass =
-  "font-display text-[22px] md:text-[26px] leading-[1.2] tracking-[0.01em] text-sumi mb-4";
+  "font-display text-[28px] md:text-[32px] leading-[1.15] tracking-[0.01em] text-sumi mb-4";
 
 export default function PrivacyPage() {
   return (
@@ -40,34 +42,33 @@ export default function PrivacyPage() {
         <HeaderTone tone="sumi" />
 
         {/* ── Hero ── */}
-        <section className="relative px-6 md:px-12 lg:px-20 xl:px-28 space-page-hero">
+        <section className="relative px-6 md:px-12 lg:px-20 xl:px-28 space-page-hero space-flow">
           <h1 className="font-display text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.08] tracking-[0.01em] text-sumi">
             <TextReveal as="span" className="block" stagger={90}>
               Privacy.
             </TextReveal>
           </h1>
-          <FadeIn delay={300}>
-            <p className={`${bodyClass} mt-6 max-w-[640px]`}>
-              This policy explains what personal information Auwa collects, why
-              we collect it, and the choices you have. We keep it short and
-              plain, because that is how we would want it explained to us.
-            </p>
-            <p className="mt-4 font-sans text-[14px] tracking-[0.01em] text-sumi/50">
-              Last updated {EFFECTIVE_DATE}
-            </p>
-          </FadeIn>
         </section>
 
         {/* ── Body ── */}
         <section className="mx-auto max-w-[760px] px-6 md:px-10 space-flow pb-24 md:pb-32">
           <FadeIn className="space-y-12 md:space-y-14">
+            {/* Intro / lead — moved here from the hero so it sits in the
+                centred column, matching the About page's philosophy lead. */}
+            <p className={bodyClass}>
+              This policy explains what personal information Auwa collects, why
+              we collect it, and the choices you have. We keep it short and
+              plain, because that is how we would want it explained to us.
+            </p>
+
             <div>
               <h2 className={headingClass}>Who we are</h2>
               <p className={bodyClass}>
-                Auwa is a brand operated by Auwa Limited. When we say &ldquo;we&rdquo;,
-                &ldquo;us&rdquo; or &ldquo;Auwa&rdquo; in this policy, we mean Auwa
-                Limited. We are the controller responsible for your personal
-                information. If you have any questions, you can reach us at{" "}
+                Auwa is a brand operated by More Air Limited (company no.
+                07051794). When we say &ldquo;we&rdquo;, &ldquo;us&rdquo; or
+                &ldquo;Auwa&rdquo; in this policy, we mean More Air Limited, the
+                company responsible for your personal information. If you have
+                any questions, you can reach us at{" "}
                 <ObfuscatedEmail user="hello" domain="auwa.life" />.
               </p>
             </div>
@@ -215,8 +216,8 @@ export default function PrivacyPage() {
               <h2 className={headingClass}>Changes to this policy</h2>
               <p className={bodyClass}>
                 As Auwa grows and we add things like the app and the store, we
-                will update this policy to match. When we do, we will change the
-                date at the top of this page.
+                will update this policy to match, and the current version will
+                always be the one you see here.
               </p>
             </div>
 
