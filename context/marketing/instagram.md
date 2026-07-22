@@ -221,7 +221,15 @@ This is now the primary lever against the capture gap (only ~91 newsletter subs 
 - Instant form: type **More volume**; **email only** (delete name field); intro headline "Join the Auwa list" + the figure-giveaway hook; data-use disclosure line is **required** (name the email use + unsubscribe); completion screen "We'll be in touch when it's time to launch, and if you've been selected for the first-edition Auwa figure giveaway." Flexible form delivery **Off** for a clean first test.
 - Privacy policy: Meta requires a live URL. Built **auwa.life/privacy** this session (standard pre-launch policy, deployed; NOT lawyer-reviewed — revisit before scaling / before app+store launch).
 
-**Live campaign:** `Auwa Signups - Store` / ad set `New Leads ad set` / form `Auwa Store Waitlist - 22 Jul`. Published 22 Jul 2026, in review. £5/day, UK+US, IG-only, the breakout reel.
+**Creative choice — why the breakout character reel, NOT a store-tailored video.** Important nuance: the 20 Jul failed boost *did* use a purpose-built store video (the multi-scene one: characters, lifetime objects, app, book, "sign up at auwa.life/store"). We did **not** make a new tailored store creative this session. We deliberately reused the beautiful **Auwa-character animation reel** (DYchpYBseo1) instead — a video that isn't about the store per se — now carrying a "Sign up" CTA + Instant Form under it. Reasoning:
+- It's the single best organic performer (4.5K likes, 715 saves, 145 shares). Shares are the #1 algorithm signal and saves signal deep resonance, so it earns cheaper, warmer delivery and puts visible **social proof** on the ad. A proven winner beats an unproven creative.
+- The tailored store video has never shown that pull, and its one live test (the boost) *failed* — though that failure was targeting/objective, not proof the creative is bad.
+- With an **Instant Form**, the video's only job is to stop the scroll and build affinity for Auwa; the form's headline + figure-giveaway hook carries the actual store ask. A film people love + a clear form beats a store-explainer nobody saved.
+- **Known tradeoff / next test:** the character reel isn't store-specific, so purchase/signup intent is softer than a store-tailored creative would prime. Once this has data, **A/B the tailored store video against the character reel** to see which converts cheaper per signup.
+
+Note on the loader fix: removing the あうわ loader helps the **website** capture route (and any future "send to auwa.life" ads), but this Instant-Form campaign bypasses the site entirely, so the two fixes are complementary, not the same lever. The loader was part of *why the first campaign converted so poorly* (junk traffic hitting a 3-second gate); the lead form sidesteps that whole problem.
+
+**Live campaign:** `Auwa Signups - Store` / ad set `New Leads ad set` / form `Auwa Store Waitlist - 22 Jul`. Published 22 Jul 2026, in review. £5/day, UK+US, IG-only, the breakout character reel.
 
 **NEXT SESSION — what to do:**
 1. **Do not touch it for ~5 days.** Every edit resets Meta's learning. Judge on **cost per lead**, not likes/clicks. Working = cost-per-signup under ~£2 (see Quality signal below).
