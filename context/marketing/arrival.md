@@ -1,6 +1,36 @@
 # Auwa Arrival
 
-*Last revised: 23 April 2026. Living document. Load for any launch, promotion, channel, or campaign discussion.*
+*Last revised: 15 July 2026. Living document. Load for any launch, promotion, channel, or campaign discussion.*
+
+---
+
+## STATUS SNAPSHOT (15 July 2026)
+
+Tom was tools-down early June to mid-July following his father's death (5 June). Returning now with Auwa as near-exclusive focus for the rest of 2026. Where things stand against the Phase 1 plan (targets were end-June):
+
+| Phase 1 target | Actual | 
+|---|---|
+| 2-3K IG followers | **2,553** ✓ (Rieko held the cadence through the gap) |
+| 400-600 subscribers | **~91** ✗ (12 book / 41 store / 38 app) — the real miss |
+| Awwwards submitted | **Honorable Mention won**; in line for SOTD (unlikely to win), scored well ✓ |
+| App in friends' hands | Built + full craft pass done (29 May); **never released** ✗ |
+| Warm-network shares | **Not done** (Colin, LinkedIn, Darius, Ivo, Fin all pending) ✗ |
+| 12-15 articles, 2/mo | Stalled since May |
+| Fin DAC article | Drafted, **not shipped** |
+
+**The diagnosis:** craft work (site, app, books, figure) is on or ahead of plan; *capture and activation* (email list, friends release, warm outreach) kept deferring behind craft and then stopped entirely during the gap. The Awwwards traffic (thousands of visits) converted poorly to follows/signups — mostly designers seeking inspiration, which gives backlinks and credibility, not customers. **From here, capture + activation should outrank craft for a stretch**, because the autumn figure drop and book pre-order need an owned audience, not just IG reach.
+
+**The single highest-leverage unlock:** turn Rieko's every-5-days 72-seasons illustration into a newsletter ("a quiet letter every five days: the season, drawn"). Zero marginal cost, unique, gives a real reason to hand over an email, and seeds the eventual 72-piece print set's audience. Send one warm letter to the existing 91 first so the list doesn't decay.
+
+**Lifestyle design principle (the long game, agreed 15 Jul 2026).** The end state Tom and Rieko actually want: Auwa earning roughly £20-60k a year at a leisurely pace for 10+ years, largely passive, funding a good life without becoming a job or a screen-treadmill. The named anti-pattern is the personality-led creator grind (Tom's friend Jonny Smith's *Late Brake Show*: valuable, but it's all on him, he must be in every video, he can't take breaks). Auwa is structurally the opposite and must stay that way. Rules to check every revenue decision against:
+- **The face is the character, not the founders.** Auwa's public face is Rieko's character, never Tom-or-Rieko-on-camera. This is the single biggest reason Auwa can be passive where a YouTuber can't. Build nothing that requires either founder's face on a schedule.
+- **Revenue lives in durable goods, subscriptions, and licensing** (books on POD, figure editions, app subs, eventual character licensing) — things that earn while you're in Japan for two months. Content (IG, Quiet Letter, journal) is the *pace-able growth engine, not the income*; it can slow, batch, or be delegated once the audience and catalogue exist.
+- **Build now, coast later.** The ~18 months from mid-2026 are the one stretch needing consistent effort, to lay the asset base. After that the cadence drops to genuinely leisurely (1-2 figure drops a year, a book every 12-24 months, back-catalogue + subs ticking over). Don't go leisurely before the assets exist, or you get neither the joy nor the money.
+- **Don't judge the mission by £/day.** Client work pays more per day and always will; that's the wrong yardstick (mission vs profession). The household already needs no income (see the personal finance project). What passive Auwa income really buys is the *dignity of the venture paying its own way*, not financial permission to stop client work, which they already have.
+
+*Rough trajectory discussed 15 Jul 2026 (baseline 2,553 IG / 91 subs): ~5-7.5k IG and ~1-1.8k subs by Jan 2027; ~12-20k IG and ~3-5k subs by end 2027; first real income from the autumn figure drop; calendar-2027 revenue ~£20-40k base case, figure-led, still net-negative for the year but proving each product line.*
+
+**Other current-state notes:** Books 1 & 2 both finished and at print test, releasing as a set (see book.md). Figure: Blender file done, multiple prototype sizes printed, bio-filament testing next, packaging concept = balsa box + ribbon + eco insert + handwritten Rieko card (see business.md 6.2). Trademarks: comprehensive global Madrid filing committed (see structure.md). Journal: Tom/Rieko considering making it a quieter "behind the scenes" layer rather than a co-equal pillar so the character/story shine — **not decided; do NOT restructure the site now**, just publish less (1/month or 1/season is fine). Grief-feature idea for the app: don't build a dedicated feature; instead use grief language as a test suite for the reflection engine (keeps the app out of the clinical-support space the spec rejects).
 
 ---
 

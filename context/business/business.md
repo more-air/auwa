@@ -150,7 +150,7 @@ In the same way Hodinkee proved a digital-age audience would develop deep apprec
 
 **What's in the store:**
 
-- **Auwa figures.** Limited-edition collectible figures of the Auwa character. Already in active development (Blender model done, 3D-printing with bio materials in progress, refinements before packaging). 12-15cm, £140-180, hand-finished, numbered, signed. Limited runs (~100 per edition), never reissued.
+- **Auwa figures.** Limited-edition collectible figures of the Auwa character. **Status (Jul 2026):** Blender model complete; Rieko has printed several working prototypes at different sizes; a fully bio (non-plastic) filament is next up for testing. Once the final print is signed off, packaging follows. **Packaging concept:** feel special and Japanese without being expensive to make — a balsa wood box, ribbon tied around, an eco soft material cradling the figure inside, and a hand-written note/card from Rieko. 12-15cm, £140-180, hand-finished, numbered, signed. Limited runs (~100 per edition), never reissued.
 - **Books.** Rieko's illustrated stories, print-on-demand (IngramSpark) plus offset first editions funded by pre-orders. £28-35 trade, £45-60 signed first edition.
 - **Prints.** Selected Rieko illustrations and scenes from the books as fine art prints. Hand-pressed Japanese paper, numbered. £40-80.
 - **Kokoro prints (personalised).** Year-end portrait of the user's accumulated Kokoro, drawn from their app data. £30-40. Sold via the app and the store. Unique to each user.

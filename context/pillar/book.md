@@ -1,6 +1,18 @@
 # Auwa Book
 
-*Last Updated: 13 April 2026*
+*Last Updated: 15 July 2026*
+
+---
+
+## STATUS SNAPSHOT (15 July 2026)
+
+Books 1 and 2 are **both finished, revised, and at print test.** Decision made to **release them together as a set**, not Book 1 alone. Latest print-ready PDFs live in `Dropbox/3 venture/auwa/production/book/Indesign/_indesign/_pdf/_pdf_pages/`:
+
+- `AUWA01_8x10.pdf` — Book 1, 44 pages
+- `AUWA02_8x10.pdf` — Book 2, **46 pages (preferred final version)**
+- `AUWA02.1_8x10.pdf` — Book 2, 44 pages (print-test-only version; the test printer only outputs in multiples of 4, so 46 wasn't available for the test run — this is a test constraint, not the final choice)
+
+Rieko is applying the July feedback amends now. She kept the repeated "we are all connected" message in Reco's speech deliberately (see EDITORIAL FEEDBACK below). Once print test is satisfactory: decide printer/route (KDP vs IngramSpark POD vs approaching publishers) and send both PDFs to Colin Midson (book PR, worked with Tom on his mother's book; was sent Book 1 earlier, no reply yet — the two-book set is a stronger follow-up).
 
 ---
 
@@ -8,11 +20,13 @@
 
 The Auwa illustrated story universe comprises four books, each following Auwa — a luminous being sent from the stars — as it encounters different aspects of Earth and reveals the Kokoro (heart/soul) hidden within all things.
 
-**Book 1: The Beginning** — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microorganisms who explain that everything is connected. *Status: Complete. 18 pages, ~380 words. Fully revised. PDF: `book/1/Auwa01_8x10_Compressed.pdf`. Old version: `book/1/Auwa_01_Old.pdf`. Mockup: `/book/1` on the website.*
+**Book 1: The Beginning** — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microbes who explain that everything is connected. *Status: Complete, further revised, at print test. 44 pages, ~470 words. PDF: `_pdf_pages/AUWA01_8x10.pdf`. Mockup: `/book/1` on the website.*
 
-**Book 2: Umi (The Ocean)** — Auwa explores the ocean, meets Key (coral), Lady (fish), and Rai (turtle), encounters ocean pollution and ghost nets, discovers the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale), and hears stories of humans from the sea creatures' perspective. *Status: Old version, 30 pages, ~1,500 words. Needs comprehensive revision. PDF: `book/2/Auwa_02_Old.pdf`. Mockup: `/book/2` on the website.*
+**Book 2: Umi (The Ocean)** — Auwa explores the ocean, meets a red fish, a yellow coral, and Rai (turtle), cuts loose a drifting ghost net, reaches the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale with her calf Yuki), and hears the sea creatures' stories of humans ("They can be kind" / "They can be cruel" / "We do not understand them yet"). Ends pointing to the human world. *Status: **COMPLETE and fully revised** (was the old 30-page version needing work). ~540 words, 46 pages preferred. PDF: `_pdf_pages/AUWA02_8x10.pdf`. Mockup: `/book/2` on the website.*
 
-**Book 3: [TBC]** — *Status: Not yet reviewed.*
+**Assessment (July 2026):** Book 2 is the stronger book and its revision is a textbook execution of the Book 1 template — no speech bubbles, named minor characters culled, the pollution lecture gone, the ghost net as a wordless visual event. It adds genuine stakes (the human question) and a series engine (Book 3 is now loaded as "the humans" book: land → sea → humans). Releasing the two together turns "a book" into "a series", which is a stronger commercial and PR proposition and lets the two tonal poles (cosmic/dark, aquatic/luminous) show the universe's range.
+
+**Book 3: [TBC]** — *Status: Not yet reviewed. Book 2's ending sets it up as the humans book.*
 
 **Book 4: [TBC]** — *Status: Not yet reviewed.*
 
@@ -42,6 +56,20 @@ The old Book 1 was 30 pages with ~1,200 words. The revised Book 1 is 18 pages wi
 - Key narrative beats that earn their place
 - The song lyrics (condensed but preserved)
 - Auwa's farewell into the night sky
+
+---
+
+## EDITORIAL FEEDBACK (July 2026 print-test review)
+
+Claude reviewed both print-ready PDFs against the benchmarks. Both pass the core principles (no speech bubbles, sparse italic dialogue, full-bleed emotional peaks). Both run slightly over the ~350-450 word target (Book 1 ~470, Book 2 ~540), which is fine per the "cut what doesn't earn its place, not hit a number" rule. Fixes flagged, all being applied by Rieko EXCEPT the last:
+
+1. **Book 2 set the character's name as "AUWA" (caps) in narration; Book 1 uses "Auwa".** Inconsistent between books and against the brand rule (caps = wordmark only, never prose). Global find-and-replace in Book 2 InDesign. Cover/title-page wordmark treatment unchanged.
+2. Book 1 dedication read "for love"; should be "with love" (Book 2 had it right).
+3. Book 1, Bluu's thank-you: comma not period before the closing quote.
+4. Book 2 dedication spacing ("thesepages") — check InDesign.
+5. Terminology: unify "microbes" vs "soil microbes" vs "microorganisms" across the series. Chose **microbes** (warmer, simpler read-aloud).
+6. Book 2: "A great turtle is coming for you" reads faintly ominous; "coming to meet you" keeps the whisper. (Rieko's call.)
+7. **NOT applied — Rieko's deliberate choice.** Suggested trimming Reco's 61-word speech (the "everything is connected" line). Rieko is keeping the repeated connection message on purpose, to emphasise it to the reader; she confirmed with the book-side Claude that repeating it isn't strange. Accepted — the repetition is intentional reinforcement of the core Yaoyorozu no Kami theme, not accidental bloat.
 
 ---
 

@@ -58,6 +58,22 @@ The Daily Light + Firefly Trove mechanic gives every Auwa user a way to capture 
 
 ---
 
+## Above All: This One Is Ours
+
+Every reason above is true, but underneath all of them sits the one that matters most, and it is worth saying plainly.
+
+For nearly two decades we have made beautiful things for other people. Other companies' visions, other people's briefs, other people's timelines and standards and approvals. We got very good at it, and it built the security that makes everything else possible. But it was always theirs, not ours. The credit, the ownership, the thing itself, all handed over at the end.
+
+Auwa is the first thing that is entirely ours. Our philosophy, our art, our story, made on our terms and in our time, the two of us combining everything we have learned across two careers into one thing with both our fingerprints on every part of it. Nobody approves the palette. Nobody questions the direction. When it is good, it is good because we decided together that it should be.
+
+This is not only about impact, though the impact is real and it is what drives Rieko most: a philosophy of awareness and interconnectedness, carried from Kansai into a distracted world, helping even a few people feel more, notice more, live more gently. That mission matters enormously. But there is a second thing sitting alongside it, quieter and just as true. We want something we made that we are proud of. Something that, years from now, we can point to and say we built that, the two of us, out of nothing but a decade of Rieko's drawings and everything we knew how to do. Not a career that reads as a sea of other people's logos, but client work plus one thing that was unmistakably ours.
+
+And there is a deeper reason still, the one that does not need dressing up. We could not have children. Four rounds of IVF, and then the quiet work of making peace with a different life than the one we planned. That life is a good one, freely chosen to inhabit, and it is not a wound we carry into every room. But it does mean the things we make together carry a particular weight. Auwa is, in the most honest sense, something we are bringing into the world together and sending out to live beyond us: a universe Rieko imagined and we built, that will hopefully reach people we will never meet, long after we have stopped tending it. That is its own kind of legacy, and it is not a small one.
+
+So when the doubt comes, and it will, remember that the client work was never going to be the thing we look back on. It paid for the life and it sharpened the craft, and that is enough for it to have been worth doing. But Auwa is the thing we get to be proud of, the one with our names on it, the one that is ours.
+
+---
+
 ## What Happens If It Really Works
 
 - **Hotel partnerships.** Flying to Kyoto to present Auwa to Hoshinoya. Rieko pitching in Japanese. Walking through a ryokan where guests use a digital awareness experience you designed. Aman Tokyo. Park Hyatt. Six Senses.
