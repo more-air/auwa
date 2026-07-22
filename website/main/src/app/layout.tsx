@@ -4,7 +4,12 @@ import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { HeaderToneProvider } from "@/components/header-tone";
 import { PageTransition } from "@/components/page-transition";
-import { EntranceLoader } from "@/components/entrance-loader";
+// EntranceLoader (あうわ kanji splash) parked 22 Jul 2026 — added for
+// Awwwards, but it holds up every cold visitor (esp. paid mobile traffic
+// landing on deep pages) with no payoff for an English audience. Component
+// file is kept intact; uncomment this import + the <EntranceLoader /> below
+// to restore. See context/website/patterns.md.
+// import { EntranceLoader } from "@/components/entrance-loader";
 import { CursorLabel } from "@/components/cursor-label";
 import { FigureHook } from "@/components/figure-hook";
 // SoundToggle is parked for launch — reads as distracting at arrival.
@@ -167,7 +172,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <EntranceLoader />
+        {/* <EntranceLoader /> — parked 22 Jul 2026, see import note above */}
         <CursorLabel />
         {/* <SoundToggle /> — parked for launch, see comment on import above */}
         {/*
