@@ -160,7 +160,13 @@ Tom's restart post template:
 
 **Press: Phase 3 onward.** Freelancers who have written for Wallpaper*, Monocle, Wired, Vogue Business, Dezeen.
 
-**What we don't do:** TikTok, YouTube depth (apart from Shigefusa), Twitter/X, Pinterest, Threads, Facebook page as a content channel.
+**Channel expansion triggers (added 22 Jul 2026).** Stay Instagram + organic/Journal as the core for now. Judge every new channel by one filter: *does it keep working while we're in Japan (compounding, evergreen) or does it need feeding every day (a treadmill)?* Favour the first.
+
+- **Pinterest — reconsider adding now (the one exception to IG-only).** Pinterest is a visual search engine, not a social feed: pins compound like SEO and last for years, Japandi / Japanese-aesthetic search is up 405%, and Rieko's illustration plus Tom's photography is exactly what performs there. Low effort (repurpose the existing asset library), feeds the site and the list, no daily hand-cranking. That's why it moves out of "what we don't do." Trial it with existing assets before committing to a cadence.
+- **YouTube — gated on the Shigefusa film existing, NOT on 5K followers.** Whenever the film lands, publish it. It's the evergreen documentary anchor.
+- **TikTok — at 5K IG followers.** A near-zero-effort repost of the best Reels, so no rush and nothing to gain before then.
+
+**What we don't do (for now):** Twitter/X, Threads, Facebook page as a content channel. (TikTok waits for 5K; YouTube waits for the Shigefusa film; Pinterest is under trial, per the triggers above.)
 
 **Footer social links policy.** Only show icons for platforms that carry real content. Dead links on a premium brand site read as unfinished craft, and Awwwards judges click footer icons. Secure all handles (done), but hide each platform's footer icon until it has at least three to four pieces of content. Implement as a simple boolean per platform in a config file so icons can be turned on progressively. Current state: Instagram on, everything else off until seeded.
 

@@ -39,6 +39,9 @@ Then move the output: `mv context/[folder]/[file].pdf documents/Auwa-[Name].pdf`
 
 **File → PDF name mapping:**
 
+*Global:*
+- `context/todo.md` → `documents/Auwa-Todo.pdf`
+
 *Pillars:*
 - `context/pillar/app.md` → `documents/Auwa-App.pdf`
 - `context/pillar/book.md` → `documents/Auwa-Book.pdf`

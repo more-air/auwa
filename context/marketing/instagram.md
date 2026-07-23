@@ -1,22 +1,22 @@
 # Auwa Instagram
 
-*Updated: 22 July 2026. Living document.*
+*Updated: 23 July 2026. Living document.*
 *Load when working on social media content, Instagram ads, or audience growth.*
 
 ---
 
 ## Where we are (15 July 2026)
 
-Account: **@auwalife** at instagram.com/auwalife. **Followers: 2,553** (up from ~700 at the May restart — on plan; the arrival.md Phase 1 target was 2-3K by end June). Rieko kept the account posting through ~6 weeks (early June to mid-July) while Tom was away following his father's death, which is why the one compounding metric held.
+Account: **@auwalife** at instagram.com/auwalife. **Followers: 2,667** (22 Jul; up from ~700 at the May restart — on plan; the arrival.md Phase 1 target was 2-3K by end June). Rieko kept the account posting through ~6 weeks (early June to mid-July) while Tom was away following his father's death, which is why the one compounding metric held.
 
 **What's working:**
-- **~£200 ad spend used so far** (well inside the £2K Year 1 budget). Blended cost-per-follower far under the £1 quality gate. Some promoted posts did very well.
+- **~£350 ad spend used so far** (well inside the £2K Year 1 budget). Blended cost-per-follower far under the £1 quality gate. Some promoted posts did very well.
 - **Breakout post: [instagram.com/p/DYchpYBseo1](https://www.instagram.com/p/DYchpYBseo1/)** — 4,000+ likes, 65 comments, ~200 shares, warm comments. Shares are the #1 algorithm signal, so this format travelled. **Study what made it work and repeat the format before inventing new ones.**
 - **72 micro-seasons cadence:** Rieko now makes an illustration or short video every 5 days for the seasons, and is enjoying the rhythm. She's flagged these could be released later as a complete set (72 pieces) — a natural print/calendar/newsletter asset once the series is complete. This is also the obvious spine for a "quiet letter every five days" newsletter hook (see arrival.md capture gap).
 
 **Content pipeline:** posts prepared and queued in `social/instagram/_scripts/schedule.txt`; the planning view at auwa.life/instagram renders the schedule live from disk.
 
-**The gap:** despite 2,553 followers + heavy Awwwards traffic, newsletter subs total only ~91 (12 book / 41 store / 38 app). Capture is the weak link, not audience growth. See arrival.md.
+**The gap:** despite 2,667 followers + heavy Awwwards traffic, newsletter subs total only ~93 (baseline 12 book / 41 store / 38 app). Capture is the weak link, not audience growth. See arrival.md, and "The capture loop" below.
 
 **Attacking the gap (22 Jul 2026):** two moves this session. (1) A proper **Meta lead-form ad** is now live for store signups — see "Meta lead ads — playbook + live campaign" under Paid advertising below; it's in review, don't touch for ~5 days, and the leads need pulling from Meta into Resend. (2) Two site fixes that were quietly costing conversions: the あうわ **entrance loader was removed** (it made every cold visitor wait ~3s before the page appeared — worst for paid mobile traffic), and a **auwa.life/privacy page was created** (standard pre-launch policy, required for Meta lead forms; not lawyer-reviewed). Both deployed to production.
 
@@ -27,6 +27,28 @@ Content folders live under `social/instagram/<pillar>/<post>/` with the pillar p
 ## Strategy in one paragraph
 
 Build an audience that joins for the **world** (philosophy, character, craft, Japan), not for the product. Sales come as a side-effect of trust, never as the headline. Post three times per week, mix Reels and carousels, hold pace for a year. Single-platform focus on Instagram until 5,000 followers; expand to TikTok reposts and YouTube depth content only after that bar is cleared.
+
+---
+
+## The capture loop (how sign-ups, seasons, and the figure tie together)
+
+*Added 22 Jul 2026. This is the spine of the capture strategy. Any future session working on ads, the newsletter, the bio, or the sign-up page should keep this loop intact and consistent across every surface.*
+
+**The problem it solves:** 2,667 followers but only ~93 subscribers. Audience growth is fine; *capture* is the weak link. A follower is rented (the algorithm decides who sees you); a subscriber is owned (you reach them directly). The loop below turns the free content Rieko already makes into an owned, warm list of future buyers.
+
+**One asset, three surfaces.** Rieko already draws one illustration or short video every five days for the 72 micro-seasons. That single asset feeds three places at once:
+1. **The IG post** — the public, free gift. Grows reach and followers. No sign-up ask; it's a gift.
+2. **The Quiet Letter email** — the same season, sent to the list every five days: one illustration, a few lines. This is the *reason to hand over an email*. Not a sales funnel; more of the world.
+3. **The eventual 72-piece set** — once complete, a print/calendar asset and a natural product.
+
+**Two hooks, two jobs.** Every sign-up ask combines them:
+- **The figure giveaway is the spike.** Scarcity ("a chance to win our first-edition figure") drives a burst of sign-ups *today*.
+- **The Quiet Letter is the baseline.** Ongoing value ("a quiet letter every five days") is why people are *still subscribed and still warm* in three months.
+- Used together everywhere (teach the concept, then invite — see the ad playbook's comprehension principle): *"72 seasons a year, drawn by Rieko. A quiet letter, and a chance to win our first-edition figure."*
+
+**Where it's heading: a warm list of future buyers.** The list is not vanity, and Auwa must make money. A subscriber who has received a beautiful letter every five days for months, and entered to win the figure, is the warmest possible buyer when the book pre-order and figure drop open in autumn. We build the audience *before* we need it, not scrambling at launch. The list is the commercial engine for the product launches.
+
+**Every capture surface points at the same offer.** IG bio link, Meta lead-form ads, Stories link sticker, and the website sign-up all carry the identical Quiet Letter + giveaway framing. If a future session changes the offer in one place, change it everywhere — a split message across surfaces is why capture leaked in the first place.
 
 ---
 
@@ -236,6 +258,51 @@ Note on the loader fix: removing the あうわ loader helps the **website** capt
 2. **Retrieve the leads → Resend.** Signups sit inside Meta, they do NOT auto-flow to Resend. Manual route: Ads Manager → the form → "retrieve leads" → download CSV → import into Resend (Audience → Add contacts → tag **Store Waitlist**). Do this the first time *with* Tom.
 3. **Better: automate delivery.** The form's "Automated lead delivery → Google Sheets" option drops leads into a sheet in real time; from there a connector (or a scheduled import) into Resend removes the manual CSV step. Set up if the ad performs.
 4. If it works, consider turning Flexible form delivery **On + Optimised** and scaling budget slowly; if cost-per-lead is 3–5× the target, stop and rethink the creative/offer, don't rescue it.
+
+**Day-1 result (23 Jul 2026).** First full day at £5/day returned **5 leads at £0.94 each** (£4.71 spent) — comfortably under the £2 cost-per-lead gate, and a different universe from the 20 Jul boost (~£19 for 3 real site signups amid junk geography). The Ads Manager / Leads / Instant-Form / IG-only / UK+US setup worked as predicted. Caveats carried forward:
+- Day one, n=5, still in Meta's learning phase — directional only, left untouched (judge on the full ~5-day run).
+- **Instant-form leads are structurally softer-intent than website signups** (Meta pre-fills the email, one-tap submit), so £0.94 here is not equivalent to a £0.94 website signup. Cost-per-lead is only half the verdict; lead *quality* is the other half and can't be read until the Quiet Letter is actually sending (opens, figure click-through).
+- Video creative: **55% hook rate** (strong scroll-stop) but **7.61% hold / 8s average** on a 47s film — the message lands in the first ~10s and almost everyone drops after. For a lead form that's fine (they tap the form, not the ending), but cut a **10–15s version** for the B/C tests rather than paying to serve 47s nobody watches.
+- Demographics skewed **~80% women, mostly 45–65+**. Read as on-brand (the craft / gift-buyer, Kinfolk/Goop skew), not a red flag; watch whether they click the figure. Older than the "design-conscious, Japan-interested" profile in the plan, but one day of data doesn't warrant touching targeting.
+- Two same-day website signups were **NOT attributed to the ad** — the Instant Form bypasses the site, so at most a trickle came via the completion-screen "Visit auwa.life" button. Roughly organic baseline.
+- **The bottleneck now is not ad settings, it's the Quiet Letter send.** Until leads are pulled into Resend and the letter is reaching them, each lead bought is unmeasurable and cooling. Banking the value = retrieve leads → Resend (tag Store Waitlist) + confirm the letter sends.
+
+**Messaging decision (23 Jul 2026).** The live ad (Ad A) is **giveaway-only** and deliberately does **not** name the 72 seasons or the "Quiet Letter" — Tom's call is to not commit to that framing in public copy until the letters are genuinely sending. Consequence: the "teach 72 first / every capture surface carries the identical offer" doctrine (see "The capture loop" and the combined-hook copy below) is **aspirational, not yet in force** — surfaces are allowed to diverge for now. The journal signup card ("A letter, and a gift." / seasonal essays, craftsman stories, figure giveaway) intentionally does **not** align with the ad, and Tom is happy with it as a general-newsletter + giveaway ask. Revisit the combined-hook-everywhere standard only once the Quiet Letter send cadence is actually live.
+
+### Creative + offer test plan (the three ads)
+
+Structured so each test isolates ONE variable. £5/day each; let every ad sit its full ~5–7 days untouched (edits reset Meta's learning). At this budget the signal is directional, not statistically clean — read cost-per-lead first, then lead *quality* (Quiet Letter opens, figure click-through) once the letter is sending. Lead count is the vanity metric.
+
+- **Ad A — baseline (running from 22 Jul):** Character reel (DYchpYBseo1) + **giveaway-only** form ("Join the Auwa list" + figure-giveaway hook). The existing live campaign.
+- **Ad B — offer test:** Character reel + **combined Quiet Letter + giveaway** form (copy below). Same creative as A, so **B vs A isolates the OFFER** — does naming the Quiet Letter beat a plain giveaway ask?
+- **Ad C — creative test:** Store video + **combined Quiet Letter + giveaway** form. Same offer as B, so **C vs B isolates the CREATIVE** — does the store-tailored video beat the character reel?
+
+**Sequencing:** let A finish its run, then launch **B and C together** (same time window removes day-of-week / seasonality confounds from the creative comparison). Going forward the **combined hook is the standard**; the giveaway-only form (A) exists only as the baseline to beat.
+
+**Prediction to read against:** the character reel likely pulls *cheaper but softer-intent* leads (people love it, strong social proof); the store video *fewer but higher-intent* ones. Winner = lowest cost per *quality* lead, judged after the Quiet Letter starts sending.
+
+### Lead-form copy — the combined hook (use for Ad B, Ad C, and every sign-up surface)
+
+Auwa brand voice, no em dashes, email-only form. This is the canonical wording; keep it identical across the ad form, IG bio, Stories sticker, and website sign-up (see "The capture loop").
+
+**Comprehension principle (learned 22 Jul 2026):** never say "every five days" or "the season turns" *without teaching the 72-seasons concept in the same breath*. The average UK/US reader doesn't know the Japanese year has 72 micro-seasons, so a bare "a letter every five days" reads as confusing (seasons don't change every five days) or spammy (why so often). Named, "the year has 72 seasons" is a charming scroll-stopper and the five-day cadence flips into "a series worth collecting." Teach, then invite. Note: the "never show the number 72" rule is an *app-UX* rule only; in marketing, the 72 seasons is a named asset and a hook.
+
+**Intro**
+- Headline: `The year has 72 seasons`
+- Description: `In Japan, the year turns not four times but seventy-two, each season about five days long. Rieko draws every one. Join the letter to receive them, and a chance to win our first-edition Auwa figure.`
+
+**Question:** email only (delete the name field).
+
+**Data-use disclaimer** (Meta requires it): `We'll use your email to send the Auwa letter and occasional news about the figure and book. Unsubscribe anytime. See our privacy policy at auwa.life/privacy.`
+
+**Completion screen**
+- Headline: `Welcome. The next season is on its way.`
+- Description: `The seasons turn every five days, and we'll send each one as Rieko draws it. If you're drawn for the first-edition figure, we'll be in touch.`
+- Button: `Visit auwa.life` → https://auwa.life
+
+**Reusable one-liner** (bio, Stories sticker, website — identical everywhere): `72 seasons a year, drawn by Rieko. A quiet letter, and a chance to win our first-edition figure.`
+
+**Division of labour:** the **giveaway is the acquisition hook** (converts the scroller today); the **Quiet Letter is the retention reason** (why they stay warm for months). Don't ask the letter to do the acquiring alone. And the letter must always be a *distinct, slightly deeper* experience than the IG caption (the season's name, a longer line, a note from Rieko, members-only early access), never a copy-paste of the post, or there's no reason to be on the list. See "The capture loop" for why the medium itself (a calm inbox ritual vs a fragmenting feed) is the on-brand core of its value.
 
 ### Budget pacing
 £15–25/day over 2–3 months. Algorithm needs time to optimise. Avoid £50/day for one month.

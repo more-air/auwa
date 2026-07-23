@@ -22,6 +22,20 @@ Ask the user these questions one at a time (not all at once):
 
 If the user provides all this information upfront, skip the questions and proceed.
 
+## Step 1b: Keyword research (high-performance SEO)
+
+Before writing, make the article demand-led, not only whim-led. The goal: choose the angle, title, and key terms around what people actually search, so the finished piece recruits strangers, not just pleases existing readers. This is what turns a lovely essay into a ranking landing page. (Full rationale in `context/pillar/journal.md` Section 8.)
+
+1. **Anchor to a searchable noun.** Identify the primary topic as a place (Narai-juku), festival (Nozawa fire festival), craftsman (Shigefusa), or concept (Yaoyorozu no Kami). The articles that rank are searchable nouns. If the brief is an abstract essay with no searchable anchor, say so and suggest tying it to a specific place / object / concept people actually search for.
+2. **Research demand and competition** with the tools available:
+   - **WebSearch** the primary topic plus 3-5 variations. Read Google's "People also ask" and related-search phrasings — those are real queries in users' own words. Capture the exact phrasing people use ("Shigefusa knife" vs "Shigefusa kasumi").
+   - Assess competition: are the top results thin and generic (easy to beat with first-hand content and original photos) or strong and authoritative (harder)? Auwa wins where competition is thin and first-hand experience matters.
+   - If the user has Google Search Console access, ask them to check whether the site already gets impressions for related queries. A near-miss at position 8-20 is a strong signal to target that exact term.
+3. **Pick keywords.** One **primary keyword** (the exact phrase to rank for) and 2-4 **secondary/related terms** to weave in naturally.
+4. **Report and get a nod.** Tell the user the primary keyword, the secondary terms, a one-line read on competition, and how it shapes the title / description / angle. Confirm before writing.
+
+Carry the primary keyword into the `title`, the `description`, the first paragraph of the body, one pullquote or heading where natural, and the hero alt text (Step 6). Never keyword-stuff. Search demand shapes *what* the piece is about and *which words* it uses for real things, never the quality of the prose.
+
 ## Step 2: Process Images
 
 The source folder is `auwa/photography/[slug]/2-edited/`. These are full-quality images already exported from Lightroom with the matching Auwa preset applied (Landscape, Interior, or Night). The raw drops live in `1-original/` and are not touched by this command.

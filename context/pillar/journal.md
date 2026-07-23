@@ -267,11 +267,46 @@ Each follows the production workflow in Section 4. Image processing pipeline is 
 
 ## 7. Content Calendar (Post-Launch)
 
-After the initial batch, publish 1-2 articles per week aligned with Japan's 72 micro-seasons. Each micro-season lasts roughly five days, which gives the journal a natural editorial rhythm:
+**Cadence revised 22 Jul 2026:** the original "1-2 articles per week" was aspirational and never held (publishing stalled May-July). Correct target is **1-2 quality articles per month**, chosen by search demand (see Section 8), sustainable against the 3-4 day week and the lifestyle-design principle in arrival.md. Volume is not the point; the journal needs to feed a steady trickle of high-intent strangers into the email list, not maximise pageviews. The old weekly ambition is retired.
 
-- Every 5 days: an opportunity for a new seasonal reflection, craft profile, or travel essay
+The micro-season still provides ambient editorial rhythm:
+
+- The five-day micro-season is an *opportunity* for a seasonal reflection, craft profile, or travel essay, not a quota
 - The micro-season provides ambient editorial context without forcing every article to be about seasons
-- The content calendar prevents the journal from going quiet, which is the biggest risk for editorial brands
+- Publishing less is fine; going fully silent is the real risk for editorial brands, so hold a minimum of roughly one a month
+
+---
+
+## 8. Organic search strategy (SEO + AI search)
+
+*Added 22 Jul 2026, after Vercel analytics showed the journal ranking on Google page 1 for long-tail Japanese terms (Narai-juku snow #1, Yaoyorozu no Kami #6, Shigefusa #7, Nozawa fire festival #8) with no backlink campaign, only the Awwwards listing.*
+
+**What the data told us.** The site's technical quality plus original, first-hand content is already strong enough to rank the long tail without backlinks. Google's helpful-content and E-E-A-T systems reward exactly what Auwa is: genuine first-hand experience, original photography, specificity nobody else has. Backlinks were never the ignition for long-tail terms; they buy competitive head terms and overall authority later. This validates the journal as a compounding acquisition asset, and it is the acquisition channel most aligned with the lifestyle-design principle (arrival.md): an article published once brings high-intent strangers for years with no further work, while an IG post is dead in 48 hours. SEO earns while the founders are in Japan; the feed does not.
+
+**The order of work (highest ROI first):**
+
+1. **Make ranking pages convert (do first; ties to capture).** High-intent strangers already land on the Shigefusa and Yaoyorozu articles. If those pages don't carry the Quiet Letter sign-up gracefully in-context, the best free traffic Auwa gets is bouncing. Every article must have the capture. Highest-ROI SEO-adjacent task because the traffic already exists. See instagram.md "The capture loop."
+
+2. **Optimise the existing 10 articles (high ROI, cheap, compounds across pages already earning).**
+   - Title tags + meta descriptions tuned to real queries (the Section 4 `description` spec already mandates "Japanese" + topic word; audit each against what people actually search, e.g. "Shigefusa knife", "Narai-juku Nakasendo", not just the poetic title).
+   - Internal linking: interlink the articles into topical clusters (craft ↔ craft, philosophy ↔ philosophy, travel ↔ travel). Islands leave ranking on the table; a linked cluster builds the topical authority Google rewards. Add a "related reading" link or two per article.
+   - Concept articles (wabi-sabi, Yaoyorozu, mono no aware) get one clear, quotable definition paragraph near the top. Wins featured snippets and makes the piece the citable source in AI answers (below).
+   - Confirm Article structured data / schema and clean breadcrumbs are present.
+
+3. **Publish new articles chosen by demand, not only by whim (steady, sustainable).** The articles that rank are searchable nouns: place names, festivals, named craftsmen, named concepts, seasonal terms. New pieces should sit where (a) Tom/Rieko have genuine first-hand experience and photography AND (b) there is real search demand with weak competition. This is not writing for robots; it is writing genuinely excellent pieces on subjects people already search. Abstract essays are good for existing followers but recruit no strangers. Cadence per Section 7: 1-2 a month is enough to compound.
+
+4. **Backlinks: a slow, medium-term compounding layer, not a quick sub lever.**
+   - Cheap credibility links now: SiteInspire, CSS Design Awards, Typewolf, Godly, Minimal.gallery, httpster. Low effort, decent authority, some referral traffic. But designers are not buyers (same lesson as Awwwards), so the value is authority and credibility, not conversions.
+   - High-value aligned links, layered slowly as relationships allow: Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto, Ignant, Remodelista, Freunde von Freunden, Hole & Corner, Kyoto Journal, Tofugu. Referral traffic here is exactly the right person (Japan / craft / design, commercial intent). Posture per arrival.md: 3-5 personal no-ask emails a month, link to one specific piece. It raises the ceiling over 6-18 months; it will not move subs this month. Don't over-invest ahead of capture and on-page work.
+
+**AI search (how it factors in 2026).** AI Overviews, ChatGPT, Perplexity, and Claude-with-search are reshaping informational search. Two effects, net tailwind for Auwa:
+- **Zero-click risk on definitional queries.** "What is wabi-sabi" may be answered inline without a click. Auwa's pure-concept articles are most exposed. Mitigation: weight content toward experiential, place- and object-specific subjects an AI summary cannot substitute.
+- **Citation as a new channel.** AI answers cite sources, and preferentially cite original, first-hand, specific, expert content over commodity rewrites. Auwa's "we held this knife" specificity and original photography is exactly what gets cited, and the person who clicks an AI citation is even higher intent. The game shifts from "rank #1" to "be the cited source."
+- **What to do:** keep writing first-hand originals (already the voice, and the moat against AI commodity content); give concept pieces a clean extractable definition near the top; being mentioned and linked across the aligned web also helps AI engines "know" the brand.
+
+**Tooling.** Two slash commands operationalise this section. `/journal:optimise` audits and improves the *existing* articles (keyword research from Google Search Console + WebSearch, wording suggestions, internal links, capture placement, then re-indexing). `/journal:article` writes *new* articles and now bakes keyword research into its Step 1b so new pieces are demand-led from the start.
+
+**Is this time well spent? (Honest verdict.)** Yes, with strict sequencing. Optimising the existing 10 is the best ROI on the whole marketing list: pages that already rank and already exist, a day or two of work, compounding forever. New searchable articles are a plant-trees-now investment: slow to compound (months), but the cheapest, most durable, highest-intent, most lifestyle-aligned acquisition channel Auwa has. Backlinks are a slow ceiling-raiser, worth the cheap ones now and the relationship ones layered gently. The one hard rule: none of this outranks the capture bottleneck. Rank and traffic are worthless if the pages don't convert to email. Capture first, then optimise existing, then publish steadily, then backlinks.
 
 ---
 
