@@ -53,7 +53,14 @@ async function collectEmails() {
 
   const seen = new Set();
   for (const file of files) {
-    const text = (await readFile(file, "utf8")).replace(/^﻿/, "");
+    // Meta exports leads as UTF-16 LE (tab-separated). Detect encoding by BOM
+    // so the email regex sees real characters, not null-padded bytes.
+    const buf = await readFile(file);
+    let text;
+    if (buf[0] === 0xff && buf[1] === 0xfe) text = buf.toString("utf16le");
+    else if (buf[0] === 0xfe && buf[1] === 0xff) text = Buffer.from(buf).swap16().toString("utf16le");
+    else text = buf.toString("utf8");
+    text = text.replace(/^﻿/, "");
     const found = text.match(EMAIL_RE) || [];
     for (const e of found) seen.add(e.trim().toLowerCase());
     console.log(`  read ${file.split("/").pop()} — ${found.length} email(s)`);
