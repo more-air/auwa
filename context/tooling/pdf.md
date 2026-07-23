@@ -41,6 +41,7 @@ Then move the output: `mv context/[folder]/[file].pdf documents/Auwa-[Name].pdf`
 
 *Global:*
 - `context/todo.md` → `documents/Auwa-Todo.pdf`
+- `context/done.md` → `documents/Auwa-Done.pdf`
 
 *Pillars:*
 - `context/pillar/app.md` → `documents/Auwa-App.pdf`

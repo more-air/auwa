@@ -1,6 +1,6 @@
 ---
 name: Import Leads
-description: Import Meta lead-form CSVs into Resend — adds each email to the Store Waitlist audience and fires the welcome email, reusing the website signup path. Idempotent (skips contacts already on the list).
+description: Import Meta lead-form CSVs into Resend — adds each email to the single Auwa list and fires the welcome email, reusing the website signup path. Idempotent (skips contacts already on the list).
 ---
 
 ## Purpose
@@ -37,7 +37,7 @@ Tom exports the leads CSV from Meta Ads Manager (Ads Manager → the form → do
 
 ## Options (rarely needed)
 
-- `--source=<name>` — audience/welcome variant. Default `store-waitlist` (correct for the current store lead ad). Use `app-waitlist`, `book-waitlist`, or `newsletter` only if a future ad targets a different list.
+- `--source=<name>` — passed through to `/api/signup` for logging only; it no longer changes which list a contact joins (every signup feeds the single Auwa list as of 23 Jul 2026). Default `newsletter`.
 - `--dir=<path>` — read a specific file or folder instead of `share/meta-leads/`.
 - `--delay=<ms>` — gap between requests (default 13000).
 

@@ -58,7 +58,7 @@ export default function AppPage() {
               </TextReveal>
               <FadeIn delay={400}>
                 <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-sumi/60 max-w-[440px]">
-                  A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we&rsquo;ll write when the app arrives.
+                  A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Join our newsletter, and we&rsquo;ll write when it arrives.
                 </p>
               </FadeIn>
               <FadeIn delay={600}>

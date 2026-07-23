@@ -55,7 +55,7 @@ export default function StorePage() {
               </TextReveal>
               <FadeIn delay={400}>
                 <p className="mt-8 md:mt-10 font-display text-[18px] md:text-[19px] leading-[1.65] text-sumi/60 max-w-[440px]">
-                  Limited Auwa figures, signed and hand-finished, alongside Japanese craftsman objects. Sign up for the opening, and a chance to win our first edition.
+                  Limited Auwa figures, signed and hand-finished, alongside Japanese craftsman objects. Join our newsletter for updates, and a chance to win our first edition.
                 </p>
               </FadeIn>
               <FadeIn delay={600}>

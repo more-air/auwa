@@ -13,7 +13,7 @@ interface SignupFormProps {
 export function SignupForm({
   source,
   buttonText = "Join Waitlist",
-  successMessage = "You're in. We'll find you when it's time.",
+  successMessage = "You're in. A note from us is on its way.",
   theme = "light",
   className,
 }: SignupFormProps) {

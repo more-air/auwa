@@ -16,16 +16,30 @@ const BASE_URL = "https://auwa.life";
 
 const INSTAGRAM_URL = "https://instagram.com/auwalife";
 
+// As of 23 Jul 2026 the signup flow sends ONE welcome to everyone: the
+// `newsletter` variant below, whichever form they used (see api/signup/route.ts).
+// The `newsletter` copy is written to welcome someone from any entry point and
+// gently set the expectation that they've joined the wider Auwa list, so an app
+// or book signup isn't surprised by a seasonal note. Everyone is entered into
+// the figure draw. `body` may be a string or an array of paragraphs.
+//
+// The three tailored variants (app-waitlist / store-waitlist / book-waitlist)
+// are DELIBERATELY KEPT but no longer sent — parked in case we ever want
+// per-pillar welcome campaigns again. Don't delete; just know they're dormant.
 const sourceContent = {
   newsletter: {
     preview: "Something quiet is on its way.",
     heading: "Stay close.",
-    body: "You've joined a small group of people building a more aware life. We send occasional letters on Japanese craft, seasonal living, and the philosophy behind Auwa. Nothing noisy. Just things worth reading.",
+    body: [
+      "Thank you for joining us. You're now part of a small group of people building a more aware life, guided by the ancient Japanese belief that a life force resides in all things. We'll write now and then with a little of that world: notes on Japanese craft and seasonal living, and early word when there's real news, the first book, the app, the first figures.",
+      "You're also in the draw to win our first-edition Auwa figure, and if you're chosen we'll be in touch. Nothing noisy, just things worth reading.",
+    ],
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics in afternoon light",
     cta: "Follow on Instagram",
     ctaUrl: INSTAGRAM_URL,
   },
+  // --- Dormant since 23 Jul 2026 (see note above). Retained, not sent. ---
   "app-waitlist": {
     preview: "You're on the Auwa App waitlist.",
     heading: "A practice is taking shape.",
@@ -98,7 +112,15 @@ export default function WelcomeEmail({
           {/* Content */}
           <Section style={contentSection}>
             <Heading style={heading}>{content.heading}</Heading>
-            <Text style={paragraph}>{content.body}</Text>
+            {Array.isArray(content.body) ? (
+              content.body.map((p, i) => (
+                <Text key={i} style={paragraph}>
+                  {p}
+                </Text>
+              ))
+            ) : (
+              <Text style={paragraph}>{content.body}</Text>
+            )}
 
             {content.cta && content.ctaUrl && (
               <Section style={ctaSection}>

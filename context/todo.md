@@ -1,84 +1,92 @@
-# Auwa — Priority To-Do
+# Auwa — To-Do List
 
-*Last revised: 23 July 2026. The single current list of what Tom and Rieko are focused on. Strategy and the "why" live in `arrival.md`; this is the "what next", and it churns weekly. Owners: (T) Tom / Hanmoto, (R) Rieko / Eshi, (T+R) both. PDF export: `documents/Auwa-Todo.pdf`.*
-
----
-
-## Deadlines — don't let these slip
-
-- **Trademarks: pay WIPO from More Air before 15 Aug 2026.** (T) Madrid Protocol filing. Hard external deadline, irreversible if missed. (see `structure.md`)
-- **~3 Sep 2026: design mark UK opposition window closes.** (T) Diarise only. No action unless the UK IPO writes to you.
+*Last revised: 23 July 2026. The single list of what Tom and Rieko are working on, most important first. A few words that might need explaining are in "Words explained" at the end. PDF: `documents/Auwa-Todo.pdf`.*
 
 ---
 
-## The theme for the coming weeks: fix capture, then pour fuel on it
+## Deadlines we can't miss
 
-Audience growth is fine (2,667 followers). The gap is capture: ~93 subscribers, and there is now live ad spend pushing leads into a funnel that isn't fully built. Order of operations: make capture work end-to-end (near-zero cost), then scale Meta spend into a funnel that converts. Do it in that order and £1,800 of ads does the work of £4,000. Sections 1–4 are the capture engine; 5+ are the parallel craft and activation tracks.
-
-### 1. Quiet Letter live + bank the leads we're already buying — TOP PRIORITY (T; R for art)
-
-The bottleneck. It unblocks three things at once: measuring ad-lead quality, stopping the existing list decaying, and banking the leads the ad is buying right now.
-
-- Deploy the Quiet Letter template + route (`/marketing:quiet-letter`); drop Rieko's season illustrations into `website/main/public/email/seasons/` and deploy so they're publicly reachable. (R art, T deploy)
-- Test send to Tom's own inbox first.
-- **Send one warm Quiet Letter to the existing ~93 subscribers before the list grows further**, so it doesn't go cold. Time-boxed: the ad is adding names daily.
-- Retrieve the Meta lead-form leads → Resend (tag **Store Waitlist**); set up the Google-Sheets auto-delivery so it isn't a manual CSV each time.
-- (see `newsletter.md`; `instagram.md` capture loop)
-
-### 2. Meta ad campaign — run the loop, don't scale yet (T)
-
-- Ad A (live since 22 Jul: animation reel + Instant Form): **leave untouched until ~27 Jul.** Day-1 = 5 leads @ £0.94, under the £2 gate. Judge on the full-run cost-per-lead, then on lead *quality* once the Quiet Letter is sending.
-- Then launch **Ad B** (same reel, combined-offer form) and **Ad C** (store-tailored video, same offer) together. Cut a **10–15s video** for these — the 47s film loses almost everyone by 0:10.
-- **Do not raise budget until the capture funnel + Quiet Letter are live.** The ad money is already proven; the constraint is the funnel, not the budget.
-- (see `instagram.md` "Meta lead ads" + Day-1 result)
-
-### 3. Capture destination — the free, highest-leverage fix (T)
-
-Meta cheaply carries people to the profile; the leak is where they land.
-
-- Point the **IG bio link at a dedicated signup/giveaway page** that leads with the figure giveaway. Fix the destination, not the beautiful post sending people there.
-- Use the **Stories link sticker** (any account, no boost needed) as the most direct IG→web path.
-- Put the **hard giveaway CTA on the figure posts** (buying / entering headspace); keep the animation as the awareness engine (world-and-wonder headspace). One purpose-built giveaway post that borrows the hero animation's visual language, boosted for signups, is effectively Ad C's creative.
-- Launch the giveaway to select subscribers: soft mention in the caption, bio + link pointing straight at signup. The clickable button just needs the free business account you already have; there's no paid tier to buy. (Auwa-Instagram, Auwa-Arrival)
-
-### 4. Journal SEO optimisation — compounding organic capture (T; R writes)
-
-High-intent strangers already land on the articles from search; a page that ranks but doesn't capture leaks the best free traffic Auwa gets.
-
-- Run **`/journal:optimise`** across published articles, most-visited first: pull Google Search Console near-miss queries (position ~8–20 with real impressions), tighten meta titles/descriptions, add sibling internal links, sharpen image alt text, confirm the signup card sits well in-context. Never sacrifice prose quality for keywords.
-- **Re-request indexing** for each changed URL in GSC and resubmit the sitemap, so new titles show in results in days, not weeks.
-- Keep publishing new articles at ~1/month (Rieko writes; each also yields one IG slideshow). (see `journal.md` Section 8)
-
-### 5. App — finish and put in friends' hands (T)
-
-Very close, likely next week. Finish the remaining pieces, share the auwa.app link with friends via WhatsApp, gather feedback, then package for the app stores with Capacitor (the native container step). Free tier only; not a public moment. (Auwa-App)
-
-### 6. Connections / warm activation (T lead; R for Japan)
-
-The grid is full now, so these are no longer gated on the profile.
-
-- **Colin** — both books; his publisher-route view is the tiebreaker on the print decision (item 8).
-- **LinkedIn update** — warm, proud, no ask (restart template in `arrival.md`).
-- **Fin DAC** — publish the drafted Fin article first, then send it to him as the warm reconnection; the collab conversation follows naturally.
-- **Kyoto knife shop** (R, in Japanese) — email the shop where Tom bought the Shigefusa knife, sharing the article as a Japanese-translated PDF with photos, in the hope it reaches Shigefusa. (Auwa-Arrival)
-
-### 7. Distribution / backlinks (T)
-
-- Free design showcases: SiteInspire, CSS Design Awards, Typewolf, Godly, Minimal.gallery, httpster.
-- Aligned sites for backlinks + quiet intros: Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto, Ignant, Remodelista, Freunde von Freunden, Hole & Corner, Kyoto Journal, Tofugu. (Auwa-Arrival)
-
-### 8. Book — decide the print route (T; Colin input)
-
-Review the test prints and decide: Amazon KDP, or IngramSpark POD plus a pre-order-funded offset first edition, or approaching publishers. Colin's view is the tiebreaker. Compare pros and cons before committing. (Auwa-Book)
-
-### 9. Figure — bio-filament, finishing, packaging, price (R design; T ops)
-
-Test the bio filament, refine the figure and finishing method, finalise packaging (balsa box, ribbon, eco insert, handwritten card) and pricing. The autumn figure drop is the year's first commercial moment, and it needs the warm list (sections 1–4) ready before it. (Auwa-Business)
-
-### 10. Store — basic Shopify (T)
-
-Set up a standard Shopify + Stripe store (not the old multi-vendor model) to sell the book and figure, linked from auwa.life and Instagram. (Auwa-Business)
+- **Pay for the trademarks before 15 August.** The payment (to WIPO) must come from More Air. Miss this and we lose the international protection we've applied for.
+- **3 September: a date to be aware of, no action needed.** It's a deadline linked to our design trademark. We only need to do something if the UK trademark office writes to us.
 
 ---
 
-*Upkeep: regenerate this list at the top of a working session ("update the todo") — re-sort by current priority, fold in anything new, then re-export `documents/Auwa-Todo.pdf` via the `pdf.md` pipeline. Keep strategy changes in `arrival.md`; keep only the actionable "what next" here.*
+## The main focus right now: turning followers into subscribers
+
+Getting attention isn't our problem. We have 2,667 Instagram followers. The problem is that hardly any of them (about 93) have given us their email address. An email address matters because it's the only way we can reach someone directly. A follower only sees us when Instagram decides to show them; a subscriber we can always reach.
+
+We're now paying for ads that send people towards joining our email list, but the system for collecting those emails and welcoming people isn't finished yet. So the order matters. First finish the free parts of the system so it works properly. Then, once we know it works, spend more on ads. Done in that order, an £1,800 ad budget does the work of £4,000.
+
+Jobs 1 to 4 below build that system. Jobs 5 onwards are the ongoing creative work and the product launches.
+
+### 1. Send the Quiet Letter, and save every new email address — most important (Tom, with Rieko for the artwork)
+
+This is the one job that unblocks everything else.
+
+- Put Rieko's season illustrations onto the website and switch on the Quiet Letter email.
+- Send a test to Tom's own inbox first.
+- Send one warm Quiet Letter to the roughly 93 people already on our list, before the list grows, so they don't forget who we are.
+- Take the new email addresses the ads bring in and add them to our email tool, so those people get a welcome and the letters. This is now quick: the `/marketing:import-leads` command does it.
+
+### 2. Keep the Facebook and Instagram ad running, but don't spend more yet (Tom)
+
+- Leave the current ad alone until about 27 July. Every change resets the system Facebook uses to find the right people, so we have to let it settle. So far it's working well: five new email addresses on day one, each costing under £1 (that's good; we'd only worry if it went above about £2 each).
+- After that, try two more versions of the ad to learn what works best: one with different wording, one with a different video. Make a short 10 to 15 second video, because people stop watching the current 47-second one after about 10 seconds.
+- Don't increase the ad budget until the email-collecting system (jobs 1 and 3) is finished.
+
+### 3. Make it easy for people to join our email list (Tom)
+
+- The link in our Instagram profile should go straight to a simple page about joining the list and the figure prize draw.
+- Use the "link sticker" in Instagram Stories. It's the most direct way to send people from Instagram to our website, and any account can use it for free.
+- Put the "join and win a figure" invitation on the posts that show the actual figure. Someone looking at the real object is closer to buying. Keep the beautiful animation as the thing that simply draws people in.
+
+### 4. Improve our articles so more people find them on Google (Tom makes the changes, Rieko writes new articles)
+
+- Strangers already find our journal articles through Google searches. If those pages gently invite them to join the email list, we turn that free visitor traffic into subscribers.
+- Use the `/journal:optimise` command to improve the wording Google reads (page titles and descriptions), add links between related articles, and check the "join the list" invitation is there. Never make the writing worse for the sake of Google.
+- Tell Google about the changes so they appear in search within days rather than weeks.
+- Keep publishing about one new article a month.
+
+### 5. Finish the app and share it with friends (Tom)
+
+Nearly done, probably next week. Share the auwa.app link with friends on WhatsApp, gather their feedback, then package it for the app stores. Free version only. A quiet test, not a public launch.
+
+### 6. Reach out to people who can help (Tom, with Rieko for Japan)
+
+- **Colin:** about both books. His view decides how we print them (job 8).
+- **LinkedIn:** post a warm, proud update. No sales pitch.
+- **Fin DAC:** publish the article about him first, then send it to him as a friendly reconnection.
+- **Kyoto knife shop (Rieko, in Japanese):** email the shop where Tom bought the Shigefusa knife, sharing the article as a Japanese PDF with the photos, in the hope it reaches the knife maker.
+
+### 7. Get our website onto respected design and Japan-interest websites (Tom)
+
+Being listed and linked from good websites helps Google trust our site, and puts us in front of the right people.
+
+- Free design galleries: SiteInspire, CSS Design Awards, Typewolf, Godly, Minimal.gallery, httpster.
+- Websites that share our taste, for a link and a quiet introduction: Nalata Nalata, Analogue Life, Rikumo, Tortoise, Kinto, Ignant, Remodelista, Freunde von Freunden, Hole & Corner, Kyoto Journal, Tofugu.
+
+### 8. Decide how to print the books (Tom, with Colin's advice)
+
+Review the test prints and choose between: Amazon's print service, a print-on-demand service (IngramSpark) plus a special first edition paid for by pre-orders, or approaching publishers. Weigh it up together before deciding.
+
+### 9. Finish the figure (Rieko designs, Tom handles making it)
+
+Test the eco-friendly filament, settle on the finish, and finalise the packaging (balsa box, ribbon, eco insert, handwritten card) and the price. The figure is our first proper product for sale this autumn.
+
+### 10. Set up a simple online shop (Tom)
+
+A standard Shopify shop to sell the book and the figure, linked from our website and Instagram.
+
+---
+
+## Words explained
+
+- **Subscriber / email list:** someone who has given us their email address, so we can reach them directly. Different from a follower, who only sees us if Instagram chooses to show them.
+- **The Quiet Letter:** our email sent as each Japanese micro-season turns (about every five days), carrying one of Rieko's illustrations.
+- **Figure prize draw:** the chance to win our first-edition Auwa figure, offered as a reason to join the email list.
+- **Print-on-demand:** a printing service that prints and posts each book only when someone orders it, so we don't pay upfront for a big print run.
+- **Resend:** the tool we use to hold our email addresses and send our emails.
+
+---
+
+*Keeping this current: at the start of a working session, say "update the to-do" and it gets re-sorted, with anything finished moved to the "Done" list.*

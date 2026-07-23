@@ -2,12 +2,11 @@ import { NextResponse } from "next/server";
 import WelcomeEmail from "@/emails/welcome";
 import { rateLimit, clientIp } from "@/lib/rate-limit";
 
-const SUBJECT_MAP: Record<string, string> = {
-  newsletter: "Welcome to Auwa",
-  "app-waitlist": "You're on the Auwa App waitlist",
-  "store-waitlist": "A note from Auwa.",
-  "book-waitlist": "A note from Auwa.",
-};
+// Every form now sends the single, unified welcome (the `newsletter` variant in
+// src/emails/welcome.tsx), whatever page the person signed up on. The `source`
+// still decides which Resend audience they land in — that's how we know where
+// they came from — but the email they receive is identical for all five forms.
+const WELCOME_SUBJECT = "A note from Auwa.";
 
 export async function POST(request: Request) {
   try {
@@ -28,7 +27,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, source } = await request.json();
+    const { email } = await request.json();
 
     if (!email || typeof email !== "string") {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -44,16 +43,13 @@ export async function POST(request: Request) {
     const { Resend } = await import("resend");
     const resend = new Resend(apiKey);
 
-    // Determine which audience to add the contact to
-    // Free plan: 3 audiences max. We use the source-specific audience when available,
-    // and fall back to App Waitlist as the default audience for newsletter subscribers.
-    const audienceForSource: Record<string, string> = {
-      "app-waitlist": "1924598e-56f8-478e-a0c9-cd896e612953",
-      "store-waitlist": "53ca6dff-01c3-4728-838a-5bac584294a1",
-      "book-waitlist": "117496ae-3d14-46b5-b17c-d95a97f0ab35",
-      "newsletter": "1924598e-56f8-478e-a0c9-cd896e612953",
-    };
-    const audienceId = audienceForSource[source] || "1924598e-56f8-478e-a0c9-cd896e612953";
+    // Single consolidated "Auwa" list (this ID is the audience formerly named
+    // "App Waitlist"; rename is cosmetic and doesn't change the ID). As of
+    // 23 Jul 2026 all five forms feed this one list — Resend has no per-contact
+    // tags, and the old per-pillar counts only reflected where the forms sat, so
+    // we dropped source-based routing. The dormant Store/Book audiences remain
+    // as a backup but nothing new is written to them.
+    const audienceId = "1924598e-56f8-478e-a0c9-cd896e612953";
 
     // Create the contact
     const { data, error } = await resend.contacts.create({
@@ -69,16 +65,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    // Send welcome email to all new signups (skip for existing contacts)
+    // Send the single unified welcome to all new signups, regardless of which
+    // form/source they used (skip for existing contacts).
     if (!alreadyExists) {
-      const validSource = source as "newsletter" | "app-waitlist" | "store-waitlist" | "book-waitlist";
       try {
         const { render } = await import("@react-email/render");
-        const html = await render(WelcomeEmail({ source: validSource }));
+        const html = await render(WelcomeEmail({ source: "newsletter" }));
         await resend.emails.send({
           from: "Auwa <hello@auwa.life>",
           to: email,
-          subject: SUBJECT_MAP[source] || "Welcome to Auwa",
+          subject: WELCOME_SUBJECT,
           html,
         });
       } catch (err) {
