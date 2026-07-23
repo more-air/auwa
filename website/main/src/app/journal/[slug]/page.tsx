@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
+import { SignupForm } from "@/components/signup-form";
 import { FadeIn } from "@/components/fade-in";
 import { HeaderTone } from "@/components/header-tone";
 import { TextReveal } from "@/components/text-reveal";
@@ -22,6 +23,13 @@ const articles: Record<
   string,
   {
     title: string;
+    /**
+     * Optional search-only <title>. When set, `generateMetadata` uses it for
+     * the Google / Open Graph title while the on-page H1 keeps the shorter,
+     * more elegant `title`. Lets us target keywords in search results without
+     * lengthening the headline the reader sees.
+     */
+    seoTitle?: string;
     subtitle: string;
     /**
      * Longer, keyword-rich meta description used by `generateMetadata`
@@ -768,8 +776,9 @@ const articles: Record<
   },
   "yaoyorozu-no-kami": {
     title: "Yaoyorozu no Kami",
+    seoTitle: "Yaoyorozu no Kami: Eight Million Gods",
     subtitle: "Eight million gods live in the world around you.",
-    description: "On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness.",
+    description: "Yaoyorozu no Kami is the ancient Japanese belief that eight million gods, or kami, live in all things. Its meaning, and why it matters now.",
     category: "Philosophy",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -778,7 +787,7 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "Yaoyorozu no Kami. Literally, \u201Ceight million gods,\u201D though the number is not a count. It means something closer to \u201Can uncountable multitude.\u201D Gods in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
+        text: "Yaoyorozu no Kami is the ancient Japanese belief that a life force, a kami, resides in all things. The name means eight million gods, a figure that stands for an uncountable multitude rather than a literal sum. Gods in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
       },
       {
         type: "text",
@@ -796,7 +805,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some of these trees have been standing for four hundred years. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
+        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some of <a href=\"/journal/yakushima-island\">these trees</a> have been standing for four hundred years. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
       },
       {
         type: "pullquote",
@@ -804,7 +813,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We tend to frame this as a Japanese concept, something culturally specific. But I think that is only half true. The cultural specificity is in the naming, the acknowledgement, the practice of tying ropes and placing offerings and bowing to a waterfall. The feeling itself is universal. Every child has talked to a stuffed animal and meant it. Every cook has a favourite knife that is, rationally, identical to three others in the drawer but is not. Every person who has lived in a house long enough has felt the moment when it stopped being a building and became something with character, with moods, with a way of holding light in the afternoon that felt like an expression of something.",
+        text: "We tend to frame this as a Japanese concept, something culturally specific. But I think that is only half true. The cultural specificity is in the naming, the acknowledgement, the practice of tying ropes and placing offerings and bowing to a waterfall. The feeling itself is universal. Every child has talked to a stuffed animal and meant it. Every cook has <a href=\"/journal/shigefusa-knife\">a favourite knife</a> that is, rationally, identical to three others in the drawer but is not. Every person who has lived in a house long enough has felt the moment when it stopped being a building and became something with character, with moods, with a way of holding light in the afternoon that felt like an expression of something.",
       },
       {
         type: "image-pair",
@@ -1032,7 +1041,7 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${article.title} | Auwa Journal`;
+  const title = `${article.seoTitle ?? article.title} | Auwa Journal`;
   const description = article.description ?? article.subtitle;
   const url = `https://auwa.life/journal/${slug}`;
   const ogImage = article.heroImage?.replace(/-hero\.jpg$/, "-og.jpg") ?? null;
@@ -1248,12 +1257,16 @@ export default async function ArticlePage({
 
             return null;
           })}
-        </article>
 
-        {/* ── Byline ── */}
+          {/* ── Byline: sits inside <article>, just below the last content
+              block. Its separator carries the same mt-12 md:mt-16 top gap as
+              the in-article cta block's separator, so the space above the credit
+              rule matches the space above a "Discover Auwa" rule. The article's
+              space-section padding-bottom then opens the gap down to the signup
+              card that follows. ── */}
         <FadeIn translateY={32}>
-          <div className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 xl:ml-[50%] space-flow max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
-            <div className="pt-8 border-t border-sumi/10 max-w-[90%]">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 xl:ml-[50%] max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
+            <div className="mt-12 md:mt-16 pt-8 border-t border-sumi/10 max-w-[90%]">
               {(() => {
                 const credit = (name: string) => {
                   const isRieko = name === "Rieko Maeda";
@@ -1295,6 +1308,50 @@ export default async function ArticlePage({
                   </div>
                 );
               })()}
+            </div>
+          </div>
+        </FadeIn>
+        </article>
+
+        {/* ── Figure signup card ──
+            Kinfolk-style CTA: raised panel, small figure image beside a short
+            title + paragraph, full-width form below (so the input + Subscribe
+            stay within the card padding on mobile). Shown on EVERY article,
+            always after the byline credit. The article's space-section
+            padding-bottom provides the gap above; mb-16 md:mb-24 provides the
+            gap down to the divider.
+            Title uses the section-heading scale; the line beneath uses body
+            copy so it balances the 16px form text. Feeds the newsletter list;
+            the giveaway is the hook. See context/pillar/journal.md Section 8. */}
+        <FadeIn translateY={32}>
+          <div className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 xl:ml-[50%] mb-16 md:mb-24 max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
+            <div className="rounded-md bg-white shadow-[0_10px_40px_-16px_rgba(16,22,35,0.14)] p-5 md:p-7">
+              <div className="flex gap-4 sm:gap-6 md:gap-7 items-center">
+                <div className="shrink-0 w-[112px] sm:w-[132px] md:w-[148px]">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-md">
+                    <ImageFade
+                      src="/store/insitu-1.jpg"
+                      alt="Auwa figure on a marble disc, a hand reaching in to touch it"
+                      fill
+                      sizes="148px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h2 className="font-display text-[24px] md:text-[28px] leading-[1.15] tracking-[0.01em] text-sumi">
+                    A letter, and a gift.
+                  </h2>
+                  <p className="mt-2.5 md:mt-3 font-display text-[18px] md:text-[19px] leading-[1.55] text-sumi/60">
+                    Sign up for seasonal essays, craftsman stories, and a chance to win a first-edition Auwa figure.
+                  </p>
+                </div>
+              </div>
+              {/* Form spans the full card width below the image+text row so the
+                  input and Subscribe button always sit within the card padding. */}
+              <div className="mt-5 md:mt-6">
+                <SignupForm source="newsletter" buttonText="Subscribe" theme="light" className="max-w-full" successMessage="Welcome. A letter will find you soon." />
+              </div>
             </div>
           </div>
         </FadeIn>
