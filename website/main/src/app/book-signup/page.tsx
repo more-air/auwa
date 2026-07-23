@@ -42,7 +42,7 @@ export default function BookPage() {
 
               <FadeIn delay={600}>
                 <div className="mt-12 md:mt-16">
-                  <SignupForm source="book-waitlist" buttonText="Notify me" />
+                  <SignupForm source="book" />
                 </div>
               </FadeIn>
             </div>

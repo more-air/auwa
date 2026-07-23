@@ -27,7 +27,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email } = await request.json();
+    const { email, source } = await request.json();
 
     if (!email || typeof email !== "string") {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -51,11 +51,17 @@ export async function POST(request: Request) {
     // as a backup but nothing new is written to them.
     const audienceId = "1924598e-56f8-478e-a0c9-cd896e612953";
 
+    // Record where they signed up as the contact's `source` property (one list,
+    // still tagged by origin). Anything unrecognised falls back to "web".
+    const KNOWN_SOURCES = ["store", "app", "book", "footer", "article", "meta"];
+    const sourceTag = KNOWN_SOURCES.includes(source) ? source : "web";
+
     // Create the contact
     const { data, error } = await resend.contacts.create({
       email,
       audienceId,
       unsubscribed: false,
+      properties: { source: sourceTag },
     });
 
     const alreadyExists = error?.message?.includes("already exists");

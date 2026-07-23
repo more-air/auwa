@@ -3,7 +3,10 @@
 import { useState, type FormEvent } from "react";
 
 interface SignupFormProps {
-  source: "app-waitlist" | "store-waitlist" | "book-waitlist" | "newsletter";
+  // `source` records WHERE someone signed up. It no longer routes to different
+  // lists or welcomes (everyone joins the one Auwa list and gets one welcome);
+  // it's saved as the contact's `source` property in Resend for later insight.
+  source: "store" | "app" | "book" | "footer" | "article";
   buttonText?: string;
   successMessage?: string;
   theme?: "light" | "dark";
@@ -12,8 +15,8 @@ interface SignupFormProps {
 
 export function SignupForm({
   source,
-  buttonText = "Join Waitlist",
-  successMessage = "You're in. A note from us is on its way.",
+  buttonText = "Subscribe",
+  successMessage = "A note from us is on its way.",
   theme = "light",
   className,
 }: SignupFormProps) {

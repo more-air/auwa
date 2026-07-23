@@ -1544,10 +1544,8 @@ function Signup() {
       mediaMaxWidth="lg:max-w-[420px]"
       action={
         <SignupForm
-          source="book-waitlist"
-          buttonText="Notify me"
+          source="book"
           theme="dark"
-          successMessage="You’re on the list. We’ll find you when it’s time."
         />
       }
       image={{

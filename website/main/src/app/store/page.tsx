@@ -60,7 +60,7 @@ export default function StorePage() {
               </FadeIn>
               <FadeIn delay={600}>
                 <div className="mt-12 md:mt-16">
-                  <SignupForm source="store-waitlist" buttonText="Notify me" />
+                  <SignupForm source="store" />
                 </div>
               </FadeIn>
             </div>

@@ -1350,7 +1350,7 @@ export default async function ArticlePage({
               {/* Form spans the full card width below the image+text row so the
                   input and Subscribe button always sit within the card padding. */}
               <div className="mt-5 md:mt-6">
-                <SignupForm source="newsletter" buttonText="Subscribe" theme="light" className="max-w-full" successMessage="Welcome. A letter will find you soon." />
+                <SignupForm source="article" theme="light" className="max-w-full" />
               </div>
             </div>
           </div>

@@ -31,10 +31,10 @@ const args = Object.fromEntries(
 );
 
 const DIR = resolve(args.dir || "share/meta-leads");
-// Source is passed through to /api/signup but no longer affects which list a
-// contact lands in — since 23 Jul 2026 every signup feeds the single "Auwa"
-// list (see api/signup/route.ts). Kept for logging/future use.
-const SOURCE = args.source || "newsletter";
+// Source is saved as the contact's `source` property in Resend (one shared
+// list, tagged by origin — see api/signup/route.ts). "meta" marks Meta-ad
+// leads. It no longer affects which list they join.
+const SOURCE = args.source || "meta";
 const ENDPOINT = args.endpoint || "https://auwa.life/api/signup";
 const DELAY = Number(args.delay ?? 13000);
 const DRY = Boolean(args["dry-run"]);

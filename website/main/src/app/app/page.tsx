@@ -63,7 +63,7 @@ export default function AppPage() {
               </FadeIn>
               <FadeIn delay={600}>
                 <div className="mt-12 md:mt-16">
-                  <SignupForm source="app-waitlist" buttonText="Notify me" />
+                  <SignupForm source="app" />
                 </div>
               </FadeIn>
             </div>

@@ -62,7 +62,7 @@ export function Footer() {
               </span>
             </h2>
             <div className="mt-12">
-              <SignupForm source="newsletter" buttonText="Subscribe" theme="dark" successMessage="Something quiet is on its way." />
+              <SignupForm source="footer" theme="dark" />
             </div>
           </div>
 
