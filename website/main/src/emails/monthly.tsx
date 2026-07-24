@@ -32,11 +32,13 @@ interface Season {
   image: string;
   imageAlt: string;
   kanji: string;
-  name: string; // romaji + english gloss, e.g. "Tsuchi uruōte — earth damp with heat"
+  name: string; // English translation only, e.g. "Paulownia trees bear fruit" (rendered uppercase)
   dates: string;
   note: string;
-  href?: string; // optional link for the main feature, e.g. the Instagram post
-  cta?: string; // link label, e.g. "See on Instagram"
+  href?: string; // first link, e.g. the Instagram post
+  cta?: string; // first link label, short (1-2 words), e.g. "Instagram"
+  href2?: string; // optional second link, e.g. the 72 Seasons journal article
+  cta2?: string; // second link label, e.g. "72 Seasons"
 }
 
 interface Update {
@@ -100,12 +102,13 @@ export default function MonthlyEmail({
     <Html>
       <Head>
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=swap');
           /* Lately grid: 2-up on desktop, stacks to 1-up on mobile. Honoured by
              Apple Mail, iOS Mail and the Gmail app; Outlook (Windows) ignores it
-             and keeps 2-up, which degrades acceptably. */
+             and keeps 2-up, which degrades acceptably. Extra bottom padding on
+             mobile so the stacked tiles aren't tight against each other. */
           @media only screen and (max-width: 600px) {
-            .tile-col { display: block !important; width: 100% !important; padding: 0 0 8px !important; }
+            .tile-col { display: block !important; width: 100% !important; padding: 0 0 30px !important; }
           }
         `}</style>
       </Head>
@@ -117,9 +120,9 @@ export default function MonthlyEmail({
             <Img src={`${BASE_URL}/email/auwa-logo.png`} alt="AUWA" width="110" height="22" style={wordmark} />
           </Section>
 
-          {/* Opener */}
+          {/* Masthead — a short, centred dateline. Format: "descriptor · Month Year". */}
           <Section style={contentSection}>
-            <Text style={paragraph}>{intro}</Text>
+            <Text style={masthead}>{intro}</Text>
           </Section>
 
           {/* The season */}
@@ -133,10 +136,22 @@ export default function MonthlyEmail({
                 <Text style={seasonName}>{season.name}</Text>
                 <Text style={seasonDates}>{season.dates}</Text>
                 <Text style={paragraph}>{season.note}</Text>
-                {season.href && season.cta && (
-                  <Link href={season.href} style={ctaLink}>
-                    {season.cta}
-                  </Link>
+                {(season.href || season.href2) && (
+                  <Section style={seasonLinks}>
+                    {season.href && season.cta && (
+                      <Link href={season.href} style={ctaLink}>
+                        {season.cta}
+                      </Link>
+                    )}
+                    {season.href && season.cta && season.href2 && season.cta2 && (
+                      <span style={linkSep}>·</span>
+                    )}
+                    {season.href2 && season.cta2 && (
+                      <Link href={season.href2} style={ctaLink}>
+                        {season.cta2}
+                      </Link>
+                    )}
+                  </Section>
                 )}
               </Section>
             </>
@@ -151,9 +166,13 @@ export default function MonthlyEmail({
           {chunk(updates, 2).map((pair, r) => (
             <Row key={r} style={tileRow}>
               {pair.map((u, i) => (
-                <Column key={i} className="tile-col" style={tileCol}>
+                <Column
+                  key={i}
+                  className="tile-col"
+                  style={{ ...tileCol, ...(i === 0 ? tileColLeft : tileColRight) }}
+                >
                   <Link href={u.href} style={tileImageLink}>
-                    <Img src={u.image} alt={u.imageAlt} width="260" style={tileImage} />
+                    <Img src={u.image} alt={u.imageAlt} width="256" style={tileImage} />
                   </Link>
                   <Heading style={tileTitle}>{u.title}</Heading>
                   <Text style={tileLine}>{u.line}</Text>
@@ -162,18 +181,17 @@ export default function MonthlyEmail({
                   </Link>
                 </Column>
               ))}
-              {pair.length === 1 && <Column className="tile-col" style={tileCol} />}
+              {pair.length === 1 && (
+                <Column className="tile-col" style={{ ...tileCol, ...tileColRight }} />
+              )}
             </Row>
           ))}
 
-          {/* Sign-off */}
-          <Section style={contentSection}>
-            <Text style={signoff}>With warmth,<br />Tom and Rieko</Text>
-            <Section style={ctaSection}>
-              <Link href={INSTAGRAM_URL} style={ctaLink}>
-                Follow on Instagram
-              </Link>
-            </Section>
+          {/* Sign-off — a single, centred, prominent follow link */}
+          <Section style={followSection}>
+            <Link href={INSTAGRAM_URL} style={followLink}>
+              Follow on Instagram
+            </Link>
           </Section>
 
           <Hr style={divider} />
@@ -218,13 +236,25 @@ const paragraph: React.CSSProperties = {
   color: "#33313a",
   margin: "0 0 18px",
 };
+// Short centred dateline under the wordmark. Reusable format: "descriptor · Month Year".
+const masthead: React.CSSProperties = {
+  fontFamily: "'Inter', Arial, sans-serif",
+  fontSize: "11px",
+  fontWeight: 500,
+  letterSpacing: "0.16em",
+  textTransform: "uppercase",
+  color: "#9b98a3",
+  textAlign: "center",
+  margin: "0 0 32px",
+};
 const seasonKanji: React.CSSProperties = {
-  fontFamily: "'EB Garamond', Georgia, serif",
-  fontSize: "34px",
-  fontWeight: 400,
+  // Serif (Mincho) JP face so the kanji matches the website's 72-seasons block.
+  fontFamily: "'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif",
+  fontSize: "38px",
+  fontWeight: 500,
   color: "#141318",
   textAlign: "center",
-  margin: "0 0 8px",
+  margin: "0 0 10px",
   lineHeight: "1.2",
 };
 const seasonName: React.CSSProperties = {
@@ -252,12 +282,15 @@ const lately: React.CSSProperties = {
   color: "#6b6875",
   margin: "0 0 20px",
 };
-const tileRow: React.CSSProperties = { marginBottom: "8px" };
+const tileRow: React.CSSProperties = { marginBottom: "0" };
+// Outer edges flush with the "Lately" heading; only an inner gutter between the two.
 const tileCol: React.CSSProperties = {
   width: "50%",
   verticalAlign: "top",
-  padding: "0 8px 24px",
+  paddingBottom: "30px",
 };
+const tileColLeft: React.CSSProperties = { paddingRight: "8px" };
+const tileColRight: React.CSSProperties = { paddingLeft: "8px" };
 const tileImageLink: React.CSSProperties = { display: "block", textDecoration: "none" };
 const tileImage: React.CSSProperties = {
   width: "100%",
@@ -273,6 +306,7 @@ const tileTitle: React.CSSProperties = {
   color: "#141318",
   lineHeight: "1.3",
   margin: "0 0 6px",
+  whiteSpace: "nowrap", // titles are kept short (≤ ~16 chars) so one line is safe
 };
 const tileLine: React.CSSProperties = {
   fontFamily: "'EB Garamond', Georgia, serif",
@@ -281,17 +315,32 @@ const tileLine: React.CSSProperties = {
   color: "#33313a",
   margin: "0 0 10px",
 };
-const signoff: React.CSSProperties = { ...paragraph, fontStyle: "italic", margin: "8px 0 0" };
-const ctaSection: React.CSSProperties = { padding: "16px 0 0" };
+// Links (season CTAs + tile CTAs): uppercase, tracked, matching welcome.tsx.
 const ctaLink: React.CSSProperties = {
   fontFamily: "'Inter', Arial, sans-serif",
-  fontSize: "13px",
-  letterSpacing: "0.06em",
+  fontSize: "12px",
+  fontWeight: 500,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
   color: "#141318",
   textDecoration: "underline",
-  textUnderlineOffset: "3px",
+  textUnderlineOffset: "4px",
 };
-const divider: React.CSSProperties = { borderColor: "#e4e1db", margin: "8px 0 32px" };
+const seasonLinks: React.CSSProperties = { margin: "4px 0 0" };
+const linkSep: React.CSSProperties = { color: "#c8c5be", margin: "0 10px" };
+// Prominent, centred follow link with breathing room above and below.
+const followSection: React.CSSProperties = { textAlign: "center", padding: "12px 0 4px" };
+const followLink: React.CSSProperties = {
+  fontFamily: "'Inter', Arial, sans-serif",
+  fontSize: "13px",
+  fontWeight: 500,
+  letterSpacing: "0.1em",
+  textTransform: "uppercase",
+  color: "#141318",
+  textDecoration: "underline",
+  textUnderlineOffset: "4px",
+};
+const divider: React.CSSProperties = { borderColor: "#e4e1db", margin: "32px 0" };
 const footer: React.CSSProperties = { textAlign: "center", padding: "0" };
 const footerLinks: React.CSSProperties = { margin: "0 0 12px" };
 const footerLink: React.CSSProperties = {
