@@ -36,13 +36,14 @@ The template for manual newsletter sends (article-led, monthly-ish). Accepts:
 - `closingNote` — optional italic closing line
 
 ### monthly.tsx
-The **Monthly Letter** — one calm email sent roughly monthly to the full list. One season (Rieko's illustration, kanji, a few lines) plus a short "Lately" section of one to three quiet updates pulled from recent Instagram posts and/or journal articles. This replaced an earlier "Quiet Letter" design that sent every 5 days in lockstep with the 72 micro-seasons — that cadence proved too frequent for subscribers, so it was folded into this single monthly send instead. Sent via its own endpoint `/api/monthly/send` (same NEWSLETTER_SECRET, same audience, Broadcast so unsubscribe works). Run it with the **`/marketing:monthly`** slash command, which auto-fills the current season from `website/main/src/lib/micro-seasons.ts`. Accepts:
+The **Monthly Letter** — one calm email sent roughly monthly to the full list. One season (Rieko's illustration, kanji, a few lines) plus a short "Lately" section of one to three quiet updates pulled from recent Instagram posts and/or journal articles. This replaced an earlier "Quiet Letter" design that sent every 5 days in lockstep with the 72 micro-seasons — that cadence proved too frequent for subscribers, so it was folded into this single monthly send instead. Sent via its own endpoint `/api/monthly/send` (same NEWSLETTER_SECRET, same audience, Broadcast so unsubscribe works). Run it with the **`/marketing:monthly`** slash command (which carries the full image + assembly recipe). Accepts:
 - `preview` — the preview line shown in email clients
-- `intro` — one to two opening sentences
-- `season` — `{ image, imageAlt, kanji, name, dates, note }` (or `null` for a month with no seasonal note)
-- `updates` — array of `{ image, imageAlt, title, line, href, cta }`, the "Lately" items (keep to 1-3)
+- `intro` — the short centred masthead under the wordmark. Format: `The monthly letter · [Month Year]`
+- `season` — the main feature: `{ image, imageAlt, kanji, name, dates, note, href?, cta?, href2?, cta2? }`. `name` is the English translation only (rendered uppercase); `kanji` renders serif Mincho, spaced. Prefer a single link to the 72 Seasons article (`cta: "Learn more"`). `null` for a month with no seasonal note.
+- `updates` — array of `{ image, imageAlt, title, line, href, cta }`, the "Lately" grid (two to four items; 2-up on desktop, stacks 1-up on mobile). Short one-line titles, consistent-length lines, uniform `cta: "See more"`.
+- `horizon` — optional quiet closing line about what's coming next (omit when there's no real news)
 
-Season illustrations for email go in `website/main/public/email/seasons/` and deploy, referenced as `https://auwa.life/email/seasons/[file]`. Drop new illustrations and update images in `share/monthly-letter/` first for review, then move approved files into `public/email/` and deploy. Cadence: roughly monthly; keep it tight so it reads as a letter, not a digest.
+Newsletter images go in `website/main/public/email/monthly/YYYY-MM/` (one folder per issue), processed via `scripts/process-image.js` in `email-hero` (4:5 main feature) / `email-tile` (4:5 grid tile) modes, and must be deployed before send. Video posts: pull a still with `scripts/grab-video-frame.swift`, then `email-tile ... south` to bottom-crop past any caption. The footer unsubscribe uses `{{{RESEND_UNSUBSCRIBE_URL}}}` (substituted per-recipient in the Broadcast). Cadence: roughly monthly; keep it tight so it reads as a letter, not a digest.
 
 ---
 

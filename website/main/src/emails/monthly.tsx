@@ -216,7 +216,10 @@ export default function MonthlyEmail({
             </Text>
             <Text style={footerText}>© Auwa {new Date().getFullYear()}</Text>
             <Text style={footerText}>
-              <Link href="mailto:hello@auwa.life?subject=Unsubscribe" style={{ color: "#999", textDecoration: "underline" }}>
+              {/* Resend substitutes this per-recipient in Broadcasts (one-click
+                  unsubscribe + List-Unsubscribe header). Transactional test sends
+                  leave it as a literal, harmless, non-clicked string. */}
+              <Link href="{{{RESEND_UNSUBSCRIBE_URL}}}" style={{ color: "#999", textDecoration: "underline" }}>
                 Unsubscribe
               </Link>
             </Text>

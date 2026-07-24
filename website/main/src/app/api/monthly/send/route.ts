@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { secret, subject, preview, intro, season, updates } = await request.json();
+    const { secret, subject, preview, intro, season, updates, horizon } = await request.json();
 
     const expectedSecret = process.env.NEWSLETTER_SECRET;
     if (!expectedSecret || secret !== expectedSecret) {
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       from: "Auwa <hello@auwa.life>",
       subject: subject || "A note from Auwa",
       name: subject || `Auwa monthly letter ${new Date().toISOString()}`,
-      react: MonthlyEmail({ preview, intro, season, updates }),
+      react: MonthlyEmail({ preview, intro, season, updates, horizon }),
     });
 
     if (createError || !created?.id) {
