@@ -55,6 +55,7 @@ interface MonthlyEmailProps {
   intro?: string;
   season?: Season | null;
   updates?: Update[];
+  horizon?: string; // optional quiet closing line about what's coming next
 }
 
 const SAMPLE_SEASON: Season = {
@@ -97,6 +98,7 @@ export default function MonthlyEmail({
   intro = "A quiet note as July gives way to August, with a little of what we have been making, and the season turning outside the window.",
   season = SAMPLE_SEASON,
   updates = SAMPLE_UPDATES,
+  horizon,
 }: MonthlyEmailProps) {
   return (
     <Html>
@@ -186,6 +188,13 @@ export default function MonthlyEmail({
               )}
             </Row>
           ))}
+
+          {/* Optional closing line about what's coming next */}
+          {horizon && (
+            <Section style={horizonSection}>
+              <Text style={horizonText}>{horizon}</Text>
+            </Section>
+          )}
 
           {/* Sign-off — a single, centred, prominent follow link */}
           <Section style={followSection}>
@@ -330,6 +339,17 @@ const ctaLink: React.CSSProperties = {
 };
 const seasonLinks: React.CSSProperties = { margin: "4px 0 0" };
 const linkSep: React.CSSProperties = { color: "#c8c5be", margin: "0 10px" };
+// Quiet, centred closing line about what's coming next.
+const horizonSection: React.CSSProperties = { textAlign: "center", padding: "14px 0 0" };
+const horizonText: React.CSSProperties = {
+  fontFamily: "'EB Garamond', Georgia, serif",
+  fontSize: "16px",
+  fontStyle: "italic",
+  lineHeight: "1.65",
+  color: "#6b6875",
+  margin: "0 auto",
+  maxWidth: "400px",
+};
 // Prominent, centred follow link with breathing room above and below.
 const followSection: React.CSSProperties = { textAlign: "center", padding: "30px 0 4px" };
 const followLink: React.CSSProperties = {
