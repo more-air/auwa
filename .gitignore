@@ -21,26 +21,13 @@ bug/
 # Share / handoff assets (large binaries, kept local + on Dropbox, never for git)
 share/
 
-# Social + photography working media. The heavy image/video binaries are kept
-# local + on Dropbox; only the web-optimised copies under website/main/public/
-# are tracked. Caption copy (_post.txt), scripts, schedule, manifest, and fonts
-# stay in git.
-social/**/*.jpg
-social/**/*.jpeg
-social/**/*.JPG
-social/**/*.png
-social/**/*.PNG
-social/**/*.mp4
-social/**/*.MP4
-social/**/*.mov
-social/**/*.MOV
-social/**/*.gif
-social/**/*.webp
-social/**/*.psd
-social/**/*.tif
-social/**/*.tiff
-social/**/*.heic
-social/**/*.HEIC
+# Instagram post content (images, video, captions, scripts, fonts) no longer
+# lives in this repo. It is the shared Dropbox `social` folder — the single
+# source of truth across Tom's and Rieko's Macs. The internal /instagram
+# dashboard reads it via AUWA_SOCIAL_ROOT (see src/lib/social-root.ts). Only
+# the web-optimised copies under website/main/public/ are tracked here.
+
+# Photography working media. Heavy binaries kept local + on Dropbox.
 photography/**/*.jpg
 photography/**/*.jpeg
 photography/**/*.JPG

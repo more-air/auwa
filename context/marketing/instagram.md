@@ -14,13 +14,13 @@ Account: **@auwalife** at instagram.com/auwalife. **Followers: 2,667** (22 Jul; 
 - **Breakout post: [instagram.com/p/DYchpYBseo1](https://www.instagram.com/p/DYchpYBseo1/)** — 4,000+ likes, 65 comments, ~200 shares, warm comments. Shares are the #1 algorithm signal, so this format travelled. **Study what made it work and repeat the format before inventing new ones.**
 - **72 micro-seasons cadence:** Rieko now makes an illustration or short video every 5 days for the seasons, and is enjoying the rhythm. She's flagged these could be released later as a complete set (72 pieces) — a natural print/calendar/newsletter asset once the series is complete. This is also the obvious spine for a "quiet letter every five days" newsletter hook (see arrival.md capture gap).
 
-**Content pipeline:** posts prepared and queued in `social/instagram/_scripts/schedule.txt`; the planning view at auwa.life/instagram renders the schedule live from disk.
+**Content pipeline:** posts prepared and queued in `<social>/_scripts/schedule.txt`; the planning view at auwa.life/instagram renders the schedule live from disk. `<social>` is the shared Dropbox `social` folder (single source of truth across Tom's and Rieko's Macs), pointed at by `AUWA_SOCIAL_ROOT` in `website/main/.env.local` — on this machine `/Users/admin/Dropbox/3 venture/auwa/social`. The post content no longer lives in the git repo; see `website/main/src/lib/social-root.ts`.
 
 **The gap:** despite 2,667 followers + heavy Awwwards traffic, newsletter subs total only ~93 (baseline 12 book / 41 store / 38 app). Capture is the weak link, not audience growth. See arrival.md, and "The capture loop" below.
 
 **Attacking the gap (22 Jul 2026):** two moves this session. (1) A proper **Meta lead-form ad** is now live for store signups — see "Meta lead ads — playbook + live campaign" under Paid advertising below; it's in review, don't touch for ~5 days, and the leads need pulling from Meta into Resend. (2) Two site fixes that were quietly costing conversions: the あうわ **entrance loader was removed** (it made every cold visitor wait ~3s before the page appeared — worst for paid mobile traffic), and a **auwa.life/privacy page was created** (standard pre-launch policy, required for Meta lead forms; not lawyer-reviewed). Both deployed to production.
 
-Content folders live under `social/instagram/<pillar>/<post>/` with the pillar prefixes `0-brand`, `1-book`, `2-store`, `3-journal`, `4-app`. Each post folder contains an `_post.txt` brief (caption, alt text, hashtags, notes) plus the images. The planning view at auwa.life/instagram (dev: localhost:3003/instagram) renders the schedule live from disk.
+Content folders live under `<social>/<pillar>/<post>/` (the Dropbox `social` folder, see above) with the pillar prefixes `0-brand`, `1-book`, `2-store`, `3-journal`, `4-app`. Note the Dropbox layout has no `instagram/` nesting level — pillars sit directly under `social`. Each post folder contains an `_post.txt` brief (caption, alt text, hashtags, notes) plus the images. The planning view at auwa.life/instagram (dev: localhost:3003/instagram) renders the schedule live from disk.
 
 ---
 

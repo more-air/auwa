@@ -1,8 +1,8 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
+import { SOCIAL_ROOT } from "@/lib/social-root";
 
-const REPO_ROOT = path.resolve(process.cwd(), "..", "..");
-export const SOCIAL_ROOT = path.join(REPO_ROOT, "social", "instagram");
+export { SOCIAL_ROOT };
 const SCHEDULE_FILE = path.join(SOCIAL_ROOT, "_scripts", "schedule.txt");
 
 const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
@@ -62,7 +62,7 @@ function detectType(files: string[]): PostType {
 function buildCandidates(folder: string, files: string[], type: PostType): { candidates: Candidate[]; coverIndex: number } {
   const enc = (f: string) => {
     const segments = folder.split("/").map(encodeURIComponent).join("/");
-    return `/api/social-media/instagram/${segments}/${encodeURIComponent(f)}`;
+    return `/api/social-media/${segments}/${encodeURIComponent(f)}`;
   };
 
   // Hero candidates: every image (excluding text-* slide frames) plus any

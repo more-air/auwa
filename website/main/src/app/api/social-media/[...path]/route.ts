@@ -1,10 +1,12 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { SOCIAL_ROOT } from "@/lib/social-root";
 
-// Repo root is three levels up from website/main/src/app/api/social-media/[...path]/route.ts
-const REPO_ROOT = path.resolve(process.cwd(), "..", "..");
-const SOCIAL_ROOT = path.join(REPO_ROOT, "social");
+// SOCIAL_ROOT is the pillar-containing folder (repo social/instagram, or the
+// Dropbox `social` folder when AUWA_SOCIAL_ROOT is set). URL parts are
+// <pillar>/<post>/<file> — the `instagram/` segment was dropped so the same
+// paths resolve under either layout.
 
 const MIME: Record<string, string> = {
   ".jpg": "image/jpeg",

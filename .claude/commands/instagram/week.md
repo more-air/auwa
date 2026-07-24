@@ -12,6 +12,16 @@ Load:
 - `context/marketing/instagram.md` (weekly cadence, content pillars, recommended mix)
 - `context/marketing/arrival.md` (current phase, any campaign moments this week)
 
+## Paths
+
+IG post content lives in the shared Dropbox `social` folder, not the git repo. Resolve it into `$SOCIAL` before any shell that reads or writes it:
+
+```bash
+SOCIAL="$(grep -E '^AUWA_SOCIAL_ROOT=' website/main/.env.local | head -1 | cut -d= -f2- | sed 's/^"//; s/"$//')"
+```
+
+Pillars sit directly under `$SOCIAL` (no `instagram/` level): `$SOCIAL/0-brand/`, `1-book/`, `2-store/`, `3-journal/`, `4-app/`. Always quote paths — the Dropbox path contains a space.
+
 ## Step 1: Ask the Brief
 
 Ask the user:
@@ -24,7 +34,7 @@ Ask the user:
 
 ## Step 2: Check the Mix
 
-Look at the last four weeks of posts across the pillar folders (`social/instagram/0-brand/`, `1-book/`, `2-store/`, `3-journal/`, `4-app/`) and tally pillar frequency:
+Look at the last four weeks of posts across the pillar folders (`$SOCIAL/0-brand/`, `1-book/`, `2-store/`, `3-journal/`, `4-app/`) and tally pillar frequency:
 
 - 35% Kokoro Reveal (character content)
 - 25% Editorial Slideshows
@@ -68,4 +78,4 @@ Once confirmed, offer to generate the individual briefs using `/instagram:post` 
 
 ## Step 6: Save the Week
 
-Save the plan to `social/instagram/weeks/YYYY-WW.md` (ISO week) with the table and a short note on the campaign moment if any. The weekly file is the user's at-a-glance view of where content stands.
+Save the plan to `$SOCIAL/weeks/YYYY-WW.md` (ISO week) with the table and a short note on the campaign moment if any. The weekly file is the user's at-a-glance view of where content stands.

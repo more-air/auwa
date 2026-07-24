@@ -1,9 +1,9 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { SOCIAL_ROOT } from "@/lib/social-root";
 
-const REPO_ROOT = path.resolve(process.cwd(), "..", "..");
-const SCHEDULE_FILE = path.join(REPO_ROOT, "social", "instagram", "_scripts", "schedule.txt");
+const SCHEDULE_FILE = path.join(SOCIAL_ROOT, "_scripts", "schedule.txt");
 
 // Slugs are <pillar>/<post-name>, e.g. journal/koya-san. Single-segment
 // slugs are no longer accepted — every post must live under a pillar dir.

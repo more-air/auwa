@@ -35,16 +35,14 @@ The template for manual newsletter sends (article-led, monthly-ish). Accepts:
 - `articles` — array of `{ title, excerpt, url, image? }` objects
 - `closingNote` — optional italic closing line
 
-### quiet-letter.tsx
-The **Quiet Letter** — the every-5-days micro-season note. Smaller than the newsletter: one season, Rieko's illustration, two to four sentences, no article list. It re-dresses the same asset Rieko already makes for the 72-season Instagram cadence, so it's near-zero marginal work. This is the primary list-warming mechanism and a real reason to subscribe ("a hand-drawn letter as each season turns"). Sent via its own endpoint `/api/quiet-letter/send` (same NEWSLETTER_SECRET, same audience, Broadcast so unsubscribe works). Run it with the **`/marketing:quiet-letter`** slash command, which auto-fills the current season from `website/main/src/lib/micro-seasons.ts`. Accepts:
-- `previewText`
-- `kanji` / `romaji` / `translation` — the season, from micro-seasons.ts (don't hand-type kanji)
-- `image` / `imageAlt` — Rieko's illustration (absolute public URL; must be live before send)
-- `paragraphs` — array of short paragraphs (the letter body, 2-4 sentences total)
-- `link` — optional `{ label, url }` soft link (e.g. "See it move" → the IG Reel)
-- `signOff` — optional italic closing line (e.g. "Rieko")
+### monthly.tsx
+The **Monthly Letter** — one calm email sent roughly monthly to the full list. One season (Rieko's illustration, kanji, a few lines) plus a short "Lately" section of one to three quiet updates pulled from recent Instagram posts and/or journal articles. This replaced an earlier "Quiet Letter" design that sent every 5 days in lockstep with the 72 micro-seasons — that cadence proved too frequent for subscribers, so it was folded into this single monthly send instead. Sent via its own endpoint `/api/monthly/send` (same NEWSLETTER_SECRET, same audience, Broadcast so unsubscribe works). Run it with the **`/marketing:monthly`** slash command, which auto-fills the current season from `website/main/src/lib/micro-seasons.ts`. Accepts:
+- `preview` — the preview line shown in email clients
+- `intro` — one to two opening sentences
+- `season` — `{ image, imageAlt, kanji, name, dates, note }` (or `null` for a month with no seasonal note)
+- `updates` — array of `{ image, imageAlt, title, line, href, cta }`, the "Lately" items (keep to 1-3)
 
-Season illustrations for email go in `website/main/public/email/seasons/` and deploy, referenced as `https://auwa.life/email/seasons/[file]`. Cadence: every ~5 days as each season turns; keep each tiny so the rhythm reads as a gift.
+Season illustrations for email go in `website/main/public/email/seasons/` and deploy, referenced as `https://auwa.life/email/seasons/[file]`. Drop new illustrations and update images in `share/monthly-letter/` first for review, then move approved files into `public/email/` and deploy. Cadence: roughly monthly; keep it tight so it reads as a letter, not a digest.
 
 ---
 
@@ -155,14 +153,16 @@ Keep it short, specific, lowercase after the first word. Hyphen separator matche
 ```
 website/main/src/emails/welcome.tsx      — Welcome email template (auto-sent)
 website/main/src/emails/newsletter.tsx   — Newsletter template (manual send, article-led)
-website/main/src/emails/quiet-letter.tsx — Quiet Letter template (every-5-days micro-season note)
+website/main/src/emails/monthly.tsx      — Monthly Letter template (season + Lately updates)
 website/main/src/lib/micro-seasons.ts    — 72-season data + getCurrentMicroSeason()
 website/main/src/app/api/signup/route.ts — Signup + welcome email API
-website/main/src/app/api/newsletter/send/route.ts    — Newsletter send API
-website/main/src/app/api/quiet-letter/send/route.ts  — Quiet Letter send API
+website/main/src/app/api/newsletter/send/route.ts — Newsletter send API
+website/main/src/app/api/monthly/send/route.ts    — Monthly Letter send API
 website/main/public/email/seasons/       — Rieko's per-season illustrations for the letter
+share/monthly-letter/                    — Staging drop for season/update images before they go into public/email/
 website/main/.env.local                  — API keys and newsletter secret (shared)
-.claude/commands/marketing/quiet-letter.md — /marketing:quiet-letter slash command
+.claude/commands/marketing/monthly.md    — /marketing:monthly slash command
+website/main/scripts/send-monthly-test.tsx — safe single-recipient preview send (bypasses the audience/broadcast entirely)
 ```
 
 ---

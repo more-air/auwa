@@ -17,6 +17,15 @@
  *            retina viewports — that's the blur.)
  *   ig     - resize+crop to 1080×1350 (4:5 portrait, centred)
  *   og     - resize+crop to 1200×630 (16:9-ish landscape, centred)
+ *   email-hero - resize to 1040px wide (2× the 520px email column), tall-safe,
+ *                JPEG q82 / 4:2:0 for a light file. The monthly newsletter main
+ *                feature image. Email clients fetch images live, so smaller = faster.
+ *   email-tile - resize+crop to 500×625 (4:5 portrait, centred), JPEG q80 / 4:2:0.
+ *                The uniform portrait tile used by the "Lately" 2-up grid so every
+ *                tile lays out identically. 4:5 matches Auwa's IG feed and journal
+ *                heroes (no crop for those) and is short enough that taller sources
+ *                (season art, a video poster frame) centre-crop without losing the
+ *                subject. Portrait, not square — matches the site and IG look.
  */
 
 const sharp = require("sharp");
@@ -52,12 +61,27 @@ if (!input || !output || !mode) {
     pipeline = pipeline
       .resize(1200, 630, { fit: "cover", kernel: "lanczos3", position: "centre" })
       .sharpen({ sigma: 0.6, m1: 0.4, m2: 2.0 });
+  } else if (mode === "email-hero") {
+    // Cap width at 1040 (2× the 520px column); allow tall portraits up to 1600.
+    pipeline = pipeline
+      .resize(1040, 1600, { fit: "inside", kernel: "lanczos3", withoutEnlargement: true })
+      .sharpen({ sigma: 0.6, m1: 0.4, m2: 2.0 });
+  } else if (mode === "email-tile") {
+    pipeline = pipeline
+      .resize(500, 625, { fit: "cover", kernel: "lanczos3", position: "centre" })
+      .sharpen({ sigma: 0.6, m1: 0.4, m2: 2.0 });
   } else {
-    console.error(`Unknown mode: ${mode}. Use web, pillar, hero, ig, or og.`);
+    console.error(`Unknown mode: ${mode}. Use web, pillar, hero, ig, og, email-hero, or email-tile.`);
     process.exit(1);
   }
 
-  await pipeline.jpeg({ quality: 85, mozjpeg: true, chromaSubsampling: "4:4:4" }).toFile(output);
+  // Email images favour small file size (clients fetch them live); site images
+  // favour fidelity. Lower quality + 4:2:0 chroma keeps newsletter images light.
+  const isEmail = mode === "email-hero" || mode === "email-tile";
+  const quality = mode === "email-tile" ? 80 : mode === "email-hero" ? 82 : 85;
+  const chromaSubsampling = isEmail ? "4:2:0" : "4:4:4";
+
+  await pipeline.jpeg({ quality, mozjpeg: true, chromaSubsampling }).toFile(output);
 
   const meta = await sharp(output).metadata();
   const fs = require("fs");

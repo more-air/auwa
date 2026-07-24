@@ -12,6 +12,16 @@ You are preparing an Instagram post brief for Auwa. Load these context files bef
 
 The global CLAUDE.md writing style rules apply strictly. No em dashes, no AI vocabulary, no marketing fluff.
 
+## Paths (IG folder + script)
+
+IG post content and the `text-image.py` script live in the shared Dropbox `social` folder, not the git repo. Resolve it once into an **absolute** `$SOCIAL` and reuse it for every shell block below (absolute so it works whether or not a block has `cd website/main` first):
+
+```bash
+SOCIAL="$(grep -E '^AUWA_SOCIAL_ROOT=' website/main/.env.local | head -1 | cut -d= -f2- | sed 's/^"//; s/"$//')"
+```
+
+Pillars sit directly under `$SOCIAL` (no `instagram/` level), so the journal IG folder is `$SOCIAL/3-journal/[photo-slug]/`, the script is `$SOCIAL/_scripts/text-image.py`, and fonts are under `$SOCIAL/_assets/fonts/`. Always quote paths — the Dropbox path contains a space.
+
 ## Step 1: Pick the Post Type
 
 Ask first:
@@ -37,7 +47,7 @@ The carousel structure (variable length, typically 6–8 slides):
 3. **Photo 1..N** — every other article photo at 1080×1350 (`image-[name].jpg`). Use as many as the article has good photos for; IG carousels accept up to 20 slides. More photos = more dwell time before the close slide nudges anyone toward the journal.
 4. **Close** — `text-close-dark.jpg` or `text-close-light.jpg`
 
-The whole post lands in a single flat folder per article: `social/instagram/3-journal/[photo-slug]/`. After the command runs, that folder contains:
+The whole post lands in a single flat folder per article: `$SOCIAL/3-journal/[photo-slug]/` (in Dropbox). After the command runs, that folder contains:
 
 ```
 _post.txt                 ← caption, hashtags, alt text per image. Underscore-prefix sorts to top of folder.
@@ -69,13 +79,13 @@ Ask in one message:
 
 1. Load the article from `website/main/src/app/journal/[url-slug]/page.tsx`. Note the title, topic, voice, and any specific framing.
 2. Look up the IG folder name (the `photo-slug`) in `auwa/photography/_manifest.json`. The article URL slug and the photo folder slug can differ (e.g. URL `the-beginning` vs photo folder `auwa-book`). The manifest entries are keyed by photo-slug with a `url_slug` field inside.
-3. The IG folder is `social/instagram/3-journal/[photo-slug]/`. The article URL on slide 4 uses `[url-slug]`.
+3. The IG folder is `$SOCIAL/3-journal/[photo-slug]/`. The article URL on slide 4 uses `[url-slug]`.
 
 ### Step 4A: Cover Slide Setup
 
 The cover (`cover.jpg`) is the typeset slide-1 alternative to the clean hero. Decisions here are about the title, the optional eyebrow, and the Japanese translation — **all interactive**, ask the user one at a time. The script renders both `cover.jpg` AND keeps `image-hero.jpg` clean, so nothing is lost if the user prefers the bare photograph at upload time.
 
-Spec (locked, see `social/instagram/_scripts/text-image.py` `render_cover` for the implementation):
+Spec (locked, see `$SOCIAL/_scripts/text-image.py` `render_cover` for the implementation):
 
 - AUWA wordmark, 30px tall, horizontally centred, top sits 120px from canvas top
 - Optional eyebrow line, Instrument Sans Medium, 24pt, +10% letter-spacing, uppercase, centred, top at 530px
@@ -111,7 +121,7 @@ This is the highest-leverage step. The quote on slide 2 is the single thing that
   ```bash
   python3 -c "
   from PIL import Image, ImageDraw, ImageFont
-  f = ImageFont.truetype('social/instagram/_assets/fonts/EBGaramond.ttf', 86)
+  f = ImageFont.truetype('$SOCIAL/_assets/fonts/EBGaramond.ttf', 86)
   d = ImageDraw.Draw(Image.new('RGB', (1080, 1350)))
   q = 'YOUR QUOTE HERE'
   L, c = [], ''
@@ -163,40 +173,40 @@ Output everything into the flat per-article folder. Three groups of files in thi
 #    manifest key as `image-[name].jpg` (e.g. image-blaze.jpg, image-priest.jpg).
 cd website/main && node scripts/process-image.js \
   ../../photography/[photo-slug]/2-edited/[source-file] \
-  ../../social/instagram/3-journal/[photo-slug]/image-[name].jpg ig
+  "$SOCIAL/3-journal/[photo-slug]/image-[name].jpg" ig
 # Repeat for EVERY image in the manifest, including the hero. Don't truncate.
 
 # 2. Cover — composed from the already-resized clean hero.
 #    --eyebrow and --jp are optional; omit either if Step 4A's answer was "skip".
 #    Pass exactly what Step 4A locked in; do not paraphrase or re-translate here.
-python3 social/instagram/_scripts/text-image.py \
+python3 "$SOCIAL/_scripts/text-image.py" \
   --variant cover \
-  --photo social/instagram/3-journal/[photo-slug]/image-hero.jpg \
+  --photo "$SOCIAL/3-journal/[photo-slug]/image-hero.jpg" \
   --title "[1-2 word cover title]" \
   --eyebrow "[optional eyebrow line]" \
   --jp "[optional Japanese translation]" \
-  --out social/instagram/3-journal/[photo-slug]/image-hero-text.jpg
+  --out "$SOCIAL/3-journal/[photo-slug]/image-hero-text.jpg"
 
 # 3. Quote and close text frames, dark + light each.
-python3 social/instagram/_scripts/text-image.py \
+python3 "$SOCIAL/_scripts/text-image.py" \
   --variant quote --theme dark \
   --quote "[chosen quote, no surrounding quote marks]" \
-  --out social/instagram/3-journal/[photo-slug]/text-quote-dark.jpg
+  --out "$SOCIAL/3-journal/[photo-slug]/text-quote-dark.jpg"
 
-python3 social/instagram/_scripts/text-image.py \
+python3 "$SOCIAL/_scripts/text-image.py" \
   --variant quote --theme light \
   --quote "[chosen quote, no surrounding quote marks]" \
-  --out social/instagram/3-journal/[photo-slug]/text-quote-light.jpg
+  --out "$SOCIAL/3-journal/[photo-slug]/text-quote-light.jpg"
 
-python3 social/instagram/_scripts/text-image.py \
+python3 "$SOCIAL/_scripts/text-image.py" \
   --variant close --theme dark \
   --title "[article.title]" --slug "[url-slug]" \
-  --out social/instagram/3-journal/[photo-slug]/text-close-dark.jpg
+  --out "$SOCIAL/3-journal/[photo-slug]/text-close-dark.jpg"
 
-python3 social/instagram/_scripts/text-image.py \
+python3 "$SOCIAL/_scripts/text-image.py" \
   --variant close --theme light \
   --title "[article.title]" --slug "[url-slug]" \
-  --out social/instagram/3-journal/[photo-slug]/text-close-light.jpg
+  --out "$SOCIAL/3-journal/[photo-slug]/text-close-light.jpg"
 ```
 
 If the article command (`/journal:article`) already ran Step 5's IG optimisation, the `image-*.jpg` files will already exist; skip the photo loop and run only steps 2 and 3 above. **Do still verify every manifest entry has a corresponding `image-[name].jpg` in the folder** — older posts predate the every-photo loop and may only have hero + one or two others, in which case generate the missing ones from `2-edited/` before proceeding.
@@ -204,13 +214,13 @@ If the article command (`/journal:article`) already ran Step 5's IG optimisation
 After generating, clean up any legacy files in the slug folder (anything matching `[photo-slug]-*-ig.jpg` from the old bulk-processing workflow, leftover `post-editorial/` subfolder, numbered `1-hero.jpg` / `3-context.jpg` files, plain-named photos without the `image-` prefix, or `post.txt` instead of `_post.txt`). Note: `cover.jpg` was the original name for the typeset cover before May 2026; if it's there, delete it (the new file is `image-hero-text.jpg`):
 
 ```bash
-find social/instagram/3-journal/[photo-slug] -maxdepth 1 -name "[photo-slug]-*-ig.jpg" -delete
-rm -rf social/instagram/3-journal/[photo-slug]/post-editorial
-rm -f social/instagram/3-journal/[photo-slug]/1-hero.jpg social/instagram/3-journal/[photo-slug]/3-context.jpg
-rm -f social/instagram/3-journal/[photo-slug]/cover.jpg
+find "$SOCIAL/3-journal/[photo-slug]" -maxdepth 1 -name "[photo-slug]-*-ig.jpg" -delete
+rm -rf "$SOCIAL/3-journal/[photo-slug]/post-editorial"
+rm -f "$SOCIAL/3-journal/[photo-slug]/1-hero.jpg" "$SOCIAL/3-journal/[photo-slug]/3-context.jpg"
+rm -f "$SOCIAL/3-journal/[photo-slug]/cover.jpg"
 # Drop any photos that lack the image- prefix (skips text-*.jpg which are correctly named)
-find social/instagram/3-journal/[photo-slug] -maxdepth 1 -name "*.jpg" ! -name "image-*" ! -name "text-*" -delete
-mv social/instagram/3-journal/[photo-slug]/post.txt social/instagram/3-journal/[photo-slug]/_post.txt 2>/dev/null || true
+find "$SOCIAL/3-journal/[photo-slug]" -maxdepth 1 -name "*.jpg" ! -name "image-*" ! -name "text-*" -delete
+mv "$SOCIAL/3-journal/[photo-slug]/post.txt" "$SOCIAL/3-journal/[photo-slug]/_post.txt" 2>/dev/null || true
 ```
 
 The script and the photography source remain the source of truth. Anything in the IG folder is regenerable on demand.
@@ -270,7 +280,7 @@ For the two text frames (a single alt covers both dark and light variants since 
 
 ### Step 8A: Save the _post.txt
 
-Write a plain-text file at `social/instagram/3-journal/[photo-slug]/_post.txt`. The underscore prefix sorts the brief to the top of the folder where it's easy to find on a phone. ASCII section headers, no markdown, no em dashes. Tom reads this on Android Dropbox and long-presses to copy each section into IG. The hashtags sit AT THE END OF THE CAPTION (not in a separate paste-step) because that's where they belong on IG, with a few line breaks between the caption signature and the hashtag block to keep the visible caption clean. Each alt-text entry uses a vertical "filename: / description" layout (filename on its own line, description on the next, blank line between entries) so each block is one tap-and-drag selection on a phone.
+Write a plain-text file at `$SOCIAL/3-journal/[photo-slug]/_post.txt`. The underscore prefix sorts the brief to the top of the folder where it's easy to find on a phone. ASCII section headers, no markdown, no em dashes. Tom reads this on Android Dropbox and long-presses to copy each section into IG. The hashtags sit AT THE END OF THE CAPTION (not in a separate paste-step) because that's where they belong on IG, with a few line breaks between the caption signature and the hashtag block to keep the visible caption clean. Each alt-text entry uses a vertical "filename: / description" layout (filename on its own line, description on the next, blank line between entries) so each block is one tap-and-drag selection on a phone.
 
 ```
 [ARTICLE TITLE] | Auwa Journal
@@ -280,7 +290,7 @@ Scheduled: [YYYY-MM-DD HH:MM London or TBD]
 Carousel: [N] slides, 1080x1350 (cover, quote, [N-3] photos, close)
 Slide 1: image-hero-text.jpg (typeset cover) OR image-hero.jpg (clean) — pick at upload
 Theme: dark (default) or light, pick at upload
-Folder: social/instagram/3-journal/[photo-slug]/
+Folder: Dropbox/social/3-journal/[photo-slug]/
 Source: auwa.life/journal/[url-slug]
 
 
@@ -392,7 +402,7 @@ Avoid `#japanesephilosophy`. Rotate so the same five don't appear on every post.
 
 ### Step 6B: Assemble and Save (Single / Reel / Carousel)
 
-Save to `social/instagram/YYYY-MM-DD-[slug].md`:
+Save to `$SOCIAL/YYYY-MM-DD-[slug].md`:
 
 ```markdown
 # [Post title, short]
@@ -445,6 +455,6 @@ Save and report the path.
 
 After saving, remind the user:
 
-**For slideshows:** Everything lives in `social/instagram/3-journal/[photo-slug]/`: every article photo as `image-*.jpg` (including `image-hero.jpg` clean and `image-hero-text.jpg` typeset), the four `text-*.jpg` frames, and `_post.txt`. On phone or desktop, open the folder, open `_post.txt`, paste the caption block (caption + hashtags) into Buffer or Later. For slide 1, pick either `image-hero-text.jpg` (typeset cover, default) or `image-hero.jpg` (bare photo, when the hero wants to breathe — e.g. _The Beginning_, character stills). Slide 2 is one of the dark/light quote pair. Slides 3..N are however many `image-[name].jpg` files suit the article — IG carousels run up to 20 slides, more dwell-time before the close is generally better. The final slide is one of the dark/light close pair. Set the matching alt text per slide from `_post.txt`, schedule the first comment to post within 5 minutes of publish, and prepare the Story share on phone. If a slide needs a tweak, re-run `/instagram:post` for that article — the script overwrites cleanly.
+**For slideshows:** Everything lives in `$SOCIAL/3-journal/[photo-slug]/` (the Dropbox `social` folder): every article photo as `image-*.jpg` (including `image-hero.jpg` clean and `image-hero-text.jpg` typeset), the four `text-*.jpg` frames, and `_post.txt`. On phone or desktop, open the folder, open `_post.txt`, paste the caption block (caption + hashtags) into Buffer or Later. For slide 1, pick either `image-hero-text.jpg` (typeset cover, default) or `image-hero.jpg` (bare photo, when the hero wants to breathe — e.g. _The Beginning_, character stills). Slide 2 is one of the dark/light quote pair. Slides 3..N are however many `image-[name].jpg` files suit the article — IG carousels run up to 20 slides, more dwell-time before the close is generally better. The final slide is one of the dark/light close pair. Set the matching alt text per slide from `_post.txt`, schedule the first comment to post within 5 minutes of publish, and prepare the Story share on phone. If a slide needs a tweak, re-run `/instagram:post` for that article — the script overwrites cleanly.
 
 **For single / Reel / carousel:** Paste caption + hashtags into Buffer or Later. Upload the asset. Verify the crop (Reel 9:16, feed 4:5 portrait at 1080x1350). Add the alt text. Schedule the first comment to post within 5 minutes of publish. Prepare the Story share on phone for immediate share after publish. If it's a pinned post, note to pin in-app after publish.

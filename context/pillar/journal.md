@@ -154,10 +154,10 @@ Per-article workflow:
 
 Claude Code should run this optimisation pipeline automatically:
 
-1. **Create the article output directories:**
+1. **Create the article output directories.** IG output goes to the shared Dropbox `social` folder, not the repo. Resolve it once into an absolute `$SOCIAL` (see the `/journal:article` command's Paths note): `SOCIAL="$(grep -E '^AUWA_SOCIAL_ROOT=' website/main/.env.local | head -1 | cut -d= -f2- | sed 's/^"//; s/"$//')"`. Pillars sit directly under `$SOCIAL` (no `instagram/` level).
    ```
    mkdir -p website/main/public/journal/[slug]/
-   mkdir -p social/instagram/3-journal/[slug]/
+   mkdir -p "$SOCIAL/3-journal/[slug]/"
    ```
 
 2. **Optimise each image using sharp** (Node.js, installed in `website/main/node_modules`). Sips was used previously but produces visibly soft output because it doesn't apply post-resize sharpening; sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. The wrapper script lives at `website/main/scripts/process-image.js`. Always run from `website/main/`:
@@ -172,7 +172,7 @@ Claude Code should run this optimisation pipeline automatically:
    - Web hero: `[slug]-hero.jpg`
    - Web supporting: `[slug]-[descriptive-name].jpg` (e.g. `shigefusa-box.jpg`)
    - Image pair: `[slug]-[name-1].jpg` and `[slug]-[name-2].jpg`
-   - IG counterparts: same name plus `-ig` suffix in `social/instagram/3-journal/[slug]/`
+   - IG counterparts: same name plus `-ig` suffix in `$SOCIAL/3-journal/[slug]/`
    - OG (hero only): `[slug]-og.jpg` (the article page derives this path from the hero)
    - All lowercase, hyphens not underscores, no spaces
 
@@ -199,7 +199,7 @@ website/main/public/journal/[slug]/   (web at 1800px + 1200×630 OG)
   ...
   [slug]-og.jpg
 
-social/instagram/3-journal/[slug]/              (IG at 1080×1350)
+$SOCIAL/3-journal/[slug]/                       (IG at 1080×1350, in Dropbox)
   [slug]-hero-ig.jpg
   [slug]-[name]-ig.jpg
 ```

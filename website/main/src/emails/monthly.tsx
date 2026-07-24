@@ -11,6 +11,7 @@
 // renders a complete example for review. Swap the props at send time.
 import {
   Body,
+  Column,
   Container,
   Head,
   Heading,
@@ -19,6 +20,7 @@ import {
   Img,
   Link,
   Preview,
+  Row,
   Section,
   Text,
 } from "@react-email/components";
@@ -33,6 +35,8 @@ interface Season {
   name: string; // romaji + english gloss, e.g. "Tsuchi uruōte — earth damp with heat"
   dates: string;
   note: string;
+  href?: string; // optional link for the main feature, e.g. the Instagram post
+  cta?: string; // link label, e.g. "See on Instagram"
 }
 
 interface Update {
@@ -79,6 +83,13 @@ const SAMPLE_UPDATES: Update[] = [
   },
 ];
 
+// Split the Lately updates into rows of `size` for the 2-up grid.
+function chunk<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
 export default function MonthlyEmail({
   preview = "The season turns, and a little of what we've been making.",
   intro = "A quiet note as July gives way to August, with a little of what we have been making, and the season turning outside the window.",
@@ -90,6 +101,12 @@ export default function MonthlyEmail({
       <Head>
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap');
+          /* Lately grid: 2-up on desktop, stacks to 1-up on mobile. Honoured by
+             Apple Mail, iOS Mail and the Gmail app; Outlook (Windows) ignores it
+             and keeps 2-up, which degrades acceptably. */
+          @media only screen and (max-width: 600px) {
+            .tile-col { display: block !important; width: 100% !important; padding: 0 0 8px !important; }
+          }
         `}</style>
       </Head>
       <Preview>{preview}</Preview>
@@ -116,25 +133,37 @@ export default function MonthlyEmail({
                 <Text style={seasonName}>{season.name}</Text>
                 <Text style={seasonDates}>{season.dates}</Text>
                 <Text style={paragraph}>{season.note}</Text>
+                {season.href && season.cta && (
+                  <Link href={season.href} style={ctaLink}>
+                    {season.cta}
+                  </Link>
+                )}
               </Section>
             </>
           )}
 
           <Hr style={divider} />
 
-          {/* Lately */}
+          {/* Lately — 2-up grid (see the media query in Head for mobile stacking) */}
           <Section style={contentSection}>
             <Text style={lately}>Lately</Text>
           </Section>
-          {updates.map((u, i) => (
-            <Section key={i} style={updateSection}>
-              <Img src={u.image} alt={u.imageAlt} width="520" style={updateImage} />
-              <Heading style={updateTitle}>{u.title}</Heading>
-              <Text style={paragraph}>{u.line}</Text>
-              <Link href={u.href} style={ctaLink}>
-                {u.cta}
-              </Link>
-            </Section>
+          {chunk(updates, 2).map((pair, r) => (
+            <Row key={r} style={tileRow}>
+              {pair.map((u, i) => (
+                <Column key={i} className="tile-col" style={tileCol}>
+                  <Link href={u.href} style={tileImageLink}>
+                    <Img src={u.image} alt={u.imageAlt} width="260" style={tileImage} />
+                  </Link>
+                  <Heading style={tileTitle}>{u.title}</Heading>
+                  <Text style={tileLine}>{u.line}</Text>
+                  <Link href={u.href} style={ctaLink}>
+                    {u.cta}
+                  </Link>
+                </Column>
+              ))}
+              {pair.length === 1 && <Column className="tile-col" style={tileCol} />}
+            </Row>
           ))}
 
           {/* Sign-off */}
@@ -223,14 +252,33 @@ const lately: React.CSSProperties = {
   color: "#6b6875",
   margin: "0 0 20px",
 };
-const updateSection: React.CSSProperties = { padding: "0 0 32px" };
-const updateImage: React.CSSProperties = { width: "100%", height: "auto", display: "block", borderRadius: "2px", marginBottom: "16px" };
-const updateTitle: React.CSSProperties = {
+const tileRow: React.CSSProperties = { marginBottom: "8px" };
+const tileCol: React.CSSProperties = {
+  width: "50%",
+  verticalAlign: "top",
+  padding: "0 8px 24px",
+};
+const tileImageLink: React.CSSProperties = { display: "block", textDecoration: "none" };
+const tileImage: React.CSSProperties = {
+  width: "100%",
+  height: "auto",
+  display: "block",
+  borderRadius: "2px",
+  marginBottom: "14px",
+};
+const tileTitle: React.CSSProperties = {
   fontFamily: "'EB Garamond', Georgia, serif",
-  fontSize: "22px",
+  fontSize: "19px",
   fontWeight: 400,
   color: "#141318",
   lineHeight: "1.3",
+  margin: "0 0 6px",
+};
+const tileLine: React.CSSProperties = {
+  fontFamily: "'EB Garamond', Georgia, serif",
+  fontSize: "15px",
+  lineHeight: "1.6",
+  color: "#33313a",
   margin: "0 0 10px",
 };
 const signoff: React.CSSProperties = { ...paragraph, fontStyle: "italic", margin: "8px 0 0" };

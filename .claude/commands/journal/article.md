@@ -12,6 +12,16 @@ You are writing a journal article for auwa.life. Load these context files before
 
 Follow the production workflow in journal.md exactly. The global CLAUDE.md writing style rules apply strictly (no em dashes, no AI vocabulary).
 
+## Paths (IG output folder)
+
+IG carousel images for this command go into the shared Dropbox `social` folder, not the git repo. Before Step 2's image work, resolve it once into an **absolute** `$SOCIAL` (absolute so it survives the `cd website/main` in the resize commands):
+
+```bash
+SOCIAL="$(grep -E '^AUWA_SOCIAL_ROOT=' website/main/.env.local | head -1 | cut -d= -f2- | sed 's/^"//; s/"$//')"
+```
+
+Pillars sit directly under `$SOCIAL` (no `instagram/` level), so the journal IG folder is `$SOCIAL/3-journal/[slug]/`. Always quote it — the path contains a space.
+
 ## Step 1: Gather the Brief
 
 Ask the user these questions one at a time (not all at once):
@@ -44,7 +54,7 @@ If photos have been provided in `auwa/photography/[slug]/2-edited/`:
 
 1. Create the output directories:
    - `website/main/public/journal/[slug]/` (web hero, supporting images, OG)
-   - `social/instagram/3-journal/[slug]/` (IG carousel-ready 1080×1350 versions)
+   - `$SOCIAL/3-journal/[slug]/` (IG carousel-ready 1080×1350 versions, in Dropbox)
 2. List all images in the source folder and show them to the user
 3. Ask: "Which image should be the hero? And are any of these a pair (two detail shots to sit side by side)?"
 **All resizing uses `sharp` (Node.js)**, not `sips`. The script lives at `website/main/scripts/process-image.js`. Sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. Sips was producing soft output because it doesn't apply post-resize sharpening, which became visible after the Auwa preset's tonal flattening was layered on top. Always run from `website/main/`:
@@ -61,11 +71,11 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
    ```
    Rename each to convention: `[slug]-hero.jpg`, `[slug]-facade.jpg`, etc. Typical sizes after the Auwa preset + sharp sharpening: 500KB-1MB depending on detail.
 
-5. **IG optimisation.** For each image in `2-edited/`, also output a 1080×1350 (4:5 portrait, centre-cropped) version to `social/instagram/3-journal/[slug]/` with the `image-` prefix convention:
+5. **IG optimisation.** For each image in `2-edited/`, also output a 1080×1350 (4:5 portrait, centre-cropped) version to `$SOCIAL/3-journal/[slug]/` with the `image-` prefix convention:
    ```bash
    cd website/main && node scripts/process-image.js \
      ../../photography/[slug]/2-edited/[source].jpg \
-     ../../social/instagram/3-journal/[slug]/image-[name].jpg ig
+     "$SOCIAL/3-journal/[slug]/image-[name].jpg" ig
    ```
    The `image-` prefix groups article photos together in the IG folder and keeps them visually distinct from the text frames (`text-quote-*.jpg`, `text-close-*.jpg`) added in Step 7.
 
@@ -75,7 +85,7 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
      ../../photography/[slug]/2-edited/[hero-source].jpg \
      public/journal/[slug]/[slug]-og.jpg og
    ```
-   Verify these files exist: `[slug]-hero.jpg` (portrait, web), `[slug]-og.jpg` (1200×630 landscape, social previews), and `image-hero.jpg` in `social/instagram/3-journal/[slug]/` (1080×1350 IG). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
+   Verify these files exist: `[slug]-hero.jpg` (portrait, web), `[slug]-og.jpg` (1200×630 landscape, social previews), and `image-hero.jpg` in `$SOCIAL/3-journal/[slug]/` (1080×1350 IG). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
 7. Report the final file sizes and counts (X web, X IG, 1 OG).
 
 8. **Update the photography manifest.** Add an entry for the new article in `auwa/photography/_manifest.json`:
@@ -179,7 +189,7 @@ Once approved:
 
 ## Step 7: Create the Instagram post
 
-Once the article is live (or just before — the post brief doesn't need the URL to be reachable), create the editorial IG carousel for it. The output ends up as a single per-article folder at `social/instagram/3-journal/[photo-slug]/` containing every article photo at IG size + four text frames + one `_post.txt` brief, ready to copy into Instagram from a phone.
+Once the article is live (or just before — the post brief doesn't need the URL to be reachable), create the editorial IG carousel for it. The output ends up as a single per-article folder at `$SOCIAL/3-journal/[photo-slug]/` (in Dropbox) containing every article photo at IG size + four text frames + one `_post.txt` brief, ready to copy into Instagram from a phone.
 
 Run the slideshow branch of `.claude/commands/instagram/post.md` from Step 2A onwards. The article and source images already exist, so:
 
@@ -187,7 +197,7 @@ Run the slideshow branch of `.claude/commands/instagram/post.md` from Step 2A on
 - Skip the manifest check (article.md just populated it)
 - Skip the photo loop in Step 6A (this command already generated `image-[name].jpg` for every article photo). The slideshow flow still needs to ask the cover questions (Step 4A: title source / eyebrow yes-no / Japanese translation review), pick the quote (Step 5A), then render the cover and the four text frames.
 
-The slideshow asks YOU two interactive things: the cover title + JP translation (Step 4A) and the slide-2 quote (Step 5A). After the slideshow flow runs, the article folder under `social/instagram/3-journal/[photo-slug]/` contains:
+The slideshow asks YOU two interactive things: the cover title + JP translation (Step 4A) and the slide-2 quote (Step 5A). After the slideshow flow runs, the article folder under `$SOCIAL/3-journal/[photo-slug]/` contains:
 
 ```
 _post.txt                 ← caption, hashtags, alt text per image
