@@ -108,7 +108,7 @@ export default function MonthlyEmail({
              and keeps 2-up, which degrades acceptably. Extra bottom padding on
              mobile so the stacked tiles aren't tight against each other. */
           @media only screen and (max-width: 600px) {
-            .tile-col { display: block !important; width: 100% !important; padding: 0 0 30px !important; }
+            .tile-col { display: block !important; width: 100% !important; padding: 0 0 40px !important; }
           }
         `}</style>
       </Head>
@@ -248,12 +248,14 @@ const masthead: React.CSSProperties = {
   margin: "0 0 32px",
 };
 const seasonKanji: React.CSSProperties = {
-  // Serif (Mincho) JP face so the kanji matches the website's 72-seasons block.
+  // Serif (Mincho) JP face so the kanji matches the website's 72-seasons block,
+  // with tracking to echo the site's spaced-out kanji.
   fontFamily: "'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif",
   fontSize: "38px",
   fontWeight: 500,
   color: "#141318",
   textAlign: "center",
+  letterSpacing: "0.12em",
   margin: "0 0 10px",
   lineHeight: "1.2",
 };
@@ -329,7 +331,7 @@ const ctaLink: React.CSSProperties = {
 const seasonLinks: React.CSSProperties = { margin: "4px 0 0" };
 const linkSep: React.CSSProperties = { color: "#c8c5be", margin: "0 10px" };
 // Prominent, centred follow link with breathing room above and below.
-const followSection: React.CSSProperties = { textAlign: "center", padding: "12px 0 4px" };
+const followSection: React.CSSProperties = { textAlign: "center", padding: "30px 0 4px" };
 const followLink: React.CSSProperties = {
   fontFamily: "'Inter', Arial, sans-serif",
   fontSize: "13px",

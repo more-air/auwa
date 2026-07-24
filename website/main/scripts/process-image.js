@@ -6,7 +6,11 @@
  * Lanczos3 resize + unsharp mask + MozJPEG encoding.
  *
  * Usage:
- *   node scripts/process-image.js <input> <output> <mode>
+ *   node scripts/process-image.js <input> <output> <mode> [position]
+ *
+ * [position] (optional) overrides the crop gravity for the cover-crop modes
+ * (ig, og, email-hero, email-tile). Default "centre". Use e.g. "south" to keep
+ * the bottom of a frame (handy when a video still has a caption across the top).
  *
  * Modes:
  *   web    - resize to 1800px max long edge (article images, 4:5 portrait → 1440×1800)
@@ -33,7 +37,8 @@
 const sharp = require("sharp");
 const path = require("path");
 
-const [, , input, output, mode] = process.argv;
+const [, , input, output, mode, positionArg] = process.argv;
+const position = positionArg || "centre";
 
 if (!input || !output || !mode) {
   console.error("Usage: node process-image.js <input> <output> <web|ig|og>");
@@ -57,20 +62,20 @@ if (!input || !output || !mode) {
       .sharpen({ sigma: 0.7, m1: 0.5, m2: 2.5, x1: 2, y2: 10, y3: 20 });
   } else if (mode === "ig") {
     pipeline = pipeline
-      .resize(1080, 1350, { fit: "cover", kernel: "lanczos3", position: "centre" })
+      .resize(1080, 1350, { fit: "cover", kernel: "lanczos3", position })
       .sharpen({ sigma: 0.7, m1: 0.5, m2: 2.5, x1: 2, y2: 10, y3: 20 });
   } else if (mode === "og") {
     pipeline = pipeline
-      .resize(1200, 630, { fit: "cover", kernel: "lanczos3", position: "centre" })
+      .resize(1200, 630, { fit: "cover", kernel: "lanczos3", position })
       .sharpen({ sigma: 0.6, m1: 0.4, m2: 2.0 });
   } else if (mode === "email-hero") {
     // 4:5 portrait, matching the Lately tiles (2× the 520px column width).
     pipeline = pipeline
-      .resize(1040, 1300, { fit: "cover", kernel: "lanczos3", position: "centre" })
+      .resize(1040, 1300, { fit: "cover", kernel: "lanczos3", position })
       .sharpen({ sigma: 0.6, m1: 0.4, m2: 2.0 });
   } else if (mode === "email-tile") {
     pipeline = pipeline
-      .resize(500, 625, { fit: "cover", kernel: "lanczos3", position: "centre" })
+      .resize(500, 625, { fit: "cover", kernel: "lanczos3", position })
       .sharpen({ sigma: 0.6, m1: 0.4, m2: 2.0 });
   } else {
     console.error(`Unknown mode: ${mode}. Use web, pillar, hero, ig, og, email-hero, or email-tile.`);
