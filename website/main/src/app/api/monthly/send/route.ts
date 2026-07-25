@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { secret, subject, preview, intro, season, updates, horizon } = await request.json();
+    const { secret, subject, preview, intro, season, updates, horizon, dryRun } = await request.json();
 
     const expectedSecret = process.env.NEWSLETTER_SECRET;
     if (!expectedSecret || secret !== expectedSecret) {
@@ -51,6 +51,15 @@ export async function POST(request: Request) {
     if (createError || !created?.id) {
       console.error("Monthly letter broadcast create error:", createError);
       return NextResponse.json({ error: createError?.message || "Failed to create broadcast" }, { status: 500 });
+    }
+
+    // Dry run: creating the broadcast already validated the secret, the Resend
+    // API key, the audience, and the template render. Don't send — remove the
+    // draft and return. Use this to confirm the endpoint is wired correctly
+    // without emailing the list.
+    if (dryRun) {
+      try { await resend.broadcasts.remove(created.id); } catch {}
+      return NextResponse.json({ success: true, dryRun: true, id: created.id });
     }
 
     const { data: sent, error: sendError } = await resend.broadcasts.send(created.id);

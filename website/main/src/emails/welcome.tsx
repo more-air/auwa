@@ -71,12 +71,18 @@ const sourceContent = {
 
 interface WelcomeEmailProps {
   source?: keyof typeof sourceContent;
+  /** Hosted one-click unsubscribe URL for this recipient (see /api/unsubscribe).
+   *  Falls back to a mailto if absent. Transactional sends can't use the
+   *  Broadcast-only {{{RESEND_UNSUBSCRIBE_URL}}} merge variable. */
+  unsubscribeUrl?: string;
 }
 
 export default function WelcomeEmail({
   source = "newsletter",
+  unsubscribeUrl,
 }: WelcomeEmailProps) {
   const content = sourceContent[source];
+  const unsubHref = unsubscribeUrl || "mailto:hello@auwa.life?subject=Unsubscribe";
 
   return (
     <Html>
@@ -152,7 +158,7 @@ export default function WelcomeEmail({
               © Auwa {new Date().getFullYear()}
             </Text>
             <Text style={footerText}>
-              <Link href="mailto:hello@auwa.life?subject=Unsubscribe" style={{ color: "#999", textDecoration: "underline" }}>
+              <Link href={unsubHref} style={{ color: "#999", textDecoration: "underline" }}>
                 Unsubscribe
               </Link>
             </Text>

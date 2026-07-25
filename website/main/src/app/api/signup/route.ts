@@ -75,13 +75,30 @@ export async function POST(request: Request) {
     // form/source they used (skip for existing contacts).
     if (!alreadyExists) {
       try {
+        // Hosted one-click unsubscribe for this contact (transactional emails
+        // can't use the Broadcast-only {{{RESEND_UNSUBSCRIBE_URL}}}). The contact
+        // id is a UUID, so the link needs no signed token. See /api/unsubscribe.
+        const contactId = data?.id;
+        const unsubscribeUrl = contactId
+          ? `https://auwa.life/api/unsubscribe?c=${contactId}`
+          : undefined;
+
         const { render } = await import("@react-email/render");
-        const html = await render(WelcomeEmail({ source: "newsletter" }));
+        const html = await render(WelcomeEmail({ source: "newsletter", unsubscribeUrl }));
         await resend.emails.send({
           from: "Auwa <hello@auwa.life>",
           to: email,
           subject: WELCOME_SUBJECT,
           html,
+          // Native one-click unsubscribe in Gmail/Apple Mail (RFC 8058).
+          ...(unsubscribeUrl
+            ? {
+                headers: {
+                  "List-Unsubscribe": `<${unsubscribeUrl}>, <mailto:hello@auwa.life?subject=Unsubscribe>`,
+                  "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+                },
+              }
+            : {}),
         });
       } catch (err) {
         console.error("Welcome email failed:", err);
