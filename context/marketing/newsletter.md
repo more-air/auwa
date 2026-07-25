@@ -8,7 +8,7 @@
 
 Three pieces: welcome emails (automatic), newsletter sends (manual via API), and the templates that power both.
 
-**Welcome emails** fire automatically when someone signs up on the website. Each signup source gets a different message: newsletter subscribers hear about the journal and what to expect; app/store/book waitlisters get confirmation they're on the list with a pointer to the journal. No verification step. No double opt-in. The email is a quiet nod, not a sales funnel. These are sent transactionally via `resend.emails.send()`, and the unsubscribe link in the footer is a `mailto:hello@auwa.life?subject=Unsubscribe` rather than a merge variable (merge vars only substitute in Broadcasts).
+**Welcome emails** fire automatically when someone signs up on the website. Everyone now gets the single unified `newsletter` variant. No verification step, no double opt-in. The email is a quiet nod, not a sales funnel. Sent transactionally via `resend.emails.send()`. Because the Broadcast-only `{{{RESEND_UNSUBSCRIBE_URL}}}` merge var does NOT substitute in transactional sends (it would render as a literal string), the welcome uses a **hosted one-click unsubscribe** instead: the signup route builds `https://auwa.life/api/unsubscribe?c=<contactId>` from the created contact id, puts it in the footer link, and adds `List-Unsubscribe` + `List-Unsubscribe-Post` headers. `/api/unsubscribe` (GET = branded page, POST = one-click) marks the contact `unsubscribed:true`. Contact id is a UUID, so no signed token is needed.
 
 **Newsletters** are sent manually by calling the API endpoint, which creates and dispatches a Resend **Broadcast** (not a transactional email). This routes through `resend.broadcasts.create()` + `resend.broadcasts.send()` so `{{{RESEND_UNSUBSCRIBE_URL}}}` is replaced with a working per-recipient unsubscribe link and the `List-Unsubscribe` header is attached (required by Gmail/Yahoo since Feb 2024). You pass the content (heading, intro, articles, images) as JSON. Protected by a secret token so it can't be triggered accidentally.
 
@@ -170,8 +170,8 @@ website/main/scripts/send-monthly-test.tsx — safe single-recipient preview sen
 
 ## Resend Setup
 
-- **Audience ID**: 5c25ed2d-c4c8-4671-b27b-5bf92d61bba3 (all contacts go here)
-- **Segments**: App Waitlist, Store Waitlist, Book Waitlist (3 segments, free plan limit)
-- **Newsletter subscribers**: In audience, no segment (filter by "not in any segment" to find them)
-- **Welcome emails**: Sent via Resend Emails API (transactional, not broadcast)
-- **Newsletters**: Sent via Resend Emails API with `to: audience:ID` (broadcast to full list)
+- **Audience ID**: `1924598e-56f8-478e-a0c9-cd896e612953` — the single consolidated "Auwa" list. As of 23 Jul 2026 all five signup forms feed this one audience (Resend has no per-contact tags; origin is stored as the contact `source` property). The old per-pillar audiences are dormant.
+- **Welcome emails**: transactional (`resend.emails.send()`), hosted unsubscribe via `/api/unsubscribe`.
+- **Monthly letter**: Resend **Broadcast** via `/api/monthly/send` (managed `{{{RESEND_UNSUBSCRIBE_URL}}}`). Verify with `dryRun` before a real send (Step 8 of `/marketing:monthly`).
+
+**Env-var gotcha (bit us once):** the Vercel **Production** env vars `NEWSLETTER_SECRET`, `RESEND_API_KEY`, `RESEND_AUDIENCE_ID` must have NO trailing newline. They'd been set with `echo` (appends `\n`), which broke the broadcast endpoint (401 on the secret, 500 on the Resend key). Set them with `printf '%s' "$val" | vercel env add NAME production` (no newline) and redeploy. `vercel env pull` masks them as `[SENSITIVE]`, so verify via `dryRun`, not by reading back. `.env.local` (used by the SDK / test scripts) is the clean source of truth.

@@ -92,24 +92,35 @@ for f in season-x tile-a tile-b; do curl -s -o /dev/null -w "$f %{http_code}\n" 
   "https://auwa.life/email/monthly/2026-07/$f.jpg"; done
 ```
 
-## Step 8: Send to the list (real broadcast — irreversible)
+## Step 8: Dry-run the endpoint (no email)
 
-Only after the user has **explicitly approved sending to the real list**. This goes to every subscriber and cannot be unsent. Read `NEWSLETTER_SECRET` from `website/main/.env.local`, then POST the same assembled props (including `horizon` if used) to production:
+Before the real send, confirm the endpoint is wired correctly with `dryRun` — it validates the secret + Resend key + audience + template render and creates then removes the draft, sending nothing:
 
 ```bash
 SECRET=$(grep -E '^NEWSLETTER_SECRET=' website/main/.env.local | cut -d= -f2- | tr -d '"')
-curl -X POST https://auwa.life/api/monthly/send \
-  -H "Content-Type: application/json" \
+curl -X POST https://auwa.life/api/monthly/send -H "Content-Type: application/json" \
+  -d "{\"secret\":\"$SECRET\", \"dryRun\":true, ...all the props from the JSON... }"
+```
+
+Expect `{ "success": true, "dryRun": true, "id": "..." }`. If it 401s, the production `NEWSLETTER_SECRET` doesn't match `.env.local` (see Notes — usually a trailing-newline drift). If it 500s, the production `RESEND_API_KEY` / `RESEND_AUDIENCE_ID` are wrong.
+
+## Step 9: Send to the list (real broadcast — irreversible)
+
+Only after the user has **explicitly approved sending to the real list**. This goes to every subscriber and cannot be unsent. Same POST as the dry-run, without `dryRun`:
+
+```bash
+curl -X POST https://auwa.life/api/monthly/send -H "Content-Type: application/json" \
   -d "{\"secret\":\"$SECRET\", ...all the props from the JSON... }"
 ```
 
-Returns `{ success: true, id: "..." }`. Report the result and the audience size (Resend dashboard). On failure, common causes: unverified domain, wrong audience ID, or an image URL 404.
+Returns `{ success: true, id: "..." }`. Report the result and the audience size (Resend dashboard, or `resend.contacts.list({ audienceId })`). On failure, common causes: unverified domain, wrong audience ID, or an image URL 404.
 
-**Warning:** there is no safe "local" version of this endpoint — pointing the curl at `localhost` still calls `resend.broadcasts.send()` against the real `RESEND_AUDIENCE_ID`. Use `send-monthly-test.tsx` for anything that shouldn't reach subscribers.
+**Warning:** there is no `localhost` safety on this endpoint — pointing the curl at localhost still calls `resend.broadcasts.send()` against the real `RESEND_AUDIENCE_ID`. Use `dryRun` (above) or `send-monthly-test.tsx` for anything that shouldn't reach subscribers.
 
 ## Notes
 
 - Always preview before sending. Never send to the list without explicit approval.
-- The template footer's unsubscribe uses `{{{RESEND_UNSUBSCRIBE_URL}}}`, which Resend substitutes per-recipient in a Broadcast (one-click unsubscribe + the List-Unsubscribe header Gmail/Yahoo require). Keep it — don't revert it to a mailto.
+- **Env-var gotcha:** the production `NEWSLETTER_SECRET` / `RESEND_API_KEY` / `RESEND_AUDIENCE_ID` on Vercel must have NO trailing newline. They were once set with `echo` (appends `\n`), which broke the endpoint (401 on the secret, 500 on the Resend key). Set them with a no-newline pipe (`printf '%s' "$val" | vercel env add NAME production`), then redeploy. `vercel env pull` shows them as `[SENSITIVE]`, so verify with a `dryRun` (Step 8), not by reading them back.
+- The template footer's unsubscribe uses `{{{RESEND_UNSUBSCRIBE_URL}}}`, which Resend substitutes per-recipient in a Broadcast (one-click unsubscribe + the List-Unsubscribe header Gmail/Yahoo require). Keep it — don't revert it to a mailto. (Transactional emails like the welcome can't use that merge var; they use the hosted `/api/unsubscribe` instead.)
 - Each issue gets its own `public/email/monthly/YYYY-MM/` folder, so image caching is a non-issue for the real send (fresh URLs); the `?v=N` trick is only for re-testing at a reused filename.
 - Cadence is roughly monthly. The discipline is brevity, not frequency: keep it tight so it reads as a gift.
