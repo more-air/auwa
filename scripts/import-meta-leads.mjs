@@ -3,7 +3,12 @@
 // live website signup endpoint (/api/signup). That endpoint already:
 //   - adds the contact to the right Resend audience, and
 //   - sends the source-specific welcome email, and
-//   - skips the welcome if the contact already exists (idempotent).
+//   - skips the welcome if the contact already exists (idempotent), reporting
+//     which happened via the `created` flag in its JSON response.
+// NOTE: that dedupe lives entirely in /api/signup. It was broken until
+// 28 Jul 2026 (Resend's contacts.create upserts instead of erroring), which
+// re-sent 22 welcomes. This script therefore refuses to continue against an
+// endpoint that doesn't return `created`.
 // So this script needs no Resend key and no dedup logic of its own — it just
 // simulates a website signup for every email in the dropped CSV(s).
 //
@@ -86,9 +91,14 @@ async function postOne(email) {
     }
     const body = await res.json().catch(() => ({}));
     if (!res.ok) return { status: "error", detail: body.error || res.status };
-    // The endpoint returns an id only when a NEW contact was created (and thus
-    // the welcome email was sent). success with no id => already on the list.
-    return { status: body.id ? "added" : "skipped" };
+    // `created` says whether a NEW contact was made (and a welcome sent).
+    // It must be read explicitly: the endpoint returns an id in BOTH cases,
+    // so the old `body.id ? added : skipped` guess always said "added".
+    if (typeof body.created === "boolean") {
+      return { status: body.created ? "added" : "skipped" };
+    }
+    // Endpoint predates the `created` flag — its dedupe can't be trusted.
+    return { status: "unknown" };
   }
   return { status: "error", detail: "429 after retries" };
 }
@@ -105,14 +115,33 @@ async function main() {
     return;
   }
 
-  const tally = { added: 0, skipped: 0, error: 0 };
+  const tally = { added: 0, skipped: 0, unknown: 0, error: 0 };
   for (let i = 0; i < emails.length; i++) {
     const email = emails[i];
     const { status, detail } = await postOne(email);
     tally[status]++;
     const label =
-      status === "added" ? "added + welcomed" : status === "skipped" ? "already on list" : `ERROR: ${detail}`;
+      status === "added"
+        ? "added + welcomed"
+        : status === "skipped"
+          ? "already on list"
+          : status === "unknown"
+            ? "sent (endpoint too old to confirm dedupe)"
+            : `ERROR: ${detail}`;
     console.log(`  [${i + 1}/${emails.length}] ${email} — ${label}`);
+
+    // An endpoint without the `created` flag can't dedupe, so every further
+    // request risks another duplicate welcome to a real person. Stop at the
+    // first one rather than working through the whole CSV.
+    if (status === "unknown") {
+      console.error(
+        `\nStopped: the live endpoint didn't report a 'created' flag, so it may be re-sending\n` +
+          `welcome emails to existing contacts. Deploy the current /api/signup, then re-run.`
+      );
+      process.exitCode = 1;
+      return;
+    }
+
     if (i < emails.length - 1) await sleep(DELAY);
   }
 
