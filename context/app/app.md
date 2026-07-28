@@ -1,5 +1,7 @@
 # Auwa App — Build Status & Design Language
 
+> **RESUMING (late July 2026).** The full craft pass documented below shipped and is **live at auwa.app** (commits `a9fe364` → `e2e1bc0` on `main`; Vercel auto-deploys `website/app`). Nothing app-side has changed since; the ~2 months of commits on top are newsletter/signup/journal work on auwa.life only. Working tree is clean. Tom is back after time away and picking up app refinements — expect small, specific requests. The app now sits on ONE token/primitive system, so most changes are a single-token or single-primitive edit, not a per-screen hunt. **Trust this file + `patterns.md` before opening components; don't re-verify the whole app from scratch** (that's what burned tokens last time).
+
 *Updated 29 May 2026 (late — after Tom's full craft pass). Paired with `context/app/patterns.md` (code patterns + deployment + gotchas) and `context/pillar/app.md` (the canonical app spec). All three should be loaded together for any app session, alongside `context/brand/brand.md` for brand identity.*
 
 *This session (29 May, second pass) rebuilt the design system foundation and reworked every screen against Tom's detailed feedback and a set of Mobbin references (Stoic, How We Feel, One Year, Not Boring Habits, Finch). The headline outcomes: a global token layer so nothing is hardcoded per screen, the Light + Trove merge, a consistent flow chrome (progress + circle-arrow advance), and the onboarding character model locked with Rieko. Details below; the old "Rounds A/B/C" plan is fully delivered and retired.*
