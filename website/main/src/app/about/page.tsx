@@ -32,11 +32,12 @@ const kana = [
   { char: "わ", romaji: "WA", gloss: "The seen.", body: "The physical world we inhabit. The thing now in your hand." },
 ];
 
+// Three cards since Aug 2026 (was four, App removed with the pivot).
+// Order matches the homepage "What we make" module: Book, Store, Journal.
 const pillars = [
   { label: "Book", href: "/book", image: "/pillars/book.jpg" },
-  { label: "Journal", href: "/journal", image: "/journal/washi-paper/washi-paper-hero.jpg" },
-  { label: "App", href: "/app", image: "/pillars/app.jpg" },
   { label: "Store", href: "/store", image: "/pillars/store.jpg" },
+  { label: "Journal", href: "/journal", image: "/journal/washi-paper/washi-paper-hero.jpg" },
 ];
 
 export default function AboutPage() {
@@ -125,16 +126,21 @@ export default function AboutPage() {
               </FadeIn>
               <FadeIn delay={200}>
                 <p className="mt-8 font-display text-[18px] md:text-[20px] leading-[1.7] text-sumi/80">
-                  We bring this perspective to life through four paths: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
+                  Auwa is a character and a philosophy. The stories are illustrated, the character is made by hand, and the journal is written slowly.
                 </p>
               </FadeIn>
             </div>
           </section>
         </div>
 
-        {/* ── Four pillars ── */}
+        {/* ── What we make ──
+            Three cards in one row at every viewport. The old four-card
+            set ran grid-cols-2 on mobile, which with three items would
+            strand the third card alone on a second row. A single row of
+            three keeps the composition the design had at md+ and reads
+            as one set rather than a broken grid. */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-flow">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {pillars.map((pillar, i) => (
               <FadeIn
                 key={pillar.label}
@@ -157,8 +163,11 @@ export default function AboutPage() {
                       loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-sumi/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-4 md:p-6">
-                      <h3 className="font-display text-[20px] md:text-[28px] tracking-[0.01em] text-surface">
+                    {/* 14px on mobile, not 20px: at three-across the
+                        cards are ~98px wide on a 375 screen, and
+                        "Journal" at 20px filled the label edge to edge. */}
+                    <div className="absolute bottom-0 left-0 p-3 md:p-6">
+                      <h3 className="font-display text-[14px] md:text-[28px] tracking-[0.01em] text-surface">
                         {pillar.label}
                       </h3>
                     </div>

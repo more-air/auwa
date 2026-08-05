@@ -1,7 +1,7 @@
 "use client";
 
 /*
-  Pillar Parade — mobile four-pillar module.
+  Pillar Parade — mobile "What we make" module (Book / Store / Journal).
 
   Mirrors the Journal strip's behaviour exactly: a plain flex row with
   native overflow-x-auto, flex-shrink-0 cards, and a FadeIn slide-in-
@@ -28,21 +28,30 @@ type Card = {
   poster?: string;
 };
 
+/*
+  Three cards, matching EditorialFrames one-for-one (order, headings,
+  images). Was four (Store first, App last) until Aug 2026. Eyebrow
+  numbers are written out rather than derived from the index — keep them
+  in sync by hand if the order ever changes again.
+
+  The Store card uses the STATIC 9:16 poster, not store.mp4: the video
+  panned across other objects and read as a shop of craftsman goods
+  rather than as the Auwa figure edition.
+*/
 const CARDS: Card[] = [
   {
-    eyebrow: "01 / Store",
-    heading: "Lifetime objects.",
-    href: "/store",
-    type: "video",
-    src: "/intro/store.mp4",
-    poster: "/intro/store-poster.jpg",
-  },
-  {
-    eyebrow: "02 / Book",
+    eyebrow: "01 / Book",
     heading: "Open the eyes.",
     href: "/book",
     type: "image",
     src: "/intro/book.jpg",
+  },
+  {
+    eyebrow: "02 / Store",
+    heading: "Small editions.",
+    href: "/store",
+    type: "image",
+    src: "/intro/store-poster.jpg",
   },
   {
     eyebrow: "03 / Journal",
@@ -50,13 +59,6 @@ const CARDS: Card[] = [
     href: "/journal",
     type: "image",
     src: "/intro/journal.jpg",
-  },
-  {
-    eyebrow: "04 / App",
-    heading: "Awareness, daily.",
-    href: "/app",
-    type: "image",
-    src: "/intro/app.jpg",
   },
 ];
 

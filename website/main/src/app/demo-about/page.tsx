@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { ScrollFadeText } from "@/components/scroll-fade-text";
@@ -75,6 +76,14 @@ const founders = [
 ];
 
 export default function DemoAboutPage() {
+  // Internal-only mockup — viewable on `next dev`, 404s in production.
+  // It was reachable on the live domain until Aug 2026 (robots.txt
+  // disallow only asks crawlers not to index; it doesn't gate access),
+  // and it still carries the retired four-pillar copy. Same intent as
+  // the /brand and /book-signup guards, expressed in the client-
+  // component form since this page is "use client".
+  if (process.env.NODE_ENV === "production") notFound();
+
   return (
     <>
       <main>

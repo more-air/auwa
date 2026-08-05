@@ -17,12 +17,6 @@ import Link from "next/link";
 
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
-const pillars = [
-  { label: "The book.",  alt: "Auwa Book — illustrated Japanese stories",     cta: "Explore",  href: "/book",  image: "/pillars/book.jpg" },
-  { label: "The store.", alt: "Auwa Store — Japanese craftsman objects",      cta: "Be early", href: "/store", image: "/pillars/store.jpg" },
-  { label: "The app.",   alt: "Auwa App — daily Japanese awareness practice", cta: "Be early", href: "/app",   image: "/pillars/app.jpg" },
-];
-
 const latestArticles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
   { title: "Yaoyorozu no Kami", excerpt: "Eight million gods live in the world around you.", category: "Philosophy", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "A fire rite to honour guardian spirits.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-festival/nozawa-festival-hero.jpg" },
@@ -111,7 +105,7 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-sumi"
             >
-              Auwa: a character, a philosophy, a world. Built on the ancient idea that a life force, or Kokoro (心), resides in all things: a river, a handmade bowl, the wind through bamboo at dusk. Auwa is an invitation to notice again. We bring this perspective to life through four paths: a journal that shifts how you see everyday moments, a daily awareness practice, a store of objects made with care, and an illustrated world you can step into.
+              Auwa: a character and a philosophy. Built on the ancient idea that a life force, or Kokoro (心), resides in all things: a river, a handmade bowl, the wind through bamboo at dusk. Auwa is an invitation to notice again. The stories are illustrated, the character is made by hand, and the journal is written slowly.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
@@ -138,40 +132,12 @@ export default function Home() {
 
         <Separator />
 
-        {/* ── Four-pillar module ──
-            Desktop (md+): Editorial Frames tab gallery with crossfade +
-            staggered reveals — tab-driven, no scroll-hijacking.
-            Mobile (<md): Pillar Parade horizontal scroll-snap row —
-            native swipe, fits the viewport.
-
-            The h2 is hoisted here (rather than living inside each
-            variant) so the page renders exactly one canonical "Four
-            ways in." heading regardless of viewport. Previously both
-            EditorialFrames and PillarParade owned their own h2, which
-            put two identical headings into the SSR HTML — display:none
-            hid one from sight, but crawlers and inactive viewports
-            still saw the duplicate. */}
-        <section className="space-section">
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14 max-w-[720px]">
-            <TextReveal
-              as="h2"
-              stagger={80}
-              className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi"
-            >
-              Four ways in.
-            </TextReveal>
-          </div>
-          <div className="hidden md:block">
-            <EditorialFrames />
-          </div>
-          <div className="md:hidden">
-            <PillarParade />
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* ── Book hero card: full-width feature for the Auwa character ── */}
+        {/* ── Book hero card: full-width feature for the Auwa character ──
+            Sits BEFORE the "What we make" module (Aug 2026). Auwa is a
+            character and a philosophy first; the book, figure and journal
+            are what that character takes form as. Introducing the
+            character ahead of the things it appears in states that
+            hierarchy in page order rather than in copy. */}
         <section className="px-6 md:px-12 lg:px-20 xl:px-28 space-section">
           <FadeIn>
             <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi mb-10 md:mb-14">
@@ -185,7 +151,59 @@ export default function Home() {
 
         <Separator />
 
-        {/* ── Latest from the Journal ── */}
+        {/* ── "What we make" module ──
+            Desktop (md+): Editorial Frames tab gallery with crossfade +
+            staggered reveals — tab-driven, no scroll-hijacking.
+            Mobile (<md): Pillar Parade horizontal scroll-snap row —
+            native swipe, fits the viewport.
+
+            Three frames (Book / Store / Journal). Was four ("Four ways
+            in.") until Aug 2026, when the app was parked and the pillar
+            framing was dropped entirely — Auwa IS a character and a
+            philosophy, and this module lists what it MAKES. No count in
+            the heading, so the copy survives the next change to the
+            product line.
+
+            The h2 is hoisted here (rather than living inside each
+            variant) so the page renders exactly one canonical "What we
+            make." heading regardless of viewport. Previously both
+            EditorialFrames and PillarParade owned their own h2, which
+            put two identical headings into the SSR HTML — display:none
+            hid one from sight, but crawlers and inactive viewports
+            still saw the duplicate. */}
+        <section className="space-section">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14 max-w-[720px]">
+            <TextReveal
+              as="h2"
+              stagger={80}
+              className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi"
+            >
+              What we make.
+            </TextReveal>
+          </div>
+          <div className="hidden md:block">
+            <EditorialFrames />
+          </div>
+          <div className="md:hidden">
+            <PillarParade />
+          </div>
+        </section>
+
+        <Separator />
+
+        <MicroSeasonFeature />
+
+        <Separator />
+
+        {/* ── Latest from the Journal ──
+            Moved here (Aug 2026) from its old slot above the micro-season
+            module, taking the place of the retired "What we're making"
+            pillar cards. Those cards showed Book / Store / App; with the
+            app parked they'd have shown the same three things as the
+            "What we make" module higher up the page, so the module was
+            cut rather than re-pointed. The journal keeps its full
+            prominence — it's no longer framed as a pillar, but it's the
+            only part of Auwa a visitor can read today. */}
         <section className="space-section">
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 flex items-baseline justify-between gap-6 mb-10 md:mb-14">
             <FadeIn>
@@ -252,65 +270,6 @@ export default function Home() {
           </StripReveal>
         </section>
 
-        <Separator />
-
-        <MicroSeasonFeature />
-
-        <Separator />
-
-        {/* ── What we're making: three pillars ── */}
-        <section className="space-section">
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28 mb-10 md:mb-14">
-            <FadeIn>
-              <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.1] tracking-[0.005em] text-sumi">
-                What we&rsquo;re making.
-              </h2>
-            </FadeIn>
-          </div>
-          <div className="px-6 md:px-12 lg:px-20 xl:px-28 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
-            {pillars.map((pillar, i) => (
-              <FadeIn key={pillar.label} delay={i * STAGGER.grid} variant="reveal" revealDistance={40}>
-                <Link href={pillar.href} className="group block" data-cursor="Open">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-md">
-                    {pillar.image ? (
-                      <Image
-                        src={pillar.image}
-                        alt={pillar.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover"
-                        loading="eager"
-                        priority={i === 0}
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-cosmic-100/60 to-surface-raised" />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-sumi/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                      <h3 className="font-display text-[32px] md:text-[40px] leading-[1.05] tracking-[0.005em] text-surface">
-                        {pillar.label}
-                      </h3>
-                      <p className="mt-3">
-                        <span className="relative inline-flex overflow-hidden font-sans text-[12px] tracking-[0.16em] uppercase text-surface">
-                          <span className="block transition-transform duration-500 ease-text-roll group-hover:-translate-y-full">
-                            {pillar.cta} &rarr;
-                          </span>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0 flex items-center translate-y-full transition-transform duration-500 ease-text-roll group-hover:translate-y-0"
-                          >
-                            {pillar.cta} &rarr;
-                          </span>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
-        </section>
-
         {/* ── Breather: mid-page pullquote ── */}
         <section className="px-10 md:px-12 lg:px-20 xl:px-28 space-breathing">
           <div className="max-w-[1100px] mx-auto text-center">
@@ -373,7 +332,7 @@ export default function Home() {
           eyebrow="Meet Auwa"
           heading="Kokoro lives in every quiet, ordinary thing."
           cta={{ label: "Explore world", href: "/book" }}
-          body="Auwa, a character from our illustrated stories who reveals what the world has been too busy to notice. Auwa will also appear in our app."
+          body="Auwa, a character from our illustrated stories who reveals what the world has been too busy to notice. Auwa also takes form as a figure."
           // Portrait video on every viewport — Auwa revealing the
           // Kokoro in living things. Same footage used in the book
           // page's "What Auwa does" module. The warm-tint wash is

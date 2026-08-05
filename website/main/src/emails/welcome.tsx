@@ -31,7 +31,7 @@ const sourceContent = {
     preview: "Something quiet is on its way.",
     heading: "Stay close.",
     body: [
-      "Thank you for joining us. You're now part of a small group of people building a more aware life, guided by the ancient Japanese belief that a life force resides in all things. We'll write now and then with a little of that world: notes on Japanese craft and seasonal living, and early word when there's real news, the first book, the app, the first figures.",
+      "Thank you for joining us. You're now part of a small group of people building a more aware life, guided by the ancient Japanese belief that a life force resides in all things. We'll write now and then with a little of that world: notes on Japanese craft and seasonal living, and early word when there's real news, the first book, the first figures.",
       "You're also in the draw to win our first-edition Auwa figure, and if you're chosen we'll be in touch. Nothing noisy, just things worth reading.",
     ],
     image: `${BASE_URL}/pillars/store.jpg`,
@@ -52,7 +52,7 @@ const sourceContent = {
   "store-waitlist": {
     preview: "You're on the Auwa Store waitlist.",
     heading: "Made by hand, chosen with care.",
-    body: "The Auwa Store will bring together Japanese craftsman objects and our own signed figure editions, small, hand-finished batches made in house. We'll write when the doors open, and you're in the draw to win our first edition.",
+    body: "The Auwa Store will carry our own signed figure editions, small, hand-finished batches made in house, alongside exclusive Auwa products. We'll write when the doors open, and you're in the draw to win our first edition.",
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics and wooden bowl in afternoon light",
     cta: "Follow on Instagram",

@@ -915,11 +915,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "So Tom and I began building the rest. Auwa is becoming four things, each one a different way into the same idea. The illustrated stories, where the character lives most fully. A daily practice app called Kokoro Mirror, where Auwa meets you in the morning and reveals the kokoro in whatever you are feeling that day. A store, where we gather objects from Japanese craftsmen whose work carries its own kokoro. And this journal, where Tom and I write in long form about Japan, about craft, about awareness, about the way the seasons turn.",
+        text: "So Tom and I began building the rest. The illustrated stories came first, and they are where the character lives most fully. Then came the figure, an Auwa you can hold, printed and finished by hand in small numbered batches. And this journal, where Tom and I write in long form about Japan, about craft, about awareness, about the way the seasons turn.",
       },
       {
         type: "text",
-        text: "The character is where it began, and the character will always be the heart of it. But Auwa is bigger than the book now. It is becoming a way of looking at the world, expressed in four interconnected forms. We hope, in time, it becomes a small part of how some people choose to live.",
+        text: "The character is where it began, and the character will always be the heart of it. But Auwa is bigger than the book now. It is becoming a way of looking at the world, carried in what we make and in how slowly we make it. We hope, in time, it becomes a small part of how some people choose to live.",
       },
       {
         type: "cta" as const,

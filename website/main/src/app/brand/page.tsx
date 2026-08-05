@@ -48,7 +48,7 @@ const typeScale = [
   { name: "Card title", font: "EB Garamond", weight: "400", size: "20px / 22px", tracking: "0.01em", sample: "The knife maker of Seki" },
   { name: "Article body", font: "EB Garamond", weight: "400", size: "18px / 19px", tracking: "0.005em", sample: "The knife arrived on a Tuesday in June, two years after we ordered it." },
   { name: "Pullquote", font: "EB Garamond", weight: "400", size: "clamp(1.75rem, 3.5vw, 2.75rem)", tracking: "0.005em", sample: "The steel remembers every strike of the hammer." },
-  { name: "Subtitle", font: "EB Garamond", weight: "400", size: "clamp(1.1rem, 2vw, 1.4rem)", tracking: "-", sample: "A daily awareness practice rooted in Japanese philosophy." },
+  { name: "Subtitle", font: "EB Garamond", weight: "400", size: "clamp(1.1rem, 2vw, 1.4rem)", tracking: "-", sample: "Illustrated stories and figures made by hand." },
   { name: "Navigation", font: "Instrument Sans", weight: "400", size: "14px", tracking: "0.06em", sample: "Journal" },
   { name: "UI text / excerpts", font: "Instrument Sans", weight: "400", size: "14px", tracking: "-", sample: "A lifetime spent perfecting a single blade." },
   { name: "Form button", font: "Instrument Sans", weight: "500", size: "14px", tracking: "0.02em", sample: "Join Waitlist" },
@@ -247,22 +247,22 @@ export default function BrandPage() {
 
               {/* Title */}
               <div className="pt-12 md:pt-16 pb-12 md:pb-16 max-w-[760px]">
-                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-3">The four expressions</p>
+                <p className="font-sans text-[12px] tracking-[0.16em] uppercase text-sumi/45 mb-3">What we make</p>
                 <h3 className="font-display text-sumi leading-[1.15] tracking-[0.005em]" style={{ fontSize: "clamp(2rem,4vw,3rem)" }}>
-                  Four ways in.<br />One philosophy.
+                  One character.<br />One philosophy.
                 </h3>
                 <p className="mt-6 font-display italic text-sumi/55 max-w-[640px]" style={{ fontSize: "clamp(1rem,1.5vw,1.25rem)", lineHeight: 1.55 }}>
-                  Auwa expresses its philosophy of Kokoro through four interconnected doors. The app builds emotional awareness; the store cultivates material awareness; the journal carries cultural awareness; the book teaches philosophical awareness.
+                  Auwa is a character and a philosophy. The stories are illustrated, the character is made by hand, and the journal is written slowly. There is no count to defend and no door to choose; the character leads and the rest follows from it.
                 </p>
               </div>
 
-              {/* Pillars grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+              {/* What-we-make grid. Three since Aug 2026 (App removed with
+                  the pivot), ordered to match the homepage module. */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
                 {[
-                  { num: "01", name: "Store", tagline: "Lifetime objects.", desc: "Curated Japanese craftsman goods. The antithesis of throwaway culture.", img: "/intro/store-poster.jpg" },
-                  { num: "02", name: "Book", tagline: "Open the eyes.", desc: "Illustrated stories where the Auwa character lives. The mythology, in print.", img: "/intro/book.jpg" },
+                  { num: "01", name: "Book", tagline: "Open the eyes.", desc: "Illustrated stories where the Auwa character lives. The mythology, in print.", img: "/intro/book.jpg" },
+                  { num: "02", name: "Store", tagline: "Small editions.", desc: "Signed, hand-finished Auwa figures in small numbered batches, plus exclusive Auwa products.", img: "/intro/store-poster.jpg" },
                   { num: "03", name: "Journal", tagline: "Quiet moments.", desc: "Editorial essays on craft, season, and philosophy. The brand's slow voice.", img: "/intro/journal.jpg" },
-                  { num: "04", name: "App", tagline: "Awareness, daily.", desc: "A daily Kokoro mirror. Share how you feel; receive a quiet reflection.", img: "/intro/app.jpg" },
                 ].map((p) => (
                   <div key={p.name}>
                     <div className="relative aspect-[4/5] rounded-md overflow-hidden bg-surface-raised">
@@ -270,7 +270,7 @@ export default function BrandPage() {
                         src={p.img}
                         alt={`${p.name} — ${p.tagline}`}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        sizes="(max-width: 640px) 100vw, 33vw"
                         className="object-cover"
                       />
                     </div>

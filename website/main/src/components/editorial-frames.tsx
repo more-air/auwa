@@ -1,12 +1,11 @@
 "use client";
 
 /*
-  Editorial Frames — desktop four-pillar module.
-  "Magazine index" tab gallery that crossfades between four pillar frames.
-  No scroll-hijacking, no sticky transforms. Auto-advances every 10s
-  (long enough for the pillar-01 video, ~9s, to play through before
-  rotating),
-  pauses on hover, resets on interaction. Safe on iOS by design.
+  Editorial Frames — desktop "What we make" module.
+  "Magazine index" tab gallery that crossfades between three frames
+  (Book / Store / Journal). No scroll-hijacking, no sticky transforms.
+  Auto-advances every 10s, pauses on hover, resets on interaction.
+  Safe on iOS by design.
 
   Reveal: each frame's content is static. The only animation is the outer
   wrapper's 700ms opacity crossfade between frames. Nesting FadeIn /
@@ -17,8 +16,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FadeIn } from "@/components/fade-in";
-import { TextReveal } from "@/components/text-reveal";
 import { CtaLink } from "@/components/cta-link";
 import { DURATION, EASING } from "@/lib/motion";
 
@@ -26,9 +23,9 @@ import { DURATION, EASING } from "@/lib/motion";
 // The parent wrapper is already opacity-fading between frames (700ms
 // crossfade). Nesting further opacity+transform animations underneath it
 // causes visible subpixel jitter in Safari — the compositor re-rasterises
-// the layers as opacities compound. The section heading ("Four ways in.")
+// the layers as opacities compound. The section heading ("What we make.")
 // still uses TextReveal because it plays once on scroll-in, with no outer
-// animation wrapping it.
+// animation wrapping it — but it lives on the page, not in here.
 
 type Frame = {
   eyebrow: string;
@@ -41,17 +38,19 @@ type Frame = {
   poster?: string;
 };
 
+/*
+  Three frames, in order: Book, Store, Journal. Was four (Store first,
+  App last) until Aug 2026 — the app was parked and the pillar framing
+  dropped, so this module now lists what Auwa MAKES rather than "ways
+  in". Book leads because the character becoming known is the thing the
+  rest of the business rests on.
+
+  The Store frame carries the figure. Its image is the STATIC 9:16
+  poster, not the store.mp4 that used to run here — the video panned
+  across other objects, which read as a shop of craftsman goods rather
+  than as the Auwa figure edition.
+*/
 const FRAMES: Frame[] = [
-  {
-    eyebrow: "Store",
-    heading: "Lifetime objects.",
-    body: "A home for Japanese craftsman objects, chosen slowly and kept for a lifetime. Pieces carrying the patience of the hands that made them. Quietly gathered, quietly arriving.",
-    cta: "Be early",
-    href: "/store",
-    type: "video",
-    src: "/intro/store.mp4",
-    poster: "/intro/store-poster.jpg",
-  },
   {
     eyebrow: "Book",
     heading: "Open the eyes.",
@@ -62,6 +61,15 @@ const FRAMES: Frame[] = [
     src: "/intro/book.jpg",
   },
   {
+    eyebrow: "Store",
+    heading: "Small editions.",
+    body: "Limited Auwa figures, signed and hand-finished, alongside exclusive Auwa products. Join our newsletter for updates, and a chance to win our first edition.",
+    cta: "Be early",
+    href: "/store",
+    type: "image",
+    src: "/intro/store-poster.jpg",
+  },
+  {
     eyebrow: "Journal",
     heading: "Quiet moments.",
     body: "Travel essays, craftsmen encounters, onsen mornings, and the slow turning of the 72 micro-seasons. A living editorial written between London and Japan, quietly and patiently.",
@@ -70,17 +78,13 @@ const FRAMES: Frame[] = [
     type: "image",
     src: "/intro/journal.jpg",
   },
-  {
-    eyebrow: "App",
-    heading: "Awareness, daily.",
-    body: "A Kokoro mirror. Share how you feel, receive a quiet reflection drawn from an ancient Japanese emotional framework. No advice, no streaks, no numbers. Just daily attention.",
-    cta: "Be early",
-    href: "/app",
-    type: "image",
-    src: "/intro/app.jpg",
-  },
 ];
 
+// Every frame is a still image since Aug 2026 (the Store frame's video
+// was replaced by its poster), so the old "long enough for the pillar-01
+// video to play through" reason for 10s no longer applies. Kept at 10s
+// anyway: three frames at 10s is a 30s cycle, which is unhurried enough
+// that the module never feels like it's rotating at the reader.
 const ADVANCE_MS = 10000;
 
 /*
