@@ -1,7 +1,7 @@
 # Auwa Japan
 
-*Created: April 2026. Maintained as living document.*
-*Load when assessing market opportunity, positioning the store, or making the case for Auwa's timing.*
+*Created: April 2026. Maintained as living document. **Updated 5 August 2026** with the institutional/exhibition route and UK-Japan funding, following the three-pillar pivot.*
+*Load when assessing market opportunity, positioning the store, planning craftsman or institutional outreach, or making the case for Auwa's timing.*
 
 ---
 
@@ -77,13 +77,16 @@ Several small businesses have proven the model of curating Japanese craft for We
 - **Kobo** (Seattle): Japanese ceramics and craft. Small but dedicated following.
 - **Analogue Life** (online, based in Japan): Japanese craft objects sold internationally. English-language site. Strong Instagram presence (~80K followers).
 
-**Key insight:** All of these are small, independently run, and successful within their niche. None have: a digital wellness app, a character universe, an emotional framework, or a broader brand narrative. They sell products. Auwa sells a philosophy with products inside it.
+**Key insight:** All of these are small, independently run, and successful within their niche. None have a character universe or IP of their own. They sell other people's products.
 
-### What Auwa Store Adds That Others Don't
-- **Narrative context:** Each craft object exists within the Auwa philosophy of Kokoro and interconnectedness
-- **Digital companion:** The app creates an ongoing relationship; the store is where that relationship becomes physical
-- **Content engine:** Craftsman stories, making videos, Japan trip content all feed Instagram and YouTube
-- **Cultural bridge:** Rieko's Japanese fluency and cultural understanding means genuine relationships with makers, not transactional sourcing
+**Read this harder, post-pivot (Aug 2026):** every one of these businesses is a decade or more old and *still small*. That is the ceiling of curation without owned IP, and it is a large part of why Auwa removed curated resale from the plan entirely in August 2026. They remain excellent taste references and plausible collab partners. They are not the shelf Auwa competes on. See `competitors.md` Category K for Niwaki, Karel Capek and Mjölk, which are the couple-run models Auwa is actually building against.
+
+### What Auwa Adds That Others Don't
+- **Owned IP:** a character with a decade of story behind it, and the master form collaborators interpret. None of the businesses above own anything.
+- **Narrative context:** each object exists within the Auwa philosophy of Kokoro and interconnectedness, and in the collab editions literally enacts it — the maker's own Kokoro is what gets revealed.
+- **Content engine:** maker stories, films and Japan trip content feed the journal and Instagram.
+- **Cultural bridge:** Rieko's Japanese fluency means genuine relationships with makers, not transactional sourcing.
+- **An exhibition route:** character-meets-craft is programmable by cultural institutions. A curated homewares shop is not.
 
 ---
 
@@ -176,6 +179,51 @@ These brands prove the model of combining wellness + retail + storytelling under
 - **Auwa parallel:** As AI acceleration makes everything feel automated, hunger for artisan-made lifetime objects grows. Auwa Store occupies the same position for Japanese craft that Hodinkee occupied for mechanical watches.
 
 Sources: Fortune, TechCrunch, Brand Vision, Wikipedia, road.cc, A Media Operator, Portland Monthly, Hodinkee.
+
+---
+
+## Character IP Meets Japanese Craft (added 5 August 2026)
+
+The join Auwa now occupies. Two things make it viable rather than speculative.
+
+**The tradition already exists.** Kokeshi (turned wooden figures, regional schools with distinct forms and painting hands, collected for two centuries) and daruma (painted figure forms with strong regional identities, Gunma being the best known) are functionally blank-figure platforms that predate the Western art-toy category by two hundred years. Asking a kokeshi maker to produce an Auwa is barely a stretch — it is their existing craft with a new silhouette. This is why kokeshi and daruma are the recommended first craft collaborations.
+
+**The establishment has already blessed the format.** *POKÉMON × KOGEI: Playful Encounters of Pokémon and Japanese Craft* ran at the National Crafts Museum in Kanazawa from March to June 2023 and toured through 2026, including Japan House Los Angeles. Around 70-100 works by twenty of Japan's most accomplished craft artists, from Living National Treasure metal artist Morihito Katsura (b. 1944) to young artists like Taiichiro Yoshida (b. 1989), in lacquer, ceramics, textiles and metalwork. A formal collaboration between the museum and The Pokémon Company.
+
+**What it teaches, and it is the most useful lesson in this document.** Senior Japanese craft artists will engage seriously with character IP *when it is framed as an art commission and exhibited as art*, not when it is framed as merchandise. Framing did more work there than fame. That register is available to Auwa now: 一点物 (ippinmono, one-of-a-kind) or a small numbered edition, presented as a challenge to the maker's skill. Being "one of many collaborators on a platform toy" reads as streetwear in London and as merchandise in Kyoto, and merchandise is the wrong register for a serious maker.
+
+**Who to approach.** Not masters with multi-year waiting lists — there is nothing Auwa can offer them and asking damages the relationship. The realistic yes is the mid-career maker, the successor, the second or third generation with a workshop, a shrinking domestic market (see "Traditional Craftsmanship" above — the domestic market has declined for decades while international interest grows) and no international audience. To them Auwa offers a Western audience, a beautifully photographed article, a piece they can sell well in their own shop, and a relationship with a Japanese creator who understands their world. **Rieko writing in Japanese is what unlocks this, not follower count.**
+
+**How to approach.** The first ask is never "may we sell your work." It is "may we tell your story": a journal piece and Tom's photography, made as a gift, with full use granted to the maker. Commerce is a second conversation, usually on a second visit. And you cannot pitch a character-figure collaboration in words — a written proposal reads in Japanese uncomfortably close to a licensing solicitation. Pitch it with a photograph of a finished piece. The Fin DAC collaboration exists partly to produce that photograph.
+
+---
+
+## The Institutional & Exhibition Route (added 5 August 2026)
+
+Auwa's bottleneck is that nobody knows the character and it has no distribution. An exhibition solves that in a way paid social cannot. **"An illustrated character interpreted by twelve Japanese craft masters" is programmable by cultural institutions; "a character brand with a shop" is not.**
+
+**The ladder, lowest rung first.** Do not open at the top; a first approach that lands nowhere is hard to repeat.
+
+1. **London Craft Week.** Annual, May, participation is open rather than curated from on high, and it draws exactly the right press and audience. Achievable 2028, possibly 2027 if the pieces exist. This is the right first institutional moment.
+2. **Daiwa Anglo-Japanese Foundation** (Regent's Park) and **the Japan Foundation London** — both have small gallery and event spaces and programme this kind of work at a much lower threshold. Both are already on the outreach list in `arrival.md`.
+3. **An independent design gallery show** — Mjölk in Toronto runs a gallery programme, and London design galleries and shops with exhibition space are viable. A real show with real photographs, which is what you take to the next rung.
+4. **Japan House London** — a year four or five destination, approached with a track record of three smaller shows behind it.
+
+**Getting the Japan House pitch right.** Japan House is funded by the Japanese Ministry of Foreign Affairs and exists to present Japan to a British audience. It programmes exhibitions *about Japanese culture*, not brand partnerships. So the pitch cannot be "here is our brand and our concept." It is "here is an exhibition about yaoyorozu no kami and contemporary Japanese craft, and here is the device that makes it legible to a British audience who have never heard of either." **Auwa is the vehicle; the craft and the philosophy are the subject.** That is exactly the inversion Pokémon × Kogei made. Get it wrong and it reads as a brand activation and is declined politely and permanently.
+
+**The money, realistically.** Institutional exhibitions typically pay nothing and often cost the exhibitor: production, crating, shipping, insurance, install. Their shop is a separate commercial relationship at conventional consignment or wholesale terms, so 40-50% to them, not "a small cut to us." Treat the whole thing as marketing spend with an exceptional return in press, credibility and maker relationships.
+
+**What institutions actually assess, which is not follower count.** Whether the work is culturally sound, who the Japanese author is, whether the objects exist, whether it can be delivered professionally, and whether anyone serious has vouched. Rieko being a Kansai-born Japanese creator is worth more than 50K Instagram followers. A book published by a real publisher and reviewed somewhere is worth more than 50K followers. Eight to twelve finished craft pieces by named makers are worth more than all of it, because at that point the exhibition already half exists.
+
+### UK-Japan cultural funding
+
+This work is grant-fundable, and the funders exist specifically for it. Non-dilutive, free to apply for, and **a held grant is itself a credential** when approaching makers and venues, because it means a serious body has already assessed you.
+
+- **Daiwa Anglo-Japanese Foundation** — small grants and awards for UK-Japan collaborative projects, arts and craft included.
+- **Great Britain Sasakawa Foundation** — grants for UK-Japan cultural projects on a similar scale.
+- **The Japan Foundation** — arts and cultural exchange grants.
+
+Individually these are typically low thousands rather than transformational, and **current rounds, amounts and eligibility need checking rather than assuming** — the figures above are indicative only. Worth an afternoon from Rieko or Tom once the first two or three craft pieces exist and can be photographed, not before. The application is much stronger with images.
 
 ---
 

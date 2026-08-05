@@ -1,6 +1,24 @@
 # Auwa App — Build Status & Design Language
 
-> **RESUMING (late July 2026).** The full craft pass documented below shipped and is **live at auwa.app** (commits `a9fe364` → `e2e1bc0` on `main`; Vercel auto-deploys `website/app`). Nothing app-side has changed since; the ~2 months of commits on top are newsletter/signup/journal work on auwa.life only. Working tree is clean. Tom is back after time away and picking up app refinements — expect small, specific requests. The app now sits on ONE token/primitive system, so most changes are a single-token or single-primitive edit, not a per-screen hunt. **Trust this file + `patterns.md` before opening components; don't re-verify the whole app from scratch** (that's what burned tokens last time).
+> # ⏸ PARKED — 5 August 2026
+>
+> **Do not propose app work. If Tom asks for app work, say the app is parked and confirm before starting.**
+>
+> The Kokoro Mirror app is parked indefinitely as part of the three-pillar pivot. It is **built, fully craft-passed, and live at auwa.app**, but it was never released and is no longer maintained. Auwa is now a character IP business (Story, Store, Journal) with a Japan practice attached. See `CLAUDE.md` → THE PIVOT and `context/business/business.md` → the REVISION note at the top.
+>
+> **Why:** Tom would not use it himself in a world where he already has AI; it needed months more work plus a marketing push he did not want to run; the revenue is poor even in success; apps are becoming trivial to replicate; and it no longer excites him after two decades in the industry. The More Air case-study value is already banked by having built it — no release required.
+>
+> **The structural point worth keeping:** the app was in the wrong *position in the sequence*, not wrong in itself. As the first product it had to win attention for a character nobody knows. As a companion to a known character, behind published books and a sold-out figure edition, it becomes a much easier proposition.
+>
+> **Revisit condition, not a date:** a published book with reach, a sold-out figure edition, and a mailing list in the thousands.
+>
+> **Meanwhile:** leave it live at auwa.app, don't maintain it, don't release it to friends. Keep the domain and trademark class 9. The Yamato emotional framework and its colour system remain owned IP and are reusable in prints and editions outside the app.
+>
+> Everything below is **preserved so the work isn't lost**, not so it gets resumed. It is accurate as of the 29 May 2026 craft pass.
+
+---
+
+> **Historical note (late July 2026).** The full craft pass documented below shipped and is live at auwa.app (commits `a9fe364` → `e2e1bc0` on `main`; Vercel auto-deploys `website/app`). Nothing app-side changed after that; subsequent commits are newsletter/signup/journal work on auwa.life only. The app sits on ONE token/primitive system, so if it is ever revived most changes are a single-token or single-primitive edit, not a per-screen hunt. **Trust this file + `patterns.md` before opening components; don't re-verify the whole app from scratch.**
 
 *Updated 29 May 2026 (late — after Tom's full craft pass). Paired with `context/app/patterns.md` (code patterns + deployment + gotchas) and `context/pillar/app.md` (the canonical app spec). All three should be loaded together for any app session, alongside `context/brand/brand.md` for brand identity.*
 
@@ -56,9 +74,9 @@ Routes (all root level, no prefix):
 
 **Deferred (UI present, wiring later):** real audio playback in Rest + sound library; server-rendered share-card images (Share uses Web Share API + clipboard for now); the 365-prompt Daily Light library (still the ~25-prompt scaffold).
 
-### Next session — likely refinement areas
+### Next session — N/A, parked 5 Aug 2026
 
-Tom flagged he has "more refinements" coming. Nothing is broken; this is polish. The system is in place, so most requests should be one-token or one-primitive edits. Re-read this file + `patterns.md` first.
+*(Superseded. This previously read: "Tom flagged he has more refinements coming. Nothing is broken; this is polish." Those refinements never happened — Tom returned in late July, found he had no appetite for the app, and the project pivoted away from it on 5 August. Nothing is broken; it is simply finished as far as it goes.)*
 
 ---
 
@@ -188,6 +206,8 @@ When proposing a change, reference these files by path so Tom can compare what y
 ---
 
 ## How Tom works with you
+
+*(Still true generally, and worth carrying into non-app sessions.)*
 
 - Show; don't ask. He responds to screenshots faster than to descriptions.
 - Be confident with design judgments. Don't hedge.

@@ -1,5 +1,15 @@
 # Auwa App
 
+> # ⏸ PARKED — 5 August 2026
+>
+> **Do not propose app work.** The Kokoro Mirror app is parked indefinitely as part of the three-pillar pivot (Story, Store, Journal). It is built, craft-passed and live at auwa.app, but was never released and is no longer maintained. See `CLAUDE.md` → THE PIVOT and `context/business/business.md` → REVISION, 5 August 2026, for the full reasoning.
+>
+> This document is the **canonical specification** and is preserved intact so the work isn't lost. It describes a product that is not currently being built. If the app is ever revived (condition: a published book with reach, a sold-out figure edition, a mailing list in the thousands), this spec plus `context/app/app.md` and `context/app/patterns.md` are the complete starting point.
+>
+> Two things in here remain live outside the app: the **Yamato emotional framework** (five states plus colour system) is owned IP reusable in prints and editions, and the **firefly conservation commitment** survives, re-anchored from subscription revenue to 5% of Store revenue (see `business.md` 6.6).
+
+---
+
 *Updated 29 May 2026 (after the build's full craft pass — see `context/app/app.md` for the realised design system). Three structural decisions Tom approved this session, recorded here so spec and build stay aligned: (1) **The Firefly Trove is now a view inside the Light section, not a separate destination.** `/light` toggles between Capture (Daily Light) and Trove (a dot-grid: collected fireflies glow among faint placeholder dots, One Year / Not Boring Habits style). The bottom bar is FOUR tabs — Home, Light, Rest, Senshin — so the "quiet entries" wording in §5.3 is superseded by tabs. (2) **Onboarding companion model, locked with Rieko:** the simple Auwa character (plain silhouette) accompanies every onboarding step, like Finch's bird; the user's Kokoro (Auwa-shape + their motifs + eventual background illustration) is the reveal at the end — mirroring the book, where Auwa helps a being reveal its Kokoro. (3) **The Share card (§5.10) is now a dedicated preview screen** with a Story (9:16) / Feed (1:1) format toggle, reached from the revelation's Share action. The rest of this spec stands.*
 
 *Updated 28 May 2026 (Stage 1 morning, after Tom and Rieko aligned on the flow in FigJam). Expands Section 2.1 onboarding from 5 screens to 11, with the new structure (what brings you, first-gift celebrated beat, when does Auwa fit, trait micro-layer, source attribution, breath interlude, closing line). Updates Section 5.3 to add the *light* quiet entry alongside rest/trove/senshin (Daily Light dual placement: parallel from home arc plus natural follow-on after revelation). Updates Section 16.7 to specify the first-gift motif as a celebrated full-screen beat rather than a quiet annotation. Adds App Store rollout strategy to Section 10 (PWA → Capacitor → Apple/Google submission, 6-8 weeks total to public). Adds honest build pace discussion. Adds FigJam as visual source of truth (file key bsT5waEFwTkrjZVDjjonCs, in More Air → Auwa project). Ready for Stage 2 build in a fresh session.*

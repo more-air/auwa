@@ -1,10 +1,30 @@
 # Auwa Arrival
 
-*Last revised: 15 July 2026. Living document. Load for any launch, promotion, channel, or campaign discussion.*
+*Last revised: 5 August 2026 (three-pillar pivot). Living document. Load for any launch, promotion, channel, or campaign discussion.*
 
 ---
 
-## STATUS SNAPSHOT (15 July 2026)
+## STATUS SNAPSHOT (5 August 2026) — POST-PIVOT
+
+**The app is parked. Auwa is now a character IP business with a Japan practice attached.** Three pillars: Story, Store, Journal. Full reasoning in `context/business/business.md` (REVISION note at the top) and `CLAUDE.md` (THE PIVOT). Read one of those before planning any campaign.
+
+**Where things stand.** Website live, Awwwards Honorable Mention. ~8 journal articles, stalled since May. Instagram 2,667 (Rieko held the 72-season cadence right through Tom's six weeks away). Books 1 and 2 finished and at print test. Figure at prototype. App built, craft-passed, never released, now parked. Trademarks filed UK + Madrid (JP/US/EU/CN), WIPO payment due before 15 August. ~100 email subscribers. **£0 revenue.**
+
+**The diagnosis, unchanged since July and now acted on.** Craft work is on or ahead of plan; capture, activation and shipping keep deferring behind craft. Two finished books sitting unreleased for months is the clearest possible symptom. The pivot removes the biggest source of that deferral (an app that needed months more work and a marketing campaign neither founder wanted to run) and replaces it with things that can actually ship this autumn.
+
+**What the arrival now means.** No spike day, same as before, but the sequence has changed completely. The arrival is now: books out → figure drop → Fin DAC collab → craftsman outreach → collab editions → exhibition. Each step makes the next one easier, and the character becoming known is the through-line.
+
+**The single highest-leverage unlock, revised.** In July it was the Quiet Letter. It still matters and should keep running, but the actual unlock now is **publishing the books properly**, because everything downstream (figure sales, collab yesses, institutional doors, licensing) depends on the character being known, and a publisher gives bookshop distribution, foreign rights and reviews that no amount of Instagram can buy. Colin Midson's view is the decisive input. IngramSpark POD is the fallback that can be executed any time.
+
+**Second highest-leverage, and much cheaper: the Fin DAC collab.** Warm (he's a friend, he's already painted Rieko and promoted it, he already has an Auwa stencil, 96K followers, Rieko loves his work), and he is actively keen on visible Japanese collaboration partly because he has taken unfair appropriation accusations for his Asian-subject work — so a Japanese-authored programme is a genuinely good offer to him, not a favour asked. Its strategic value is that **it produces the photograph every subsequent collab is pitched with.** You cannot pitch a character-figure collaboration to a Japanese craftsman in words; you pitch it with an image of one that already exists.
+
+**Lifestyle design principle (unchanged, and the pivot serves it better).** Auwa earning roughly £20-60K a year at a leisurely pace for 10+ years, largely passive, funding a good life without becoming a job. The revised Year 2 projection lands squarely in that band, where the old app-led plan projected £107-378K on a growth curve neither founder wanted to service. The face stays the character, never Tom or Rieko on camera on a schedule. Revenue lives in durable goods, editions and eventually licensing. Build now, coast later: the ~18 months from mid-2026 are the one stretch needing consistent effort.
+
+---
+
+## SUPERSEDED SNAPSHOT (15 July 2026)
+
+*Kept for the record. The Phase 1 scorecard below is still an accurate account of where things got to; the plan it was measured against has since changed.*
 
 Tom was tools-down early June to mid-July following his father's death (5 June). Returning now with Auwa as near-exclusive focus for the rest of 2026. Where things stand against the Phase 1 plan (targets were end-June):
 
@@ -36,7 +56,9 @@ Tom was tools-down early June to mid-July following his father's death (5 June).
 
 ## Why "Arrival" and Not "Launch"
 
-The four pillars ship over 18 months: Journal live, App mid-May (friends first), Store in Year 2, Book when pre-orders justify a print run. No spike day. A cadence the brand sustains. Launches announce; arrivals are welcomed.
+*Revised 5 Aug 2026.* The three pillars ship over 18 months: Journal live already, Books this autumn, Store (figure and own goods) alongside them, collab editions from late 2026 into 2027, exhibition 2028+. No spike day. A cadence the brand sustains. Launches announce; arrivals are welcomed.
+
+*(Was: "The four pillars ship over 18 months: Journal live, App mid-May (friends first), Store in Year 2, Book when pre-orders justify a print run.")*
 
 ---
 
@@ -48,7 +70,70 @@ The four pillars ship over 18 months: Journal live, App mid-May (friends first),
 
 ---
 
-## The Plan
+## THE PLAN (revised 5 August 2026)
+
+Sequenced. Complete one block before moving to the next; skip ahead only when priority demands.
+
+### 0. Pay WIPO before 15 August
+
+Must come from More Air. Nothing else moves until it's done. Miss it and the international trademark protection already applied for is lost. See `structure.md`.
+
+### 1. Books out (Aug - Oct 2026)
+
+The highest-leverage block in the whole document, and the one that unblocks the craftsman route.
+
+- Rieko finishes the July print-test amends on Books 1 and 2.
+- Send both PDFs to **Colin Midson** with the framed question: "Tell me honestly what you think, and what you'd do if this were yours." Two books read as a series, which is a materially stronger proposition than the single book he was sent before and got no reply to.
+- **Try the publisher route properly first.** Set a decision date so it can't drift open-endedly. IngramSpark POD is executable at any time as the fallback, plus a pre-order-funded offset first edition (200-500 copies, signed, £45-60).
+- The printed book is also the physical calling card for Japan. Craftsman outreach is gated on it existing, so this block gates block 4.
+
+### 2. Figure finished and dropped (Sept - Nov 2026)
+
+- Bio-filament testing, finish, packaging (balsa box, ribbon, eco insert, hand-written Rieko card), price.
+- **First edition 25-50 units, not 100.** Weeks of print time plus finishing plus hand-packing before a single sale; "never reissued" makes a small first edition a feature.
+- Simple Shopify shelf live alongside it: books, figure, prints, paper goods. Auwa-owned goods only.
+- Seed with the existing figure lottery (already live on the site's bottom strip).
+
+### 3. Fin DAC collab (autumn 2026)
+
+Warm conversation, low cost, high strategic value. Send a blank, get it back painted, photograph it properly, drop it as a small edition. Pitch it to him as *the first name in a Japanese-authored programme*, not as a one-off favour — better offer, and it may make him a connector.
+
+**The photograph is the deliverable.** Everything in block 5 is pitched with it.
+
+### 4. Craftsman outreach opens (once books are printed)
+
+Rieko, in Japanese, always. Two or three makers, not twenty.
+
+- First approach is never "may we sell your work." It is **"may we tell your story"**: a journal piece and Tom's photography, made as a gift, with full use granted to the maker. Commerce is the second conversation, usually on a second visit.
+- In the parcel: the two printed books, a figure, and a one-page Japanese profile of Auwa and of Rieko as its creator. A maker who spent forty years on one craft takes a beautiful book seriously and a URL not at all.
+- **Kokeshi and daruma first** (the Japanese blank-figure traditions — barely a stretch for the maker). Then lacquer/maki-e, Kanazawa gold leaf, ceramics, textile. Knives and functional crafts are year three if ever; their better use is editorial.
+- **Kyoto knife shop / Shigefusa:** relationship and film, no product. He is too exclusive and forcing a product ask would break it.
+- Target mid-career and successor makers, not masters with waiting lists.
+
+### 5. Collab editions build (2027)
+
+Artist line runs commercially (3-4 a year, including Japanese artists and illustrators). Craft line runs slowly (1-2 a year), with the maker manufacturing, holding and selling domestically and Auwa taking a small Western allocation. Full taxonomy and register guidance in `business.md` 6.2a.
+
+### 6. One Japan trip a year, carrying everything
+
+Craftsman meetings, journal photography, journey route recon and collab conversations in the same fortnight. Constrained to one trip by the dog and the quality bar. Plan it as a single event rather than four competing ambitions.
+
+### 7. Institutional route (2028+)
+
+Accumulate craft pieces until an exhibition exists. Ladder: **London Craft Week** first (annual, May, open participation), then Daiwa Anglo-Japanese Foundation / Japan Foundation London spaces, then an independent design gallery, then **Japan House as a year four or five destination**. Apply for a UK-Japan cultural grant (Daiwa, Great Britain Sasakawa, Japan Foundation) once two or three pieces exist and can be photographed. See `business.md` 6.2a and `japan.md`.
+
+### 8. Ongoing throughout
+
+- **Journal** back to ~1 article/month, weighted toward makers and places.
+- **Instagram** on one account, 72-season cadence, character animation, plus product teasers and reveals.
+- **Quiet Letter** and the Meta lead ads keep running (leads at under £1, well under the £2 gate).
+- **Website to three doors** — Tom running as its own session. A real copy and layout job, not a find-and-replace. `/app` stays alive as a quiet parked page.
+
+---
+
+## SUPERSEDED PLAN (April - July 2026)
+
+*Retained for the record. Most of blocks 1-7 below were delivered; the app and marketplace elements are retired.*
 
 Sequenced chronologically. Use as a living todo list. Complete one block before moving to the next; skip ahead when priority demands. Launch is now a few hours a day with tomorrow (Fri 24 April) full-time, then time pivots to app build and More Air productised services.
 
@@ -160,6 +245,8 @@ Tom's restart post template:
 
 **Press: Phase 3 onward.** Freelancers who have written for Wallpaper*, Monocle, Wired, Vogue Business, Dezeen.
 
+**One Instagram account, not two (decided 5 Aug 2026).** The question was whether the store deserves its own handle separate from the character and story. It does not. Splitting a 2,667-follower audience that took a year to build leaves two weak accounts and doubles the work, which is exactly the treadmill the lifestyle principle rules out. Auwa's whole thesis is one world with several ways in, and running @auwastore separately concedes that the character and the objects are different brands, which is the thing most important to avoid being true. Niwaki runs one account across tools, workwear, books, workshops and a shop. Revisit only when the store genuinely produces its own weekly content volume *and* audience mismatch is demonstrated. The second surface is Pinterest, not a second Instagram.
+
 **Channel expansion triggers (added 22 Jul 2026).** Stay Instagram + organic/Journal as the core for now. Judge every new channel by one filter: *does it keep working while we're in Japan (compounding, evergreen) or does it need feeding every day (a treadmill)?* Favour the first.
 
 - **Pinterest — reconsider adding now (the one exception to IG-only).** Pinterest is a visual search engine, not a social feed: pins compound like SEO and last for years, Japandi / Japanese-aesthetic search is up 405%, and Rieko's illustration plus Tom's photography is exactly what performs there. Low effort (repurpose the existing asset library), feeds the site and the list, no daily hand-cranking. That's why it moves out of "what we don't do." Trial it with existing assets before committing to a cadence.
@@ -257,38 +344,44 @@ Two to three hours the day before submission. Walk through the site desktop and 
 
 ## Decisions
 
-**App before Store.** Decided. App is closer to ready, the cleaner debut product, and easier to iterate on real usage. Store craftsman outreach runs in parallel.
+**~~App before Store.~~ SUPERSEDED 5 Aug 2026: the app is parked.** Books and figure debut instead, then the collab programme, then craftsman outreach once the books are printed. Original reasoning kept for the record: *App is closer to ready, the cleaner debut product, and easier to iterate on real usage. Store craftsman outreach runs in parallel.*
+
+**Book release: hybrid POD + pre-order offset — reweighted 5 Aug 2026.** Still the fallback, but **try a publisher first**, because the whole business now rests on the character becoming known and bookshop distribution, foreign rights and reviews cannot be bought. Original note below still applies to the self-published route.
 
 **Book release: hybrid POD + pre-order offset.** IngramSpark print-on-demand as the always-available edition (unit cost £8-15, retail £28-35, zero upfront). Pre-order campaign funds a short offset run (200-500 copies) for a signed first edition at £45-60. Pre-orders pay for the print; no capital committed upfront. Campaign opens in Phase 2 once the draft is polished and Colin's view is in.
 
 ---
 
-## Year 1 Success (by April 2027)
+## Year 1 Success (by April 2027) — revised 5 Aug 2026
 
-- 12-18K genuine IG followers
-- 3-5K email subscribers
-- App public at 500-2,000 users
-- Two or three press pieces landed
-- 30-50 journal articles compounding SEO
-- 3-5 collab partners agreed (Fin DAC plus 2-4 craftsmen for late-Y1 / Y2 collab editions)
-- Book pre-order campaign live or imminent
-- Shigefusa film shipped or in the can
-- First figure edition sold out
-- Fin DAC collab landed
-- Newsletter at sustainable 2x/month cadence
+*The old targets were written when the app was the flagship and assumed a much steeper follower curve. These are deliberately more modest and more object-shaped.*
+
+- **Books published**, either by a publisher or as POD plus a signed first edition. Non-negotiable — this is the year's real deliverable.
+- **First figure edition sold out** (25-50 units), with a waitlist for edition two.
+- **Fin DAC collab shipped and photographed.**
+- **First revenue on the board**, from any line. £4-13K is the modelled range.
+- **1-2 Japanese makers in genuine conversation**, with at least one journal piece published about one of them.
+- 5-8K genuine Instagram followers, one account.
+- 1-2K email subscribers.
+- 15-25 journal articles, weighted to makers and places.
+- Shigefusa film shipped or in the can.
+- Quiet Letter at a sustainable cadence.
 
 Slow, dignified, correct for the brand.
 
-## Year 2 Success
+## Year 2 Success (by April 2028)
 
-- 40-75K IG followers
-- Store live with the full first-party range (figures, books, prints, Kokoro prints) plus 2-3 collab editions live or recently shipped
-- Book shipped in two editions, reviewed somewhere aligned
-- App at 5-10K users, paid tier converting
-- First Seasonal Journey run (Tom and Rieko pilot)
-- Second and third figure editions dropped
-- YouTube channel with three to five craftsman films
-- First exhibition, pop-up, or gallery moment
-- Recognisable position: "the Japanese awareness brand"
+- **First craft collab edition made and shipped** by a named Japanese maker.
+- 3-4 artist collab editions shipped, at least one by a Japanese artist.
+- Second and third figure editions dropped.
+- Books reviewed somewhere aligned; Books 3 and 4 in progress.
+- Store running as a small, considered shelf with no held third-party stock.
+- **First Seasonal Journey piloted** by Tom and Rieko alone, with the Package Travel question resolved before any deposit is taken.
+- 15-30K Instagram followers.
+- Revenue in the **£27-120K** band, which is the £20-60K-at-leisure target arriving.
+- A UK-Japan grant applied for, and a first small exhibition or London Craft Week presence in view.
+- Recognisable position: **"the illustrated Japanese world you can own a piece of."**
 
-Year 2 is where the brand stops being a project and becomes an institution. Year 1 earns the right to Year 2.
+Year 2 is where the brand stops being a project. Year 1 earns the right to Year 2.
+
+*(Retired from the old lists: app user targets, the full first-party range including Kokoro prints, 40-75K followers, and "the Japanese awareness brand" positioning, which was app-derived.)*

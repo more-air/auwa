@@ -1,10 +1,26 @@
 # Auwa Competitors
 
-*Source: Competitor Analysis, March 2026. Maintained as living document.*
+*Source: Competitor Analysis, March 2026. Maintained as living document. **Major revision 5 August 2026** following the three-pillar pivot.*
+
+---
+
+## HOW TO READ THIS DOCUMENT (5 August 2026)
+
+The app is parked and Auwa is now a character IP business with a Japan practice attached. That changes which of these companies matter.
+
+**Now primary — read these first.** Category J (platform-toy and collaboration models: Bearbrick, KAWS, Pokémon × Kogei), Category I (character-based IP, reframed around Moomin and Tamagotchi rather than Finch), and Category K (the couple-run Japanese-goods businesses: Niwaki, Karel Capek, Mjölk). These are the operating models Auwa is actually building against.
+
+**Now reference only.** Categories A, B, C (AI journaling, mood tracking, wellness apps) describe a market Auwa is no longer entering. Retained because the analysis is sound and would matter again if the app is ever revived, but do not plan against them.
+
+**Unchanged in relevance.** Categories D, E, F, G, H.
+
+**The headline finding, restated for the new shape:** Japanese craft exporters have taste but no IP, and stay small after a decade. Art-toy platforms have the collaboration engine but no cultural depth or narrative. Character IP houses have the story but rarely reach into traditional Japanese craft. **The unoccupied position is the join** — an illustrated character with a decade of story behind it, authored by a Japanese creator, interpreted by Japanese makers. Pokémon × Kogei proved the Japanese craft establishment will engage seriously with character IP when framed as art commission rather than merchandise. Nobody has built a standing brand on that join.
 
 ---
 
 ## Executive Summary
+
+*Written March 2026, pre-pivot. The four-pillar framing below is superseded; the competitive readings remain accurate.*
 
 Auwa is a four-pillar Japanese lifestyle brand (app + store + journal + book) and occupies a unique position by combining elements no existing product has assembled. AI journaling apps offer reflection but lack cultural grounding. Mood trackers offer pattern recognition but lack depth. Wellness apps offer scale but lack awareness specificity. Character-based wellness companions like Finch have validated that an illustrated being mirroring your inner state is what users return for, but they're built on generic Western self-care, not philosophy. Japanese cultural products offer authenticity but lack interactivity. Collectibles offer physical presence but lack a digital companion. Japanese craft exporters sell products but lack a philosophical framework or digital companion. Multi-category lifestyle brands (Goop, Snow Peak, Kinfolk, Monocle) prove the model works but none have Japanese philosophical awareness at their core.
 
@@ -282,6 +298,92 @@ Pou (2012) and Tamagotchi (1996) are the long-running consumer ancestors of char
 
 **Auwa's advantage across category:** Japanese philosophy as the structural foundation, Rieko's decade of book IP, the Yamato emotional framework, the multi-pillar ecosystem, and the anti-gamification stance. The character isn't a pet. It's a being that reveals.
 
+**Post-pivot note (5 Aug 2026).** With the app parked, Finch stops being a competitor and becomes a *reference for the cross-media arc*: character → app → animated film. Auwa is running the same arc in a different order, character → books → objects → collaborations → exhibition, and the order matters because Auwa has no distribution and Finch had 2M daily users before it made a film. **The category that now matters most is Category J below.** The long-run model is Moomin (see Category J), not Finch.
+
+---
+
+## Category J: Platform Toys, Collaboration Models & Character-Meets-Craft (PRIMARY, added 5 Aug 2026)
+
+*The category Auwa's collaboration programme actually sits in. Added after the pivot. This is the most operationally relevant section in the document.*
+
+### Bearbrick / Medicom Toy — the platform model
+
+Created 2001 by Tatsuhiko Akashi, founder and CEO of Medicom Toy. Originally a logistical solution: for the 12th World Character Convention in Tokyo, organisers wanted an exclusive figure for every visitor, and Akashi designed something simple and instantly recognisable that could be mass-produced without losing artistic value. That constraint produced the business.
+
+The figure is a deliberately minimal anthropomorphic bear with nine articulated parts, and its entire purpose is to be **a blank canvas for other people's signatures**. Twenty-five years of collaborations across Chanel, KAWS, BAPE, Disney, Daniel Arsham, Stüssy, Swarovski, the NBA, Readymade, colette and hundreds of artists. Three standard sizes: 100% (7cm), 400% (28cm), 1000% (70cm).
+
+**Why it matters to Auwa.** This is direct proof that a blank-canvas character figure is a durable business model rather than a novelty, and that the *platform* accrues more value than any single edition. Rieko arrived at the same idea independently, from the books rather than from the toy world.
+
+**Where Auwa differs, and it's the important part.** Bearbrick has no story, no philosophy and no cultural depth — the bear means nothing, which is precisely why anything can be projected onto it. Auwa's blank means something specific: in the books, Auwa's light shower reveals the Kokoro inside living things, so a collaborator decorating a blank Auwa is *enacting the story*. The maker's own Kokoro is what gets revealed. That gives Auwa a reason for the collaboration to exist that Bearbrick structurally cannot have, and it is the answer to the "what connects a cosmic character to a hand-forged knife" objection.
+
+**Standard sizing is worth copying.** A consistent form across all collaborations is what makes a platform legible and collectable.
+
+### KAWS — the artist-signature model
+
+Art brand, £100 to £10,000+, gallery credibility, defined the art-toy category. **Direct relevance: Tom distributed KAWS's first international releases through his Japanese merchant platform (2005-2007)**, so this world is operational experience rather than research. No narrative depth and no digital integration, which is the gap Auwa fills.
+
+### Pokémon × Kogei — character IP meets Japanese traditional craft
+
+**The single most important precedent for the craft collaboration line.** "POKÉMON × KOGEI: Playful Encounters of Pokémon and Japanese Craft," National Crafts Museum, Kanazawa, 21 March to 11 June 2023, then touring through 2026 including **Japan House Los Angeles**. Roughly 70-100 works by twenty of Japan's most accomplished craft artists, ranging from Living National Treasure metal artist Morihito Katsura (b. 1944) to young artists like Taiichiro Yoshida (b. 1989), working in lacquer, ceramics, textiles, metalwork and more. Structured in sections: *In Appearance* (form, skin, fur, gesture) and *In Stories* (their world, journeys, evolutions). A formal collaboration between the National Crafts Museum and The Pokémon Company.
+
+**What it proves, and it answers Tom's central worry directly.** He asked whether the character needs to be famous before a serious Japanese maker would engage. Pokémon is the most famous character on earth, so on the surface this cuts against Auwa. But look at *what the exhibition actually was*: a museum-curated art commission, not a merchandise line. Framing did more work than fame. Twenty senior craft artists accepted because they were challenged as artists and exhibited as artists. That register — 一点物 or small numbered edition, art commission, exhibited rather than racked — is available to Auwa now, and it is the register Rieko should pitch in.
+
+**Second lesson.** The commercial return was not unit sales, it was three years of cultural legitimacy for a character brand inside the Japanese fine-craft establishment, plus an international tour. That is exactly the return Auwa needs, because its bottleneck is that nobody knows the character.
+
+### Kokeshi and daruma — the tradition that already exists
+
+Not companies, but the most relevant precedent of all. **Kokeshi** are turned wooden figures made in regional schools across Tohoku, each with a distinct form and painting hand, collected for roughly two centuries. **Daruma** are painted figure forms with strong regional identities (Gunma painters have been on Rieko's radar for years). Both are, functionally, blank-figure platforms that predate Bearbrick by two hundred years.
+
+**Strategic implication:** an Auwa made by a kokeshi maker is barely a stretch for the maker at all — it is their existing craft with a new silhouette. This is why kokeshi is the recommended first craft collaboration rather than something more exotic.
+
+### Moomin — the endgame
+
+Tove Jansson's illustrated character world went books → known character → licensed goods → craft collaborations (the Feiler chenille collection with Little My is precisely an "Auwa × maker edition") → shops and cafés, and ended up **far larger in Japan than in Finland**. Official Moomin shops sell wooden stationery, craft kits, colouring books and paper cuttings alongside the licensed range.
+
+**Why this is the map.** It is the most passive, most durable, most travel-compatible business shape available to a two-person studio: an illustrated character that earns while you are elsewhere. Every step of Auwa's current plan is a step along this arc, and it requires exactly one thing Auwa does not yet have — a character people know. Which is why publishing the books properly outranks everything else.
+
+### Sonny Angel / Pop Mart / Labubu
+
+Covered in Category E. Retained relevance: they prove the collectible-figure market's scale (Pop Mart £1.7B+ revenue 2023) but have no narrative or cultural depth. Auwa is not competing on price or blind-box mechanics.
+
+---
+
+## Category K: Couple-Run Japanese-Goods Businesses (PRIMARY, added 5 Aug 2026)
+
+*The operating models. All husband-and-wife or partner-run, all built slowly, all with a Japanese or Japan-expert partner doing the relationships. This is the shape of business Tom and Rieko are actually running.*
+
+### Niwaki (Shaftesbury, UK) — the operating model
+
+Founded by **Jake Hobson** and his Japanese wife **Keiko**. Jake studied sculpture at the Slade, won a travel bursary to Japan, then trained for two years at a tree nursery near Osaka learning pruning, bending, tying and rootballing. Five years honing the craft at Architectural Plants in Sussex, a Chelsea win in 2000 with cloud-pruned trees, then a back injury pushed him into business. Dates vary by source (1997 for the informal start, company incorporated July 2007). It began with **literally one product**: Japanese tripod ladders, shipped over by Keiko's brother Haruyasu.
+
+Today: secateurs, topiary clippers, kitchen tools, knives, stationery, workwear, their own manufactured line alongside goods handmade in Japan by skilled artisans. A **London shop on Chiltern Street, Marylebone, opened 2021**, running sashiko, ikebana and shimekazari workshops. Editorial from their own Japan trips ("Niwaki Field Report"). Wholesale distribution through twentytwentyone, Goodee, The Hepworth Wakefield and others. Jake wrote *Niwaki: Pruning, Training and Shaping Trees the Japanese Way*, which is the authority layer under everything.
+
+**Scale, honestly.** Niwaki Ltd files "total exemption full accounts," so **no turnover is published**. Data-broker estimates circulate at around $11M revenue and 25 employees; treat those as unverified. What is verifiable is the shape and the timescale.
+
+**How it aligns with Auwa.** Very well on structure: couple-run, Japanese sourcing with a Japanese partner doing relationships, own-brand plus curated, a book as the authority layer, editorial from real trips, workshops, a physical shop as the eventual destination. **What it does not prove is character IP alongside craft**, because Jake's IP is *expertise*, not a story world — his book sells his pruning knowledge and his pruning knowledge sells pruning tools. Same subject. That subject-alignment is what makes it cohere, and it is the thing Auwa has to build deliberately through the collab programme rather than assume.
+
+**The real lesson is the timescale.** Roughly twenty years from one imported product to a Marylebone shop. Not four pillars from a standing start.
+
+*(Note: Rieko's original description had Keiko as an illustrator introducing her work through the store. Nothing found supports that — Keiko is a co-founder, and the illustration work is commissioned, most visibly Natsko Seki on the Camo collection. The company that actually matches that description is Karel Capek, below.)*
+
+### Karel Capek (Tokyo) — the illustrator-led model, and the closest match
+
+**Utako Yamada**, born 1963 in Nagoya, writer, illustrator and translator. Graduated from Ritsumeikan in Kyoto, moved to Kokubunji in 1987 and opened a tea shop named after the Czech writer Karel Čapek. Opened Karel Capek Sweets in Kichijōji in 2002. **Six stores today.** She selects and blends the teas, develops recipes, designs the packaging, creates characters, writes and illustrates children's books (*The Story of Cherry the Pig*, *Buzzy the Honeybee*), and designs postcards, fabric and tea accessories. She has also **licensed to Sanrio** (the Wish me mell collaboration).
+
+**Why this is arguably the most useful company on the list.** It is an illustrator's own character world becoming a retail lifestyle brand, which is precisely Auwa's thesis. Her IP and her goods are the same subject — her illustrated world wraps products she designs herself — and that coherence is what lets a tea shop become six shops plus books plus a licensing deal. It also demonstrates the licensing endgame at a small, human scale rather than at Moomin scale.
+
+**The transferable lesson:** she did not curate other people's goods. Everything carries her hand. That is the Auwa-owned-goods principle, proven.
+
+### Mjölk (Toronto) — the commissioner model
+
+**John Baker and Juli Daoust Baker**, husband and wife, started 2009 in Toronto's Junction. A lifestyle shop *and gallery* specialising in Japanese and Nordic design. They exhibit work by Scandinavian and Japanese artists and artisans, and run **their own exclusive commissioned collections** around the theme of daily ritual, collaborating with named designers (Thom Fougere, Anderssen & Voll, Oji Masanori) and producing locally in Toronto. A 2017 programme asked Canadian and Scandinavian designers to reinterpret Shaker designs.
+
+**Why it matters.** This is the **commissioner model** rather than the reseller model, and it is the structure Auwa should copy for collab editions: don't resell someone's existing work, commission new work around a theme you own. Higher margin, fewer SKUs, real IP, a story per drop, and a gallery programme that makes the business exhibitable. Also proof that a couple can run curation plus commissioning plus a gallery programme without it becoming a large company.
+
+### Nalata Nalata, Analogue Life, Rikumo, Native & Co, Tortoise, Kobo
+
+The pure-curation comparison set, covered in Category G. **Post-pivot reading:** these are excellent taste references and possible collab partners, and they are also the cautionary tale. All are a decade or more old, all are still small, and none has IP of its own. That is the ceiling of resale without owned IP, and it is a large part of why Auwa removed curated resale entirely in August 2026.
+
 ---
 
 ## Category H: The Hodinkee Parallel
@@ -295,10 +397,16 @@ Founded 2008 as a watch blog by Benjamin Clymer. Grew into the definitive author
 
 ## Strategic Position
 
-Auwa operates in blue ocean: uncontested market space where it creates new demand rather than fighting over existing demand. The four-pillar model (app + store + journal + book) makes the competitive position even stronger — copying one pillar is possible, but assembling all four with authentic Japanese cultural depth is not.
+*Revised 5 August 2026.*
 
-The question is not "How do we beat Rosebud or Stoic?" but "How do we build a lifestyle brand so unique that by the time competitors notice, we have a multi-year head start in relationships, content, craftsman partnerships, and cultural credibility?"
+Auwa's defensible position is not a feature set, it is a **join that nobody occupies**: an illustrated character with a decade of story behind it, authored by a Japanese creator, interpreted by Japanese makers, and sold as objects rather than software.
 
-Answer: by being authentic, patient, and culturally rooted. Soul cannot be manufactured. Time compounds Auwa's advantage across all four pillars simultaneously.
+Each half of that join is well proven separately. Bearbrick proves the blank-canvas collaboration platform works commercially. Pokémon × Kogei proves Japanese craft masters will engage seriously with character IP when framed as art commission. Moomin proves an illustrated character can become a licensing business bigger abroad than at home. Niwaki and Karel Capek prove a couple can build a real Japanese-goods business over two decades. Mjölk proves the commissioner model beats the reseller model. **What nobody has done is put them together.**
+
+The question is no longer "how do we beat Rosebud or Stoic," a question that belonged to the parked app. It is: **how do we make the character known, and then let the objects, the makers and the institutions compound around it?** Publishing the books properly is the answer to the first half. The collaboration programme and the exhibition route are the answer to the second.
+
+Two structural advantages worth restating. Time compounds here in a way it does not in software: a maker relationship built over three visits cannot be replicated by a better-funded competitor in a quarter, and neither can a decade of Rieko's drawings. And the assets are durable rather than perishable — a book, a figure edition and a lacquered collaboration piece are all still worth something in ten years, which is more than can be said for a Next.js app.
+
+Soul cannot be manufactured. Time compounds Auwa's advantage.
 
 *Confidential. Auwa Limited. All rights reserved.*

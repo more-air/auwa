@@ -478,7 +478,9 @@ When illustration and photography appear in the same feed, the unifying elements
 | Japanese Wisdom | Typography-led | Dark bg, Cormorant display text, subtle illustration or gradient accent element |
 | Behind the Kokoro | Photography (process) | Dark bg frame, photo muted/warm, Instrument Sans caption |
 | Seasonal Living | Photography (Japan) | Dark bg frame, photo muted/warm, optional Cormorant text overlay |
-The constant across all four pillars: **dark frame, warm content, Cormorant voice, space.**
+The constant across the pillars: **dark frame, warm content, Cormorant voice, space.**
+
+> **Note, 5 Aug 2026.** Auwa moved from four pillars to three (Story, Store, Journal); the app is parked. This document still describes the site and system as *built*, including four-pillar components and the `/app` surfaces, which is correct until the website session lands. Component names like "four-pillar module index counter" refer to existing code, not to strategy. See `CLAUDE.md` → THE PIVOT. When the website is reworked to three doors, update this file alongside it.
 
 ---
 

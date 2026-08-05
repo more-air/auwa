@@ -2,6 +2,30 @@
 
 *Source: Master Business Plan, March 2026. Updated April 2026 following strategic review. Maintained as living document.*
 
+---
+
+## REVISION — 5 AUGUST 2026: THE THREE-PILLAR PIVOT
+
+**Read this before anything below it. Sections written before this date and not yet reworked are marked, but treat this revision as authoritative wherever they conflict.**
+
+**What changed.** The Kokoro Mirror app is parked. Auwa is no longer a four-pillar lifestyle brand with an app as its Year 1 flagship. It is a **character IP business with a Japan practice attached**: three pillars (Story, Store, Journal), everything sold is Auwa-owned, and the growth engine is a collaboration programme built on a blank-canvas Auwa figure.
+
+**Why the app went.** Tom's reasoning, recorded in his words on 5 Aug 2026: he would not use the app himself in a world where he already has AI; it needs sustained marketing and continuous competitive development to stay strong; it is a different kind of thing from the book and the figure; the revenue is poor even in success (3% of a small free base at £6.99 is a rounding error against Finch at $30M ARR with a five-year distribution lead); apps are becoming trivial to replicate; and after two decades in the industry it no longer excites him. The More Air case-study argument, which was the app's last remaining justification, is already satisfied by having built it — it does not require release.
+
+The structural point worth preserving: **the app was in the wrong position in the sequence, not wrong in itself.** As the first product it had to win attention for a character nobody knows, which was always going to be brutal. As the fourth thing, behind books people own and a character people love, it becomes easy. Revisit 2027-2028 if and only if the character audience becomes real.
+
+**Why the store came forward.** Tom is genuinely energised by the Japanese craft side: seeing the objects, meeting the makers, Rieko using her Japanese to build relationships, trips to Japan, tours later. That is goals two and five of the household priority list, and it is the only version of Auwa where the work itself is the reward. **It was chosen on that basis, not on unit economics, and that is a legitimate and deliberate call.** Judged purely as a revenue line, curated resale would lose to almost anything.
+
+**The critical constraint Tom set.** He does not want the warehouse. He wants the trips, the makers, the photography and the tours. So there is no store in the inventory sense. Everything Auwa sells is Auwa-owned (books on POD, figures made at home in small drops, prints and paper goods) or is manufactured and held by a collaborator. No pallets, no unit, no customs desk, no third-party stock.
+
+**What this rules out permanently, not just for now:** the multi-vendor marketplace, buying craftsman stock for resale, and white-labelling other people's goods with Auwa branding. The rung between "article about a maker" and "collab edition with a maker" is a second article, not a branded product.
+
+**The honest costs, accepted knowingly.** Craftsman relationships stop being a near-term revenue line and become an investment in editorial, collabs and journeys that pays in year two or three; measure the outreach on whether you're welcome back, not on whether anyone says yes to selling. Seasonal Journeys are the only non-passive revenue line and carry Package Travel Regulations exposure (see 6.5). And one Japan trip a year has to carry craftsman relationships, journal photography, journey recon and collab conversations together.
+
+**Standing lesson recorded.** The previous plan sat in these files for months and every working session optimised inside it rather than questioning it. A decision written into a context file is still a decision, not terrain.
+
+---
+
 *Update 8 July 2026 (decision logged in the finance project's `overview.md`): Auwa gets the household's whole working engine through launch. The planned More Air 2.0 promotion push is deferred to Q1 2027, where the Auwa launch itself becomes More Air's flagship AI-native venture case study; More Air keeps only the weekly warm-network drip until then. A pre-approved £15,000 Year 1 envelope is authorised through More Air Limited (ceiling not target; the decision gates in sections 8 and 6.2 still govern), covering: the Madrid Protocol filing for Japan, US and EU, to be filed before the six-month priority window from the 16 April 2026 UK filings closes in mid-October (priority order if trimming: Japan first, then US, then EU, classes matched to the actual revenue lines); the figure production run and materials; book printing (POD first, offset against pre-orders); and the £2k Year 1 paid-social lane on proven content. Production spend within the envelope needs no further per-item approval. The two quality bets money cannot buy remain the priorities: the app's writing quality and the launch moment.*
 
 ---
@@ -14,17 +38,20 @@ Where Western wellness centres on the self, Auwa draws from Japanese collectivis
 
 **The thesis:** In an age of acceleration and artificial intelligence, awareness is the human skill that matters most. The answers already exist in what previous generations practised and what modern life left behind. Japanese philosophy preserved them: the 72 micro-seasons, the craftsman traditions, the daily gratitude for all living things. Auwa brings these forward. With better awareness you make better choices, about what you consume, how you treat your environment, how you relate to others, and how you understand yourself.
 
-**The four pillars of the brand:**
-1. **Kokoro Mirror** (auwa.life/app) — A daily awareness practice. AI-powered emotional reflection that reveals your Kokoro through poetic language and Rieko's illustrated characters.
-2. **Auwa Store** (auwa.life/store) — Curated Japanese craftsman marketplace. Lifetime products made by master artisans, shipped direct from Japan. Plus Auwa's own collectible figures.
-3. **Auwa Journal** (auwa.life/journal) — Editorial content. Travel stories, craftsman profiles, seasonal essays, onsen retreats. Photography-led, long-form, SEO-rich.
-4. **Auwa Book** (auwa.life/book) — The illustrated story universe. A series of illustrated stories created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy.
+**The shape in one line (Aug 2026):** Auwa is an illustrated world from Japan, sold as objects and told through Japan.
 
-These are not four separate products — they're one world experienced through four doors. The app builds emotional awareness, the store cultivates material awareness (choosing intention over convenience, craft over disposability), the journal builds cultural awareness (seeing Japan through a philosophical lens, not a tourist one), and the book teaches philosophical awareness (seeing the Kokoro in all things through narrative).
+**The three pillars of the brand:**
+1. **Auwa Story** (auwa.life/book) — The illustrated story universe and the canonical home of the character. Created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy. Books 1 and 2 finished, releasing as a set. This is the foundation everything else rests on.
+2. **Auwa Store** (auwa.life/store) — A clean shelf of Auwa-owned goods (books, hand-finished figure editions, prints, paper goods) plus **collaboration editions**: a blank-canvas Auwa interpreted by artists and Japanese craftsmen, where the collaborator manufactures and holds stock.
+3. **Auwa Journal** (auwa.life/journal) — Editorial from Japan. Craftsman profiles, places, travel, seasonal living. Photography-led and long-form, and since August 2026 its primary job is being the calling card used to approach Japanese makers.
 
-**Structural precedents:** Kinfolk (aesthetic philosophy + editorial + experiences, acquired ~$30M), Monocle (worldview + editorial + retail + media, ~$10M+ revenue), Hodinkee (digital-age appreciation for craft, raised $40M+), Goop (wellness + curated retail + storytelling, ~$100M revenue), Snow Peak (gear + experiences + community, ¥25.7B). Multi-pillar lifestyle brands where each element reinforces the others. Auwa's unique angle: Japanese cultural authenticity rooted in a living philosophy, an illustrated story universe as foundation, and an AI-powered awareness practice as the daily touchpoint.
+These are not three separate products — they're one world experienced through three doors. The stories teach philosophical awareness (seeing Kokoro in all things through narrative), the objects cultivate material awareness (and in the collab editions, literally enact the light-shower mechanic: the maker's work *is* the reveal), and the journal builds cultural awareness (Japan through a philosophical lens, not a tourist one).
 
-**Opportunity in one sentence:** Auwa is the first lifestyle brand to apply Japanese philosophical awareness — the understanding that everything has Kokoro — to modern life, through a daily practice, curated craft, editorial storytelling, and an illustrated universe rooted in centuries of Japanese wisdom.
+**Structural precedents (revised Aug 2026):** Moomin (illustrated character IP → books → licensed goods → craft collaborations → shops and cafés; now far bigger in Japan than in Finland — the endgame shape). Bearbrick / Medicom (a deliberately simple blank figure as a platform for 25 years of artist and brand collaboration). Karel Capek (Tokyo illustrator Utako Yamada's own children's-book world extended into six tea shops and a Sanrio licence). Niwaki (Jake and Keiko Hobson, husband and wife, ~20 years from one imported product to a Marylebone shop; own-brand plus Japanese-made goods, a book as the authority layer, editorial from real Japan trips — the operating model). Mjölk (curated craft plus own commissioned collections and a gallery programme — the commissioner model). Plus Kinfolk and Monocle for editorial-into-retail, Hodinkee for the craft-appreciation thesis, and Snow Peak for exporting a Japanese lifestyle philosophy. See `competitors.md` for the full analysis.
+
+**The pattern those precedents show:** businesses where character IP leads and goods follow are more valuable and more passive; businesses where goods lead stay small and hands-on. Auwa sequences character first, commissioned goods second, curated goods never.
+
+**Opportunity in one sentence:** Auwa is the first brand to join an illustrated character universe with a decade of story behind it, authored by a Japanese creator, to the living tradition of Japanese craft — a join that Pokémon × Kogei proved the Japanese craft establishment will take seriously, and that nobody has built a standing brand on.
 
 ---
 
@@ -48,13 +75,15 @@ When you see the Kokoro in a ceramic cup, a forest, a stranger's face, your own 
 
 ### How the Philosophy Powers Each Pillar
 
-**The App** builds emotional awareness. Through a daily practice of sharing how you feel, Auwa's AI reflects your Kokoro back through poetic language and Rieko's illustrated characters. Not just your emotions, but the holistic state of your inner life: feeling, thought, and spirit as one. Over time, you develop deeper self-perception. The app uses a proprietary emotional framework based on Yamato language (ancient Japanese) to identify and reflect nuanced feelings, though users never see the taxonomy.
+**The Story** teaches philosophical awareness. A series of illustrated stories show the Auwa character revealing the Kokoro in a flower, a coral, a displaced tanuki, a human. The narrative makes the abstract philosophy concrete and felt — the best way to understand Yaoyorozu no Kami is to see it embodied in story.
 
-**The Store** cultivates material awareness. Every object is chosen because a craftsman poured their Kokoro into making it. Buying a hand-forged knife or a ceramic tea cup from a master artisan is a conscious act — choosing intention over convenience, craft over disposability, Kokoro over commodity.
+**The Store** cultivates material awareness. Every object exists because someone poured their Kokoro into making it: Rieko into the figure, a maker into a collab edition. Owning a hand-finished object rather than a mass-produced one is a conscious act — intention over convenience, craft over disposability, Kokoro over commodity.
 
-**The Journal** builds cultural awareness. Travel stories, craftsman profiles, and seasonal essays that share Japan through Auwa's philosophical lens — written by Tom and Rieko from over 15 years of travelling Japan together. Not tourist itineraries but atmospheric writing about onsen culture, temple mornings, rural craft towns, the changing seasons. The journal naturally models how to engage with Japan respectfully: with curiosity, patience, and an understanding that you are a guest in someone else's home. Photography-led, contemplative, grounded.
+The collaboration editions go further, and this is the piece that makes the whole brand cohere. **A blank Auwa arrives without its reveal; the maker's hands are what reveal it.** The object performs the exact mechanic of the books, which means the character and the craft are the same subject rather than an asserted connection. It also inverts the usual licensing relationship: Auwa is not putting a logo on a craftsman's work, it is offering a form on which the craftsman's own Kokoro becomes visible. This was Rieko's idea and it is the strongest product concept in the plan.
 
-**The Book** teaches philosophical awareness. A series of illustrated stories show the Auwa character revealing the Kokoro in a flower, a coral, a displaced tanuki, a human. The narrative makes the abstract philosophy concrete and felt — the best way to understand Yaoyorozu no Kami is to see it embodied in story.
+**The Journal** builds cultural awareness. Travel stories, craftsman profiles, and seasonal essays that share Japan through Auwa's philosophical lens — written by Tom and Rieko from over 15 years of travelling Japan together. Not tourist itineraries but atmospheric writing about onsen culture, temple mornings, rural craft towns, the changing seasons. The journal naturally models how to engage with Japan respectfully: with curiosity, patience, and an understanding that you are a guest in someone else's home. Photography-led, contemplative, grounded. Since Aug 2026 it also has a working job: it is the portfolio Rieko sends when she approaches a maker, and the first thing offered to that maker is a story about them, given as a gift, with no commercial ask attached.
+
+*(The App built emotional awareness through a daily reflection practice. Parked Aug 2026; spec preserved in `context/pillar/app.md`.)*
 
 ---
 
@@ -66,9 +95,9 @@ Short form (internal): *Restore awareness to a distracted world.* (Robin Sharma)
 
 **Vision:** A world where people live with deeper awareness: of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people. A world where that awareness leads to a more intentional, purposeful life: what the Japanese call ikigai. Real abundance is not material. It is the abundance of the heart.
 
-**Mission:** To apply Japanese philosophical awareness to modern life, expressed through four interconnected things: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe, all rooted in the ancient Japanese belief that a life force resides in all things.
+**Mission:** To apply Japanese philosophical awareness to modern life, expressed through three interconnected things: an illustrated story universe, objects made and co-made with Japanese hands, and editorial storytelling from Japan, all rooted in the ancient Japanese belief that a life force resides in all things.
 
-*Public framing on auwa.life uses "Auwa expresses this through four things" and "four ways in" as the customer-facing language for how the pillars relate to the philosophy. "Expressions" is the internal frame for how the four pillars sit in relation to the philosophy — not separate products, but one philosophy made visible four ways.*
+*Public framing on auwa.life uses "Auwa expresses this through three things" and "three ways in" as the customer-facing language. Revised from four on 5 Aug 2026. Note that this copy is woven through the homepage, about page, navigation and metadata — changing it is a real editorial and layout job on an award-recognised site, not a find-and-replace. Tom is running that as its own session.*
 
 **Core Values:**
 - Awareness over autopilot: notice more, consume less, choose better
@@ -94,9 +123,15 @@ Within the book and app, Auwa is also a character — a luminous being who revea
 
 ## 6. Products & Services
 
-### 6.1 Kokoro Mirror App (auwa.life/app) - Year 1 Priority
+### 6.1 Kokoro Mirror App (auwa.app) — PARKED, 5 August 2026
 
-A daily awareness practice. Five minutes. The user shares how they feel, Auwa's AI identifies the emotion and reflects it back poetically alongside Rieko's illustrated Auwa character, a light shower animation, and a calligraphic stamp. The result is saved to a visual archive and optionally journaled and shared. No streaks, no badges, no push notifications. Auwa is pull, not push. **Auwa does not fix. Auwa reveals.**
+**Status: built, craft-passed, live but unreleased and unmaintained. Not cancelled, not scheduled.** Leave it live, don't maintain it, don't release it to friends. Keep the domain and trademark class 9. The full spec is preserved in `context/pillar/app.md` and the build state in `context/app/`. The Yamato emotional framework and its colour system remain owned IP and are reusable in prints and editions outside the app.
+
+Revisit condition, not a date: only if and when the character audience becomes real — a published book with reach, a sold-out figure edition, a mailing list in the thousands. At that point it becomes a companion to a known character rather than a product fighting for attention on its own, which is a completely different proposition and a much easier build.
+
+Reasoning is recorded in full in the REVISION note at the top of this document. The rest of section 6.1 below is retained for reference only and describes a product that is not currently being built.
+
+*(Reference: the original 6.1 specification.)* A daily awareness practice. Five minutes. The user shares how they feel, Auwa's AI identifies the emotion and reflects it back poetically alongside Rieko's illustrated Auwa character, a light shower animation, and a calligraphic stamp. The result is saved to a visual archive and optionally journaled and shared. No streaks, no badges, no push notifications. Auwa is pull, not push. **Auwa does not fix. Auwa reveals.**
 
 The Auwa character appears in the app — this is one of the two spaces (alongside the book) where the character lives as a presence, giving the practice warmth and distinctiveness.
 
@@ -140,37 +175,73 @@ The daily practice of noticing and naming your emotions — the core of the Koko
 - Free: 3 revelations/month
 - Paid: £6.99/month or £49.99/year (unlimited revelations, full archive, pattern insights, journal, story unlocks, shareable cards, early figure access)
 
-### 6.2 Auwa Store (auwa.life/store) - First-party + collab editions
+### 6.2 Auwa Store (auwa.life/store) — Auwa-owned goods + collab editions
 
-*Revised May 2026: store model pivoted from multi-vendor Japanese craftsman marketplace to first-party Auwa store with periodic collaboration editions. Higher margin, lower operational lift, brand-coherent. The marketplace concept is retired.*
+*Revised May 2026 from multi-vendor marketplace to first-party + collab. **Revised again 5 Aug 2026: curated third-party resale removed entirely.** Auwa sells only what it owns, plus collab editions the collaborator manufactures and holds. The marketplace concept and the curated-catalogue concept are both retired permanently.*
 
-A first-party store selling Auwa-made items only: figures, books, prints, Kokoro prints. Every item passes through Rieko's hand. Periodic collaboration editions bring an outside artist or craftsman in for a single drop (Auwa × Fin DAC figure, Auwa × a knife-maker figure later). The collaborator gets one timed product slot alongside the collab edition (e.g. one Fin DAC print, one Japanese craftsman's signature piece). The store stays Auwa-owned at the core.
+The operating principle Tom set: **no warehouse.** Everything on the shelf is either made by Auwa in small batches at home, printed on demand, or produced and held by a collaborator. No pallets, no unit, no customs desk, no stock of other people's goods.
 
 In the same way Hodinkee proved a digital-age audience would develop deep appreciation for hand-crafted mechanical objects, Auwa bets that AI acceleration makes people more hungry for hand-made artefacts with cultural depth behind them.
 
-**What's in the store:**
+**What's on the shelf:**
 
-- **Auwa figures.** Limited-edition collectible figures of the Auwa character. **Status (Jul 2026):** Blender model complete; Rieko has printed several working prototypes at different sizes; a fully bio (non-plastic) filament is next up for testing. Once the final print is signed off, packaging follows. **Packaging concept:** feel special and Japanese without being expensive to make — a balsa wood box, ribbon tied around, an eco soft material cradling the figure inside, and a hand-written note/card from Rieko. 12-15cm, £140-180, hand-finished, numbered, signed. Limited runs (~100 per edition), never reissued.
-- **Books.** Rieko's illustrated stories, print-on-demand (IngramSpark) plus offset first editions funded by pre-orders. £28-35 trade, £45-60 signed first edition.
-- **Prints.** Selected Rieko illustrations and scenes from the books as fine art prints. Hand-pressed Japanese paper, numbered. £40-80.
-- **Kokoro prints (personalised).** Year-end portrait of the user's accumulated Kokoro, drawn from their app data. £30-40. Sold via the app and the store. Unique to each user.
-- **Collab editions.** Time-limited drops with named collaborators. The first targeted: Fin DAC × Auwa figure, with one Fin DAC print sold alongside. Later candidates include a Japanese knife-maker, a ceramic artist. Each collab is its own press cycle.
+- **Books.** Rieko's illustrated stories. Route decision open between a publisher and print-on-demand (IngramSpark) plus a pre-order-funded offset first edition. £28-35 trade, £45-60 signed first edition. See 6.4 and `context/pillar/book.md` — the publisher route now carries more weight than it did.
+- **Auwa figures.** Limited-edition collectible figures of the character. **Status (Aug 2026):** Blender model complete; several working prototypes printed at different sizes; bio (non-plastic) filament testing next; then finish, packaging and price. **Packaging concept:** special and Japanese without being expensive to make — balsa wood box, ribbon, eco soft material cradling the figure, hand-written card from Rieko. 12-15cm, £140-180, hand-finished, numbered, signed, never reissued.
+  **First edition revised down to 25-50 units, not 100.** A 12-15cm print plus finishing plus hand-packing is weeks of Tom and Rieko's physical labour before a single unit sells, and "never reissued" makes a small first edition a feature rather than a compromise. Sell out at 30, learn the packaging and shipping, scale edition two.
+- **Prints and paper goods.** Selected Rieko illustrations and book scenes as fine art prints, hand-pressed Japanese paper, numbered, £40-80. Plus postcards and a risograph set. **The 72 micro-seasons print set / calendar is the strongest product here**: it is made from work Rieko already produces every five days, it is a natural annual repeat purchase, and it needs no new creative effort. Print-on-demand via a fine-art partner keeps inventory at zero.
+- **Collab editions.** The growth engine. Full detail in 6.2a.
 
-**Why first-party plus collab beats the marketplace model:**
+**Explicitly not on the shelf:** curated third-party Japanese craft; white-labelled goods carrying an Auwa logo on someone else's product (low margin, requires stock, dilutes the IP, and makes a character brand read as a gift shop); print-on-demand apparel (mediocre quality next to a hand-finished figure; if apparel ever happens it is one considered piece with a good manufacturer, not a range). Kokoro prints (the personalised year-end portrait) are retired with the app, since they were generated from app data.
 
-- **Margin.** 60-80% on Auwa items vs 15-25% commission on someone else's. The store revenue per unit is meaningfully higher.
-- **Operational lift.** No multi-vendor platform, no Stripe Connect across Japanese merchants, no currency-conversion logistics across 20+ relationships. Auwa controls inventory, packaging, fulfilment for its own items. Collab partners handle their one item.
-- **Brand coherence.** Every box that ships is Auwa. Closer to the Studio Ghibli museum shop or a KAWS drop than to a Japanese craft store with a logo on it.
-- **Press cadence.** Each collab is its own news cycle. Fin DAC's 96K Instagram audience meets Auwa on launch day. Marketplace launches don't have that arc.
-- **Audience for the print-of-your-Kokoro product.** The most natural shelf for this is a first-party store of Auwa-made items; it would feel out of place in a marketplace.
+**Tech stack:** Standard Shopify. Stripe. No multi-vendor app, no Stripe Connect, no landed-cost complexity because nothing ships from Japan on Auwa's account.
 
-**Tech stack:** Standard Shopify, no multi-vendor app needed. Stripe for direct payments. Shopify Duty & Import Taxes for transparent landed-cost pricing where relevant. Print fulfilment via partner (TBD) for Kokoro prints and editorial prints.
+**Figure success metrics:** 70%+ sell-through within 4 weeks of a drop. Below 30%, pause and reassess pricing or audience.
 
-**Collab partner shortlist (initial):** Fin DAC (warm, existing Auwa stencil, 96K IG). A Japanese knife-maker (TBD via Rieko's outreach). A ceramic or washi artist (TBD). 5-10 target partners across Year 1-2, not 20-50. Smaller pool, deeper relationships, more bespoke deals.
+---
 
-**Timeline:** Figures launch in Year 1 given the active 3D-printing progress, likely autumn 2026 alongside the app's public arrival. First print-on-demand book follows. First collab edition (Fin DAC) Year 1 or early Year 2. Kokoro prints available from Phase 4+ of the app build.
+### 6.2a The Collaboration Programme
 
-**Figure success metrics:** 70%+ sell-through within 4 weeks. If <30%: pause figures and reassess pricing or audience.
+**The concept (Rieko's).** A blank-canvas Auwa figure that a collaborator decorates, or produces entirely in their own medium. The collaborator's work *is* the light shower: the object performs the exact mechanic of the books, so the character and the craft become the same subject rather than an asserted connection. Auwa is not putting a logo on a maker's work; it is offering a form on which the maker's own Kokoro becomes visible.
+
+**Precedent.** Bearbrick / Medicom built a 25-year business on exactly this: Tatsuhiko Akashi designed a deliberately simple figure in 2001 as a blank canvas, and collaborations with Chanel, KAWS, BAPE, Disney and hundreds of artists made the platform worth more than any single edition. And **Pokémon × Kogei** (National Crafts Museum, Kanazawa, 2023, toured to 2026 including Japan House LA) put twenty of Japan's leading craft artists, including a Living National Treasure metalworker, to work interpreting character IP in lacquer, ceramics, textiles and metal. That exhibition is the rebuttal to the worry that a character must be famous before serious makers will engage: framing does more work than fame.
+
+**Two lines with different jobs. Do not judge them on the same terms.**
+
+**Artist collabs — the commercial line.** Frequent, repeatable, cash-generating. Send a blank, get it back painted. Same-audience logic: the collaborator's collectors and Auwa's audience overlap, so the pieces sell. ~£150-400. Deliberately include Japanese artists and illustrators from early on, not only Western ones — an easier yes than a craftsman, the same operational simplicity, and genuine Japanese authorship.
+
+**Fin DAC is first, this autumn.** Warm (a friend), has already painted a portrait of Rieko and promoted it on his Instagram, already has an Auwa stencil, 96K followers, and Rieko loves his work. He is also actively keen on visible collaboration with and in Japan, partly because he has taken unfair accusations of cultural appropriation for his Asian-subject work. A Japanese-authored programme with a Japanese creator at its centre is therefore a genuinely good offer to him rather than a favour asked — and it may make him a connector rather than a one-off. **His piece produces the photograph that every subsequent collab is pitched with**, which is its real strategic value.
+
+**Craft collabs — the prestige line.** One or two a year, slow, aimed at authority, editorial and *exhibitability* rather than sell-through. The honest buyer analysis, and it should stay written down: a knife collector mostly does not want a decorative figure, and an Auwa reader mostly does not know the maker's name, so unit sales are not the return. The return is that this is the only thing making "Japanese" true rather than decorative in the brand; plus press, institutional doors, editorial, and the maker relationships themselves. Structure so the maker manufactures, holds and sells domestically to their own trusting customers, and Auwa takes a small Western allocation. No inventory risk, no unproven-market risk.
+
+**The taxonomy: where the collaborator's signature lives determines the format.** This is the operating detail Rieko works from.
+
+| Signature lives in | Crafts | Format |
+|---|---|---|
+| **Surface** | lacquer and maki-e, gold leaf, dyeing, sashiko and textiles, painting | True blank-canvas. Supply a blank, they reveal it. Fin DAC sits here. |
+| **Form and material** | kokeshi, woodturning, ceramics, bamboo, glass, cast metal | Nobody decorates anything. They make the *whole* Auwa in their medium from Rieko's master form; the hand shows in glaze, grain, throw, firing. Most collabs will land here. |
+| **Function** | knives, tools, joinery | The blank fails. Either they forge an Auwa in their signature material (the lamination line, hamon, kasumi finish *is* the signature), or Auwa becomes the subject of a functional piece (a kiridashi with an Auwa terminal). Note a knife is made by several hands: the togishi, handle maker and saya maker are far more reachable than a backordered smith. |
+
+**Order of approach.** Start with crafts whose output is already decorative and already collected, where nobody needs convincing the object is a thing you would own. **Kokeshi first** — it is the Japanese blank-figure tradition: regional schools with distinct forms and painting hands, two centuries of turned, painted, collected wooden figures. Bearbrick, two hundred years early, and a kokeshi maker producing an Auwa is barely a stretch. Then daruma (Gunma painters, already on Rieko's radar for years), lacquer and maki-e, Kanazawa gold leaf, ceramics, textile. Knives and functional crafts are a year-three conversation if ever, and their better use is editorial: a film of Shigefusa's sons at the forge is magnificent content and needs no product attached.
+
+**Kintsugi is explicitly ruled out** (Tom's call, 5 Aug 2026).
+
+**Production note.** A 3D-printed PLA blank will not take glaze, urushi or firing. Collab figures in the form-and-material category are made entirely in Japan from Rieko's master form or 3D file. Auwa's home printer serves only the Auwa-made edition. Two independent production lines, no shared bottleneck.
+
+**How to approach, and this matters more than any of the above.** You cannot pitch this in words. A written proposal describing a character figure decorated by artisans reads, in Japanese, uncomfortably close to a licensing solicitation, and the default answer is a polite no. Pitch it with a photograph of a finished piece — which is what Fin DAC provides. Rieko writes in Japanese, always. The first approach is never "may we sell your work," it is "may we tell your story": a journal piece and Tom's photography, made as a gift, with full use granted to the maker. Commerce is the second conversation, usually on a second visit. What goes in the parcel: the two printed books, a figure, and a one-page Japanese profile of Auwa and of Rieko as its creator.
+
+**Register.** Frame it the way the National Crafts Museum framed Pokémon × Kogei: an art commission, a challenge to the maker's skill, one-of-a-kind (一点物) or a small numbered edition, exhibited rather than racked. Being "one of many collaborators on a platform toy" reads as streetwear in London and as merchandise in Kyoto, and merchandise is the wrong register for a serious maker. Same object, entirely different conversation.
+
+**Who says yes.** Not masters with multi-year waiting lists — there is nothing Auwa can offer them and asking damages the relationship. The realistic yes is the mid-career maker, the successor, the second or third generation with a workshop, a shrinking domestic market and no international audience. To them Auwa offers a Western audience, a beautifully photographed article, a piece they can sell well in their own shop, and a relationship with a Japanese creator who understands their world. Rieko being Kansai-born and writing in Japanese is what unlocks this, not follower count.
+
+**The long arc: exhibition.** Accumulate enough craft pieces to exhibit. This is the real prize, because it solves the actual bottleneck — the character needs to become known and Auwa has no distribution. "An illustrated character interpreted by twelve Japanese craft masters" is programmable by cultural institutions; "a character brand with a shop" is not. Ladder, lowest rung first: **London Craft Week** (annual, May, open participation, right press and audience — achievable 2028, possibly 2027 if pieces exist), then the Daiwa Anglo-Japanese Foundation and Japan Foundation London gallery spaces, then an independent design gallery show, then **Japan House as a year four or five destination** approached with a track record of three smaller shows behind it.
+
+Note the correct pitch frame for Japan House: it is funded by the Japanese Ministry of Foreign Affairs and exists to present Japan to a British audience, so it programmes exhibitions *about Japanese culture*, not brand partnerships. Auwa must be the vehicle and the craft and philosophy the subject. Get that inversion wrong and it reads as a brand activation and is declined permanently.
+
+Also note the money: institutional exhibitions typically pay nothing and often cost the exhibitor (production, crating, shipping, insurance, install). Their shop is a separate commercial relationship at conventional consignment or wholesale terms, so 40-50% to them. Treat the whole thing as marketing spend with an exceptional return in press and credibility, not as a revenue line.
+
+**And it is grant-fundable.** UK-Japan cultural exchange has dedicated funders whose purpose is projects exactly like this: the Daiwa Anglo-Japanese Foundation, the Great Britain Sasakawa Foundation, and the Japan Foundation. Individually these are typically low thousands rather than transformational, and current rounds and terms need checking rather than assuming, but they are non-dilutive, free to apply for, and a held grant is itself a credential when approaching makers and venues. Worth an afternoon once the first two or three craft pieces exist and can be photographed, not before.
+
+**Gating, corrected.** Follower count is close to the least important thing an institution assesses. What matters: whether the work is culturally sound, who the Japanese author is, whether the objects exist, whether it can be delivered professionally, and whether anyone serious has vouched. A book published by a real publisher and reviewed somewhere is worth more than 50K Instagram followers. Eight to twelve finished craft pieces by named makers are worth more than all of it, because at that point the exhibition already half exists.
 
 ### 6.3 Auwa Journal (auwa.life/journal) - Year 1 Editorial
 
@@ -184,13 +255,19 @@ Long-form editorial content that builds brand authority, drives organic search t
 
 **Production workflow:** Tom provides photo folders + title + bullet points. Claude writes the article in Auwa's voice. Rieko reviews for cultural accuracy. Future: video content from craftsman visits (ASMR-style making films).
 
-**SEO value:** Each article targets long-tail keywords the brand naturally owns — Japanese craft, emotional intelligence, seasonal living, specific artisan traditions. This is the content layer that makes auwa.life discoverable beyond social media.
+**SEO value:** Each article targets long-tail keywords the brand naturally owns — Japanese craft, seasonal living, specific artisan traditions. This is the content layer that makes auwa.life discoverable beyond social media.
+
+**Its primary job changed in Aug 2026.** SEO is now the secondary benefit. The journal's first job is to be **the calling card used to approach Japanese makers**: the thing Rieko sends, the proof that Auwa can tell a maker's story beautifully, and the gift offered in a first approach with no commercial ask attached. Weight the calendar toward craftsman profiles and places over general seasonal essays. Cadence roughly one a month, which is sustainable alongside everything else.
 
 **Tech:** Sanity CMS. Same Next.js codebase as the main site. Markdown-friendly for fast publishing.
 
-### 6.4 Auwa Book (auwa.life/book) - Year 1 Brand Home
+### 6.4 Auwa Story (auwa.life/book) — the foundation
 
-The canonical home of the Auwa universe and the illustrated stories. Hub linking all four pillars. This is where the deeper mythology lives — the WAWA origin, the character's story, the philosophy in narrative form.
+The canonical home of the Auwa universe and the illustrated stories. Hub linking the pillars. This is where the deeper mythology lives — the WAWA origin, the character's story, the philosophy in narrative form.
+
+**Elevated in Aug 2026 from "brand home" to the foundation the business rests on.** Everything downstream — the figure, the collabs, the exhibition route, licensing, and any eventual return to the app — depends on the character becoming known. Publishing the books properly is therefore the highest-leverage single act available, and it outranks almost everything else on the list.
+
+**Which changes the publisher question.** When the app was the flagship, self-publishing was fine because the character only had to serve app users. Now a publisher offers bookshop distribution, foreign rights and review coverage that cannot be bought at any price, and those are precisely the levers on making a character known. **Try the publisher route properly first**, with Colin Midson's view as the decisive input, with IngramSpark POD as the always-available fallback that can be executed at any time. Do not rush that decision in order to feel decisive. Books 1 and 2 release as a set, which turns "a book" into "a series" and is a materially stronger proposition to a publisher and to press.
 
 **The Auwa Universe:** Auwa originates from WAWA, a harmonious solar system deep within the Milky Way. When its inhabitants received a mysterious signal from Earth, they channelled energy to form a glowing orb of pure light. From this orb emerged Auwa — a being whose magical light shower reveals the Kokoro within every living creature. Auwa communicates through telepathy: gentle, observant, non-judgmental. This mythology enriches the stories and gives depth to the app, but it lives here — in the book section — not in brand communications. The Monocle reader encounters philosophy and craft; those who go deeper find a cosmic story.
 
@@ -205,9 +282,19 @@ Stories originally written in Japanese. Limited-edition physical printed version
 
 **Content also includes:** Brand story and Auwa etymology, Yaoyorozu no Kami philosophy, creator bios, links to app, store, and journal.
 
-### 6.5 Seasonal Journeys (Year 1 Prototype, see `arrival.md`)
+### 6.5 Seasonal Journeys (programme, not a pillar — see `arrival.md`)
 
-Small, once-a-year guided Japan experiences for foreigners to meet craftsmen and visit places not otherwise accessible. Five people, four to six days. Constrained to one trip per year by the founders' UK life (dog) and by the quality bar. Prototype Autumn 2026 or Spring 2027. At £3-4K per person, a single trip generates £15-20K at healthy margin and produces a year's worth of editorial content. Why this matters: the journal is *about* hidden experiences; the journey *is* that experience; the store sells the craftsmen's objects; the app builds daily awareness. The journey is what binds the pillars into something lived. Interest gathering begins immediately via soft CTAs at the foot of relevant journal articles and a dedicated Resend segment. See `arrival.md` for full plan.
+Small, once-a-year guided Japan experiences for foreigners to meet craftsmen and visit places not otherwise accessible. Five people, four to six days. Constrained to one trip per year by the founders' UK life (dog) and by the quality bar. Tom and Rieko pilot it alone in 2027; no paying customers on the first trip. At £3-4K per person, a single trip generates £15-20K at healthy margin and produces a year's worth of editorial content.
+
+Why this matters more after the Aug 2026 pivot: the journal is *about* hidden experiences, the journey *is* that experience, and the collab programme's maker relationships are the same relationships that make a journey possible. Rieko can often open both conversations in one Japanese-language email. **The single Japan trip each year should carry craftsman relationships, journal photography, journey route recon and collab conversations together**, rather than being four competing ambitions for the same fortnight.
+
+**Two things to settle before taking a deposit.**
+
+*Regulatory.* Selling a package in the UK (accommodation plus activities, with or without flights) almost certainly falls under the **Package Travel and Linked Travel Arrangements Regulations 2018**, which means mandatory insolvency protection for customer money and liability for the whole package including a supplier's failures. Two clean routes through: partner with a licensed tour operator who takes the booking, or sell a guided experience only and have guests book their own rooms and flights. Neither is hard; both need deciding before money is taken, not after. Worth a short conversation with an accountant or travel-trade solicitor when it gets close, plus public liability insurance.
+
+*Trademark.* The current classes do not cover travel services (class 39). Not urgent and explicitly do not disturb the Madrid filing over it, but flag for whenever "Auwa Journeys" becomes a named commercial product.
+
+**Also note:** this is the only non-passive revenue line in the whole plan, the one thing requiring both founders present, in person, on a schedule. One trip a year is not a treadmill, but cap it deliberately and revisit if it ever starts wanting to be more.
 
 ### 6.6 Firefly Conservation Commitment
 
@@ -215,7 +302,11 @@ Small, once-a-year guided Japan experiences for foreigners to meet craftsmen and
 
 The Kokoro Mirror app's Daily Light + Firefly Trove mechanic (see `context/pillar/app.md` Section 8) makes the firefly the central iconography of Auwa's daily practice. Each user collects fireflies they noticed in their own day; each captured firefly is a small act of preservation in the user's life. The commitment extends that preservation outward into the world.
 
-**Auwa commits five percent of every subscription to firefly habitat conservation, from the first paid subscriber, not contingent on profitability.** The commitment applies to all subscription revenue (Free tier capture does not generate revenue and is unaffected; gift subscriptions, annual subscriptions, and any future tiers all carry the same five percent).
+**RE-ANCHORED 5 August 2026.** The commitment was written against app subscription revenue, which no longer exists. It matters to Rieko personally and should survive the pivot, so it re-anchors to what Auwa actually sells: **Auwa commits five percent of Store revenue — figures, collab editions, prints and paper goods — to firefly habitat conservation, from the first sale, not contingent on profitability.** Books are excluded only if a publisher deal makes the accounting impractical; on self-published sales they are included.
+
+The Daily Light + Firefly Trove mechanic that originally motivated this lives in the parked app, so the in-product surfaces below no longer apply. The firefly stays in the brand through Rieko's illustration work and through the commitment itself, and it remains a genuine differentiator: a competitor can copy a figure; a real conservation programme with named partners and annual impact reporting is harder to fake.
+
+*(Original wording, retained for reference: Auwa commits five percent of every subscription to firefly habitat conservation, from the first paid subscriber, not contingent on profitability.)*
 
 **Partners.** Identified by Rieko's Japan network. Initial shortlist:
 - Tatsuno Firefly Conservation Society (Nagano)
@@ -232,19 +323,20 @@ Final partner selection during Stage 6 of the app build (content engine + friend
 
 **Why this is also business strategy.** A weekend-built Claude-wrapper competitor can copy the app's UI. It cannot easily ship a real conservation programme with named partners and annual impact reporting. The commitment is part of Auwa's non-substitutable moat (see Section 15). It is also a credible signal to the audience we want (Kinfolk-readers, Japan-curious, design-conscious, values-aligned): they expect brands they invest in to put values into practice.
 
-**Financial model.** At 1,000 paid subscribers (£6.99/month) the annual conservation commitment is roughly £4,200. At 10,000 paid subscribers it is roughly £42,000. At the 30K Year-2 target the commitment is roughly £125,000 per year, which is significant funding at the scale of any small conservation organisation. The marginal cost on the unit economics is real but proportionate; gross margin pre-commitment is over 85% on a digital subscription, so five percent leaves the unit economics healthy.
+**Financial model (revised).** Five percent of Store revenue. At the Year 1 expected case that is a few hundred pounds; at a Year 2 store doing £60-80K it is £3-4K, which is meaningful to a small Japanese conservation group. Gross margin on Auwa-owned goods is 60-80%, so five percent leaves the unit economics healthy. Start with one partner, not two, until the numbers justify more.
 
 ### 6.7 Year 2+ Vision (Earned by Year 1 Results)
 
-- London pop-up workshops (kintsugi, ikebana, EQ classes)
-- Hotel Digital EQ Experience (B2B) - white-label for luxury hotels
-- White-Label EQ Platform (B2B) - hospitals, neurodiversity clinics, corporate wellness, education
-- Auwa lifestyle products (journal, merch, curated boxes)
-- Ukiyo-e Print Series: "72 Seasons of Auwa"
-- Physical Printed Stories + Digital Art Releases
-- Exhibition: "Auwa Revealed"
-- EQ corporate programmes (app + workshops)
-- Patreon-style community tier (or built into app)
+*Revised 5 Aug 2026. Everything that depended on the app is retired rather than deferred: the Hotel Digital EQ Experience, the white-label EQ platform for hospitals and clinics, EQ corporate programmes, and any subscription community tier. Those were app-derived B2B lines and they go with it. What replaces them is character-IP-derived.*
+
+- **Character licensing.** The endgame, and the most passive revenue Auwa can have. Moomin is the model: an illustrated character licensed into goods, cafés and craft collaborations, ultimately far bigger abroad than at home. Requires the character to be known first, which is why publishing comes first.
+- **Exhibition: an Auwa × Japanese craft show.** London Craft Week or a foundation space first, Japan House as the year four or five destination. Grant-fundable. See 6.2a.
+- **72 Seasons of Auwa print series.** The full set as a collected edition or annual calendar, built from work Rieko already produces.
+- **Further figure editions and collab drops.** One or two a year at a leisurely cadence.
+- **Books 3 and 4**, and physical first editions of the earlier books.
+- **Seasonal Journeys** opened to paying guests after the 2027 pilot.
+- **London pop-up workshops** (ikebana, sashiko, a maker demonstration) — capital-light, Niwaki's Chiltern Street programme is the template.
+- **Auwa paper goods and lifestyle range**, kept small and design-led.
 
 ---
 
@@ -252,18 +344,26 @@ Final partner selection during Stage 6 of the app build (content engine + friend
 
 **Market landscape:** Auwa sits at the intersection of several growing markets: AI wellness (~$9.45B in 2026, projected $18B by 2031), Japanese cultural exports (anime market $37.7B, tourism 42.7M visitors in 2025), the premium craft/design economy, and the broader lifestyle editorial space. No single market size captures Auwa because no brand currently assembles all these elements under one roof.
 
-**Target audience:** Design-conscious, culturally curious people drawn to Japanese aesthetics, philosophy, and craft. They value meaning over metrics, intention over convenience, and quality over quantity. They read Kinfolk and Monocle, appreciate Aesop's retail experience, follow Studio Ghibli, and are more likely to buy one handmade knife than a drawer full of disposable ones. They are underserved by Headspace (too clinical), generic wellness apps (lack cultural depth), and most "self-help" products (too prescriptive). Auwa's different pillars attract different entry points within this audience — some arrive through the journal and photography, others through the app, others through the store — but all share the same sensibility.
+**Target audience (revised Aug 2026):** Design-conscious, culturally curious people drawn to Japanese aesthetics, philosophy, and craft. They value meaning over metrics, intention over convenience, and quality over quantity. They read Kinfolk and Monocle, appreciate Aesop's retail experience, follow Studio Ghibli, and are more likely to buy one handmade knife than a drawer full of disposable ones.
 
-**Uncopyable advantages ("The Authenticity Moat"):**
+Three distinct entry points now, and they are not the same person:
+- **Story readers** — drawn in by the character and the illustration. Buy books, prints, paper goods. The largest and most important group, because everything else depends on the character being loved.
+- **Object collectors** — art-toy and design-object buyers, overlapping heavily with Bearbrick, KAWS and Sonny Angel audiences. Buy figures and artist collab editions. Reachable through collaborators' audiences, which is the point of the artist line.
+- **Japan-interested readers** — arrive through the journal and photography. Slower to convert to purchase, but they are the audience for journeys, and the reason the editorial pillar earns its place.
+
+*(Retired: the wellness-app audience, which the app was aimed at.)*
+
+**Uncopyable advantages ("The Authenticity Moat") — revised Aug 2026:**
 - Rieko's decade of creation + a series of completed illustrated stories
-- Japanese cultural authenticity (Kansai-born, Japanese-educated, native Japanese speaker)
+- Japanese cultural authenticity (Kansai-born, Japanese-educated, native Japanese speaker) — which since the pivot is not a positioning claim but the operational engine, because every maker, gallery and institution conversation runs through Rieko in Japanese
 - Yaoyorozu no Kami embedded by a Japanese creator who grew up within the philosophy
-- Proprietary emotional framework based on Yamato language
-- 72 micro-seasons as perpetual content rhythm (refreshing every 5 days)
+- The character and its master form, and the blank-canvas mechanic that makes a maker's own Kokoro the thing revealed
+- 72 micro-seasons as perpetual content rhythm (refreshing every 5 days), which is also a product
 - Hand-illustrated character variants
-- Physical craft layer + direct Japanese craftsman relationships
+- Direct Japanese maker relationships, once built — slow to acquire and therefore slow to copy
 - Editorial depth (Tom's published Japan photography, 17M+ Unsplash views)
-- Four interconnected pillars that reinforce each other — no competitor has more than one
+- Tom's operational precedent selling Japanese design objects to Western buyers (2005-2007), including distributing KAWS's first international releases — which is directly the art-toy collaboration world the new plan sits in
+- The Yamato emotional framework (dormant with the app, still owned)
 
 ---
 
@@ -291,27 +391,31 @@ See `context/marketing/instagram.md` for detailed IG strategy, specs, content pi
 
 **Success metrics (Week 6):** Website live and beautiful. 3+ journal articles published. 1,000+ IG followers. 200+ email signups. Brand feels coherent and premium across website and social.
 
-### Phase 2: Build + Launch App (Weeks 6-16)
+### Phase 2 REPLACED (Aug 2026): Ship the objects (Aug 2026 - early 2027)
 
-- **App build:** Kokoro Mirror MVP via Claude Code. Character variants, AI integration, light shower, archive, journal, shareable cards, freemium.
-- **Instagram continues:** Paid promotion £15-25/day on best-performing Reels. Target: 2,000-3,000+ followers.
-- **Journal continues:** New articles fortnightly. SEO begins compounding.
-- **Soft launch app** to waitlist. First 100-200 signups get beta access.
+*The original Phase 2 was the app build and soft launch. Retired.*
 
-**Success metrics (Week 16):** 50+ active app users, 60%+ completion rate, 5+ paid conversions, shareable cards posted organically, 3,000+ IG followers.
+Phase 1's brand foundation is done: the site is live and award-recognised, the Instagram is at 2,667, articles are published. What has never happened is **shipping anything a person can buy**. Zero revenue to date, and two finished books sitting unreleased, which is the worst possible state for an asset to be in. Phase 2 is therefore about getting objects into the world.
 
-**Decision gate:**
-- 50+ active, 60%+ completion, paid conversions: Proceed to Phase 3
-- 20-49 users, 40-59% completion: Iterate app, keep building audience
-- <20 users, <40% completion: Major reassessment of app approach
+- **Books off print test, route decided** (publisher first, POD fallback), releasing as a two-book set.
+- **Figure finished and dropped:** bio-filament, finish, packaging, price. First edition 25-50 units.
+- **Shopify shelf live** with Auwa-owned goods only.
+- **Fin DAC collab opened**, producing the photograph the whole collab programme is pitched with.
+- **Journal back to ~1/month**, weighted toward makers and places.
+- **Email capture continues:** the Quiet Letter and the Meta lead ads, which were already working (day-1 leads at £0.94, well under the £2 gate).
+- **Instagram continues** on one account: 72-seasons cadence, character animation, and now product teasers and reveals.
 
-### Phase 3: Store Soft Launch (Months 6-12)
+**Success metrics:** books published or a publisher deal in progress; first figure edition sold through at 70%+; Fin DAC piece shipped and photographed; first revenue of any kind on the board; subscribers meaningfully above the current ~100.
 
-Begin craftsman outreach — Rieko contacts initial merchants in Japanese. First craftsman products on auwa.life/store. Craftsman profiles in journal feed directly into store. Begin YouTube channel (craftsman making videos, Japan travel, philosophy deep-dives). Expand sub-expression nuance in app. Activate story unlocks. Press/podcast outreach (after 5K IG followers). Fin DAC collaboration.
+**Decision gate on the figure:** below 30% sell-through, pause physical and reassess pricing or audience before committing to edition two.
 
-### Phase 4: Scale (Year 2)
+### Phase 3: Open Japan (2027)
 
-Earned by results. First Auwa figure drop (self-produced, 3D-printed). Retreats, workshops, hotel B2B, exhibition, expanded store.
+Craftsman outreach opens once the books are printed, because the printed book is the calling card. Rieko writes in Japanese, offering a story first and commerce never in the first conversation. Target two or three makers, not twenty. First craft collab commissioned, kokeshi or daruma first. Journal weighted to those relationships. One Japan trip carrying craftsman meetings, photography, journey recon and collab conversations together. Seasonal Journeys piloted by Tom and Rieko alone. Second figure edition. YouTube opens only if the Shigefusa film exists.
+
+### Phase 4: Institution (2028+)
+
+Earned by results. Enough craft pieces to exhibit. London Craft Week or a foundation show with a UK-Japan grant behind it. Press and guest articles. Journeys open to paying guests. Character licensing conversations. Japan House as the year four or five destination.
 
 ---
 
@@ -343,44 +447,52 @@ Earned by results. First Auwa figure drop (self-produced, 3D-printed). Retreats,
 
 **Year 1 marketing budget:** ~£3,000-4,000 (Instagram-focused spend is more efficient than multi-platform).
 
-### Conversion Model (by Month 12)
+### Conversion Model (revised Aug 2026, to Jan 2027)
+
+*The old model was app-funnel shaped (free users → paid subscribers) and is retired. Baseline at 5 Aug 2026: 2,667 Instagram followers, ~100 subscribers, £0 revenue.*
 
 | Metric | Conservative | Expected | Optimistic |
 |--------|-------------|----------|------------|
-| Monthly new users (free app) | 100 | 250 | 500 |
-| Free-to-paid conversion | 2% | 3% | 5% |
-| Paid app subscribers | ~25 | ~90 | ~300 |
+| Instagram followers | 4,000 | 6,000 | 8,000 |
+| Email subscribers | 600 | 1,200 | 2,000 |
 | Monthly journal visitors (SEO) | 500 | 2,000 | 5,000 |
-| Email list | 300 | 800 | 2,000 |
+| Figure edition sell-through | 30% | 70% | sold out + waitlist |
+| Books published | POD live | POD live + publisher talks | publisher deal signed |
+| Collab pieces shipped | 1 (Fin DAC) | 2-3 | 4+ incl. one Japanese artist |
 
 ---
 
 ## 11. Revenue Model & Financial Projections
 
-Auwa generates revenue across all four pillars. More Air client work funds founders separately — Auwa revenue is reinvested into growth.
+Auwa generates revenue from objects it owns. More Air client work funds the founders separately, and the household already needs no income from Auwa (see the personal finance project) — so Auwa revenue is reinvested into growth, and its real job is the dignity of the venture paying its own way rather than financial permission to stop client work.
 
 ### Revenue Streams by Pillar
 
-**App (auwa.life/app):** Freemium subscriptions. Free tier (3 revelations/month) drives trial; paid tier (£6.99/month or £49.99/year) unlocks unlimited use, archive insights, story content, shareable cards.
+*Revised 5 Aug 2026. App subscription revenue is removed. Everything below is object revenue at 60-80% margin, plus one high-margin experience line from 2027.*
 
-**Store (auwa.life/store):** First-party items (figures, books, prints, Kokoro prints) at 60-80% margin, plus collaboration editions (Auwa × Fin DAC, Auwa × craftsmen) that drive press and bring partner audiences in. The multi-vendor marketplace model is retired; the new model is higher margin and lower operational lift. Tom's operational precedent: a niche Japanese vinyl figure store in 2004-2007 generated ~£1,500/month profit with a fraction of today's audience and tools.
+**Story (auwa.life/book):** Book sales. POD at £28-35 trade, signed first edition at £45-60. If a publisher deal lands the economics change entirely (advance plus royalty, much lower per-unit, vastly higher reach) — and reach is what the business actually needs, so that trade is worth making.
 
-**Journal (auwa.life/journal):** Not a direct revenue stream in Year 1 — its value is brand building, SEO traffic, and audience development that feeds the other three pillars. Future potential: sponsored content from aligned brands, affiliate partnerships with featured craftsmen, premium subscriber-only articles.
+**Store (auwa.life/store):** Auwa-owned goods (figures, prints, paper goods, the 72-seasons set) at 60-80% margin, plus collaboration editions. Artist collabs are the recurring commercial line; craft collabs are prestige and should not be modelled as meaningful revenue. Tom's operational precedent: a niche Japanese vinyl figure store in 2004-2007 generated ~£1,500/month profit with a fraction of today's audience and tools.
 
-**Book (auwa.life/book):** Story content unlocked through paid app tier. Future: limited-edition physical printed versions, digital art releases.
+**Journal (auwa.life/journal):** Not a revenue stream. Its value is brand authority, SEO, and being the calling card for maker relationships. Later potential: sponsored content from aligned brands.
 
-### Year 1 Revenue
+**Seasonal Journeys (from 2027):** £3-4K per person, five people, once a year. £15-20K at healthy margin, and it produces a year of editorial. Not in Year 1.
+
+**Character licensing (Year 3+):** The most passive line available and the one the whole plan is quietly building toward. Nothing to model yet.
+
+### Year 1 Revenue (to April 2027)
 
 | Stream | Conservative | Expected | Optimistic |
 |--------|-------------|----------|------------|
-| App Subscriptions | £1,000 | £3,500 | £12,000 |
-| Store — Auwa figures (autumn 2026 drop, run of ~100) | £4,000 | £8,000 | £16,000 |
-| Store — Prints + Kokoro prints | £500 | £2,000 | £6,000 |
-| Store — Books (POD) | £0 | £1,000 | £3,000 |
-| Store — First collab edition (Fin DAC, late Year 1 or early Y2) | £0 | £2,000 | £6,000 |
-| **Auwa Total** | **£5,500** | **£16,500** | **£43,000** |
+| Books (POD; publisher advance not modelled) | £500 | £2,000 | £5,000 |
+| Auwa figures (autumn 2026 drop, 25-50 units at £140-180) | £2,000 | £5,000 | £8,000 |
+| Prints + paper goods + 72-seasons set | £500 | £2,000 | £5,000 |
+| Collab editions (Fin DAC first, then 1-2 more) | £1,000 | £4,000 | £10,000 |
+| **Auwa Total** | **£4,000** | **£13,000** | **£28,000** |
 
-Revised May 2026: figure drops moved from Year 2 to Year 1 given active 3D-printing progress. The store revenue line is now meaningfully higher than the earlier multi-vendor model projected, because first-party margins are 60-80% vs the 15-25% commission slice the marketplace model implied. The trade-off is that Auwa carries all the operational lift for its own items; collab partners handle their one item only.
+Lower headline than the pre-pivot projection, and deliberately so: the app's £3.5K expected line is gone, and the figure edition is cut from ~100 units to 25-50 to keep the physical workload sane. What the numbers do not show is that every line here is now a durable good at 60-80% margin, with no inventory risk on anyone else's stock, and no subscription base to service. **Year 1 remains an investment year.** The point of it is not the revenue, it is getting objects into the world and proving each line.
+
+Costs are broadly unchanged (see below), except that API and app hosting fall away and figure production and print costs rise, roughly cancelling out. The £15,000 More Air envelope authorised on 8 July 2026 still governs and still covers the Madrid filing, figure production, book printing and the paid-social lane.
 
 ### Costs
 
@@ -398,15 +510,19 @@ Year 1 is an investment year funded by More Air client work. Self-sustaining thr
 
 ### Year 2 (Contingent on Traction)
 
+*Revised 5 Aug 2026. App subscriptions, craftsman commission and hotel B2B all removed. The realistic Year 2 range is much lower than the old plan claimed, and it is worth being honest that the old £107-378K range was carried almost entirely by two lines that no longer exist.*
+
 | Stream | Target |
 |--------|--------|
-| App Subscriptions (500-2,000 paid) | £42,000-168,000 |
-| Store — Craftsman Commission (full catalogue) | £18,000-60,000 |
-| Store — Auwa Figures (2-4 drops) | £15,000-45,000 |
-| Journal — Affiliate/Sponsored (if validated) | £2,000-10,000 |
-| Hotel B2B (first deal) | £25,000-75,000 |
-| Retreats/workshops (if validated) | £5,000-20,000 |
-| **Year 2 Range** | **£107,000-378,000** |
+| Books (POD + first edition; or publisher royalties) | £5,000-25,000 |
+| Auwa figures (2-3 editions) | £10,000-30,000 |
+| Collab editions (artist line, 3-4 drops) | £8,000-25,000 |
+| Prints, paper goods, 72-seasons set | £4,000-15,000 |
+| Seasonal Journey (one trip, if piloted successfully) | £0-20,000 |
+| Journal sponsored/affiliate (if validated) | £0-5,000 |
+| **Year 2 Range** | **£27,000-120,000** |
+
+This lands squarely on the **£20-60K at a leisurely pace** that Tom and Rieko actually said they want (the lifestyle-design principle agreed 15 July 2026), rather than on a growth curve neither of them wants to service. That is a feature of the pivot, not a shortfall against it. The old plan's headline was larger and structurally incompatible with a three-to-four-day week and two months a year in Japan.
 
 ---
 
@@ -435,10 +551,10 @@ Year 1 is an investment year funded by More Air client work. Self-sustaining thr
 Following the traditional Japanese ukiyo-e model (artist + publisher as equal partnership). Tsutaya Juzaburo is the historical precedent.
 
 **Rieko Maeda, Creator (Eshi):** Japanese-born illustrator from Kansai, also known by her artist name Eko. Creator of the Auwa universe (2015-2025). Native Japanese speaker. 20+ years design and illustration. (Legal name: Rieko Vining.)
-Year 1: 4 Auwa character variants, seasonal content (social + copy + audio in Suno), figure design, creative direction.
+Year 1 (revised Aug 2026): the books finished and out, seasonal content at the 72-season cadence, figure design and the blank/master form for collabs, creative direction, and **all Japanese-language outreach to artists, makers, galleries and institutions** — which since the pivot is the pillar the entire Japan practice runs on rather than a side task.
 
 **Tom Vining, Producer (Hanmoto):** Design technologist and brand strategist. 20+ years experience (Nokia, Apple, Sky). Built and operated a Japanese multi-merchant platform (2005-2007) selling Japanese design objects to Western buyers — including distributing KAWS's first international releases. Published photographer whose Japan work has 17M+ views on Unsplash and has been used by Condé Nast Traveler, Vogue, World Economic Forum, Travel + Leisure, TimeOut, and Culture Trip. Expert in AI-native workflows.
-Year 1: App design and build, brand, business development, financials, marketing, project oversight.
+Year 1 (revised Aug 2026): publishing route, figure production and packaging, the Shopify shelf, brand, photography, business development, financials, marketing, project oversight. (App design and build: delivered, now parked.)
 
 **Capacity:** Tuesday-Friday (3-4 day week, 10am-6pm). Auwa gets 60%, More Air 25%, ventures 10%. Shifts toward Auwa as revenue grows. No work Monday.
 
@@ -450,26 +566,38 @@ Year 1: App design and build, brand, business development, financials, marketing
 
 ## 14. Risk Analysis
 
+*Revised 5 Aug 2026. App-specific risks retired with the app.*
+
 | Risk | Pillar | Likelihood | Mitigation |
 |------|--------|-----------|------------|
-| Brand doesn't resonate / no audience builds | All | Medium | Website + journal + IG validate brand appeal before products launch. Client work funds experimentation. |
-| App doesn't resonate | App | Medium | Soft launch to waitlist. <20 users = reassess approach, not the brand. |
-| AI reflection quality insufficient | App | High | Single most important deliverable. Disproportionate time on prompt engineering. |
-| AI apps commoditised | App | High | Cultural depth + Yaoyorozu no Kami + proprietary emotional framework + Rieko's art = uncopyable. |
-| Craftsman onboarding is slow | Store | Medium | Start with Monolise relationships. Rieko's native Japanese is critical. Small catalogue is fine — curation over volume. |
-| Store logistics (Japan → global) | Store | Medium | Tom's 2005-2007 operational precedent. Merchants handle shipping. Shopify Duty & Import Taxes for transparency. |
-| Figures don't sell | Store | Medium | Pre-orders + giveaway seeding. <30% sell-through = pause physical. Deferred to Year 2 to reduce Year 1 risk. |
-| Journal content doesn't drive traffic | Journal | Medium | SEO compounds over time. Even modest traffic builds authority for partnerships. Low cost to maintain. |
-| API costs increase | App | Low | Pre-designed visuals keep costs marginal. 5x increase still viable. |
-| Client work crowds out Auwa | All | Medium | Minimum 10 hours/week for Auwa. Decision gates at milestones. |
-| No one discovers Auwa | All | High | Multi-channel: IG paid + organic, SEO via journal, shareable cards, collaborations, press. |
-| New to shipping software | App | High | Extra time built in. MVP not finished product. Iterate from feedback. |
+| **Craft work keeps beating shipping** | All | **High** | The single realest risk, evidenced twice already: the app was built and never released, and two finished books have sat unreleased for months. Everything in the current plan is gated on *getting an object out*. Treat "finished but unreleased" as the worst state an asset can be in. |
+| Character never becomes known | Story | High | The whole plan depends on it. Publishing properly (publisher route tried first) is the main lever; collab photographs, exhibition route and press are the others. |
+| Craftsman outreach yields nothing | Store | Medium | Expected, at first. Approach with a printed book and a story offered as a gift, never a commercial ask. Target mid-career and successor makers, not masters with waiting lists. Measure on being welcome back, not on yesses. |
+| Collab audience mismatch (nobody buys a craft piece) | Store | **High, and accepted** | Craft collabs are not modelled as revenue. The maker manufactures, holds and sells domestically to their own trusting customers; Auwa takes a small Western allocation and carries no inventory risk. The return is authority, editorial and exhibitability. |
+| Figures don't sell | Store | Medium | First edition cut to 25-50 to cap exposure. Pre-orders and lottery seeding. Below 30% sell-through, pause physical and reassess. |
+| Physical workload overwhelms two people | Store | Medium | Small editions, POD wherever possible, collaborators hold their own stock, no third-party inventory. If the making stops being enjoyable, the edition is too big. |
+| Publisher route stalls and wastes months | Story | Medium | IngramSpark POD is executable at any time and requires no permission. Set a decision date rather than waiting open-endedly. |
+| Journeys regulatory exposure | Journeys | Medium | Package Travel Regulations 2018 — resolve via a licensed operator partner or by selling a guided experience only, before any deposit is taken. See 6.5. |
+| Journal doesn't drive traffic | Journal | Low impact now | Its main job is now the maker calling card, not SEO. Even zero search traffic leaves it doing its primary work. |
+| Brand reads as a shop with a mascot | All | Medium | Character leads, goods follow, never the reverse. No white-label, no curated resale, no apparel range. |
+| Client work crowds out Auwa | All | Low now | Auwa is near-exclusive focus for the rest of 2026 (decision 8 Jul 2026). |
+| Yen strengthens sharply | Store | Low | Minimal exposure now — Auwa holds no Japanese stock. Only affects collab wholesale pricing. |
+
+*(Retired: app resonance, AI reflection quality, AI app commoditisation, API costs, marketplace logistics, and "new to shipping software.")*
 
 ---
 
 ## 15. AI Disruption & Market Timing
 
-*Added 27 May 2026 in response to the question: is now the right time to launch an app like this, or are apps like this being disrupted by AI.*
+**Superseded in part, 5 Aug 2026.** This section was written to answer "is now the right time to launch an app like this." The app is parked, so the app-specific argument is moot. Two things in it survive and are now more load-bearing than before, and they are worth stating up front before the original text.
+
+**First, the AI-fatigue tailwind is now the whole thesis rather than a supporting argument.** As feeds fill with generated text and images, the counter-movement toward human-made, slow, ritual and craft is exactly what Auwa now sells: Rieko's illustrations, a printed book, a hand-finished figure, a lacquered object made by a named maker in Japan. The pivot moved Auwa *further* from the commoditised end of the market, not closer to it. The section below argued the app was insulated from AI disruption; the objects are simply not in its path at all.
+
+**Second, Tom's own scepticism is a legitimate market signal, not a failure of nerve.** He asked whether he would use an emotional-reflection app in a world where he already has general-purpose AI, and concluded he would not. That is a first-person read from exactly the technically fluent segment such an app has to win first, and it is worth more than any market-size projection. Recorded here so it does not get argued away later.
+
+**What does not survive:** the claim that build cost collapsing makes app-building a good bet. It cuts both ways — the same collapse means any indie builder can ship a similar app in a weekend, which was one of Tom's stated reasons for walking away. Cheap to build is not the same as worth building.
+
+*Original text, 27 May 2026, retained below for reference.*
 
 The "SaaS is being crushed by AI" narrative is real but applies to a different category of product than Auwa. Three things are getting conflated in the discourse and they have different risk profiles. This section names where Auwa sits in the landscape and why now is a structurally good time to launch.
 
@@ -529,26 +657,39 @@ Market timing is favourable. The build window is open.
 
 ---
 
-## 16. Strategic Priorities (Next 12 Weeks)
+## 16. Strategic Priorities (from 5 August 2026)
 
-1. **Lock creative direction (Weeks 1-2):** Illustration refresh, character variants, font decision, colour system finalised. Brand feel locked before building anything.
-2. **Build core website — auwa.life (Weeks 1-3):** Brand home, journal section, app teaser, store teaser, email capture. Kinfolk-level design quality. Built with Claude Code on the existing Next.js foundation. A few focused days, not weeks.
-3. **Build Instagram audience (Weeks 1-12, continuous):** Instagram only. Daily posting from vault content. Paid promotion from Week 5. Target: 700 → 2,000-3,000 followers.
-4. **Publish first journal articles (Weeks 2-4):** 3-5 editorial pieces using existing Japan photography. Start building SEO presence and brand depth.
-5. **Build Kokoro Mirror MVP (Weeks 4-12):** Character variants, AI integration, light shower, archive, journal, shareable cards, freemium. AI reflection quality is the single most important deliverable.
-6. **Store preparation (Weeks 8-12):** Craftsman pitch deck. Rieko outreach to initial merchants. Shopify setup.
+*Replaces the March 2026 twelve-week list, which was website-and-app shaped and is now fully delivered or retired.*
 
-App soft launch at Week 12-16. Store soft launch Month 6-9. Figures and YouTube are Year 2.
+1. **Pay WIPO before 15 August.** Must come from More Air. Nothing else moves until it is done. Miss it and the international trademark protection already applied for is lost.
+2. **Books off print test and a route decided.** Publisher first with Colin Midson's view as the decisive input; IngramSpark POD as the always-available fallback. Release Books 1 and 2 as a set. This is the highest-leverage act available because everything downstream needs the character to be known.
+3. **Figure finished and dropped.** Bio-filament testing, finish, packaging, price. First edition 25-50 units, hand-finished, numbered, signed.
+4. **Simple Shopify shelf** for Auwa-owned goods only.
+5. **Fin DAC collab opened this autumn.** Warm, easy, and it produces the photograph that every subsequent collab is pitched with.
+6. **Journal back to ~1 article/month**, weighted toward makers and places, because it is now the calling card for Japanese outreach.
+7. **Craftsman outreach opens once the books are printed.** Rieko, in Japanese, offering a story and nothing else. Two or three makers, not twenty. Kokeshi and daruma first.
+8. **Website to three doors.** A real copy and layout job, not a find-and-replace; `/app` stays alive as a quiet parked page. Tom is running this as its own session.
+9. **Keep the capture engine running.** The Quiet Letter, the Meta lead ads (converting at under £1 a lead, well under the £2 gate), and one Instagram account with product reveals added.
+
+**Not on the list, deliberately:** app work of any kind, a marketplace, buying craftsman stock, white-label goods, apparel, a second social account, and the trademark class 39 question (flagged for later, must not disturb the Madrid filing now).
+
+**The trademark portfolio already anticipated this pivot.** Classes 16 (books, printed matter, illustrations), 20 (decorative objects, figurines), 25 (clothing), 28 (collectible figures, art toys, designer toys), 35 (online retail) and 41 (publishing, exhibitions) cover the entire new plan, including exhibitions and the collab editions. Class 9 (software) is retained for a possible return to the app. Nothing about the pivot requires a new filing.
 
 ---
 
 ## 17. Future Vision
 
-As AI accelerates and automates more of life's cognitive tasks, the human layer that matters most is awareness — of how you feel, what you value, how your choices affect the world around you, and how you connect with other people. Auwa is designed for this future.
+*Rewritten 5 Aug 2026.*
 
-**The brand scales across all four pillars.** The journal becomes a respected editorial voice in the Japanese culture/design space. The store becomes the definitive destination for curated Japanese craft in the West. The app becomes the daily awareness practice that millions use. The book becomes the illustrated philosophy that underpins it all. Each pillar reinforces the others — journal readers discover the store, app users share cards that drive new visitors, store customers subscribe to the journal.
+As AI accelerates and automates more of life's cognitive tasks, the things that hold value are the ones made by human hands with a story behind them. Auwa is designed for this future, and the pivot moved it further into that position rather than away from it.
 
-**The agentic web.** In a future where AI agents handle most routine tasks, Auwa becomes the culturally-rich interface that understands not just what you want done, but how you feel about it — and helps you make more conscious choices about what to buy, how to live, and how to relate to the world. 3-5 year vision, not Year 1 scope.
+**The brand scales across three pillars, with the character at the centre.** The books become known, first through a set of two and eventually four. The character becomes recognisable enough that a Japanese maker is pleased rather than puzzled to interpret it. The store becomes a small, considered shelf of Auwa-made and Auwa-commissioned objects that people collect rather than consume. The journal becomes a respected editorial voice in the Japanese culture and design space, and the reason makers take the call.
+
+**The endgame is licensing, and Moomin is the map.** Tove Jansson's illustrated world went books → known character → licensed goods → craft collaborations → shops and cafés, and ended up larger in Japan than in Finland. That arc is the most passive, most durable, most travel-compatible business available to a two-person studio, and every step in the current plan is a step along it. It requires exactly one thing that Auwa does not yet have: a character people know. Which is why publishing the books properly outranks everything.
+
+**The exhibition is the bridge.** An illustrated character interpreted by Japanese craft masters is programmable by cultural institutions in a way that a character brand with a shop never is. That route buys reach and legitimacy that no amount of paid social can, and it is grant-fundable. 2028 or later, but it is the reason to start commissioning craft pieces now.
+
+*(Retired: the agentic-web vision, which depended on the app.)*
 
 ---
 

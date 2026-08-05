@@ -1,6 +1,6 @@
 # Auwa — Project Context
 
-*Last Updated: 1 May 2026*
+*Last Updated: 5 August 2026 — major revision. Four pillars became three; the Kokoro Mirror app is parked; the store became Auwa-owned goods plus a collaboration programme. See THE PIVOT below before proposing any work.*
 
 ---
 
@@ -60,37 +60,82 @@ Auwa is influenced by the ancient Japanese belief that a life force resides in a
 
 Where Western wellness centres on the self, Auwa draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is "Japanese philosophical awareness applied to modern life."
 
-Auwa is built on four interconnected pillars: a daily awareness practice app (Kokoro Mirror), a curated Japanese craftsman store, an editorial journal, and an illustrated story universe. These are not four separate products. They're one philosophy expressed four ways, one world with four ways in. The app builds emotional awareness, the store cultivates material awareness, the journal builds cultural awareness, the book teaches philosophical awareness. Public-facing copy uses the "four ways in" / "Auwa expresses this through four things" framing. The word "expressions" is the internal frame for how the pillars relate to the philosophy.
+**Auwa is an illustrated world from Japan, sold as objects and told through Japan.** Character IP at the centre, a small shelf of things Auwa owns outright, and an editorial and relationship practice in Japan that feeds both. Three pillars: the Story (the illustrated books and the character universe), the Store (Auwa-made goods plus collaboration editions), and the Journal (editorial from Japan). One philosophy expressed three ways, one world with three ways in. Public-facing copy uses "three ways in" / "Auwa expresses this through three things."
 
-Within the book and app, Auwa is also a character — a luminous being who reveals the Kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, created by Japanese illustrator Rieko Maeda over a decade of development. It appears only in the stories and the app, making those spaces special. The broader brand — store, journal, overall identity — expresses the philosophy through design, editorial, and craft without needing the character.
+*Revised 5 August 2026. Was four pillars including a daily-awareness app (Kokoro Mirror). The app is parked, not cancelled: see THE PIVOT below.*
+
+Auwa is also a character — a luminous being who reveals the Kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, created by Japanese illustrator Rieko Maeda over a decade of development. It is no longer reserved for the books alone: since August 2026 the character is the centre of the business, appearing in the stories, as the figure, and as the form that collaborating artists and craftsmen interpret. The journal and the overall brand identity still express the philosophy through design, editorial, and craft without needing the character present.
 
 ---
 
-## THE FOUR BRAND PILLARS
+## THE PIVOT (5 August 2026)
 
-### Kokoro Mirror App (auwa.life/app)
-Daily awareness practice. User shares how they feel, Auwa's AI identifies the emotion using a proprietary Yamato-language framework, reflects it back poetically alongside Rieko's illustrated Auwa character. Shareable Kokoro cards, journal, Kokoro Archive for pattern recognition over time. The Auwa character appears here (and in the book) — one of two spaces where it lives. PWA first, wrappable for native via Capacitor. Free tier: 3 revelations/month. Paid: £6.99/month or £49.99/year.
+The single most important context in this repo. Read before proposing any work.
+
+**What changed.** The Kokoro Mirror app is parked. Auwa is now a character IP business with a Japan practice attached, not a four-pillar lifestyle brand with an app as its flagship.
+
+**Why.** Tom's own reasoning, in his words: he would not use the app himself in a world where he already has AI; it needs sustained marketing effort and continuous competitive development to stay strong; it is a different kind of thing from the book and figure; the revenue is poor even in success; apps are becoming trivial to replicate; and after two decades in the industry, building one no longer excites him. The More Air case-study value is already banked by having built it — it does not require release. Structurally the app was always going to be brutally hard as the *first* product, because it had to win attention for a character nobody knows. As the fourth thing, behind books people own and a character people love, it becomes easy. **The app was in the wrong position in the sequence, not wrong in itself.**
+
+**What replaces it.** Everything Auwa sells is something Auwa owns outright: books (print-on-demand plus a pre-order-funded first edition), figures made in small hand-finished drops, prints and paper goods, and collaboration editions where the collaborator manufactures and holds stock. No third-party inventory, no warehouse, no customs desk. Japan is an editorial and relationship practice (journal, craftsman relationships, photography, one annual trip, journeys later), not a retail supply chain.
+
+**What this means for future sessions.** Do not propose app work, app features, or app releases. Do not propose a multi-vendor marketplace or buying craftsman stock for resale. Do not propose white-labelling other people's goods with Auwa branding. If a request seems to drift back toward any of these, flag it and ask.
+
+**Standing lesson.** The previous plan sat in these context files for months and every session optimised inside it rather than questioning it. A decision written into a context file is still a decision, not terrain. When something in here is load-bearing and looks wrong, say so.
+
+---
+
+## THE THREE BRAND PILLARS
+
+### Auwa Story (auwa.life/book)
+The illustrated story universe and the canonical home of the character. Books 1 (The Beginning) and 2 (Umi) are finished and at print test, releasing as a set. The WAWA origin, the philosophy, creator bios. This is the foundation everything else rests on: the character has to become known for the rest of the business to work, which makes publishing the highest-leverage single act available.
 
 ### Auwa Store (auwa.life/store)
-Curated multi-merchant marketplace for Japanese craftsman products — knives, ceramics, tea caddies, washi, textiles — plus Auwa's own collectible figures. Lifetime products with Kokoro: the antithesis of throwaway culture. Every object is chosen because a master craftsman poured their spirit into making it. Shopify multi-vendor, Stripe Connect for direct merchant payouts to Japan. Rieko leads craftsman outreach in Japanese. Tom's experience running a Japanese multi-merchant platform (2005-2007) is the direct operational precedent.
+A clean, simple Shopify shelf for Auwa-owned goods only: the books, the figure (hand-printed, hand-finished, balsa box, ribbon, hand-written Rieko card, signed and numbered), limited-edition prints, and paper goods including the 72 micro-seasons print set. Plus **collaboration editions**, the growth engine (see THE COLLAB PROGRAMME below). No curated third-party catalogue, no marketplace, no held stock beyond Auwa's own items. *Revised May 2026 from multi-vendor marketplace to first-party; revised again 5 Aug 2026 to remove curated resale entirely.*
 
 ### Auwa Journal (auwa.life/journal)
-Editorial content. Travel stories, craftsman profiles, onsen retreats, seasonal living, Japanese philosophy in practice. Written by Tom and Rieko from their own experiences in Japan. Builds brand authority, drives SEO, feeds Instagram content, and serves as a portfolio when approaching craftsman partners. The editorial voice that makes the brand feel alive between product launches.
+Editorial from Japan. Craftsman profiles, places, travel, seasonal living, philosophy in practice. Written by Tom and Rieko from their own experience. Its job has shifted: it is no longer primarily an SEO engine, it is **the calling card used to approach Japanese makers**. Weight it toward makers and places over general seasonal essays. Roughly one article a month.
 
-### Auwa Book (auwa.life/book)
-The illustrated story universe. A series of illustrated stories, the WAWA origin, the philosophy, creator bios. The canonical source of the Auwa universe. This is where the deeper mythology lives — for those who want to go deeper.
+**Seasonal Journeys** remain a programme, not a fourth pillar. See `context/marketing/arrival.md`.
+
+---
+
+## THE COLLAB PROGRAMME
+
+The engine of the new plan, and the answer to the "what connects a cosmic character to a hand-forged knife" problem. **Rieko's concept:** a blank-canvas Auwa figure that a collaborator decorates or produces in their own medium. The collaborator's work *is* the light shower. The object literally performs the mechanic of the books, so the character and the craft become the same subject rather than an asserted connection.
+
+**Two lines, different jobs. Do not judge them on the same terms.**
+
+**Artist collabs — the commercial line.** Frequent, repeatable, cash-generating. Send a blank, get it back painted. Same-audience logic (the collaborator's collectors and Auwa's audience overlap), so they sell. ~£150-400. Include Japanese artists and illustrators from early on, not just Western ones — an easier yes than a craftsman, same simplicity, genuine Japanese authorship. **Fin DAC is first** (warm, friends, already painted Rieko, already has an Auwa stencil, 96K IG). His own wish for visible Japanese collaboration and his frustration at appropriation accusations make a Japanese-authored programme a genuinely good offer to him, not just an ask.
+
+**Craft collabs — the prestige line.** One or two a year, slow, aimed at authority, editorial and *exhibitability* rather than sell-through. The honest buyer analysis: a knife collector mostly doesn't want a figure, and an Auwa fan mostly doesn't know the maker's name, so unit sales are not the return. The return is the only thing that makes "Japanese" true rather than decorative, plus press, institutional doors and the maker relationships. Structure so the maker manufactures, holds and sells domestically; Auwa takes a small Western allocation. No inventory risk.
+
+**Where the collaborator's signature lives determines the format.** This taxonomy is the operating detail Rieko works from:
+
+- **Surface crafts** (lacquer/maki-e, gold leaf, dyeing, sashiko and textiles, painting) — the true blank-canvas case. Supply a blank, they reveal it. Fin DAC sits here.
+- **Form crafts** (kokeshi, woodturning, ceramics, bamboo, glass, cast metal) — nobody decorates anything. They make the *whole* Auwa in their medium from Rieko's master form; the hand shows in glaze, grain, throw, firing. Probably where most collabs land.
+- **Function crafts** (knives, tools, joinery) — the blank fails. Either they forge an Auwa in their signature material (the lamination line, hamon, kasumi finish *is* the signature), or Auwa becomes the subject of a functional piece (a kiridashi with an Auwa terminal). Also: a knife is made by several hands — the togishi, handle maker and saya maker are far more reachable than a backordered smith.
+
+**Order of approach.** Start with crafts whose output is already decorative and already collected, where nobody needs convincing the object is a thing you'd own. **Kokeshi first** — it is the Japanese blank-figure tradition, regional schools with distinct forms and painting hands, two centuries of collected wooden figures. Bearbrick, two hundred years early. Then daruma (Gunma painters), lacquer and maki-e, Kanazawa gold leaf, ceramics, textile. Knives and functional crafts are a year-three conversation if ever; their better use is editorial (a Shigefusa film needs no product attached).
+
+**Kintsugi is explicitly ruled out** (Tom, 5 Aug 2026).
+
+**Production note.** A 3D-printed PLA blank will not take glaze, urushi or firing. Collab figures are made entirely in Japan from Rieko's master form. Auwa's home printer serves only the Auwa-made edition. Two independent production lines, no shared bottleneck.
+
+**You cannot pitch this in words.** A written proposal describing a character figure decorated by artisans reads in Japanese uncomfortably close to a licensing solicitation, and the default answer is a polite no. Pitch it with a photograph of one that already exists — which is what Fin DAC produces. And frame it in the register the National Crafts Museum used for Pokémon × Kogei: an art commission, a challenge to the maker's skill, one-of-a-kind or a small numbered edition, exhibited rather than racked. Same object, entirely different conversation.
+
+**Long arc.** Enough craft pieces to exhibit. Ladder: London Craft Week or a small foundation show first, then Daiwa Anglo-Japanese Foundation / Japan Foundation London spaces, then Japan House as a year four or five destination approached with a track record. UK-Japan cultural grant bodies (Daiwa, Great Britain Sasakawa, Japan Foundation) fund exactly this kind of project and a held grant is itself a credential. See `context/business/japan.md`.
 
 ---
 
 ## THE BRAND PHILOSOPHY
 
-Auwa is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary, between thinking and feeling. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. Auwa uses the word Kokoro (心) as its own expression of this idea: the holistic Japanese concept that unifies what English separates into heart, mind, soul, and spirit. This connects all four pillars: the app reveals Kokoro in emotions, the store sells objects with Kokoro, the journal shares the world where Kokoro lives, the stories show Auwa revealing Kokoro in nature. Auwa's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
+Auwa is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary, between thinking and feeling. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. Auwa uses the word Kokoro (心) as its own expression of this idea: the holistic Japanese concept that unifies what English separates into heart, mind, soul, and spirit. This connects all three pillars: the stories show Auwa revealing Kokoro in nature, the store sells objects that carry Kokoro (and, in the collab editions, objects where the maker's own Kokoro is what gets revealed), the journal shares the world where Kokoro lives. Auwa's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
 
-The app uses two additional Japanese philosophical frameworks internally:
+Two additional Japanese frameworks sit underneath:
 
-**Yamato Emotional Framework (Ha-Ta-A-Yu-Wa)** — Rieko's proprietary framework of five emotional states based on ancient Yamato language: Hare (晴/Radiant), Takaburi (昂/Intense), Aware (哀/Reflective), Yuragi (揺/Unsettled), Nagomi (和/Serene). Each contains multiple sub-expressions described through poetic Japanese words. Replaces the earlier Kido Airaku framework. Users never see the taxonomy — they feel the precision.
+**72 Micro-Seasons (Shichijūni-kō)** — Ambient philosophy, not user-facing taxonomy. Powers the content calendar (72 posts/year, refreshing every 5 days), the journal rhythm, and the 72-piece print set / calendar product. Rieko draws one illustration or short video every five days and enjoys the rhythm.
 
-**72 Micro-Seasons (Shichijūni-kō)** — Used as ambient philosophy, not user-facing taxonomy. Powers the content calendar (72 posts/year, refreshing every 5 days), journal rhythm, and store curation. In the app: a subtle calligraphic kō stamp (atmospheric, tappable for the curious). The AI's reflections do NOT force connections to the current micro-season.
+**Yamato Emotional Framework (Ha-Ta-A-Yu-Wa)** — Rieko's proprietary framework of five emotional states based on ancient Yamato language: Hare (晴/Radiant), Takaburi (昂/Intense), Aware (哀/Reflective), Yuragi (揺/Unsettled), Nagomi (和/Serene). Built for the app and *dormant with it* since 5 Aug 2026. It remains valuable owned IP — the five states and their colour system are usable in prints, editions and future work — but it is no longer an active part of the plan.
 
 ---
 
@@ -100,37 +145,46 @@ The app uses two additional Japanese philosophical frameworks internally:
 
 **Vision:** A world where people live with deeper awareness: of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people. Real abundance is not material. It is the abundance of the heart.
 
-**Mission:** To apply Japanese philosophical awareness to modern life, through four interconnected doors: a daily awareness practice, curated craftsman objects, editorial storytelling, and an illustrated story universe, all rooted in the ancient Japanese belief that a life force resides in all things.
+**Mission:** To apply Japanese philosophical awareness to modern life, through three interconnected doors: an illustrated story universe, objects made and co-made with Japanese hands, and editorial storytelling from Japan, all rooted in the ancient Japanese belief that a life force resides in all things.
 
 **Core values:** Awareness over autopilot. Kokoro over commerce. Connection over individualism. Depth over surface. Respect over consumption. Authenticity over algorithm. Seasonal wisdom over hustle culture. Clarity over clutter.
 
-**Structural precedents:** Kinfolk (aesthetic philosophy + editorial + experiences, acquired ~$30M), Monocle (worldview + editorial + retail + media, ~$10M+ revenue), Hodinkee (digital-age appreciation for craft, raised $40M+), Goop (wellness + retail + storytelling, ~$100M revenue), Snow Peak (gear + experiences + community, ¥25.7B). Auwa's unique angle: Japanese cultural authenticity rooted in a living philosophy, an illustrated story universe, and an AI-powered awareness practice.
+**Structural precedents (revised 5 Aug 2026):** Moomin (illustrated character IP → books → licensed goods → craft collaborations → shops and cafés; now far bigger in Japan than Finland — the endgame shape). Bearbrick / Medicom (a deliberately simple blank figure as a platform for 25 years of artist and brand collaborations). Karel Capek (Tokyo illustrator Utako Yamada's own children's-book world extended into six tea shops and a Sanrio licence — an illustrator's IP becoming a retail lifestyle brand). Niwaki (Jake and Keiko Hobson, husband and wife, ~20 years from one imported product to a Marylebone shop, own-brand plus Japanese-made goods, a book as the authority layer, editorial from real Japan trips — the operating model). Mjölk (John Baker and Juli Daoust, curated Japanese/Nordic craft plus own commissioned collections and a gallery programme — the commissioner model). Plus Kinfolk and Monocle for editorial-into-retail, and Hodinkee for the craft-appreciation thesis. **The pattern:** businesses where character IP leads and goods follow are more valuable and more passive; businesses where goods lead stay small and hands-on. Auwa sequences character first, commissioned goods second, curated goods never.
 
 ---
 
 ## What Auwa is not
 
-- Not clinical (no CBT, no diagnosis, no coping strategies)
-- Not gamified (no streaks, no badges, no push notifications)
-- Not generic (not another AI chatbot with a wellness skin)
 - Not a weather app (micro-seasons are philosophy, not forecasts)
 - Not advice-giving (Auwa reveals, period)
-- Not a single-product app company (it's a four-pillar lifestyle brand)
+- Not an app company (the app is parked — see THE PIVOT)
+- Not a shop with a mascot (if Auwa ever reads as "a Japanese homewares store with a character on it," something has gone wrong; the character leads, the goods follow)
+- Not a reseller (no curated third-party catalogue, no held stock but Auwa's own)
+- Not white-label (an Auwa logo on someone else's ceramic is the weakest version of everything: low margin, needs stock, dilutes the IP)
+- Not a merch brand (paper goods and prints suit the work; print-on-demand apparel mostly doesn't)
+- Not founder-fronted (the public face is the character, never Tom or Rieko on camera on a schedule)
 - Not exoticising Japan (philosophy-forward, not Orientalism)
 
 ---
 
-## CURRENT PHASE
+## CURRENT PHASE (August 2026)
 
-- Illustration refresh in progress (MidJourney + Rieko's originals, ~150 images across 4 stories)
-- Creative direction being locked (character variants, colour system, brand feel)
-- Instagram relaunch: building audience from 700 → 5K followers (Instagram only, single-platform focus)
-- Teaser page live at auwa.life capturing emails
-- Website build next (Kinfolk-inspired editorial site, few days with v0/Stitch + Claude Code)
-- App build follows creative direction (Figma design system → Claude Code production)
-- Soft launch target: Q2/Q3 2026
-- Store soft-launch target: Month 6-9 (after app validates)
-- AI reflection quality is the single most important deliverable
+**Where things actually stand.** Website live and Awwwards Honorable Mention. ~8 journal articles. 2,667 Instagram followers. Books 1 and 2 finished and at print test. Figure at prototype (Blender file done, several sizes printed, bio-filament testing next). App built and craft-passed but never released, now parked. Trademarks filed across UK + Madrid (JP/US/EU/CN). ~100 email subscribers. **Zero revenue to date.**
+
+**The diagnosis that drove the pivot:** craft work is on or ahead of plan; capture, activation and *shipping* have repeatedly deferred behind craft. The two books are the worst possible case of this — 100% finished, 0% released.
+
+**Priority order now:**
+
+1. Pay WIPO before 15 August. Must come from More Air. Nothing else moves until it's done.
+2. Books off print test and a route decided (publisher vs IngramSpark POD). The publisher route now matters *more* than it did, because the whole business rests on the character becoming known and a publisher gives bookshop distribution, foreign rights and reviews that cannot be bought. Colin Midson's view is decisive. IngramSpark is the always-available fallback.
+3. Figure finished: bio-filament, finish, packaging, price. **First edition 25-50 units, not 100** — a 12-15cm print plus finishing plus hand-packing is weeks of physical labour, and "never reissued" makes a small first edition a feature.
+4. Simple Shopify shelf for Auwa-owned goods only.
+5. Fin DAC collab opened this autumn. It produces the photograph that every later collab is pitched with.
+6. Journal back to ~1/month, weighted toward makers and places.
+7. Craftsman outreach opens *once the books are printed* — the printed book is the calling card, and a maker who spent forty years on one craft will take a beautiful book seriously and a URL not at all.
+8. Website: remove the app pillar and move to three doors. **Not a find-and-replace** — "four ways in" and "Auwa expresses this through four things" are woven through the homepage, about page, navigation and metadata, and this is a real copy and layout job on an award-recognised site. Keep `/app` alive as a quiet parked page, not a 404. Tom is running this as its own session.
+
+**Constraint to respect:** Tuesday-Friday, 10am-6pm, no work Monday. One Japan trip a year (the dog). That one trip must do craftsman relationships, journal photography, journey recon and collab conversations together, not as four competing ambitions.
 
 ---
 
@@ -138,25 +192,23 @@ The app uses two additional Japanese philosophical frameworks internally:
 
 **Brand architecture:**
 - Single domain: auwa.life with /app, /store, /journal, /book. All variants (auwalife.com, www.auwalife.com, www.auwa.life) 301 redirect to auwa.life. Google Search Console verified, sitemap submitted.
-- Auwa wordmark logo (serif typeface) — character saved for app, stories, figures, not the logo
+- Auwa wordmark logo (serif typeface) — the character is not the logo, but since Aug 2026 it is the centre of the business: stories, figure, and the form collaborators interpret
 - **Brand name in writing:** always "Auwa" in body copy, captions, alt text, articles, hashtags, headings — never "AUWA". The all-caps form belongs to the wordmark/logo treatment only, not to prose. Hashtags are always lowercase (`#auwa`, `#kokoro`).
 - Premium, refined aesthetic — serif type has that ancient, crafted feel
 
-**App:**
-- Yamato emotional framework (5 states: Hare, Takaburi, Aware, Yuragi, Nagomi) with sub-expressions — replaces Kido Airaku
-- Micro-seasons as ambient philosophy, NOT tied to AI reflection text
-- Auwa character appears in the app (and book only) — these are the two spaces where the character lives
-- Web app (PWA) first, wrappable for native later via Capacitor
-- Free tier: 3 revelations/month; paid tier (£6.99/month) unlocks depth, not access
-- Auwa character appears in the app — warmth and brand connection, not cold/clinical
-- No vanilla/character-free version (the character IS the differentiator)
-- Illustrations are the most valuable asset — refresh them BEFORE building the app
+**App (PARKED 5 Aug 2026):**
+- Built, craft-passed, live at auwa.app, never released. Leave it live, don't maintain it, don't release it.
+- Keep the domain and trademark class 9. Revisit 2027-2028 only if the character audience becomes real, at which point it's a companion to a known character rather than a product fighting for attention.
+- The Yamato framework and its colour system remain owned IP and are reusable outside the app.
+- More Air case-study value is already banked. Write the case study without shipping it.
 
 **Store:**
-- Shopify multi-vendor marketplace with Japanese craftsmen (building on Tom's 2005-2007 experience)
-- Stripe Connect for direct payouts to Japan
-- Auwa figures (self-produced, 3D-printed BambuLab) alongside curated craftsman products
-- Store soft-launch Month 6-9 (after app validates)
+- **Auwa-owned goods only.** Books, figure, prints, paper goods, 72-seasons print set. No curated third-party catalogue. *(Was multi-vendor marketplace → first-party + collab, May 2026 → own goods + collab only, Aug 2026.)*
+- Standard Shopify. No multi-vendor app, no Stripe Connect, no held stock but Auwa's own.
+- Figures self-produced on BambuLab. First edition 25-50, hand-finished, numbered, signed, never reissued.
+- **Collab editions are the growth engine**, split into an artist line (commercial, frequent) and a craft line (prestige, slow, exhibition-aimed). Collaborators manufacture and hold stock. See THE COLLAB PROGRAMME.
+- Kintsugi ruled out as a collab craft (Tom, 5 Aug 2026).
+- Never white-label. The rung between "article" and "collab edition" is a second article, not a branded product.
 
 **Social & marketing:**
 - Instagram-only until 5K followers (then expand to TikTok reposts + YouTube depth content)
@@ -175,18 +227,17 @@ The app uses two additional Japanese philosophical frameworks internally:
 - Newsletter subscribers go to audience without a segment
 
 **Timing:**
-- Hotel B2B deprioritised to Year 2
-- Press/podcast outreach after 5K IG followers
-- YouTube for depth content Phase 2-3
-- Retreats, workshops, expanded store: Year 2 (earned by results)
+- Hotel B2B and white-label EQ licensing: retired with the app, not merely deferred
+- Press/podcast outreach after the books are published, not gated on follower count
+- YouTube gated on the Shigefusa film existing, not on 5K followers
+- Retreats, workshops, Seasonal Journeys: Year 2+ (earned by results)
+- Institutional exhibition route: London Craft Week / small foundation show ~2028, Japan House year 4-5
 
 ---
 
-## THE KOKORO MIRROR — CORE UX
+## THE KOKORO MIRROR — PARKED
 
-Arrival (dark, calm) → User types freely → Light shower animation → Kokoro revelation (gradient + Auwa character + calligraphic stamp + AI-generated poetic reflection) → Optional journal → Shareable card → Saved to Kokoro Archive.
-
-What users NEVER see: the number 72, micro-season names forced into reflections, any taxonomy, advice or "try this" suggestions.
+The app's core UX, spec and design system are preserved in `context/pillar/app.md` and `context/app/`. Parked 5 August 2026; live but unmaintained at auwa.app. Don't propose work on it. The one-line summary, kept for reference: arrival → user types freely → light shower → Kokoro revelation → optional journal → shareable card → Kokoro Archive.
 
 ---
 
@@ -194,8 +245,8 @@ What users NEVER see: the number 72, micro-season names forced into reflections,
 
 Following the traditional Japanese ukiyo-e model (artist + publisher as equal partnership).
 
-**Rieko (Creator/Eshi):** Illustrations, seasonal content, figure design, creative direction, Japanese craftsman outreach (native Japanese speaker), store curation.
-**Tom (Producer/Hanmoto):** App design and build, brand, business development, marketing, project oversight, store platform and operations.
+**Rieko (Creator/Eshi):** Illustrations and the books, seasonal content (72-season cadence), figure design and the collab blank/master form, creative direction, **all Japanese-language outreach to artists, craftsmen, galleries and institutions** — which since Aug 2026 is the pillar the whole Japan practice runs on, not a side task.
+**Tom (Producer/Hanmoto):** Brand, publishing route, store platform and operations, figure production and packaging, business development, marketing, photography, project oversight.
 
 **Working pattern:** Tuesday-Friday (3-4 day week, 10am-6pm). Auwa gets 60%, More Air 25%, ventures 10%. No work Monday. Health and relationship come before any deadline.
 
@@ -203,9 +254,11 @@ Following the traditional Japanese ukiyo-e model (artist + publisher as equal pa
 
 ## THE HIERARCHY OF VALUE
 
-1. **Permanent, uncopyable:** Rieko's original art + manuscripts, a series of illustrated stories, the Auwa name and etymology (あうわ), Yaoyorozu no Kami foundation, proprietary Yamato emotional framework, Rieko's identity as Japanese creator, craftsman relationships
-2. **Valuable, adaptable:** Refreshed illustration library, character designs, seasonal content system, brand identity, store curation and presentation
-3. **Useful today, potentially commoditised tomorrow:** The app, the tech stack, the AI reflection engine, the Shopify store platform
+1. **Permanent, uncopyable:** Rieko's original art + manuscripts, the illustrated stories, the Auwa character and its master form, the Auwa name and etymology (あうわ), Yaoyorozu no Kami foundation, Rieko's identity as a Japanese creator, and the craftsman and artist relationships once they exist
+2. **Valuable, adaptable:** Illustration library, character variants, the 72-season content system, brand identity, the Yamato framework and its colour system, the trademark portfolio
+3. **Useful today, potentially commoditised tomorrow:** The app and its tech stack, the AI reflection engine, the website, the Shopify shelf
+
+*Note the shift (Aug 2026): the character used to sit behind the app in practical priority. It is now tier one and the centre of everything. The single most valuable act available is making it known — which is why publishing the books properly outranks almost anything else.*
 
 ---
 
@@ -217,7 +270,7 @@ Rieko's original art is the source of truth. AI (MidJourney) refreshes and scale
 
 ## MARKET POSITION
 
-The Japanese awareness/lifestyle space is structurally unoccupied. Books sell millions (ikigai: 5-7M copies) but no brand owns the space. Apps exist for mood tracking and AI journaling but none are built from Japanese philosophy. Japanese craft exporters (Nalata Nalata, Analogue Life, Tortoise) sell products but have no digital companion, no emotional framework, no character universe. No competitor assembles all of Auwa's elements under one roof.
+The Japanese awareness/lifestyle space is structurally unoccupied. Books sell millions (ikigai: 5-7M copies) but no brand owns the space. Japanese craft exporters (Nalata Nalata, Analogue Life, Tortoise, Rikumo) sell products but have no character universe, no story, and no IP of their own — and after a decade each is still small, which tells you the ceiling of pure curation. Art-toy platforms (Bearbrick, KAWS) have the collaboration engine but no cultural depth and no narrative. Character IP houses (Moomin, Sonny Angel) have the story but rarely reach into traditional Japanese craft. **The unoccupied position is the join: an illustrated character with a decade of story behind it, authored by a Japanese creator, interpreted by Japanese makers.** Pokémon × Kogei proved the Japanese craft establishment will engage seriously with character IP when it is framed as art commission rather than merchandise; nobody has built a standing brand on that join.
 
 Interest in Japan is at an all-time high (42.7M visitors in 2025, anime market $37.7B, Pinterest Japanese aesthetic searches up 405%). The weak yen makes Japanese craft products 30-40% more accessible than 5 years ago. And in the same way Hodinkee proved that a digital-age audience would develop deep appreciation for hand-crafted mechanical watches, Auwa bets that AI acceleration makes people more — not less — hungry for objects made by human hands with centuries of tradition behind them. The timing is right.
 
@@ -229,7 +282,10 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 
 **Shortcut phrases.** When the user's first message contains any of these phrases, load the listed files together without asking:
 
-- *"app session"*, *"app build"*, *"app updates"*, *"app work"*, *"app tweak"*, *"app fix"*, *"app design"*, *"app review"* → load `context/app/app.md` + `context/app/patterns.md` + `context/pillar/app.md` + `context/brand/brand.md`, AND launch the local preview by calling `mcp__Claude_Preview__preview_start` with `name: "auwa-app"` (port 3004, configured in `.claude/launch.json`) so Tom can see the current state immediately. Set the viewport to mobile (375x812) before doing anything else, since the app is mobile-first.
+- *"app session"*, *"app build"*, *"app work"* etc. → **the app is parked (5 Aug 2026). Say so and confirm before doing anything.** If Tom confirms he genuinely wants app work, then load `context/app/app.md` + `context/app/patterns.md` + `context/pillar/app.md` + `context/brand/brand.md` and launch the local preview (`name: "auwa-app"`, port 3004, `.claude/launch.json`) at mobile viewport (375x812).
+- *"collab"*, *"craftsman"*, *"artist collab"*, *"Fin DAC"*, *"exhibition"* → load `context/business/business.md` + `context/business/japan.md` + `context/marketing/arrival.md`.
+- *"figure"*, *"figure drop"*, *"packaging"* → load `context/business/business.md` + `context/brand/reference.md` + `context/brand/brand.md`.
+- *"book route"*, *"publisher"*, *"print"* → load `context/pillar/book.md` + `context/business/business.md`.
 - *"website session"*, *"website updates"*, *"website work"*, *"website tweak"*, *"website fix"*, *"website bug"* → load `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 - *"newsletter send"*, *"send newsletter"* → load `context/marketing/newsletter.md` + `context/pillar/journal.md` + `context/brand/brand.md`.
 - *"social session"*, *"instagram"*, *"social post"* → load `context/marketing/instagram.md` + `context/brand/brand.md` + `context/marketing/arrival.md`.
@@ -239,7 +295,7 @@ Whenever `context/app/app.md` is loaded, `context/app/patterns.md` is paired. Sa
 
 **Pillars (`context/pillar/`):**
 
-- `context/pillar/app.md` — Kokoro Mirror app specification: core UX flow (input → light shower → revelation → journal → share → archive), AI reflection principles and voice, sub-expression definitions, vague input handling, screen-by-screen detail, technical architecture (Next.js, Claude API, Vercel Postgres, Sanity, Stripe), data model, API routes, build phases, design principles, colour system, FigJam flow reference.
+- `context/pillar/app.md` — **PARKED (5 Aug 2026).** Kokoro Mirror app specification: core UX flow (input → light shower → revelation → journal → share → archive), AI reflection principles and voice, sub-expression definitions, vague input handling, screen-by-screen detail, technical architecture (Next.js, Claude API, Vercel Postgres, Sanity, Stripe), data model, API routes, build phases, design principles, colour system, FigJam flow reference.
 - `context/pillar/book.md` — The four-book illustrated universe: status of each book (Book 1 complete at 18 pages, Book 2 in revision, Books 3 and 4 TBC), what the Book 1 revision achieved (two-thirds word reduction, atmospheric over narrated), revision principles as a template, canonical source of the Auwa character and story mythology.
 - `context/pillar/journal.md` — Journal pillar and editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan. (Was `editorial.md` pre-restructure.)
 
@@ -258,8 +314,8 @@ Whenever `context/app/app.md` is loaded, `context/app/patterns.md` is paired. Sa
 
 **App (`context/app/`):**
 
-- `context/app/app.md` — auwa.app build status + design language: current state of the Kokoro Mirror PWA, what's done, what's outstanding (Rounds A/B/C of the design pass), full type system + opacity ladder + spacing + Yamato gradient tokens, component primitive inventory, Mobbin + Finch design references with Tom's notes, working principles. **Load for any app session.** Paired with `patterns.md`.
-- `context/app/patterns.md` — auwa.app BUILD PATTERNS: deployment workflow (multiple Vercel projects, git author requirement, rootDirectory setting), file structure, design token reference, state management (localStorage app store), Tailwind 4 gotchas (`@theme` tree-shaking the gradient tokens), component patterns, Auwa character asset mapping, preview + seed test state, lessons learned. **Load for any app implementation work.**
+- `context/app/app.md` — **PARKED (5 Aug 2026).** auwa.app build status + design language: state of the Kokoro Mirror PWA, full type system + opacity ladder + spacing + Yamato gradient tokens, component primitive inventory, Mobbin + Finch references. Preserved so the work isn't lost, not so it gets resumed.
+- `context/app/patterns.md` — **PARKED (5 Aug 2026).** auwa.app BUILD PATTERNS: deployment workflow, file structure, design tokens, localStorage state, Tailwind 4 gotchas, component patterns, character asset mapping. Only load if Tom explicitly confirms app work.
 
 **Website (`context/website/`):**
 

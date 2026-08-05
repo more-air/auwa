@@ -1,6 +1,20 @@
 # Auwa Book
 
-*Last Updated: 15 July 2026*
+*Last Updated: 5 August 2026*
+
+---
+
+## THE BOOKS ARE NOW THE FOUNDATION (5 August 2026)
+
+The three-pillar pivot changed this pillar's status more than any other. The app is parked; Auwa is a character IP business with a Japan practice attached; and **everything downstream — the figure, the collaboration editions, the exhibition route, eventual licensing — depends on the character becoming known.** Publishing these books properly is therefore the single highest-leverage act available to Auwa, and it outranks almost everything else on the to-do list.
+
+**Which reweights the publisher question.** When the app was the flagship, self-publishing was fine, because the character only had to serve app users. It no longer is. A publisher offers bookshop distribution, foreign rights and review coverage that cannot be bought at any price, and those are precisely the levers on making a character known. **Try the publisher route properly first**, with Colin Midson's view as the decisive input. Set a decision date so it can't drift open-endedly. IngramSpark POD plus a pre-order-funded signed first edition remains the always-available fallback and requires nobody's permission.
+
+Releasing Books 1 and 2 as a set is now more important than ever: two books read as a *series*, which is a materially stronger proposition to a publisher, to press, and to a Japanese maker opening a parcel.
+
+**Second job these books do.** The printed book is the physical calling card for Japan. Craftsman outreach is gated on it existing, because a maker who has spent forty years on one craft will take a beautiful printed book seriously and a website link not at all. What goes in the parcel: both books, a figure, and a one-page Japanese profile of Auwa and of Rieko as its creator.
+
+See `context/business/business.md` 6.4 and 6.2a, and `CLAUDE.md` → THE PIVOT.
 
 ---
 

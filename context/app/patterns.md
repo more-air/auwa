@@ -1,5 +1,7 @@
 # Auwa App — Build Patterns
 
+> **⏸ PARKED — 5 August 2026.** The app is parked as part of the three-pillar pivot. Do not load or act on this file unless Tom explicitly confirms he wants app work. See `CLAUDE.md` → THE PIVOT.
+
 *Load this file for app implementation work (component changes, bug fixes, deploys). Paired with `context/app/app.md` (build status + design language). For the canonical app spec see `context/pillar/app.md`.*
 
 ---
