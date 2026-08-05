@@ -31,7 +31,7 @@ const sourceContent = {
     preview: "Something quiet is on its way.",
     heading: "Meet Auwa.",
     body: [
-      "Thank you for joining us. Auwa is a character and the philosophy it carries: the ancient Japanese belief that a life force, a kokoro, resides in all things. We'll write now and then from that world, with notes on Japanese craft and seasonal living, and early word when there's real news, the first book and the first figures.",
+      "Thank you for joining us. Auwa is a character and the philosophy it carries: the ancient Japanese belief that a life force, or Kokoro, resides in all things. We'll write now and then from that world, with notes on Japanese craft and seasonal living, and early word when there's real news, the first book and the first figures.",
       "You're also in the draw to win our first-edition Auwa figure, and if you're chosen we'll be in touch.",
     ],
     image: `${BASE_URL}/pillars/store.jpg`,

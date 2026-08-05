@@ -8,10 +8,10 @@ import { STAGGER } from "@/lib/motion";
 
 export const metadata = {
   title: "About Auwa | A Japanese Lifestyle Brand",
-  description: "Rieko Maeda and Tom Vining on founding Auwa, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
+  description: "Rieko Maeda and Tom Vining on founding Auwa, a Japanese lifestyle brand rooted in the ancient belief that a life force, or Kokoro, resides in all things.",
   openGraph: {
     title: "About Auwa | A Japanese Lifestyle Brand",
-    description: "Rieko Maeda and Tom Vining on founding Auwa, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
+    description: "Rieko Maeda and Tom Vining on founding Auwa, a Japanese lifestyle brand rooted in the ancient belief that a life force, or Kokoro, resides in all things.",
     url: "https://auwa.life/about",
     siteName: "Auwa",
     locale: "en_GB",
@@ -45,7 +45,7 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     name: "About Auwa | A Japanese Lifestyle Brand",
-    description: "Rieko Maeda and Tom Vining on founding Auwa, a Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things.",
+    description: "Rieko Maeda and Tom Vining on founding Auwa, a Japanese lifestyle brand rooted in the ancient belief that a life force, or Kokoro, resides in all things.",
     url: "https://auwa.life/about",
     mainEntity: {
       "@type": "Organization",

@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   description:
-    "A Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. Illustrated stories and figures made by hand.",
+    "A Japanese lifestyle brand rooted in the ancient belief that a life force, or Kokoro, resides in all things. Illustrated stories and figures made by hand.",
   metadataBase: new URL("https://auwa.life"),
   // No global canonical. A parent canonical is inherited by every child
   // route in Next.js metadata merging, so an "https://auwa.life" here
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Auwa | Japanese Philosophy of Kokoro",
     description:
-      "A Japanese lifestyle brand rooted in the ancient belief that a life force, a Kokoro, resides in all things. Illustrated stories and figures made by hand.",
+      "A Japanese lifestyle brand rooted in the ancient belief that a life force, or Kokoro, resides in all things. Illustrated stories and figures made by hand.",
     url: "https://auwa.life",
     siteName: "Auwa",
     locale: "en_GB",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Auwa | Japanese Philosophy of Kokoro",
-    description: "Japanese lifestyle brand rooted in the belief that a life force, a Kokoro, resides in all things.",
+    description: "Japanese lifestyle brand rooted in the belief that a life force, or Kokoro, resides in all things.",
     images: ["/og-image.jpg"],
   },
 };
