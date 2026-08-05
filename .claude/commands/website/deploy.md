@@ -9,7 +9,9 @@ Deploy the current state of the Auwa website to Vercel.
 
 1. Run `git status` to see what's changed
 2. Show the user a summary of the changes
-3. Stage all relevant files (website code, context files, commands, brand assets). Do NOT stage `photography/_lightroom/` or `documents/` (these are gitignored).
+3. Stage all relevant files: website code, context files, commands, brand assets, **and `documents/` (the exported context PDFs — these ARE tracked and should be committed alongside the `.md` files they were generated from).** Do NOT stage `photography/_lightroom/` (gitignored).
+
+   *Corrected 5 Aug 2026: this step previously claimed `documents/` was gitignored. It is not — `git check-ignore` returns nothing for it and commits such as `0fc552a` ("refresh all context PDFs") have always included it. Following the old wording left the PDFs permanently dirty in the working tree.*
 4. Commit with a clear, concise message describing what changed
 5. Push to `origin main` in the Auwa repo (github: `more-air/auwa`)
 6. **If any `/Users/admin/Github/moreair/.claude/skills/**` files or other shared More Air assets were touched in this session, also commit and push those from inside `/Users/admin/Github/moreair/`** — separate repo, separate push. Do this BEFORE the Vercel deploy so the repos stay in sync.
