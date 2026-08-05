@@ -105,7 +105,7 @@ export default function Home() {
               as="p"
               className="mt-6 md:mt-10 font-display text-[22px] md:text-[28px] lg:text-[32px] leading-[1.35] tracking-[0.005em] text-sumi"
             >
-              Auwa: a character and a philosophy. Built on the ancient idea that a life force, or Kokoro (心), resides in all things: a river, a handmade bowl, the wind through bamboo at dusk. Auwa is an invitation to notice again. The stories are illustrated, the character is made by hand, and the journal is written slowly.
+              Auwa: a character and a philosophy. Since ancient times, the Japanese have believed a life force resides in all things: a river, a handmade bowl, the wind through bamboo at dusk. In Auwa, we call it Kokoro (心). Auwa is an invitation to notice again. The stories are illustrated, the character is made by hand, and the journal is written slowly.
             </ScrollFadeText>
             <FadeIn delay={200}>
               <div className="mt-10 md:mt-14">
