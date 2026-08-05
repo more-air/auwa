@@ -288,7 +288,7 @@ Washi tiers on Yoru mirror these one-to-one. If you change Sumi or Surface, the 
 
 **Teaser page copy pattern:**
 - Each teaser page stack: small-caps super-header thesis line / main H1 label / body copy / "Notify me" form. Two-line hierarchy does the work: super-header carries the thesis, H1 is the clean label.
-- **App:** "A DAILY MIRROR" / "The App." / *"A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we'll write when the app arrives."*
+- **App (PARKED 5 Aug 2026 — kept for reference; the live page now reads "Set aside."):** "A DAILY MIRROR" / "The App." / *"A daily practice for awareness, guided by ancient Japanese philosophy. No advice, just attention. Add your email and we'll write when the app arrives."*
 - **Store:** "MADE TO LAST" / "The Store." / *"A curated home for Japanese craftsman objects. Made slowly, chosen for a lifetime, the antithesis of throwaway. Add your email and we'll write when our store opens."*
 - **Book:** "OPEN THE EYES" / "The Book." / *"Illustrated stories following Auwa the character as it shows the world what it's been too busy to notice. Add your email and we'll write when the first book arrives."*
 - Button text: "Notify me" (not "Join Waitlist")

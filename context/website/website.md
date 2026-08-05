@@ -8,7 +8,7 @@
 
 ## 1. Purpose & Positioning
 
-The auwa.life website is the front door to the Auwa brand. It establishes Auwa as a Japanese lifestyle brand rooted in philosophical awareness before the app, store, or book exist as products. The website is the first thing anyone encounters — it needs to communicate the world, not just announce a product.
+The auwa.life website is the front door to the Auwa brand. It establishes Auwa as a Japanese lifestyle brand rooted in philosophical awareness before the book or the figure exist as products. The website is the first thing anyone encounters — it needs to communicate the world, not just announce a product.
 
 **What it IS:** A Kinfolk-inspired editorial destination. Atmospheric, contemplative, photography-led, with journal articles as the heartbeat. A place you visit to feel something, read something beautiful, and understand what Auwa is about.
 
