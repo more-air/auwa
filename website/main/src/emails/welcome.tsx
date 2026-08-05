@@ -29,10 +29,10 @@ const INSTAGRAM_URL = "https://instagram.com/auwalife";
 const sourceContent = {
   newsletter: {
     preview: "Something quiet is on its way.",
-    heading: "Stay close.",
+    heading: "Meet Auwa.",
     body: [
-      "Thank you for joining us. You're now part of a small group of people building a more aware life, guided by the ancient Japanese belief that a life force resides in all things. We'll write now and then with a little of that world: notes on Japanese craft and seasonal living, and early word when there's real news, the first book, the first figures.",
-      "You're also in the draw to win our first-edition Auwa figure, and if you're chosen we'll be in touch. Nothing noisy, just things worth reading.",
+      "Thank you for joining us. Auwa is a character and the philosophy it carries: the ancient Japanese belief that a life force, a kokoro, resides in all things. We'll write now and then from that world, with notes on Japanese craft and seasonal living, and early word when there's real news, the first book and the first figures.",
+      "You're also in the draw to win our first-edition Auwa figure, and if you're chosen we'll be in touch.",
     ],
     image: `${BASE_URL}/pillars/store.jpg`,
     imageAlt: "Japanese ceramics in afternoon light",
