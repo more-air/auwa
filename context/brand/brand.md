@@ -192,7 +192,7 @@ Three colours carry Japanese names because they appear together as the brand's s
 |------|-------------|-----|
 | **Yoru** (夜, "night") | `#1F2A2E` (rendered as `#0f1623` in `--color-yoru` to match the world hero illustration's dark) | Background. Slightly warmer and more atmospheric than pure void. The base layer for the footer, dark pages (`<DarkPageTheme />`), the FigureHook strip, and the editorial IG slides — any quiet, contemplative dark canvas. |
 | **Washi** (和紙, traditional Japanese paper) | `#EFE9DD` / `oklch(0.928 0.020 80)` | Light text, icon, border, and wordmark on **Yoru / Sumi** — uniform dark surfaces. Footer, FigureHook strip, SoundToggle button, dark book page, signup-form `theme="dark"`, cursor disc, dark CTA accents. The "warm paper ink" that gives dark contexts their old-book character. |
-| **Surface** (warm off-white) | `#f8f7f4` / `oklch(0.97 0.004 95)` | Two roles. (1) The page bg on every light page (`<main>`, journal, about, teasers), the entrance loader, hero pre-paint flash, email body bg, PWA `theme_color`. (2) Light foreground over **imagery / photography** — header logo + menu icon while transparent (over hero video), pillar card overlays, two-up CTAs, hero "Scroll" label + line, four-pillar module index counter, book-hero card text. Surface has more luminance (L 0.97 vs Washi 0.928) and lower chroma, so it cuts confidently against the variable mid-tones of a photograph where Washi blends with bright spots. |
+| **Surface** (warm off-white) | `#f8f7f4` / `oklch(0.97 0.004 95)` | Two roles. (1) The page bg on every light page (`<main>`, journal, about, teasers), the entrance loader, hero pre-paint flash, email body bg, PWA `theme_color`. (2) Light foreground over **imagery / photography** — header logo + menu icon while transparent (over hero video), pillar card overlays, two-up CTAs, hero "Scroll" label + line, what-we-make module index counter, book-hero card text. Surface has more luminance (L 0.97 vs Washi 0.928) and lower chroma, so it cuts confidently against the variable mid-tones of a photograph where Washi blends with bright spots. |
 | **Paper** (raised warm off-white) | `#ecebe7` / `oklch(0.94 0.005 95)` | A layered surface that needs to read as a distinct plane sitting *above* Surface. Currently the menu overlay panel — when it slides in over a Surface page bg, the ~3% lower luminance is enough to register as "this is a separate layer" without introducing a different hue. Same warm hue 95 family as Surface so it doesn't clash. Don't use as the page bg or as a foreground colour; it's specifically for raised panels. |
 
 The discipline — locked rule for foreground colour:
@@ -480,7 +480,7 @@ When illustration and photography appear in the same feed, the unifying elements
 | Seasonal Living | Photography (Japan) | Dark bg frame, photo muted/warm, optional Cormorant text overlay |
 The constant across the pillars: **dark frame, warm content, Cormorant voice, space.**
 
-> **Note, 5 Aug 2026.** Auwa moved from four pillars to three (Story, Store, Journal); the app is parked. This document still describes the site and system as *built*, including four-pillar components and the `/app` surfaces, which is correct until the website session lands. Component names like "four-pillar module index counter" refer to existing code, not to strategy. See `CLAUDE.md` → THE PIVOT. When the website is reworked to three doors, update this file alongside it.
+> **Note, 5 Aug 2026, updated after the website session shipped.** Auwa dropped the pillar framing entirely. Auwa IS a character and a philosophy; what it MAKES is the book, the figure and the journal, and public copy uses "What we make." with no count. The app is parked. The site has been reworked accordingly; the social-content sections below still describe four post types, which is an editorial range for Instagram and NOT a mirror of brand structure — don't try to keep the two in sync. See `CLAUDE.md` → THE PIVOT.
 
 ---
 
@@ -596,7 +596,7 @@ Hardcoded ms values in components are treated as drift. Any new animation requir
 
 ---
 
-## 10. Across the Four Sections
+## 10. Across the Sections
 
 All sections live under a single domain: **auwa.life** with subpaths. auwalife.com mirrors to auwa.life for the Japan market. Social handles: @auwalife across most platforms, @auwa.life on TikTok and Bluesky, @auwa on LinkedIn. See `context/marketing/social.md` for the full map.
 
@@ -620,7 +620,7 @@ Dark-first. The illustrated stories and the Auwa universe origin. Cormorant-heav
 - Same animation easing: ease-out-expo
 - Single Next.js codebase serving all sections
 
-The four sections should feel like four rooms in the same building, not four separate buildings.
+The sections should feel like rooms in the same building, not separate buildings.
 
 ---
 
@@ -648,7 +648,7 @@ The brand lives in three places, all staying in sync:
 
 ## 12. What This Document Is
 
-A working reference that evolves as Auwa evolves. Not a monument. The decisions above are enough to build all four sections of auwa.life, create months of coherent Instagram content, and brief any future collaborator.
+A working reference that evolves as Auwa evolves. Not a monument. The decisions above are enough to build every section of auwa.life, create months of coherent Instagram content, and brief any future collaborator.
 
 When something isn't covered here, apply two principles: **would this feel at home in the quiet room?** and **does this let the content speak, or does it compete with it?**
 

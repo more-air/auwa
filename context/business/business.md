@@ -8,7 +8,7 @@
 
 **Read this before anything below it. Sections written before this date and not yet reworked are marked, but treat this revision as authoritative wherever they conflict.**
 
-**What changed.** The Kokoro Mirror app is parked. Auwa is no longer a four-pillar lifestyle brand with an app as its Year 1 flagship. It is a **character IP business with a Japan practice attached**: three pillars (Story, Store, Journal), everything sold is Auwa-owned, and the growth engine is a collaboration programme built on a blank-canvas Auwa figure.
+**What changed.** The Kokoro Mirror app is parked. Auwa is no longer a four-pillar lifestyle brand with an app as its Year 1 flagship. It is a **character IP business with a Japan practice attached**: Auwa IS a character and a philosophy, and what it MAKES is the book, the figure and the journal. Everything sold is Auwa-owned, and the growth engine is a collaboration programme built on a blank-canvas Auwa figure.
 
 **Why the app went.** Tom's reasoning, recorded in his words on 5 Aug 2026: he would not use the app himself in a world where he already has AI; it needs sustained marketing and continuous competitive development to stay strong; it is a different kind of thing from the book and the figure; the revenue is poor even in success (3% of a small free base at £6.99 is a rounding error against Finch at $30M ARR with a five-year distribution lead); apps are becoming trivial to replicate; and after two decades in the industry it no longer excites him. The More Air case-study argument, which was the app's last remaining justification, is already satisfied by having built it — it does not require release.
 
@@ -40,12 +40,12 @@ Where Western wellness centres on the self, Auwa draws from Japanese collectivis
 
 **The shape in one line (Aug 2026):** Auwa is an illustrated world from Japan, sold as objects and told through Japan.
 
-**The three pillars of the brand:**
-1. **Auwa Story** (auwa.life/book) — The illustrated story universe and the canonical home of the character. Created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy. Books 1 and 2 finished, releasing as a set. This is the foundation everything else rests on.
+**What Auwa makes.** Auwa *is* a character and a philosophy; these are the three things it makes. Not pillars, not doors, not ways in — the counting was dropped on 5 Aug 2026 because every "N ways in" framing breaks the moment the product line changes, and Auwa recounted three times in four months.
+1. **The Book** (auwa.life/book) — The illustrated story universe and the canonical home of the character. Created over a decade by Rieko Maeda (artist name Eko), grounded in Japanese philosophy. Books 1 and 2 finished, releasing as a set. This is the foundation everything else rests on.
 2. **Auwa Store** (auwa.life/store) — A clean shelf of Auwa-owned goods (books, hand-finished figure editions, prints, paper goods) plus **collaboration editions**: a blank-canvas Auwa interpreted by artists and Japanese craftsmen, where the collaborator manufactures and holds stock.
 3. **Auwa Journal** (auwa.life/journal) — Editorial from Japan. Craftsman profiles, places, travel, seasonal living. Photography-led and long-form, and since August 2026 its primary job is being the calling card used to approach Japanese makers.
 
-These are not three separate products — they're one world experienced through three doors. The stories teach philosophical awareness (seeing Kokoro in all things through narrative), the objects cultivate material awareness (and in the collab editions, literally enact the light-shower mechanic: the maker's work *is* the reveal), and the journal builds cultural awareness (Japan through a philosophical lens, not a tourist one).
+These are not three separate products; they are one character expressed three ways. The stories teach philosophical awareness (seeing Kokoro in all things through narrative), the objects cultivate material awareness (and in the collab editions, literally enact the light-shower mechanic: the maker's work *is* the reveal), and the journal builds cultural awareness (Japan through a philosophical lens, not a tourist one).
 
 **Structural precedents (revised Aug 2026):** Moomin (illustrated character IP → books → licensed goods → craft collaborations → shops and cafés; now far bigger in Japan than in Finland — the endgame shape). Bearbrick / Medicom (a deliberately simple blank figure as a platform for 25 years of artist and brand collaboration). Karel Capek (Tokyo illustrator Utako Yamada's own children's-book world extended into six tea shops and a Sanrio licence). Niwaki (Jake and Keiko Hobson, husband and wife, ~20 years from one imported product to a Marylebone shop; own-brand plus Japanese-made goods, a book as the authority layer, editorial from real Japan trips — the operating model). Mjölk (curated craft plus own commissioned collections and a gallery programme — the commissioner model). Plus Kinfolk and Monocle for editorial-into-retail, Hodinkee for the craft-appreciation thesis, and Snow Peak for exporting a Japanese lifestyle philosophy. See `competitors.md` for the full analysis.
 
@@ -97,7 +97,7 @@ Short form (internal): *Restore awareness to a distracted world.* (Robin Sharma)
 
 **Mission:** To apply Japanese philosophical awareness to modern life, expressed through three interconnected things: an illustrated story universe, objects made and co-made with Japanese hands, and editorial storytelling from Japan, all rooted in the ancient Japanese belief that a life force resides in all things.
 
-*Public framing on auwa.life uses "Auwa expresses this through three things" and "three ways in" as the customer-facing language. Revised from four on 5 Aug 2026. Note that this copy is woven through the homepage, about page, navigation and metadata — changing it is a real editorial and layout job on an award-recognised site, not a find-and-replace. Tom is running that as its own session.*
+*Public framing on auwa.life uses **"What we make."** and never a count. Shipped 5 Aug 2026, going further than the planned "three ways in": the homepage now states what Auwa IS (a character and a philosophy) in the intro and above the product module, and lists what it MAKES below. Don't reintroduce a count in public copy.*
 
 **Core Values:**
 - Awareness over autopilot: notice more, consume less, choose better
@@ -261,7 +261,7 @@ Long-form editorial content that builds brand authority, drives organic search t
 
 **Tech:** Sanity CMS. Same Next.js codebase as the main site. Markdown-friendly for fast publishing.
 
-### 6.4 Auwa Story (auwa.life/book) — the foundation
+### 6.4 The Book (auwa.life/book) — the foundation
 
 The canonical home of the Auwa universe and the illustrated stories. Hub linking the pillars. This is where the deeper mythology lives — the WAWA origin, the character's story, the philosophy in narrative form.
 
@@ -668,7 +668,7 @@ Market timing is favourable. The build window is open.
 5. **Fin DAC collab opened this autumn.** Warm, easy, and it produces the photograph that every subsequent collab is pitched with.
 6. **Journal back to ~1 article/month**, weighted toward makers and places, because it is now the calling card for Japanese outreach.
 7. **Craftsman outreach opens once the books are printed.** Rieko, in Japanese, offering a story and nothing else. Two or three makers, not twenty. Kokeshi and daruma first.
-8. **Website to three doors.** A real copy and layout job, not a find-and-replace; `/app` stays alive as a quiet parked page. Tom is running this as its own session.
+8. ~~**Website to three doors.**~~ **DONE 5 Aug 2026** — and went further, removing the count entirely rather than reducing it. See CLAUDE.md CURRENT PHASE item 8 for the full list of what shipped.
 9. **Keep the capture engine running.** The Quiet Letter, the Meta lead ads (converting at under £1 a lead, well under the £2 gate), and one Instagram account with product reveals added.
 
 **Not on the list, deliberately:** app work of any kind, a marketplace, buying craftsman stock, white-label goods, apparel, a second social account, and the trademark class 39 question (flagged for later, must not disturb the Madrid filing now).
@@ -683,7 +683,7 @@ Market timing is favourable. The build window is open.
 
 As AI accelerates and automates more of life's cognitive tasks, the things that hold value are the ones made by human hands with a story behind them. Auwa is designed for this future, and the pivot moved it further into that position rather than away from it.
 
-**The brand scales across three pillars, with the character at the centre.** The books become known, first through a set of two and eventually four. The character becomes recognisable enough that a Japanese maker is pleased rather than puzzled to interpret it. The store becomes a small, considered shelf of Auwa-made and Auwa-commissioned objects that people collect rather than consume. The journal becomes a respected editorial voice in the Japanese culture and design space, and the reason makers take the call.
+**The brand scales with the character at the centre and the goods following.** The books become known, first through a set of two and eventually four. The character becomes recognisable enough that a Japanese maker is pleased rather than puzzled to interpret it. The store becomes a small, considered shelf of Auwa-made and Auwa-commissioned objects that people collect rather than consume. The journal becomes a respected editorial voice in the Japanese culture and design space, and the reason makers take the call.
 
 **The endgame is licensing, and Moomin is the map.** Tove Jansson's illustrated world went books → known character → licensed goods → craft collaborations → shops and cafés, and ended up larger in Japan than in Finland. That arc is the most passive, most durable, most travel-compatible business available to a two-person studio, and every step in the current plan is a step along it. It requires exactly one thing that Auwa does not yet have: a character people know. Which is why publishing the books properly outranks everything.
 

@@ -6,7 +6,7 @@
 
 ## STATUS SNAPSHOT (5 August 2026) — POST-PIVOT
 
-**The app is parked. Auwa is now a character IP business with a Japan practice attached.** Three pillars: Story, Store, Journal. Full reasoning in `context/business/business.md` (REVISION note at the top) and `CLAUDE.md` (THE PIVOT). Read one of those before planning any campaign.
+**The app is parked. Auwa is now a character IP business with a Japan practice attached.** Auwa IS a character and a philosophy; what it MAKES is the book, the figure and the journal. No pillar count in any public copy. Full reasoning in `context/business/business.md` (REVISION note at the top) and `CLAUDE.md` (THE PIVOT). Read one of those before planning any campaign.
 
 **Where things stand.** Website live, Awwwards Honorable Mention. ~8 journal articles, stalled since May. Instagram 2,667 (Rieko held the 72-season cadence right through Tom's six weeks away). Books 1 and 2 finished and at print test. Figure at prototype. App built, craft-passed, never released, now parked. Trademarks filed UK + Madrid (JP/US/EU/CN), WIPO payment due before 15 August. ~100 email subscribers. **£0 revenue.**
 
@@ -56,9 +56,9 @@ Tom was tools-down early June to mid-July following his father's death (5 June).
 
 ## Why "Arrival" and Not "Launch"
 
-*Revised 5 Aug 2026.* The three pillars ship over 18 months: Journal live already, Books this autumn, Store (figure and own goods) alongside them, collab editions from late 2026 into 2027, exhibition 2028+. No spike day. A cadence the brand sustains. Launches announce; arrivals are welcomed.
+*Revised 5 Aug 2026.* What Auwa makes ships over 18 months: Journal live already, Books this autumn, Store (figure and own goods) alongside them, collab editions from late 2026 into 2027, exhibition 2028+. No spike day. A cadence the brand sustains. Launches announce; arrivals are welcomed.
 
-*(Was: "The four pillars ship over 18 months: Journal live, App mid-May (friends first), Store in Year 2, Book when pre-orders justify a print run.")*
+*(Was: "The four pillars ship over 18 months: Journal live, App mid-May (friends first), Store in Year 2, Book when pre-orders justify a print run." The pillar framing itself was dropped later the same day — see CLAUDE.md.)*
 
 ---
 
@@ -127,7 +127,7 @@ Accumulate craft pieces until an exhibition exists. Ladder: **London Craft Week*
 - **Journal** back to ~1 article/month, weighted toward makers and places.
 - **Instagram** on one account, 72-season cadence, character animation, plus product teasers and reveals.
 - **Quiet Letter** and the Meta lead ads keep running (leads at under £1, well under the £2 gate).
-- **Website to three doors** — Tom running as its own session. A real copy and layout job, not a find-and-replace. `/app` stays alive as a quiet parked page.
+- ~~**Website to three doors**~~ — **DONE 5 Aug 2026.** Shipped without the count: "Four ways in." became "What we make.", the character section moved above it, `/app` is parked and noindexed.
 
 ---
 

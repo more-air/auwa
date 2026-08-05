@@ -1,6 +1,6 @@
 # Auwa — Project Context
 
-*Last Updated: 5 August 2026 — major revision. Four pillars became three; the Kokoro Mirror app is parked; the store became Auwa-owned goods plus a collaboration programme. See THE PIVOT below before proposing any work.*
+*Last Updated: 5 August 2026 — major revision. The pillar framing is gone entirely; the Kokoro Mirror app is parked; the store became Auwa-owned goods plus a collaboration programme. See THE PIVOT below before proposing any work.*
 
 ---
 
@@ -60,9 +60,18 @@ Auwa is influenced by the ancient Japanese belief that a life force resides in a
 
 Where Western wellness centres on the self, Auwa draws from Japanese collectivist philosophy. Awareness isn't just inward. It extends to the craftsman who spent decades mastering a single knife, to the micro-season shifting outside your window, to the stranger whose day you can change by paying attention. This is "Japanese philosophical awareness applied to modern life."
 
-**Auwa is an illustrated world from Japan, sold as objects and told through Japan.** Character IP at the centre, a small shelf of things Auwa owns outright, and an editorial and relationship practice in Japan that feeds both. Three pillars: the Story (the illustrated books and the character universe), the Store (Auwa-made goods plus collaboration editions), and the Journal (editorial from Japan). One philosophy expressed three ways, one world with three ways in. Public-facing copy uses "three ways in" / "Auwa expresses this through three things."
+**Auwa is a character and a philosophy.** Character IP at the centre, a small shelf of things Auwa owns outright, and an editorial and relationship practice in Japan that feeds both.
 
-*Revised 5 August 2026. Was four pillars including a daily-awareness app (Kokoro Mirror). The app is parked, not cancelled: see THE PIVOT below.*
+The split that governs all public copy:
+
+- **What Auwa IS** — a character and a philosophy. Nothing else belongs in this sentence.
+- **What Auwa MAKES** — the book (the illustrated stories), the figure (sold through the store, alongside Auwa-owned goods and collaboration editions), and the journal (editorial from Japan).
+
+The journal sits in "what we make" and never in "what Auwa is." That's what demotes it from pillar status without costing it any visibility, which matters because it's still the only thing bringing strangers to the site.
+
+Public-facing copy uses **"What we make."** and never a count.
+
+*Revised 5 August 2026, twice in one day. Was four pillars including a daily-awareness app (Kokoro Mirror), then briefly three. The counting is now gone entirely. Every "N ways in" framing invites the question "why that N" and breaks the moment the business changes; Auwa recounted three times in four months. A brand that describes itself as a character and what that character means never has to recount. The app is parked, not cancelled: see THE PIVOT below.*
 
 Auwa is also a character — a luminous being who reveals the Kokoro in everything through a magical light shower. The character is the embodiment of the philosophy, created by Japanese illustrator Rieko Maeda over a decade of development. It is no longer reserved for the books alone: since August 2026 the character is the centre of the business, appearing in the stories, as the figure, and as the form that collaborating artists and craftsmen interpret. The journal and the overall brand identity still express the philosophy through design, editorial, and craft without needing the character present.
 
@@ -84,15 +93,17 @@ The single most important context in this repo. Read before proposing any work.
 
 ---
 
-## THE THREE BRAND PILLARS
+## WHAT AUWA MAKES
 
-### Auwa Story (auwa.life/book)
-The illustrated story universe and the canonical home of the character. Books 1 (The Beginning) and 2 (Umi) are finished and at print test, releasing as a set. The WAWA origin, the philosophy, creator bios. This is the foundation everything else rests on: the character has to become known for the rest of the business to work, which makes publishing the highest-leverage single act available.
+*Not pillars. Not doors. Not ways in. These are the three things Auwa makes; what Auwa IS sits above, and is a character and a philosophy. Don't reintroduce a count, in this file or in public copy.*
 
-### Auwa Store (auwa.life/store)
+### The Book (auwa.life/book)
+The illustrated story universe and the canonical home of the character. **Called "the Book", not "the Story"** (Tom, 5 Aug 2026) — it's the concrete object a reader buys and a bookshop stocks, and "Story" reads abstract next to "Store" and "Journal". Books 1 (The Beginning) and 2 (Umi) are finished and at print test, releasing as a set. The WAWA origin, the philosophy, creator bios. This is the foundation everything else rests on: the character has to become known for the rest of the business to work, which makes publishing the highest-leverage single act available.
+
+### The Store (auwa.life/store)
 A clean, simple Shopify shelf for Auwa-owned goods only: the books, the figure (hand-printed, hand-finished, balsa box, ribbon, hand-written Rieko card, signed and numbered), limited-edition prints, and paper goods including the 72 micro-seasons print set. Plus **collaboration editions**, the growth engine (see THE COLLAB PROGRAMME below). No curated third-party catalogue, no marketplace, no held stock beyond Auwa's own items. *Revised May 2026 from multi-vendor marketplace to first-party; revised again 5 Aug 2026 to remove curated resale entirely.*
 
-### Auwa Journal (auwa.life/journal)
+### The Journal (auwa.life/journal)
 Editorial from Japan. Craftsman profiles, places, travel, seasonal living, philosophy in practice. Written by Tom and Rieko from their own experience. Its job has shifted: it is no longer primarily an SEO engine, it is **the calling card used to approach Japanese makers**. Weight it toward makers and places over general seasonal essays. Roughly one article a month.
 
 **Seasonal Journeys** remain a programme, not a fourth pillar. See `context/marketing/arrival.md`.
@@ -129,7 +140,7 @@ The engine of the new plan, and the answer to the "what connects a cosmic charac
 
 ## THE BRAND PHILOSOPHY
 
-Auwa is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary, between thinking and feeling. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. Auwa uses the word Kokoro (心) as its own expression of this idea: the holistic Japanese concept that unifies what English separates into heart, mind, soul, and spirit. This connects all three pillars: the stories show Auwa revealing Kokoro in nature, the store sells objects that carry Kokoro (and, in the collab editions, objects where the maker's own Kokoro is what gets revealed), the journal shares the world where Kokoro lives. Auwa's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
+Auwa is influenced by the ancient Japanese belief that a life force resides in all things. No divide between sacred and ordinary, between thinking and feeling. This belief is expressed in concepts like Yaoyorozu no Kami (八百万の神, "countless spirits") and in the folk tradition that objects used with care accumulate a kind of soul. Auwa uses the word Kokoro (心) as its own expression of this idea: the holistic Japanese concept that unifies what English separates into heart, mind, soul, and spirit. This runs through everything Auwa makes: the stories show Auwa revealing Kokoro in nature, the store sells objects that carry Kokoro (and, in the collab editions, objects where the maker's own Kokoro is what gets revealed), the journal shares the world where Kokoro lives. Auwa's creator grew up within this philosophy in Kansai — it is not a marketing angle, it is lived experience.
 
 Two additional Japanese frameworks sit underneath:
 
@@ -145,7 +156,7 @@ Two additional Japanese frameworks sit underneath:
 
 **Vision:** A world where people live with deeper awareness: of their emotions, of the objects they share their lives with, of the natural world around them, and of their connection to other people. Real abundance is not material. It is the abundance of the heart.
 
-**Mission:** To apply Japanese philosophical awareness to modern life, through three interconnected doors: an illustrated story universe, objects made and co-made with Japanese hands, and editorial storytelling from Japan, all rooted in the ancient Japanese belief that a life force resides in all things.
+**Mission:** To apply Japanese philosophical awareness to modern life through an illustrated character and the things it takes form as: illustrated stories, objects made and co-made with Japanese hands, and editorial storytelling from Japan, all rooted in the ancient Japanese belief that a life force resides in all things.
 
 **Core values:** Awareness over autopilot. Kokoro over commerce. Connection over individualism. Depth over surface. Respect over consumption. Authenticity over algorithm. Seasonal wisdom over hustle culture. Clarity over clutter.
 
@@ -182,7 +193,7 @@ Two additional Japanese frameworks sit underneath:
 5. Fin DAC collab opened this autumn. It produces the photograph that every later collab is pitched with.
 6. Journal back to ~1/month, weighted toward makers and places.
 7. Craftsman outreach opens *once the books are printed* — the printed book is the calling card, and a maker who spent forty years on one craft will take a beautiful book seriously and a URL not at all.
-8. Website: remove the app pillar and move to three doors. **Not a find-and-replace** — "four ways in" and "Auwa expresses this through four things" are woven through the homepage, about page, navigation and metadata, and this is a real copy and layout job on an award-recognised site. Keep `/app` alive as a quiet parked page, not a 404. Tom is running this as its own session.
+8. ~~Website: remove the app pillar and move to three doors.~~ **DONE 5 Aug 2026.** Shipped further than planned: rather than three doors, the counting was removed entirely. Homepage intro rewritten, "The character." moved above the product module, "Four ways in." became "What we make." with three frames (Book / Store / Journal), the redundant pillar-card section cut. Store, About and `/brand` copy off "curated Japanese craftsman objects". `/app` parked as a quiet page ("Set aside."), noindexed, `SoftwareApplication` schema removed, dropped from the sitemap. "The Beginning" article's two four-pillar paragraphs rewritten. `/demo-about` now 404s in production. Sitewide meta and the welcome email no longer mention the app. Also fixed: copy said "the ancient idea that a life force, or Kokoro, resides in all things", which attributes the *word* to the tradition — Yaoyorozu no Kami calls it Kami. Now split into the belief (Japanese, ancient) and the naming (Auwa's own): "In Auwa, we call it Kokoro (心)".
 
 **Constraint to respect:** Tuesday-Friday, 10am-6pm, no work Monday. One Japan trip a year (the dog). That one trip must do craftsman relationships, journal photography, journey recon and collab conversations together, not as four competing ambitions.
 

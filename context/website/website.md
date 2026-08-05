@@ -39,9 +39,9 @@ All sections live under **auwa.life** with subpaths. All variants (auwalife.com,
 auwa.life/                  → Home (editorial hub + brand introduction)
 auwa.life/journal           → Journal index (all articles)
 auwa.life/journal/[slug]    → Individual article (static-only: dynamicParams = false)
-auwa.life/app               → Kokoro Mirror introduction (pre-launch: coming soon with email capture)
+auwa.life/app               → PARKED (5 Aug 2026). Quiet "Set aside." page. robots noindex, absent from sitemap.ts, unlinked from anywhere on the site. Deliberately NOT a 404 — the URL has been shared.
 auwa.life/store             → Store introduction (pre-launch: coming soon with craftsman preview)
-auwa.life/book              → The Auwa story universe (pre-launch: introduction + email capture)
+auwa.life/book              → The Book: the illustrated stories and the character universe (pre-launch: introduction + email capture)
 auwa.life/about             → Tom & Rieko, the philosophy, the origin
 auwa.life/brand             → Living style guide (noindex, disallowed in robots.txt)
 auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves any unmatched URL
@@ -51,11 +51,11 @@ auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves a
 
 ### Information Architecture
 
-**Home** is the editorial hub — not a static landing page but a living, updating page anchored by journal content. Think Kinfolk's homepage: a hero article, a curated grid of recent pieces, and subtle navigation into the four pillars.
+**Home** is the editorial hub — not a static landing page but a living, updating page anchored by journal content. Think Kinfolk's homepage: a hero article, a curated grid of recent pieces, and subtle navigation into what Auwa makes.
 
 **Journal** is the SEO engine and the content heartbeat. Long-form articles, craftsman profiles, seasonal essays, Japan travel stories. This is where brand authority accumulates and where organic search traffic lands.
 
-**App, Store, Book** pages are initially lightweight — atmospheric introductions that establish what's coming, with email capture. They become full sections as each pillar launches.
+**Store and Book** pages are lightweight — atmospheric introductions that establish what's coming, with email capture. They become full sections as each launches. **`/app` is parked**, not pre-launch: see the architecture note above.
 
 **About** tells the story of Tom and Rieko, the philosophy of Yaoyorozu no Kami, and the origin of Auwa. Written in the brand voice: quiet, precise, present.
 
@@ -65,7 +65,7 @@ auwa.life/not-found         → Branded 404 (src/app/not-found.tsx) — serves a
 
 ### Home Page (Implemented)
 
-The homepage leads with a full-bleed Auwa face video, then moves through editorial sections: an intro paragraph, two hero-scale pullquotes, a four-pillar tab module (desktop) / swipeable carousel (mobile), a Journal strip, the current micro-season, three pillar cards, a two-up article module, and the "Meet Auwa" video moment (the Auwa-kokoro footage). All images use `rounded-md`. Scroll is native across every browser. Page transitions: leaving content opacity-fades 1 → 0 alongside a 20vh upward drift, a Sumi (ink) wash fades in over the leaving page, then a solid panel matching the **destination page's bg** (Yoru for `/book`, Surface for everywhere else) rises from below to cover. Reveals on the new page fire AFTER the wipe via `PageReadyContext`.
+The homepage leads with a full-bleed Auwa face video, then moves through editorial sections: an intro paragraph, a pullquote, the character feature, the "What we make." tab module (desktop) / swipeable carousel (mobile), the current micro-season, a Journal strip, a second pullquote, a two-up article module, and the "Meet Auwa" video moment (the Auwa-kokoro footage). All images use `rounded-md`. Scroll is native across every browser. Page transitions: leaving content opacity-fades 1 → 0 alongside a 20vh upward drift, a Sumi (ink) wash fades in over the leaving page, then a solid panel matching the **destination page's bg** (Yoru for `/book`, Surface for everywhere else) rises from below to cover. Reveals on the new page fire AFTER the wipe via `PageReadyContext`.
 
 **Structure (top to bottom):**
 
@@ -73,17 +73,17 @@ The homepage leads with a full-bleed Auwa face video, then moves through editori
 
 2. **HeroVideo** — Full-bleed Auwa face video. `h-[100svh]` on every breakpoint so the video bottom pins to the browser bottom on desktop as well as mobile. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line replaces the bouncing chevron; the button calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro section.
 
-3. **Intro block** — "Japanese Philosophy of Kokoro" `<h1>` rendered in the small-caps eyebrow style (the page's claim-layer keyword; the previous "Japanese Lifestyle Brand" was the discovery-layer phrase and was crowded by Goop/Kinfolk/Monocle territory). `ScrollFadeText` paragraph introducing Auwa and its four expressions, "Our Story" CTA linking to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha (`text-sumi/3`) behind the paragraph.
+3. **Intro block** — "Japanese Philosophy of Kokoro" `<h1>` rendered in the small-caps eyebrow style (the page's claim-layer keyword; the previous "Japanese Lifestyle Brand" was the discovery-layer phrase and was crowded by Goop/Kinfolk/Monocle territory). `ScrollFadeText` paragraph introducing Auwa. Copy (5 Aug 2026): *"Auwa: a character and a philosophy. Since ancient times, the Japanese have believed a life force resides in all things: a river, a handmade bowl, the wind through bamboo at dusk. In Auwa, we call it Kokoro (心). Auwa is an invitation to notice again. The stories are illustrated, the character is made by hand, and the journal is written slowly."* Note the deliberate split: the belief is attributed to the Japanese, the *name* Kokoro to Auwa. The earlier "the ancient idea that a life force, or Kokoro, resides in all things" attributed the word to the tradition, which Yaoyorozu no Kami calls Kami — a correctable error. Don't recombine them. "Our Story" CTA links to `/journal/the-beginning`. Desktop-only 心 (Kokoro) watermark at 3% alpha (`text-sumi/3`) behind the paragraph.
 
 4. **Pullquote 1** — Hero-scale `ScrollFadeText` *"There is a quieter way to live, and the Japanese have been practising it for centuries. It begins with what you stop to notice."* at `clamp(2.25rem, 6vw, 4.75rem)`, leading 1.05. The closing sentence ends with concrete sensory action ("what you stop to notice"), not abstract noun phrase ("paying attention"); pullquote 1 sets up the Kokoro payoff in pullquote 2 without competing with it for sensory imagery.
 
-5. **Four-pillar module** — Desktop (`md+`) renders `EditorialFrames`: a tab gallery that crossfades the active pillar's image (portrait 4:5, 480px column) with its editorial content (eyebrow, heading via `TextReveal`, body, CTA). Auto-advances every 10s (long enough for the pillar-01 video, ~9s, to play through before rotating), pauses on hover. Mobile (`<md`) renders `PillarParade`: horizontal overflow-x-auto row of four 3:4 cards with right-to-left reveal entrance (matches the Journal strip), dot indicators below. **The "Four ways in." `<h2>` is hoisted to the homepage section that wraps both variants** — only ONE canonical heading lives in the DOM regardless of which viewport-variant renders. Components return only their inner content; reintroducing an `<h2>` inside either is drift. No scroll-hijacking; no sticky transforms. Pillar CTAs are "Visit store" / "Explore World" / "Explore journal" / "Be early" (Store + App share "Be early" — both are pre-launch waitlists; "Join waitlist" is retired SaaS phrasing).
+5. **The character** — `BookHeroCard`, full-width, headed "The character." **Moved above the "What we make." module on 5 Aug 2026.** This is the pivot expressed as page order rather than as copy: Auwa is a character and a philosophy first, and the book, figure and journal are what that character takes form as, so the character arrives before anything is offered for sale. Don't move it back below.
 
-6. **Journal strip** — 11 article cards in a horizontal scrolling row. Each card: 4:5 portrait image, rounded corners, category label, title, excerpt (55 chars max). FadeIn `variant="reveal"` cascade (60ms stagger).
+6. **"What we make." module** — Desktop (`md+`) renders `EditorialFrames`: a tab gallery that crossfades the active frame's image (portrait 4:5, 480px column) with its editorial content (eyebrow, heading via `TextReveal`, body, CTA). Auto-advances every 10s, pauses on hover. Mobile (`<md`) renders `PillarParade`: horizontal overflow-x-auto row of 3:4 cards with right-to-left reveal entrance (matches the Journal strip), dot indicators below. **Three frames, in order: Book / Store / Journal.** Was four ("Four ways in.", with an App frame) until 5 Aug 2026; the App frame went with the pivot and the *count* went with it too — the heading states what Auwa makes and never how many things that is. The Store frame leads on the figure and uses the static 9:16 `/intro/store-poster.jpg` rather than `store.mp4`, because the video also showed non-Auwa objects. **The `<h2>` is hoisted to the homepage section that wraps both variants** — only ONE canonical heading lives in the DOM regardless of which viewport-variant renders. Components return only their inner content; reintroducing an `<h2>` inside either is drift. No scroll-hijacking; no sticky transforms. CTAs are "Explore World" / "Be early" / "Explore journal".
 
 7. **Micro-season** — 72 micro-season kanji display (`MicroSeasonFeature`). Breathing room either side. CtaLink "Read the essay" to the 72 Seasons article.
 
-8. **Three pillar cards** — "The book." / "The store." / "The app." (lowercase period-statement signature matches the four-pillar module's editorial voice; previously bare "Book / Store / App" which read transactional after the editorial buildup above). Portrait 4:5 aspect, rounded corners, gradient overlay with the lowercase pillar name + CTA underneath. CTAs: "Explore" (Book — live), "Be early" (Store and App — pre-launch). Staggered cascade `variant="reveal"` (150ms stagger). Image `alt` is a descriptive sentence with the Japanese qualifier ("Auwa Book — illustrated Japanese stories" etc.), not a one-word label.
+8. **Journal strip** — 11 article cards in a horizontal scrolling row. Each card: 4:5 portrait image, rounded corners, category label, title, excerpt (55 chars max). FadeIn `variant="reveal"` cascade (60ms stagger). **Moved down into this slot on 5 Aug 2026**, replacing a "What we're making." three-card section (Book / Store / App) that had become a duplicate of the module at 6. The journal keeps full homepage prominence deliberately: it's demoted from pillar status in the *story*, never in *visibility*, because it remains the only thing bringing strangers to the site.
 
 9. **Pullquote 2** — Hero-scale `ScrollFadeText` ("In every handmade bowl…"), matching pullquote 1 size.
 
@@ -156,8 +156,8 @@ All three teaser pages use the **same hero layout as the article page** — this
 - No Footer on teaser pages (single-viewport moments; footer would push content below the fold).
 
 **Content:**
-- **App:** "Awareness, daily." / body about daily practice / app-waitlist signup form / `/pillars/app.jpg`
-- **Store:** "Lifetime objects." / body about craftsman objects / store-waitlist signup / `/pillars/store.jpg`
+- **App (PARKED):** "Set aside." / body explaining the practice was built and not released / ordinary newsletter signup / `/pillars/app.jpg`
+- **Store:** "Small editions." / body about signed, hand-finished figure editions and exclusive Auwa products / store signup / `/pillars/store.jpg`
 - **Book:** "Open the eyes." / body about illustrated stories / book-waitlist signup / `/pillars/book.jpg`
 
 ### About Page
@@ -230,7 +230,7 @@ The website uses a warm off-white background (Surface, ≈ `#f8f7f4`) with the S
 
 - **Borders:** Sumi at 10% (default divider), 20% (form underlines), 50% (form focus).
 - **Light text on Yoru / on uniform dark surfaces:** Washi (`oklch(0.928 0.020 80)`) at the same tiers (100/80/70/60/45/40/10). Footer, FigureHook strip, SoundToggle button, dark book page, signup-form dark, cursor disc.
-- **Light text over imagery / photography:** **Surface** (`oklch(0.97 0.004 95)`), not Washi. Used for the header logo + menu icon over the transparent hero, the pillar card text overlays, two-up CTA labels, the four-pillar module index counter, the hero "Scroll" label + line, and the book-hero card text. Surface has higher luminance and lower chroma than Washi so it cuts confidently against variable photographic mid-tones; Washi blends into bright spots. **Never use `text-washi` over a photograph.**
+- **Light text over imagery / photography:** **Surface** (`oklch(0.97 0.004 95)`), not Washi. Used for the header logo + menu icon over the transparent hero, the pillar card text overlays, two-up CTA labels, the what-we-make module index counter, the hero "Scroll" label + line, and the book-hero card text. Surface has higher luminance and lower chroma than Washi so it cuts confidently against variable photographic mid-tones; Washi blends into bright spots. **Never use `text-washi` over a photograph.**
 - **Kraft** (`--color-kraft`, `#BFAE9C`) — deep warm earth tone paired with Washi in `mix-blend-soft-light` overlays on `BookHeroCard` and `EditorialFeature`. Never used as text or surface on its own; always inside a `linear-gradient(135deg, var(--color-washi) 0%, var(--color-kraft) 100%)` wash that pulls cool cosmic bokeh toward the warm-paper palette of the rest of the page. If a future surface needs a "warm earth" accent, this is the token to consume; don't hardcode `#BFAE9C` anywhere.
 
 ### Spacing & Layout (Implemented)
@@ -417,8 +417,8 @@ Reusable components live in `src/components/`. All are server components unless 
 | TextReveal | `text-reveal.tsx` | Yes | Word-by-word text animation. Splits text into words, each rises from below with stagger. For hero headlines. Props: `as` (tag), `delay`, `stagger`. Used on teaser H1s ("Open the eyes.", "Awareness, daily.", "Lifetime objects.") and on the Journal + About page titles. For explicit multi-line headings (e.g. About's "The architecture / of Kokoro"), stack two TextReveal spans with `as="span" className="block"` and `delay={180}` on the second so the cascade flows from line 1 into line 2. |
 | PageTransition | `page-transition.tsx` | Yes | Single-pass bottom-up wipe on route change. Wraps children in layout.tsx (which itself sits inside `<HeaderToneProvider>`). Phases — LEAVE (1800ms): leaving content opacity-fades 1 → 0 alongside a 20vh upward drift, a Sumi (ink) wash fades 0 → 0.8 over the leaving page, a solid panel rises from `translateY(100%)` to 0 covering everything; the panel's bg matches the DESTINATION page (Yoru for `/book`, Surface elsewhere), so the moment it snaps off the user sees the same plane behind it. HOLD (100ms): panel covers; new page mounts behind. SETTLE: panel teleports back to `translateY(100%)` with no transition, wash snaps to opacity 0. Reveals (FadeIn / TextReveal / StripReveal / ImageFade) gate on `usePageReady()` so the new page's cascades fire AFTER the wipe completes — `revealReady` flips true 200ms after settle. Easing: `cubic-bezier(0.87, 0, 0.13, 1)` (in-out-quart) on every property. `prefers-reduced-motion`: navigation is instant, no panel. Internal navigations carrying `data-skip-transition="true"` (menu items, logo when menu is open) skip the wipe entirely — `revealReady` still gates so the destination page's cascades wait for the menu's own close motion to finish. |
 | HeroVideo | `hero-video.tsx` | Yes | Full-bleed video hero for the live homepage. `h-[100svh]` on all viewports (no desktop aspect cap), so the video bottom pins to the browser bottom whatever the monitor ratio. Portrait `.mp4` on mobile, landscape on desktop. "Scroll" label + breathing vertical line is a `<button>` that calls native `window.scrollTo({ top, behavior: "smooth" })` with a header offset to land on the intro. |
-| EditorialFrames | `editorial-frames.tsx` | Yes | Desktop (≥md) four-pillar module. Tab gallery crossfading through four frames (Store / Book / Journal / App) with staggered reveal per frame (eyebrow → `TextReveal` heading → body → CTA). Image column pinned at 480px, text column flexible, grid template `[480px_1fr]`, `lg:gap-28` horizontal gap, `max-w-[1100px] lg:mx-auto`. Auto-advance every **10s** (`ADVANCE_MS = 10000`) so the pillar-01 video plays fully through; pauses on hover; rotation gated on a one-shot IntersectionObserver so the module always opens at pillar 01 / Store regardless of how long the user lingered on the hero. Image crossfade: 1500ms `cubic-bezier(0.4, 0, 0.2, 1)` (symmetric ease-in-out, gentle). |
-| PillarParade | `pillar-parade.tsx` | Yes | Mobile (<md) four-pillar module. Horizontal `overflow-x-auto` row of four 3:4 cards mirroring the Journal strip (native scroll, no snap, no `touch-action` override). Cards at `w-[72vw] max-w-[360px]` so card 2 peeks clearly. FadeIn `variant="reveal"` with `revealDistance={40}` so the right-to-left cascade matches the Journal strip without pushing card 2 below the IntersectionObserver's 10% threshold. Dot indicators update via scroll listener on the scroller element. |
+| EditorialFrames | `editorial-frames.tsx` | Yes | Desktop (≥md) "What we make." module. Tab gallery crossfading through three frames (Book / Store / Journal — App removed 5 Aug 2026) with staggered reveal per frame (eyebrow → `TextReveal` heading → body → CTA). Image column pinned at 480px, text column flexible, grid template `[480px_1fr]`, `lg:gap-28` horizontal gap, `max-w-[1100px] lg:mx-auto`. Auto-advance every **10s** (`ADVANCE_MS = 10000`); pauses on hover; rotation gated on a one-shot IntersectionObserver so the module always opens at frame 01 / Book regardless of how long the user lingered on the hero. (The 10s was originally sized to let the Store video play through; all three frames are static images now, so it could safely shorten — left as-is because the slow rotation suits the brand.) Image crossfade: 1500ms `cubic-bezier(0.4, 0, 0.2, 1)` (symmetric ease-in-out, gentle). |
+| PillarParade | `pillar-parade.tsx` | Yes | Mobile (<md) "What we make." module. Horizontal `overflow-x-auto` row of three 3:4 cards mirroring the Journal strip (native scroll, no snap, no `touch-action` override). Cards at `w-[72vw] max-w-[360px]` so card 2 peeks clearly. FadeIn `variant="reveal"` with `revealDistance={40}` so the right-to-left cascade matches the Journal strip without pushing card 2 below the IntersectionObserver's 10% threshold. Dot indicators update via scroll listener on the scroller element. |
 | VideoMoment | `video-moment.tsx` | Yes | "Meet Auwa" section: portrait video card + text. Desktop: side-by-side. Mobile: stacked. |
 | AuwaVideoBlock | `auwa-video-block.tsx` | Yes | Full-width Auwa face video. Landscape desktop, square mobile. Auto-plays on visibility. |
 | MicroSeason | `micro-season.tsx` | Yes | Displays current 72 micro-season with kanji. |
@@ -456,8 +456,8 @@ Reusable components live in `src/components/`. All are server components unless 
 | `/` | Auwa \| Japanese Philosophy of Kokoro |
 | `/journal` | Auwa Journal \| Japanese Philosophy, Craft & Seasons |
 | `/about` | About Auwa \| A Japanese Lifestyle Brand |
-| `/store` | Auwa Store \| Japanese Craftsman Objects & Figure Editions |
-| `/app` | Auwa App \| Japanese Awareness Practice |
+| `/store` | Auwa Store \| Signed Japanese Figure Editions |
+| `/app` | Auwa App \| Set Aside *(parked, `robots: noindex`)* |
 | `/book` | Auwa Book \| Illustrated Japanese Stories |
 | `/journal/[slug]` | `{article.title} \| Auwa Journal` |
 
@@ -473,7 +473,7 @@ This separation is important: the reader sees quiet poetry on the page; Google s
 - Homepage: `Japanese Philosophy` (rendered as the small-caps eyebrow above the intro paragraph — visually unchanged, semantically elevated).
 - `/journal`: `Journal` (short category label is fine; the title tag carries the keyword weight).
 - `/about`: `The architecture of Kokoro` (poetic; the title tag does the SEO work).
-- Teaser pages (`/app`, `/store`, `/book`): topic H1s (`Awareness, daily.`, `Lifetime objects.`, `Open the eyes.`).
+- Teaser pages (`/store`, `/book`): topic H1s (`Small editions.`, `Open the eyes.`). `/app` is parked and its H1 is `Set aside.`
 - Articles: `article.title`. Japanese topic words (Yakushima, Shigefusa, Yaoyorozu no Kami) ARE the H1.
 
 **Structured data (JSON-LD) — one per page type, injected via `<script type="application/ld+json">`:**
@@ -481,7 +481,7 @@ This separation is important: the reader sees quiet poetry on the page; Google s
 - `/journal` — `Blog` with `BlogPosting` entries for every article.
 - `/about` — `AboutPage` with `Organization` mainEntity containing `Person` entries for Rieko Maeda (Creator, Japanese) and Tom Vining (Producer, British).
 - `/journal/[slug]` — `Article` with headline, description, author, datePublished, publisher, image, url.
-- Teaser pages (`/store`, `/app`, `/book`) — no structured data yet; add `Store` / `SoftwareApplication` / `Book` schemas when they launch.
+- Teaser pages (`/store`, `/book`) — `/store` carries a `Store` schema; add a `Book` schema when the book launches. `/app` had a `SoftwareApplication` schema and it was REMOVED on 5 Aug 2026 — don't re-add it, the page advertises nothing.
 
 **Canonical URLs — intentionally NOT emitted.** The root layout used to set `alternates.canonical = "https://auwa.life"`; Next.js metadata inheritance then applied that canonical to every child page, which told Google every article was a duplicate of the homepage — and collapsed them under homepage consolidation. Fix (April 2026): remove the global canonical entirely. Each URL is now its own canonical by default. Only add `alternates: { canonical: url }` on a specific page if that page genuinely needs one (e.g. to strip query params).
 

@@ -489,7 +489,7 @@ The honest trade-off: Finch users open Finch on a daily-streak compulsion. Auwa 
 
 The mitigation isn't a mechanic. It's craft. The reflections have to be excellent, the Kokoro evolution has to be visually interesting in the first three months, and the archive observations have to feel insightful from the first one surfaced.
 
-And one layer above all of this: Auwa lives across four pillars. A user who lapses on the app can still read the journal, see IG, buy a figure, gift a book. The character is the constant across surfaces. Lapse-recovery is built into the brand architecture, not engineered into the app's compulsion loops.
+And one layer above all of this: Auwa is bigger than any one product. A user who lapses on the app can still read the journal, see IG, buy a figure, gift a book. *(Written pre-pivot, when the app was the flagship. The point survives and is now the whole plan: the character is what persists, the products come and go.)* The character is the constant across surfaces. Lapse-recovery is built into the brand architecture, not engineered into the app's compulsion loops.
 
 ---
 

@@ -64,7 +64,7 @@ Two or three makers, not twenty.
 
 ### 8. Update the website to remove the app (Tom, separate session)
 
-Three doors instead of four. This is a proper job, not a quick delete: "four ways in" is written into the homepage, the about page, the menu and the page descriptions. Keep the app page alive but quiet rather than deleting it.
+**DONE 5 Aug 2026.** Shipped further than "three doors": the count was removed entirely. "Four ways in." became "What we make.", the character section moved above it, the duplicate pillar-card section was cut, and `/app` is parked, noindexed and out of the sitemap. See CLAUDE.md CURRENT PHASE item 8.
 
 ### 9. Reach out to people who can help (Tom, with Rieko for Japan)
 

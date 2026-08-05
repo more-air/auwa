@@ -234,7 +234,7 @@ The page title automatically becomes `"{title} - Auwa Journal"` with the hyphen 
 
 ## 5. The Four Content Territories
 
-Each article belongs to one of four categories. These map to the brand's four pillars and give the journal its rhythm.
+Each article belongs to one of four categories. These are editorial territories for the journal's own rhythm, and deliberately do NOT map onto what Auwa makes — the brand dropped its pillar framing on 5 Aug 2026 (see CLAUDE.md). Four categories here is a coincidence of editorial range, not a structure to keep in sync with anything.
 
 **Seasons:** Essays grounded in Japan's 72 micro-seasons. Not explanations of what micro-seasons are (that's a single introductory article). Rather, these are personal reflections tied to a specific moment in the seasonal calendar. What you noticed. What changed. A particular light, a particular flower, a particular shift in the air.
 
