@@ -1,6 +1,6 @@
 # Auwa — Project Context
 
-*Last Updated: 5 August 2026 — major revision. The pillar framing is gone entirely; the Kokoro Mirror app is parked; the store became Auwa-owned goods plus a collaboration programme. See THE PIVOT below before proposing any work.*
+*Last Updated: 11 August 2026 — book publishing route decided and opened (see CURRENT PHASE item 2 and `context/pillar/book.md`), WIPO filing done. Major revision 5 August 2026: the pillar framing is gone entirely; the Kokoro Mirror app is parked; the store became Auwa-owned goods plus a collaboration programme. See THE PIVOT below before proposing any work.*
 
 ---
 
@@ -186,8 +186,8 @@ Two additional Japanese frameworks sit underneath:
 
 **Priority order now:**
 
-1. Pay WIPO before 15 August. Must come from More Air. Nothing else moves until it's done.
-2. Books off print test and a route decided (publisher vs IngramSpark POD). The publisher route now matters *more* than it did, because the whole business rests on the character becoming known and a publisher gives bookshop distribution, foreign rights and reviews that cannot be bought. Colin Midson's view is decisive. IngramSpark is the always-available fallback.
+1. ~~Pay WIPO before 15 August.~~ **DONE.** Both marks certified by UKIPO and transmitted to WIPO (wordmark 29 Jul, figurative 30 Jul 2026). MM18 forms filed alongside the MM2s, so the US designation is safe. Nothing to do until WIPO raises an irregularity: classification responses go back via UKIPO, fee irregularities are paid direct to WIPO. Papers in `Dropbox/3 venture/auwa/admin/trademark/4 global expansion/application/`.
+2. **Books: publisher route decided and opened, 11 Aug 2026.** Try a publisher properly, on a deadline of **31 January 2027**, with IngramSpark plus Amazon KDP as the fallback that needs nobody's permission. Approaches sent to Dominic Brendon (cousin, ex-UK Sales Director, Simon & Schuster), Colin Midson (book PR, ex-S&S) and Piers Brendon (cousin, historian, for an agent introduction). Jay Elwes and Damien Lewis held until there's a specific ask. Book 2 is titled **Umi**. **Read `context/pillar/book.md` → PUBLISHING ROUTE before proposing anything about how the books reach readers**; it covers why publisher-first beats self-publishing-first for picture books specifically, why the IP fear is overstated, the blurb plan, and the steps in order. Do not propose a pre-order-funded signed edition or premium book pricing; both were considered and dropped on 11 Aug.
 3. Figure finished: bio-filament, finish, packaging, price. **First edition 25-50 units, not 100** — a 12-15cm print plus finishing plus hand-packing is weeks of physical labour, and "never reissued" makes a small first edition a feature.
 4. Simple Shopify shelf for Auwa-owned goods only.
 5. Fin DAC collab opened this autumn. It produces the photograph that every later collab is pitched with.

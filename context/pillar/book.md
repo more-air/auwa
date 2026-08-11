@@ -1,6 +1,6 @@
 # Auwa Book
 
-*Last Updated: 5 August 2026*
+*Last Updated: 11 August 2026 — publishing route decided and the first approaches sent. See PUBLISHING ROUTE below before proposing anything about how the books reach readers.*
 
 ---
 
@@ -8,7 +8,7 @@
 
 The three-pillar pivot changed this pillar's status more than any other. The app is parked; Auwa is a character IP business with a Japan practice attached; and **everything downstream — the figure, the collaboration editions, the exhibition route, eventual licensing — depends on the character becoming known.** Publishing these books properly is therefore the single highest-leverage act available to Auwa, and it outranks almost everything else on the to-do list.
 
-**Which reweights the publisher question.** When the app was the flagship, self-publishing was fine, because the character only had to serve app users. It no longer is. A publisher offers bookshop distribution, foreign rights and review coverage that cannot be bought at any price, and those are precisely the levers on making a character known. **Try the publisher route properly first**, with Colin Midson's view as the decisive input. Set a decision date so it can't drift open-endedly. IngramSpark POD plus a pre-order-funded signed first edition remains the always-available fallback and requires nobody's permission.
+**Which reweights the publisher question.** When the app was the flagship, self-publishing was fine, because the character only had to serve app users. It no longer is. A publisher offers bookshop distribution, foreign rights and review coverage that cannot be bought at any price, and those are precisely the levers on making a character known. **Settled 11 August 2026: try the publisher route properly, on a deadline, with IngramSpark and Amazon KDP as the fallback that needs nobody's permission.** Full reasoning, the contacts approached, and the steps in order are in PUBLISHING ROUTE below.
 
 Releasing Books 1 and 2 as a set is now more important than ever: two books read as a *series*, which is a materially stronger proposition to a publisher, to press, and to a Japanese maker opening a parcel.
 
@@ -18,15 +18,144 @@ See `context/business/business.md` 6.4 and 6.2a, and `CLAUDE.md` → THE PIVOT.
 
 ---
 
-## STATUS SNAPSHOT (15 July 2026)
+## STATUS SNAPSHOT (11 August 2026)
 
-Books 1 and 2 are **both finished, revised, and at print test.** Decision made to **release them together as a set**, not Book 1 alone. Latest print-ready PDFs live in `Dropbox/3 venture/auwa/production/book/Indesign/_indesign/_pdf/_pdf_pages/`:
+Books 1 and 2 are **both finished** and Rieko is saving out the final files with the July amends applied. They **release together as a set**, not Book 1 alone. Page counts are settled and correct. Print-ready PDFs live in `Dropbox/3 venture/auwa/production/book/Indesign/_indesign/_pdf/_pdf_pages/`.
 
-- `AUWA01_8x10.pdf` — Book 1, 44 pages
-- `AUWA02_8x10.pdf` — Book 2, **46 pages (preferred final version)**
-- `AUWA02.1_8x10.pdf` — Book 2, 44 pages (print-test-only version; the test printer only outputs in multiples of 4, so 46 wasn't available for the test run — this is a test constraint, not the final choice)
+**Book 2's title is Umi.** Confirmed by Tom, 11 August 2026. Use "Umi" everywhere, with "(Ocean)" as a parenthetical gloss only where a reader needs it. Not "Ocean" on its own. The website, the InDesign files and the /book pages all need to agree on this.
 
-Rieko is applying the July feedback amends now. She kept the repeated "we are all connected" message in Reco's speech deliberately (see EDITORIAL FEEDBACK below). Once print test is satisfactory: decide printer/route (KDP vs IngramSpark POD vs approaching publishers) and send both PDFs to Colin Midson (book PR, worked with Tom on his mother's book; was sent Book 1 earlier, no reply yet — the two-book set is a stronger follow-up).
+Rieko kept the repeated "we are all connected" message in Reco's speech deliberately (see EDITORIAL FEEDBACK below).
+
+---
+
+## PUBLISHING ROUTE (decided 11 August 2026)
+
+**The decision: try a publisher properly, on a deadline, with print-on-demand as the fallback that needs nobody's permission.** Approaches went out on 11 August. Decision date is **31 January 2027**. If nothing has landed by then, the books go to IngramSpark and Amazon KDP and the question is closed.
+
+### Why a publisher rather than self-publishing
+
+The bottleneck is not distribution. Anyone can put a book on Amazon in a week. The bottleneck is that **nobody knows the character**, and the entire business downstream (the figure, the collab editions, the exhibition route, any eventual licensing) depends on fixing that. A publisher supplies the three things that cannot be bought at any price: bookshop distribution, review coverage, and foreign rights, especially into Japan. Those are precisely the levers on making a character known.
+
+Self-publishing solves the wrong problem well. It gets the book available and does close to nothing for discovery.
+
+**And the order matters, which is the part that is easy to get wrong.** Self-publishing first and "going to a publisher later from a position of strength" is sound advice for business and non-fiction books and poor advice for picture books. A picture book with a visible trade sales history of a couple of hundred copies is harder to sell to an editor than an unpublished one, because the debut has been spent and there is now a disappointing number in the room. The publisher attempt has to come first or not at all.
+
+### Why the IP fear is overstated
+
+This was the main worry going in, and it does not survive contact with how these contracts actually work.
+
+A publishing contract **licenses publishing rights** in named territories and languages. It does not transfer copyright and it cannot touch registered trademarks. Auwa's marks already exist across classes 16, 20, 25, 28, 35 and 41, they predate any deal, and the figure is already in production. No publisher acquires any of that by signing a book deal.
+
+What a standard contract *does* often ask for is a subsidiary rights clause covering merchandising and character licensing. That is a negotiable line item, routinely carved out for author-illustrators, and if a publisher will not carve it, walk. Publishers are genuinely interested in the books alone; that is the normal shape of a picture book deal.
+
+**Three clauses to check if an offer comes.** Merchandising and character rights struck out entirely, so the figure and future collaborations stay wholly Auwa's. Any option clause limited to a first look at the next Auwa picture book and nothing wider. A reversion clause so rights return if the book goes out of print. Use the Society of Authors contract review, which is free to members and around £120 a year to join, or a publishing solicitor.
+
+### What it costs to try
+
+Roughly four months of calendar time and a handful of emails. That is the entire downside, because IngramSpark can be executed at any point afterwards and requires no permission from anyone.
+
+**The real cost is the timeline, and it should be stated plainly.** Picture books are scheduled eighteen to twenty-four months ahead. A deal in mid-2027 means publication in 2028 or 2029. That is survivable only because nothing else in the plan waits on it: author copies from POD, or a short run, can supply the Japan calling card independently at any time.
+
+**Honest framing.** This is not "definitely better" in the sense of guaranteed. It is a cheap, time-boxed test with unusually good access, and skipping it is the expensive choice because it cannot be reversed later.
+
+### The access, which is what makes this worth doing
+
+Cold picture book submissions from unknowns get about forty seconds of attention. A book that arrives through a name gets read properly. Tom's contacts here are unusually strong for a debut and are the single biggest argument for the publisher route:
+
+- **Dominic Brendon** (cousin) — long-serving UK Sales Director for Online and Digital at Simon & Schuster UK. The most valuable person on the list. Sales sits in the room when a house decides whether to acquire, so his read on saleability is close to the read a publisher would give. **Emailed 11 Aug 2026.**
+- **Colin Midson** (book PR, ex-Simon & Schuster) — ran PR on Tom's mother's translation *I Chose the Storm*, which self-published, was featured in the Sunday Telegraph, sat in the Amazon top ten and sold nearly three thousand copies. Placed the Damien Lewis endorsement on it. **Emailed 11 Aug 2026**, asking for a publishability read, a blurb approach, press potential, and whether he would work on it (paid).
+- **Piers Brendon** (cousin) — historian, former Keeper of the Churchill Archives Centre. Not children's publishing, but has a literary agent and forty years of publisher relationships. Asked narrowly for an agent introduction. **Emailed 11 Aug 2026.**
+- **Jay Elwes** (cousin) — Deputy Editor, The New World; formerly TheArticle and Prospect. **Held deliberately.** His ask is the vaguest of the four and a vague question gets a vague answer. Approach once the others reply and there is a specific need, most likely press or a named writer on illustration or Japan.
+- **Damien Lewis** — bestselling author, blurbed *I Chose the Storm*, and Tom introduced him to family which led to his writing about Tom's grandfather. **Held.** A thriller and military-history author endorsing a picture book would sit oddly, so his value is an introduction rather than a blurb. Save the favour until it is clear what to ask for.
+
+### Blurbs go on the submission, not after it
+
+Corrected from an earlier draft of this plan, on Tom's experience with *I Chose the Storm*, where the endorsement was secured early and was decisive. An endorsement from a recognisable name is the thing most likely to get an editor to read past the first spread.
+
+Yes, picture books carry endorsements, usually on the back cover or inside flap. Best candidates, in order:
+
+1. **Beth Kempton** — wrote *Wabi Sabi* and *Kokoro*, speaks to exactly this audience, and is the most likely yes.
+2. **Ken Mogi** — the ikigai books.
+3. **Robert Macfarlane** — long shot, but *The Lost Words* is the nearest precedent for an illustrated book carrying philosophy.
+4. **Jackie Morris** and other picture book illustrators.
+
+It is a warm-introduction game, which is what Colin is good at.
+
+### Publisher targets if no introduction materialises
+
+Independents that suit this register and take direct submissions: **Flying Eye Books, Enchanted Lion** (New York, literary and quiet, arguably the best single fit), **Templar, Walker Books, Thames & Hudson**. Plus three or four children's agents found through the Writers' and Artists' Yearbook, since an agent is the only route into the big houses.
+
+**And separately, Rieko writing in Japanese to Fukuinkan Shoten, Kaisei-sha and Bronze Publishing.** This may well be the faster yes. She is Japanese, the books come out of her own culture, and a Japanese publisher strengthens the whole Japan practice in a way a British one would not. Do not treat this as a secondary track.
+
+Submit in **October**. UK publishing is largely shut through August, and September is the backlog.
+
+### Territories, Japanese rights, and the trademark
+
+**Rieko can publish separately in Japan, but only if the contract is negotiated for it.** Picture book deals grant rights in named territories and languages, and the two usual shapes are very different:
+
+- *World rights, all languages.* The publisher controls translation, sells Japanese rights to a house of their choosing, and passes a share back. Rieko would have no say in which Japanese publisher takes it.
+- *UK and Commonwealth, English language only.* Japanese rights stay with Auwa entirely and Rieko does her own deal with whoever she wants.
+
+**So the ask is to retain Japanese language rights**, or all translation rights. For an illustrated book by a Japanese author with her own relationships, that is reasonable and winnable.
+
+It is not free, though, and the reason publishers resist is legitimate rather than greedy: picture books are **co-printed**, one large run across several languages, which is what makes the unit economics work, and translation sales are a real part of the income. Carving out Japanese may cost something elsewhere in the deal. Worth paying here, because Japan is strategic for Auwa in a way it would not be for an ordinary author.
+
+**Order matters too.** A Japanese deal landing *first* is fine and can help rather than hurt. A book already published in Japan is easier to sell to a UK house, and there is no conflict while territories do not overlap. Another reason the Japanese publishers are not a second-string track.
+
+**The trademark does not complicate a deal.** Class 16 covers books, printed matter and illustrations. Owning it does not block a publisher; the contract itself grants them permission. What it does is stop anyone else putting the Auwa name on books, and stop a publisher spinning off Auwa-branded printed goods (posters, stationery) without agreement. A publisher will want a licence to use the name and mark for publishing and promoting the book, which is normal. **Do not grant an assignment of the mark, or any licence wider than the book.**
+
+**Two things to settle with the accountant before an offer arrives**, both from `context/business/structure.md`:
+
+1. **Who signs.** Copyright in the illustrations was assigned from Rieko and Tom personally to Auwa Limited on 23 February 2026. Rieko is the author; **Auwa Limited is the rights holder**. Publishers ask the signatory to warrant they own the rights, so the contracting party is the company with Rieko named as author and illustrator. Get this right on the paperwork rather than unpicking it later.
+2. **Dormancy.** Auwa Limited is dormant, and an advance or royalties paid into it would end that and trigger tax filings. Auwa Ltd already grants More Air an exclusive worldwide licence with sublicensing permitted, so the cleaner route is probably for **More Air to grant the publishing sublicence and receive the income**. An accountant question, but far better asked now than in the week an offer lands.
+
+### Does the wider brand help or hurt the pitch?
+
+Net positive, but the framing is load-bearing and easy to get wrong.
+
+**What helps.** It proves Rieko is serious and will still be here in three years, which is a genuine editorial anxiety. It shows a world rather than a one-off, so a series is credible. The journal proves the Japanese material is lived rather than decorative, and Rieko being Japanese answers the appropriation question before anyone asks it. The Awwwards Honorable Mention is a concrete third-party credential. And publishers increasingly expect authors to help market.
+
+**What hurts.** The real risk is reading as **a brand looking for a book rather than a book**. Editors are wary of picture books acquired as brand extensions, because they mostly do not work. Secondary risk: trademarks, a figure and collaboration plans quietly signal that the merchandising upside is already off the table, and some houses acquire partly for that. And the Instagram following is small by publishing standards, where a platform barely counts below five figures, so mention it lightly rather than presenting it as an asset.
+
+**Therefore, in any submission letter:** the books come first and take most of the space. The brand goes in one short paragraph at the end, as evidence of commitment. **Do not mention licensing ambitions at all, and do not raise the merchandising carve-out until there is an offer on the table.**
+
+This is why the 11 Aug emails differ by recipient: Dominic's kept the brand to a footnote, Colin's led with it. A PR's job is to find the story; an editor's job is to fall for the book.
+
+### The fallback, in full
+
+If 31 January passes with nothing:
+
+- Buy ISBNs from **Nielsen** (a block of 10, around £160), registered to Auwa Limited so Auwa is the publisher. **Do not buy them before this point** — a publisher assigns its own and yours go unused.
+- Upload both books to **IngramSpark** (hardback, 10x8 landscape, premium colour). Set the wholesale discount to 55% and mark them returnable, which is what makes bookshops willing to order. Ingram is the wholesaler physical shops actually buy through.
+- Upload to **Amazon KDP** for Amazon, and turn Amazon *off* in Ingram's channels to avoid duplicate listings.
+- Price at ordinary trade level, around **£14.99 each**. See the pricing correction below.
+- Order author copies only when the files are final including any blurb. No minimum, no deadline, so there is no reason to commit early.
+
+**Print-on-demand means no stock, no packing, no posting, and no possibility of dead inventory.** That directly answers Tom's constraint. It is also why the earlier idea in this session of a pre-order-funded litho run was dropped.
+
+### Pricing correction (11 August 2026)
+
+An earlier version of this session's advice priced a signed set at £75-85. That was wrong and was walked back. Signed and numbered raises the price of something people already want; it does not create wanting. A signature is worth money when the name means something, and Rieko's does not yet outside the household. Two picture books are two picture books, and the going rate for a good hardback is £13-16.
+
+**The premium logic belongs to the figure, not the book.** Art toys have collector culture, a display object and a real comparison set at £60-200, so 25 hand-finished numbered pieces at a high price is entirely coherent. Applying the same logic to picture books is not. Do not conflate them.
+
+At this stage **a copy in someone's hands is worth more than the margin on a copy that did not sell**, because the whole business depends on the character becoming known.
+
+### Shopify and the book
+
+Neither IngramSpark nor Amazon KDP integrates with Shopify. The norm for small publishers, and the recommendation here, is a product page on auwa.life with buttons out to Amazon and Bookshop.org. If direct sales later matter, **Lulu Direct** is the Shopify app that prints and ships automatically, used alongside Ingram for the trade. Don't build that second system at launch.
+
+The Shopify store for the figure and prints is **not blocked by any of this** and can be built at any time.
+
+### Next steps, in order
+
+1. Wait on Dom, Colin and Piers. Chase gently after two weeks of silence.
+2. Make **Umi** the title everywhere: website, /book pages, InDesign, metadata.
+3. Blurb, once Colin advises. If he passes, approach Beth Kempton directly. It goes on the submission.
+4. **Submit in October**, using whatever introductions and endorsements came back. If none, go direct to the independents listed above, and Rieko to the Japanese houses in Japanese.
+5. Email Jay once there is a specific ask.
+6. **Decision date: 31 January 2027.**
+7. Only then, if nothing landed: Nielsen ISBNs, IngramSpark plus KDP, link out from Shopify, order author copies for Japan and press.
 
 ---
 
@@ -36,7 +165,7 @@ The Auwa illustrated story universe comprises four books, each following Auwa �
 
 **Book 1: The Beginning** — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microbes who explain that everything is connected. *Status: Complete, further revised, at print test. 44 pages, ~470 words. PDF: `_pdf_pages/AUWA01_8x10.pdf`. Mockup: `/book/1` on the website.*
 
-**Book 2: Umi (The Ocean)** — Auwa explores the ocean, meets a red fish, a yellow coral, and Rai (turtle), cuts loose a drifting ghost net, reaches the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale with her calf Yuki), and hears the sea creatures' stories of humans ("They can be kind" / "They can be cruel" / "We do not understand them yet"). Ends pointing to the human world. *Status: **COMPLETE and fully revised** (was the old 30-page version needing work). ~540 words, 46 pages preferred. PDF: `_pdf_pages/AUWA02_8x10.pdf`. Mockup: `/book/2` on the website.*
+**Book 2: Umi** — *(title confirmed 11 Aug 2026: "Umi", not "Ocean")* — Auwa explores the ocean, meets a red fish, a yellow coral, and Rai (turtle), cuts loose a drifting ghost net, reaches the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale with her calf Yuki), and hears the sea creatures' stories of humans ("They can be kind" / "They can be cruel" / "We do not understand them yet"). Ends pointing to the human world. *Status: **COMPLETE and fully revised** (was the old 30-page version needing work). ~540 words, 46 pages preferred. PDF: `_pdf_pages/AUWA02_8x10.pdf`. Mockup: `/book/2` on the website.*
 
 **Assessment (July 2026):** Book 2 is the stronger book and its revision is a textbook execution of the Book 1 template — no speech bubbles, named minor characters culled, the pollution lecture gone, the ghost net as a wordless visual event. It adds genuine stakes (the human question) and a series engine (Book 3 is now loaded as "the humans" book: land → sea → humans). Releasing the two together turns "a book" into "a series", which is a stronger commercial and PR proposition and lets the two tonal poles (cosmic/dark, aquatic/luminous) show the universe's range.
 
