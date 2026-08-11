@@ -81,6 +81,26 @@ Yes, picture books carry endorsements, usually on the back cover or inside flap.
 
 It is a warm-introduction game, which is what Colin is good at.
 
+### How to approach Beth Kempton
+
+*Only if Colin passes on handling endorsements. If he takes it on, he goes through her agent and none of this applies.*
+
+**Her contact page states her filter openly**, which is the most useful thing on it: she "rarely responds to unsolicited emails, unless it is relating to an opportunity that will help me reach more people with my work." Build the approach around that sentence.
+
+Routes available (`bethkempton.com/contact`):
+
+- `learning@dowhatyouloveforlife.com` — courses, mentoring, speaking and podcasts.
+- **Her agent** — rights enquiries. Email is obfuscated on the page. Slightly the wrong address for an endorsement, since agents handle translation and licensing, so a blurb request lands there as business and gets the slowest, coldest treatment.
+- **Instagram `@bethkempton`** — where she says she is active when not writing.
+
+**The recommended route: Rieko, on Instagram, after she has read *Kokoro*, with no ask in the first message.** A genuine response to the book from a Japanese illustrator, and who she is. That is precisely what Beth's stated filter is designed to let through, and Rieko's account speaks for itself in a way an email signature cannot. The blurb becomes the second conversation, by which point it is not cold.
+
+**Bring something rather than ask for something.** An Auwa Journal piece or interview with her, published on auwa.life, is literally "an opportunity that will help me reach more people with my work." This is the same principle already written into the craftsman outreach plan: the first approach is never "will you give us something," it is "may we tell your story."
+
+**Why this is genuinely good for her, not a favour.** A British author writing about Japanese ideas for a Western audience will field the appropriation question forever. A Japanese creator engaging seriously with her work, and a Japanese-authored book she can point to, is real validation. **Do not say this out loud in the approach.** Let it be obvious.
+
+**One thing to handle openly.** Kempton has a book called *Kokoro* and Auwa uses Kokoro as its central word. Not a problem, it is a common Japanese word nobody owns and Rieko's use goes back a decade, but the overlap is close enough that the approach should acknowledge her book directly rather than write around it. Handled well it is the reason she says yes.
+
 ### Publisher targets if no introduction materialises
 
 Independents that suit this register and take direct submissions: **Flying Eye Books, Enchanted Lion** (New York, literary and quiet, arguably the best single fit), **Templar, Walker Books, Thames & Hudson**. Plus three or four children's agents found through the Writers' and Artists' Yearbook, since an agent is the only route into the big houses.
@@ -152,7 +172,7 @@ The Shopify store for the figure and prints is **not blocked by any of this** an
 1. Wait on Dom, Colin and Piers. Chase gently after two weeks of silence.
 2. Make **Umi** the title everywhere: website, /book pages, InDesign, metadata.
 3. **Rieko reads Beth Kempton's *Kokoro*.** Ordered 11 Aug 2026. Asking an author to endorse your book when you have not read theirs is the weakest possible approach, and the overlap here is close enough that it would show. Reading it also gives Colin time to reply.
-4. **Then approach Beth Kempton**, if Colin has passed on handling endorsements. Author to author from Rieko, in her own voice, acknowledging *Kokoro* openly rather than writing around it. A Japanese illustrator writing to someone who writes about Japanese ideas for a Western audience is a far more interesting email than a PR pitch. The blurb goes on the submission, not after it.
+4. **Then approach Beth Kempton**, if Colin has passed on handling endorsements. See HOW TO APPROACH BETH KEMPTON below. The blurb goes on the submission, not after it.
 5. **Rieko exports Japanese-language versions of Books 1 and 2.** Needed for the Japanese publishers and for maker outreach later. Submitting in Japanese to Fukuinkan Shoten, Kaisei-sha and Bronze is much stronger than sending English PDFs, and it is the difference between a serious approach and a translated-looking one.
 6. **Submit in October**, using whatever introductions and endorsements came back. If none, go direct to the independents listed above, and Rieko to the Japanese houses in Japanese.
 7. Email Jay once there is a specific ask.
