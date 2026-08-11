@@ -151,11 +151,13 @@ The Shopify store for the figure and prints is **not blocked by any of this** an
 
 1. Wait on Dom, Colin and Piers. Chase gently after two weeks of silence.
 2. Make **Umi** the title everywhere: website, /book pages, InDesign, metadata.
-3. Blurb, once Colin advises. If he passes, approach Beth Kempton directly. It goes on the submission.
-4. **Submit in October**, using whatever introductions and endorsements came back. If none, go direct to the independents listed above, and Rieko to the Japanese houses in Japanese.
-5. Email Jay once there is a specific ask.
-6. **Decision date: 31 January 2027.**
-7. Only then, if nothing landed: Nielsen ISBNs, IngramSpark plus KDP, link out from Shopify, order author copies for Japan and press.
+3. **Rieko reads Beth Kempton's *Kokoro*.** Ordered 11 Aug 2026. Asking an author to endorse your book when you have not read theirs is the weakest possible approach, and the overlap here is close enough that it would show. Reading it also gives Colin time to reply.
+4. **Then approach Beth Kempton**, if Colin has passed on handling endorsements. Author to author from Rieko, in her own voice, acknowledging *Kokoro* openly rather than writing around it. A Japanese illustrator writing to someone who writes about Japanese ideas for a Western audience is a far more interesting email than a PR pitch. The blurb goes on the submission, not after it.
+5. **Rieko exports Japanese-language versions of Books 1 and 2.** Needed for the Japanese publishers and for maker outreach later. Submitting in Japanese to Fukuinkan Shoten, Kaisei-sha and Bronze is much stronger than sending English PDFs, and it is the difference between a serious approach and a translated-looking one.
+6. **Submit in October**, using whatever introductions and endorsements came back. If none, go direct to the independents listed above, and Rieko to the Japanese houses in Japanese.
+7. Email Jay once there is a specific ask.
+8. **Decision date: 31 January 2027.**
+9. Only then, if nothing landed: Nielsen ISBNs, IngramSpark plus KDP, link out from Shopify, order author copies for Japan and press.
 
 ---
 
