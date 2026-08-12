@@ -76,19 +76,19 @@ const futureBooks = [
     num: "01",
     title: "The Beginning",
     cover: "/book/covers/cover-1.jpg",
-    status: "First chapter",
+    status: "Complete",
     note: "A blue flower in a quiet forest.",
   },
   {
     num: "02",
-    title: "Ocean",
+    title: "The Ocean",
     cover: "/book/covers/cover-2.jpg",
-    status: "Coming next",
+    status: "Complete",
     note: "Auwa descends below the surface.",
   },
   {
     num: "03",
-    title: "Human",
+    title: "The Humans",
     cover: "/book/covers/cover-3.jpg",
     status: "In progress",
     note: "The strangest beings of all.",
@@ -1461,7 +1461,7 @@ function Series() {
                   loading="eager"
                   priority={i === 0}
                   style={{
-                    opacity: i === 0 ? 1 : 0.6,
+                    opacity: i <= 1 ? 1 : 0.6,
                     transition: "opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 />
