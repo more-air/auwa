@@ -22,7 +22,26 @@ See `context/business/business.md` 6.4 and 6.2a, and `CLAUDE.md` → THE PIVOT.
 
 Books 1 and 2 are **both finished** and Rieko is saving out the final files with the July amends applied. They **release together as a set**, not Book 1 alone. Page counts are settled and correct. Print-ready PDFs live in `Dropbox/3 venture/auwa/production/book/Indesign/_indesign/_pdf/_pdf_pages/`.
 
-**Book 2's title is Umi.** Confirmed by Tom, 11 August 2026. Use "Umi" everywhere, with "(Ocean)" as a parenthetical gloss only where a reader needs it. Not "Ocean" on its own. The website, the InDesign files and the /book pages all need to agree on this.
+### Series titles (settled 12 August 2026)
+
+**English edition: Earth, Ocean, Humans, Lioma.** Four bare single-word nouns, no articles.
+
+| Book | English | Was |
+|---|---|---|
+| 01 | **Earth** | The Beginning |
+| 02 | **Ocean** | Umi |
+| 03 | **Humans** | Human |
+| 04 | **Lioma** | (unchanged) |
+
+**Japanese edition keeps Japanese titles**, Umi among them. Rieko is translating now. This is the normal publishing split and nothing is lost: Umi reads naturally on a Japanese cover and gives an English-reading bookseller nothing to work with. Reversed on 12 Aug from the 11 Aug decision to use Umi in English.
+
+**Why bare nouns.** The set had no naming system: one English abstract, one Japanese noun, one English noun, one invented one, which reads as four separate decisions rather than a series. All-bare fixes it and makes Lioma sit naturally, because everything is a bare noun and one of them simply happens to be a place. "The Beginning" could not survive the articles being dropped ("Beginning" alone reads as a participle), so Book 1 became **Earth**, which the /book section heading already named. It also maps the arc cleanly: Earth, the ocean within it, the humans on it, then off the planet entirely.
+
+**Lioma stays a proper noun.** It is a planet in the WAWA system where the Maon live (see `business.md`), so unlike Umi it has no English equivalent being withheld. Invented place names are native to children's books.
+
+**Release order is NOT locked.** The plan is both books as a pair, which is Rieko's preference and the stronger proposition, but a publisher may want them released singly and that is their call. **Keep public copy neutral on this.** The journal CTA was rewritten on 12 Aug from "the first illustrated story" to "where the illustrated stories begin" for exactly this reason. Do not reintroduce copy that presumes either release pattern.
+
+**Still to change:** the cover artwork still reads "The Beginning" and "Umi", so both need redrawing before print. The journal article *titled* "The Beginning" is Rieko's origin essay, a different thing, and keeps its name.
 
 Rieko kept the repeated "we are all connected" message in Reco's speech deliberately (see EDITORIAL FEEDBACK below).
 
@@ -173,7 +192,7 @@ The Shopify store for the figure and prints is **not blocked by any of this** an
 ### Next steps, in order
 
 1. Wait on Dom, Colin and Piers. Chase gently after two weeks of silence.
-2. Make **Umi** the title everywhere: website, /book pages, InDesign, metadata.
+2. ~~Make Umi the title everywhere.~~ **Superseded 12 Aug** by the bare-noun set (see SERIES TITLES above). The /book page and the remaining site copy are done and deployed. **Outstanding: the cover artwork**, which still reads "The Beginning" and "Umi" and needs redrawing before print.
 3. **Rieko reads Beth Kempton's *Kokoro*.** Ordered 11 Aug 2026. Asking an author to endorse your book when you have not read theirs is the weakest possible approach, and the overlap here is close enough that it would show. Reading it also gives Colin time to reply.
 4. **Then approach Beth Kempton**, if Colin has passed on handling endorsements. See HOW TO APPROACH BETH KEMPTON below. The blurb goes on the submission, not after it.
 5. **Rieko exports Japanese-language versions of Books 1 and 2.** Needed for the Japanese publishers and for maker outreach later. Submitting in Japanese to Fukuinkan Shoten, Kaisei-sha and Bronze is much stronger than sending English PDFs, and it is the difference between a serious approach and a translated-looking one.
@@ -188,9 +207,9 @@ The Shopify store for the figure and prints is **not blocked by any of this** an
 
 The Auwa illustrated story universe comprises four books, each following Auwa — a luminous being sent from the stars — as it encounters different aspects of Earth and reveals the Kokoro (heart/soul) hidden within all things.
 
-**Book 1: The Beginning** — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microbes who explain that everything is connected. *Status: Complete, further revised, at print test. 44 pages, ~470 words. PDF: `_pdf_pages/AUWA01_8x10.pdf`. Mockup: `/book/1` on the website.*
+**Book 1: Earth** *(was "The Beginning" until 12 Aug 2026)* — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microbes who explain that everything is connected. *Status: Complete, further revised, at print test. 44 pages, ~470 words. PDF: `_pdf_pages/AUWA01_8x10.pdf`. Mockup: `/book/1` on the website.*
 
-**Book 2: Umi** — *(title confirmed 11 Aug 2026: "Umi", not "Ocean")* — Auwa explores the ocean, meets a red fish, a yellow coral, and Rai (turtle), cuts loose a drifting ghost net, reaches the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale with her calf Yuki), and hears the sea creatures' stories of humans ("They can be kind" / "They can be cruel" / "We do not understand them yet"). Ends pointing to the human world. *Status: **COMPLETE and fully revised** (was the old 30-page version needing work). ~540 words, 46 pages preferred. PDF: `_pdf_pages/AUWA02_8x10.pdf`. Mockup: `/book/2` on the website.*
+**Book 2: Ocean** *(English; Umi on the Japanese edition. See SERIES TITLES above.)* — Auwa explores the ocean, meets a red fish, a yellow coral, and Rai (turtle), cuts loose a drifting ghost net, reaches the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale with her calf Yuki), and hears the sea creatures' stories of humans ("They can be kind" / "They can be cruel" / "We do not understand them yet"). Ends pointing to the human world. *Status: **COMPLETE and fully revised** (was the old 30-page version needing work). ~540 words, 46 pages preferred. PDF: `_pdf_pages/AUWA02_8x10.pdf`. Mockup: `/book/2` on the website.*
 
 **Assessment (July 2026):** Book 2 is the stronger book and its revision is a textbook execution of the Book 1 template — no speech bubbles, named minor characters culled, the pollution lecture gone, the ghost net as a wordless visual event. It adds genuine stakes (the human question) and a series engine (Book 3 is now loaded as "the humans" book: land → sea → humans). Releasing the two together turns "a book" into "a series", which is a stronger commercial and PR proposition and lets the two tonal poles (cosmic/dark, aquatic/luminous) show the universe's range.
 
