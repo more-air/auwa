@@ -74,7 +74,7 @@ const previewSpreads: Spread[] = [
 const futureBooks = [
   {
     num: "01",
-    title: "Earth",
+    title: "Dawn",
     cover: "/book/covers/cover-1.jpg",
     status: "Complete",
     note: "A blue flower in a quiet forest.",

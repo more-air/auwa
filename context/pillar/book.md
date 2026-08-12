@@ -24,14 +24,18 @@ Books 1 and 2 are **both finished** and Rieko is saving out the final files with
 
 ### Series titles (settled 12 August 2026)
 
-**English edition: Earth, Ocean, Humans, Lioma.** Four bare single-word nouns, no articles.
+**English edition: Dawn, Ocean, Humans, Lioma.** Four bare single-word nouns, no articles.
 
 | Book | English | Was |
 |---|---|---|
-| 01 | **Earth** | The Beginning |
+| 01 | **Dawn** | The Beginning |
 | 02 | **Ocean** | Umi |
 | 03 | **Humans** | Human |
 | 04 | **Lioma** | (unchanged) |
+
+**Why Dawn for Book 1.** Rieko wanted Book 1 to keep the *meaning* of "The Beginning" rather than name its setting, and she wanted the Japanese edition to carry that meaning too rather than a word for Earth. Dawn does it in one bare noun: it means a beginning without being abstract, and it is made of light, which is what Auwa is and how it arrives, so the title does double work. It also translates well. **あけぼの (akebono)** is the poetic word for dawn and opens Sei Shōnagon's *Pillow Book* with 春はあけぼの; **夜明け (yoake)** is the plainer option. *Origin* and *Arrival* were the runners-up; Arrival was set aside because a luminous telepathic being arriving on Earth sits uncomfortably close to the 2016 film.
+
+**Humans, not Human.** Bare "Human" reads adjectivally before it reads as a noun, and can mean the abstract quality rather than the beings. "Humans" is concrete, matches the other three as nouns, and matches the book, where Auwa meets many of them.
 
 **Japanese edition keeps Japanese titles**, Umi among them. Rieko is translating now. This is the normal publishing split and nothing is lost: Umi reads naturally on a Japanese cover and gives an English-reading bookseller nothing to work with. Reversed on 12 Aug from the 11 Aug decision to use Umi in English.
 
@@ -207,7 +211,7 @@ The Shopify store for the figure and prints is **not blocked by any of this** an
 
 The Auwa illustrated story universe comprises four books, each following Auwa — a luminous being sent from the stars — as it encounters different aspects of Earth and reveals the Kokoro (heart/soul) hidden within all things.
 
-**Book 1: Earth** *(was "The Beginning" until 12 Aug 2026)* — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microbes who explain that everything is connected. *Status: Complete, further revised, at print test. 44 pages, ~470 words. PDF: `_pdf_pages/AUWA01_8x10.pdf`. Mockup: `/book/1` on the website.*
+**Book 1: Dawn** *(was "The Beginning" until 12 Aug 2026)* — Auwa arrives on Earth, finds a lonely blue flower (Bluu) in a dying forest, reveals her Kokoro through a light shower, restores the forest, and meets the soil microbes who explain that everything is connected. *Status: Complete, further revised, at print test. 44 pages, ~470 words. PDF: `_pdf_pages/AUWA01_8x10.pdf`. Mockup: `/book/1` on the website.*
 
 **Book 2: Ocean** *(English; Umi on the Japanese edition. See SERIES TITLES above.)* — Auwa explores the ocean, meets a red fish, a yellow coral, and Rai (turtle), cuts loose a drifting ghost net, reaches the Coral Paradise, meets Reco (ancient red coral) and Amo (great whale with her calf Yuki), and hears the sea creatures' stories of humans ("They can be kind" / "They can be cruel" / "We do not understand them yet"). Ends pointing to the human world. *Status: **COMPLETE and fully revised** (was the old 30-page version needing work). ~540 words, 46 pages preferred. PDF: `_pdf_pages/AUWA02_8x10.pdf`. Mockup: `/book/2` on the website.*
 
