@@ -51,7 +51,7 @@ export default function BookPage() {
             <div className="relative overflow-hidden flex-1 min-h-0">
               <ImageFade
                 src="/pillars/book.jpg"
-                alt="Auwa: The Beginning — illustrated book on a wooden table"
+                alt="Auwa: Earth, illustrated book on a wooden table"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"

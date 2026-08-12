@@ -63,7 +63,7 @@ const sourceContent = {
     heading: "Four stories, one light.",
     body: "Illustrated stories following Auwa the character as it shows the world what it's been too busy to notice. We'll write to you when it's ready. In the meantime, the journal is a good place to start.",
     image: `${BASE_URL}/pillars/book.jpg`,
-    imageAlt: "Auwa: The Beginning illustrated book",
+    imageAlt: "Auwa: Earth illustrated book",
     cta: "Follow on Instagram",
     ctaUrl: INSTAGRAM_URL,
   },
