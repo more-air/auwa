@@ -74,21 +74,21 @@ const previewSpreads: Spread[] = [
 const futureBooks = [
   {
     num: "01",
-    title: "The Beginning",
+    title: "Earth",
     cover: "/book/covers/cover-1.jpg",
     status: "Complete",
     note: "A blue flower in a quiet forest.",
   },
   {
     num: "02",
-    title: "The Ocean",
+    title: "Ocean",
     cover: "/book/covers/cover-2.jpg",
     status: "Complete",
     note: "Auwa descends below the surface.",
   },
   {
     num: "03",
-    title: "The Humans",
+    title: "Humans",
     cover: "/book/covers/cover-3.jpg",
     status: "In progress",
     note: "The strangest beings of all.",
