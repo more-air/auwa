@@ -35,9 +35,13 @@ We have spent five months making things and have sold nothing. Two finished book
 - **Make 25 to 50, not 100.** Each figure is hours of printing plus finishing plus packing by hand, so a hundred is weeks of work before a single one sells. We never reissue an edition, so a small first one is a good thing, not a compromise. Sell out, learn how it goes, then make more.
 - Use the "win a figure" prize draw already on the website to build interest before the drop.
 
-### 3. Put up a simple shop (Tom)
+### 3. Build the figure product page and set up Shopify (Tom, separate session)
 
-A plain, clean Shopify shop selling only our own things: the books, the figure, prints, and paper goods. No other people's products, no stock sitting in our house beyond our own. Linked from the website and Instagram.
+One beautiful product page for the figure, built into our own website so it never feels like you've left the site, with Shopify quietly handling the money, stock and tax behind it. Reference is the 1X Neo order page: very few words, stunning photographs, one clear way to buy. Books added next, prints after that. It replaces the current store sign-up page.
+
+Two things to settle before the price is announced. We're VAT registered through More Air, so 20% comes off every figure sale from the first one: a £150 price nets us £125, and to actually keep £150 we'd price at £180. Books are zero-rated so they're unaffected. And decide whether we sell to the EU at launch, because that needs an extra registration or the customer gets an unexpected fee from the courier.
+
+Full brief for that session is in `context/website/store.md`.
 
 ### 4. Ask Fin DAC to paint an Auwa (Tom)
 

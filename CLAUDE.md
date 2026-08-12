@@ -1,6 +1,6 @@
 # Auwa — Project Context
 
-*Last Updated: 11 August 2026 — book publishing route decided and opened (see CURRENT PHASE item 2 and `context/pillar/book.md`), WIPO filing done. Major revision 5 August 2026: the pillar framing is gone entirely; the Kokoro Mirror app is parked; the store became Auwa-owned goods plus a collaboration programme. See THE PIVOT below before proposing any work.*
+*Last Updated: 12 August 2026 — commerce stack settled (Shopify backend, our own front end; see KEY DECISIONS → Store and `context/website/store.md`), licence variation and moral rights assertion signed. 11 August: book publishing route decided and opened (see CURRENT PHASE item 2 and `context/pillar/book.md`), WIPO filing done. Major revision 5 August 2026: the pillar framing is gone entirely; the Kokoro Mirror app is parked; the store became Auwa-owned goods plus a collaboration programme. See THE PIVOT below before proposing any work.*
 
 ---
 
@@ -215,8 +215,14 @@ Two additional Japanese frameworks sit underneath:
 
 **Store:**
 - **Auwa-owned goods only.** Books, figure, prints, paper goods, 72-seasons print set. No curated third-party catalogue. *(Was multi-vendor marketplace → first-party + collab, May 2026 → own goods + collab only, Aug 2026.)*
-- Standard Shopify. No multi-vendor app, no Stripe Connect, no held stock but Auwa's own.
-- Figures self-produced on BambuLab. First edition 25-50, hand-finished, numbered, signed, never reissued.
+- **Shopify, but our own front end** (decided 12 Aug 2026). Chosen over Stripe, Big Cartel and WooCommerce because the shop runs mixed VAT rates, More Air is VAT registered so VAT applies from the first sale, and inventory must decrement atomically on a numbered edition. The product page is built in Next.js on auwa.life inside the existing design system; Shopify is the backend only. Buy Button for one product, Storefront API later, behind a swappable interface. No multi-vendor app, no Stripe Connect, no held stock but Auwa's own. **Full build brief in `context/website/store.md`.**
+- **Trading entity is More Air Limited** (VAT registered). Auwa Limited stays dormant by choice — one active company is less hassle and More Air holds carry-forward CT savings. Switch to Auwa Limited later when it scales. This means a **publishing contract should be with More Air, not Auwa Limited**, since an advance paid to Auwa Ltd would end its dormancy.
+- **VAT:** 20% on figures, prints and paper goods; **books are zero-rated**; exports outside the UK zero-rated. Set all prices VAT-inclusive (£150 shelf nets £125; to net £150 price at £180). EU/IOSS is an open decision — register with an EU intermediary or the customer gets a courier handling fee.
+- **Domains:** `auwa.store` 301s to auwa.life/store. Shopify's primary domain is a subdomain of auwa.life (e.g. `store.auwa.life`) so checkout stays on-brand. The store never lives on a separate root domain.
+- Figures self-produced on BambuLab. First edition 25-50, hand-finished, numbered, signed, never reissued. **Sold as a timed drop, not an always-on product**; made-to-order against paid orders is under consideration to flip the cash flow.
+- **Collab pieces are separate products, not variants** of the base figure. Variants imply substitutability at one price.
+- **No marketplaces.** Later, selected stockists (a design shop, a museum shop, Native & Co, the Japan House shop) for credibility rather than volume. Books are the exception and go everywhere.
+- **Art-toy licensing (Pop Mart, Medicom and similar) is a 2028 conversation, and the book logic does NOT transfer.** Self-publishing first damages the publisher route because a weak sales history is evidence against you; a licensor works the opposite way, since prior sell-through *is* the pitch. So self-releasing editions builds the asset rather than burning it. Two cautions: Pop Mart's blind-box, mass-production model sits badly against the craft collab and exhibition route, and Medicom, How2Work, Unbox or a Japanese soft-vinyl maker are closer in register. **The thing that would actually kill this option is a publishing contract that keeps merchandising rights** — see `book.md`. Keep the master form and 3D file unencumbered, grant no manufacturer exclusivity, and document every edition.
 - **Collab editions are the growth engine**, split into an artist line (commercial, frequent) and a craft line (prestige, slow, exhibition-aimed). Collaborators manufacture and hold stock. See THE COLLAB PROGRAMME.
 - Kintsugi ruled out as a collab craft (Tom, 5 Aug 2026).
 - Never white-label. The rung between "article" and "collab edition" is a second article, not a branded product.
@@ -297,6 +303,7 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 - *"collab"*, *"craftsman"*, *"artist collab"*, *"Fin DAC"*, *"exhibition"* → load `context/business/business.md` + `context/business/japan.md` + `context/marketing/arrival.md`.
 - *"figure"*, *"figure drop"*, *"packaging"* → load `context/business/business.md` + `context/brand/reference.md` + `context/brand/brand.md`.
 - *"book route"*, *"publisher"*, *"print"* → load `context/pillar/book.md` + `context/business/business.md`.
+- *"store session"*, *"store build"*, *"product page"*, *"figure page"*, *"shopify"* → load `context/website/store.md` + `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 - *"website session"*, *"website updates"*, *"website work"*, *"website tweak"*, *"website fix"*, *"website bug"* → load `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 - *"newsletter send"*, *"send newsletter"* → load `context/marketing/newsletter.md` + `context/pillar/journal.md` + `context/brand/brand.md`.
 - *"social session"*, *"instagram"*, *"social post"* → load `context/marketing/instagram.md` + `context/brand/brand.md` + `context/marketing/arrival.md`.
@@ -332,6 +339,7 @@ Whenever `context/app/app.md` is loaded, `context/app/patterns.md` is paired. Sa
 
 - `context/website/website.md` — Website SPECIFICATION for auwa.life: Kinfolk-inspired editorial site structure, page layouts, Sanity CMS content model, responsive design, serif typography, motion principles, v0/Stitch prompt ideas, reference websites, article preparation plan, design system tokens (type scale, colour opacities, spacing, grid gaps, content widths, motion specs), component library, API routes, email templates, SEO infrastructure. **Load for website design/planning sessions.**
 - `context/website/patterns.md` — Website BUILD PATTERNS, Tailwind 4 gotchas, iOS fixes, Vercel deployment command, page-level architecture lessons, mobile menu patterns, article share icons, and the full Awwwards-readiness checklist. **Load only for website implementation sessions** (component tweaks, bug fixes, deployment). Not needed for social/strategy/copy/brand work.
+- `context/website/store.md` — **Store BUILD BRIEF** (12 Aug 2026): the figure product page spec, the 1X Neo reference and what to take from it, page structure, variant and numbering rules, VAT and pricing, the timed-drop selling model with its three page states, the art-toy buyer and what that market judges you on, the Shopify Buy Button approach with a swappable commerce interface, the step-by-step Shopify account setup for Tom, and scope discipline. **Load for any store, product-page or Shopify work**, alongside `website.md` + `patterns.md` + `brand.md`.
 
 **Marketing (`context/marketing/`):**
 

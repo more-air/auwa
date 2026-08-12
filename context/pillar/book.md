@@ -71,6 +71,10 @@ A publishing contract **licenses publishing rights** in named territories and la
 
 What a standard contract *does* often ask for is a subsidiary rights clause covering merchandising and character licensing. That is a negotiable line item, routinely carved out for author-illustrators, and if a publisher will not carve it, walk. Publishers are genuinely interested in the books alone; that is the normal shape of a picture book deal.
 
+**The merchandising carve-out protects more than the figure.** Restated 12 Aug 2026: a publisher holding merchandising and character rights would block not only the figure but any future art-toy licensing deal (Medicom, Pop Mart and similar), which is a live 2028 possibility. This is not a theoretical clause to trade away for a better advance. Say so explicitly to whoever reviews the contract.
+
+**Contract should be with More Air Limited, not Auwa Limited.** An advance paid to Auwa Ltd would end its dormancy, which Tom has decided against (see `structure.md`). More Air holds an exclusive licence with an express sub-licensing right and a term running to 2036 following the 12 Aug 2026 variation, so it can grant publishing rights cleanly and will survive a publisher's due diligence.
+
 **Three clauses to check if an offer comes.** Merchandising and character rights struck out entirely, so the figure and future collaborations stay wholly Auwa's. Any option clause limited to a first look at the next Auwa picture book and nothing wider. A reversion clause so rights return if the book goes out of print. Use the Society of Authors contract review, which is free to members and around £120 a year to join, or a publishing solicitor.
 
 ### What it costs to try

@@ -61,6 +61,7 @@ Then move the output: `mv context/[folder]/[file].pdf documents/Auwa-[Name].pdf`
 
 *Website:*
 - `context/website/website.md` → `documents/Auwa-Website.pdf`
+- `context/website/store.md` → `documents/Auwa-Store.pdf`
 
 *Marketing:*
 - `context/marketing/arrival.md` → `documents/Auwa-Arrival.pdf`

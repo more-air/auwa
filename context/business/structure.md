@@ -39,7 +39,13 @@ More Air handles all Auwa commercial activity: website, app, store, marketing, r
 
 ### How Money Flows
 
-More Air client work funds the founders separately. All Auwa revenue is received by More Air Limited and reinvested into growth. Auwa Limited receives no revenue while dormant. When Auwa becomes profitable, a royalty structure (5-10% of Auwa revenue from More Air to Tom + Rieko personally) should be added. Flagged for accountant review.
+More Air client work funds the founders separately. All Auwa revenue is received by More Air Limited and reinvested into growth. Auwa Limited receives no revenue while dormant.
+
+**Confirmed 12 August 2026:** this is a deliberate choice, not a temporary arrangement. Income flows to More Air because it is the core business, running two active companies is more hassle, and More Air holds carry-forward Corporation Tax savings. Auwa Limited gets switched on later when it scales.
+
+**Two consequences worth holding on to.** A **publishing contract should be with More Air, not Auwa Limited**, because an advance paid to Auwa Ltd would end its dormancy. And More Air must be **VAT registered** for all Auwa sales, so VAT applies from the first one: 20% on figures, prints and paper goods, zero on printed books, zero on exports outside the UK. Prices are set VAT-inclusive.
+
+*Correction, 12 Aug 2026: this section previously said the future royalty would run "from More Air to Tom + Rieko personally." The signed licence at clause 3.3, as varied, points royalties at **Auwa Limited**, not at the shareholders personally. Those are materially different tax paths. The signed document governs; the note here was wrong.*
 
 More Air pays Auwa-related expenses (trademark filings, domains, hosting) and records these as operational costs.
 
@@ -315,11 +321,43 @@ Copyright protects the specific artwork (stops exact copying). Trademark (design
 | Licensor | Auwa Limited (Company No. 17033727) |
 | Licensee | More Air Limited (Company No. 7051794) |
 | Grant | Exclusive, worldwide license to use, develop, and commercialise Auwa character, trademarks, and associated IP |
-| Sublicensing | Permitted (e.g. for hotel B2B) |
+| Sublicensing | **Express right added by the 12 Aug 2026 variation** (was silent, which was a real gap) |
 | Consideration | £1 nominal (royalty-free for now) |
-| Termination | 30 days written notice by either party |
+| Termination | **Runs to 31 Dec 2036, then rolling; see variation below** (was 30 days' notice by either party) |
 | Historical clause | Acknowledges More Air's development since 2017 under verbal agreement |
 | Document | `trademark/1 license/20260223_auwa_license.pdf` |
+
+### Licence Variation (Active — signed 12 August 2026)
+
+Reviewed on 12 Aug 2026 against what More Air is about to do with the licence: sell physical goods through Shopify, sign a publishing contract, and enter collaboration agreements where a Japanese maker manufactures and sells Auwa-formed goods. Three gaps found and closed.
+
+| Field | Detail |
+|-------|--------|
+| Date | 12 August 2026 |
+| Document | `trademark/1 license/20260812_auwa_license_variation.pdf` (+ .docx) |
+| Varies | The 23 Feb 2026 Operating Licence. Read as one document with it. |
+
+**What changed and why:**
+
+1. **Express sub-licensing right, with survival on termination.** The original was silent on sub-licensing, and More Air is about to grant rights onward to a publisher, to manufacturers and to collaborating artists and craftspeople. Sub-licences granted in good faith survive termination of the head licence, with Auwa Limited substituted as grantor. A publisher's contracts team checks exactly this.
+2. **Term extended to 31 Dec 2036**, then rolling year to year on twelve months' notice. Before then, terminable only for unremedied material breach, insolvency, or by written agreement of both parties. **Thirty days' notice was too short to survive publisher due diligence** on a contract that runs for years.
+3. **Explicit novation clause (2.4).** The parties may terminate, novate, assign or restructure at any time by written agreement, including so that Auwa Limited operates the business directly. This deliberately preserves the activation path described at the top of this document; the ten-year term blocks only *unilateral* termination, and Tom is a director of both parties, so mutual termination is always available.
+4. **Scope confirmed** to cover all Auwa IP owned from time to time, including marks applied for or registered after Feb 2026.
+5. **Clause 3.3 rewritten.** All revenue belongs to More Air, which bears the costs and risks. No royalty is payable while Auwa Limited is dormant. If it ceases to be dormant, the parties negotiate in good faith, but the clause records an intention to negotiate and creates no binding obligation to agree.
+
+### Moral Rights Assertion (Active — signed 12 August 2026)
+
+| Field | Detail |
+|-------|--------|
+| Date | 12 August 2026 |
+| Parties | Rieko Vining (Author) + Auwa Limited |
+| Document | `trademark/1 license/20260812_auwa_moral_rights.pdf` (+ .docx) |
+
+The Feb 2026 assignment transferred copyright but said nothing about moral rights. Under s.78 of the Copyright, Designs and Patents Act 1988 the **right to be identified as author only takes effect if asserted in writing**, so the house rule "always credit Rieko as creator" had no legal footing until now. The assertion covers all media and territories, sets the credit as "Eko Maeda" on published books and "Rieko Maeda" elsewhere, obliges Auwa Limited to procure observance by any licensee, sub-licensee, publisher, manufacturer or collaborator, and does not waive her s.80 right to object to derogatory treatment.
+
+**Trademark ownership verified 12 Aug 2026:** the UKIPO register shows Auwa Limited as owner of all three UK marks — UK00004341028 (registered 15 May 2026, classes 9/16/20/41), UK00004373930 (pending, classes 20/28) and UK00004373944 (pending, classes 25/28/35).
+
+**Outstanding admin:** a short written resolution in each company's records noting the directors approved the variation, since Thomas Vining signs for both parties and that is a declarable interest under the Companies Act 2006.
 
 ### Original License (Superseded)
 
@@ -409,7 +447,10 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 4. ~~**Word mark Batch 1 opposition period**~~ — **DONE.** Registered 15 May 2026, no opposition.
 4b. **Design mark opposition window** — published 3 July 2026; monitor until ~3 September 2026. UKIPO notifies if opposed; no action otherwise.
 4c. **Batch 2 registration** — still pending; monitor (part of the McLoughlin expedite ask). Rides in the Madrid filing on the pending application until registered (central-attack dependency until then).
-5. **Royalty structure** — When Auwa generates revenue, add royalty terms to the More Air license. Accountant review needed.
+5. **Royalty structure** — Not triggered while Auwa Limited is dormant, and the 12 Aug 2026 variation makes that explicit. Revisit only on activation. Accountant review needed then, not now.
+5b. **Board minutes for the 12 Aug variation** — a written resolution in each company's records, since Thomas Vining signs both sides. Two paragraphs, not yet done.
+5c. **EU / IOSS decision** — selling physical goods into the EU under €150 needs either an IOSS registration (a UK seller needs an EU intermediary post-Brexit) or the customer pays VAT plus a courier handling fee on delivery. Decide before the figure drop whether the EU is in scope at launch or whether phase 1 is UK plus US only.
+5d. **Class 39 (travel services)** — not covered by the current portfolio. Only relevant if "Auwa Journeys" becomes a named commercial product. Do not disturb the Madrid filing over it.
 6. **Social handle registration** — Secure across remaining platforms (see handles table above).
 
 ---
