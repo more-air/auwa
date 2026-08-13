@@ -40,6 +40,7 @@ Then move the output: `mv context/[folder]/[file].pdf documents/Auwa-[Name].pdf`
 **File → PDF name mapping:**
 
 *Global:*
+- `README.md` (repo root) → `documents/Auwa-Guide.pdf` — the plain-English overview of how the repo, the commands and the two-machine sync work. Refresh it whenever a command is added or removed.
 - `context/todo.md` → `documents/Auwa-Todo.pdf`
 - `context/done.md` → `documents/Auwa-Done.pdf`
 
