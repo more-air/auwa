@@ -923,7 +923,7 @@ const articles: Record<
       },
       {
         type: "cta" as const,
-        text: "Auwa: Dawn is where the illustrated stories begin, opening into a wider world we are building. Step inside to meet the character, read the philosophy behind it, and follow along as the rest unfolds.",
+        text: "Auwa: The Dawn is where the illustrated stories begin, opening into a wider world we are building. Step inside to meet the character, read the philosophy behind it, and follow along as the rest unfolds.",
         href: "/book",
         label: "Discover Auwa",
       },
