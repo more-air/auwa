@@ -6,7 +6,7 @@
 
 ## WORKING WITH THIS REPO — SAFETY RULES (READ FIRST)
 
-These rules are non-negotiable, including in `--dangerously-skip-permissions` / "bypass permissions" mode. They exist because of a real incident on 1 May 2026 in which a session ran `git checkout HEAD -- <files>` to "revert the working tree", silently wiping multiple sessions of uncommitted work. The work was eventually reconstructed from session transcripts; assume the next time will not be recoverable.
+These rules are non-negotiable, including in `--dangerously-skip-permissions` / "bypass permissions" mode. They exist because of two real incidents. On **1 May 2026** a session ran `git checkout HEAD -- <files>` to "revert the working tree", silently wiping multiple sessions of uncommitted work. On **26 August 2026** a session ran `git clean -fd` to tidy a stale tree before pulling, and destroyed the entire `figure/` folder because none of it was tracked. Both were recovered, one from session transcripts and one from a Time Machine snapshot; assume the next time will not be recoverable.
 
 **Never run a destructive git command without first asking the user.**
 
@@ -15,7 +15,7 @@ Specifically: do NOT run any of the following without an explicit, in-conversati
 - `git checkout HEAD -- <path>`, `git checkout -- <path>`, `git checkout <ref> -- <path>`
 - `git restore <path>`, `git restore --source=… <path>`
 - `git reset --hard`, `git reset --merge`
-- `git clean -fd`, `git clean -fdx`
+- `git clean -fd`, `git clean -fdx` (deletes untracked files, leaves no reflog entry — see the 26 August 2026 incident below)
 - `git rm` against tracked files with uncommitted changes
 - `git stash drop`, `git stash clear`
 - `git branch -D`, `git push --force`, `git push --force-with-lease`
@@ -35,6 +35,45 @@ Before running ANY of these:
 **Don't propose `git checkout HEAD --` as a fix for build/runtime errors.** The fix is in the source code, not in throwing away local changes. If reverting feels like the simplest path, the user can revert in their editor file-by-file and keep what they want.
 
 **Recovery is not free.** Reconstructing wiped work from `~/.claude/projects/<project>/*.jsonl` transcripts is possible but slow, brittle, and only works if the bad command happened recently enough that the relevant sessions are still on disk. Treat that path as last-resort, not a safety net that justifies casual destructive commands.
+
+### Untracked is not safe — the 26 August 2026 incident
+
+The rules above are about *modified* files. This one is about *untracked* ones, and it is a
+different door into the same disaster.
+
+**What happened.** This machine's clone was four months stale. A session ran `git reset`, then
+`git clean -fd`, then `git pull` — the standard "make the working tree match the remote"
+sequence. `git clean -fd` deletes every untracked file that is not ignored. The `figure/` folder
+had never been committed, so it went: all three manuals, every STL across V3–V10, `templates/`,
+and `Auwa.final.blend`. 111 files. `git status` reported a clean tree throughout, and GitHub had
+no copy to restore from, because git had never known those files existed.
+
+It was recovered from a Time Machine local snapshot. The `.blend` also survived as a Blender
+autosave in `/var/folders`, which macOS erases on restart — a few hours later that fallback
+would have been gone too.
+
+**The rules this adds:**
+
+1. **`git clean` in any form is on the forbidden list above.** `-fd`, `-fdx`, `-n` to preview is
+   fine, but never the real thing without explicit approval. It leaves no reflog entry, so there
+   is no undo and no evidence afterwards.
+2. **Never run reset, clean or a re-clone to "make the tree match the remote."** If the working
+   tree is messy, the answer is to look at what is in it, not to flatten it.
+3. **Before any operation that rewrites the working tree, list the untracked files first:**
+   `git status --porcelain --untracked-files=all`. If anything there is not obviously disposable,
+   stop and ask.
+4. **A clean `git status` is not evidence that nothing is at risk.** It is evidence about tracked
+   files only. If a folder of real work is untracked, say so out loud and offer to commit it —
+   that is a finding, not a detail.
+5. **Don't let either machine go months stale.** Staleness is what makes the blunt instrument
+   tempting. Run `/sync` at the start of a session. `/sync` itself is safe — it forbids reset and
+   clean, and only pulls and pushes — but it only moves *tracked* files, so it protects nothing
+   that has not been committed.
+
+**What changed as a result.** `figure/` is now tracked, with `.blend`, `.stl`, `.3mf` and `.glb`
+going through **Git LFS**. Tracked files are immune to `git clean`, which only removes untracked
+ones. Both Macs need `brew install git-lfs && git lfs install` or they pull pointer files instead
+of models. `.blend1` (Blender's auto-backup) is ignored — the `.blend` has real history now.
 
 ### If you ever DO need to recover from a destructive command
 
