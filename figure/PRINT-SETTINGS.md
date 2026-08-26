@@ -432,6 +432,54 @@ After printing the base: **sand all over with 400-grit then 800-grit**, optional
 
 ---
 
+## Reducing sanding time — PLA Wood (the smoothness levers)
+
+*Added 26 August 2026, for Rieko.*
+
+Sanding is 30–45 minutes of the ~2 hours per figure, and it is Rieko's hands rather than machine
+time. Print time is free by comparison. These are the levers, **ranked by how much sanding they
+actually remove**, with where each one lives in Bambu Studio 2.7.
+
+| # | Lever | Where in Bambu Studio | Value |
+|---|---|---|---|
+| 1 | **Layer height** | Quality tab | **0.08 mm** — halves the step depth versus 0.16 |
+| 2 | **Dry the filament** | Sunlu S2, before slicing | 55°C, 6 h. Damp wood PLA prints visibly furry |
+| 3 | **Flow calibration** for this spool | Top menu → **Calibration** → Flow Dynamics, then Flow Rate | run once per spool |
+| 4 | **Outer wall speed** | Speed tab (Advanced toggle ON) | **30 mm/s** |
+| 5 | **Outer wall acceleration** | Speed tab → Acceleration | **3000 mm/s²** — reduces the ringing echo near detail |
+| 6 | **Variable layer height** | Toolbar icon above the plate | apply to the head dome |
+| 7 | **Supports off** (if the model allows) | Support tab | every support scar is sanding that need not exist |
+
+Everything else in the canonical PLA Wood list stays as it is: 4 wall loops, Monotonic top
+surface, Gyroid infill, Random seam, no fuzzy skin.
+
+### What settings cannot fix
+
+- **The crown of the head.** The top of the head is a top solid surface, so the layers converge
+  to a point there on every print, at every setting. It always needs sanding by hand. (This is
+  also why fuzzy skin is permanently ruled out — fuzzy only textures the vertical walls, so the
+  crown stays smooth and the sanding removes the fuzz at the most visible point on the object.
+  See `context/business/figure.md` → FINISH.)
+- **Support scars.** The cure is fewer supports, not better ones. Check the overhang preview and
+  try one print with support disabled.
+
+### Worth testing, not yet proven
+
+- **Scarf joint seam** — Quality tab → Seam. If this version offers it, it spreads the seam along
+  a slope instead of stacking a blob, which should reduce sanding across the whole surface. Not
+  yet tested on PLA Wood here; wood fibre may behave differently. Check whether the option exists
+  before relying on it.
+- **Ironing on the head crown only** — Quality tab → Ironing. Could smooth the worst spot on the
+  figure, but ironing wood-filled PLA can smear the fibre. Test on a scrap before a real piece.
+
+### The test that settles it
+
+Print the same figure twice, at **0.2 mm** and at **0.08 mm**. Sand both, with a clock running.
+Print time is machine hours and costs nothing but patience; sanding is Rieko's hands and it
+dominates the labour. That one number sets the whole schedule for the edition of thirty.
+
+---
+
 ## Material: colorFabb allPHA
 
 **Source of truth: colorFabb's own technical datasheet (v1.0, April 2022) and the allPHA
