@@ -32,11 +32,20 @@ Some things are kept out of GitHub on purpose. Instagram content lives in the sh
 | `website/main/` | The auwa.life website. This is the live site. |
 | `website/app/` | The Kokoro Mirror app. Built, then parked in August 2026. Left alone. |
 | `book/` | The four books, one folder each. |
+| `figure/` | The figure: the Blender master form, the printable files for each version, and Rieko's notes on how it is built and printed. |
 | `photography/` | Photography for the journal and the site. The finished exports are here; the raw files stay on Dropbox. |
 | `audio/` | Sound used on the site. |
 | `scripts/` | Small tools for the mailing list. Run by Claude, not by hand. |
 | `.claude/` | The commands below, and the settings that make them work. |
 | `archive/`, `_backups/` | Old versions kept in case we want them back. Safe to ignore. |
+
+---
+
+## Large files
+
+The Blender and 3D print files in `figure/` are too big for git to handle normally, so they are stored using an add-on called Git LFS. It is already set up, and both Macs have it.
+
+It matters for one reason. A machine without Git LFS installed downloads tiny placeholder files instead of the real models. They have the right names and sit in the right folders, so nothing looks wrong until Blender refuses to open one. If that ever happens, the models are not lost and nothing is broken. Say so in Claude Code and it will install what is missing and fetch the real files.
 
 ---
 
