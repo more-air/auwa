@@ -103,7 +103,12 @@ removes inner walls only, so the outer surface and the finish are unaffected.
 | Setting | Value |
 |---|---|
 | Sparse infill density | **100%** |
-| Sparse infill pattern | **Gyroid** |
+| Sparse infill pattern | **Rectilinear** |
+
+⚠ **Not Gyroid.** Gyroid is a lattice and cannot be set to 100% — Bambu Studio rejects the
+combination. At 100% the pattern is irrelevant to weight because the volume is full either way,
+so any solid-capable pattern (Rectilinear, Grid, Monotonic) is correct. If you would rather keep
+Gyroid, 90% works and costs about 0.7 g. (Found at the printer, 26 Aug 2026.)
 
 Together the two modifiers take the figure from 46.9 g with its balance point at 53% of its
 height, to 43.9 g at 45%. Lighter and lower. Full workings in **Weight distribution** below.
@@ -168,7 +173,7 @@ Before clicking "Slice plate":
 - [ ] Seam position: Random
 - [ ] Body: Wall loops 4, Top pattern Monotonic, Sparse infill 15% Gyroid
 - [ ] Upper modifier: 2% Lightning + Wall loops 3
-- [ ] Lower modifier: 100% Gyroid
+- [ ] Lower modifier: 100% Rectilinear (Gyroid cannot do 100%)
 - [ ] Outer wall speed 30 mm/s, Outer wall acceleration 3000 mm/s²
 - [ ] Base: 40% infill, Fuzzy Skin All walls (if printing base)
 - [ ] Auto orient: feet down for body ✓
@@ -685,7 +690,7 @@ Both load the same way: right-click body → **Add Modifier → Load...** → th
 | Setting | Value |
 |---|---|
 | Sparse infill density | **100%** |
-| Sparse infill pattern | **Gyroid** |
+| Sparse infill pattern | **Rectilinear** — *not* Gyroid, which cannot be set to 100% |
 
 If the leg surface bulges slightly with allPHA (over-packing — PHA is soft), drop the lower
 modifier to **80%**. Costs only 1.4 g and removes the risk.
