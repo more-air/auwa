@@ -44,3 +44,9 @@ photography/**/*.tif
 photography/**/*.tiff
 photography/**/*.heic
 photography/**/*.HEIC
+
+# Blender auto-backups (regenerated on every save; the .blend itself is tracked in LFS)
+*.blend1
+
+# Emergency recovery copies (26 Aug 2026) — superseded once the real .blend is verified
+figure/_recovered/
