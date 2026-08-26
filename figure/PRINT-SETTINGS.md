@@ -33,14 +33,20 @@ The user is on Bambu Studio 2.7. Setting names have changed over versions. When 
 - **Dry the filament**: PLA Wood 4-6 hours at 55°C; **allPHA 6 hours at 45°C** (Sunlu S2)
 - Wet filament = failed print (rough surface, popping, arm breaks)
 - If unsure whether it's dry, dry it — cheap insurance
+- **Calibrate each new spool**: top menu → **Calibration** → Flow Dynamics, then Flow Rate.
+  Wood-filled filament flows differently from the Bambu profile it inherits from, and
+  uncalibrated flow leaves ridges on the walls that cost sanding time.
 
 ### Object setup
 
 1. **Printer**: Bambu Lab X1 Carbon
 2. **Filament slot**: PLA Wood (or allPHA) — NEVER support filament for the figure itself
-3. **Load the body STL**: `model7_body.stl` (or model 8/9/10)
-4. **Add the modifier**: Right-click body → Add Modifier → Load `upper_modifier_m7.stl`
-   - Verify in Objects list: modifier row shows NO filament number ✓ (if it shows "1", it's still a Part — right-click → Change type → Modifier)
+3. **Load the body STL**: `model7_body_fixed.stl` (V9) — or model 8/9/10 from V8
+4. **Add BOTH modifiers**: right-click body → Add Modifier → Load, once for each:
+   - `upper_modifier_m7.stl` — the head, z = 45–110 mm
+   - `lower_modifier_m7.stl` — the legs and feet, z = -5–25 mm
+   - Verify in Objects list: **both** modifier rows show NO filament number ✓ (if either shows "1", it's still a Part — right-click → Change type → Modifier)
+   - Model 8/9 have an upper modifier only; there is no lower modifier at those sizes
 
 ### Body settings (click the body row → Objects mode)
 
@@ -57,7 +63,7 @@ The user is on Bambu Studio 2.7. Setting names have changed over versions. When 
 **Quality tab:**
 | Setting | Value |
 |---|---|
-| Layer height | **0.08mm** (showpiece) or **0.12mm** (standard smooth) |
+| Layer height | **0.08mm** for edition pieces (least sanding) · 0.12mm for tests |
 | Seam position | **Random** ⚠ critical — NOT Aligned or Back |
 | Ironing Type | No ironing (for the figure) |
 
@@ -69,22 +75,38 @@ The user is on Bambu Studio 2.7. Setting names have changed over versions. When 
 **Speed tab (Advanced toggle ON):**
 | Setting | Value |
 |---|---|
-| Outer wall speed | **30-40 mm/s** (slow = smooth) |
+| Outer wall speed | **30 mm/s** (slow = smooth) |
+| Outer wall acceleration | **3000 mm/s²** (removes the ringing echo near the arms and eyes) |
 
 **Others tab → Special mode:**
 | Setting | Value |
 |---|---|
 | Fuzzy Skin | **None** (smooth AUWA aesthetic) |
 
-### Modifier settings (click `upper_modifier_m7.stl` row in Objects mode)
+### Upper modifier — the head (click `upper_modifier_m7.stl` row in Objects mode)
 
-**Strength tab — ONLY change these two, leave everything else inherited:**
+**Strength tab — ONLY these three, leave everything else inherited:**
 | Setting | Value |
 |---|---|
 | Sparse infill density | **2%** |
 | Sparse infill pattern | **Lightning** |
+| Wall loops | **3** (down from 4) |
 
-**Do NOT change** Wall loops, Top surface pattern, or anything else on the modifier — those must stay inherited from the body.
+Wall loops is the bigger lever of the three — most of the head's mass is wall, not infill. It
+removes inner walls only, so the outer surface and the finish are unaffected.
+
+**Do NOT change** Top surface pattern or anything else on this modifier.
+
+### Lower modifier — the legs (click `lower_modifier_m7.stl` row in Objects mode)
+
+**Strength tab — ONLY these two:**
+| Setting | Value |
+|---|---|
+| Sparse infill density | **100%** |
+| Sparse infill pattern | **Gyroid** |
+
+Together the two modifiers take the figure from 46.9 g with its balance point at 53% of its
+height, to 43.9 g at 45%. Lighter and lower. Full workings in **Weight distribution** below.
 
 ### Base settings (click `base_8cm_model7.stl` row in Objects mode)
 
@@ -94,7 +116,7 @@ The user is on Bambu Studio 2.7. Setting names have changed over versions. When 
 | Wall loops | 4 |
 | Top surface pattern | Monotonic |
 | Top shell layers | 5 |
-| Sparse infill density | 20% (denser than body for stability weight) |
+| Sparse infill density | **40%** (~19 g — a heavy base does more for stability than anything inside the figure) |
 | Sparse infill pattern | Gyroid |
 
 **Quality tab:**
@@ -141,19 +163,22 @@ The user is on Bambu Studio 2.7. Setting names have changed over versions. When 
 Before clicking "Slice plate":
 
 - [ ] Body has filament "1" ✓ (green check)
-- [ ] Modifier has NO filament number (critical — else it prints as solid cube)
-- [ ] Layer height 0.08 or 0.12mm
+- [ ] BOTH modifiers have NO filament number (critical — else they print as solid cubes)
+- [ ] Layer height 0.08mm
 - [ ] Seam position: Random
 - [ ] Body: Wall loops 4, Top pattern Monotonic, Sparse infill 15% Gyroid
-- [ ] Modifier: Sparse infill 2% Lightning (only these two changes on modifier)
-- [ ] Base: Fuzzy Skin All walls (if printing base)
+- [ ] Upper modifier: 2% Lightning + Wall loops 3
+- [ ] Lower modifier: 100% Gyroid
+- [ ] Outer wall speed 30 mm/s, Outer wall acceleration 3000 mm/s²
+- [ ] Base: 40% infill, Fuzzy Skin All walls (if printing base)
 - [ ] Auto orient: feet down for body ✓
 
 ### Slice preview verification
 
 Scrub through layer preview:
+- Legs and feet (below z=25): solid — no gaps at all
 - Body region: dense Gyroid infill visible
-- Head/upper region (where modifier sits): sparse Lightning pattern (very light, spider-web-like)
+- Head/upper region (where the upper modifier sits): sparse Lightning pattern (very light, spider-web-like)
 - Random seam dots scattered — no vertical line
 - No concentric bullseye on head top
 
@@ -180,6 +205,10 @@ If all good → **Print plate**.
 Track adjustments here as prints come out. Format: date — what changed — why.
 
 - **2026-08-11** — Initial PLA Wood 2.7 canonical settings established
+- **2026-08-26** — Canonical block brought in line with the two-modifier weight work and the
+  sanding-reduction findings, which previously lived only in later sections and contradicted this
+  one. Adds the lower modifier, Wall loops 3 on the head, 0.08mm as the edition layer height,
+  outer wall 30 mm/s and 3000 mm/s² acceleration, per-spool flow calibration, and a 40% base.
 - *(future adjustments will be logged here)*
 
 ---
