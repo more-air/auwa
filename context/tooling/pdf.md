@@ -55,6 +55,8 @@ Then move the output: `mv context/[folder]/[file].pdf documents/Auwa-[Name].pdf`
 
 *Business:*
 - `context/business/business.md` → `documents/Auwa-Business.pdf`
+- `context/business/figure.md` → `documents/Auwa-Figure.pdf`
+- `context/business/figure-rieko.md` → `documents/Auwa-Figure-Rieko.pdf`
 - `context/business/competitors.md` → `documents/Auwa-Competitors.pdf`
 - `context/business/japan.md` → `documents/Auwa-Japan.pdf`
 - `context/business/structure.md` → `documents/Auwa-Structure.pdf`

@@ -1,6 +1,6 @@
 # Auwa Store — Build Brief
 
-*Created 12 August 2026. The spec for the Auwa store, starting with a single product page for the figure. **Load this together with `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`** (the same set a "website session" loads), plus `context/business/business.md` §6.2 and §6.2a for product and collab context.*
+*Created 12 August 2026, updated 26 August 2026. The spec for the Auwa store, starting with a single product page for the figure. **Load this together with `context/business/figure.md`** (the physical object: material, finish, base, packaging, price, edition size, drop model — the source of truth for everything the page describes) **plus `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`** (the same set a "website session" loads), and `context/business/business.md` §6.2 and §6.2a for wider product and collab context.*
 
 *Shortcut phrases that should load this file: "store session", "store build", "product page", "figure page", "shopify".*
 
@@ -67,7 +67,7 @@ A proposal, not a straitjacket. Argue with it if you have something better.
 3. **The buy block.** Variant selector (light / dark, and base/stand if it happens), price, edition position ("Edition of 30" or "1 of 30"), and the buy button. This is the only place with a transactional feel, and it should still look like Auwa.
 4. **Scroll into the making.** Rieko's hand, the printing, the finishing. Two or three images with very little text.
 5. **The material card.** See below — this is a specific ask from Tom and deserves its own designed module.
-6. **The packaging.** Balsa box, ribbon, eco insert, hand-written card from Rieko. This is a significant part of what the buyer is paying for and it photographs well.
+6. **The packaging.** Kiribako (Japanese paulownia box), washi obi band, wool felt cradle, hand-written card from Rieko. This is a significant part of what the buyer is paying for and it photographs well. *(Corrected 26 Aug 2026 from "balsa box, ribbon" — balsa was wrong and kiri is the culturally loaded, correct wood. See `context/business/figure.md` → PACKAGING.)*
 7. **The character, briefly, with a link out.** A short passage on who Auwa is, linking to the journal article ["The Beginning"](https://auwa.life/journal) (Rieko's origin essay) and to `/book`. Do not retell the whole philosophy here; the site already does that well elsewhere.
 8. **The practical facts.** Dimensions, material, edition size, signed and numbered, shipping, delivery timing. Plain type, not a table.
 9. **Books coming.** A quiet block with the existing `SignupForm` (source-tagged appropriately). This is what replaces the current store page's job.
@@ -76,11 +76,11 @@ Then stop. Resist adding an FAQ, testimonials, or a "why Auwa" section.
 
 ### The material card
 
-Tom specifically wants this. The figure is either a wood/plastic composite filament or a 100% biodegradable fermented material with zero plastic. That is a genuine brand-ethos fit and worth a small designed module: a card with a short passage and one or two images, sitting inside the scroll rather than bolted on.
+Tom specifically wants this. **Settled 26 Aug 2026: the material is Bambu PLA Wood.** The allPHA (biodegradable, zero plastic) option was tested and rejected — fiddly to print, an oily-looking finish, poor heat tolerance, and a biodegradability claim that is a liability on an object sold as never reissued. Worth a small designed module: a card with a short passage and one or two images, sitting inside the scroll rather than bolted on.
 
 Write it in the Auwa voice, which means concrete and sensory rather than eco-marketing. "The blade coated in a thin film of camellia oil," not "sustainably sourced." Say what the material actually is and what it does, and let the reader draw the conclusion. **Do not use the words "eco-friendly", "sustainable", "planet", or "journey".** Check the writing rules in the global CLAUDE.md before drafting: no em dashes, no fragment-stacking, no "it's not just X, it's Y."
 
-Get the final material from Tom before writing this. Do not guess between the two options.
+**Do not lean on the eco angle at all.** PLA Wood is mostly PLA with wood fibre in it, and any implication otherwise is the thing a sceptical buyer will pick at. The strong claims are all true and all checkable: it sands like timber rather than gumming like plastic, it takes stain, the grain rises as the finish goes on, it is warm in the hand. The passage currently on the demo page ("Fine wood fibre held in a plant-based polymer…") is correct as written.
 
 ---
 
@@ -119,9 +119,9 @@ That means the page needs at least three states, and they should all be designed
 - **Live:** buyable, with remaining stock visible or implied.
 - **Sold out:** dignified, not apologetic. "Edition of 30, all claimed." Plus a capture for the next edition.
 
-**Made-to-order is under consideration.** Tom may print against paid orders rather than making 30 on spec, which flips the cash flow and removes weeks of labour before any revenue. If so, the page must state the lead time plainly (two to three weeks is normal and nobody minds for a hand-finished piece). Confirm with him.
+**Made to order — decided 26 Aug 2026.** Made against paid orders rather than 30 on spec, which flips the cash flow and removes three weeks of Rieko's labour before any revenue. The page must state the lead time plainly: three weeks, which is normal and nobody minds for a hand-finished piece.
 
-**First edition is 25-50 units, not 100.** Settled 5 Aug 2026.
+**First edition is 30 units**, split 15 Natural and 15 Sumi, numbered within each colourway. Settled 26 Aug 2026 (was "25-50", 5 Aug).
 
 ---
 
@@ -135,7 +135,7 @@ Context you need to design well, and the part a generic e-commerce build would m
 
 **What reads as amateur to them.** Stock-photo styling. Renders passed off as photographs. Vague edition language ("limited edition" with no number). A "buy now" urgency banner or countdown timer. Discount codes on a numbered edition. Reviews and star ratings. Anything that makes it feel like dropshipped merchandise.
 
-**Price context.** £150-180 sits above blind-box territory (Pop Mart, Sonny Angel, £12-20) and below serious art-toy pieces (KAWS editions, large Bearbricks, £400-several thousand). It is roughly where an independent resin artist's small hand-finished run sits, and the market is used to it. What justifies it is: hand-finished, signed by the artist, tiny edition, real packaging, a character with a decade of narrative behind it. The page has to make all five visible without listing them like features.
+**Price context.** *(Updated 26 Aug 2026: the working price is now £220, floor £195. See `context/business/figure.md` → PRICE for the labour and materials maths behind the change. The paragraph below still holds on market positioning.)* £150-180 sits above blind-box territory (Pop Mart, Sonny Angel, £12-20) and below serious art-toy pieces (KAWS editions, large Bearbricks, £400-several thousand). It is roughly where an independent resin artist's small hand-finished run sits, and the market is used to it. What justifies it is: hand-finished, signed by the artist, tiny edition, real packaging, a character with a decade of narrative behind it. The page has to make all five visible without listing them like features.
 
 **The narrative advantage nobody else in this category has.** Bearbrick's bear means nothing, deliberately, which is why anything can be projected onto it. Auwa means something specific, drawn from a decade of illustrated stories. The page should let a collector who has never heard of Auwa understand, quickly and without a lecture, that this object comes from somewhere. That is the job of section 7 and the link to "The Beginning."
 
@@ -200,4 +200,4 @@ So: give the build a **hard three days**. The page itself is one to two days ins
 
 ## WHAT TOM WILL BRING TO THE SESSION
 
-Photographs of the current prototype, the material decision (wood/plastic composite or 100% biodegradable fermented, zero plastic), the finish, the packaging concept, and pricing thinking. Ask for whatever is missing rather than assuming.
+Most of this is now settled and written down. **Read `context/business/figure.md` first** for the material, finish, base, numbering, packaging, cost, labour, price and drop model, then ask Tom only for what has changed since 26 Aug 2026: the test results, the supplier quotes for the kiribako and the turned base, the confirmed price, and the real photography.

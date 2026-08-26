@@ -50,7 +50,7 @@ Tom was tools-down early June to mid-July following his father's death (5 June).
 
 *Rough trajectory discussed 15 Jul 2026 (baseline 2,553 IG / 91 subs): ~5-7.5k IG and ~1-1.8k subs by Jan 2027; ~12-20k IG and ~3-5k subs by end 2027; first real income from the autumn figure drop; calendar-2027 revenue ~£20-40k base case, figure-led, still net-negative for the year but proving each product line.*
 
-**Other current-state notes:** Books 1 & 2 both finished and at print test, releasing as a set (see book.md). Figure: Blender file done, multiple prototype sizes printed, bio-filament testing next, packaging concept = balsa box + ribbon + eco insert + handwritten Rieko card (see business.md 6.2). Trademarks: comprehensive global Madrid filing committed (see structure.md). Journal: Tom/Rieko considering making it a quieter "behind the scenes" layer rather than a co-equal pillar so the character/story shine — **not decided; do NOT restructure the site now**, just publish less (1/month or 1/season is fine). Grief-feature idea for the app: don't build a dedicated feature; instead use grief language as a test suite for the reflection engine (keeps the app out of the clinical-support space the spec rejects).
+**Other current-state notes:** Books 1 & 2 both finished and at print test, releasing as a set (see book.md). Figure: production settled 26 Aug 2026 — 10cm, Bambu PLA Wood sanded and waxed, turned Japanese wooden base, kiribako with a washi obi band and a handwritten Rieko card, edition of 30 made to order at a recommended £220, target drop mid-November (see `context/business/figure.md`, which is now the source of truth). Trademarks: comprehensive global Madrid filing committed (see structure.md). Journal: Tom/Rieko considering making it a quieter "behind the scenes" layer rather than a co-equal pillar so the character/story shine — **not decided; do NOT restructure the site now**, just publish less (1/month or 1/season is fine). Grief-feature idea for the app: don't build a dedicated feature; instead use grief language as a test suite for the reflection engine (keeps the app out of the clinical-support space the spec rejects).
 
 ---
 
@@ -89,7 +89,7 @@ The highest-leverage block in the whole document, and the one that unblocks the 
 
 ### 2. Figure finished and dropped (Sept - Nov 2026)
 
-- Bio-filament testing, finish, packaging (balsa box, ribbon, eco insert, hand-written Rieko card), price.
+- Figure: the six tests, the kiribako and turned-base orders, and the confirmed price. See `context/business/figure.md` → RIEKO'S STEP-BY-STEP.
 - **First edition 25-50 units, not 100.** Weeks of print time plus finishing plus hand-packing before a single sale; "never reissued" makes a small first edition a feature.
 - Simple Shopify shelf live alongside it: books, figure, prints, paper goods. Auwa-owned goods only.
 - Seed with the existing figure lottery (already live on the site's bottom strip).

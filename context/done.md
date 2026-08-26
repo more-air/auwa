@@ -60,8 +60,10 @@ The largest body of shipped work: the editorial site went from nothing to Awwwar
 ## Figure
 
 - Blender file done; multiple prototype sizes 3D-printed on BambuLab.
-- Packaging concept defined: balsa box, ribbon, eco insert, handwritten Rieko card.
-- (Bio-filament testing, finishing method, and final pricing remain on the to-do.)
+- Prototypes made and compared in four materials: PLA Wood White Oak, PLA Wood Black Walnut, PLA Basic Black, colorFabb allPHA. Fuzzy and normal print settings both tried.
+- Prototypes posted to Instagram (June 2026); the black resonated unexpectedly, which is now feeding a black Auwa into the books.
+- **26 Aug 2026 — production settled in a full session.** Size confirmed at 10 x 6.5 x 6cm. Material decided (PLA Wood; allPHA and PLA Basic Black rejected with reasons). Finish decided (sanded not fuzzy, wax not oil, the dark version stained rather than painted). Base decided (turned Japanese hardwood, not printed; metal parked). Numbering method decided (embossed into the print, signed on the base, matching card). Packaging corrected from balsa to kiribako, with box dimensions and internal layout. Cost and labour per unit modelled. Price recommendation £220. Made-to-order drop of 30. Collab operating rules written. All of it in `context/business/figure.md`, with Rieko's guide at `documents/Auwa-Figure-Rieko.pdf`.
+- (The six physical tests and the supplier orders remain on the to-do.)
 
 ## Social / Instagram
 

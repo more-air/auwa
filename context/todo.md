@@ -31,7 +31,7 @@ We have spent five months making things and have sold nothing. Two finished book
 
 ### 2. Finish the figure and sell the first batch (Rieko designs, Tom makes and ships)
 
-- Test the eco-friendly filament, settle the finish, finalise the packaging (balsa box, ribbon, eco insert, hand-written card from Rieko) and the price.
+- **Material, finish and packaging are settled (26 Aug 2026). What remains is testing and ordering: `context/business/figure.md` → RIEKO'S STEP-BY-STEP, or the printable `documents/Auwa-Figure-Rieko.pdf`.** In short: three decisions (is the black a character, freeze the shape, specify the eyes), six tests (layer height, sanding time, stain, wax, embossed number, posting one abroad), and four orders to place now (kiribako, turned wooden bases, wraps, brass stamp).
 - **Make 25 to 50, not 100.** Each figure is hours of printing plus finishing plus packing by hand, so a hundred is weeks of work before a single one sells. We never reissue an edition, so a small first one is a good thing, not a compromise. Sell out, learn how it goes, then make more.
 - Use the "win a figure" prize draw already on the website to build interest before the drop.
 
