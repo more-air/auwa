@@ -62,6 +62,18 @@ cd /Users/admin/Github/auwa/website/main && export PATH="/usr/local/bin:$PATH" &
 
 If nothing else changed under `website/`, skip this.
 
+**5b. Large files (Git LFS).**
+
+The 3D and print files (`.blend`, `.stl`, `.3mf`, `.glb`, listed in `.gitattributes`) are stored with Git LFS. Git only holds a small pointer for each one; the real file is fetched separately.
+
+If `git lfs version` fails, LFS is not installed on this machine. **Stop and say so**, because a pull without it produces 133-byte placeholder files that look like the real thing and will not open in Blender or the slicer. Install it first (`brew install git-lfs && git lfs install`), then:
+
+```bash
+cd /Users/admin/Github/auwa && git lfs pull
+```
+
+A normal `git pull` fetches LFS content automatically once LFS is installed. `git lfs pull` is the repair command for a machine that pulled before LFS was set up.
+
 **6. Push anything this machine is holding.**
 
 If step 1 or the pull left local commits that GitHub does not have, offer to push:
