@@ -22,7 +22,7 @@ import { DURATION, EASING } from "@/lib/motion";
   because the footer is sticky bottom-0 from page load).
 */
 
-const HIDE_ON = ["/store", "/app", "/book", "/book-signup", "/instagram"];
+const HIDE_ON = ["/store", "/store-preview", "/store-preview/checkout", "/app", "/book", "/book-signup", "/instagram"];
 const SCROLL_IN_THRESHOLD = 600; // px — appears after the hero is past
 
 export function FigureHook() {

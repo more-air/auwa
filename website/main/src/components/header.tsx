@@ -63,7 +63,11 @@ function hasPhotographicHero(pathname: string) {
 
 export function Header() {
   const pathname = usePathname();
-  const hideHeader = pathname === "/instagram";
+  // /store-preview/checkout simulates Shopify's HOSTED checkout, which
+  // carries no site navigation at all. Leaving our header on it would
+  // misrepresent the one thing that page exists to show.
+  const hideHeader =
+    pathname === "/instagram" || pathname === "/store-preview/checkout";
 
   // Synchronous list of dark-themed routes for first-paint correctness;
   // MutationObserver is the runtime safety net for any future dynamic

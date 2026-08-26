@@ -5,15 +5,23 @@ type Props = {
   children: string;
   className?: string;
   /**
-   * - "primary" — solid void (near-black) background with white text.
-   *   Reserved for the single most important CTA on a page (homepage
-   *   intro, key editorial moments).
-   * - "secondary" (default) — bordered, text-only. Used everywhere else.
-   * - "plain" — no border, just text. Quietest option.
+   * - "primary" (default) — bordered, Sumi text, floods to solid Sumi
+   *   on hover. The site-wide editorial CTA.
+   * - "secondary" — identical to primary. Kept because call sites use
+   *   both names.
+   * - "solid" — INVERTED: solid Sumi at rest with Surface text, floods
+   *   back to Surface on hover. Use it for a commerce action ("Order
+   *   now"), or to lead a PAIR of CTAs where one has to outrank the
+   *   other — solid leads, primary follows. The rule is one per
+   *   viewport, not one per page: two solids visible at once cancel
+   *   each other out and the emphasis stops meaning anything.
+   * - "plain" — no border, just text. Quietest option. Don't put it
+   *   next to a bordered CTA; it reads as a stray text link rather
+   *   than as the second of two buttons.
    *
    * Legacy `"bordered"` maps to `"secondary"` for backwards compatibility.
    */
-  variant?: "primary" | "secondary" | "plain" | "bordered";
+  variant?: "primary" | "secondary" | "solid" | "plain" | "bordered";
   /** "light" (default) renders void text on light surfaces; "dark"
    *  renders washi text on Yoru / void surfaces. */
   theme?: "light" | "dark";
@@ -45,15 +53,52 @@ export function CtaLink({
     ? "text-washi border border-washi/25 px-6 py-3 transition-[color,border-color] duration-500 ease-text-roll hover:text-yoru hover:border-washi"
     : "text-sumi border border-sumi/20 px-6 py-3 transition-[color,border-color] duration-500 ease-text-roll hover:text-surface hover:border-sumi";
   const secondary = primary;
+  // Solid is primary run backwards: the fill starts ON, and the flood
+  // that rises on hover is the LIGHT tone rather than the dark one.
+  //
+  // The hovered border lands on exactly the tone primary uses AT REST
+  // (sumi/20 light, washi/25 dark), so the two variants resolve to the
+  // same outline. A full-strength border on the flooded state read as a
+  // heavy dark box around a light button, louder than any resting
+  // button on the site.
+  //
+  // `bg-clip-padding` is load-bearing, not tidying. Backgrounds paint
+  // to the BORDER box by default, while the flood pane covers only the
+  // PADDING box (it's `absolute inset-0` inside a positioned parent).
+  // Without the clip, the solid dark background stays painted underneath
+  // the border on hover, so a 20%-opacity border composites over solid
+  // Sumi and still renders black — the computed value is correct and
+  // the pixels are wrong. Clipping the fill to the padding box lets the
+  // page Surface sit behind the hovered border, which is what makes it
+  // match primary. Don't remove it.
+  const solid = isDark
+    ? "bg-washi bg-clip-padding text-yoru border border-washi px-6 py-3 transition-colors duration-500 ease-text-roll hover:text-washi hover:border-washi/25"
+    : "bg-sumi bg-clip-padding text-surface border border-sumi px-6 py-3 transition-colors duration-500 ease-text-roll hover:text-sumi hover:border-sumi/20";
   const plain = isDark
     ? "text-washi/55 transition-colors duration-500 ease-text-roll hover:text-washi"
     : "text-sumi/50 transition-colors duration-500 ease-text-roll hover:text-sumi";
 
   const variantClasses =
-    resolved === "primary" ? primary : resolved === "plain" ? plain : secondary;
+    resolved === "solid"
+      ? solid
+      : resolved === "primary"
+      ? primary
+      : resolved === "plain"
+      ? plain
+      : secondary;
 
-  const isFilled = resolved === "primary" || resolved === "secondary";
-  const floodColour = isDark ? "bg-washi" : "bg-sumi";
+  const isFilled =
+    resolved === "primary" || resolved === "secondary" || resolved === "solid";
+  // Solid inverts the flood: rising Surface over a Sumi ground, rather
+  // than rising Sumi over the page.
+  const floodColour =
+    resolved === "solid"
+      ? isDark
+        ? "bg-yoru"
+        : "bg-surface"
+      : isDark
+      ? "bg-washi"
+      : "bg-sumi";
 
   return (
     <Link
