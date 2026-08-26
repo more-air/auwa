@@ -182,8 +182,8 @@ The single principle: **a trademark protects the *name* "Auwa" and the *characte
 |-------|------------------------------|-----------------------|
 | **9** | downloadable software, the app, digital content and publications | Kokoro Mirror app (as a downloadable product) |
 | **16** | printed and illustrated books, art prints, stationery, cards | Rieko's illustrated books and prints (Book pillar / store) |
-| **20** | decorative objects, figurines, ornaments (non-toy) | the Auwa figure as a decorative object; craft objects |
-| **25** | clothing, headwear, apparel | merch / print-on-demand apparel (planned, plausible within 5 yrs) |
+| **20** | decorative objects, figurines, ornaments (non-toy) **of wood or plastic only** — see the 14 Aug 2026 irregularity below | the Auwa figure as a decorative object; wood, lacquer, maki-e and gold-leaf-on-wood collab pieces |
+| **25** | clothing, headwear, apparel | **not for own production** (Auwa is not a merch brand). Held for licensing and, above all, for platform takedowns: counterfeit character apparel on Amazon/Etsy/eBay/Redbubble/TikTok Shop is the commonest infringement a character brand meets, and those systems key off a registration covering clothing. Also blocks a squatter from taking apparel in the US/EU/CN. |
 | **28** | toys, collectible and art figures, character toys | the collectible Auwa figure — the flagship physical product |
 | **35** | online retail store services | the Auwa store as a named business, especially the Year 2 craftsman marketplace (selling third-party goods under the Auwa banner) |
 | **41** | entertainment/education services, online experiences, publishing, exhibitions, interactive stories | the app *experience*, the Journal, the Book universe as experiences, exhibitions |
@@ -195,6 +195,29 @@ The single principle: **a trademark protects the *name* "Auwa" and the *characte
 ### Design mark (the character silhouette) — classes 20 + 28
 
 Protects the character *shape* as a brand identifier: stops a copycat selling a confusingly similar Auwa-like figurine (20) or collectible toy (28). This is the tier-one, hardest-to-replace asset in the value hierarchy.
+
+**Note the limit:** classes 20 and 28 only, in every territory. **The design mark gives no apparel coverage anywhere.** Character-on-clothing protection rests on Rieko's copyright plus the word mark's class 25.
+
+### Material classes NOT held — the gap, and the class 20 lesson
+
+**The rule to remember: Nice classification sorts figurines by purpose first, then by material.** If the object is a toy or collectible toy it is class 28 and the material is irrelevant (wooden, ceramic, bronze, all class 28). Material only decides the class once the object is a decorative art object rather than a toy, and then it splits: wood/wax/plaster/plastic in **20**, ceramic/porcelain/glass in **21**, common metal in **6**, precious metal in **14**, textile in **24**.
+
+This matters because the craft collab line is deliberately positioned *away* from toys (art commission, exhibited, one-off or small numbered — the Pokémon × Kogei register). Succeed at that framing and you argue yourself out of class 28 for those pieces, which is exactly why KAWS holds class 6 for his cast Companions rather than relying on 28.
+
+Not held, in order of relevance:
+
+| Class | Covers | Relevance |
+|-------|--------|-----------|
+| **21** | ceramic, porcelain, earthenware, glass figurines and objects | **Highest.** Ceramics and glass are named collab media. Pop Mart holds 21 (as homewares); KAWS doesn't, because he makes no ceramics. |
+| **6** | sculptures of non-precious metal | Cast metal is on Rieko's Form crafts list. KAWS holds exactly "sculptures made of non-precious metals". |
+| **14** | key rings, charms, jewellery, precious-metal statuettes | Not in the plan, but a key ring is the cheapest impulse product a character brand has, and both KAWS and Pop Mart hold it. |
+| **24** | textile, wall hangings | The sashiko and dyeing collabs. |
+
+**Decision (17 Aug 2026): do not chase these now.** None of these products exist, and an international extension costs roughly £4,000 whenever it happens because the CHF 653 basic fee resets from scratch. File one UK application covering 21, 6 and probably 14 and 24 when there is a real product or a real decision to make one; extend internationally only if the craft line earns it.
+
+**The exposure is mainly about being blocked, not about enforcing.** You do not need class 21 to sell a ceramic Auwa; you need nobody else to own "Auwa" in class 21 in that market. **Action that cannot wait: before the collab programme goes public, run a free clearance search for "Auwa" in classes 21, 6, 14 and 24 across UK/EU/US/JP/CN on the WIPO Global Brand Database.** If something already sits in class 21 in China, that needs to be known before Rieko approaches a ceramic maker, not after.
+
+**The drafting lesson.** The class 20 problem was self-inflicted: the UK specification listed materials by hand ("decorative objects made of wood, ceramic, textile, or plastic"), putting ceramic and textile in a class that cannot hold them. UKIPO accepted it; WIPO did not. Pop Mart's registered class 20 uses **"works of art of wood, wax, plaster or plastic"** and KAWS's US class 20 is simply **"pillows; furniture; works of art made of wood"** — narrow, material-correct, drafted by attorneys. **Next UKIPO filing: use standard Nice wording, do not compose material lists, and pay a UK trademark attorney for one hour (~£250-350) to draft the specification.** One-off and proportionate; it is what the self-filing saving actually costs.
 
 ### Territories
 
@@ -233,6 +256,32 @@ Both international applications **emailed to internationaltrademarks@ipo.gov.uk 
 - Design mark — FS4 payment reference **KUVHCCJHVR**
 
 Source forms stored in `trademark/4 global expansion/application/`. WIPO fees (CHF 7,571 word / CHF 3,169 design) still to be paid to WIPO directly once billed after certification. **Now awaiting IPO certification** (payment receipt ~5 days; certification or deficiency notice within ~15 working days), then onward transmission to WIPO.
+
+### Transmitted to WIPO (29-30 Jul 2026)
+
+Both marks certified by UKIPO and transmitted to WIPO: **word mark 29 Jul, design mark 30 Jul 2026**. WIPO acknowledgements `IA_920363.pdf` (word) and `IA_920608.pdf` (design) in `application/2 received/`. The word-mark IR shows on the WIPO Global Brand Database as pending, application date 29 Jul 2026, classes 9/16/20/25/28/35/41, designating CN/EU/JP/US.
+
+### WIPO irregularity notice — WORD MARK (14 Aug 2026) — RESPONSE SETTLED
+
+WIPO ref **2133105801**, office ref `IA00004341028_01`, examiner Nataliia Vozbrannaia. Emailed from e-marks@wipo.int to hello@auwa.life; PDF in `application/2 received/2133105801 irregularity letter.pdf`. **Both irregularities carry the same deadline: 14 November 2026.** Miss it and the international application is abandoned, WIPO keeps half the basic fee (CHF 326) and the 15 Feb 2026 priority date is gone (the 6-month window closed 15 Aug), so refiling would date from whenever it happened — bad in first-to-file China.
+
+**1. Fees (Rule 9(3)) — remedied by the applicant, direct to WIPO.** Not a shortfall: the annex reads "Total due 7,571.00 / Balance in our favour 7,571.00", i.e. WIPO has received nothing. This is simply the invoice arriving, and it matches the filing guide line by line, Japan included at 6 classes (221 + 1,040 = 1,261), so the class-25 Japan limitation was accepted. **Pay in early November** (no advantage to being early), **by transfer in Swiss francs, not by card** — the card FX spread is £200-300 on this size. Pay at `https://webaccess.wipo.int/epayment/feeDetails_en.jsp?docID=2133105801` or by transfer to WIPO's UBS account per the letter. From More Air, per Payment routing above. The Madrid eFiling remedy route in WIPO's covering email does not apply (filed on paper via UKIPO).
+
+**2. Goods and services (Rule 13) — remedied only via UKIPO.** Nine terms held "too vague": four in class 20 (decorative objects / figurines / works of art / ornaments, i.e. the whole class) and five in class 28 (collectible figures, collectible figurines, display figurines, limited edition collectible figures, miniature figurines). WIPO proposes stripping "ceramic" and "textile" from class 20 (leaving wood/plastic) and inserting "toy" throughout class 28.
+
+**Decision: accept all nine verbatim.** Reasons, in order:
+- Ceramic and textile **cannot** live in class 20 under any wording (they are classes 21 and 24), and an IR cannot exceed the basic mark's scope, so class 21 cannot be added here and no better counter-proposal exists. Nothing *enforceable* is being lost.
+- The alternative is a permanent "too vague" annotation on the register, after which the US, Japanese, EU and Chinese examiners each object separately. A USPTO office action needs US counsel — real money for a problem that is free to fix here.
+- WIPO's wording is what USPTO wants anyway: KAWS's registered US class 20 reads "works of art made of wood" and his class 28 "collectable toy figures", word for word what is being proposed.
+- Class 28 is unaffected in substance and is where the figure and collab editions actually sit.
+
+**Response: forward the WIPO email to internationaltrademarks@ipo.gov.uk** (its subject already carries the ref) with a covering note that (a) agrees to all nine amendments at paragraph 2 of the notice, without restating them, (b) confirms the full CHF 7,571 will be paid direct with no change to scope, (c) asks UKIPO to confirm the design mark application has been transmitted. Send by **mid-October** — 14 Nov is the date WIPO must *have* it, not the date to send it.
+
+**Class 25 was considered for withdrawal and REJECTED (17 Aug 2026).** Dropping it would have saved CHF 714 (US 460 + EU 144 + CN 110; Japan already excluded, UK held separately under UK00004373944 and unaffected). Not worth it: apparel is a major character-licensing category and the named endgame is Moomin; both KAWS and Pop Mart hold class 25 in every market they trade in; and the real risk is a squatter taking apparel in the US or China and blocking Auwa later. Also removes a round trip with UKIPO against a fixed deadline. **Do not reopen this.**
+
+### WIPO irregularity notice — DESIGN MARK (expected)
+
+Not yet received as of 17 Aug 2026. **Expect one**, with its own reference, CHF 3,169 in fees, and the same class 20 and 28 vague terms (the design mark's continuation sheet carries "decorative objects made of wood", "works of art of wood", "ornaments", "collectible figures", "collectible figurines", "display figurines", "limited edition collectible figures", "miniature figurines"). Handle identically: one paragraph agreeing to WIPO's proposals via UKIPO, fees direct to WIPO by transfer in francs. **Do not cancel the design mark** — it protects the character, which since the 5 Aug pivot *is* the business, and a registered figurative mark is the practical tool for customs seizure of counterfeit figures and for anything a future licensee will ask to see.
 
 ### What happens next (post-filing)
 
@@ -291,6 +340,10 @@ Subsequent designation (form MM4) extends the existing international registratio
 ## COPYRIGHT
 
 Rieko's artwork is automatically protected from moment of creation under the Berne Convention (UK, EU, USA, Japan). No registration required.
+
+**Copyright is the primary protection for the character, and trademark is the supporting layer** — the reverse of how it works for a word mark on a commodity product. Copyright covers a reproduction of the character in *any* material, which is why the class 20 narrowing and the missing classes 21/6 matter far less than they first appear: a third party producing a ceramic or bronze Auwa figure infringes Rieko's copyright regardless of which Nice classes are held.
+
+**One exception worth paying for: the USA.** Statutory damages and attorney's fees require registration with the US Copyright Office *before* the infringement, and without those the economics of chasing a US infringer rarely work. ~$65 per registration. See OPEN ACTIONS 3d.
 
 **Evidence:** Illustrator files from 2016 onwards, LinkedIn posts from July 2017, 4 completed illustrated books, Dropbox files with modification dates.
 
@@ -433,8 +486,15 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 | **20 Jul 2026** | **Madrid applications FILED — word mark + design mark, JP/US/EU/CN, emailed to IPO** |
 | ~5 days after | IPO payment receipt expected |
 | ~15 working days after | IPO certification (or deficiency notice) expected |
+| 29 Jul 2026 | Word mark certified by UKIPO and transmitted to WIPO |
+| 30 Jul 2026 | Design mark certified by UKIPO and transmitted to WIPO |
+| 14 Aug 2026 | **WIPO irregularity notice, word mark** (ref 2133105801): fees unpaid + 9 vague terms |
 | ~3 Sep 2026 | UK opposition window ends for Batch 2 word mark + design mark |
 | ~17 Sep 2026 | Batch 2 word mark + design mark expected to REGISTER (if unopposed) |
+| **by mid-Oct 2026** | **Send the Rule 13 agreement to UKIPO** (must reach WIPO by 14 Nov) |
+| **early Nov 2026** | **Pay WIPO CHF 7,571 (word mark) by transfer in CHF, from More Air** |
+| **14 Nov 2026** | **HARD DEADLINE — both word-mark irregularities. Miss it and the application is abandoned, WIPO keeps CHF 326, and the 15 Feb 2026 priority date is lost** |
+| (awaited) | Design-mark irregularity notice: CHF 3,169 + same class 20/28 terms, own 3-month clock |
 | (12–18 months) | Designated offices (JP/US/EU/CN) grant protection or issue provisional refusals |
 
 ---
@@ -443,7 +503,14 @@ Summary: one brand, three handle variants by necessity. `@auwalife` is the defau
 
 1. ~~**Design mark filing**~~ — **DONE.** 16 April 2026. UK00004373930. Classes 20 + 28. £265.
 2. ~~**Word mark additional classes**~~ — **DONE.** 16 April 2026. UK00004373944. Classes 25, 28, 35. £325.
-3. ~~**Madrid Protocol filing**~~ — **FILED 20 Jul 2026.** Both MM2s (+ FS4, continuation, MM18) emailed to the IPO. Word mark CHF 7,571 (JP class 25 dropped), design mark CHF 3,169, both JP/US/EU/CN. £50 handling fee paid per mark (refs HJ74X644X6 word / KUVHCCJHVR design). **Now open:** (a) watch for IPO payment receipt (~5 days) and certification (~15 working days); (b) **pay WIPO the CHF fees** when billed, from More Air; (c) respond to any WIPO irregularity; (d) later, respond to any provisional refusals from JP/US/EU/CN (likely needs local counsel — flag to Claude). See "What happens next" under INTERNATIONAL FILING.
+3. ~~**Madrid Protocol filing**~~ — **FILED 20 Jul 2026, transmitted to WIPO 29-30 Jul.** Word mark CHF 7,571 (JP class 25 dropped), design mark CHF 3,169, both JP/US/EU/CN. £50 handling fee paid per mark (refs HJ74X644X6 word / KUVHCCJHVR design). **Now open, in date order:**
+   - **(a) By mid-Oct 2026 — send the Rule 13 agreement to UKIPO.** Forward the WIPO email to internationaltrademarks@ipo.gov.uk agreeing to all nine amendments at paragraph 2 of notice 2133105801. Response settled; see "WIPO irregularity notice — WORD MARK" above.
+   - **(b) Early Nov 2026 — pay WIPO CHF 7,571**, by transfer in Swiss francs (not card), from More Air. **Hard deadline 14 Nov 2026.**
+   - **(c) Design-mark irregularity notice** — expected; handle identically, CHF 3,169, its own 3-month clock from whenever it issues. Watch hello@auwa.life.
+   - (d) Later: provisional refusals from JP/US/EU/CN (likely needs local counsel — flag to Claude).
+3b. **Clearance search before the collab programme goes public** — free, an hour's work on the WIPO Global Brand Database. Search "Auwa" in **classes 21, 6, 14 and 24** across UK/EU/US/JP/CN. The risk is not enforcement, it is being *blocked*: you don't need class 21 to sell a ceramic Auwa, you need nobody else to own "Auwa" in class 21 there. Do this before Rieko approaches a ceramic or metal maker, not after. See "Material classes NOT held" above.
+3c. **UK filing for classes 21 / 6 (and probably 14 / 24)** — trigger: the first ceramic or cast-metal collab being contracted, or a decision to make one. Not before. ~£220-320 at UKIPO for the UK leg; the international extension is ~£4,000 whenever done (the CHF 653 basic fee resets), so only extend if the craft line earns it. Pay an attorney one hour to draft the specification.
+3d. **US copyright registration for Rieko's character artwork** — ~$65 per registration with the US Copyright Office. As Berne works you can sue in the US without it, but **statutory damages and attorney's fees require registration before the infringement**, and without those two the economics of chasing a US infringer rarely work. Natural trigger: publication of the books. Copyright, not trademark, is the primary protection for a character in any material.
 4. ~~**Word mark Batch 1 opposition period**~~ — **DONE.** Registered 15 May 2026, no opposition.
 4b. **Design mark opposition window** — published 3 July 2026; monitor until ~3 September 2026. UKIPO notifies if opposed; no action otherwise.
 4c. **Batch 2 registration** — still pending; monitor (part of the McLoughlin expedite ask). Rides in the Madrid filing on the pending application until registered (central-attack dependency until then).
