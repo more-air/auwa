@@ -4,6 +4,7 @@ import { ImageFade } from "@/components/image-fade";
 import { TextReveal } from "@/components/text-reveal";
 import { STAGGER } from "@/lib/motion";
 import Link from "next/link";
+import { ORG_REF, SITE_ID, SITE_URL } from "@/lib/schema";
 
 export const metadata = {
   title: "Auwa Journal | Japanese Philosophy, Craft & Seasons",
@@ -58,22 +59,22 @@ export default async function JournalPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
+    "@id": `${SITE_URL}/journal#blog`,
     name: "Auwa Journal",
     description: "Essays on Japanese philosophy, craft, seasonal living, and awareness.",
-    url: "https://auwa.life/journal",
+    url: `${SITE_URL}/journal`,
     inLanguage: "en-GB",
-    publisher: {
-      "@type": "Organization",
-      name: "Auwa",
-      url: "https://auwa.life",
-      logo: "https://auwa.life/auwa-logo.svg",
-    },
+    publisher: ORG_REF,
+    isPartOf: { "@id": SITE_ID },
+    // Each post is a stub pointing at the full Article node emitted on
+    // the post's own page, rather than a second, thinner copy of it.
     blogPost: articles.map((a) => ({
       "@type": "BlogPosting",
+      "@id": `${SITE_URL}/journal/${a.slug}#article`,
       headline: a.title,
       description: a.excerpt,
-      url: `https://auwa.life/journal/${a.slug}`,
-      ...(a.image && { image: `https://auwa.life${a.image}` }),
+      url: `${SITE_URL}/journal/${a.slug}`,
+      ...(a.image && { image: `${SITE_URL}${a.image}` }),
     })),
   };
 

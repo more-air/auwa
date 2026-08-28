@@ -3,6 +3,7 @@ import { HeaderTone } from "@/components/header-tone";
 import { TextReveal } from "@/components/text-reveal";
 import { SignupForm } from "@/components/signup-form";
 import { StoreCharacterCarousel } from "@/components/store-character-carousel";
+import { ORG_REF, SITE_ID, SITE_URL } from "@/lib/schema";
 
 // Metadata rewritten Aug 2026 alongside the on-page copy. The previous
 // title and descriptions led on "Japanese craftsman objects", which is
@@ -29,14 +30,32 @@ export const metadata = {
   },
 };
 
+/**
+ * CollectionPage, and deliberately neither Store nor Product.
+ *
+ * Store is a LocalBusiness subtype: it describes premises with an
+ * address and opening hours, which Auwa does not have. Declaring one
+ * invites Google to treat the brand as a local business and look for a
+ * shopfront that isn't there.
+ *
+ * Product is wrong for a different reason. Nothing is purchasable yet
+ * and /store is the page that takes names for the opening, so an Offer
+ * here would promise a transaction the site can't complete. The Product
+ * schema is written and waiting on /store-preview; move it onto this
+ * page when the figure actually goes on sale.
+ */
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Store",
+  "@type": "CollectionPage",
+  "@id": `${SITE_URL}/store#page`,
   name: "Auwa Store",
   description: "Limited Auwa figures, signed and hand-finished, alongside exclusive Auwa products.",
-  url: "https://auwa.life/store",
-  publisher: { "@type": "Organization", name: "Auwa", url: "https://auwa.life" },
-  image: "https://auwa.life/og/store.jpg",
+  url: `${SITE_URL}/store`,
+  image: `${SITE_URL}/og/store.jpg`,
+  inLanguage: "en-GB",
+  isPartOf: { "@id": SITE_ID },
+  about: ORG_REF,
+  publisher: ORG_REF,
 };
 
 export default function StorePage() {

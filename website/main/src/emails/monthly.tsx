@@ -62,7 +62,7 @@ const SAMPLE_SEASON: Season = {
   image: `${BASE_URL}/pillars/book.jpg`,
   imageAlt: "Illustration of the season",
   kanji: "土潤溽暑",
-  name: "Tsuchi uruōte mushi atsushi — earth damp, air thick with heat",
+  name: "Tsuchi uruōte mushi atsushi: earth damp, air thick with heat",
   dates: "28 July – 1 August",
   note: "The rains have soaked into the ground, and the days hold their warmth long after dark. In the garden the moss deepens to a heavier green. It is a season for moving slowly, for cold barley tea in the shade, for noticing how much life gathers in the heat before it turns.",
 };

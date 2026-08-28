@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/fade-in";
 import { TextReveal } from "@/components/text-reveal";
 import { ObfuscatedEmail } from "@/components/obfuscated-email";
 import { STAGGER } from "@/lib/motion";
+import { ORG_REF, RIEKO, SITE_ID, SITE_URL, TOM } from "@/lib/schema";
 
 export const metadata = {
   title: "About Auwa | A Japanese Lifestyle Brand",
@@ -46,30 +47,13 @@ export default function AboutPage() {
     "@type": "AboutPage",
     name: "About Auwa | A Japanese Lifestyle Brand",
     description: "Rieko Maeda and Tom Vining on founding Auwa, a Japanese lifestyle brand rooted in the ancient belief that a life force, or Kokoro, resides in all things.",
-    url: "https://auwa.life/about",
-    mainEntity: {
-      "@type": "Organization",
-      name: "Auwa",
-      url: "https://auwa.life",
-      logo: "https://auwa.life/auwa-logo.svg",
-      description: "A Japanese lifestyle brand rooted in the philosophy that everything has Kokoro.",
-      founder: [
-        {
-          "@type": "Person",
-          name: "Rieko Maeda",
-          jobTitle: "Creator",
-          nationality: "Japanese",
-          url: "https://auwa.life/about#rieko",
-        },
-        {
-          "@type": "Person",
-          name: "Tom Vining",
-          jobTitle: "Producer",
-          nationality: "British",
-          url: "https://auwa.life/about#tom",
-        },
-      ],
-    },
+    url: `${SITE_URL}/about`,
+    inLanguage: "en-GB",
+    isPartOf: { "@id": SITE_ID },
+    // The founders' Person nodes are defined here (this is the page
+    // about them) and referenced by @id from the Organization in the
+    // root layout and from every journal Article byline.
+    mainEntity: { ...ORG_REF, "@type": "Organization", founder: [RIEKO, TOM] },
   };
 
   return (

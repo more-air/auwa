@@ -17,6 +17,7 @@ import { FigureHook } from "@/components/figure-hook";
 // itself is feature-complete (lifts above the footer, pauses on tab
 // hidden, iOS audio cleanup wired up).
 // import { SoundToggle } from "@/components/sound-toggle";
+import { organizationNode, webSiteNode } from "@/lib/schema";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -143,34 +144,17 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
+        {/* Organization + WebSite, emitted once for the whole site.
+            Both carry an @id so every other page's schema can point at
+            them by reference instead of restating them. See
+            src/lib/schema.ts. */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Auwa",
-              url: "https://auwa.life",
-              logo: "https://auwa.life/auwa-logo.svg",
-              description: "A Japanese lifestyle brand rooted in the philosophy that everything has Kokoro.",
-              sameAs: [
-                "https://instagram.com/auwalife",
-                "https://x.com/auwalife",
-                "https://linkedin.com/company/auwa",
-              ],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationNode) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Auwa",
-              url: "https://auwa.life",
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteNode) }}
         />
         {/* <EntranceLoader /> — parked 22 Jul 2026, see import note above */}
         <CursorLabel />

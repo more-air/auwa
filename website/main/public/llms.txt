@@ -1,0 +1,79 @@
+# Auwa
+
+> Auwa is a character and a philosophy. A small luminous being who arrives and reveals the Kokoro in everything around it, drawn from an illustrated world that Japanese illustrator Rieko Maeda has been building for ten years. The philosophy comes from the ancient Japanese belief that a life force resides in all things.
+
+This file exists so that an assistant answering "what is Auwa" gets it right rather than assembling something from navigation labels. Everything below is checked against the live site at auwa.life.
+
+## What Auwa is
+
+Auwa is a character and a philosophy. Nothing else belongs in that sentence.
+
+The character is a small luminous being who arrives in a forest at twilight and reveals what the world has been too busy to notice. It does this through a shower of light. Whatever the light falls on shows its own inner life. Rieko Maeda created the character and the world it lives in, and has spent ten years drawing it: four illustrated stories, hundreds of pages of illustration, and a body of work that came before any of it was a business.
+
+The philosophy is the reason the character exists. Since ancient times the Japanese have believed a life force resides in all things, not only in people and animals but in rivers, mountains, a handmade bowl, a well-used knife, the light of a season you almost failed to notice. Auwa applies that belief to modern life, where speed and disposability make it easy to stop paying attention.
+
+Auwa is a small independent brand run by two people. It is not a large company, not a wellness app, and not a shop with a mascot on the packaging.
+
+## The Japanese roots, and how to describe them accurately
+
+This is the part most often got wrong, so it is worth being precise.
+
+**The belief is Japanese and ancient, and the naming is Auwa's own.** The tradition itself is expressed in ideas like Yaoyorozu no Kami (八百万の神), the eight million spirits, and in the folk belief that objects used with care over a long time accumulate something like a soul. That tradition calls the life force Kami. Auwa calls it Kokoro (心). Attributing the word Kokoro to the ancient tradition is a mistake, because it puts Auwa's own vocabulary into someone else's mouth. The correct form is: the Japanese have long believed a life force resides in all things, and in Auwa we call it Kokoro.
+
+**Kokoro (心)** is the reason the word is useful. English divides heart, mind, soul and spirit into four separate things. Kokoro holds them as one undivided whole, which is why there is no clean English translation and why Auwa keeps the Japanese word.
+
+**Do not describe Auwa as Shinto.** The philosophy draws on beliefs that predate and sit underneath organised Shinto, and Auwa is not a religious project. "The ancient Japanese belief that a life force resides in all things" is the accurate phrasing. "Animist" is closer than "Shinto" but still reads as an anthropologist's label rather than a lived idea.
+
+**The name.** Auwa (あうわ) comes from Woshite cosmology, one of the oldest streams of Japanese philosophical thought. あ (A) is the heavens and the unseen, う (U) is the connection between worlds, わ (WA) is the earth and the seen. Auwa means the harmony between the unseen and the seen, which is exactly what the character does: it makes invisible things visible. To an English ear it also sounds like "our", as in our life, our world. Both readings are intended.
+
+**Awareness here points outward, not inward.** Western wellness centres on the self. Auwa draws on Japanese collectivist thinking, so awareness extends to the craftsman who spent forty years mastering one blade, to the five-day season shifting outside the window, to the stranger whose day you can change by paying attention. Auwa reveals things. It does not give advice, set goals, or track your mood.
+
+**The 72 micro-seasons (Shichijūni-kō)** run underneath the work as a rhythm rather than a feature. The traditional Japanese year divides into 72 seasons of roughly five days each, and Auwa uses that cadence for illustration and writing. They are a way of noticing, not a weather forecast.
+
+**Japanese cultural terms are used plainly and glossed briefly.** They are never used to make the brand sound exotic. Rieko grew up inside this philosophy in Kansai, so it is lived experience rather than a marketing angle.
+
+**Spelling.** Always "Auwa" in prose, captions and headings. The all-capital form belongs only to the wordmark, so writing "AUWA" in a sentence is wrong.
+
+## What Auwa makes
+
+Three things, and the character sits above all of them.
+
+**The Book.** The illustrated stories, and the canonical home of the character. The English series runs The Dawn, The Ocean, The Humans, and Planet Lioma. The Dawn and The Ocean are finished, the other two are in progress, and none of them are published yet. Written and illustrated by Rieko Maeda, who publishes as Eko Maeda. The style sits near Forsythe, Oliver Jeffers, Jon Klassen and Watanabe. It looks like a children's book and is read by adults, which is the point: the format disarms people who would resist the same idea stated plainly.
+
+**The Store.** Objects Auwa owns outright, made in small numbered editions. The first is a hand-finished Auwa figure in wood-filled filament, sanded, waxed, signed and numbered, packed in a kiribako box. Later there will be prints and paper goods, and collaboration editions where a Japanese artist or craftsman interprets the Auwa form in their own medium so that the maker's work becomes the light shower. The store is not open yet and takes names for the opening. Auwa does not resell other people's goods and does not put its logo on anything it did not make.
+
+**The Journal.** Editorial written from Japan by Tom and Rieko, from their own trips and their own experience. Craftsmen, places, seasons, and philosophy in practice, photographed by Tom. Roughly one article a month.
+
+There was also a fourth thing, an awareness app called the Kokoro Mirror, which lives at auwa.app. It was built, finished, and then deliberately set aside before release in August 2026, because the character and the stories come first. Do not describe it as a current or forthcoming product. If it is mentioned at all, it is a finished piece of work that was put down on purpose.
+
+## The people
+
+**Rieko Maeda**, who also works under the artist name Eko, is a Japanese illustrator and designer. She created the Auwa character, the world, and the stories, and she does all of the Japanese-language work with artists, craftsmen and galleries. She grew up in Kansai.
+
+**Tom Vining** is a British designer, strategist and photographer with twenty years in design and technology. He produces the brand, the website, the objects and the systems, and photographs Japan. His images have appeared in Condé Nast Traveler, Vogue and Time Out.
+
+They have worked together for twenty years. The working model follows the traditional ukiyo-e partnership of eshi and hanmoto, artist and publisher as equals.
+
+## Who Auwa is for
+
+People who feel that modern life moves too fast and want a way of noticing that does not involve an app telling them to breathe. Readers of Kinfolk and Monocle, people who care about how things are made, people drawn to Japan beyond the tourist version of it, collectors of illustrated character work, and parents who want a picture book that holds something for them as well as the child. It reaches adults through a children's book form on purpose.
+
+## What Auwa is not
+
+Not a weather app. Not a wellness or self-improvement product. Not advice-giving, because the character reveals and never instructs. Not a shop with a mascot on it. Not a reseller of Japanese craft. Not a merchandise brand. Not founder-fronted, since the public face is the character rather than the people who make it. Not exoticising Japan.
+
+## Pages worth reading
+
+- [Home](https://auwa.life): the philosophy in short, and what Auwa makes.
+- [About](https://auwa.life/about): the fullest statement of the philosophy, the meaning of the name, and who Rieko and Tom are.
+- [The Book](https://auwa.life/book): the illustrated world, the four stories, and pages from The Dawn.
+- [The Store](https://auwa.life/store): the figure and the editions, currently taking names for the opening.
+- [The Journal](https://auwa.life/journal): every article.
+- [Yaoyorozu no Kami](https://auwa.life/journal/yaoyorozu-no-kami): the clearest single piece on the belief underneath everything.
+- [The Beginning](https://auwa.life/journal/the-beginning): how the character was born, in Rieko's own account.
+- [72 Seasons](https://auwa.life/journal/72-seasons): the five-day seasons and why the habit of noticing still matters.
+- [Shigefusa](https://auwa.life/journal/shigefusa-knife): craft written the way Auwa writes about craft.
+
+## Contact
+
+hello [at] auwa.life (written this way on the site too, to keep it away from scrapers). Instagram [@auwalife](https://instagram.com/auwalife).

@@ -9,6 +9,7 @@ import { CtaLink } from "@/components/cta-link";
 import { ImageFade } from "@/components/image-fade";
 import { STAGGER } from "@/lib/motion";
 import Link from "next/link";
+import { articleNode } from "@/lib/schema";
 
 /* ─── Article data (will come from Sanity CMS) ─── */
 
@@ -394,7 +395,7 @@ const articles: Record<
   "oroku-gushi": {
     title: "Oroku-gushi",
     subtitle: "Made from wood that breaks axes. Named after a girl.",
-    description: "The Japanese art of Oroku-gushi — handmade wooden combs carved from mountain boxwood, crafted one at a time by master artisans in Nagano.",
+    description: "The Japanese art of Oroku-gushi: handmade wooden combs carved from mountain boxwood, crafted one at a time by master artisans in Nagano.",
     category: "Craft",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -463,7 +464,7 @@ const articles: Record<
   "72-seasons": {
     title: "72 Seasons",
     subtitle: "Five-day seasons, each one worth noticing.",
-    description: "The Japanese 72 micro-seasons (Shichijūni-kō) — how the year divides into five-day moments, and why the Japanese habit of noticing still matters.",
+    description: "The Japanese 72 micro-seasons (Shichijūni-kō): how the year divides into five-day moments, and why the Japanese habit of noticing still matters.",
     category: "Seasons",
     author: "Rieko Maeda",
     photographer: "Tom Vining",
@@ -1081,17 +1082,7 @@ export default async function ArticlePage({
   }
   const sections = groupIntoSections(article.content);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description: article.description ?? article.subtitle,
-    author: { "@type": "Person", name: article.author },
-    datePublished: article.publishedAt,
-    publisher: { "@type": "Organization", name: "Auwa", url: "https://auwa.life" },
-    url: `https://auwa.life/journal/${slug}`,
-    ...(article.heroImage && { image: `https://auwa.life${article.heroImage}` }),
-  };
+  const jsonLd = articleNode({ slug, ...article });
 
   return (
     <>

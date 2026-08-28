@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { ORG_REF, RIEKO, SITE_URL } from "@/lib/schema";
 
 // Production metadata for the Auwa book page.
 // The page itself is a "use client" component (interactive Auwa
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
         url: "/og/book.jpg",
         width: 1200,
         height: 630,
-        alt: "Auwa Book — an illustrated world by Eko Maeda",
+        alt: "Auwa Book, an illustrated world by Eko Maeda",
       },
     ],
   },
@@ -45,16 +46,44 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * BookSeries rather than a single Book, because /book presents four
+ * titles and the old markup described only the first one.
+ *
+ * `hasPart` carries the two finished books. The Humans and Planet Lioma
+ * are shown on the page as in progress, and a Book node for a work that
+ * doesn't exist yet is the kind of overstatement that gets a site's
+ * structured data discounted. Add them when they're finished.
+ *
+ * No ISBN, no datePublished, no offers: nothing is published or for sale
+ * yet. Those fields go in when the books do.
+ */
+const book = (name: string, description: string, cover: string) => ({
+  "@type": "Book",
+  name,
+  description,
+  author: { "@type": "Person", "@id": RIEKO["@id"], name: RIEKO.name },
+  image: `${SITE_URL}${cover}`,
+  inLanguage: "en",
+  url: `${SITE_URL}/book`,
+});
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Book",
+  "@type": "BookSeries",
+  "@id": `${SITE_URL}/book#series`,
   name: "Auwa",
-  description: "An illustrated world by Eko Maeda. Auwa, a small luminous being, arrives in a forest at twilight and shows the world what it has been too busy to notice.",
-  author: { "@type": "Person", name: "Eko Maeda" },
-  publisher: { "@type": "Organization", name: "Auwa", url: "https://auwa.life" },
-  url: "https://auwa.life/book",
-  image: "https://auwa.life/og/book.jpg",
+  description:
+    "An illustrated series by Eko Maeda. Auwa, a small luminous being, arrives and reveals the Kokoro in everything it touches.",
+  author: RIEKO,
+  publisher: ORG_REF,
+  url: `${SITE_URL}/book`,
+  image: `${SITE_URL}/og/book.jpg`,
   inLanguage: "en",
+  hasPart: [
+    book("The Dawn", "A blue flower in a quiet forest.", "/book/covers/cover-1.jpg"),
+    book("The Ocean", "Auwa descends below the surface.", "/book/covers/cover-2.jpg"),
+  ],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
