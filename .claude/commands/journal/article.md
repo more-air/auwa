@@ -32,6 +32,27 @@ Ask the user these questions one at a time (not all at once):
 
 If the user provides all this information upfront, skip the questions and proceed.
 
+### 1a. When Claude is sourcing the photographs from the archive
+
+If there are no edited photos yet because the article is being built *from the archive*, load
+`context/pillar/photography.md` and follow the three-phase workflow in it. In short: survey with
+`scripts/photo-survey.py`, shortlist, copy the chosen originals into `photography/[slug]/1-original/`
+(all media there is gitignored, so it costs the repo nothing), then write the article and hold it
+while Tom does the Lightroom pass. Resume this command at Step 2 once `2-edited/` exists.
+
+**Never recommend a photo without checking it is unpublished.** `photography/_manifest.json` maps
+every published source filename to its article; `scripts/photo-survey.py` checks it, plus a
+perceptual hash for images re-exported through Topaz under a new name. Six of forty-nine shortlisted
+photos turned out to be already live on 8 September 2026 because this check was skipped.
+
+**And the hard gate: get the memory before writing.** Claude can choose and sequence the
+photographs; Claude cannot supply what it was actually like to be there, and must never invent it.
+The journal ranks and gets cited by AI Overviews because it is genuinely first-hand — an article
+written from photographs alone is commodity travel writing and spends that advantage. Ask for five
+minutes of real recollection, and make it easy by drawing the questions from the specific photos
+chosen ("who was the woodcarver, and how did you find her?" rather than "tell me about the trip").
+If no memory is available for a subject, say so and pick a different subject.
+
 ## Step 1b: Keyword research (high-performance SEO)
 
 Before writing, make the article demand-led, not only whim-led. The goal: choose the angle, title, and key terms around what people actually search, so the finished piece recruits strangers, not just pleases existing readers. This is what turns a lovely essay into a ranking landing page. (Full rationale in `context/pillar/journal.md` Section 8.)
@@ -57,6 +78,14 @@ If photos have been provided in `auwa/photography/[slug]/2-edited/`:
    - `$SOCIAL/3-journal/[slug]/` (IG carousel-ready 1080×1350 versions, in Dropbox)
 2. List all images in the source folder and show them to the user
 3. Ask: "Which image should be the hero? And are any of these a pair (two detail shots to sit side by side)?"
+
+   When proposing a hero, judge it against BOTH uses. The site wants portrait at 2400px tall (every
+   published hero is portrait, mostly 3:4). The Instagram cover then sets a 1-2 word EB Garamond
+   title in light Washi type, centred, over the upper-middle of a 1080x1350 crop, with the wordmark
+   near the top — so the band behind the title wants to be mid-to-dark and calm, and the topic has
+   to reduce to one or two words. `scripts/photo-survey.py` scores this. A superb photograph that
+   scores badly is still usable: `/instagram:post` renders a clean untitled `image-hero.jpg`
+   alongside the typeset one. Details in `context/pillar/photography.md`.
 **All resizing uses `sharp` (Node.js)**, not `sips`. The script lives at `website/main/scripts/process-image.js`. Sharp does proper Lanczos3 resize + unsharp mask + MozJPEG encoding. Sips was producing soft output because it doesn't apply post-resize sharpening, which became visible after the Auwa preset's tonal flattening was layered on top. Always run from `website/main/`:
 
 ```bash

@@ -349,6 +349,7 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 - *"newsletter send"*, *"send newsletter"* → load `context/marketing/newsletter.md` + `context/pillar/journal.md` + `context/brand/brand.md`.
 - *"social session"*, *"instagram"*, *"social post"* → load `context/marketing/instagram.md` + `context/brand/brand.md` + `context/marketing/arrival.md`.
 - *"article"*, *"journal article"*, *"write article"* → load `context/pillar/journal.md` + `context/website/patterns.md` + `context/brand/brand.md`.
+- *"photos"*, *"photography"*, *"which photos"*, *"trip photos"*, *"image selection"*, *"article from photos"* → load `context/pillar/photography.md` + `context/pillar/journal.md`. **Run `scripts/photo-survey.py` before recommending any photograph; six of forty-nine picks were already published on 8 Sep 2026 because that check was skipped.**
 
 Whenever `context/app/app.md` is loaded, `context/app/patterns.md` is paired. Same for `context/website/website.md` + `context/website/patterns.md` on implementation work.
 
@@ -356,6 +357,7 @@ Whenever `context/app/app.md` is loaded, `context/app/patterns.md` is paired. Sa
 
 - `context/pillar/app.md` — **PARKED (5 Aug 2026).** Kokoro Mirror app specification: core UX flow (input → light shower → revelation → journal → share → archive), AI reflection principles and voice, sub-expression definitions, vague input handling, screen-by-screen detail, technical architecture (Next.js, Claude API, Vercel Postgres, Sanity, Stripe), data model, API routes, build phases, design principles, colour system, FigJam flow reference.
 - `context/pillar/book.md` — The four-book illustrated universe: status of each book (Book 1 complete at 18 pages, Book 2 in revision, Books 3 and 4 TBC), what the Book 1 revision achieved (two-thirds word reduction, atmospheric over narrated), revision principles as a template, canonical source of the Auwa character and story mythology.
+- `context/pillar/photography.md` — **The photo archive and how articles get made from it (8 Sep 2026).** The two Dropbox libraries and what is in each trip, why `2 favourite` is a selection rather than everything, the never-reuse-a-published-photo discipline (`_manifest.json` is the authority, `scripts/photo-survey.py` enforces it), the portrait-only site convention and the Instagram cover constraints a hero must also satisfy, the three-phase workflow when Claude sources the photographs, and a backlog of eight articles that are already photographed. **Also records the hard gate: Claude selects and structures, but the first-hand memory must come from Tom or Rieko or the piece is commodity content.** Load for anything about photo selection or building an article from the archive.
 - `context/pillar/journal.md` — Journal pillar and editorial writing guide: voice and style rules, article structure (content block types and layout engine), production workflow (brief to published article), image preparation, the four content territories (Seasons, Craft, Philosophy, Travel), launch article plan. (Was `editorial.md` pre-restructure.)
 
 **Brand (`context/brand/`):**
