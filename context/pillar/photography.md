@@ -60,11 +60,16 @@ he has already filtered that folder down to his best images, so surveying `1 ori
 re-doing his edit and wading through several thousand frames to find worse ones. Do not survey
 `1 original` unless Tom asks.
 
-Two consequences to keep straight. First, `2 favourite` is a *selection*: the published Koya-san
-hero (`IMG_1833.jpg`) is not in it at all. So "we have run out of photos for subject X" is only
-ever a statement about the curated folder, and should be phrased that way. Second, an earlier
-session found every file in `1 original` was 0 bytes (Dropbox online-only); they have since been
-synced, but that changes nothing about the decision above.
+One consequence to keep straight: `2 favourite` is still a *selection* (1,645 Japan photos against
+~3,693 in `1 original`, and it holds no 2008 or 2010 trip at all). So "we have run out of photos
+for subject X" is only ever a statement about the curated folder, and should be phrased that way
+rather than as a claim about the whole archive.
+
+*Correction, same day: an earlier version of this file said the published Koya-san hero
+`IMG_1833.jpg` was absent from `2 favourite`, and used that as the example. It is there. The
+manifest cross-reference that produced the claim was matching filenames case-sensitively against a
+stale listing. The point about `2 favourite` being a subset stands; that particular evidence for it
+did not.*
 
 There are also later trips (2025 photos appear in the manifest) not yet filed into either
 Japan folder.
