@@ -55,11 +55,16 @@ Two folders under `/Users/admin/Dropbox/4 media/photo/tom/`:
 - **`2 favourite/`** — a curated subset, 1,645 Japan photos across 2009-2022 (no 2008 or
   2010). This is where the September 2026 survey was done.
 
-**`2 favourite` is a selection, not the whole library.** The Koya-san hero (`IMG_1833.jpg`)
-is published on the site and does not exist in `2 favourite` at all. So "the archive is
-exhausted for subject X" is only ever a statement about the curated folder. Check
-`1 original` before concluding anything is used up. 2016 in particular is 402 photos in
-`2 favourite` and 1,158 in `1 original`.
+**Work from `2 favourite` only. This is a decision, not a limitation** (Tom, 8 September 2026):
+he has already filtered that folder down to his best images, so surveying `1 original` means
+re-doing his edit and wading through several thousand frames to find worse ones. Do not survey
+`1 original` unless Tom asks.
+
+Two consequences to keep straight. First, `2 favourite` is a *selection*: the published Koya-san
+hero (`IMG_1833.jpg`) is not in it at all. So "we have run out of photos for subject X" is only
+ever a statement about the curated folder, and should be phrased that way. Second, an earlier
+session found every file in `1 original` was 0 bytes (Dropbox online-only); they have since been
+synced, but that changes nothing about the decision above.
 
 There are also later trips (2025 photos appear in the manifest) not yet filed into either
 Japan folder.
@@ -181,38 +186,60 @@ is already on the site.
 
 ---
 
-## ARTICLE BACKLOG, WITH ITS PHOTOGRAPHY ALREADY IDENTIFIED
+## ARTICLE BACKLOG — WITH THE EXACT FOLDER AND FRAMES FOR EACH
 
-Ordered by strength. Every one of these is already photographed.
+**A fresh session does not have to re-survey the archive to start an article.** This table says
+where the photographs are. Run `scripts/photo-survey.py` on the named folder to confirm nothing has
+since been published, then look at the frames.
 
-1. **Kokoro** — the philosophy cluster's anchor, and the biggest gap in the whole SEO
-   picture: Auwa has no page for the concept it most wants to be known for. Competition on
-   "kokoro meaning" is thin content farms, with only Quartz and Japan House Illinois holding
-   real ground. Hero: the Ohara doorway, `2022 Japan/1 pixel/original_04cbcf2b…061228073.jpg`,
-   native 3:4 portrait, a dark still room opening onto a lit garden. **Caveat:** the 72
-   Seasons article already draws on the same Ohara afternoon (engawa, veranda, tsukubai), so
-   decide deliberately whether a second article from one temple reads as house style or thin
-   sourcing.
-2. **Kumano Kodo** — a complete article already shot: Nachi waterfall alone and with the
-   pagoda, moss-covered stone steps, cedar trunks, the Hongu gate with imperial chrysanthemum
-   curtains, a stone waymarker. Real search demand, mostly tour-operator competition.
-3. **Mount Aso** — the caldera, Kusasenri grassland, Miyama Kirishima azaleas.
-4. **Narai-juku in summer** — a second piece on a subject Auwa already ranks for and is
-   cited by AI Overview on. Swallows nesting under the eaves (a six-frame sequence),
-   hanging straw, lattice facades in green light. Cheapest ranking available.
-5. **Swallows return (玄鳥至)** — one of the 72 micro-seasons, early April, with the
-   photographs to carry it. A micro-season piece with a real subject rather than an abstract
-   essay, linking straight into the 72 Seasons article.
-6. **The woodcarver** — needs Rieko's Japanese-language contact and the maker's consent.
-   Doubles as collab groundwork.
-7. **Ma (間)** — second philosophy piece. Tokonoma with a scroll and one flower, raked
-   gravel, temple corridors, rooms framing mountains.
-8. **Naoshima** — high demand, right register for Kinfolk/Monocle readers, but contemporary
-   art rather than craft or philosophy, so weakest on Auwa fit.
+All paths are relative to `/Users/admin/Dropbox/4 media/photo/tom/2 favourite/`.
+The Polarr edits (`2 polarr/`) are the fullest set for 2018; 2022 is all in `1 pixel/`.
 
-A working shortlist with full paths, dimensions and per-photo notes was produced on
-8 September 2026 and lives in the session scratchpad. Regenerate it with
-`scripts/photo-survey.py` rather than hunting for that file.
+| # | Article | Folder | Frames | Note |
+| --- | --- | --- | --- | --- |
+| 1 | **Fin DAC / Rieko** | already in `photography/findac-rieko/` | all 14 | Brief written. Highest priority — opens the collab programme. |
+| 2 | **Kumano Kodo** | already in `photography/kumano-kodo/1-original/` | 15 selected | Brief written. Needs Tom's memory notes. |
+| 3 | **Kokoro** | `2022 Japan/1 pixel/` | the 4–6 Nov Kyoto/Ohara set: `original_04cbcf2b…061228073` (hero, a tatami room framing maples), `PXL_20221106_091906762` (tokonoma), plus the ceramics from 25 Oct (`PXL_20221025_0918…`, `_0919…`, `_0934…`) | 72 Seasons already used the engawa, veranda and tsukubai from this same afternoon — check the manifest and decide whether a second Ohara piece reads as house style or thin sourcing. |
+| 4 | **Mount Aso** | `2018 Japan/2 polarr/` | `IMG_5021`–`IMG_5025` (Kusasenri grassland, azaleas), `IMG_0585`, `IMG_0594` (caldera, winding road), `IMG_0764` (red poppies) | Same trip as Kumano. GPS-confirmed 11–12 May 2018 at 32.89, 131.06. iPhone frames `IMG_2031`–`IMG_2051` carry real timestamps. |
+| 5 | **Narai-juku in summer** | `2016 Japan/` | `IMG_5409`–`IMG_5415` (a six-frame swallow-nest sequence), `IMG_5307` (hanging straw), `IMG_5390` (leaves in a ceramic dish), plus the lattice-facade street frames | Second piece on a subject Auwa already ranks for and is cited by AI Overview on. The published Narai article is winter; this is the same town in summer. |
+| 6 | **Swallows return (玄鳥至)** | `2016 Japan/` | `IMG_5409`–`IMG_5415` | One of the 72 micro-seasons, early April. Shares photos with #5 — pick one article or split the sequence, do not run both on the same frames. |
+| 7 | **The woodcarver** | `2016 Japan/` | `IMG_6747`, `IMG_6750`, `IMG_6765`, `IMG_6768`, `IMG_6835`, `IMG_6837`, `IMG_6851` | Needs Rieko's Japanese-language contact and the maker's consent. Doubles as collab groundwork. |
+| 8 | **Ma (間)** | `2022 Japan/1 pixel/` + `2018 Japan/2 polarr/tom/` | 2022: `PXL_20221106_091906762` (tokonoma), the raked-gravel frames, temple corridors. 2018: `IMG_0104`, `IMG_0106` (rooms framing mountains) | Second philosophy piece. |
+| 9 | **Naoshima** | `2014 Japan/` | Kusama pumpkin, Ando concrete, Seto ferries | Weakest Auwa fit — contemporary art rather than craft or philosophy. 2014 has only one unused portrait frame, so check carefully. |
+
+Regenerate a full shortlist for any of these with `scripts/photo-survey.py` rather than hunting for
+an old file.
+
+---
+
+## THE PHILOSOPHY CLUSTER, AND THE BETH KEMPTON PROBLEM
+
+Auwa wants authority on Japanese philosophical concepts. Two things to know before planning that
+cluster (researched 8 September 2026):
+
+**Beth Kempton occupies the two biggest terms.** She wrote *Wabi Sabi: Japanese Wisdom for a
+Perfectly Imperfect Life* (a bestseller, translated into 24 languages, covered by TIME, Vogue, the
+Telegraph and Sunday Times Style) and has followed it with **KOKORO: Japanese Wisdom for a Life
+Well Lived**. She has two degrees in Japanese and has lived and worked there for years.
+
+That is not a reason to avoid Kokoro. It is a reason to be honest about the terms:
+
+- **"wabi sabi" is effectively closed.** Her book, its publisher pages, Amazon and Goodreads own
+  it. Do not build an article around that term.
+- **"kokoro" just got much harder** and will keep getting harder as her book sells. Auwa should
+  still write it, because Auwa cannot claim the word as its own vocabulary while having no page
+  for it, but expect the traffic to be modest and judge the piece on brand depth rather than rank.
+- **Auwa's real differentiator is authorship, not expertise.** Kempton is a British writer who
+  studied Japanese. Rieko is Japanese and grew up inside these ideas in Kansai. Write from lived
+  experience and let that be the difference; do not try to out-explain someone with two degrees in
+  the subject.
+- **The winnable terms are the ones she has not made famous:** mono no aware, ma (間), mottainai,
+  yugen, kuyō (memorial services for worn-out objects), shinrin-yoku. These are lower volume, far
+  thinner competition, and closer to what Auwa actually is.
+
+**So the philosophy cluster should be built from the edges inward**, not from the head term out:
+publish two or three of the specific concepts first, interlink them, then let the Kokoro piece sit
+at the centre as the anchor once the cluster gives it something to anchor.
 
 ---
 

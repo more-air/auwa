@@ -68,6 +68,79 @@ photograph, no pitch. Tom to confirm. Tom also wants to ask Fin whether he still
 
 ---
 
+## FIN'S OWN WORDS (verbatim — transcribed from his posts, 8 Sep 2026)
+
+Transcribed here so no future session has to re-read the screenshots or risk paraphrasing him.
+Screenshots remain at `Dropbox/2 private/tom/finance/3 asset/art/findac/rieko/1 original/4 instagram/`
+(`1-2.png`, `2-2.png`, `3-2.png`) and `…/2 print/2 instagram/Screenshot_20250510-125818.png`.
+**Quote him sparingly and exactly. Do not paraphrase him into Auwa's voice.**
+
+**Post 1 — 4 January 2022, ~1,057 likes** (the artwork on the wooden floor):
+
+> My first artwork of 2022 is actually something I'd promised an old friend before I even started
+> production on the solo show in late 2020.
+>
+> A drawing of his wife based on a facial photo from their wedding day and a fab vintage photo of
+> her mum on her wedding day also.
+>
+> Taking the lead from my first art love: Japanese woodblock prints by artists like
+> #kikugawaeizan, #toriikiyonaga, #utagawakunisada, #kitagawautamaro and more.
+>
+> If you've been following my stories you'll know that this was my first time really using
+> watercolours, Japanese ink and brush, masking fluid and tea-staining (to give the piece a vintage
+> look)… so many things to potentially [mess] up but fortunately no major disasters.
+>
+> The eagle-eyed among you might spot certain flaws but I think they just add to the overall effect.
+>
+> Finished with metallic paints and gold leaf as all the vintage woodblock prints were… head to the
+> @chester_beatty_dublin museum if you want to see the best collection of prints I've ever seen
+
+*(His original uses a stronger word where "[mess]" appears. If quoting that line, either use his
+exact word or cut the clause — do not silently soften it and present it as a quote.)*
+
+**Post 2 — 3 April 2022, ~249 likes** (Tom's photo of the framed piece at home, reposted):
+
+> Loving the light and the ambience in this photo… really sets off the muted and desaturated
+> colours in the artwork.
+>
+> The photo was sent to me this morning by a long term friend (from my days in the digital
+> advertising world)… who, along with his wife (that's her in the artwork), are the proud new
+> owners of this piece.
+>
+> I don't do commissions very often but this was a great opportunity to explore new creative
+> angles/outlets whilst creating something super-personal to the 'client'.
+>
+> 100% I'm going to do more pieces like this… possibly recreating murals that I never considered
+> doing a studio version of before.
+
+**Post 3 — 24 May 2024, ~257 likes** (Mitsuko receiving her version — the key post):
+
+> Some of u will have seen me posting this piece before but here's an update I wanted to share as a
+> kind of #flashbackfriday.
+>
+> One of my first 'art loves' were Japanese woodblock prints. So when an old friend from my web
+> days asked me about a portrait commission of his Japanese wife Rieko in 2020, my immediate
+> thought was to create something along these lines.
+>
+> In the discussions of what to do, Tom showed me some photos which included one of his wife's
+> mother on her wedding day. A beautiful vintage looking photo with washed out colours.
+>
+> I wanted to use the photo as the basis for my piece but showing his wife Rieko in her mums
+> wedding dress instead.
+>
+> We checked that this wasn't a disrespectful thing to do and luckily both Rieko and her mum
+> Mitsuko loved the idea.
+>
+> As a present for the 'inspiration' I promised that I'd do a version for Mitsuko too. The photos
+> above are of her receiving the unique piece from Tom & Rieko at home in Japan.
+>
+> This makes me very happy
+
+**The line worth building the piece around:** *"I wanted to use the photo as the basis for my piece
+but showing his wife Rieko in her mums wedding dress instead."*
+
+---
+
 ## THE PHOTOGRAPHS
 
 All 14 in `photography/findac-rieko/` are portrait and hero-capable. Numbers below match the
@@ -128,14 +201,14 @@ Kikugawa Eizan / Utamaro as context terms. A modest, honest title beats a keywor
   *Fin DAC, Ukiyo-e and a Wedding Dress*.
 - Internal links: `the-beginning` (Rieko as creator) and `yaoyorozu-no-kami` or `72-seasons`.
 
-**Sensitivity.** Mitsuko is a private person who is central to this story. Confirm she is happy to
-appear by name and in photographs before publishing. Rieko should make that call, in Japanese.
+**Sensitivity.** Cleared — Tom confirmed on 8 Sep 2026 that there is no consent issue with Mitsuko.
+Still write about her with the care the story deserves; Fin himself checked before he painted it.
 
 ---
 
 ## WHAT'S NEEDED BEFORE WRITING
 
-1. **Mitsuko's consent** (Rieko to confirm) — blocking.
+1. ~~Mitsuko's consent~~ — **cleared by Tom, 8 Sep 2026. Not an issue.**
 2. **Tom's decision on the Auwa stencil section** — include or hold.
 3. **Memory notes:** what Mitsuko said when she was given it; what the studio visit was like; why
    Tom commissioned it in the first place; how Rieko felt seeing herself in her mother's dress.
