@@ -161,11 +161,25 @@ Ask: "Happy with this, or want to adjust anything before I add it to the site?"
 
 Once approved:
 
-1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`. Four fields do the SEO work — get them all right:
-   - **`title`**: the topic phrase, concise. The page title becomes `"{title} | Auwa Journal"` (pipe separator, brand + category suffix), so the whole string must stay under 60 chars total or Google truncates it.
-   - **`subtitle`**: the editorial line that appears on-page under the H1. Stays poetic, not keyword-stuffed. This is the reader-facing voice.
-   - **`description`**: keyword-rich meta description (100-155 chars) — separate from `subtitle`. Google uses this in search results. MUST include "Japanese" where natural plus the primary topic word. Structure: `"{what it is about}, {place/context}. {why it matters}."` Example: *"On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things, and what it means for modern awareness."*
-   - **Keyword placement check**: the primary topic word must appear in `title`, `description`, AND somewhere in the first paragraph of the article body.
+1. Add the article data to the articles object in `website/main/src/app/journal/[slug]/page.tsx`. **Five fields do the SEO work.** The split between `title` and `seoTitle` is the important one and is easy to get wrong, so read this before writing any of them.
+
+   **The principle: the page keeps the poetry, Google gets the search phrase.** Before the September 2026 sweep, one field was both, so every article's Google title was its editorial headline. That is why "The Onsen Lesson" and "The Beginning" earned nothing (nobody searches those phrases), and why "72 Seasons" was competing with Metallica's album of that name. These are now two separate fields and neither compromises for the other.
+
+   - **`title`**: the editorial headline. This is the H1 a reader sees on the page. Keep it short and poetic. It is NOT the Google title, so it does not need keywords and has no character limit beyond looking right in the layout.
+   - **`seoTitle`**: the searchable phrase Google shows. **Required on every new article.** `generateMetadata` renders `"{seoTitle ?? title} | Auwa Journal"`, and the suffix is 15 characters, so `seoTitle` must be **45 characters or fewer** or Google truncates it. It should contain the primary keyword in the form people actually type.
+     - Do not target a query the piece cannot win. A bare brand or product name is usually a buying query owned by retailers (Shigefusa proved this: page one was Knifewear and Bernal Cutlery, and the bare title earned nothing). Target the informational long tail instead.
+     - Do not target a big commercial term the piece is not actually about. "Onsen etiquette" is the biggest term in that space, but the article is not a rules guide, so chasing it would misrepresent the piece and lose anyway.
+     - Head terms owned by Wikipedia and JNTO (a prefecture, a famous mountain, a major city) are unwinnable. Lead with the specific thing inside the piece that nobody else has.
+   - **`subtitle`**: the editorial line under the H1. Stays poetic, never keyword-stuffed. Reader-facing voice.
+   - **`description`**: the meta description (100-155 chars), separate from `subtitle`. MUST include "Japanese" where natural plus the primary topic word.
+     - **Write it to earn the click, not to define the subject.** On any concept or definitional topic there is an AI Overview above your result already giving the definition away. A description that repeats the definition competes with the summary on the summary's own ground and loses. Yaoyorozu was taking 1 click per 103 impressions at position 7 for exactly this reason. Offer instead what an AI summary cannot reproduce: a named place, a named person, first-hand experience, original photographs.
+   - **`heroAlt`**: alt text for the hero image, written from the actual photograph. **Required on every new article.** Without it the hero alt silently falls back to the article title, which is how every hero on the site ended up with a one-word alt. Identify Japan or the specific Japanese subject within the first ten words. See the alt rules in point 5 below.
+
+   - **Keyword placement check**: the primary topic word must appear in `seoTitle`, `description`, AND somewhere in the first paragraph of the article body.
+
+   - **Category check (this is an internal-linking decision, not a label).** The `category` field now drives the "Continue reading" block, which leads with articles sharing the same category before filling from the rest. Choosing the category places the piece in a topical cluster that Google reads as a signal of authority. Pick the one where the article genuinely belongs and where you want the new piece to lend and receive link equity — not whichever sounds nicest.
+
+   - **Link it into its cluster by hand as well.** The automatic block is not enough on its own. Find one or two places in the new body where a sibling article is genuinely the thing being referred to, and link it there with anchor text that names the destination. Anchor text is a ranking signal, so "these trees" pointing at the Yakushima piece is a wasted link; "the thousand-year cedars of Yakushima" is not. Then check whether an existing article should link *to* the new one, and add that too. A new article with no inbound internal links is an island.
 
 2. Add it to the article list in `website/main/src/app/journal/page.tsx` (include the `image` field pointing to the hero image so it shows on the listing page).
 
@@ -183,7 +197,7 @@ Once approved:
 7. Test the build compiles cleanly (`npm run build` inside `website/main/`).
 
 **What the site does automatically, no manual work required:**
-- `generateMetadata()` in `journal/[slug]/page.tsx` derives the page title (`"{title} | Auwa Journal"`), meta description (prefers `description`, falls back to `subtitle`), Open Graph, Twitter card, and Article JSON-LD from the article data. Nothing extra to wire up.
+- `generateMetadata()` in `journal/[slug]/page.tsx` derives the page title (`"{seoTitle ?? title} | Auwa Journal"`), meta description (prefers `description`, falls back to `subtitle`), Open Graph, Twitter card, Article JSON-LD and BreadcrumbList JSON-LD from the article data. Nothing extra to wire up — but the fallbacks are traps, not conveniences: an article with no `seoTitle` silently ships its editorial headline to Google, and one with no `heroAlt` silently ships its title as alt text. Set both explicitly, every time.
 - OG image path is derived by replacing `-hero.jpg` with `-og.jpg` on the hero path — so the only requirement is that BOTH files exist in `public/journal/[slug]/`. Step 2 covers this; verify before shipping.
 - No `<link rel="canonical">` is emitted (intentional — each article URL is its own canonical). Don't add one.
 

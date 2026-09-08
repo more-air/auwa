@@ -55,14 +55,16 @@ For each article, one at a time:
 
 Present a clear before/after for each article covering:
 
-1. **`title`** — the searchable topic phrase, concise. Page title renders as `"{title} | Auwa Journal"`, so keep the whole string under ~60 chars or Google truncates it.
+1. **`seoTitle`** — the searchable phrase, max 45 chars (the ` | Auwa Journal` suffix is 15 more). Leave `title` alone: it is the editorial H1 on the page and stays poetic. The two were one field until the September 2026 sweep, which is what left every article shipping its headline to Google. If an article has no `seoTitle`, adding one is almost always the single highest-value change on the page.
 2. **`description`** (100-155 chars) — keyword-rich meta description, MUST contain "Japanese" where natural plus the primary keyword. This is what shows in Google results; make it earn the click. Distinct from `subtitle` (which stays poetic and on-page).
 3. **Body first paragraph** — ensure the primary keyword appears naturally within the first paragraph. Suggest the minimal rewording; keep the scene-first opening.
 4. **In-body terms** — swap 1-3 vague references for the searched term where it reads naturally (place name, craft term). Prefer specific Japanese terms (washi, wa-gyuto, kitaeji) which rank AND feel editorial.
 5. **One quotable definition sentence** near the top of concept articles (wabi-sabi, Yaoyorozu, mono no aware) — wins featured snippets and gets cited in AI answers.
 6. **Internal links** — propose 1-2 links to sibling articles in the same territory (craft ↔ craft, travel ↔ travel, philosophy ↔ philosophy). Builds topical authority. Note which article links to which.
 7. **Subscriber capture** — confirm the article carries the Quiet Letter sign-up gracefully in-context (see instagram.md "The capture loop" for the canonical copy: `72 seasons a year, drawn by Rieko. A quiet letter, and a chance to win our first-edition figure.`). If it's missing or buried, this is the single most valuable change on the page — flag it prominently. High-intent strangers already land here; a page that ranks but doesn't capture is leaking the best free traffic Auwa gets.
-8. **Image alt text** — ensure the hero alt identifies Japan / the specific Japanese subject within the first ten words; prefer place names and Japanese craft terms over generic English (see article.md Step 6 alt rules).
+8. **Image alt text** — set `heroAlt` explicitly (without it the hero alt falls back to the article title) and ensure it identifies Japan / the specific Japanese subject within the first ten words; prefer place names and Japanese craft terms over generic English (see article.md Step 6 alt rules). **Open the actual photograph before writing its alt text.** Alt text that misdescribes an image is an accessibility failure, not just a weak keyword.
+
+9. **Check the category** — it drives the "Continue reading" block, which leads with same-category articles. A miscategorised piece is linked into the wrong cluster.
 
 Get explicit approval per article before touching files. Present one article at a time so the user can judge each on its merits.
 
