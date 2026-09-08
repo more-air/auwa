@@ -304,6 +304,50 @@ The micro-season still provides ambient editorial rhythm:
 - **Citation as a new channel.** AI answers cite sources, and preferentially cite original, first-hand, specific, expert content over commodity rewrites. Auwa's "we held this knife" specificity and original photography is exactly what gets cited, and the person who clicks an AI citation is even higher intent. The game shifts from "rank #1" to "be the cited source."
 - **What to do:** keep writing first-hand originals (already the voice, and the moat against AI commodity content); give concept pieces a clean extractable definition near the top; being mentioned and linked across the aligned web also helps AI engines "know" the brand.
 
+**Optimisation pass, 8 September 2026 (all 11 articles).** The sweep in point 2 above was
+finally run. What it found and changed, so the next pass can measure movement:
+
+- **Every article's Google title was its editorial headline.** Only Yaoyorozu had an `seoTitle`
+  override, which is most of why it was the best performer. All 11 now carry one, sized under 60
+  characters including the ` | Auwa Journal` suffix. The on-page H1 is untouched and stays poetic;
+  only the title tag changed. Target terms: Yakushima → Princess Mononoke forest; Koya-san →
+  Okunoin; Nozawa → Dosojin Matsuri; Washi → "how washi paper is made"; Oroku-gushi → Japanese
+  boxwood combs; 72 Seasons → Japan's 72 micro-seasons; Onsen → a first onsen; Narai → Narai-juku
+  + Nakasendo; The Beginning → the Auwa story + Kokoro; Shigefusa → Shigefusa kitaeji.
+- **"72 Seasons" was colliding with Metallica's 2023 album of that name** and the article appeared
+  nowhere in a search for the Japanese micro-seasons. Retitled to "Japan's 72 Micro-Seasons".
+- **Shigefusa's description named the wrong knife.** It said "the Kasumi blade"; the article is
+  about a kitaeji, a different Shigefusa line. Corrected. The bare "Shigefusa" title was also
+  competing on a buying query owned by retailers (Knifewear, Bernal, Japanese Natural Stones) and
+  could not win it; the page now targets the informational query Google already surfaces it for.
+- **Yaoyorozu was leaking clicks to the AI Overview.** Position 7.0, 103 impressions, 1 click over
+  seven days, roughly 1% where position 7 should get three or four times that. Its description was
+  a definition, competing with the AI summary above it on the summary's own ground. Rewritten to
+  offer the place and the photographs a summary cannot reproduce. **This is the pattern to watch
+  on every concept piece: rank is not the problem, the click is.**
+- **Hero alt text was just the article title** on all 11 (the Shigefusa hero read "Shigefusa").
+  A `heroAlt` field now carries real alt text written from each photograph.
+- **BreadcrumbList schema added.** The site had none.
+- **"Continue reading" was a hash of the slug**, effectively random, pointing craft at travel as
+  readily as at craft. It now leads with the article's own category, so the topical clusters
+  Google rewards are actually legible.
+- **Onsen: deliberately NOT targeting "onsen etiquette."** Page one is JNTO, Banyan Tree and
+  resort blogs, all rules guides. The piece is not a rules guide and dressing it as one would
+  misrepresent it and lose anyway. The gap nobody fills is what a first onsen actually feels
+  like, which is what the article is.
+
+**Evidence the AI-citation thesis is real (8 Sep 2026).** Google's AI Overview for Narai-juku
+cites auwa.life as a source. No backlink campaign, no outreach: original first-hand writing and
+photography got picked up as the citation. This is the "be the cited source, not rank #1" bet in
+the AI search section below, working in the wild. It is the strongest argument yet for weighting
+new articles toward first-hand, place- and object-specific subjects.
+
+**Still open after this pass.** Auwa has no Kokoro page, which is the concept it most wants to be
+known for. That is the biggest gap in the whole SEO picture and the next thing to write; the
+competition on "kokoro meaning" is thin content farms with only Quartz and Japan House Illinois
+holding real ground. A philosophy cluster (Kokoro first, then mono no aware, mottainai, ma) is the
+plan. Also unmeasured: whether these title changes moved anything. Check GSC in early October.
+
 **Tooling.** Two slash commands operationalise this section. `/journal:optimise` audits and improves the *existing* articles (keyword research from Google Search Console + WebSearch, wording suggestions, internal links, capture placement, then re-indexing). `/journal:article` writes *new* articles and now bakes keyword research into its Step 1b so new pieces are demand-led from the start.
 
 **Is this time well spent? (Honest verdict.)** Yes, with strict sequencing. Optimising the existing 10 is the best ROI on the whole marketing list: pages that already rank and already exist, a day or two of work, compounding forever. New searchable articles are a plant-trees-now investment: slow to compound (months), but the cheapest, most durable, highest-intent, most lifestyle-aligned acquisition channel Auwa has. Backlinks are a slow ceiling-raiser, worth the cheap ones now and the relationship ones layered gently. The one hard rule: none of this outranks the capture bottleneck. Rank and traffic are worthless if the pages don't convert to email. Capture first, then optimise existing, then publish steadily, then backlinks.

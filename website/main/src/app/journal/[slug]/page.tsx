@@ -53,8 +53,9 @@ const articles: Record<
 > = {
   "yakushima-island": {
     title: "Yakushima",
+    seoTitle: "Yakushima: The Princess Mononoke Forest",
     subtitle: "On the island where the trees outlived history.",
-    description: "Yakushima, the Japanese island of thousand-year cedars that inspired Princess Mononoke. On forests, moss, and slow attention.",
+    description: "Yakushima, the Japanese island of thousand-year cedars that inspired Princess Mononoke. Walking the Shiratani Unsuikyo moss forest.",
     category: "Travel",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -139,8 +140,9 @@ const articles: Record<
   },
   "koya-san": {
     title: "Koya-san",
+    seoTitle: "Koya-san and the Okunoin Cemetery Path",
     subtitle: "Prayers chanted on this mountain for 1,200 years.",
-    description: "A pilgrimage to Koya-san, the Japanese Buddhist mountain sanctuary. On temple stays, morning rituals, and 1,200 years of Shingon chanting.",
+    description: "Koya-san, the Japanese Buddhist mountain sanctuary. On temple stays, Shingon chanting at dawn, and the cedar path through Okunoin.",
     category: "Travel",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -235,8 +237,9 @@ const articles: Record<
   },
   "nozawa-fire-festival": {
     title: "Nozawa Fire Festival",
+    seoTitle: "Nozawa Fire Festival: Dosojin Matsuri",
     subtitle: "A village renews its bond with its guardian spirits.",
-    description: "Inside the Nozawa Fire Festival, one of Japan's three great fire festivals. On snow, flame, and a Japanese village ritual older than memory.",
+    description: "Inside the Nozawa Fire Festival (Dosojin Matsuri), one of Japan's three great fire festivals. Snow, flame, and a village ritual at night.",
     category: "Seasons",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -315,8 +318,9 @@ const articles: Record<
   },
   "making-washi": {
     title: "Making Washi",
+    seoTitle: "How Washi Paper Is Made, by Hand",
     subtitle: "Cold water, mulberry bark, a thousand-year gesture.",
-    description: "Inside a Japanese washi paper workshop. On craft, patience, and the mulberry bark that becomes paper used in Japan for over a thousand years.",
+    description: "Inside a Japanese washi workshop. How kozo mulberry bark becomes paper by hand, a craft practised in Japan for over a thousand years.",
     category: "Craft",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -399,8 +403,9 @@ const articles: Record<
   },
   "oroku-gushi": {
     title: "Oroku-gushi",
+    seoTitle: "Oroku-gushi: Japanese Boxwood Combs",
     subtitle: "Made from wood that breaks axes. Named after a girl.",
-    description: "The Japanese art of Oroku-gushi: handmade wooden combs carved from mountain boxwood, crafted one at a time by master artisans in Nagano.",
+    description: "Oroku-gushi, the Japanese wooden combs carved from mountain boxwood, made one at a time by hand in the Kiso valley of Nagano.",
     category: "Craft",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -469,8 +474,9 @@ const articles: Record<
   },
   "72-seasons": {
     title: "72 Seasons",
+    seoTitle: "Japan's 72 Micro-Seasons, Explained",
     subtitle: "Five-day seasons, each one worth noticing.",
-    description: "The Japanese 72 micro-seasons (Shichijūni-kō): how the year divides into five-day moments, and why the Japanese habit of noticing still matters.",
+    description: "Japan's 72 micro-seasons (shichijuni-k\u014d) divide the year into five-day moments. What they are, and why the Japanese habit of noticing still matters.",
     category: "Seasons",
     author: "Rieko Maeda",
     photographer: "Tom Vining",
@@ -539,8 +545,9 @@ const articles: Record<
   },
   "the-onsen-lesson": {
     title: "The Onsen Lesson",
+    seoTitle: "A First Onsen, Naked Among Strangers",
     subtitle: "What hot water and strangers teach about being alive.",
-    description: "On the Japanese onsen bathing tradition. What a shared hot-spring ritual teaches about silence, vulnerability, and attention.",
+    description: "A first time in a Japanese onsen. Not the etiquette rules, but what the hot water and the shared silence actually teach you.",
     category: "Philosophy",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -700,8 +707,9 @@ const articles: Record<
   },
   "narai-juku": {
     title: "Narai in Snow",
+    seoTitle: "Narai-juku in Snow: A Nakasendo Town",
     subtitle: "Four hundred years of the same street, unchanged.",
-    description: "Narai-juku, a preserved Japanese post town on the Nakasendo highway, photographed in deep winter. On wooden architecture and mountain air.",
+    description: "Narai-juku, a preserved Japanese post town on the Nakasendo highway, photographed in deep winter. Wooden architecture in the Kiso valley.",
     category: "Travel",
     author: "Tom Vining",
     photographer: "Tom Vining",
@@ -851,8 +859,9 @@ const articles: Record<
   },
   "the-beginning": {
     title: "The Beginning",
+    seoTitle: "The Auwa Story: Kokoro in All Things",
     subtitle: "Light in a dark forest. A dream that wouldn't let go.",
-    description: "The first illustrated story in the Auwa universe. A Japanese philosophy of Kokoro, told through the character who reveals the life in all things.",
+    description: "How Rieko Maeda drew the Auwa character, and the Japanese philosophy of Kokoro behind it: the life force that resides in all things.",
     category: "Philosophy",
     author: "Rieko Maeda",
     photographer: "Rieko Maeda",
