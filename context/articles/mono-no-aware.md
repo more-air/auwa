@@ -47,47 +47,56 @@ it gives the eventual Kokoro piece something to anchor to.
 
 ---
 
-## THE HONEST PROBLEM WITH THE PHOTOGRAPHS
-
-The archive has plenty of **beauty at its peak** and very little of **beauty passing**. There is no
-frame of petals on the ground, no blossom after the wind, no bare branch. Sakura at full bloom is a
-photograph about beauty; mono no aware is about the knowledge that it is already ending.
-
-Two ways to handle it:
-
-1. **Lean on the raked gravel.** `PXL_20221105_101631354` is a close abstract of raked sand — a
-   pattern made every morning in the knowledge it will be swept away and made again. That is mono
-   no aware performed rather than illustrated, and it is the most conceptually exact image in the
-   whole archive for this piece. It scores poorly for the Instagram cover (busy) but is superb
-   inside the article.
-2. **Shoot the missing frame.** One photograph of fallen petals on wet stone would complete the
-   piece. If Tom is in Japan in spring, or has one in an unsorted folder, it is worth finding.
-
-Do not let the article claim to show transience with photographs of things at their peak. Either
-use the gravel as the conceptual anchor, or say plainly in the writing that this is the moment
-before, which is its own kind of honesty.
-
----
-
 ## THE PHOTOGRAPHS
 
-`photography/mono-no-aware/1-original/`, all verified unpublished, all portrait.
+*Reselected 8 September 2026 after Tom rejected the first set. The first attempt searched for
+blossom and autumn as a proxy for transience, which is a category error: it returned photographs of
+things at their peak, plus three posed personal snaps that should never have been in the folder.
+The subject is things **ending**. Selecting for that found much better material, most of it in
+Koya-san rather than in blossom.*
+
+`photography/mono-no-aware/1-original/`, 9 frames, all verified unpublished.
+
+**The Okunoin set (Koya-san, January 2014, snow and mist).** Okunoin is a cemetery: two hundred
+thousand memorials to people who are gone, being slowly taken back by moss, snow and cedar. It is
+the subject rather than an illustration of it.
 
 | File | What it is | Use |
 | --- | --- | --- |
-| `PXL_20221106_063207417.PORTRAIT.jpg` | **Red maple against blue sky and a white wall.** Vivid, clean, simple. | **HERO** (90, clean). IG cover word: **Aware** 哀れ |
-| `PXL_20221105_101631354.PORTRAIT.jpg` | **Raked gravel, close abstract.** A pattern made to be destroyed. | The conceptual heart of the piece (63, busy — inside only) |
-| `PXL_20221106_035414523.jpg` | Autumn maples, orange and red, stone marker beneath | Strong second (92, clean) |
-| `PXL_20221106_061934021.jpg` | Ohara temple garden, raked cone, autumn colour | Pairs with the gravel (91, clean) |
-| `P1000909.jpg` | **Cherry blossom over a canal path**, two figures walking beneath | The canonical image. Spring counterpart to the autumn frames |
-| `PXL_20221105_064533817.jpg` | Kiyomizu-dera above an autumn hillside | Scale and season |
-| `PXL_20221105_064747839.jpg` | Kiyomizu-dera's wooden stage over autumn trees | Alternative to the above; use one, not both |
-| `P1000915.jpg` | A thatched gate | Weak fit — probably cut |
-| `P1000919.jpg` | Rieko under blossom by a road | Posed. Probably cut |
-| `P1040156.jpg` | Tom under blossom on a stone path | Posed. Probably cut |
+| `IMG_1821.jpg` | A dark bronze Kannon standing in winter rain, holding a golden disc | **HERO CANDIDATE** (89, clean). Still, dark, unhurried |
+| `IMG_1831.jpg` | Snow on stone lanterns and grave markers between cedar trunks | Strong (81, clean) |
+| `IMG_1832.jpg` | A receding row of stone memorial pillars under snow (landscape — crop or use wide) | Repetition and disappearance |
 
-Good pairing for an `image-pair` block: the gravel with the raked cone, or spring blossom against
-autumn maple — the same idea in two seasons.
+**The made-and-unmade set (Kyoto and Ohara, November 2022).**
+
+| File | What it is | Use |
+| --- | --- | --- |
+| `PXL_20221105_101631354.PORTRAIT.jpg` | **Raked gravel, close abstract.** A pattern made each morning knowing it will be swept away. | **The conceptual heart.** Inside only (63, busy) |
+| `PXL_20221106_061934021.jpg` | Ohara garden, raked cone, autumn colour | Pairs with the gravel (91) |
+| `PXL_20221106_063207417.PORTRAIT.jpg` | Red maple against blue sky and a white wall | Peak before the fall (90) |
+| `PXL_20221106_035414523.jpg` | Autumn maples, orange and red, stone marker beneath | (92, clean) |
+
+**Wear and season.**
+
+| File | What it is | Use |
+| --- | --- | --- |
+| `IMG_5307.jpg` | Straw bundles fraying on weathered dark timber, Narai-juku | Things worn down by use |
+| `P1000909.jpg` | Cherry blossom over a canal path, two figures walking beneath | The canonical image, and the spring counterpart to the autumn frames |
+
+**Hero recommendation: `IMG_1821`, the bronze figure in the rain.** It is the quietest frame here
+and it does not perform sadness, which is the trap with this subject. The maple frames are more
+immediately beautiful; the Kannon is more accurate. IG cover word: **Aware** 哀れ.
+
+**Strong pairing:** the raked gravel with the raked cone — the same act at two scales. Or the
+Okunoin snow against the spring blossom, which is the whole idea in two photographs.
+
+**Still missing, and worth knowing.** There is no frame of petals on the ground, no bare branch,
+nothing after the peak. The Okunoin set now carries the weight the blossom could not, but one
+photograph of fallen petals on wet stone would still complete the piece.
+
+**Overlap to decide.** These Koya-san frames are unpublished siblings of the images on the
+published `koya-san` article. Using them here is legitimate and thematically exact — a cemetery in
+mist is the subject — but the two articles will share a visual world. Decide that deliberately.
 
 ---
 
