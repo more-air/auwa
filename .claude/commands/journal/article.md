@@ -22,6 +22,22 @@ SOCIAL="$(grep -E '^AUWA_SOCIAL_ROOT=' website/main/.env.local | head -1 | cut -
 
 Pillars sit directly under `$SOCIAL` (no `instagram/` level), so the journal IG folder is `$SOCIAL/3-journal/[slug]/`. Always quote it — the path contains a space.
 
+## Step 0: Is there already a brief?
+
+**Check `context/articles/[slug].md` before asking anything.** Article briefs are how a researched
+article survives the end of a session. If one exists for this subject, load it and skip straight to
+whatever it marks OPEN — the route, the photo selection, the hero, the angle and the keyword
+research are already settled and re-deriving them wastes a session and risks contradicting a
+decision the user already approved.
+
+If no brief exists and the article needs real research (an archive photo selection, a route
+reconstructed from EXIF, competitive keyword work), **write one as you go** and keep it current.
+A brief holds: what is settled, what is OPEN, the photo list with file paths and the role of each
+frame, the hero and why, the proposed title/seoTitle/keywords, facts already checked, and the
+questions still outstanding for Tom or Rieko. Anyone should be able to pick the article up cold.
+
+Briefs are tracked in git, so they sync between machines and outlive the photo working folder.
+
 ## Step 1: Gather the Brief
 
 Ask the user these questions one at a time (not all at once):
