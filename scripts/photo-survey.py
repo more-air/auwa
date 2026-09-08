@@ -39,9 +39,13 @@ MANIFEST = REPO / "photography" / "_manifest.json"
 PUBLISHED_DIR = REPO / "website" / "main" / "public" / "journal"
 EXT = {".jpg", ".jpeg", ".heic", ".png", ".tif", ".tiff"}
 
-# Site convention, measured off the 11 published heroes (all portrait, 2400 tall).
+# Site convention, measured off the 11 published heroes: all portrait, all exactly
+# 2400 tall, at either 3:4 (0.753) or 2:3 (0.667). Koya-san and Yakushima are the
+# 2:3 pair, so the floor MUST sit below 0.667 or every DSLR portrait frame — which
+# is natively 2:3 — gets rejected. An earlier 0.70 threshold silently discarded 344
+# of 346 photos in the 2018 trip.
 HERO_MIN_HEIGHT = 2400
-HERO_MIN_RATIO = 0.70  # width / height; 3:4 is 0.75, 2:3 is 0.667
+HERO_MIN_RATIO = 0.66  # width / height; 3:4 is 0.753, 2:3 is 0.667
 
 
 def published_filenames() -> dict[str, list[str]]:
