@@ -9,7 +9,7 @@ import { CtaLink } from "@/components/cta-link";
 import { ImageFade } from "@/components/image-fade";
 import { STAGGER } from "@/lib/motion";
 import Link from "next/link";
-import { articleNode } from "@/lib/schema";
+import { articleNode, breadcrumbNode } from "@/lib/schema";
 
 /* ─── Article data (will come from Sanity CMS) ─── */
 
@@ -31,6 +31,7 @@ const articles: Record<
      * lengthening the headline the reader sees.
      */
     seoTitle?: string;
+    heroAlt?: string;
     subtitle: string;
     /**
      * Longer, keyword-rich meta description used by `generateMetadata`
@@ -59,6 +60,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/yakushima-island/yakushima-island-hero.jpg",
+    heroAlt: "Moss-covered granite boulders and twisted cedar roots in the ancient forest of Yakushima, Japan, the woodland that inspired Princess Mononoke",
     content: [
       {
         type: "text",
@@ -144,6 +146,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/koya-san/koya-san-hero.jpg",
+    heroAlt: "The Gobyobashi bridge into Okunoin cemetery at Koya-san, Japan, stone lanterns and towering cedars in winter mist",
     content: [
       {
         type: "text",
@@ -239,6 +242,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-01-15",
     heroImage: "/journal/nozawa-festival/nozawa-festival-hero.jpg",
+    heroAlt: "Villagers defending the burning shaden at the Nozawa Fire Festival, Japan, sparks rising past a paper lantern at night",
     content: [
       {
         type: "text",
@@ -318,6 +322,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/washi-paper/washi-paper-hero.jpg",
+    heroAlt: "A Japanese papermaker lifting a wooden su screen from the vat while making washi paper by hand",
     content: [
       {
         type: "text",
@@ -401,6 +406,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/oroku-gushi/oroku-gushi-hero.jpg",
+    heroAlt: "An Oroku-gushi comb of Japanese mountain boxwood resting on its asanoha-patterned cloth pouch",
     content: [
       {
         type: "text",
@@ -470,6 +476,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/72-seasons/72-seasons-hero.jpg",
+    heroAlt: "Autumn maples framed by a round window in a Japanese temple room, tatami and red felt in low light",
     content: [
       {
         type: "text",
@@ -539,6 +546,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/onsen-lesson/onsen-lesson-hero.jpg",
+    heroAlt: "Steam rising from a natural onsen hot spring source in deep snow beside a wooden bathhouse in Japan",
     content: [
       {
         type: "text",
@@ -621,13 +629,15 @@ const articles: Record<
   },
   "shigefusa-knife": {
     title: "Shigefusa",
+    seoTitle: "Shigefusa Kitaeji: Why the Wait Is Years",
     subtitle: "On waiting over a year for a knife, and what arrived.",
-    description: "A visit to Shigefusa, one of Japan's most revered Japanese knife-making families. On steel, a lifetime's craft, and the Kasumi blade.",
+    description: "A Shigefusa kitaeji wa-gyuto, hand-forged by the Iizuka family in Sanjo, Niigata. What a year on a Japanese knife waitlist buys, and what arrived.",
     category: "Craft",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/shigefusa-knife/shigefusa-knife-hero.jpg",
+    heroAlt: "A Shigefusa kitaeji wa-gyuto knife in its kiri wood box, the damascus steel pattern visible beside brushed Japanese calligraphy",
     content: [
       {
         type: "text",
@@ -653,7 +663,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Shigefusa is the working name of Tokifusa Iizuka, a bladesmith in Sanjo, Niigata prefecture, who works alongside his two sons in a family workshop in a region that has produced metalwork for over four hundred years. They don't have a website. They don't take custom orders. They make what they make in the quantities their hands and their days allow, and when the knives are finished, they go to a handful of shops in Japan. Waitlists run one to three years. There is no way to expedite.",
+        text: "Shigefusa is the working name of Tokifusa Iizuka, a bladesmith in Sanjo, Niigata prefecture, who works alongside his two sons in a family workshop in a region that has produced metalwork for over four hundred years. They don't have a website. They don't take custom orders. They make what they make in the quantities their hands and their days allow, and when the knives are finished, they go to a handful of shops in Japan. Waitlists run one to five years. There is no way to expedite.",
       },
       {
         type: "text",
@@ -680,7 +690,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Since ancient times, the Japanese have believed that a life force resides in all things. Yaoyorozu no kami: the understanding that spirit inhabits everything, not just living beings but rivers, mountains, and objects made with enough care and accumulated skill. A mass-produced knife carries nothing of its maker. It was made by a machine that doesn't know what a knife is for. But a blade that a single person spent days forging, shaping, polishing, and signing carries something of the person who made it into the life of the person who uses it. When we collected ours, the shop owner reminded us that Shigefusa wants his blades to be used, not kept for display.",
+        text: "Since ancient times, the Japanese have believed that a life force resides in all things. <a href=\"/journal/yaoyorozu-no-kami\">Yaoyorozu no kami</a>: the understanding that spirit inhabits everything, not just living beings but rivers, mountains, and objects made with enough care and accumulated skill. A mass-produced knife carries nothing of its maker. It was made by a machine that doesn't know what a knife is for. But a blade that a single person spent days forging, shaping, polishing, and signing carries something of the person who made it into the life of the person who uses it. When we collected ours, the shop owner reminded us that Shigefusa wants his blades to be used, not kept for display.",
       },
       {
         type: "text",
@@ -697,6 +707,7 @@ const articles: Record<
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/narai-juku/narai-juku-hero.jpg",
+    heroAlt: "The wooden main street of Narai-juku, a preserved Japanese post town on the Nakasendo highway, under falling snow",
     content: [
       {
         type: "text",
@@ -779,12 +790,13 @@ const articles: Record<
     title: "Yaoyorozu no Kami",
     seoTitle: "Yaoyorozu no Kami: Eight Million Gods",
     subtitle: "Eight million gods live in the world around you.",
-    description: "Yaoyorozu no Kami is the ancient Japanese belief that eight million gods, or kami, live in all things. Its meaning, and why it matters now.",
+    description: "Yaoyorozu no Kami: the Japanese belief in eight million gods. Photographed at Togakushi Shrine in deep snow, and what the shimenawa rope really means.",
     category: "Philosophy",
     author: "Tom Vining",
     photographer: "Tom Vining",
     publishedAt: "2026-04-09",
     heroImage: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg",
+    heroAlt: "The cedar avenue at Togakushi Shrine, Japan, ancient trunks lining a snow-covered path in winter",
     content: [
       {
         type: "text",
@@ -806,7 +818,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some of <a href=\"/journal/yakushima-island\">these trees</a> have been standing for four hundred years. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
+        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some have been standing for four hundred years, younger cousins of <a href=\"/journal/yakushima-island\">the thousand-year cedars of Yakushima</a>. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
       },
       {
         type: "pullquote",
@@ -846,6 +858,7 @@ const articles: Record<
     photographer: "Rieko Maeda",
     publishedAt: "2026-04-10",
     heroImage: "/journal/auwa-book/auwa-book-hero.jpg",
+    heroAlt: "The Auwa character, a small luminous being, glowing in a dark forest at twilight, illustrated by Rieko Maeda",
     content: [
       {
         type: "text",
@@ -1082,7 +1095,10 @@ export default async function ArticlePage({
   }
   const sections = groupIntoSections(article.content);
 
-  const jsonLd = articleNode({ slug, ...article });
+  const jsonLd = [
+    articleNode({ slug, ...article }),
+    breadcrumbNode({ slug, title: article.title }),
+  ];
 
   return (
     <>
@@ -1098,7 +1114,7 @@ export default async function ArticlePage({
             {article.heroImage ? (
               <ImageFade
                 src={article.heroImage}
-                alt={article.title}
+                alt={article.heroAlt ?? article.title}
                 fill
                 priority
                 quality={95}
@@ -1359,12 +1375,18 @@ export default async function ArticlePage({
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
             {(() => {
-              const otherSlugs = Object.keys(articles).filter((s) => s !== slug);
-              let hash = 0;
-              for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) | 0;
-              const offset = Math.abs(hash) % otherSlugs.length;
-              const rotated = [...otherSlugs.slice(offset), ...otherSlugs.slice(0, offset)];
-              return rotated.slice(0, 6).map((s) => {
+              // Same category first, then everything else. This used to be a
+              // hash of the slug, which spread the links evenly but told
+              // Google nothing: craft pointed at travel as readily as at
+              // craft. Leading with the category builds the topical cluster
+              // the pieces already belong to, and the remainder still fills
+              // the grid so no article is left without inbound links.
+              const others = Object.keys(articles).filter((s) => s !== slug);
+              const sameCategory = others.filter((s) => articles[s].category === article.category);
+              const rest = others.filter((s) => articles[s].category !== article.category);
+              const offset = article.publishedAt.length % Math.max(rest.length, 1);
+              const ordered = [...sameCategory, ...rest.slice(offset), ...rest.slice(0, offset)];
+              return ordered.slice(0, 6).map((s) => {
                 const a = articles[s];
                 return { title: a.title, subtitle: a.subtitle, category: a.category, slug: s, image: a.heroImage };
               });

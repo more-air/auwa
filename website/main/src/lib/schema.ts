@@ -133,6 +133,28 @@ export const webSiteNode = {
  * date, and inventing a modified date to fill the field is worse than
  * leaving it out.
  */
+/**
+ * Breadcrumb trail for a journal article: Home > Journal > the article.
+ *
+ * Google reads this to render the trail in place of the raw URL in
+ * results, and it is a second, explicit statement that every article
+ * belongs to the journal rather than floating loose on the domain.
+ */
+export function breadcrumbNode(article: { slug: string; title: string }) {
+  const url = `${SITE_URL}/journal/${article.slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${url}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Auwa", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Journal", item: `${SITE_URL}/journal` },
+      { "@type": "ListItem", position: 3, name: article.title, item: url },
+    ],
+  };
+}
+
 export function articleNode(article: {
   slug: string;
   title: string;
