@@ -928,14 +928,14 @@ const articles: Record<
         ],
       },
       {
+        type: "text",
+        text: "Then came the second piece. Fin had kindly promised early on that he would make a version for my mum, and in December 2023 we went to his studio to collect it. We spent the afternoon hearing about what he had coming up, surrounded by all his amazing works. I always leave his studio wanting to go straight home, be creative, and return to <a href=\"/journal/the-beginning\">the stories I have been drawing for the last several years</a>. Fin is such an inspiration in so many ways, and I am deeply grateful to know him and watch how he creates his wonderful art.",
+      },
+      {
         type: "image",
         src: "/journal/findac/findac-mitsuko.jpg",
         alt: "Mitsuko sitting in seiza beside the framed portrait in her tatami room in Japan, shoji screens behind her",
         caption: "My mum with her print after it arrived at their home in Japan.",
-      },
-      {
-        type: "text",
-        text: "Then came the second piece. Fin had kindly promised early on that he would make a version for my mum, and in December 2023 we went to his studio to collect it. We spent the afternoon hearing about what he had coming up, surrounded by all his amazing works. I always leave his studio wanting to go straight home, be creative, and return to <a href=\"/journal/the-beginning\">the stories I have been drawing for the last several years</a>. Fin is such an inspiration in so many ways, and I am deeply grateful to know him and watch how he creates his wonderful art.",
       },
       {
         type: "text",
