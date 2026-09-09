@@ -1,9 +1,9 @@
 # Article brief — Fin DAC's portrait of Rieko
 
 *Prepared 8 September 2026. **Written and built the same day**, see STATUS at the bottom before
-doing anything else. Photos in `photography/findac-rieko/`.*
+doing anything else. Photos in `photography/findac/`.*
 
-**Slug:** `findac-rieko`   **Category:** Craft
+**Slug:** `findac`   **Category:** Craft
 **Priority: highest in the backlog.** See WHY THIS ONE MATTERS.
 
 ---
@@ -143,7 +143,7 @@ but showing his wife Rieko in her mums wedding dress instead."*
 
 ## THE PHOTOGRAPHS
 
-All 14 in `photography/findac-rieko/` are portrait and hero-capable. Numbers below match the
+All 14 in `photography/findac/` are portrait and hero-capable. Numbers below match the
 contact sheet order.
 
 **The two sources**
@@ -212,7 +212,7 @@ Still write about her with the care the story deserves; Fin himself checked befo
 2. **Tom's decision on the Auwa stencil section** — include or hold.
 3. **Memory notes:** what Mitsuko said when she was given it; what the studio visit was like; why
    Tom commissioned it in the first place; how Rieko felt seeing herself in her mother's dress.
-4. Lightroom pass into `photography/findac-rieko/2-edited/`.
+4. Lightroom pass into `photography/findac/2-edited/`.
 5. **Check the facts against Fin's posts** in
    `Dropbox/2 private/tom/finance/3 asset/art/findac/rieko/1 original/4 instagram/` and
    `…/2 print/2 instagram/`. Quote him sparingly and accurately; the story above is drawn from them.
@@ -221,7 +221,7 @@ Still write about her with the care the story deserves; Fin himself checked befo
 
 ## STATUS — 8 September 2026
 
-**The article is written and wired into the site.** Live locally at `/journal/findac-rieko`,
+**The article is written and wired into the site.** Live locally at `/journal/findac`,
 title "Musubi", category Craft, **author Rieko Maeda** (photography Tom Vining), 1,125 words. Build passes,
 12 article paths. Sitemap, OG image, `seoTitle`, `heroAlt` and alt text on every image all done.
 Voice check clean: no em dashes, no AI vocabulary, no "a particular" (Yakushima owns that one),
@@ -322,8 +322,8 @@ curly apostrophes throughout to match the rest of the journal.
 **Still open:**
 
 1. ~~**Lightroom.**~~ **Done 9 Sep 2026.** `2-edited/` is populated and every web, IG and OG file
-   has been regenerated through it with `node scripts/process-all.js findac-rieko`. Once Tom exports the eight through the Auwa preset into `2-edited/`, re-run
-   `cd website/main && node scripts/process-all.js findac-rieko`. The manifest entry is in place.
+   has been regenerated through it with `node scripts/process-all.js findac`. Once Tom exports the eight through the Auwa preset into `2-edited/`, re-run
+   `cd website/main && node scripts/process-all.js findac`. The manifest entry is in place.
    (`process-all.js` was writing IG output to the dead in-repo `social/` path; fixed 8 Sep to read
    `AUWA_SOCIAL_ROOT` from `.env.local`.)
 2. **Where and when Mitsuko's photograph was taken.** Written as "sometime in the 1960s" with no
@@ -344,7 +344,7 @@ curly apostrophes throughout to match the rest of the journal.
      the hem, bunkin-takashimada hair.
 4. **Instagram carousel** (`/instagram:post`, slideshow branch). Needs the cover title (one or two
    words plus optional Japanese) and the slide-2 quote. The eight `image-*.jpg` files are already
-   in `$SOCIAL/3-journal/findac-rieko/`. Note the hero scores "bright behind title" on the cover
+   in `$SOCIAL/3-journal/findac/`. Note the hero scores "bright behind title" on the cover
    test, so the untitled `image-hero.jpg` may be the better slide 1.
 5. **No hand-placed inbound internal link yet.** The coda links out to `the-beginning`. Nothing in
    the existing eleven articles refers to this subject naturally, and forcing one would be worse

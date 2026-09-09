@@ -18,7 +18,7 @@ import Link from "next/link";
 /* ─── Placeholder data (will come from Sanity CMS) ─── */
 
 const latestArticles: { title: string; excerpt: string; category: string; slug: string; image?: string }[] = [
-  { title: "Musubi", excerpt: "A portrait by Fin DAC connects two Kokoros.", category: "Craft", slug: "findac-rieko", image: "/journal/findac-rieko/findac-rieko-hero.jpg" },
+  { title: "Musubi", excerpt: "A portrait by Fin DAC connects two Kokoros.", category: "Craft", slug: "findac", image: "/journal/findac/findac-hero.jpg" },
   { title: "Yaoyorozu no Kami", excerpt: "Eight million gods live in the world around you.", category: "Philosophy", slug: "yaoyorozu-no-kami", image: "/journal/yaoyorozu-no-kami/yaoyorozu-no-kami-hero.jpg" },
   { title: "Nozawa Fire Festival", excerpt: "A fire rite to honour guardian spirits.", category: "Seasons", slug: "nozawa-fire-festival", image: "/journal/nozawa-festival/nozawa-festival-hero.jpg" },
   { title: "Shigefusa", excerpt: "Waiting over a year for a knife, and what arrived.", category: "Craft", slug: "shigefusa-knife", image: "/journal/shigefusa-knife/shigefusa-knife-hero.jpg" },

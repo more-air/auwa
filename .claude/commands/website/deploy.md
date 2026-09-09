@@ -23,10 +23,24 @@ Deploy the current state of the Auwa website to Vercel.
    cd /Users/admin/Github/auwa/website/main && \
      [ "$(pwd)" = "/Users/admin/Github/auwa/website/main" ] || { echo "ABORT: wrong cwd $(pwd)"; exit 1; } && \
      export PATH="/usr/local/bin:$PATH" && \
-     npx vercel --prod --yes
+     npx vercel --prod --yes --scope more-airs-projects
    ```
+
+   **`--scope more-airs-projects` is required** (added 9 Sep 2026). Without it the
+   deploy fails with a bare `"message": "Not authorized"`, which reads like an auth
+   problem and is not one: `vercel whoami` still returns `moreair`, the token is
+   valid, and the `orgId` in `.vercel/project.json` already matches the team. The
+   CLI simply will not infer the team scope on its own. Passing it explicitly fixes
+   it immediately. Do not go hunting for a login problem when you see that error.
    The `pwd` guard halts the deploy if the `cd` didn't land correctly (e.g. path typo, stale shell state). Without it, vercel would fall back to the nearest `.vercel/project.json` in the cwd chain.
-8. Confirm the deployment URL lists `Aliased: https://auwa.life` in the output
+8. **Confirm against the live site, not the CLI output.** Vercel CLI 59+ prints a
+   JSON block rather than the old `Aliased: https://auwa.life` line, so that string
+   is no longer there to look for. Check the real thing instead:
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}\n" https://auwa.life/journal/[a-page-you-changed]
+   curl -s https://auwa.life/journal/[slug] | grep -o "[a phrase you just added]"
+   ```
+   A 200 plus the new copy is the only confirmation that counts.
 
 If there are no changes to commit, say so and stop.
 

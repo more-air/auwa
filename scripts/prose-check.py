@@ -35,8 +35,8 @@ other way from the first version: SHORT sentences and a low mean are the warning
 not long ones.
 
 Usage
-  python3 scripts/prose-check.py findac-rieko
-  python3 scripts/prose-check.py findac-rieko --sentences
+  python3 scripts/prose-check.py findac
+  python3 scripts/prose-check.py findac --sentences
   python3 scripts/prose-check.py --all
 """
 from __future__ import annotations

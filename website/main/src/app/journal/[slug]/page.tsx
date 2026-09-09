@@ -870,7 +870,7 @@ const articles: Record<
       },
     ],
   },
-  "findac-rieko": {
+  "findac": {
     title: "Musubi",
     seoTitle: "Fin DAC\u2019s Portrait of Rieko Maeda",
     subtitle: "A portrait by Fin DAC connects two Kokoros.",
@@ -878,7 +878,7 @@ const articles: Record<
     category: "Craft",
     author: "Rieko Maeda",
     publishedAt: "2026-09-08",
-    heroImage: "/journal/findac-rieko/findac-rieko-hero.jpg",
+    heroImage: "/journal/findac/findac-hero.jpg",
     heroAlt: "Rieko\u2019s mother Mitsuko on her wedding day in 1970s Japan, wearing a green kimono embroidered with white cranes",
     content: [
       {
@@ -891,7 +891,7 @@ const articles: Record<
       },
       {
         type: "image",
-        src: "/journal/findac-rieko/findac-rieko-wedding-day.jpg",
+        src: "/journal/findac/findac-wedding-day.jpg",
         alt: "Rieko and Tom on their wedding day in Japan, Rieko in a red silk kimono and Tom in a black kimono, both holding up their hands to show their wedding rings",
         caption: "The day we married in 2009.",
         orientation: "square",
@@ -923,13 +923,13 @@ const articles: Record<
       {
         type: "image-pair",
         images: [
-          { src: "/journal/findac-rieko/findac-rieko-artwork-detail.jpg", alt: "Detail of Fin DAC\u2019s watercolour and Japanese ink portrait of Rieko, showing the gold leaf sun, the cherry branch and the metallic mask across the eyes", caption: "The sun is a disc of gold leaf, laid the way the old woodblock prints were finished." },
-          { src: "/journal/findac-rieko/findac-rieko-artwork-framed.jpg", alt: "Fin DAC\u2019s ukiyo-e style portrait of Rieko framed in gold on a wall, the deckle edge of the paper showing against the mount", caption: "The whole piece, in the frame we chose with Fin, with his seal in the bottom corner." },
+          { src: "/journal/findac/findac-artwork-detail.jpg", alt: "Detail of Fin DAC\u2019s watercolour and Japanese ink portrait of Rieko, showing the gold leaf sun, the cherry branch and the metallic mask across the eyes", caption: "The sun is a disc of gold leaf, laid the way the old woodblock prints were finished." },
+          { src: "/journal/findac/findac-artwork-framed.jpg", alt: "Fin DAC\u2019s ukiyo-e style portrait of Rieko framed in gold on a wall, the deckle edge of the paper showing against the mount", caption: "The whole piece, in the frame we chose with Fin, with his seal in the bottom corner." },
         ],
       },
       {
         type: "image",
-        src: "/journal/findac-rieko/findac-rieko-mitsuko.jpg",
+        src: "/journal/findac/findac-mitsuko.jpg",
         alt: "Mitsuko sitting in seiza beside the framed portrait in her tatami room in Japan, shoji screens behind her",
         caption: "My mum with her print after it arrived at their home in Japan.",
       },
