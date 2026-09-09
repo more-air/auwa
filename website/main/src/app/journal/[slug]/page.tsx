@@ -892,9 +892,8 @@ const articles: Record<
       {
         type: "image",
         src: "/journal/findac/findac-wedding-day.jpg",
-        alt: "Rieko and Tom on their wedding day in Japan, Rieko in a red silk kimono and Tom in a black kimono, both holding up their hands to show their wedding rings",
+        alt: "Rieko on her wedding day in Japan in 2009, wearing a red silk kimono with a white flower pinned in her hair, holding up her hand to show her wedding ring",
         caption: "The day we married in 2009.",
-        orientation: "square",
       },
       {
         type: "text",
