@@ -29,7 +29,7 @@ wrong, what surprised them. Five minutes of voice note is enough. Step 1 of
 gate, not a nicety.
 
 To make it cheap, **draft the questions from the selected photographs** and ask them
-specifically. "Who was the woodcarver in the 2016 studio, and how did you find her?" gets a
+specifically. "Who was the craftspeople trip in the 2016 studio, and how did you find her?" gets a
 usable answer. "Tell me about the trip" does not.
 
 The division of labour that follows:
@@ -89,7 +89,7 @@ Japan folder.
 
 ### Two finds worth acting on beyond the journal
 
-**The woodcarver (2016, `IMG_6747`–`IMG_6851`).** A Japanese maker photographed on tatami
+**The craftspeople trip (2016, `IMG_6747`–`IMG_6851`).** A Japanese maker photographed on tatami
 beside a carved wooden character figure with a pale face, on a rough-hewn wooden base. That
 is the Auwa figure's exact register, made by a Japanese hand, and Tom and Rieko have already
 met her. Given the collab programme runs on form crafts and on pitching with a photograph
@@ -108,9 +108,9 @@ copper kettles, Kanazawa gold leaf. Three of those are named collab targets in t
 This was got wrong once, on 8 September 2026: six of forty-nine shortlisted photos were
 already live, including a monk at Okunoin that had been the hero recommendation.
 
-**`photography/_manifest.json` is the authority.** It maps source filename to
+**`scripts/journal-manifest.json` is the authority.** It maps source filename to
 `article/name` for every published image, and it is the only tracked file in
-`photography/`. Check it first, always.
+`Dropbox/3 venture/auwa/journal/`. Check it first, always.
 
 **A perceptual hash backstops it**, because some published images were re-exported through
 Topaz and no longer carry their original filename (`*_topaz.jpg` in the manifest).
@@ -177,15 +177,15 @@ where nothing does, the IG command can fall back to a clean untitled hero
 ## THE WORKFLOW, WHEN CLAUDE SOURCES THE PHOTOS
 
 The standard path in `/journal:article` assumes Tom has already dropped edited photos into
-`photography/[slug]/2-edited/`. When Claude is selecting from the archive instead, the job
+`Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`. When Claude is selecting from the archive instead, the job
 splits in two, because image processing needs Lightroom output that does not exist yet.
 
 **Phase 1 — Claude, before Tom touches anything**
 
 1. Run `scripts/photo-survey.py` over the relevant trip folders.
 2. Shortlist, look at the actual frames, choose a hero and a sequence.
-3. `mkdir -p photography/[slug]/1-original` and copy the selected originals in. All media
-   under `photography/` is gitignored, so this costs the repo nothing — only
+3. `mkdir -p `Dropbox/3 venture/auwa/journal/[slug]/image/1-original/` and copy the selected originals in. All media
+   under `Dropbox/3 venture/auwa/journal/` is gitignored, so this costs the repo nothing — only
    `_manifest.json` is tracked.
 4. Ask the memory questions, drawn from the selected photographs.
 5. Do Step 1b keyword research and agree the angle.
@@ -220,7 +220,7 @@ The Polarr edits (`2 polarr/`) are the fullest set for 2018; 2022 is all in `1 p
 | # | Article | Folder | Frames | Note |
 | --- | --- | --- | --- | --- |
 | 1 | **Fin DAC / Rieko** | already in `photography/findac/` | all 14 | Brief written. Highest priority — opens the collab programme. |
-| 2 | **Kumano Kodo** | already in `photography/kumano-kodo/1-original/` | 15 selected | Brief written. Needs Tom's memory notes. |
+| 2 | **Kumano Kodo** | already in `Dropbox/3 venture/auwa/journal/kumano-kodo/image/1-original/` | 15 selected | Brief written. Needs Tom's memory notes. |
 | 3 | **Kokoro** | `2022 Japan/1 pixel/` | the 4–6 Nov Kyoto/Ohara set: `original_04cbcf2b…061228073` (hero, a tatami room framing maples), `PXL_20221106_091906762` (tokonoma), plus the ceramics from 25 Oct (`PXL_20221025_0918…`, `_0919…`, `_0934…`) | 72 Seasons already used the engawa, veranda and tsukubai from this same afternoon — check the manifest and decide whether a second Ohara piece reads as house style or thin sourcing. |
 | 4 | **Mount Aso** | `2018 Japan/2 polarr/` | `IMG_5021`–`IMG_5025` (Kusasenri grassland, azaleas), `IMG_0585`, `IMG_0594` (caldera, winding road), `IMG_0764` (red poppies) | Same trip as Kumano. GPS-confirmed 11–12 May 2018 at 32.89, 131.06. iPhone frames `IMG_2031`–`IMG_2051` carry real timestamps. |
 | 5 | **Narai-juku in summer** | `2016 Japan/` | `IMG_5409`–`IMG_5415` (a six-frame swallow-nest sequence), `IMG_5307` (hanging straw), `IMG_5390` (leaves in a ceramic dish), plus the lattice-facade street frames | Second piece on a subject Auwa already ranks for and is cited by AI Overview on. The published Narai article is winter; this is the same town in summer. |

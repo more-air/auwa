@@ -435,7 +435,7 @@ Exposure is deliberately excluded from every preset, since starting exposure var
 ### Per-article workflow
 
 1. Drop raw images into `auwa/photography/{slug}/1-original/`.
-2. Open Lightroom Classic (catalog at `auwa/photography/_lightroom/1-catalog/auwa.lrcat`). Import that folder via `File > Import > Add` (no copy or move).
+2. Open Lightroom Classic (catalog at `Dropbox/3 venture/auwa/journal/_lightroom/1-catalog/auwa.lrcat`). Import that folder via `File > Import > Add` (no copy or move).
 3. For each image: select it, click the matching preset (Landscape / Interior / Night) under `Presets > Auwa` in the left panel.
 4. Per-image nudges only if needed: Exposure (always image-specific), small WB shift, occasional Highlights or Shadows tweak. Don't redo the look.
 5. Optional crop or straighten per image.
@@ -447,7 +447,7 @@ Set the export target up once as a Lightroom Export Preset (`Export > Add` in th
 
 The Lightroom presets are stored in the `Auwa` group. The `.xmp` files live at `~/Library/Application Support/Adobe/CameraRaw/Settings/Auwa Landscape.xmp` (and Interior, Night). They are also version-controlled at `context/brand/photography/` so they can be re-imported on any new machine via `File > Import Develop Profiles and Presets`.
 
-The Lightroom catalog itself, plus the development reference photos and pillar plates, lives outside git at `auwa/photography/_lightroom/`. That folder is gitignored. The presets travel via the `.xmp` files in `context/brand/photography/`, which are tracked.
+The Lightroom catalog itself, plus the development reference photos and pillar plates, lives outside git at `Dropbox/3 venture/auwa/journal/_lightroom/`. That folder is gitignored. The presets travel via the `.xmp` files in `context/brand/photography/`, which are tracked.
 
 ---
 

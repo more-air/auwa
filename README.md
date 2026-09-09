@@ -33,7 +33,7 @@ Some things are kept out of GitHub on purpose. Instagram content lives in the sh
 | `website/app/` | The Kokoro Mirror app. Built, then parked in August 2026. Left alone. |
 | `book/` | The four books, one folder each. |
 | `figure/` | The figure: the Blender master form, the printable files for each version, and Rieko's notes on how it is built and printed. |
-| `photography/` | Photography for the journal and the site. The finished exports are here; the raw files stay on Dropbox. |
+| `Dropbox/3 venture/auwa/journal/` | Photography for the journal and the site. The finished exports are here; the raw files stay on Dropbox. |
 | `audio/` | Sound used on the site. |
 | `scripts/` | Small tools for the mailing list. Run by Claude, not by hand. |
 | `.claude/` | The commands below, and the settings that make them work. |

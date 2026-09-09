@@ -5,7 +5,7 @@ Survey a photo library for Auwa journal use.
 Answers the three questions that cost a whole session to work out by hand
 in September 2026, and that every future article selection needs again:
 
-  1. Is this photo ALREADY published?  (photography/_manifest.json is the
+  1. Is this photo ALREADY published?  (scripts/journal-manifest.json is the
      authority; it maps source filename -> article/name. A perceptual hash
      backstops it, because a few published images were re-exported through
      Topaz and no longer carry their original filename.)
@@ -35,8 +35,26 @@ except ImportError:
     sys.exit("Pillow is required:  pip3 install Pillow")
 
 REPO = Path(__file__).resolve().parent.parent
-MANIFEST = REPO / "photography" / "_manifest.json"
+MANIFEST = REPO / "scripts" / "journal-manifest.json"
 PUBLISHED_DIR = REPO / "website" / "main" / "public" / "journal"
+
+
+def journal_root() -> Path:
+    """The shared Dropbox journal folder, which holds every article's photos and text.
+
+    Moved out of the repo in September 2026: 424 of its 425 files were gitignored,
+    so 1.6GB sat in the working tree that git never tracked, and Rieko could not see
+    any of it. Only the manifest stayed behind, in scripts/, because code reads it and
+    it needs to be versioned. Root comes from AUWA_JOURNAL_ROOT in
+    website/main/.env.local, which is gitignored, so both Macs must set it by hand.
+    """
+    env = REPO / "website" / "main" / ".env.local"
+    if env.exists():
+        for line in env.read_text().splitlines():
+            if line.startswith("AUWA_JOURNAL_ROOT="):
+                return Path(line.split("=", 1)[1].strip().strip('"'))
+    sys.exit("AUWA_JOURNAL_ROOT not set in website/main/.env.local. "
+             "It should point at the shared Dropbox journal folder.")
 EXT = {".jpg", ".jpeg", ".heic", ".png", ".tif", ".tiff"}
 
 # Site convention, measured off the 11 published heroes: all portrait, all exactly

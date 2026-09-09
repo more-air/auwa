@@ -12,7 +12,7 @@
  * The slug arg is the photo folder name (which equals the image folder name),
  * not the URL slug. e.g. "auwa-book" not "the-beginning".
  *
- * Reads mappings from auwa/photography/_manifest.json. To add a new article,
+ * Reads mappings from auwa/scripts/journal-manifest.json. To add a new article,
  * append an entry there OR run /journal:article which will update it.
  */
 
@@ -21,8 +21,23 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 
 const REPO_ROOT = path.resolve(__dirname, "../../..");
-const MANIFEST_PATH = path.join(REPO_ROOT, "photography/_manifest.json");
-const PHOTOGRAPHY_DIR = path.join(REPO_ROOT, "photography");
+const MANIFEST_PATH = path.join(REPO_ROOT, "scripts/journal-manifest.json");
+// Article photography moved out of the repo into the shared Dropbox folder in
+// September 2026 so Rieko can see and comment on the images. 424 of its 425
+// files were gitignored anyway; only the manifest stayed, in scripts/, because
+// code reads it and it needs versioning. Both Macs must set AUWA_JOURNAL_ROOT
+// in website/main/.env.local by hand, since that file is gitignored.
+const JOURNAL_ROOT = (() => {
+  const envFile = path.join(REPO_ROOT, "website/main/.env.local");
+  const line = fs.existsSync(envFile)
+    ? fs.readFileSync(envFile, "utf8").split("\n").find((l) => l.startsWith("AUWA_JOURNAL_ROOT="))
+    : null;
+  if (!line) {
+    console.error("AUWA_JOURNAL_ROOT not set in website/main/.env.local — cannot find article photos.");
+    process.exit(1);
+  }
+  return line.slice("AUWA_JOURNAL_ROOT=".length).trim().replace(/^"|"$/g, "");
+})();
 const PUBLIC_JOURNAL = path.join(REPO_ROOT, "website/main/public/journal");
 // Journal articles produce IG carousels — they live under the journal pillar.
 // Social content moved out of the repo into the shared Dropbox folder, so the
@@ -63,7 +78,11 @@ function run(input, output, mode, position) {
 
 for (const [photoSlug, article] of Object.entries(articles)) {
   console.log(`\n=== ${photoSlug} (URL: /journal/${article.url_slug}) ===`);
-  const sourceDir = path.join(PHOTOGRAPHY_DIR, photoSlug, "2-edited");
+  // The manifest key names the web output (frozen, it is in live image URLs).
+  // `journal_folder` overrides where the humans-facing Dropbox folder lives, so
+  // those can be renamed for clarity without touching anything published.
+  const folder = article.journal_folder || photoSlug;
+  const sourceDir = path.join(JOURNAL_ROOT, folder, "image", "2-edited");
   const webDir = path.join(PUBLIC_JOURNAL, photoSlug);
   const igDir = path.join(SOCIAL_IG, photoSlug);
 

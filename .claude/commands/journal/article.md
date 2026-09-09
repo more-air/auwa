@@ -24,7 +24,7 @@ Pillars sit directly under `$SOCIAL` (no `instagram/` level), so the journal IG 
 
 ## Step 0: Is there already a brief?
 
-**Check `context/articles/[slug].md` before asking anything.** Article briefs are how a researched
+**Check `Dropbox/3 venture/auwa/journal/[slug]/text/0-brief.md` before asking anything.** Article briefs are how a researched
 article survives the end of a session. If one exists for this subject, load it and skip straight to
 whatever it marks OPEN — the route, the photo selection, the hero, the angle and the keyword
 research are already settled and re-deriving them wastes a session and risks contradicting a
@@ -44,7 +44,7 @@ Ask the user these questions one at a time (not all at once):
 
 1. "What's the article about? A few sentences on the subject, angle, and any specific memories or details to include."
 2. "Which category: Seasons, Craft, Philosophy, or Travel?"
-3. "Have you exported Lightroom-edited photos into `auwa/photography/[slug]/2-edited/`? If so, what's the slug folder name? (Raw drops live in `1-original/` for Lightroom import; the article command reads from `2-edited/`.)"
+3. "Have you exported Lightroom-edited photos into `Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`? If so, what's the slug folder name? (Raw drops live in `1-original/` for Lightroom import; the article command reads from `2-edited/`.)"
 
 If the user provides all this information upfront, skip the questions and proceed.
 
@@ -52,11 +52,11 @@ If the user provides all this information upfront, skip the questions and procee
 
 If there are no edited photos yet because the article is being built *from the archive*, load
 `context/pillar/photography.md` and follow the three-phase workflow in it. In short: survey with
-`scripts/photo-survey.py`, shortlist, copy the chosen originals into `photography/[slug]/1-original/`
+`scripts/photo-survey.py`, shortlist, copy the chosen originals into `Dropbox/3 venture/auwa/journal/[slug]/image/1-original/`
 (all media there is gitignored, so it costs the repo nothing), then write the article and hold it
 while Tom does the Lightroom pass. Resume this command at Step 2 once `2-edited/` exists.
 
-**Never recommend a photo without checking it is unpublished.** `photography/_manifest.json` maps
+**Never recommend a photo without checking it is unpublished.** `scripts/journal-manifest.json` maps
 every published source filename to its article; `scripts/photo-survey.py` checks it, plus a
 perceptual hash for images re-exported through Topaz under a new name. Six of forty-nine shortlisted
 photos turned out to be already live on 8 September 2026 because this check was skipped.
@@ -66,7 +66,7 @@ photographs; Claude cannot supply what it was actually like to be there, and mus
 The journal ranks and gets cited by AI Overviews because it is genuinely first-hand — an article
 written from photographs alone is commodity travel writing and spends that advantage. Ask for five
 minutes of real recollection, and make it easy by drawing the questions from the specific photos
-chosen ("who was the woodcarver, and how did you find her?" rather than "tell me about the trip").
+chosen ("who was the craftspeople trip, and how did you find her?" rather than "tell me about the trip").
 If no memory is available for a subject, say so and pick a different subject.
 
 ## Step 1b: Keyword research (high-performance SEO)
@@ -85,9 +85,9 @@ Carry the primary keyword into the `title`, the `description`, the first paragra
 
 ## Step 2: Process Images
 
-The source folder is `auwa/photography/[slug]/2-edited/`. These are full-quality images already exported from Lightroom with the matching Auwa preset applied (Landscape, Interior, or Night). The raw drops live in `1-original/` and are not touched by this command.
+The source folder is `Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`. These are full-quality images already exported from Lightroom with the matching Auwa preset applied (Landscape, Interior, or Night). The raw drops live in `1-original/` and are not touched by this command.
 
-If photos have been provided in `auwa/photography/[slug]/2-edited/`:
+If photos have been provided in `Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`:
 
 1. Create the output directories:
    - `website/main/public/journal/[slug]/` (web hero, supporting images, OG)
@@ -111,7 +111,7 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
 4. **Web optimisation.** For each image in `2-edited/`, output a web version to `website/main/public/journal/[slug]/` at **1800px max long edge**:
    ```bash
    cd website/main && node scripts/process-image.js \
-     ../../photography/[slug]/2-edited/[source].jpg \
+     ../../`Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`[source].jpg \
      public/journal/[slug]/[slug]-[name].jpg web
    ```
    Rename each to convention: `[slug]-hero.jpg`, `[slug]-facade.jpg`, etc. Typical sizes after the Auwa preset + sharp sharpening: 500KB-1MB depending on detail.
@@ -119,7 +119,7 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
 5. **IG optimisation.** For each image in `2-edited/`, also output a 1080×1350 (4:5 portrait, centre-cropped) version to `$SOCIAL/3-journal/[slug]/` with the `image-` prefix convention:
    ```bash
    cd website/main && node scripts/process-image.js \
-     ../../photography/[slug]/2-edited/[source].jpg \
+     ../../`Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`[source].jpg \
      "$SOCIAL/3-journal/[slug]/image-[name].jpg" ig
    ```
    The `image-` prefix groups article photos together in the IG folder and keeps them visually distinct from the text frames (`text-quote-*.jpg`, `text-close-*.jpg`) added in Step 7.
@@ -127,13 +127,13 @@ cd website/main && node scripts/process-image.js <input> <output> <web|ig|og>
 6. **OG image (hero only).** Generate the 1200×630 landscape crop for link previews on LinkedIn, Facebook, WhatsApp, Pinterest, X. Source from the original `2-edited/` hero (NOT the already-resized web hero, to preserve resolution):
    ```bash
    cd website/main && node scripts/process-image.js \
-     ../../photography/[slug]/2-edited/[hero-source].jpg \
+     ../../`Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`[hero-source].jpg \
      public/journal/[slug]/[slug]-og.jpg og
    ```
    Verify these files exist: `[slug]-hero.jpg` (portrait, web), `[slug]-og.jpg` (1200×630 landscape, social previews), and `image-hero.jpg` in `$SOCIAL/3-journal/[slug]/` (1080×1350 IG). `generateMetadata()` in `journal/[slug]/page.tsx` derives the OG path by replacing `-hero.jpg` with `-og.jpg`, so the naming must match exactly.
 7. Report the final file sizes and counts (X web, X IG, 1 OG).
 
-8. **Update the photography manifest.** Add an entry for the new article in `auwa/photography/_manifest.json`:
+8. **Update the photography manifest.** Add an entry for the new article in `auwa/scripts/journal-manifest.json`:
    ```json
    "[photo-slug]": {
      "url_slug": "[url-slug-if-different-else-same]",
@@ -158,7 +158,7 @@ node scripts/process-all.js              # all 11 articles
 node scripts/process-all.js [photo-slug] # single article (e.g. narai-juku)
 ```
 
-This reads `auwa/photography/_manifest.json` and processes every article in one pass: web (1800px) + IG (1080×1350) + OG (1200×630), with proper Lanczos3 + unsharp mask + MozJPEG via the `sharp` library.
+This reads `auwa/scripts/journal-manifest.json` and processes every article in one pass: web (1800px) + IG (1080×1350) + OG (1200×630), with proper Lanczos3 + unsharp mask + MozJPEG via the `sharp` library.
 
 ## Step 3: Write the Article
 
@@ -413,6 +413,24 @@ text-close-light.jpg      ← final slide (light theme)
 ```
 
 Whoever posts picks either `image-hero-text.jpg` or `image-hero.jpg` for slide 1 (typeset vs bare photo), one of the dark/light pairs for slide 2 and the final slide, and however many `image-[name].jpg` files in between as suit the article.
+
+## Step 8: Write the copy back to the shared folder
+
+Every time the article changes on the site, regenerate the plain-text copy so Tom and Rieko
+always have the current version beside the photographs:
+
+```bash
+python3 scripts/article-text.py [url-slug]
+```
+
+That writes `Dropbox/3 venture/auwa/journal/[journal-folder]/text/4-live.txt`, which carries the prose, the metadata,
+the captions, the alt text and the photographs in the order they appear. Use `--slot 1` to write
+`1-draft.txt` instead when the article is not live yet.
+
+**Never write to `2-rieko.txt` or `3-tom.txt`.** Those are theirs. When Tom says Rieko has
+edited, read the file he names and work from it.
+
+---
 
 ## Step 8: Request indexing (after the deploy lands)
 

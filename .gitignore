@@ -1,3 +1,7 @@
+# Article photography moved out of the repo on 9 Sep 2026 into the shared
+# Dropbox folder (AUWA_JOURNAL_ROOT in website/main/.env.local). 424 of its
+# 425 files were ignored anyway, so 1.6GB sat here that git never tracked and
+# Rieko could never see. Only the manifest stayed, at scripts/journal-manifest.json.
 .DS_Store
 node_modules
 .next
@@ -7,10 +11,8 @@ node_modules
 .env.local
 
 # Lightroom workspace (catalog files + local reference photos, not for git)
-photography/_lightroom/
 
 # Raw photo drops (kept local + on Dropbox; 2-edited/ exports are tracked for re-processing)
-photography/*/1-original/
 
 # Video source frames (large, regenerable from MP4)
 video/
@@ -28,22 +30,6 @@ share/
 # the web-optimised copies under website/main/public/ are tracked here.
 
 # Photography working media. Heavy binaries kept local + on Dropbox.
-photography/**/*.jpg
-photography/**/*.jpeg
-photography/**/*.JPG
-photography/**/*.png
-photography/**/*.PNG
-photography/**/*.mp4
-photography/**/*.MP4
-photography/**/*.mov
-photography/**/*.MOV
-photography/**/*.gif
-photography/**/*.webp
-photography/**/*.psd
-photography/**/*.tif
-photography/**/*.tiff
-photography/**/*.heic
-photography/**/*.HEIC
 
 # Blender auto-backups (regenerated on every save; the .blend itself is tracked in LFS)
 *.blend1

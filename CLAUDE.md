@@ -348,14 +348,25 @@ These files are NOT auto-loaded. Only read them when you need deeper context on 
 - *"website session"*, *"website updates"*, *"website work"*, *"website tweak"*, *"website fix"*, *"website bug"* → load `context/website/website.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 - *"newsletter send"*, *"send newsletter"* → load `context/marketing/newsletter.md` + `context/pillar/journal.md` + `context/brand/brand.md`.
 - *"social session"*, *"instagram"*, *"social post"* → load `context/marketing/instagram.md` + `context/brand/brand.md` + `context/marketing/arrival.md`.
-- *"article"*, *"journal article"*, *"write article"* → **check `context/articles/[slug].md` first** — a researched article in progress keeps its brief there, and starting without it re-derives work and risks contradicting settled decisions. Then load `context/pillar/journal.md` + `context/website/patterns.md` + `context/brand/brand.md`.
+- *"article"*, *"journal article"*, *"write article"* → **check `Dropbox/3 venture/auwa/journal/[slug]/text/0-brief.md` first** — a researched article in progress keeps its brief there, and starting without it re-derives work and risks contradicting settled decisions. Then load `context/pillar/journal.md` + `context/website/patterns.md` + `context/brand/brand.md`.
 - *"photos"*, *"photography"*, *"which photos"*, *"trip photos"*, *"image selection"*, *"article from photos"* → load `context/pillar/photography.md` + `context/pillar/journal.md`. **Run `scripts/photo-survey.py` before recommending any photograph; six of forty-nine picks were already published on 8 Sep 2026 because that check was skipped.**
 
 Whenever `context/app/app.md` is loaded, `context/app/patterns.md` is paired. Same for `context/website/website.md` + `context/website/patterns.md` on implementation work.
 
-**Article briefs (`context/articles/`):**
+**Article briefs and drafts (`Dropbox/3 venture/auwa/journal/[slug]/text/`, shared Dropbox, NOT the repo):**
 
-- One file per article in progress, named for its slug. Holds what is settled, what is still OPEN, the photo selection with paths and the role of each frame, the hero and why, the proposed title / seoTitle / keywords, facts already verified, and the questions outstanding for Tom or Rieko. **Written so an article can be picked up cold in a fresh session** rather than carrying a heavy research session forward. `/journal:article` checks for one at Step 0. Delete or archive a brief once the article is published.
+- **The review workflow, added 9 September 2026.** Every article has a `text/` folder beside
+  its `image/` folder in the shared Dropbox, so Rieko can read the copy, see the photographs
+  and edit at her own pace instead of Tom pasting drafts into email or the two of them
+  editing side by side. Five numbered slots:
+  `0-brief.md` (Claude: angle, photo selection, open questions), `1-draft.txt` (Claude),
+  `2-rieko.txt` (Rieko's edit), `3-tom.txt` (Tom's final), `4-live.txt` (Claude, exactly what
+  is on the site, regenerated after each deploy as a backup and a diff target).
+  **Claude writes 0, 1 and 4 only, and never touches 2 or 3.** Read back only the file the
+  user names. `.txt` not `.md` for the drafts, because Dropbox on Android renders markdown
+  as raw `**` and `#`.
+- Regenerate with `python3 scripts/article-text.py [slug]` (or `--all`, or `--slot 1`).
+- One brief per article in progress, named for its slug. Holds what is settled, what is still OPEN, the photo selection with paths and the role of each frame, the hero and why, the proposed title / seoTitle / keywords, facts already verified, and the questions outstanding for Tom or Rieko. **Written so an article can be picked up cold in a fresh session** rather than carrying a heavy research session forward. `/journal:article` checks for one at Step 0. Delete or archive a brief once the article is published.
 
 **Pillars (`context/pillar/`):**
 

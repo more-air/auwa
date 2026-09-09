@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Source-to-name mappings for every published journal article. Used by website/main/scripts/process-all.js to re-process all articles when presets change. Each key is the photo folder name in auwa/photography/, which equals the image folder name in website/main/public/journal/. The 'url_slug' is the article URL (sometimes differs from image folder, e.g. auwa-book images live at /journal/auwa-book/ but the URL is /journal/the-beginning). AUDIT 8 Sep 2026: this file is the authority for 'has this photo been used', so gaps cause reuse errors. koya-san/jizo (IMG_1828) was published but unlisted and was nearly reused. Four other published images are still unlisted because their sources are not in the Dropbox '2 favourite' folder: auwa-book sketch-1, sketch-2 and spread (Rieko's illustrations) and nozawa-festival torches, washi-paper paper and sheet. Add entries whenever an article ships.",
+  "description": "Source-to-name mappings for every published journal article. Used by website/main/scripts/process-all.js to re-process all articles when presets change. Each key is the photo folder name in auwa/photography/, which equals the image folder name in website/main/public/journal/. The 'url_slug' is the article URL (sometimes differs from image folder, e.g. auwa-book images live at /journal/auwa-book/ but the URL is /journal/the-beginning). AUDIT 8 Sep 2026: this file is the authority for 'has this photo been used', so gaps cause reuse errors. koya-san/jizo (IMG_1828) was published but unlisted and was nearly reused. Four other published images are still unlisted because their sources are not in the Dropbox '2 favourite' folder: auwa-book sketch-1, sketch-2 and spread (Rieko's illustrations) and nozawa-festival torches, washi-paper paper and sheet. Add entries whenever an article ships. Keys are the WEB output slug and are frozen: they name the live image files under website/main/public/journal/. `url_slug` is the page URL. `journal_folder` is optional and only set where the Dropbox folder humans browse differs from the key, so folders can be renamed for clarity without moving live image URLs.",
   "articles": {
     "72-seasons": {
       "url_slug": "72-seasons",
@@ -14,6 +14,7 @@
     },
     "auwa-book": {
       "url_slug": "the-beginning",
+      "journal_folder": "the-beginning",
       "hero": "Auwa_01_18_Topaz.png",
       "images": {
         "hero": "Auwa_01_18_Topaz.png",

@@ -9,7 +9,7 @@ Deploy the current state of the Auwa website to Vercel.
 
 1. Run `git status` to see what's changed
 2. Show the user a summary of the changes
-3. Stage all relevant files: website code, context files, commands, brand assets, **and `documents/` (the exported context PDFs — these ARE tracked and should be committed alongside the `.md` files they were generated from).** Do NOT stage `photography/_lightroom/` (gitignored).
+3. Stage all relevant files: website code, context files, commands, brand assets, **and `documents/` (the exported context PDFs — these ARE tracked and should be committed alongside the `.md` files they were generated from).** Do NOT stage `Dropbox/3 venture/auwa/journal/_lightroom/` (gitignored).
 
    *Corrected 5 Aug 2026: this step previously claimed `documents/` was gitignored. It is not — `git check-ignore` returns nothing for it and commits such as `0fc552a` ("refresh all context PDFs") have always included it. Following the old wording left the PDFs permanently dirty in the working tree.*
 4. Commit with a clear, concise message describing what changed

@@ -335,8 +335,8 @@ Tom selects photographs from his Japan catalogue. For each article:
 
 Per-article workflow:
 
-1. Tom drops raw photos into `auwa/photography/[slug]/1-original/`.
-2. Tom opens Lightroom Classic, imports that folder, applies the matching Auwa preset (Landscape / Interior / Night) to each, exports at full quality (no resize) to `auwa/photography/[slug]/2-edited/`. See `context/brand/brand.md` Section 6 for the preset spec.
+1. Tom drops raw photos into `Dropbox/3 venture/auwa/journal/[slug]/image/1-original/`.
+2. Tom opens Lightroom Classic, imports that folder, applies the matching Auwa preset (Landscape / Interior / Night) to each, exports at full quality (no resize) to `Dropbox/3 venture/auwa/journal/[slug]/image/2-edited/`. See `context/brand/brand.md` Section 6 for the preset spec.
 3. The article command reads from `2-edited/` and runs the sharp pipeline below.
 
 Claude Code should run this optimisation pipeline automatically:
@@ -363,7 +363,7 @@ Claude Code should run this optimisation pipeline automatically:
    - OG (hero only): `[slug]-og.jpg` (the article page derives this path from the hero)
    - All lowercase, hyphens not underscores, no spaces
 
-5. **Update the photography manifest** at `auwa/photography/_manifest.json`. Add an entry mapping each source filename to its named role for the new article. The manifest enables `node website/main/scripts/process-all.js` to re-process every article in one command if the Auwa presets or sharp settings change. Skipping this step makes the new article un-replayable.
+5. **Update the photography manifest** at `auwa/scripts/journal-manifest.json`. Add an entry mapping each source filename to its named role for the new article. The manifest enables `node website/main/scripts/process-all.js` to re-process every article in one command if the Auwa presets or sharp settings change. Skipping this step makes the new article un-replayable.
 
 6. **Write alt text** that describes the image for accessibility. Be specific: "Close-up of the Shigefusa blade showing kitaeji damascus pattern and hand-chiseled kanji" not "A knife."
 
@@ -373,7 +373,7 @@ Claude Code should run this optimisation pipeline automatically:
 
 **Source photo folder structure:**
 ```
-auwa/photography/[slug]/
+`Dropbox/3 venture/auwa/journal/[slug]/image/
   1-original/         ← Tom drops raw photos here
   2-edited/           ← Lightroom exports here, full quality (article command reads from here)
 ```

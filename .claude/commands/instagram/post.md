@@ -78,7 +78,7 @@ Ask in one message:
 ### Step 3A: Read the Article + Map the Slug
 
 1. Load the article from `website/main/src/app/journal/[url-slug]/page.tsx`. Note the title, topic, voice, and any specific framing.
-2. Look up the IG folder name (the `photo-slug`) in `auwa/photography/_manifest.json`. The article URL slug and the photo folder slug can differ (e.g. URL `the-beginning` vs photo folder `auwa-book`). The manifest entries are keyed by photo-slug with a `url_slug` field inside.
+2. Look up the IG folder name (the `photo-slug`) in `auwa/scripts/journal-manifest.json`. The article URL slug and the photo folder slug can differ (e.g. URL `the-beginning` vs photo folder `auwa-book`). The manifest entries are keyed by photo-slug with a `url_slug` field inside.
 3. The IG folder is `$SOCIAL/3-journal/[photo-slug]/`. The article URL on slide 4 uses `[url-slug]`.
 
 ### Step 4A: Cover Slide Setup
