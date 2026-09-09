@@ -1219,7 +1219,9 @@ export async function generateMetadata({
       publishedTime: article.publishedAt,
       authors: [article.author],
       ...(ogImage && {
-        images: [{ url: ogImage, width: 1200, height: 630, alt: `${article.title} | Auwa Journal` }],
+        // Describe the photograph. This is read aloud on social platforms and
+        // by screen readers; repeating the page title tells nobody anything.
+        images: [{ url: ogImage, width: 1200, height: 630, alt: article.heroAlt ?? article.subtitle }],
       }),
     },
     twitter: {

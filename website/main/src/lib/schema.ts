@@ -174,7 +174,9 @@ export function articleNode(article: {
     "@id": `${url}#article`,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,
-    headline: article.title,
+    // Match the <title> tag: seoTitle is the searchable phrase, title is the
+    // on-page editorial headline. Google reads this one.
+    headline: article.seoTitle ?? article.title,
     name: article.seoTitle ?? article.title,
     description: article.description ?? article.subtitle,
     articleSection: article.category,
