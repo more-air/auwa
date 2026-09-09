@@ -872,6 +872,7 @@ const articles: Record<
   },
   "findac": {
     title: "Musubi",
+    seoTitle: "Musubi: Rieko, A Portrait by Fin DAC",
     subtitle: "A portrait by Fin DAC connects two Kokoros.",
     description: "A portrait by Fin DAC connects two Kokoros. Painted from a 1970s Japanese wedding photograph, and the second version we carried to Japan.",
     category: "Craft",
