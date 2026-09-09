@@ -36,6 +36,32 @@ Show the user the list and ask which they want:
 
 Do not stash without being asked, and never drop a stash.
 
+**2b. Check this machine's local-only config, BEFORE pulling.**
+
+`website/main/.env.local` is gitignored, so it never travels between machines. When a new
+variable is added on one Mac, the other silently lacks it and the failure looks like a broken
+script rather than missing config. Check and report:
+
+```bash
+for v in AUWA_SOCIAL_ROOT AUWA_JOURNAL_ROOT RESEND_API_KEY \
+  RESEND_AUDIENCE_ID NEWSLETTER_SECRET; do
+  grep -q "^$v=" website/main/.env.local 2>/dev/null \
+    && echo "  ok   $v" || echo "  MISSING  $v"
+done
+```
+
+If anything is MISSING, tell the user plainly and give them the line to add. The two paths are:
+
+```
+AUWA_SOCIAL_ROOT="/Users/admin/Dropbox/3 venture/auwa/social"
+AUWA_JOURNAL_ROOT="/Users/admin/Dropbox/3 venture/auwa/journal"
+```
+
+Adjust the username if this Mac differs. `AUWA_JOURNAL_ROOT` was added 9 Sep 2026 when article
+photography and text moved out of the repo into the shared Dropbox folder; without it
+`process-all.js`, `photo-survey.py` and `article-text.py` all stop with an error. Never print the
+secret values, only whether the keys are present.
+
 **3. Pull.**
 
 ```bash
