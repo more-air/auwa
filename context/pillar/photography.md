@@ -219,7 +219,7 @@ The Polarr edits (`2 polarr/`) are the fullest set for 2018; 2022 is all in `1 p
 
 | # | Article | Folder | Frames | Note |
 | --- | --- | --- | --- | --- |
-| 1 | **Fin DAC / Rieko** | already in `photography/findac/` | all 14 | Brief written. Highest priority — opens the collab programme. |
+| 1 | ~~**Fin DAC / Rieko**~~ | — | — | **PUBLISHED 9 Sep 2026** as *Musubi*, auwa.life/journal/findac. |
 | 2 | **Kumano Kodo** | already in `Dropbox/3 venture/auwa/journal/kumano-kodo/image/1-original/` | 15 selected | Brief written. Needs Tom's memory notes. |
 | 3 | **Kokoro** | `2022 Japan/1 pixel/` | the 4–6 Nov Kyoto/Ohara set: `original_04cbcf2b…061228073` (hero, a tatami room framing maples), `PXL_20221106_091906762` (tokonoma), plus the ceramics from 25 Oct (`PXL_20221025_0918…`, `_0919…`, `_0934…`) | 72 Seasons already used the engawa, veranda and tsukubai from this same afternoon — check the manifest and decide whether a second Ohara piece reads as house style or thin sourcing. |
 | 4 | **Mount Aso** | `2018 Japan/2 polarr/` | `IMG_5021`–`IMG_5025` (Kusasenri grassland, azaleas), `IMG_0585`, `IMG_0594` (caldera, winding road), `IMG_0764` (red poppies) | Same trip as Kumano. GPS-confirmed 11–12 May 2018 at 32.89, 131.06. iPhone frames `IMG_2031`–`IMG_2051` carry real timestamps. |

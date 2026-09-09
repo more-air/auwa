@@ -432,7 +432,7 @@ edited, read the file he names and work from it.
 
 ---
 
-## Step 8: Request indexing (after the deploy lands)
+## Step 9: Request indexing (after the deploy lands)
 
 Don't wait for Google to organically find the new article — that can take 4-6 weeks for a site Auwa's age. Two things after deploy:
 
