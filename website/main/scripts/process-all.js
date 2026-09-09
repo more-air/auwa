@@ -25,7 +25,22 @@ const MANIFEST_PATH = path.join(REPO_ROOT, "photography/_manifest.json");
 const PHOTOGRAPHY_DIR = path.join(REPO_ROOT, "photography");
 const PUBLIC_JOURNAL = path.join(REPO_ROOT, "website/main/public/journal");
 // Journal articles produce IG carousels — they live under the journal pillar.
-const SOCIAL_IG = path.join(REPO_ROOT, "social/instagram/3-journal");
+// Social content moved out of the repo into the shared Dropbox folder, so the
+// root comes from AUWA_SOCIAL_ROOT in website/main/.env.local. Pillars sit
+// directly under it (no instagram/ level). Without this the script silently
+// recreated a dead social/ tree inside the repo.
+const SOCIAL_ROOT = (() => {
+  const envFile = path.join(REPO_ROOT, "website/main/.env.local");
+  const line = fs.existsSync(envFile)
+    ? fs.readFileSync(envFile, "utf8").split("\n").find((l) => l.startsWith("AUWA_SOCIAL_ROOT="))
+    : null;
+  if (!line) {
+    console.error("AUWA_SOCIAL_ROOT not found in website/main/.env.local — cannot write IG images.");
+    process.exit(1);
+  }
+  return line.slice("AUWA_SOCIAL_ROOT=".length).trim().replace(/^"|"$/g, "");
+})();
+const SOCIAL_IG = path.join(SOCIAL_ROOT, "3-journal");
 const PROCESS_IMAGE = path.join(__dirname, "process-image.js");
 
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));

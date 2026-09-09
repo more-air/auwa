@@ -37,6 +37,22 @@ interface FadeInProps {
    * scrolls past the title, reading as a delay).
    */
   triggerRef?: React.RefObject<HTMLElement | null>;
+  /**
+   * Delay (ms) used INSTEAD of `delay` when the element is already on
+   * screen at mount.
+   *
+   * Above the fold, every reveal short-circuits against the same instant,
+   * so the whole first viewport shares one timeline and the lowest delay
+   * simply appears first. Below the fold each element is triggered by its
+   * own scroll entry, where the delay only sequences that element against
+   * its immediate neighbours. One number cannot serve both: a value long
+   * enough to order the hero makes scroll reveals feel laggy, and a value
+   * short enough for scroll reveals lets later content overtake the hero.
+   *
+   * Set this on anything that needs a place in the first-paint cascade
+   * while keeping a short delay for the scrolled case.
+   */
+  firstPaintDelay?: number;
 }
 
 export function FadeIn({
@@ -48,9 +64,13 @@ export function FadeIn({
   variant = "fade",
   revealDistance = 80,
   triggerRef,
+  firstPaintDelay,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  // Whether this reveal fired from the above-the-fold short-circuit rather
+  // than from a scroll into view. Drives `firstPaintDelay`.
+  const [isFirstPaint, setIsFirstPaint] = useState(false);
   // Gate reveal setup on page-transition readiness. After a swipe
   // navigation, ready flips from false → true once the panel exits.
   // On first page load, ready is true from the first render, so this
@@ -74,6 +94,9 @@ export function FadeIn({
     const inViewportOnMount =
       rect.top < window.innerHeight && rect.bottom > 0;
     if (inViewportOnMount) {
+      // Both flags land in one commit, so the transition starts with the
+      // first-paint delay already applied rather than animating twice.
+      setIsFirstPaint(true);
       setIsVisible(true);
       return;
     }
@@ -109,6 +132,8 @@ export function FadeIn({
   // cards need a longer glide); everything else uses DURATION.enter.
   // Caller can still override with the `duration` prop when needed.
   const dur = duration ?? (isReveal ? DURATION.reveal : DURATION.enter);
+  const resolvedDelay =
+    isFirstPaint && firstPaintDelay !== undefined ? firstPaintDelay : delay;
   // Reveal slides in from the right; fade rises up.
   const hiddenTransform = isReveal
     ? `translate3d(${revealDistance}px, 0, 0)`
@@ -126,7 +151,7 @@ export function FadeIn({
         // visible on hover/un-hover of nested images. Keeping the
         // layer is the trade-off documented in patterns.md.
         transform: isVisible ? "translate3d(0, 0, 0)" : hiddenTransform,
-        transition: `opacity ${dur}ms ${EASING.outExpo} ${delay}ms, transform ${dur}ms ${EASING.outExpo} ${delay}ms`,
+        transition: `opacity ${dur}ms ${EASING.outExpo} ${resolvedDelay}ms, transform ${dur}ms ${EASING.outExpo} ${resolvedDelay}ms`,
       }}
     >
       {children}

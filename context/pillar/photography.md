@@ -136,6 +136,23 @@ mobile and transfers straight to social. A landscape frame can sometimes be crop
 only when the crop does not destroy the composition — a symmetrical framed-window shot dies
 when you crop it to portrait.
 
+**Leave the hero room to be cropped (added 8 Sep 2026, from the Fin DAC hero).** The hero panel
+is `object-cover` in a box whose ratio *changes with the reader's window*: a fixed 4:5 on mobile,
+but `50vw / 100svh` on desktop, which measures 0.800 at 1440x900, 0.770-0.774 on the two
+MacBooks, and **0.889 on a 16:9 monitor**. So no single aspect ratio avoids cropping everywhere,
+and a 3:4 frame loses about 9% off the top and bottom on a 16:9 display.
+
+What actually works is margin, not ratio. **A hero with a subject running the full height of the
+frame needs roughly 8% empty space above and below it.** That absorbs the 5% worst-case crop at
+every common window. The Fin DAC hero was re-exported twice: first padded at the sides to 4:5,
+which still clipped because there was only 2.8% below her feet, then with the figure repositioned
+inside the same frame to give 11.7% above and 7.4% below. Fixed.
+
+Two corollaries. A full-length figure or an object photographed end to end is a demanding hero;
+check the margins before choosing it. And do not reach for `object-contain` or a per-article fit
+override to rescue a tight frame — that was tried and reverted, because a re-export solves it with
+no code at all.
+
 In `2 favourite`, 842 of 1,645 Japan photos are native portrait and 1,119 are hero-capable
 (portrait, or landscape tall enough to crop to 3:4 at 2400).
 

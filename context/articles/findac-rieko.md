@@ -1,7 +1,7 @@
 # Article brief — Fin DAC's portrait of Rieko
 
-*Prepared 8 September 2026. Photos already in `photography/findac-rieko/` (Tom added them).
-Start a fresh session with `/journal:article findac-rieko`.*
+*Prepared 8 September 2026. **Written and built the same day**, see STATUS at the bottom before
+doing anything else. Photos in `photography/findac-rieko/`.*
 
 **Slug:** `findac-rieko`   **Category:** Craft
 **Priority: highest in the backlog.** See WHY THIS ONE MATTERS.
@@ -216,6 +216,143 @@ Still write about her with the care the story deserves; Fin himself checked befo
 5. **Check the facts against Fin's posts** in
    `Dropbox/2 private/tom/finance/3 asset/art/findac/rieko/1 original/4 instagram/` and
    `…/2 print/2 instagram/`. Quote him sparingly and accurately; the story above is drawn from them.
+
+---
+
+## STATUS — 8 September 2026
+
+**The article is written and wired into the site.** Live locally at `/journal/findac-rieko`,
+title "Musubi", category Craft, **author Rieko Maeda** (photography Tom Vining), 1,125 words. Build passes,
+12 article paths. Sitemap, OG image, `seoTitle`, `heroAlt` and alt text on every image all done.
+Voice check clean: no em dashes, no AI vocabulary, no "a particular" (Yakushima owns that one),
+curly apostrophes throughout to match the rest of the journal.
+
+**Decisions taken, do not reopen:**
+
+- **Title: "Musubi"** (6 chars), chosen by Tom 9 Sep 2026. Musubi (結び) is the tying of a knot and
+  the joining of people and things, which is exactly what the piece is about. It follows the
+  naming-noun convention (a place, a maker, an object, a concept) and never wraps. Earlier passes
+  were "Her Mother's Kimono" (rejected: the only possessive descriptive phrase on the site) and
+  "Fin DAC". `seoTitle` stays **"Fin DAC's Portrait of Rieko Maeda"**, which is what the split
+  title/seoTitle field exists for. **The word now appears in the closing paragraph**, briefly
+  glossed, so the title is earned rather than asserted. A 20-character / one-to-three-word title
+  limit is written into `/journal:article` and `context/pillar/journal.md`.
+- **Subtitle: "His artwork connects mum and me."** (31 chars). Tom's line was "Fin DAC connects mum
+  and I through his artwork"; changed because the H1 is already "Fin DAC" so repeating it read
+  oddly, and "mum and I" is the object of the verb.
+- **Hero is plain `object-cover`. The fix was in the export, not the code.** The panel is a fixed
+  box (4:5 on mobile, half-width x 100svh at lg) and cover was cutting the kanzashi off the top and
+  the zori off the bottom of the original 3:4 (0.753) frame.
+  Two export passes settled it. First Tom padded the sides to **4147 x 5184, exactly 4:5**, which
+  fixed mobile and both MacBooks but still clipped on a 16:9 monitor: the desktop panel is
+  50vw / 100svh, so its ratio is 0.800 at 1440x900, 0.770-0.774 on the MacBooks (sides cropped,
+  full height kept) but **0.889 at 1920x1080 and 2560x1440**, where cover takes 5% off the top and
+  bottom, and the figure had only 2.8% margin below her.
+  Then Tom **repositioned her inside the same 4147 x 5184 frame** rather than changing its size.
+  Margins are now **11.7% above and 7.4% below**, which clears the 5% worst case at every common
+  window. Measured safe at 1280x800, 1440x900, both MacBooks, 1920x1080, 2560x1440 and mobile.
+  A temporary `heroFit: "contain"` field with a blurred backdrop was tried and is **fully
+  reverted**; no per-article hero code remains and `tsc --noEmit` is clean.
+  **The general rule this gives every future hero:** with cover, the figure needs roughly **8%
+  empty margin top and bottom**. That covers panel ratios up to 0.939, which is every window up to
+  about 1.88 viewport aspect. An ultrawide 21:9 window would still clip, and nothing short of a
+  wider export would fix that.
+- **Voice: Rieko, first person.** Written as Tom first, then **rewritten in Rieko's voice on
+  8 Sep 2026 at Tom's instruction**, and the reasoning is strategic as much as editorial: this
+  article is the opening move of the Fin DAC collaboration, and a Japanese-authored piece is a far
+  better thing to send an artist who paints Asian women and has had appropriation thrown at him.
+  It also reads warmer from her. Tom's backstory stays in, reported by her ("Tom has known him a
+  long time... Fin wrote to him privately. Tom cannot remember what he said. He has never forgotten
+  that he said it.").
+  **Her voice is matched to `the-beginning`, her other published article:** first person, plain,
+  unhurried, **no contractions** ("I did not", "she does not"), Tom named naturally, feeling stated
+  simply rather than described. The only contractions left are inside Fin's quoted posts, which are
+  verbatim and must stay that way.
+  **What is reported rather than invented.** Everything attributed to Rieko and Mitsuko comes from
+  Tom's own answers: Mitsuko delighted and honoured, looked Fin up and follows him since; Rieko left
+  the concept to Fin and saw nothing until it was done; she liked hearing he preferred parts of the
+  print; the studio visits leave her wanting to work; the two versions connect them across the
+  distance. **Nothing about how either of them felt has been invented, and nothing should be.**
+  See QUESTIONS FOR RIEKO below for the lines only she can supply.
+- **Hero: Mitsuko's wedding portrait** (`3-mitsuko-wide-2x.jpg`), not the Rieko-and-Mitsuko frame
+  the brief originally leaned to. Tom's call. It opens the story where the story starts.
+- **The Auwa stencil is in**, as a short closing coda with one photograph and no pitch.
+- **Five photographs, final set chosen by Tom 9 Sep 2026:** hero (`3-mitsuko-wide-2x`, Mitsuko's
+  wedding portrait), **`CIMG3757.jpg`** (Rieko and Tom on their wedding day holding up their rings),
+  a pair of the artwork (`PXL_20230810_212134294` detail left, `PXL_20230810_211006567` whole framed
+  piece right), and Mitsuko with hers (`PXL_20240512_023657865`) to close. The manifest lists only
+  these five.
+  **`CIMG3757` replaced the solo close-up of Rieko's face** (`3-rieko-clean-wide-4x`) because Rieko
+  is not keen on so tight a portrait of herself. Tom later confirmed **this is in fact the photograph
+  Fin referenced**, not the solo one, which the caption now states.
+- **That image renders landscape, and needed a code change.** It is a 4:3 landscape frame, and the
+  beside-image box is a fixed `aspect-[4/5]`, so `object-cover` was keeping only the middle 60% of
+  the width. The `image` content block now takes an optional
+  **`orientation: "portrait" | "landscape"`** (default portrait), which switches the box to
+  `aspect-[4/3]` at the same column width. Verified at 2000px: the landscape box is 560x420 and the
+  portrait one below it is 560x700, in the same 560px column. Only this article uses it; the built HTML
+  for the other articles contains no `aspect-[4/3]`.
+- **The Auwa stencil section is removed entirely**, both paragraphs and the photograph, on Tom's
+  instruction 9 Sep 2026. The word Auwa no longer appears in the article. ("Stencil" still appears
+  once, describing Fin's own technique, which is correct.) Removing the coda took the only outbound
+  internal link with it, so one was added where it is genuinely true: "get back to my own drawings"
+  pointing at `the-beginning`.
+- **Layout follows the measured house pattern**, derived 9 Sep 2026 by comparing all eleven
+  published articles rather than by eye. The full rule now lives in `context/pillar/journal.md`
+  Section 3 and in `/journal:article`, so it does not need re-deriving. Targets: first single
+  `image` at block index 3 (published range 2-4), 5-6 text/pullquote blocks after it (range 4-7),
+  **pullquote above the image-pair (11 of 11 published articles)**, 3 blocks after the last image
+  (range 2-7), 3-4 body photographs, never end on an image. This article now sits at 3 / 6 /
+  above / 3, all inside range.
+  The first draft broke three of the four and produced exactly the faults Tom flagged: an empty
+  block before the side-by-side pair (first image at block 5 with only 2 blocks beside it, so the
+  text ran out while the image was still going) and a final image hanging off the end.
+- **The pullquote changed as a consequence.** Moving it above the image-pair puts it halfway
+  through, where "The same image hangs in two houses..." would have given away the ending. It is
+  now **"The kimono is my mother's and the face inside it is mine."**, which is the conceit of the
+  whole piece and sits right where the artwork is described. The two-houses line still appears
+  verbatim, as prose, in the closing section.
+- **SEO is deliberately modest.** "Fin DAC" is owned by Wikipedia, Artsy and the galleries, and the
+  long tail around his commissions has no measurable demand. `seoTitle` is
+  "Fin DAC's Portrait of Rieko Maeda", which ties his real search volume to Rieko's name. The value
+  of this piece is Fin sharing it and it existing as something to send him, not ranking.
+- **The garment is a wedding kimono (iro-uchikake) in Auwa's own prose.** Fin's posts say "wedding
+  dress"; his quotes are untouched.
+
+**Still open:**
+
+1. ~~**Lightroom.**~~ **Done 9 Sep 2026.** `2-edited/` is populated and every web, IG and OG file
+   has been regenerated through it with `node scripts/process-all.js findac-rieko`. Once Tom exports the eight through the Auwa preset into `2-edited/`, re-run
+   `cd website/main && node scripts/process-all.js findac-rieko`. The manifest entry is in place.
+   (`process-all.js` was writing IG output to the dead in-repo `social/` path; fixed 8 Sep to read
+   `AUWA_SOCIAL_ROOT` from `.env.local`.)
+2. **Where and when Mitsuko's photograph was taken.** Written as "sometime in the 1960s" with no
+   place. Tom said he can find out. A named town would be worth having.
+3. **QUESTIONS FOR RIEKO** — the piece is publishable as it stands, but these are the lines only
+   she can give, and each would lift it:
+   - What she felt the first time she saw herself in her mother's kimono. The article currently
+     says only that she left the idea to Fin and saw nothing until it was finished.
+   - What her mother actually said when she was handed hers, in the tatami room. Currently the
+     article does not claim any words at all.
+   - Whether that wedding photograph meant anything particular to her growing up, beyond being the
+     one everyone in the family knows.
+   - Whether she had any hesitation about a Western artist working from her mother's image. An
+     honest beat, and only she can write it.
+   - Was she at the September 2024 studio visit? The coda currently has Tom there alone and her
+     seeing the stencil in a photograph he brought home. If she was there, that ending changes.
+   - Check the garment reading: iro-uchikake, white cranes on the sleeves, red chrysanthemums at
+     the hem, bunkin-takashimada hair.
+4. **Instagram carousel** (`/instagram:post`, slideshow branch). Needs the cover title (one or two
+   words plus optional Japanese) and the slide-2 quote. The eight `image-*.jpg` files are already
+   in `$SOCIAL/3-journal/findac-rieko/`. Note the hero scores "bright behind title" on the cover
+   test, so the untitled `image-hero.jpg` may be the better slide 1.
+5. **No hand-placed inbound internal link yet.** The coda links out to `the-beginning`. Nothing in
+   the existing eleven articles refers to this subject naturally, and forcing one would be worse
+   than none. The Craft cluster in "Continue reading" gives it inbound links from Shigefusa,
+   Oroku-gushi and Making Washi automatically. The right hand-placed link arrives with the Fin
+   collab piece.
+6. **Deploy, then Google Search Console**: request indexing on the URL and resubmit the sitemap.
+7. **Then the reconnection.** Send Fin the article. The collab ask comes separately and later.
 
 ---
 

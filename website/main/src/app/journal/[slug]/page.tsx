@@ -15,7 +15,15 @@ import { articleNode, breadcrumbNode } from "@/lib/schema";
 
 type ContentBlock =
   | { type: "text"; text: string }
-  | { type: "image"; src: string; alt: string; caption?: string }
+  /**
+   * `orientation` controls the box the photograph sits in when it is placed
+   * beside text. Default "portrait" is a 4:5 crop, which is right for the
+   * portrait frames most of the journal uses. Set "landscape" for a photo
+   * that must not be cropped to portrait — a 4:5 crop of a landscape frame
+   * keeps only the middle 60% of the width. The column width is unchanged
+   * either way; only the height of the box changes.
+   */
+  | { type: "image"; src: string; alt: string; caption?: string; orientation?: "portrait" | "landscape" | "square" }
   | { type: "image-pair"; images: [{ src: string; alt: string; caption?: string }, { src: string; alt: string; caption?: string }] }
   | { type: "pullquote"; text: string }
   | { type: "cta"; text: string; href: string; label: string };
@@ -45,7 +53,12 @@ const articles: Record<
     description?: string;
     category: string;
     author: string;
-    photographer: string;
+    /**
+     * Omit when the photographs are not all by one person, so the byline
+     * makes no claim it cannot support. The Fin DAC article mixes family
+     * archive photographs with Tom’s own, so it carries no photo credit.
+     */
+    photographer?: string;
     publishedAt: string;
     heroImage: string | null;
     content: ContentBlock[];
@@ -99,7 +112,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "In the ancient Japanese understanding, Yakushima\u2019s cedars are not sacred because someone designated them. They are sacred because they are inhabited. Yaoyorozu no kami, the belief that spirit exists in all things, is not an abstract concept on this island. It is obvious. You stand in front of a tree that has been alive for three thousand years, its roots gripping granite, its branches holding an entire aerial garden of ferns and orchids, and the idea that it possesses spirit requires no argument at all. The tree makes the case itself.",
+        text: "In the ancient Japanese understanding, Yakushima\u2019s cedars are not sacred because someone designated them. They are sacred because they are inhabited. Yaoyorozu no kami, the belief that spirit exists in all things, is not an abstract concept on this island, it is obvious. You stand in front of a tree that has been alive for three thousand years, its roots gripping granite, its branches holding an entire aerial garden of ferns and orchids, and the idea that it possesses spirit requires no argument at all.",
       },
       {
         type: "pullquote",
@@ -118,11 +131,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "That contrast stayed with me. A web that lasts a day, strung between branches of a tree that has lasted millennia. Both of them doing exactly the same thing: being alive, in this place, for as long as their nature allows. The spider does not know the tree is ancient. The tree does not know the spider is ephemeral. Only we assign meaning to the difference, measuring one lifespan against another. The forest makes no such distinction. Everything in it is simply present.",
+        text: "That contrast stayed with me. A web that lasts a day, strung between branches of a tree that has lasted millennia. Both of them doing exactly the same thing: being alive, in this place, for as long as their nature allows. The spider does not know the tree is ancient. The tree does not know the spider is ephemeral. Only we assign meaning to the difference, measuring one lifespan against another. The forest makes no such distinction, and everything in it is simply present.",
       },
       {
         type: "text",
-        text: "The trail climbed. The mist thickened. At higher elevations the cedars were larger but fewer, their trunks spaced further apart, each one occupying enough ground for a small building. The silence up there was not empty. Water moved constantly, over rock, through moss, down the channels cut into the granite over thousands of years. Birds called from somewhere above the canopy. The occasional crack of a branch falling. These sounds did not break the silence so much as give it texture.",
+        text: "The trail climbed and the mist thickened. At higher elevations the cedars were larger but fewer, their trunks spaced further apart, each one occupying enough ground for a small building. The silence up there was not empty. Water moved constantly, over rock, through moss, down the channels cut into the granite over thousands of years. Birds called from somewhere above the canopy. The occasional crack of a branch falling. These sounds did not break the silence so much as give it texture.",
       },
       {
         type: "text",
@@ -130,7 +143,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "There is a particular quality to time on Yakushima. It does not slow down, exactly. It widens. You become aware of how many things are happening at the pace of centuries rather than minutes. The moss growing a millimetre per year. The cedar adding another ring. The granite wearing down under the rain, imperceptibly, a process that will continue long after the tree itself has fallen and returned to the soil that grew it.",
+        text: "Time on Yakushima does not slow down exactly, it widens. You become aware of how many things are happening at the pace of centuries rather than minutes. The moss grows a millimetre a year, the cedar adds another ring, and the granite wears down under the rain so slowly that the process will continue long after the tree itself has fallen and returned to the soil that grew it.",
       },
       {
         type: "text",
@@ -164,7 +177,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "You don\u2019t understand the words. That\u2019s not the point. The chanting is not a message. It is a frequency. You sit in it the way you sit in weather. After ten minutes, the cold in your knees stopped registering. After twenty, I wasn\u2019t thinking about anything at all. Not in a meditative way, not through effort. The sound simply filled the space where thought normally is.",
+        text: "You don\u2019t understand the words, and that isn\u2019t the point. The chanting works more like a frequency than a message. You sit in it the way you sit in weather. After ten minutes, the cold in your knees stopped registering. After twenty, I wasn\u2019t thinking about anything at all. Not in a meditative way, not through effort. The sound simply filled the space where thought normally is.",
       },
       {
         type: "image",
@@ -178,7 +191,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "We ate dinner cross-legged on the tatami the night before. Sesame tofu, pickled daikon, simmered vegetables in a light dashi, rice, miso. Small dishes, precisely arranged. Protein mainly from soya. No alcohol. The meal was not restrictive, it was focusing. The meal removed options. What remained had your full attention.",
+        text: "We ate dinner cross-legged on the tatami the night before. Sesame tofu, pickled daikon, simmered vegetables in a light dashi, rice, miso. Small dishes, precisely arranged, protein mainly from soya, and no alcohol. The meal was not restrictive so much as focusing: it removed options, and what remained had your full attention.",
       },
       {
         type: "text",
@@ -200,7 +213,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The silence was not empty. It was occupied. Birdsong, water dripping from branches, the distant sound of a wooden bell from somewhere deeper in the cemetery. Our footsteps on the stone path sounded like the loudest thing on the mountain. I slowed down without meaning to. Everyone does.",
+        text: "The silence was not empty but occupied. Birdsong, water dripping from branches, the distant sound of a wooden bell from somewhere deeper in the cemetery. Our footsteps on the stone path sounded like the loudest thing on the mountain. I slowed down without meaning to, and so does everyone.",
       },
       {
         type: "text",
@@ -208,7 +221,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "There are graves here for samurai, for emperors, for corporate founders. Panasonic, Nissan, and Kirin all have memorials along the path. There is no hierarchy to the arrangement. A feudal lord\u2019s monument stands beside a family marker no larger than a shoebox. The cedars don\u2019t discriminate. The moss covers everything equally.",
+        text: "There are graves here for samurai, for emperors, for corporate founders. Panasonic, Nissan, and Kirin all have memorials along the path. There is no hierarchy to the arrangement. A feudal lord\u2019s monument stands beside a family marker no larger than a shoebox. The cedars don\u2019t discriminate, and the moss covers everything equally.",
       },
       {
         type: "text",
@@ -231,7 +244,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Neither of us spoke much. A kind of quiet settles in after sustained attention. Not tired, not reflective exactly. More like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
+        text: "Neither of us spoke much. A kind of quiet settles in after sustained attention, not tired and not reflective exactly, more like the pause after a long exhale. The mountain was behind us. Already settling into the kind of memory that changes shape slowly over years. Outside, winter light arrived late in the mountains, grey and soft and undemanding. We had a long way back to Osaka. There was no reason to hurry.",
       },
     ],
   },
@@ -271,7 +284,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The attack began without signal. Men rushed towards the base of the shrine with burning torches, pressing fire against the straw and timber. From above, the defenders kicked the torches away, stamped out flames with their boots, hauled up burning bundles and threw them back. The crowd surged. Sparks rose in spiralling columns. The heat was immediate and total. You could feel it on your face from thirty metres away.",
+        text: "The attack began without signal. Men rushed towards the base of the shrine with burning torches, pressing fire against the straw and timber. From above, the defenders kicked the torches away, stamped out flames with their boots, hauled up burning bundles and threw them back. The crowd surged, sparks rose in spiralling columns, and the heat was immediate and total. You could feel it on your face from thirty metres away.",
       },
       {
         type: "pullquote",
@@ -286,11 +299,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "What struck us was the calm on the defenders' faces. On top of the shaden, the 42-year-olds sang, silhouetted against the smoke, their voices carrying out over the crowd even as sparks rose past them. Below, the 25-year-olds held the base, beating back the torches with their boots and their bare hands. They were not performing bravery. They were doing something their fathers had done, and their grandfathers before that. Singing in the smoke. Waiting.",
+        text: "What struck us was the calm on the defenders' faces. On top of the shaden, the 42-year-olds sang, silhouetted against the smoke, their voices carrying out over the crowd even as sparks rose past them. Below, the 25-year-olds held the base, beating back the torches with their boots and their bare hands. They were not performing bravery, they were doing something their fathers had done, and their grandfathers before that, singing in the smoke and waiting.",
       },
       {
         type: "text",
-        text: "The fighting lasted about an hour and a half. Waves of attackers with fresh torches, the defenders always outnumbered, always retreating slightly, always holding. Sake flowed in both directions. Men who had been grappling over a burning torch shared a cup minutes later. There was no animosity in any of it. The violence was real (clothes caught fire, eyebrows singed, skin reddened from heat and contact) but the spirit was communal. Nobody was competing. They were doing this together.",
+        text: "The fighting lasted about an hour and a half. Waves of attackers with fresh torches, the defenders always outnumbered, always retreating slightly, always holding. Sake flowed in both directions. Men who had been grappling over a burning torch shared a cup minutes later. There was no animosity in any of it. The violence was real (clothes caught fire, eyebrows singed, skin reddened from heat and contact) but the spirit was communal. There was no competition in it, they were doing this together.",
       },
       {
         type: "image",
@@ -304,7 +317,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The burning is not destruction. It is renewal. The village performs this rite to ward off evil spirits, to pray for a bountiful harvest, and to celebrate the firstborn children of the year. The men in their yakudoshi offer their presence at the shrine as protection against the ill fortune their age is said to carry. The village proves its collective strength by eventually, inevitably, burning the shaden down. By midnight it was a column of flame, forty feet of fire against the black Nagano sky, and every face in the crowd was lit orange.",
+        text: "The burning is renewal rather than destruction. The village performs this rite to ward off evil spirits, to pray for a bountiful harvest, and to celebrate the firstborn children of the year. The men in their yakudoshi offer their presence at the shrine as protection against the ill fortune their age is said to carry. The village proves its collective strength by eventually, inevitably, burning the shaden down. By midnight it was a column of flame, forty feet of fire against the black Nagano sky, and every face in the crowd was lit orange.",
       },
       {
         type: "text",
@@ -348,7 +361,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "He picked up the sugeta, a wooden frame with a fine bamboo screen stretched across it, and dipped it into the vat. One smooth motion forward, a pause, then back. The pulp settled across the screen in a thin, even layer. He tilted the frame to drain, rocked it gently side to side. Then he turned the screen over onto a stack of freshly formed sheets, peeled the frame away, and the paper was there. Wet, translucent, alive.",
+        text: "He picked up the sugeta, a wooden frame with a fine bamboo screen stretched across it, and dipped it into the vat. One smooth motion forward, a pause, then back. The pulp settled across the screen in a thin, even layer. He tilted the frame to drain, rocked it gently side to side. Then he turned the screen over onto a stack of freshly formed sheets, peeled the frame away, and the paper was there, wet and translucent and alive.",
       },
       {
         type: "text",
@@ -356,7 +369,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Then it was our turn. Rieko stepped up to a smaller vat with an A4 sized frame. The motion looks simple when Matsuzaki-san does it. It is not simple. The pulp has a weight and a will. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. She found it after a few attempts.",
+        text: "Then it was our turn. Rieko stepped up to a smaller vat with an A4 sized frame. The motion looks simple when Matsuzaki-san does it, but it is not, because the pulp has a weight and a will of its own. Dip too fast and it floods the screen unevenly. Too slow and it settles in clumps. The wrist has to find a rhythm, a tempo that lets the fibres distribute themselves. She found it after a few attempts.",
       },
       {
         type: "text",
@@ -375,7 +388,13 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "After forming, each sheet is stacked, pressed under a heavy wooden screw press to squeeze out the water, then separated and brushed onto heated drying boards one at a time. Matsuzaki-san showed us the press, a beautiful piece of old equipment. Beside it, the wooden buckets and iron cauldrons used for boiling the bark. Everything worn smooth by use. Nothing decorative, nothing replaced that still worked.",
+        text: "After forming, each sheet is stacked, pressed under a heavy wooden screw press to squeeze out the water, then separated and brushed onto heated drying boards one at a time. Matsuzaki-san showed us the press, a beautiful piece of old equipment. Beside it, the wooden buckets and iron cauldrons used for boiling the bark. Everything was worn smooth by use, nothing decorative, and nothing replaced that still worked.",
+      },
+      {
+        type: "image",
+        src: "/journal/washi-paper/washi-paper-mulberry.jpg",
+        alt: "Strips of dried kozo mulberry bark fibre on a worn wooden surface in the workshop",
+        caption: "Kozo, the inner bark of the mulberry tree. Stripped, soaked, boiled, beaten, and suspended in water to become washi.",
       },
       {
         type: "text",
@@ -384,12 +403,6 @@ const articles: Record<
       {
         type: "text",
         text: "Matsuzaki-san wants to pass this on. He said so plainly, without sentimentality. The tradition matters to him, and fewer people carry it each year. The spread of Western paper and wartime disruption reduced Omachi's papermakers from many to almost none. He opens his workshop to visitors not as a tourist attraction but as a form of continuity. Every person who dips a frame into that vat and feels the weight of the pulp settling onto the screen understands something about washi that reading cannot give them.",
-      },
-      {
-        type: "image",
-        src: "/journal/washi-paper/washi-paper-mulberry.jpg",
-        alt: "Strips of dried kozo mulberry bark fibre on a worn wooden surface in the workshop",
-        caption: "Kozo, the inner bark of the mulberry tree. Stripped, soaked, boiled, beaten, and suspended in water to become washi.",
       },
       {
         type: "text",
@@ -449,7 +462,7 @@ const articles: Record<
       },
       {
         type: "pullquote",
-        text: "A comb is the most ordinary object in the world. Everybody owns one. Nobody thinks about it. Which is precisely what makes a good one so startling.",
+        text: "A comb is the most ordinary object in the world, which is precisely what makes a good one so startling.",
       },
       {
         type: "image-pair",
@@ -460,7 +473,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Minebari changes over time. The natural oils from your hair and scalp absorb into the grain, darkening it gradually from pale straw to a deep, warm amber. A comb that has been used for twenty years looks completely different from a new one. The wood remembers. It carries a record of use that no other material can replicate. Plastic stays the same forever. Minebari becomes yours.",
+        text: "Minebari changes over time. The natural oils from your hair and scalp absorb into the grain, darkening it gradually from pale straw to a deep, warm amber. A comb that has been used for twenty years looks completely different from a new one. It carries a record of use that no other material can replicate. Plastic stays the same forever, but minebari becomes yours.",
       },
       {
         type: "text",
@@ -494,7 +507,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The system dates to 1685, adapted from an earlier Chinese model by the shogunate astronomer Shibukawa Shunkai. Where the Chinese version described egrets and millet, Shibukawa rewrote the entries to match what a person would actually see in Japan. Hawks learning to fly. The first distant thunder. Warm winds melting the ice. Each k\u014d lasts roughly five days. Each one names something specific, something you could verify by walking outside and looking.",
+        text: "The system dates to 1685, adapted from an earlier Chinese model by the shogunate astronomer Shibukawa Shunkai. Where the Chinese version described egrets and millet, Shibukawa rewrote the entries to match what a person would actually see in Japan: hawks learning to fly, the first distant thunder, warm winds melting the ice. Each k\u014d lasts roughly five days. Each one names something specific, something you could verify by walking outside and looking.",
       },
       {
         type: "image",
@@ -504,7 +517,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "That specificity is the point. The seventy-two k\u014d are not poetry (though they read like it). They are instructions. Go outside. Look at what is happening right now. Not last week, not next month. Now. The paulownia tree is flowering. The fireflies are out. The soil is moist and warm. Every five days, the calendar redirects your attention to whatever the natural world is doing in this particular window, and by the time you\u2019ve noticed it, the window has moved on.",
+        text: "That specificity is the point. The seventy-two k\u014d are not poetry (though they read like it). They are instructions: go outside and look at what is happening right now, not last week or next month. The paulownia tree is flowering, the fireflies are out, the soil is moist and warm. Every five days, the calendar redirects your attention to whatever the natural world is doing in this particular window, and by the time you\u2019ve noticed it, the window has moved on.",
       },
       {
         type: "text",
@@ -520,7 +533,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Five days is an interesting unit of time. Short enough to feel urgent. Long enough to observe something develop. A bud opens. The rain changes character. A particular bird arrives or departs. In five days the light shifts, measurably, and if you\u2019re watching for it you can feel the axis of the year tilting underneath everything else.",
+        text: "Five days is an interesting unit of time. Short enough to feel urgent, long enough to watch something develop: a bud opens, the rain changes character, a bird arrives or departs. In five days the light shifts, measurably, and if you\u2019re watching for it you can feel the axis of the year tilting underneath everything else.",
       },
       {
         type: "image-pair",
@@ -565,7 +578,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "You take off everything. Clothes, watch, phone. You wash at a low stool, rinse thoroughly, and lower yourself in. And what surprised me was not the heat, or the nakedness, or the fact that I was sitting with complete strangers. It was how natural it felt. Nobody stared. Nobody looked away awkwardly. People just sat in the water, breathing, quiet, sometimes releasing a long, satisfying sigh of relaxation. It felt like the most ordinary thing in the world, which is exactly what made it extraordinary.",
+        text: "You take off everything. Clothes, watch, phone. You wash at a low stool, rinse thoroughly, and lower yourself in. And what surprised me was not the heat, or the nakedness, or the fact that I was sitting with complete strangers. It was how natural it felt. Nobody stared, and nobody looked away awkwardly. People just sat in the water, breathing, quiet, sometimes releasing a long, satisfying sigh of relaxation. It felt like the most ordinary thing in the world, which is exactly what made it extraordinary.",
       },
       {
         type: "image",
@@ -579,7 +592,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The silence. The steam. The other bodies in the water, each one as bare and undefended as yours. There is no eye contact to speak of, no conversation beyond the occasional murmured greeting. People sit. They close their eyes. They breathe. The room smells of sulphur and cedar and wet stone.",
+        text: "The silence, the steam, the other bodies in the water, each one as bare and undefended as yours. There is no eye contact to speak of, no conversation beyond the occasional murmured greeting. People sit with their eyes closed, breathing. The room smells of sulphur and cedar and wet stone.",
       },
       {
         type: "text",
@@ -587,7 +600,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "In daily life we carry layers. Clothes, phones, the way we talk. All of them signalling something. The onsen strips all of it. You sit in hot water with strangers and you are, for a few minutes, simply a body among bodies. Vulnerable, equal, warm.",
+        text: "In daily life we carry layers, clothes and phones and the way we talk, all of them signalling something, and the onsen strips the lot. You sit in hot water with strangers and you are, for a few minutes, simply a body among bodies. Vulnerable, equal, warm.",
       },
       {
         type: "text",
@@ -595,7 +608,7 @@ const articles: Record<
       },
       {
         type: "pullquote",
-        text: "When you have nothing to protect, you stop scanning for threats. When you stop scanning, you start noticing.",
+        text: "With nothing to protect you stop watching for threats, and begin noticing instead.",
       },
       {
         type: "image-pair",
@@ -610,7 +623,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "There is an outdoor bath at one of the soto-yu where you can see the mountains. In winter, snow sits on the wooden fence and steam rises so thick it obscures the view for seconds at a time. Then the wind shifts and the mountains reappear, white and sharp against the sky. You sit in water that comes from deep beneath those mountains, and for a moment the distance between you and the landscape disappears. Not metaphorically. Physically. The same mineral water that carved the valley is now touching your skin. You are in the geology.",
+        text: "There is an outdoor bath at one of the soto-yu where you can see the mountains. In winter, snow sits on the wooden fence and steam rises so thick it obscures the view for seconds at a time. Then the wind shifts and the mountains reappear, white and sharp against the sky. You sit in water that comes from deep beneath those mountains, and for a moment the distance between you and the landscape disappears, physically rather than metaphorically. The same mineral water that carved the valley is now touching your skin. You are in the geology.",
       },
       {
         type: "text",
@@ -622,7 +635,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Western wellness has a version of this. Float tanks, sound baths, breathwork classes. Each one removes a sense or adds a stimulus to push you toward presence. The onsen does less. It just puts you in hot water with nothing between you and the world. The simplicity is the point.",
+        text: "Western wellness has a version of this. Float tanks, sound baths, breathwork classes. Each one removes a sense or adds a stimulus to push you toward presence. The onsen does less, it just puts you in hot water with nothing between you and the world, and the simplicity is the point.",
       },
       {
         type: "text",
@@ -630,7 +643,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The bathwater cools eventually. You step out, dry off, dress. The layers return. But something stays different for a while. A looseness in the chest, a wider peripheral vision, a willingness to let the next thing happen without already planning for the thing after that. Walking back through the town afterwards, steam still rising from the drains, your skin flushed and cooling in the night air, you understand why people have been doing this for centuries.",
+        text: "The bathwater cools eventually, you step out and dry off and dress, and the layers return, but something stays different for a while. A looseness in the chest, a wider peripheral vision, a willingness to let the next thing happen without already planning for the thing after that. Walking back through the town afterwards, steam still rising from the drains, your skin flushed and cooling in the night air, you understand why people have been doing this for centuries.",
       },
     ],
   },
@@ -666,7 +679,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "You notice things when you've waited this long. The way the light catches the kitaeji pattern, layers of different steels forge-welded together, folded, hammered, and ground until they form a flowing, smoke-like grain across the surface. Every Shigefusa blade has a different pattern. Not by design, but by nature. The same way no two pieces of wood have the same grain. The steel remembers every strike of the hammer.",
+        text: "You notice things when you've waited this long. The way the light catches the kitaeji pattern, layers of different steels forge-welded together, folded, hammered, and ground until they form a flowing, smoke-like grain across the surface. Every Shigefusa blade has a different pattern, not by design but by nature, the same way no two pieces of wood have the same grain.",
       },
       {
         type: "text",
@@ -678,7 +691,7 @@ const articles: Record<
       },
       {
         type: "pullquote",
-        text: "The steel remembers every strike of the hammer.",
+        text: "They make what their hands and their days allow, and when the knives are finished they go to a handful of shops in Japan.",
       },
       {
         type: "text",
@@ -686,7 +699,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Look closely at the spine and you can see where it's been shaped by hand. Not machine-ground to a uniform thickness, but worked with files and stones until the taper feels right under the fingers. The choil, where blade meets handle, is finished clean and smooth. The buffalo horn ferrule sits flush against the ho wood handle with no gap, no glue marks, no imperfection in the joint. These are small details. They are also the entire point.",
+        text: "Look closely at the spine and you can see where it's been shaped by hand. Not machine-ground to a uniform thickness, but worked with files and stones until the taper feels right under the fingers. The choil, where blade meets handle, is finished clean and smooth. The buffalo horn ferrule sits flush against the ho wood handle with no gap, no glue marks, no imperfection in the joint. These are small details, and they are also the entire point.",
       },
       {
         type: "image-pair",
@@ -727,7 +740,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Narai is the longest of the sixty-nine post towns along the Nakasendo, the mountain route that connected Edo to Kyoto through the interior of Honshu. Travellers stopped here during the feudal period to rest, eat, and prepare for the Torii Pass. The buildings they slept in are still standing. Not reconstructed, not preserved behind glass. Still standing because nobody tore them down. The latticed facades, the overhanging second floors, the indigo noren hanging in doorways of shops that may or may not be open. Four hundred years of continuous use, worn smooth by time the way a wooden step is worn smooth by feet.",
+        text: "Narai is the longest of the sixty-nine post towns along the Nakasendo, the mountain route that connected Edo to Kyoto through the interior of Honshu. Travellers stopped here during the feudal period to rest, eat, and prepare for the Torii Pass. The buildings they slept in are still standing, not reconstructed and not preserved behind glass, but still standing because nobody tore them down. The latticed facades, the overhanging second floors, the indigo noren hanging in doorways of shops that may or may not be open. Four hundred years of continuous use, worn smooth by time the way a wooden step is worn smooth by feet.",
       },
       {
         type: "image",
@@ -741,11 +754,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "Halfway along the street, a framed ukiyo-e print sat in a glass case above a wooden letterbox on the front of a house. A small landscape: mountains, travellers, a bridge. It could have been a scene from this exact road, painted two centuries ago by someone who stood where I was standing and saw roughly what I was seeing. The print was not in a museum. It was not labelled or lit. It was simply there, in the place where someone had put it, part of the fabric of the building the way the lattice and the letterbox were part of it.",
+        text: "Halfway along the street, a framed ukiyo-e print sat in a glass case above a wooden letterbox on the front of a house. A small landscape: mountains, travellers, a bridge. It could have been a scene from this exact road, painted two centuries ago by someone who stood where I was standing and saw roughly what I was seeing. The print was not in a museum, not labelled or lit, but simply there, in the place where someone had put it, part of the fabric of the building the way the lattice and the letterbox were part of it.",
       },
       {
         type: "text",
-        text: "This is what Narai does. It removes the boundary between the historical and the ordinary. No entrance fee. No audio guide explaining what you are looking at. The town is not performing its own past. It is simply continuing it.",
+        text: "This is what Narai does. It removes the boundary between the historical and the ordinary, with no entrance fee and no audio guide explaining what you are looking at. The town is simply continuing its past rather than performing it.",
       },
       {
         type: "pullquote",
@@ -767,11 +780,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "At some point, standing still in the middle of the street, I watched the snow being blown sideways across the rooftops. The dark wood, the white sky, the silence, the cold on my face. And something happened that I didn\u2019t expect. My eyes filled with tears. Not from sadness, not from the wind. From something closer to joy, though that word doesn\u2019t quite cover it. Complete absorption. No distance between me and what I was looking at. For a few seconds, there was no observer and no scene. Just the snow and the wood and the cold and the fact of being there.",
+        text: "At some point, standing still in the middle of the street, I watched the snow being blown sideways across the rooftops. The dark wood, the white sky, the silence, the cold on my face. And something happened that I didn\u2019t expect. My eyes filled with tears, not from sadness or the wind but from something closer to joy, though that word doesn\u2019t quite cover it. Complete absorption, no distance between me and what I was looking at. For a few seconds, there was no observer and no scene. Just the snow and the wood and the cold and the fact of being there.",
       },
       {
         type: "text",
-        text: "There is a tendency, when writing about places like this, to reach for large claims. To say that the place teaches you something, or changes you, or reveals a truth about the way we live now. Narai doesn\u2019t do any of that. It is a street with old buildings and, on the day we visited, a lot of snow. What it offers is not a lesson but a duration. An hour, maybe two, in which nothing happens and nothing needs to. The buildings stand. The snow falls. The water runs. You walk, or you stop walking. Both are fine.",
+        text: "There is a tendency, when writing about places like this, to reach for large claims. To say that the place teaches you something, or changes you, or reveals a truth about the way we live now. Narai doesn\u2019t do any of that. It is a street with old buildings and, on the day we visited, a lot of snow. What it offers is time rather than a lesson. An hour, maybe two, in which nothing happens and nothing needs to. The buildings stand, the snow falls, the water runs, and you walk or you stop walking.",
       },
       {
         type: "image-pair",
@@ -808,11 +821,11 @@ const articles: Record<
     content: [
       {
         type: "text",
-        text: "Yaoyorozu no Kami is the ancient Japanese belief that a life force, a kami, resides in all things. The name means eight million gods, a figure that stands for an uncountable multitude rather than a literal sum. Gods in all things. Not in some things, not in special things. All things. The rock. The river. The kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology. It is pre-verbal, almost. An instinct before it was ever an idea.",
+        text: "Yaoyorozu no Kami is the ancient Japanese belief that a life force, a kami, resides in all things. The name means eight million gods, a figure that stands for an uncountable multitude rather than a literal sum. Gods in all things, not in some things or special things but all of them: the rock, the river, the kitchen table. The belief has been absorbed into Shinto, but it is older than Shinto as an organised practice. It predates theology and is almost pre-verbal, an instinct before it was ever an idea.",
       },
       {
         type: "text",
-        text: "What lives within these things is kami: god, spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it. A stone has it. A river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that Auwa draws from.",
+        text: "What lives within these things is kami: god, spirit, presence, a quality of aliveness that does not require consciousness or intention. A tree has it, a stone has it, a river has it. The rock in the garden that has sat in the same position for four hundred years has it. Not because someone decided it was sacred, but because it is alive in the way that all things are alive when you pay attention. This is the belief that Auwa draws from.",
       },
       {
         type: "image",
@@ -822,11 +835,11 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there. This is the critical distinction. Yaoyorozu no Kami is not an act of consecration. It is an act of recognition. The tree was alive with kami before anyone tied a rope around it. The rope is simply a way of saying: we noticed. It also marks a sacred place, where gods reside, and serves as a barrier to prevent impure things from entering.",
+        text: "At Togakushi Shrine, in the mountains above Nagano, a shimenawa (a sacred rope of twisted rice straw) is tied around a cedar tree. The rope marks the tree as inhabited by kami, a spirit. But the rope does not create the spirit. It only acknowledges what is already there, which is the critical distinction: Yaoyorozu no Kami is recognition rather than consecration. The tree was alive with kami before anyone tied a rope around it. The rope is simply a way of saying: we noticed. It also marks a sacred place, where gods reside, and serves as a barrier to prevent impure things from entering.",
       },
       {
         type: "text",
-        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some have been standing for four hundred years, younger cousins of <a href=\"/journal/yakushima-island\">the thousand-year cedars of Yakushima</a>. You walk between them and something shifts in your chest. Not reverence exactly, not awe in the way that word gets used. Something quieter. The recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
+        text: "The cedar avenue at Togakushi runs for several hundred metres through deep snow. The trees on either side are enormous, their trunks rising like columns, the canopy closing overhead to filter the winter light into something grey and still. Some have been standing for four hundred years, younger cousins of <a href=\"/journal/yakushima-island\">the thousand-year cedars of Yakushima</a>. You walk between them and something shifts in your chest. Not reverence exactly, and not awe in the way that word gets used, but something quieter: the recognition that these trees are not scenery. They are present in a way that makes your own presence feel temporary and small.",
       },
       {
         type: "pullquote",
@@ -845,15 +858,100 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "What modern Western culture lost is not the feeling. It is the permission to take the feeling seriously. Somewhere between the Enlightenment and the Industrial Revolution, the idea that a river or a mountain or a well-made tool might possess something like spirit became childish, primitive, embarrassing. We replaced it with nothing. We just stopped talking about it.",
+        text: "What modern Western culture lost is not the feeling. It is the permission to take the feeling seriously. Somewhere between the Enlightenment and the Industrial Revolution, the idea that a river or a mountain or a well-made tool might possess something like spirit became childish, primitive, embarrassing. We replaced it with nothing and simply stopped talking about it.",
       },
       {
         type: "text",
-        text: "Japan never stopped. This awareness runs through daily life in ways that have nothing to do with shrines or ceremonies. The way you treat your tools. The way you handle food. The custom of kuy\u014D, memorial services held for objects that have completed their service: needles, dolls, brushes, even spectacles. You do not throw away a thing that served you faithfully. You thank it. This is not sentimentality. It is a coherent relationship with the material world, one that produces less waste, more care, and a fundamentally different experience of being surrounded by objects.",
+        text: "Japan never stopped. This awareness runs through daily life in ways that have nothing to do with shrines or ceremonies. The way you treat your tools, the way you handle food, the custom of kuy\u014D, memorial services held for objects that have completed their service: needles, dolls, brushes, even spectacles. You do not throw away a thing that served you faithfully, you thank it, and that is not sentimentality but a coherent relationship with the material world, one that produces less waste, more care, and a fundamentally different experience of being surrounded by objects.",
       },
       {
         type: "text",
         text: "You do not arrive at Yaoyorozu no Kami through study. You arrive by paying attention long enough that the boundary between alive and not alive stops feeling useful. The tree, the stone, the bowl, the river.",
+      },
+    ],
+  },
+  "findac-rieko": {
+    title: "Musubi",
+    seoTitle: "Fin DAC\u2019s Portrait of Rieko Maeda",
+    subtitle: "A portrait by Fin DAC connects two Kokoros.",
+    description: "How the artist Fin DAC painted Rieko in her mother\u2019s Japanese wedding kimono, and the second version we carried to Japan.",
+    category: "Craft",
+    author: "Rieko Maeda",
+    publishedAt: "2026-09-08",
+    heroImage: "/journal/findac-rieko/findac-rieko-hero.jpg",
+    heroAlt: "Rieko\u2019s mother Mitsuko on her wedding day in 1970s Japan, wearing a green kimono embroidered with white cranes",
+    content: [
+      {
+        type: "text",
+        text: "There is a photograph of my mum on her wedding day, taken in the 1970s. She stands against a studio wall in a beautiful green kimono with white cranes across the sleeves, red chrysanthemums low on the hem, and a formal hairstyle pinned with combs. The colours of the photo have drifted gracefully with age, bathed in soft pinks and greens. Everyone in my family has seen the photo, and mum gets no end of compliments for it.",
+      },
+      {
+        type: "text",
+        text: "For our tenth anniversary, Tom asked his friend and artist Fin DAC whether he would make a portrait of me. Fin lives in London, and as he paints murals and canvas work, his creations can be seen in cities all over the world. He works in stencil and spray for his murals, and uses different mediums for his artworks, finishing each face with a mask of colour across the eyes, a signature that has become instantly recognisable.",
+      },
+      {
+        type: "image",
+        src: "/journal/findac-rieko/findac-rieko-wedding-day.jpg",
+        alt: "Rieko and Tom on their wedding day in Japan, Rieko in a red silk kimono and Tom in a black kimono, both holding up their hands to show their wedding rings",
+        caption: "The day we married in 2009.",
+        orientation: "square",
+      },
+      {
+        type: "text",
+        text: "The day we married was in 2009, and that was the photo Fin referenced for this artwork. Tom sent Fin several photographs to work from, and my mum\u2019s was among them. Fin came back with a wonderful idea neither of us could have anticipated: instead of just painting me from my own wedding photograph, he would also take my mum\u2019s picture as a basis and have me wear the kimono she wore.",
+      },
+      {
+        type: "text",
+        text: "In his own words: \u201cI wanted to use the photo as the basis for my piece but showing Rieko in her mum\u2019s wedding dress instead.\u201d He politely asked first whether this would be disrespectful, but it certainly was not. My mum was delighted, and more than a little honoured that Fin liked her wedding photo. Tom left the whole idea to Fin and saw nothing until it was finished.",
+      },
+      {
+        type: "pullquote",
+        text: "Two wedding photographs, my mum\u2019s and mine, and Fin made one picture out of both.",
+      },
+      {
+        type: "text",
+        text: "The making took Fin somewhere new. One of his early loves in art was the Japanese woodblock print, and he knows the old masters well: Kikugawa Eizan, Torii Kiyonaga, Utagawa Kunisada, and Kitagawa Utamaro. This piece was the first time he had properly used watercolour, Japanese ink and brush, masking fluid, and tea-staining to age the paper. He finished it with metallic paint and gold leaf.",
+      },
+      {
+        type: "text",
+        text: "When I first saw it finished, what I noticed straight away was the influence of those old woodblock prints. The kimono is the one from mum\u2019s photograph, featuring the cranes and all the little details redrawn in green and rose, while the face is mine from our wedding day. Behind me there is a sun made of real gold leaf, alongside a cherry branch, a line of pines, a mountain, and the water, all culminating in the mask across my eyes.",
+      },
+      {
+        type: "text",
+        text: "I loved the concept as soon as Tom told me about it, and I love the finished piece even more. My favourite part is the gold; because it is laid on thickly enough to hold texture, when the afternoon light comes through the blinds and catches the leaf, the sun in the picture truly shines, filling me with quiet happiness. It looks a little different depending on the gentle shift of light and the time of day.",
+      },
+      {
+        type: "image-pair",
+        images: [
+          { src: "/journal/findac-rieko/findac-rieko-artwork-detail.jpg", alt: "Detail of Fin DAC\u2019s watercolour and Japanese ink portrait of Rieko, showing the gold leaf sun, the cherry branch and the metallic mask across the eyes", caption: "The sun is a disc of gold leaf, laid the way the old woodblock prints were finished." },
+          { src: "/journal/findac-rieko/findac-rieko-artwork-framed.jpg", alt: "Fin DAC\u2019s ukiyo-e style portrait of Rieko framed in gold on a wall, the deckle edge of the paper showing against the mount", caption: "The whole piece, in the frame we chose with Fin, with his seal in the bottom corner." },
+        ],
+      },
+      {
+        type: "image",
+        src: "/journal/findac-rieko/findac-rieko-mitsuko.jpg",
+        alt: "Mitsuko sitting in seiza beside the framed portrait in her tatami room in Japan, shoji screens behind her",
+        caption: "My mum with her print after it arrived at their home in Japan.",
+      },
+      {
+        type: "text",
+        text: "Then came the second piece. Fin had kindly promised early on that he would make a version for my mum, and in December 2023 we went to his studio to collect it. We spent the afternoon hearing about what he had coming up, surrounded by all his amazing works. I always leave his studio wanting to go straight home, be creative, and return to <a href=\"/journal/the-beginning\">the stories I have been drawing for the last several years</a>. Fin is such an inspiration in so many ways, and I am deeply grateful to know him and watch how he creates his wonderful art.",
+      },
+      {
+        type: "text",
+        text: "My mum\u2019s piece is a hand-finished print, worked over by hand once the printing was complete. Fin felt parts of it had come out better than the original, with the petals in particular holding more colour, and he said so plainly, which I loved hearing. I was so happy with the way they both carry their own unique beauty. We chose the frames together: a lovely, simple gold style, both made in London so the pair would match.",
+      },
+      {
+        type: "text",
+        text: "We carried mum\u2019s piece to Japan in May 2024 and gave it to her at the family home. What we had not expected was the profound magic of having two of them. I live in London and my parents live in Japan, and we see each other about once a year. Now, the same image hangs in two homes thousands of miles apart, and both of us are in it.",
+      },
+      {
+        type: "text",
+        text: "When I look at mine, I am looking at her kimono, and when she looks at hers, she is looking at me. It feels rather poetic, and such a wonderful idea from Fin to have put such thoughtful care into the whole concept.",
+      },
+      {
+        type: "text",
+        text: "My mum says the same about hers, noting that she notices the gold when the light changes in the room and it makes her think of us. In Japanese, we have a word for this kind of connection: Musubi (\u7d50\u3073) means to tie, like tying a knot, and it is also used for the way people and things end up bound together. What his picture tied is our Kokoro (\u5fc3), the one word Japanese uses for what English separates into heart, mind and spirit. Two of the same picture, one in London and one in Japan.",
       },
     ],
   },
@@ -885,7 +983,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Several stories. Each one following this being of light as it encounters a different part of the natural world and reveals the Kokoro within it. Kokoro (心) is the Japanese word for what English divides into heart, mind, soul, and spirit. In Japanese, these are not separate things. Kokoro is holistic: emotion, thought, and essence held together as one. It lives in the chest, not the head. It is felt before it is understood.",
+        text: "The stories took shape slowly, across notebooks and loose sheets and conversations that stretched over years. Several stories. Each one following this being of light as it encounters a different part of the natural world and reveals the Kokoro within it. Kokoro (心) is the Japanese word for what English divides into heart, mind, soul, and spirit. In Japanese, these are not separate things. Kokoro is holistic: emotion, thought, and essence held together as one. It lives in the chest rather than the head, and it is felt before it is understood.",
       },
       {
         type: "text",
@@ -897,7 +995,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "That is what Auwa does. It arrives from the stars carrying a gentle light, and when that light reaches something, the Kokoro within it becomes visible. A flower. A forest. A handful of soil. Things we walk past every day without noticing. Auwa notices. And in noticing, changes how you see them too.",
+        text: "That is what Auwa does. It arrives from the stars carrying a gentle light, and when that light reaches something, the Kokoro within it becomes visible. A flower, a forest, a handful of soil, things we walk past every day without noticing. Auwa notices them. And in noticing, changes how you see them too.",
       },
       {
         type: "pullquote",
@@ -905,7 +1003,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "If we lived in that kind of world, where the soul in all things was visible, I think it would be a much kinder place. You would not throw something away if you could see its Kokoro. You would not ignore a person, or a river, or a forest, if you could see what lived inside it. The stories are not really about a character with magical powers. They are about paying attention. About the awareness that everything around us is alive, and connected, and worth caring for. That is what we want to bring into the world with this book.",
+        text: "If we lived in that kind of world, where the soul in all things was visible, I think it would be a much kinder place. You would not throw something away if you could see its Kokoro. You would not ignore a person, or a river, or a forest, if you could see what lived inside it. The stories are not really about a character with magical powers, they are about paying attention, about the awareness that everything around us is alive, and connected, and worth caring for. That is what we want to bring into the world with this book.",
       },
       {
         type: "image-pair",
@@ -916,7 +1014,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. I drew the first sketch nearly ten years ago, and the simplicity has never changed because it was never a constraint, it is the method. It looks like a children\u2019s book, which is the point. Adults build defences around ideas about what cannot be seen. They want evidence, argument, logic. A picture book walks straight past all of that. Charlie Mackesy understood this. Miyazaki has understood it for decades.",
+        text: "The illustration style is simple on purpose. Soft palette, gentle compositions, a character with no mouth and two dark eyes. I drew the first sketch nearly ten years ago, and the simplicity has never changed because it was never a constraint, it is the method. It looks like a children\u2019s book, which is the point. Adults build defences around ideas about what cannot be seen. They want evidence, argument, logic, and a picture book walks straight past all of it. Charlie Mackesy understood that, and Miyazaki has understood it for decades.",
       },
       {
         type: "text",
@@ -957,7 +1055,7 @@ const articles: Record<
 /* ─── Group content blocks into layout sections ─── */
 type Section =
   | { kind: "text-only"; blocks: ContentBlock[] }
-  | { kind: "image-beside"; image: { src: string; alt: string; caption?: string }; blocks: ContentBlock[] }
+  | { kind: "image-beside"; image: { src: string; alt: string; caption?: string; orientation?: "portrait" | "landscape" | "square" }; blocks: ContentBlock[] }
   | { kind: "image-pair"; images: [{ src: string; alt: string; caption?: string }, { src: string; alt: string; caption?: string }] };
 
 function groupIntoSections(content: ContentBlock[]): Section[] {
@@ -974,7 +1072,7 @@ function groupIntoSections(content: ContentBlock[]): Section[] {
       // Image left, following text right
       sections.push({
         kind: "image-beside",
-        image: { src: block.src, alt: block.alt, caption: block.caption },
+        image: { src: block.src, alt: block.alt, caption: block.caption, orientation: block.orientation },
         blocks: [],
       });
     } else if (block.type === "image-pair") {
@@ -1002,11 +1100,52 @@ function groupIntoSections(content: ContentBlock[]): Section[] {
 }
 
 /* ─── Shared text/pullquote rendering ─── */
-function renderTextBlock(block: ContentBlock, i: number) {
+/**
+ * The article page's first-paint cascade, in one place.
+ *
+ * FadeIn and TextReveal both short-circuit when an element is already on
+ * screen at mount, so every delay in the opening viewport resolves against
+ * the same instant. That makes these values a single ordered sequence
+ * rather than four independent settings: the lowest number appears first,
+ * wherever it happens to sit on the page.
+ *
+ * They were not previously chosen as a sequence, and it showed. The
+ * subtitle sat at 700ms, picked to read as "a beat after the title", but
+ * the meta row was on 200ms and the first body paragraph on 0ms. On any
+ * window tall enough to show them (900px reached the meta row, 1080px the
+ * body), the subtitle arrived last, after the copy it introduces.
+ *
+ * Keep these in order, and keep the gaps: each step wants to be visible as
+ * a step without leaving a hole in the layout.
+ */
+const HERO_CASCADE = {
+  /** Per-word stagger on the title. Three words land at 0 / 70 / 140ms. */
+  titleStagger: 70,
+  /** Starts while the last title word is still rising, so the pair reads as one move. */
+  subtitle: 260,
+  /** Clears the subtitle before the byline and share row arrive. */
+  meta: 420,
+  /**
+   * First body paragraph, on first paint only. Scroll-triggered paragraphs
+   * keep their own short delay, which is why this goes through
+   * `firstPaintDelay` rather than `delay`.
+   */
+  body: 560,
+} as const;
+
+function renderTextBlock(
+  block: ContentBlock,
+  i: number,
+  /** When set, this block is in the opening viewport and joins the hero cascade. */
+  firstPaintBase?: number,
+) {
+  const delay = Math.min(i * 30, 200);
+  const firstPaintDelay =
+    firstPaintBase === undefined ? undefined : firstPaintBase + delay;
   if (block.type === "text") {
     const hasHtml = /<[a-z][\s\S]*>/i.test(block.text);
     return (
-      <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
+      <FadeIn key={i} delay={delay} firstPaintDelay={firstPaintDelay} translateY={32}>
         {hasHtml ? (
           <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-sumi mb-8 md:mb-10 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-sumi/30 hover:[&_a]:decoration-sumi/60 [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: block.text }} />
         ) : (
@@ -1019,7 +1158,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
   }
   if (block.type === "pullquote") {
     return (
-      <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
+      <FadeIn key={i} delay={delay} firstPaintDelay={firstPaintDelay} translateY={32}>
         <blockquote className="my-12 md:my-16">
           <p className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.3] tracking-[0.005em] text-sumi">
             &ldquo;{block.text}&rdquo;
@@ -1030,7 +1169,7 @@ function renderTextBlock(block: ContentBlock, i: number) {
   }
   if (block.type === "cta") {
     return (
-      <FadeIn key={i} delay={Math.min(i * 30, 200)} translateY={32}>
+      <FadeIn key={i} delay={delay} firstPaintDelay={firstPaintDelay} translateY={32}>
         <div className="mt-12 md:mt-16 pt-10 md:pt-12 border-t border-sumi/10">
           <p className="font-display text-[18px] md:text-[19px] leading-[1.85] tracking-[0.005em] text-sumi/55 mb-8">
             {block.text}
@@ -1141,22 +1280,22 @@ export default async function ArticlePage({
             {/* Header tone sentinel — text side reads against Surface
                 page bg, header trigger wants Sumi here. */}
             <HeaderTone tone="sumi" />
-            {/* Title cascades alongside the image's 2000ms ImageFade
-                — both start at the same moment (gated on
-                usePageReady) so the user sees the photo establishing
-                while the title's word-by-word reveal plays out. The
-                short ~700ms cascade lands well within the longer
-                image fade, reading as one composed entrance.
-                Subtitle comes in a beat later (700ms) so the visual
-                hierarchy reads title → subtitle, not all at once. */}
+            {/* Title cascades alongside the image's 2000ms ImageFade.
+                Both start at the same moment (gated on usePageReady), so
+                the photo establishes while the title reveals word by word,
+                and the short cascade lands well inside the longer image
+                fade as one composed entrance. Subtitle follows on
+                HERO_CASCADE.subtitle so the hierarchy reads title then
+                subtitle. See HERO_CASCADE for why these are one sequence
+                and not four independent numbers. */}
             <TextReveal
               as="h1"
               className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[0.01em] text-sumi"
-              stagger={70}
+              stagger={HERO_CASCADE.titleStagger}
             >
               {article.title}
             </TextReveal>
-            <FadeIn delay={700} translateY={32}>
+            <FadeIn delay={HERO_CASCADE.subtitle} translateY={32}>
               <p className="mt-4 md:mt-6 pr-2 md:pr-0 font-display text-[clamp(1.2rem,2vw,1.5rem)] leading-[1.35] text-pretty text-sumi/60">
                 {article.subtitle}
               </p>
@@ -1165,7 +1304,10 @@ export default async function ArticlePage({
         </div>
 
         {/* ── Meta row ── */}
-        <FadeIn delay={200}>
+        {/* Keeps a short delay when scrolled to on a small window, and takes
+            its place behind the subtitle when it is on screen at first
+            paint. See HERO_CASCADE. */}
+        <FadeIn delay={200} firstPaintDelay={HERO_CASCADE.meta}>
           <div className="px-6 md:px-12 lg:px-20 xl:px-28 py-6 md:py-8 border-b border-sumi/10">
             <div className="flex flex-wrap items-center justify-between gap-4 text-sumi/45">
               <div className="flex flex-wrap items-center">
@@ -1193,7 +1335,14 @@ export default async function ArticlePage({
         </FadeIn>
 
         {/* ── Article body — text always on right half ── */}
-        <article className="space-section">
+        {/* Capped at 1600px from xl up. Without this the two columns grow
+            with the viewport, so on a wide monitor the 4:5 beside-image
+            balloons (946px tall at a 2000px window) while the text column
+            just gets wider and shorter. The image then hangs hundreds of
+            pixels below the last line of text. Measured 9 Sep 2026: the
+            published articles did this too (making-washi hung 590px,
+            koya-san 334px at 2000px), so this is a fix for all of them. */}
+        <article className="space-section xl:max-w-[1600px] xl:mx-auto">
           {sections.map((section, si) => {
 
             {/* Text-only: full editorial column on mobile + tablet
@@ -1201,7 +1350,7 @@ export default async function ArticlePage({
             if (section.kind === "text-only") {
               return (
                 <div key={si} className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 xl:ml-[50%] max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
-                  {section.blocks.map((block, bi) => renderTextBlock(block, si * 10 + bi))}
+                  {section.blocks.map((block, bi) => renderTextBlock(block, si * 10 + bi, si === 0 ? HERO_CASCADE.body : undefined))}
                 </div>
               );
             }
@@ -1242,7 +1391,11 @@ export default async function ArticlePage({
                   <div className="px-6 md:px-12 lg:px-20 xl:pl-28 xl:pr-32 mb-8 xl:mb-0">
                     <FadeIn delay={100} translateY={32}>
                       <figure>
-                        <div className="relative aspect-[4/5] overflow-hidden rounded-md">
+                        <div className={`relative overflow-hidden rounded-md ${
+                          section.image.orientation === "landscape" ? "aspect-[4/3]"
+                            : section.image.orientation === "square" ? "aspect-square"
+                            : "aspect-[4/5]"
+                        }`}>
                           <ImageFade
                             src={section.image.src}
                             alt={section.image.alt}
@@ -1265,7 +1418,7 @@ export default async function ArticlePage({
                   </div>
 
                   <div className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
-                    {section.blocks.map((block, bi) => renderTextBlock(block, si * 10 + bi))}
+                    {section.blocks.map((block, bi) => renderTextBlock(block, si * 10 + bi, si === 0 ? HERO_CASCADE.body : undefined))}
                   </div>
                 </div>
               );
@@ -1291,6 +1444,20 @@ export default async function ArticlePage({
                   };
                 };
                 const author = credit(article.author);
+
+                if (!article.photographer) {
+                  return (
+                    <div>
+                      <p className="font-sans text-[11px] tracking-[0.18em] uppercase text-sumi/45 mb-2">
+                        Words
+                      </p>
+                      <Link href={author.href} className="block font-sans text-[12px] tracking-[0.16em] uppercase text-sumi hover:text-sumi/60 transition-colors duration-300">
+                        {article.author}
+                      </Link>
+                    </div>
+                  );
+                }
+
                 const photographer = credit(article.photographer);
                 const samePerson = article.author === article.photographer;
 

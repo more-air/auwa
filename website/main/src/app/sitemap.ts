@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 const BASE_URL = "https://auwa.life";
 
 const articleSlugs = [
+  "findac-rieko",
   "yakushima-island",
   "koya-san",
   "72-seasons",

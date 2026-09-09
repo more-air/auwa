@@ -169,6 +169,54 @@ Write the full article following journal.md Section 3 (Article Structure):
 - Include one pullquote (the single most resonant line).
 - Mix paragraph lengths for rhythm.
 
+### Sentence rhythm, and why the published articles are NOT the reference
+
+*Added 9 September 2026, after getting this exactly backwards on the Fin DAC article.*
+
+**Do not read the eleven pre-September-2026 articles to learn how Tom and Rieko write.**
+Claude drafted nearly all of them. Reading them to calibrate voice measures Claude's own habits
+and calls them house style. That is what happened: a analysis of the corpus concluded that
+"28-53% of sentences are eight words or fewer" was the standard, and Claude then chopped Tom's
+long sentences into short ones to match it. The piece read *less* like him afterwards, not more.
+Tom's reply is the rule: *"AI tends to write in these super short sentences, which isn't my style
+at all."*
+
+That 28-53% figure is not a style. It is the short-declarative tic the global CLAUDE.md names as
+the most recognisable AI tell, baked into the corpus and mistaken for a standard.
+
+**The real baseline is Tom's own hand-written prose:**
+
+| | Tom, by hand | the Claude-drafted corpus |
+|---|---|---|
+| mean sentence | **17.7 words** | 10.2-13.5 |
+| median | **16.5 words** | 7-12 |
+| sentences <= 8 words | **7%** | 28-53% |
+| sentences >= 20 words | **39%** | 8-25% |
+| runs of 3+ short sentences | **0** | 1 to 5 per article |
+
+**So: write long.** Join clauses with commas and with "and". Let a sentence carry two or three
+things. A short sentence is for genuine emphasis, once or twice in a piece, never as the default
+rhythm and never three in a row.
+
+**What to actually copy from Tom's writing**, beyond length: contractions ("can't", "he's not
+forgotten"); warmth stated outright rather than implied ("a wonderful idea", "such an inspiration",
+"which I liked hearing"); explanation offered where a literary writer would leave a gap (he turned
+*"He has never forgotten that he said it."* into *"...but he's not forgotten that he did, and that
+he showed his good character and nature in doing so."*); and no crafted parallels or reveals. He
+deleted every neat construction Claude wrote, including *"The kimono is my mother's and the face
+inside it is mine."* If a line feels like the best line in the paragraph, it is probably the one he
+will cut.
+
+**Check it before showing a draft:**
+
+```bash
+python3 scripts/prose-check.py [slug] --sentences
+```
+
+It reports mean and median sentence length, the share of short and long sentences, runs of three-plus
+short sentences, and intensifier count, each against the range above. `--all` shows every article,
+and makes the Claude-versus-Tom gap visible at a glance.
+
 ## Step 4: Voice Check
 
 Before showing the draft, run the voice check from journal.md Section 4:
@@ -188,13 +236,100 @@ Before showing the draft, run the voice check from journal.md Section 4:
 6. **Aphoristic closers in the middle of a paragraph.** *"The steel remembers every strike of the hammer."* *"The wood remembers."* *"The process does not scale. It is not designed to."* Fine once per article, usually as the pullquote. If they stack, the piece starts sounding like a sequence of fortune cookies.
 7. **Overly symmetrical constructions.** *"He explained the process the way someone explains breathing: simply, because it is simple, and because he has done it every day for decades."* The parallel "because… because…" is crafted in a way people don't write when they're tired. Break it: *"He explained the process simply, the way you might explain breathing. He has done it every day for decades."*
 
+**Never invent a duration, and never state one Tom or Rieko has not said out loud.**
+Added 9 September 2026, after Claude wrote *"the stories I have been drawing for the last ten
+years"* into Rieko's voice. Tom: *"stop AI from ever saying 'ten' again, it's too specific."*
+
+The number came from the context files, which describe the character as having "a decade of
+development". That is a strategy note, not something Rieko would say about her own work, and
+putting a precise figure in her mouth makes a claim she has not made. Precision is not accuracy:
+a specific number in a first-person sentence reads as a fact the writer has checked, and here
+nobody had.
+
+- Write **"the last several years"**, "years", "a long time", or simply drop the timeframe.
+- This covers any figure a reader would take as verified: how long something took, how many of a
+  thing exist, prices, distances, follower counts, ages.
+- A number is fine when Tom or Rieko gave it, or when it is checkable and checked (the date on a
+  post, a year on a photograph, a maker's stated founding year). Fin's *"4 January 2022"* is fine
+  because his post carries the date.
+- If a number matters and nobody has confirmed it, leave it out and ask, rather than rounding to
+  something that sounds right.
+
 **The read-aloud test.** Read the piece aloud to another person, or imagine you are. If any sentence would make a friend raise an eyebrow and say "that sounds like something ChatGPT would write," cut it. No exceptions. Better a plainer sentence than a clever one that gives the game away.
 
 **Cross-article check.** Before publishing, re-read the other articles in the journal and make sure this one isn't using the same signature phrase ("There is a particular…," "Not X. It is Y.," a closing callback). Repetition across articles is what lets a reader spot the pattern.
 
 ## Step 5: Assemble
 
-Assemble the article as a content block array matching the format in the existing article page (`website/main/src/app/journal/[slug]/page.tsx`). Show the user:
+Assemble the article as a content block array matching the format in the existing article page (`website/main/src/app/journal/[slug]/page.tsx`).
+
+**The article shape (measured off the eleven published articles, 9 Sep 2026).** Build the content array to this and check it before showing the user anything.
+
+`groupIntoSections()` turns a single `image` block into an `image-beside` section and attaches
+**every** following text and pullquote block to it until the next image or image-pair. The image
+sits in a fixed 4:5 box on the left, text flows on the right. That mechanic is what makes the
+ordering below matter, and getting it wrong produces the two faults Tom has flagged more than once:
+an awkward empty block before the side-by-side images, and a final image hanging off the end of the
+article.
+
+**The pattern, with the numbers every published article actually hits:**
+
+| | published range | target |
+|---|---|---|
+| First single `image` at block index | 2-4 | **3** |
+| Text/pullquote blocks after that first image | 4-7 | **5-6** |
+| `pullquote` position relative to `image-pair` | ABOVE, 11 of 11 | **above** |
+| Blocks after the LAST image | 2-7 | **3** |
+| Body photographs (a pair counts as two) | 3-4 | **4** |
+
+**What each rule is protecting:**
+
+1. **Get the first image up near the top, by block 3.** Four or five paragraphs of solid text
+   before the first photograph reads as a wall, and the image then lands too close to the
+   image-pair below it.
+2. **Give that first image at least four blocks after it.** This is the one that causes the empty
+   gap. Too few and the text column runs out while the image is still going, so the first image
+   collides with the side-by-side pair underneath. Aim for the text column to run *well past* the
+   bottom of the image.
+3. **Put the pullquote above the image-pair.** Every published article does this without exception.
+   It gives the pair a beat of white space and display type to sit under. A pullquote's content has
+   to suit that position, roughly halfway through, so pick a line about the subject rather than a
+   line that gives away the ending.
+4. **Lift the last image so three blocks sit beside it.** One short paragraph after a tall portrait
+   leaves the image hanging hundreds of pixels below the text. Never make an `image` the last
+   block; every published article ends on two `text` blocks.
+5. **`image-pair` is full width and immune** to all of this. Pair two photographs when neither can
+   carry four blocks of its own.
+
+**How to verify, and the trap in it.** Do NOT compare the image against the *text column div*: the
+grid stretches both columns to the row height, so that comparison always looks fine and tells you
+nothing. Measure the **bottom of the whole `<figure>` against the bottom of the last `<p>`**, and do it at a
+**wide window (2000px+)**, not at 1280px. This is the check:
+
+```js
+[...document.querySelectorAll('div.xl\\:grid')].map(r => {
+  const fig = r.querySelector('figure');                 // the FIGURE, not 'figure div'
+  const ps  = [...[...r.children][1].querySelectorAll('p, blockquote')];
+  return Math.round(fig.getBoundingClientRect().bottom
+                  - ps[ps.length - 1].getBoundingClientRect().bottom);   // want <= -100
+});
+```
+
+Measure the **whole `<figure>`**, not just the image box: the caption sits below the photograph
+and counts as hang. On making-washi the image cleared by 13px while the figure still overhung by
+45px. And aim for **-100 or lower**, not merely negative; anything inside about 50px reads as
+level, and one extra line of text either way flips it.
+
+**Why wide windows are where it breaks.** The article body is capped at 1600px from `xl` up
+(added 9 Sep 2026). Before that cap the two columns grew with the viewport, so at a 2000px window
+the 4:5 beside-image reached 946px tall while the text column merely got wider and shorter, and the
+image hung hundreds of pixels below the last line. That was true of the *published* articles too,
+not just new ones: measured at 2000px, making-washi hung 590px and koya-san 334px. The cap fixes
+most of it (koya-san went to -88), but content still has to do its share: making-washi still hangs
+273px because it gives its last image only two paragraphs. That is the rule above, and it is why it
+is a rule.
+
+Show the user:
 
 1. The full article text
 2. The proposed content block order (text, image, image-pair, pullquote)
@@ -210,7 +345,15 @@ Once approved:
 
    **The principle: the page keeps the poetry, Google gets the search phrase.** Before the September 2026 sweep, one field was both, so every article's Google title was its editorial headline. That is why "The Onsen Lesson" and "The Beginning" earned nothing (nobody searches those phrases), and why "72 Seasons" was competing with Metallica's album of that name. These are now two separate fields and neither compromises for the other.
 
-   - **`title`**: the editorial headline. This is the H1 a reader sees on the page. Keep it short and poetic. It is NOT the Google title, so it does not need keywords and has no character limit beyond looking right in the layout.
+   - **`title`**: the editorial headline. This is the H1 a reader sees on the page. It is NOT the
+     Google title, so it needs no keywords. **Hard limit: 20 characters, one to three words.**
+     Measured off the published set, which runs 8-20 characters (mean 12.5); "Nozawa Fire Festival"
+     at 20 is the ceiling. Longer than that and the H1 wraps to two lines at narrow widths.
+     **Prefer a naming noun to a descriptive phrase.** Every title that works on the site names a
+     thing: a place (Koya-san, Narai in Snow), a maker (Shigefusa, Fin DAC), an object (Oroku-gushi),
+     a concept (Yaoyorozu no Kami). A possessive or descriptive phrase ("Her Mother's Kimono") is in
+     spec on length and still reads wrong beside them. Count the characters before writing it in, and
+     check the rendered H1 doesn't wrap.
    - **`seoTitle`**: the searchable phrase Google shows. **Required on every new article.** `generateMetadata` renders `"{seoTitle ?? title} | Auwa Journal"`, and the suffix is 15 characters, so `seoTitle` must be **45 characters or fewer** or Google truncates it. It should contain the primary keyword in the form people actually type.
      - Do not target a query the piece cannot win. A bare brand or product name is usually a buying query owned by retailers (Shigefusa proved this: page one was Knifewear and Bernal Cutlery, and the bare title earned nothing). Target the informational long tail instead.
      - Do not target a big commercial term the piece is not actually about. "Onsen etiquette" is the biggest term in that space, but the article is not a rules guide, so chasing it would misrepresent the piece and lose anyway.

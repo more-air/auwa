@@ -7,16 +7,61 @@
 
 ## 1. The Voice
 
-Auwa's editorial voice draws from the same well as Kinfolk, Cereal, and Monocle. Quiet authority. Precise observation. A rhythm that alternates between short, declarative sentences and longer ones that give the reader room to breathe. The writing never announces itself. It arrives, says what it came to say, and trusts the reader to feel the rest.
+*Rewritten 9 September 2026. The previous version of this section said the voice "draws from the
+same well as Kinfolk, Cereal and Monocle" and called for "a rhythm that alternates between short,
+declarative sentences and longer ones". That instruction is why drafts kept coming back cold and
+clipped, and it is what produced thirty stacked-fragment runs across the published articles before
+they were rewritten. It has been replaced with what Tom and Rieko measurably do.*
 
-The journal is written from direct experience. The founders have lived in and travelled through Japan for years. It is not research writing or reportage. It is personal essay grounded in real places, real objects, real moments. When we write about a knife, we held that knife. When we write about a temple at dawn, we stood in that silence.
+**Write long.** This is the single most important thing on this page. Tom's own hand-written prose
+runs a **mean of 17.7 words a sentence, a median of 16.5, with only 7% of sentences at eight words
+or fewer and 39% at twenty or more.** He joins clauses with commas and with "and", and lets one
+sentence carry two or three things. Claude's untended default is roughly a mean of 11 with 40%
+short, which reads clipped and machine-made however good the individual words are.
 
-**Reference writers and publications:**
-- Kinfolk (Nathan Williams, early issues especially): the intersection of craft, place, and philosophy. Clean prose, generous white space.
-- Cereal: travel writing that earns its quietness. Every word chosen.
-- Monocle: confident, opinionated, concise. The worldview is the content.
-- Charlie Mackesy: philosophy that arrives through simplicity, not complexity.
-- John Berger ("Ways of Seeing"): observation as an act of attention.
+A short sentence is for genuine emphasis, once or twice in a piece. **Never three in a row**, and
+never a run of noun fragments ("The rock. The river. The kitchen table.").
+
+**Warmth is stated, not implied.** Tom and Rieko write "a wonderful idea", "such an inspiration",
+"which I liked hearing", "it makes me so happy". A cooler, more literary register reads to them as
+cold, and they will rewrite it. Where a literary writer would leave a gap for the reader to fill,
+they explain. Tom turned *"He has never forgotten that he said it."* into *"...but he's not
+forgotten that he did, and that he showed his good character and nature in doing so."* Follow that
+instinct rather than trimming it back.
+
+**No crafted lines.** They delete every neat parallel, reveal and aphorism, including good ones.
+If a sentence feels like the best line in the paragraph, it is usually the one that gets cut.
+Contractions are fine and normal. So is repeating a plain word rather than reaching for a better one.
+
+**Two registers, not one.**
+- **Tom** writes the place, craft and concept pieces. Observant, specific, unhurried, first person
+  plural for shared experience. Comfortable with a fact or a number when he has checked it.
+- **Rieko** writes the personal and character pieces. First person singular, warmer still, "mum"
+  rather than "mother", feeling stated simply and directly. Caution: the only sample of her voice
+  in this repo is Tom writing as her on the Fin DAC article, so treat it as approximate and ask.
+
+**What the reference publications are still good for.** Kinfolk, Cereal, Monocle and Berger remain
+useful for *what to write about and what to leave out*: the intersection of craft, place and
+philosophy, restraint about adjectives, trusting a photograph to carry its own weight, refusing to
+tell the reader what to feel. They are **not** a model for sentence rhythm or register here. Do not
+imitate their coolness.
+
+**The published articles are a partial reference only.** Claude drafted nearly all of them, and the
+edits they received were about facts and wording rather than structure. Use them for subject
+treatment, how much to explain, how Japanese terms are handled, and what a caption sounds like.
+Do **not** use them to calibrate sentence length, paragraph length or emphasis: on those three you
+would be copying Claude.
+
+**The journal is written from direct experience.** Not research writing or reportage. When we write
+about a knife, we held that knife. When we write about a temple at dawn, we stood in that silence.
+If the first-hand material for a piece does not exist, get it before drafting (Section 4, Step 1)
+rather than writing around the gap.
+
+**Measure the draft before showing it:**
+
+```bash
+python3 scripts/prose-check.py [slug] --sentences
+```
 
 ---
 
@@ -41,11 +86,33 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 - **Overly symmetrical constructions.** *"Simply, because it is simple, and because he has done it every day for decades."* Break the symmetry.
 - **Fragment-stacking as default rhythm.** Three short declaratives in a row ("Sentence. Sentence. Sentence."), each making one isolated point. The single most common current AI tell. Examples to hunt: *"Eight million spirits. Not a count. A way of saying the world is alive."* / *"Plum blossoms. Open for five days. Look away and you miss it."* / *"No plastic. No foam. Just wood cradling steel."* Rewrite as flowing sentences joined by comma, semicolon, or colon. A single fragment for emphasis is fine; two or more stacked is not.
 
+**Never invent a duration, and never state one Tom or Rieko has not said out loud.**
+Added 9 September 2026, after Claude wrote *"the stories I have been drawing for the last ten
+years"* into Rieko's voice. Tom: *"stop AI from ever saying 'ten' again, it's too specific."*
+
+The number came from the context files, which describe the character as having "a decade of
+development". That is a strategy note, not something Rieko would say about her own work, and
+putting a precise figure in her mouth makes a claim she has not made. Precision is not accuracy:
+a specific number in a first-person sentence reads as a fact the writer has checked, and here
+nobody had.
+
+- Write **"the last several years"**, "years", "a long time", or simply drop the timeframe.
+- This covers any figure a reader would take as verified: how long something took, how many of a
+  thing exist, prices, distances, follower counts, ages.
+- A number is fine when Tom or Rieko gave it, or when it is checkable and checked (the date on a
+  post, a year on a photograph, a maker's stated founding year). Fin's *"4 January 2022"* is fine
+  because his post carries the date.
+- If a number matters and nobody has confirmed it, leave it out and ask, rather than rounding to
+  something that sounds right.
+
 **Cross-article check.** Before publishing, re-read the other articles in the journal and confirm this one isn't reusing the same signature phrase or construction. Repetition across the set is what lets a reader spot the pattern. Any phrase already used in two or more published articles is off-limits.
 
 **What good Auwa writing does:**
 - Leads with concrete, sensory detail. Specificity is authority.
-- Uses fragments for rhythm. "No plastic. No foam. Just wood cradling steel."
+- **Do NOT use fragments for rhythm.** An earlier version of this file recommended it and gave
+  "No plastic. No foam. Just wood cradling steel." as the model. The global CLAUDE.md lists that
+  exact line as an AI tell to hunt and rewrite, and the measured baseline (see Section 2a) says
+  Tom writes long. The two instructions contradicted each other for months. Long wins.
 - Earns its philosophical moments by grounding them first. The idea arrives after the object, the place, the sensation. Never before.
 - Treats Japanese cultural concepts with familiarity, not exoticism. Brief glosses where helpful, never italicised for effect.
 - Trusts silence. Not every paragraph needs to advance an argument. Some paragraphs simply describe.
@@ -61,6 +128,56 @@ These are non-negotiable. Read the global CLAUDE.md writing style section for th
 
 ---
 
+## Sentence rhythm, and why the published articles are NOT the reference
+
+*Added 9 September 2026, after getting this exactly backwards on the Fin DAC article.*
+
+**Do not read the eleven pre-September-2026 articles to learn how Tom and Rieko write.**
+Claude drafted nearly all of them. Reading them to calibrate voice measures Claude's own habits
+and calls them house style. That is what happened: a analysis of the corpus concluded that
+"28-53% of sentences are eight words or fewer" was the standard, and Claude then chopped Tom's
+long sentences into short ones to match it. The piece read *less* like him afterwards, not more.
+Tom's reply is the rule: *"AI tends to write in these super short sentences, which isn't my style
+at all."*
+
+That 28-53% figure is not a style. It is the short-declarative tic the global CLAUDE.md names as
+the most recognisable AI tell, baked into the corpus and mistaken for a standard.
+
+**The real baseline is Tom's own hand-written prose:**
+
+| | Tom, by hand | the Claude-drafted corpus |
+|---|---|---|
+| mean sentence | **17.7 words** | 10.2-13.5 |
+| median | **16.5 words** | 7-12 |
+| sentences <= 8 words | **7%** | 28-53% |
+| sentences >= 20 words | **39%** | 8-25% |
+| runs of 3+ short sentences | **0** | 1 to 5 per article |
+
+**So: write long.** Join clauses with commas and with "and". Let a sentence carry two or three
+things. A short sentence is for genuine emphasis, once or twice in a piece, never as the default
+rhythm and never three in a row.
+
+**What to actually copy from Tom's writing**, beyond length: contractions ("can't", "he's not
+forgotten"); warmth stated outright rather than implied ("a wonderful idea", "such an inspiration",
+"which I liked hearing"); explanation offered where a literary writer would leave a gap (he turned
+*"He has never forgotten that he said it."* into *"...but he's not forgotten that he did, and that
+he showed his good character and nature in doing so."*); and no crafted parallels or reveals. He
+deleted every neat construction Claude wrote, including *"The kimono is my mother's and the face
+inside it is mine."* If a line feels like the best line in the paragraph, it is probably the one he
+will cut.
+
+**Check it before showing a draft:**
+
+```bash
+python3 scripts/prose-check.py [slug] --sentences
+```
+
+It reports mean and median sentence length, the share of short and long sentences, runs of three-plus
+short sentences, and intensifier count, each against the range above. `--all` shows every article,
+and makes the Claude-versus-Tom gap visible at a glance.
+
+---
+
 ## 3. Article Structure
 
 Every article follows a consistent structure that maps to the Sanity CMS content model and the website's layout engine.
@@ -69,8 +186,12 @@ Every article follows a consistent structure that maps to the Sanity CMS content
 
 ```
 text        — A paragraph of prose. The most common block.
-image       — A single photograph (4:5 portrait). Appears on the left side
-              with text beside it on desktop.
+image       — A single photograph. Appears on the left side with text beside
+              it on desktop, in a fixed 4:5 portrait box.
+              Optional `orientation: "landscape"` puts it in a 4:3 box at the
+              same column width instead. Use it for any frame that is not
+              portrait: a 4:5 crop of a landscape photo keeps only the middle
+              60% of the width. Default is portrait.
 image-pair  — Two photographs side by side, each with its own caption.
               Full width. Used for detail or comparison shots.
 pullquote   — A single sentence pulled from the text, displayed large.
@@ -87,7 +208,73 @@ pullquote   — A single sentence pulled from the text, displayed large.
 
 4. **Image pair:** Two detail photographs side by side. These work best for close-ups, textures, or paired perspectives on the same subject.
 
-5. **Closing paragraphs (2-3 text blocks):** Bring the reader back to the personal. End with an image or a question, not a summary.
+5. **Closing paragraphs (2-3 text blocks):** Bring the reader back to the personal. End on a physical detail or an outward observation, not a summary. **Never end on an `image` block** — every published article ends on at least two `text` blocks, and for a structural reason (below).
+
+### The article shape (measured off the eleven published articles, 9 Sep 2026)
+
+`groupIntoSections()` turns a single `image` block into an `image-beside` section and attaches
+**every** following text and pullquote block to it until the next image or image-pair. The image
+sits in a fixed 4:5 box on the left, text flows on the right. That mechanic is what makes the
+ordering below matter, and getting it wrong produces the two faults Tom has flagged more than once:
+an awkward empty block before the side-by-side images, and a final image hanging off the end of the
+article.
+
+**The pattern, with the numbers every published article actually hits:**
+
+| | published range | target |
+|---|---|---|
+| First single `image` at block index | 2-4 | **3** |
+| Text/pullquote blocks after that first image | 4-7 | **5-6** |
+| `pullquote` position relative to `image-pair` | ABOVE, 11 of 11 | **above** |
+| Blocks after the LAST image | 2-7 | **3** |
+| Body photographs (a pair counts as two) | 3-4 | **4** |
+
+**What each rule is protecting:**
+
+1. **Get the first image up near the top, by block 3.** Four or five paragraphs of solid text
+   before the first photograph reads as a wall, and the image then lands too close to the
+   image-pair below it.
+2. **Give that first image at least four blocks after it.** This is the one that causes the empty
+   gap. Too few and the text column runs out while the image is still going, so the first image
+   collides with the side-by-side pair underneath. Aim for the text column to run *well past* the
+   bottom of the image.
+3. **Put the pullquote above the image-pair.** Every published article does this without exception.
+   It gives the pair a beat of white space and display type to sit under. A pullquote's content has
+   to suit that position, roughly halfway through, so pick a line about the subject rather than a
+   line that gives away the ending.
+4. **Lift the last image so three blocks sit beside it.** One short paragraph after a tall portrait
+   leaves the image hanging hundreds of pixels below the text. Never make an `image` the last
+   block; every published article ends on two `text` blocks.
+5. **`image-pair` is full width and immune** to all of this. Pair two photographs when neither can
+   carry four blocks of its own.
+
+**How to verify, and the trap in it.** Do NOT compare the image against the *text column div*: the
+grid stretches both columns to the row height, so that comparison always looks fine and tells you
+nothing. Measure the **bottom of the whole `<figure>` against the bottom of the last `<p>`**, and do it at a
+**wide window (2000px+)**, not at 1280px. This is the check:
+
+```js
+[...document.querySelectorAll('div.xl\\:grid')].map(r => {
+  const fig = r.querySelector('figure');                 // the FIGURE, not 'figure div'
+  const ps  = [...[...r.children][1].querySelectorAll('p, blockquote')];
+  return Math.round(fig.getBoundingClientRect().bottom
+                  - ps[ps.length - 1].getBoundingClientRect().bottom);   // want <= -100
+});
+```
+
+Measure the **whole `<figure>`**, not just the image box: the caption sits below the photograph
+and counts as hang. On making-washi the image cleared by 13px while the figure still overhung by
+45px. And aim for **-100 or lower**, not merely negative; anything inside about 50px reads as
+level, and one extra line of text either way flips it.
+
+**Why wide windows are where it breaks.** The article body is capped at 1600px from `xl` up
+(added 9 Sep 2026). Before that cap the two columns grew with the viewport, so at a 2000px window
+the 4:5 beside-image reached 946px tall while the text column merely got wider and shorter, and the
+image hung hundreds of pixels below the last line. That was true of the *published* articles too,
+not just new ones: measured at 2000px, making-washi hung 590px and koya-san 334px. The cap fixes
+most of it (koya-san went to -88), but content still has to do its share: making-washi still hangs
+273px because it gives its last image only two paragraphs. That is the rule above, and it is why it
+is a rule.
 
 ### What the Layout Engine Does Automatically
 
@@ -218,7 +405,9 @@ Assemble the text blocks, image blocks, image-pair blocks, and pullquote into th
 For each article:
 
 ```
-title:        Short, evocative. One to four words.
+title:        Editorial H1. **Max 20 characters, one to three words.** Prefer a naming noun (a place,
+              a maker, an object, a concept) over a descriptive or possessive phrase. The published set
+              runs 8-20 chars, mean 12.5. Not the Google title; that is `seoTitle`.
 subtitle:     Max 53 characters. Punchy, with a turn or surprise. Two short sentences work well. Reference: "Made from wood that breaks axes. Named after a girl." Reader-facing editorial line — stays poetic.
 description:  100-155 characters. Keyword-rich meta description for Google. MUST contain "Japanese" where natural plus the primary topic word. Distinct from subtitle — subtitle is poetry, description is search. Structure: "{what it's about}, {place/context}. {why it matters}." Reference: "On Yaoyorozu no Kami, the ancient Japanese belief that eight million spirits live in all things — and what it means for modern awareness."
 category:     Seasons | Craft | Philosophy | Travel

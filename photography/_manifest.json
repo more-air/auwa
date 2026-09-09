@@ -116,6 +116,17 @@
         "gate": "PXL_20260123_011719554~3.jpg",
         "prayer": "PXL_20260118_022956588.jpg"
       }
+    },
+    "findac-rieko": {
+      "url_slug": "findac-rieko",
+      "hero": "3-mitsuko-wide-2x.jpg",
+      "images": {
+        "hero": "3-mitsuko-wide-2x.jpg",
+        "wedding-day": "CIMG3757-square.jpg",
+        "artwork-detail": "PXL_20230810_212134294.PORTRAIT.ORIGINAL.jpg",
+        "artwork-framed": "PXL_20230810_211006567.PORTRAIT.ORIGINAL.jpg",
+        "mitsuko": "PXL_20240512_023657865.PORTRAIT.ORIGINAL.jpg"
+      }
     }
   }
 }

@@ -506,3 +506,24 @@ React discards the current render and re-renders with the new state before paint
 **Teaser-style single-viewport pages MUST match the article-page hero pattern.** Earlier Auwa teaser pages (app, store, book) used a bespoke `flex flex-col h-[calc(100dvh-4rem)]` layout with a `flex-1 min-h-0` image column. Custom font swap (next/font `display: swap`) recalculated text heights after initial paint, which resized the flex-1 image, which visibly dropped the whole composition ~1s after load. Use the article hero pattern instead — `grid grid-cols-1 md:grid-cols-2 md:h-[calc(100dvh-5rem)]` with an `aspect-[4/5]` image on mobile and natural text flow. This absorbs font-swap without layout shift.
 
 **Submission cadence.** Tuesday or Wednesday morning UK time is the window — Monday is judges' backlog day, Thursday/Friday/weekend land in the "Nominee" pile after SOTD slots are allocated. Avoid the first week of any month (carryover backlog). Submit only once the hero video and entrance loader are the absolute final cut — those are the first four seconds and carry 80% of the judge's vote. Primary category for Auwa-tier brands: **Wellbeing** (least crowded premium lane). Tags to pick: Editorial, Typography, Animation, Transitions, Interaction Design, Cultural. Main preview image: 1400×787 JPG under 1MB, and for Auwa specifically it's a close crop of the Auwa face from the hero video — nothing else on Awwwards looks like it.
+
+---
+
+## Journal article body width (9 September 2026)
+
+`<article>` on `/journal/[slug]` is capped at `xl:max-w-[1600px] xl:mx-auto`. Without it the
+`xl:grid-cols-2` body grows with the viewport, and because the beside-image is `aspect-[4/5]` in a
+half-width column, it balloons on a wide monitor (946px tall at a 2000px window) while the text
+column only gets wider and shorter. The photograph then hangs hundreds of pixels below the last
+line of text. This affected every article, not just new ones: measured at 2000px before the fix,
+making-washi hung 590px and koya-san 334px; after it, koya-san is -88px.
+
+Two things follow. **Test article layout at 2000px, not 1280px** — the fault is invisible at
+laptop widths, which is why it survived eleven articles. And **measure the image bottom against the
+last `<p>`, not against the text column div**, because the grid stretches both columns to the row
+height and the column comparison always looks healthy no matter how badly the image hangs.
+
+The cap does not do the whole job on its own; content has to do its share. making-washi still hangs
+273px because it gives its last image only two paragraphs. The content-side rule (how many blocks
+each image needs beside it, where the pullquote goes) is in `context/pillar/journal.md` Section 3
+and in `/journal:article`.
