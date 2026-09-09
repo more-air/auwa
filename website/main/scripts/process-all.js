@@ -55,9 +55,10 @@ if (targetSlug && !manifest.articles[targetSlug]) {
   process.exit(1);
 }
 
-function run(input, output, mode) {
+function run(input, output, mode, position) {
   fs.mkdirSync(path.dirname(output), { recursive: true });
-  execSync(`node "${PROCESS_IMAGE}" "${input}" "${output}" ${mode}`, { stdio: "inherit" });
+  const pos = position ? ` ${position}` : "";
+  execSync(`node "${PROCESS_IMAGE}" "${input}" "${output}" ${mode}${pos}`, { stdio: "inherit" });
 }
 
 for (const [photoSlug, article] of Object.entries(articles)) {
@@ -83,7 +84,11 @@ for (const [photoSlug, article] of Object.entries(articles)) {
 
   const heroSource = path.join(sourceDir, article.hero);
   if (fs.existsSync(heroSource)) {
-    run(heroSource, path.join(webDir, `${photoSlug}-og.jpg`), "og");
+    // The 1200x630 OG crop is a thin horizontal band. On a tall portrait hero
+    // the default centre crop lands on the middle of the body and cuts the
+    // face off entirely, which is what a link preview shows. Set
+    // `og_position` in the manifest ("top", "bottom", ...) for those.
+    run(heroSource, path.join(webDir, `${photoSlug}-og.jpg`), "og", article.og_position);
   }
 }
 

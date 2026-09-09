@@ -872,9 +872,8 @@ const articles: Record<
   },
   "findac": {
     title: "Musubi",
-    seoTitle: "Fin DAC\u2019s Portrait of Rieko Maeda",
     subtitle: "A portrait by Fin DAC connects two Kokoros.",
-    description: "How the artist Fin DAC painted Rieko in her mother\u2019s Japanese wedding kimono, and the second version we carried to Japan.",
+    description: "A portrait by Fin DAC connects two Kokoros. Painted from a 1970s Japanese wedding photograph, and the second version we carried to Japan.",
     category: "Craft",
     author: "Rieko Maeda",
     publishedAt: "2026-09-08",

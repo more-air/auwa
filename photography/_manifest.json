@@ -120,6 +120,7 @@
     "findac": {
       "url_slug": "findac",
       "hero": "3-mitsuko-wide-2x.jpg",
+      "og_position": "top",
       "images": {
         "hero": "3-mitsuko-wide-2x.jpg",
         "wedding-day": "CIMG3757-square.jpg",
