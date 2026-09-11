@@ -527,3 +527,18 @@ The cap does not do the whole job on its own; content has to do its share. makin
 273px because it gives its last image only two paragraphs. The content-side rule (how many blocks
 each image needs beside it, where the pullquote goes) is in `context/pillar/journal.md` Section 3
 and in `/journal:article`.
+
+**Anything rendered after `</article>` needs the same `xl:max-w-[1600px] xl:mx-auto` cap
+(9 September 2026).** The figure signup card sits outside `<article>`, so it never inherited the
+cap and kept widening with the viewport while the body text stopped at 1600px — measured at
+2000px it ran 194px further right than the last paragraph above it. Its wrapper now carries the
+cap explicitly. Any future block placed between the article and the divider (a second CTA, a
+related-product strip) has to do the same, or it will drift right on a wide monitor.
+
+**The signup card's form sits in the right column from `md` up, not below the whole card.** The
+card is a two-column grid: image in column 1 (`md:row-span-2`), heading + copy in column 2 row 1,
+form in column 2 row 2. Below `md` the form drops to `col-span-2` and runs the card's full width,
+which keeps the input and Subscribe inside the card padding on a phone. The copy carries a small
+right inset (`md:pr-4 2xl:pr-8`) so it wraps before the card edge while the form still aligns to
+the padding — the inset stays small until `2xl` because `xl` is where that column is NARROWEST
+(the card halves to sit in the article's right half, ~240px of text).

@@ -872,7 +872,7 @@ const articles: Record<
   },
   "findac": {
     title: "Musubi",
-    seoTitle: "Musubi: Rieko, A Portrait by Fin DAC",
+    seoTitle: "Musubi: A portrait by Fin DAC connects two Kokoros",
     subtitle: "A portrait by Fin DAC connects two Kokoros.",
     description: "A portrait by Fin DAC connects two Kokoros. Painted from a 1970s Japanese wedding photograph, and the second version we carried to Japan.",
     category: "Craft",
@@ -887,7 +887,7 @@ const articles: Record<
       },
       {
         type: "text",
-        text: "For our tenth anniversary, Tom asked his friend and artist Fin DAC whether he would make a portrait of me. Fin lives in London, and as he paints murals and canvas work, his creations can be seen in cities all over the world. He works in stencil and spray for his murals, and uses different mediums for his artworks, finishing each face with a mask of colour across the eyes, a signature that has become instantly recognisable.",
+        text: "For our tenth anniversary, Tom asked his friend and artist <a href=\"https://en.wikipedia.org/wiki/Fin_DAC\" target=\"_blank\" rel=\"noopener noreferrer\">Fin DAC</a> whether he would make a portrait of me. Fin lives in London, and as he paints murals and canvas work, his creations can be seen in cities all over the world. He works mainly in spray paint for his murals, and uses different mediums for his studio artwork, finishing each face with a mask of colour across the eyes, a signature that has become instantly recognisable.",
       },
       {
         type: "image",
@@ -1499,19 +1499,30 @@ export default async function ArticlePage({
 
         {/* ── Figure signup card ──
             Kinfolk-style CTA: raised panel, small figure image beside a short
-            title + paragraph, full-width form below (so the input + Subscribe
-            stay within the card padding on mobile). Shown on EVERY article,
-            always after the byline credit. The article's space-section
-            padding-bottom provides the gap above; mb-16 md:mb-24 provides the
-            gap down to the divider.
+            title + paragraph. Shown on EVERY article, always after the byline
+            credit. The article's space-section padding-bottom provides the gap
+            above; mb-16 md:mb-24 provides the gap down to the divider.
             Title uses the section-heading scale; the line beneath uses body
             copy so it balances the 16px form text. Feeds the newsletter list;
-            the giveaway is the hook. See context/pillar/journal.md Section 8. */}
+            the giveaway is the hook. See context/pillar/journal.md Section 8.
+
+            The outer wrapper carries the SAME xl:max-w-[1600px] xl:mx-auto cap
+            as <article>. The card sits outside <article>, so without the cap it
+            kept widening past 1600px while the body text stopped — at 2000px it
+            ran ~194px further right than the last paragraph above it. Anything
+            added below the article needs this cap too. */}
         <FadeIn translateY={32}>
+          <div className="xl:max-w-[1600px] xl:mx-auto">
           <div className="px-6 md:px-12 lg:px-20 xl:px-14 xl:pr-28 xl:ml-[50%] mb-16 md:mb-24 max-w-[760px] xl:max-w-full mx-auto xl:mx-0">
             <div className="rounded-md bg-white shadow-[0_10px_40px_-16px_rgba(16,22,35,0.14)] p-5 md:p-7">
-              <div className="flex gap-4 sm:gap-6 md:gap-7 items-center">
-                <div className="shrink-0 w-[112px] sm:w-[132px] md:w-[148px]">
+              {/* Two-column grid rather than a flex row + block form. From md
+                  up the image spans both rows, so the form sits under the text
+                  and beside the image as part of one right-hand column. Below
+                  md the form drops to col-span-2 and runs the full card width,
+                  which keeps the input + Subscribe inside the card padding on
+                  a phone. */}
+              <div className="grid grid-cols-[112px_1fr] sm:grid-cols-[132px_1fr] md:grid-cols-[148px_1fr] gap-x-4 sm:gap-x-6 md:gap-x-7 gap-y-5 md:gap-y-6 items-center">
+                <div className="col-start-1 row-start-1 md:row-span-2 self-center">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-md">
                     <ImageFade
                       src="/store/insitu-1.jpg"
@@ -1522,7 +1533,13 @@ export default async function ArticlePage({
                     />
                   </div>
                 </div>
-                <div className="flex-1 min-w-0">
+                {/* The right inset holds the copy off the card's inner right
+                    edge so it wraps a beat early; the form below keeps the full
+                    column width, so Subscribe still aligns to the card padding.
+                    It stays small until 2xl because xl is where this column is
+                    NARROWEST — the card halves to sit in the article's right
+                    half there, so a big inset would crush the measure. */}
+                <div className="col-start-2 row-start-1 min-w-0 md:pr-4 2xl:pr-8">
                   <h2 className="font-display text-[24px] md:text-[28px] leading-[1.15] tracking-[0.01em] text-sumi">
                     A letter, and a gift.
                   </h2>
@@ -1530,13 +1547,12 @@ export default async function ArticlePage({
                     Sign up for seasonal essays, craftsman stories, and a chance to win a first-edition Auwa figure.
                   </p>
                 </div>
-              </div>
-              {/* Form spans the full card width below the image+text row so the
-                  input and Subscribe button always sit within the card padding. */}
-              <div className="mt-5 md:mt-6">
-                <SignupForm source="article" theme="light" className="max-w-full" />
+                <div className="col-span-2 md:col-span-1 md:col-start-2 row-start-2 min-w-0">
+                  <SignupForm source="article" theme="light" className="max-w-full" />
+                </div>
               </div>
             </div>
+          </div>
           </div>
         </FadeIn>
 
