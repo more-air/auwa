@@ -35,6 +35,9 @@ The template for manual newsletter sends (article-led, monthly-ish). Accepts:
 - `articles` — array of `{ title, excerpt, url, image? }` objects
 - `closingNote` — optional italic closing line
 
+### single.tsx
+The **single-story** email, for sharing ONE thing (a new journal article, an announcement). Welcome-email layout: wordmark, one 4:5 photo, heading, italic strapline, short hook, one CTA. Sent via `/api/single/send` (Broadcast, same secret and audience) and run with the **`/marketing:article-newsletter`** slash command. Images live in `website/main/public/email/articles/<slug>/hero.jpg`. Test script: `scripts/send-single-test.tsx`. Accepts `preview`, `image`, `imageAlt`, `heading`, `strapline`, `body` (array of paragraphs; inline links as `[text](url)`), `cta`, `ctaUrl`. First used for the Musubi (Fin DAC) article, 25 Sep 2026.
+
 ### monthly.tsx
 The **Monthly Letter** — one calm email sent roughly monthly to the full list. One season (Rieko's illustration, kanji, a few lines) plus a short "Lately" section of one to three quiet updates pulled from recent Instagram posts and/or journal articles. This replaced an earlier "Quiet Letter" design that sent every 5 days in lockstep with the 72 micro-seasons — that cadence proved too frequent for subscribers, so it was folded into this single monthly send instead. Sent via its own endpoint `/api/monthly/send` (same NEWSLETTER_SECRET, same audience, Broadcast so unsubscribe works). Run it with the **`/marketing:monthly`** slash command (which carries the full image + assembly recipe). Accepts:
 - `preview` — the preview line shown in email clients
