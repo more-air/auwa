@@ -57,7 +57,7 @@ export default function SingleEmail({
   heading = "A new piece.",
   strapline,
   body = ["Sample paragraph."],
-  cta = "Read full article",
+  cta = "Read story",
   ctaUrl = `${BASE_URL}/journal`,
 }: SingleEmailProps) {
   return (

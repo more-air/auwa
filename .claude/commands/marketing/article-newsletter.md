@@ -22,7 +22,7 @@ Props JSON (also the request body, plus `secret` and optional `dryRun`):
 - `heading`: the article title, exactly as on the site.
 - `strapline`: the article's subtitle, reused word for word from `journal/page.tsx` (the `excerpt` field).
 - `body`: array of 1-3 short paragraphs. A hook summary that makes someone want to read the piece. Don't retell the whole article, and don't give away the ending. Inline links use `[text](url)`. **Wherever a person or brand with a public page is named (e.g. Fin DAC), link them** (ask the user for the URL if you don't have it).
-- `cta`: default `Read full article`. `ctaUrl`: `https://auwa.life/journal/<slug>`.
+- `cta`: default `Read story`. `ctaUrl`: `https://auwa.life/journal/<slug>`.
 
 ## Steps
 
